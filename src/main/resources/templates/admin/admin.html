@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="utf-8" />
 <link rel="stylesheet" href="../../static/css/common.css" />
 <link rel="stylesheet" href="../../static/css/admin-style.css" />
 <link
@@ -8,8 +9,8 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
   />
 <script src="../../static/js/admin.js"></script>
+<script src="../../static/js/userlist.js"></script>
 <title>admin</title>
-    <meta charset="UTF-8" />
 </head>
 <body>
 
@@ -18,47 +19,47 @@
             <H2>ADMIN</H2>
         </div>
         <div class="menubox-body">
-            <div class="menubox-body-content" onclick="content_script_1()">
+            <div class="menubox-body-menu" onclick="menu_script_1()">
                 <h4><i class="far fa-user" style="margin-right:20px; font-size:20px; color:rgb(153, 151, 151);"></i>회원관리 <i class="fas fa-chevron-down" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151);" ></i><i class="fas fa-chevron-up" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151); display:none;" ></i></h4>
             </div>
             <div class="menubox-body-sub">
-                <h5>회원 리스트</h5>
-                <h5>회원관리</h5>
-                <h5>회원가입승인</h5>
-                <h5>회원등급수정</h5>
+                <h4>회원 리스트</h4>
+                <h4>회원관리</h4>
+                <h4>회원가입승인</h4>
+                <h4>회원등급수정</h4>
             </div>
          
 
-            <div class="menubox-body-content" onclick="content_script_2()">
+            <div class="menubox-body-menu" onclick="menu_script_2()">
                 <h4><i class="far fa-user" style="margin-right:20px; font-size:20px; color:rgb(153, 151, 151);"></i>회원관리 <i class="fas fa-chevron-down" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151);" ></i><i class="fas fa-chevron-up" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151); display:none;" ></i></h4>
             </div>
             <div class="menubox-body-sub">
-                <h5>회원목록</h5>
-                <h5>회원승인</h5>
-                <h5>회원가입요청</h5>
-                <h5>권한수정요청</h5>
+                <h4>회원목록</h4>
+                <h4>회원승인</h4>
+                <h4>회원가입요청</h4>
+                <h4>권한수정요청</h4>
             </div>
 
 
-            <div class="menubox-body-content" onclick="content_script_3()">
+            <div class="menubox-body-menu" onclick="menu_script_3()">
                 <h4><i class="far fa-user" style="margin-right:20px; font-size:20px; color:rgb(153, 151, 151);"></i>회원관리 <i class="fas fa-chevron-down" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151);" ></i><i class="fas fa-chevron-up" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151); display:none;" ></i></h4>
             </div>
             <div class="menubox-body-sub">
-                <h5>회원목록</h5>
-                <h5>회원승인</h5>
-                <h5>회원가입요청</h5>
-                <h5>권한수정요청</h5>
+                <h4>회원목록</h4>
+                <h4>회원승인</h4>
+                <h4>회원가입요청</h4>
+                <h4>권한수정요청</h4>
             </div>
 
 
-            <div class="menubox-body-content" onclick="content_script_4()">
+            <div class="menubox-body-menu" onclick="menu_script_4()">
                 <h4><i class="far fa-user" style="margin-right:20px; font-size:20px; color:rgb(153, 151, 151);"></i>회원관리 <i class="fas fa-chevron-down" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151);" ></i><i class="fas fa-chevron-up" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151); display:none;" ></i></h4>
             </div>
             <div class="menubox-body-sub">
-                <h5>회원목록</h5>
-                <h5>회원승인</h5>
-                <h5>회원가입요청</h5>
-                <h5>권한수정요청</h5>
+                <h4>회원목록</h4>
+                <h4>회원승인</h4>
+                <h4>회원가입요청</h4>
+                <h4>권한수정요청</h4>
             </div>
         </div>
     </div>
@@ -67,7 +68,7 @@
     
     <div class="main" id="main1">
             <div class="main-head">
-                <h2>회원 리스트</h2>
+                <h3>회원리스트<h3>
             </div>
             <div class="main-guide">
                 <div class="main-guide-select">
@@ -110,10 +111,136 @@
                     </div>
                 </div>
                 <div class="main-guide-choese">
-                    <button style="margin:auto 3px; width:100px; height:100px; background-color:#07bad4; color:white; font-size:16px; font-weight:bolder;">검색</button>
+                    <button style="margin:auto 3px; width:100px; height:100px; background-color:#07bad4; 
+                    color:white; font-size:16px; font-weight:bolder;">검색</button>
                 </div>
             </div>
+            <h5 style="margin-left:30px; font-weight:300;" >검색 결과 : ? 명</h5>
             <div class="main-content">
+                <div class="main-content-listhead">
+                    <input type="checkbox" name="allCheck" value="" class="checkhead">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class=joindate>가입일</span>
+                    <span class="grade">등급</span>
+                    <span class="detail">관리</span>
+                </div>
+                <hr style="border:solid 2px #e2e2e2";>
+
+                <div class="main-content-list">
+                    <input type="checkbox" name="Check" value="" class="check">
+                    <span class="number">1</span>
+                    <span class="name">지민우</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">01021259225</span>
+                    <span class="email">dddddd@naver.com</span>
+                    <span class=joindate>2013-03-18</span>
+                    <span class="grade">학생</span>
+                    <span class="detail">상세보기</span>
+                    <hr style="border:solid 1px #f5f5f5";>
+                    
+                    <input type="checkbox" name="Check" value="" class="check">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class=joindate>가입일</span>
+                    <span class="grade">등급</span>
+                    <span class="detail">상세보기</span>
+                    <hr style="border:solid 1px #f5f5f5";>
+
+                    <input type="checkbox" name="Check" value="" class="check">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class=joindate>가입일</span>
+                    <span class="grade">등급</span>
+                    <span class="detail">상세보기</span>
+                    <hr style="border:solid 1px #f5f5f5";>
+
+                    <input type="checkbox" name="Check" value="" class="check">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class=joindate>가입일</span>
+                    <span class="grade">등급</span>
+                    <span class="detail">상세보기</span>
+                    <hr style="border:solid 1px #f5f5f5";>
+
+                    <input type="checkbox" name="Check" value="" class="check">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class=joindate>가입일</span>
+                    <span class="grade">등급</span>
+                    <span class="detail">상세보기</span>
+                    <hr style="border:solid 1px #f5f5f5";>
+
+                    <input type="checkbox" name="Check" value="" class="check">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class=joindate>가입일</span>
+                    <span class="grade">등급</span>
+                    <span class="detail">상세보기</span>
+                    <hr style="border:solid 1px #f5f5f5";>
+
+                    <input type="checkbox" name="Check" value="" class="check">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class=joindate>가입일</span>
+                    <span class="grade">등급</span>
+                    <span class="detail">상세보기</span>
+                    <hr style="border:solid 1px #f5f5f5";>
+
+                    <input type="checkbox" name="Check" value="" class="check">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class=joindate>가입일</span>
+                    <span class="grade">등급</span>
+                    <span class="detail">상세보기</span>
+                    <hr style="border:solid 1px #f5f5f5";>
+
+                    <input type="checkbox" name="Check" value="" class="check" checked>
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class=joindate>가입일</span>
+                    <span class="grade">등급</span>
+                    <span class="detail">상세보기</span>
+                    <hr style="border:solid 1px #f5f5f5";>
+
+                    <input type="checkbox" name="Check" value="" class="check">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>  
+                    <span class="username">아이디</span>            
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class=joindate>가입일</span>
+                    <span class="grade">등급</span>
+                    <span class="detail">상세보기</span>
+                    <hr style="border:solid 1px #f5f5f5";>
+                </div>
             </div>
     </div>
 </body>
