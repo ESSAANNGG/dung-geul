@@ -69,6 +69,21 @@ select {
   margin-bottom: 30px;
 }
 
+input[type="number"] {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 37%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
+}
+
 input[type="radio"],
 input[type="checkbox"] {
   margin: 0 4px 8px 0;
@@ -80,7 +95,7 @@ select {
   border-radius: 2px;
 }
 
-button {
+#submit {
   padding: 19px 39px 18px 39px;
   color: #fff;
   background-color: #21209c;
@@ -127,6 +142,21 @@ label.light {
   text-align: center;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
   border-radius: 100%;
+}
+
+.search_button {
+  padding: 10px 39px 10px 39px;
+  color: #fff;
+  background-color: #393986;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 50%;
+  border: 1px solid #21209c;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 480px) {

@@ -11,6 +11,9 @@
       type="text/css"
     />
     <link rel="stylesheet" href="../../static/css/sign-up.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+    <script src="../../static/js/postcodify.js"></script>
   </head>
   <body>
     <form action="../../templates/main/index.html" method="post">
@@ -44,48 +47,56 @@
         <label for="corp_fx">팩스 번호</label>
         <input type="tel" id="corp_fx" name="corp_fx" />
 
-        <label for="corp_home">홈페이지</label>
+        <label for="corp_home">홈페이지 url</label>
         <input type="url" id="corp_home" name="corp_home" />
 
         <label for="corp_contents">주요사업내용</label>
         <textarea id="corp_contents" name="corp_contents"></textarea>
 
-        <!-- 검색 기능을 표시할 <div>를 생성한다 -->
-        <div id="postcodify"></div>
-
-        <!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 id를 부여한다 -->
-        <input type="text" name="" id="postcode" value="" /><br />
-        <input type="text" name="" id="address" value="" /><br />
-        <input type="text" name="" id="details" value="" /><br />
-        <input type="text" name="" id="extra_info" value="" /><br />
-
-        <!-- jQuery와 Postcodify를 로딩한다 -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-
-        <!-- 위에서 생성한 <div>에 검색 기능을 표시하고, 결과를 입력할 <input>들과 연동한다 -->
-        <script>
-          $(function () {
-            $("#postcodify").postcodify({
-              insertPostcode5: "#postcode",
-              insertAddress: "#address",
-              insertDetails: "#details",
-              insertExtraInfo: "#extra_info",
-              hideOldAddresses: false,
-            });
-          });
-        </script>
-
         <label for="">설립년도</label>
-        <input class type="date" id="" name="" />
+        <input class type="date" id="corp_year" name="corp_year" />
 
         <label for="">직원수</label>
-        <input type="" id="" name="" />
+        <input type="number" id="corp_member" name="corp_member" />
 
         <label for="">업종</label>
-        <input type="" id="" name="" />
+        <input type="text" id="corp_Sector" name="corp_Sector" />
 
-        
+        <!-- 검색 기능-->
+        <label for="corp_detail_addr">주소찾기</label>
+        <div id="postcodify"></div>
+
+        <input
+          type="text"
+          name="postcode"
+          id="postcode"
+          value=""
+          placeholder="우편번호"
+          readonly
+        /><br />
+        <input
+          type="text"
+          name="address"
+          id="address"
+          value=""
+          placeholder="주소"
+          readonly
+        /><br />
+        <input
+          type="text"
+          name="details"
+          id="details"
+          value=""
+          placeholder="상세주소"
+        /><br />
+        <input
+          type="text"
+          name="extra_info"
+          id="extra_info"
+          value=""
+          placeholder="세부주소"
+          readonly
+        /><br />
       </fieldset>
 
       <button id="submit" type="submit">가입하기</button>
