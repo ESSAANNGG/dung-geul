@@ -1,0 +1,55 @@
+@import "reset.css";
+@import "common.css";
+
+body {
+  background: #f4f7f8;
+  font-family: "Nunito", sans-serif;
+}
+
+#school-member_category {
+  width: 600px;
+  margin: auto;
+  margin-top: 110px;
+  /* border: 1px solid rgba(0, 0, 0, 0.082); */
+}
+
+h3 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 29.15px;
+  margin-bottom: 50px;
+}
+
+.radio {
+  padding: 10px 0 10px 10%;
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold;
+}
+input {
+  margin-right: 10px;
+}
+
+label > p {
+  font-size: 17.2px;
+  opacity: 0.7;
+}
+
+.next {
+  background-color: #21209c;
+  margin: auto;
+  text-align: center;
+  width: 555px;
+  height: 55px;
+  padding-top: 13px;
+  margin-top: 50px;
+}
+
+.next > p {
+  font-size: 18px;
+  font-weight: bold;
+  color: aliceblue;
+}

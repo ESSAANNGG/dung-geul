@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="../../static/css/normalize.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="../../static/css/sign-up.css" />
+  </head>
+  <body>
+    <form action="../../templates/main/index.html" method="post">
+      <h1>회원 가입</h1>
+
+      <fieldset>
+        <legend><span class="number">1</span>기본 정보</legend>
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="user_name" />
+
+        <label for="mail">이메일</label>
+        <input type="email" id="mail" name="user_email" />
+
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="user_password" />
+
+        <label for="phoneNo">휴대폰 번호</label>
+        <input type="tel" id="phoneNo" name="user_phoneNo" />
+      </fieldset>
+
+      
+      <button type="submit">가입하기</button>
+    </form>
+  </body>
+</html>

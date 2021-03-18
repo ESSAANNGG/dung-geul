@@ -1,0 +1,99 @@
+@import "reset.css";
+@import "common.css";
+
+body {
+  background: #f4f7f8;
+  font-family: "Nunito", sans-serif;
+}
+
+/* title */
+section {
+  margin: auto;
+  width: 1000px;
+}
+
+.intro {
+  margin: auto;
+  padding-top: 80px;
+  width: 446px;
+  height: 250px;
+}
+
+.intro > h1 {
+  text-align: center;
+  font-size: 50px;
+  color: #5d5c5a;
+  margin: 10px;
+}
+
+/* classification */
+.pink {
+  color: var(--color-dark-pink);
+}
+
+.blue {
+  color: var(--color-blue);
+}
+
+#classification {
+  margin: auto;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#school,
+#enterprise {
+  display: flex;
+  width: 707px;
+  height: 169px;
+  justify-content: center;
+  align-items: center;
+  line-height: 27px;
+  border-bottom: 1px solid rgb(70, 67, 67, 0.2);
+}
+
+#school:hover,
+#enterprise:hover {
+  background-color: #b3b1af3a;
+}
+
+.icon {
+  width: 120px;
+  text-align: center;
+  margin-right: 50px;
+}
+
+.fa-school {
+  font-size: 6em;
+}
+
+.fa-building {
+  font-size: 7em;
+  margin-left: 43px;
+}
+
+#enterprise p {
+  margin-left: 35px;
+}
+
+.explanation {
+  font-size: 21px;
+  font-weight: bold;
+  color: #757570;
+}
+
+#login {
+  margin: auto;
+  width: 707px;
+  height: 111px;
+  text-align: center;
+  padding-top: 20px;
+  line-height: 27px;
+}
+
+#login a {
+  text-decoration: underline;
+}

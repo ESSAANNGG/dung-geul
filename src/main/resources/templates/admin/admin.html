@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../../static/css/common.css" />
+<link rel="stylesheet" href="../../static/css/admin-style.css" />
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+  />
+<script src="../../static/js/admin.js"></script>
+<title>admin</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+
+    <div class="menubox">
+        <div class="menubox-header">
+            <H2>ADMIN</H2>
+        </div>
+        <div class="menubox-body">
+            <div class="menubox-body-content" onclick="content_script_1()">
+                <h4><i class="far fa-user" style="margin-right:20px; font-size:20px; color:rgb(153, 151, 151);"></i>회원관리 <i class="fas fa-chevron-down" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151);" ></i><i class="fas fa-chevron-up" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151); display:none;" ></i></h4>
+            </div>
+            <div class="menubox-body-sub">
+                <h5>회원 리스트</h5>
+                <h5>회원관리</h5>
+                <h5>회원가입승인</h5>
+                <h5>회원등급수정</h5>
+            </div>
+         
+
+            <div class="menubox-body-content" onclick="content_script_2()">
+                <h4><i class="far fa-user" style="margin-right:20px; font-size:20px; color:rgb(153, 151, 151);"></i>회원관리 <i class="fas fa-chevron-down" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151);" ></i><i class="fas fa-chevron-up" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151); display:none;" ></i></h4>
+            </div>
+            <div class="menubox-body-sub">
+                <h5>회원목록</h5>
+                <h5>회원승인</h5>
+                <h5>회원가입요청</h5>
+                <h5>권한수정요청</h5>
+            </div>
+
+
+            <div class="menubox-body-content" onclick="content_script_3()">
+                <h4><i class="far fa-user" style="margin-right:20px; font-size:20px; color:rgb(153, 151, 151);"></i>회원관리 <i class="fas fa-chevron-down" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151);" ></i><i class="fas fa-chevron-up" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151); display:none;" ></i></h4>
+            </div>
+            <div class="menubox-body-sub">
+                <h5>회원목록</h5>
+                <h5>회원승인</h5>
+                <h5>회원가입요청</h5>
+                <h5>권한수정요청</h5>
+            </div>
+
+
+            <div class="menubox-body-content" onclick="content_script_4()">
+                <h4><i class="far fa-user" style="margin-right:20px; font-size:20px; color:rgb(153, 151, 151);"></i>회원관리 <i class="fas fa-chevron-down" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151);" ></i><i class="fas fa-chevron-up" style="font-size:12px; margin-left:40%; color:rgb(153, 151, 151); display:none;" ></i></h4>
+            </div>
+            <div class="menubox-body-sub">
+                <h5>회원목록</h5>
+                <h5>회원승인</h5>
+                <h5>회원가입요청</h5>
+                <h5>권한수정요청</h5>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="main" id="main1">
+            <div class="main-head">
+                <h2>회원 리스트</h2>
+            </div>
+            <div class="main-guide">
+                <div class="main-guide-select">
+                    <div class="main-guide-c">
+                        <div class="circle"></div><h2>구분</h2>
+                        <select name="job">
+                            <option value="">회원 구분</option>
+                            <option value="학생">학생</option>
+                            <option value="교직원">교직원</option>
+                            <option value="교수">교수</option>
+                            <option value="멘토">멘토</option>
+                            <option value="상담사">상담사</option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="main-guide-c">
+                        <div class="circle"></div><h2>회원 가입일</h2>
+                        <input type="text" style="width:120px; height:25px; margin:auto 0; margin-right:5px;">
+                        <i class="far fa-calendar-alt" style="margin:auto 0; margin-right:10px;"></i>
+                        <p>~</p>
+                        <input type="text" style="width:120px; height:25px; margin:auto 10px; margin-right:5px;">
+                        <i class="far fa-calendar-alt" style="margin:auto 0; margin-right:10px;"></i>
+                        <button style="margin:auto 3px;">오늘</button>
+                        <button style="margin:auto 3px;">이번주</button>
+                        <button style="margin:auto 3px;">이번달</button>
+                        <button style="margin:auto 3px;">전체</button>
+                    </div>
+
+
+
+                    <div class="main-guide-c">
+                        <div class="circle"></div><h2>이름</h2>
+                        <select name="job">
+                            <option value="아이디">아이디</option>
+                            <option value="이름">이름</option>
+                        </select>
+                        <input type="text" style="height:25px; margin:auto 0;">
+                    </div>
+                </div>
+                <div class="main-guide-choese">
+                    <button style="margin:auto 3px; width:100px; height:100px; background-color:#07bad4; color:white; font-size:16px; font-weight:bolder;">검색</button>
+                </div>
+            </div>
+            <div class="main-content">
+            </div>
+    </div>
+</body>
+</html>
