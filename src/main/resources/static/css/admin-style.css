@@ -181,7 +181,7 @@ input{
 /* listhead의 각 항목들 */
 .check{
     display:inline-block;
-    width:70px;
+    width:90px;
 }
 .number{
     display:inline-block;
@@ -193,15 +193,15 @@ input{
 }
 .username{
     display:inline-block;
-    width:230px;
+    width:270px;
 }
 .phone{
     display:inline-block;
-    width:160px;
+    width:190px;
 }
 .email{
     display:inline-block;
-    width:320px;
+    width:350px;
 }
 .joindate{
     display:inline-block;
@@ -209,7 +209,7 @@ input{
 }
 .grade{
     display:inline-block;
-    width:150px;
+    width:170px;
 }
 .detail{
     display:inline-block;
@@ -219,5 +219,21 @@ input{
 .main-content-list{
     width:1700px;
     margin:0px auto;
+}
+
+.btnside{
+    display: flex;
+    width:300px;
+    margin: 0px auto;
+    text-align:center;
+    font-size:25px;
+}
+.btnpage{
+    width:21px;
+    height:21px;
+    border:1px solid black;
+    font-size:15px;
+    font-weight: 300;
+    margin:0 5px;
 }
 

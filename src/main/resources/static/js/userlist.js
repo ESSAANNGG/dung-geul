@@ -1,26 +1,46 @@
-let listNum = new Array(); 
+// $('input:checkbox[name="allcheck"]').is(":checked") == true{
+//     $('input:checkbox[name="check"]').each(function(){
+//         this.checked = true;
+//     });
+// }
 
-for(let i=0;i<30;i++){
-    listNum[i]=i;
-}
+// $('input:checkbox[name="check"]').each(function() {
 
-function testInnerHTML(){
+//     this.checked = true; //checked 처리
 
-    var str = "";
+//     if(this.checked){//checked 처리된 항목의 값
+
+//           alert(this.value); 
+
+//     }
+
+// });
+
+// $('input:checkbox[name="allcheck"]').attr("checked", true);
+// $('input:checkbox[name="allcheck"]').prop('checked',true);
+// $(document).ready(function () {
+//     $('#allcheck').click(function(){
+//         var checked = $('#check').is(':checked');
+        
+//         if(checked)
+//             $('input:checkbox').prop('checked',true);
+//     });
     
-    str +=  "<table>";
-    
-    str +=  "<tr>";
-    
-    str +=  "<td>";
-    
-    str +=  "HTML 태그를 삽입할 수 있습니다.";
-    
-    str +=  "</td>";
-    
-    str +=  "</tr>";
-    
-    str +=  "</table>";
-    
-    document.getElementById("inHere").innerHTML = str;
+// })
+
+
+// var allcheck = document.getElementById("allcheck");
+// var check = document.getElementsByClassName("check");
+
+// allcheck.addEventListener('click', function(){
+//     //checked 제어
+//      check[5].checked = true;
+// });
+
+function selectAll(selectAll) {
+    const checkboxes = document.getElementsByName('check');
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.checked = selectAll.checked;
+    })
 }
