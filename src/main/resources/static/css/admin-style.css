@@ -3,13 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-html{
-    height:100%;
-} 
+
 body{
     display:flex;
-    width:100%;
-    height:100%;
+    width:1905px;
+    height:940px;
 }
 select{
     height:25px;
@@ -31,22 +29,22 @@ input{
 
 
 .menubox{
-    width:270px;
+    width:235px;
     height:100%;
     background-color: #353535;
     box-shadow: 1px 0px 3px #6d6d6d inset;
 }
 
 .menubox-header{
-    height:70px;
-    padding:20px;
+    height:62px;
+    padding:14px;
     padding-left:15%;
     border-bottom:solid 1px #5a5a5a;
 }
 .menubox-header>h2{
     margin:auto;
     color:white;
-    font-size:25px;
+    font-size:23px;
     font-family: 'Roboto', sans-serif;
     font-weight:normal
 }
@@ -57,13 +55,15 @@ input{
 
 .menubox-body-menu{
     display:block;
-    height:70px;
-    padding-top:25px;
+    height:60px;
+    padding-top:20px;
     padding-left:10%;
-    color:#eeeeee  
+    color:#eeeeee;
 }
 .menubox-body-menu > h4{
     font-family: 'Nanum Gothic', sans-serif;
+    font-size:13px;
+    font-weight:650;
     margin:0px;
 }
 .menubox-body-sub{
@@ -76,35 +76,35 @@ input{
     transition-duration: 0.8s;
 }
 .menubox-body-sub > h4{
+    font-size:13px;
+    font-weight:650;
     font-family: 'Nanum Gothic', sans-serif;
+    margin:20px 0;
 }
 
-
-
-
-
+/*각 1메뉴들의 마지막서브메뉴들 다음1메뉴와의 간격유지를 위한 코드*/
 
 
 .main{
-    width:1860px;
-    height:100%;
+    width:1670px;
+    height:940px;
     padding:0px;
     background-color: #eeeeee;
 
 }
 .main-head{
-    width:100%;
-    height:70px;
+    width:1670px;
+    height:60px;
     margin:0px;
     padding-left:3%;
     background-color: #ffffff;
     font-family: 'Open Sans', sans-serif;
     box-shadow: 0px 0.5px 0px 0px rgb(192, 192, 192);
 }
-.main-head > h3{
+.main-head > h4{
     margin:0px;
     line-height: 300%;
-    font-size:23px;
+    font-size:21px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     color:#585858;
@@ -113,25 +113,25 @@ input{
 
 
 .main-guide{
-    width:1800px;
-    height:170px;
-    margin: 50px auto 100px auto;
+    width:1600px;
+    height:150px;
+    margin: 50px auto 90px auto;
     padding-left:60px;
     background-color: #ffffff;
-    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192); 
+    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
     display:flex;
 }
 .main-guide-select{
     width:1600px;
     margin:auto 0px;
-    
+
 }
 .main-guide-c{
     margin-bottom: 5px;
     display:flex;
 }
 .main-guide-c > h2{
-    font-size:17px;
+    font-size:15px;
     width:150px;
     color:#585858;
     font-family: 'Nanum Gothic', sans-serif;
@@ -158,12 +158,12 @@ input{
 
 
 .main-content{
-    width:1800px;
+    width:1600px;
     height:500px;
-    margin: 20px auto;
+    margin: 15px auto;
     padding: 30px 50px;
     background-color: #ffffff;
-    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192); 
+    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
     color:#585858;
 }
 .main-content-listhead{
