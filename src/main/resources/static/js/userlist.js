@@ -23,7 +23,7 @@ function select() {
     }
 
     $.ajax({
-        url:"goUrl.do",
+        url:"userSelectUrl.do",
         type:'GET',
         data: allData,
         success:function(data){
