@@ -6,7 +6,6 @@ $(function () {
     insertExtraInfo: "#extra_info",
     hideOldAddresses: false,
     hideSummary: true,
-    useAlert: true,
     ready: function () {
       $("#postcodify div.postcode_search_status.empty").hide();
     },
