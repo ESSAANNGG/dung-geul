@@ -14,27 +14,28 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
     <script src="../../static/js/postcodify.js"></script>
+    <script src="../../static/js/sign-up.js"></script>
   </head>
   <body>
-    <form action="../../templates/main/index.html" method="post">
+    <form id="signUp" name="signUp" method="post">
       <h1>회원 가입</h1>
 
       <fieldset>
         <legend><span class="number">1</span>기본 정보</legend>
-       <label for="id">아이디:</label>
-        <input type="text" id="id" name="user_id" required />
+        <label for="id">아이디:</label>
+        <input type="text" id="user_id" name="user_id" required />
 
         <label for="password">비밀번호</label>
-        <input type="password" id="password" name="user_password" required />
+        <input type="password" id="user_password" name="user_password" required />
 
         <label for="name">이름:</label>
-        <input type="text" id="name" name="user_name" required/>
+        <input type="text" id="user_name" name="user_name" required />
 
         <label for="mail">이메일</label>
-        <input type="email" id="mail" name="user_email" required/>
+        <input type="email" id="mail" name="user_email" required />
 
         <label for="phoneNo">휴대폰 번호</label>
-        <input type="tel" id="phoneNo" name="user_phoneNo" required/>
+        <input type="tel" id="phoneNo" name="user_phoneNo" required />
 
         <!-- 검색 기능-->
         <label for="corp_detail_addr">주소찾기</label>
