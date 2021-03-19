@@ -95,21 +95,6 @@ select {
   border-radius: 2px;
 }
 
-#submit {
-  padding: 19px 39px 18px 39px;
-  color: #fff;
-  background-color: #21209c;
-  font-size: 18px;
-  text-align: center;
-  font-style: normal;
-  border-radius: 5px;
-  width: 100%;
-  border: 1px solid #21209c;
-  border-width: 1px 1px 3px;
-  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-  margin-bottom: 10px;
-}
-
 fieldset {
   margin-bottom: 30px;
   border: none;
@@ -153,6 +138,21 @@ label.light {
   font-style: normal;
   border-radius: 5px;
   width: 50%;
+  border: 1px solid #21209c;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  margin-bottom: 10px;
+}
+
+#submit {
+  padding: 19px 39px 18px 39px;
+  color: #fff;
+  background-color: #21209c;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
   border: 1px solid #21209c;
   border-width: 1px 1px 3px;
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;

@@ -29,11 +29,46 @@
 
         <label for="phoneNo">휴대폰 번호</label>
         <input type="tel" id="phoneNo" name="phoneNo" />
+
+        <!-- 검색 기능-->
+        <label for="corp_detail_addr">주소찾기</label>
+        <div id="postcodify"></div>
+
+        <input
+          type="text"
+          name="postcode"
+          id="postcode"
+          value=""
+          placeholder="우편번호"
+          readonly
+        /><br />
+        <input
+          type="text"
+          name="address"
+          id="address"
+          value=""
+          placeholder="주소"
+          readonly
+        /><br />
+        <input
+          type="text"
+          name="details"
+          id="details"
+          value=""
+          placeholder="상세주소"
+        /><br />
+        <input
+          type="text"
+          name="extra_info"
+          id="extra_info"
+          value=""
+          placeholder="세부주소"
+          readonly
+        /><br />
       </fieldset>
 
       <fieldset>
         <legend><span class="number">2</span>상세 정보</legend>
-        
       </fieldset>
       <fieldset>
         <label for="department">계열/학과 선택</label>
@@ -59,53 +94,90 @@
         <label for="grade">학년 선택</label>
         <select id="grade" name="grade">
           <option value="">-- 학년 --</option>
-          <option class="A"value="Afirst">1</option>
+          <option class="A" value="Afirst">1</option>
           <option class="A" value="Asecond">2</option>
           <option class="A" value="Athird">3</option>
-          <option class="B"value="Bfirst">1</option>
+          <option class="B" value="Bfirst">1</option>
           <option class="B" value="Bsecond">2</option>
-          <option class="C"value="Cfirst">1</option>
+          <option class="C" value="Cfirst">1</option>
           <option class="C" value="Csecond">2</option>
-          <option class="D"value="Dfirst">1</option>
+          <option class="D" value="Dfirst">1</option>
           <option class="D" value="Dsecond">2</option>
-          <option class="E"value="Efirst">1</option>
+          <option class="E" value="Efirst">1</option>
           <option class="E" value="Esecond">2</option>
-          <option class="F"value="Ffirst">1</option>
+          <option class="F" value="Ffirst">1</option>
           <option class="F" value="Fsecond">2</option>
-          <option class="G"value="Gfirst">1</option>
+          <option class="G" value="Gfirst">1</option>
           <option class="G" value="Gsecond">2</option>
-          <option class="H"value="Hfirst">1</option>
+          <option class="H" value="Hfirst">1</option>
           <option class="H" value="Hsecond">2</option>
-          <option class="I"value="Ifirst">1</option>
+          <option class="I" value="Ifirst">1</option>
           <option class="I" value="Isecond">2</option>
-          <option class="J"value="Jfirst">1</option>
+          <option class="J" value="Jfirst">1</option>
           <option class="J" value="Jsecond">2</option>
-          <option class="K"value="Kfirst">1</option>
+          <option class="K" value="Kfirst">1</option>
           <option class="K" value="Ksecond">2</option>
-          <option class="M"value="Mfirst">1</option>
+          <option class="M" value="Mfirst">1</option>
           <option class="M" value="Msecond">2</option>
           <option class="L" value="Lfirst">1</option>
           <option class="L" value="Lsecond">2</option>
           <option class="L" value="Lthird">3</option>
-          <option class="N"value="Nfirst">1</option>
+          <option class="N" value="Nfirst">1</option>
           <option class="N" value="Nsecond">2</option>
           <option class="N" value="Nthird">3</option>
           <option class="N" value="Nfourth">4</option>
-          <option class="O"value="Ofirst">1</option>
-          <option class="O"value="Osecond">2</option>
-          <option class="P"value="Pfirst">1</option>   
+          <option class="O" value="Ofirst">1</option>
+          <option class="O" value="Osecond">2</option>
+          <option class="P" value="Pfirst">1</option>
         </select>
         <label for="class">반 선택</label>
         <select id="class" name="class">
           <option value="">-- 반 --</option>
-          <option value="A1 B1 C1 E1 I1 J1 K12 L123 N123 F1 H1 M1" class="Afirst Bfirst Cfirst Efirst Ifrist Jfirst Kfirst Ksecond Lfirst Lsecond Lthird Nfirst Nsecond Nthird Ffirst Hfirst Mfirst">A</option>
-          <option value="A1 B1 C1 E1 I1 J1 K12 L123 N123 F1 H1" class="Afirst Bfirst Cfirst Efirst Ifrist Jfirst Kfirst Ksecond Lfirst Lsecond Lthird Nfirst Nsecond Nthird Ffirst Hfirst">B</option>
-          <option value="A1 B1 C1 E1 I1 J1 K12 N123 F1" class="Afirst Bfirst Cfirst Efirst Ifrist Jfirst Kfirst Ksecond Nfirst Nsecond Nthird Ffirst">C</option>
-          <option value="A1 B1 C1 E1 I1 J1 K12 F1" class="Afirst Bfirst Cfirst Efirst Ifrist Jfirst Kfirst Ksecond Ffirst">D</option>
-          <option value="A1 B1 C1 E1 I1 K12 F1" class="Afirst Bfirst Cfirst Efirst Ifrist Kfirst Ksecond Ffirst">E</option>
-          <option value="B1 C1 E1 K12" class="Bfirst Cfirst Efirst Kfirst Ksecond">F</option>
-          <option value="B1 C1 E1 K12" class="Bfirst Cfirst Efirst Kfirst Ksecond">G</option>
-          <option value="B1 C1 I12" class="Bfirst Cfirst Ifrist Isecond">L</option>
+          <option
+            value="A1 B1 C1 E1 I1 J1 K12 L123 N123 F1 H1 M1"
+            class="Afirst Bfirst Cfirst Efirst Ifrist Jfirst Kfirst Ksecond Lfirst Lsecond Lthird Nfirst Nsecond Nthird Ffirst Hfirst Mfirst"
+          >
+            A
+          </option>
+          <option
+            value="A1 B1 C1 E1 I1 J1 K12 L123 N123 F1 H1"
+            class="Afirst Bfirst Cfirst Efirst Ifrist Jfirst Kfirst Ksecond Lfirst Lsecond Lthird Nfirst Nsecond Nthird Ffirst Hfirst"
+          >
+            B
+          </option>
+          <option
+            value="A1 B1 C1 E1 I1 J1 K12 N123 F1"
+            class="Afirst Bfirst Cfirst Efirst Ifrist Jfirst Kfirst Ksecond Nfirst Nsecond Nthird Ffirst"
+          >
+            C
+          </option>
+          <option
+            value="A1 B1 C1 E1 I1 J1 K12 F1"
+            class="Afirst Bfirst Cfirst Efirst Ifrist Jfirst Kfirst Ksecond Ffirst"
+          >
+            D
+          </option>
+          <option
+            value="A1 B1 C1 E1 I1 K12 F1"
+            class="Afirst Bfirst Cfirst Efirst Ifrist Kfirst Ksecond Ffirst"
+          >
+            E
+          </option>
+          <option
+            value="B1 C1 E1 K12"
+            class="Bfirst Cfirst Efirst Kfirst Ksecond"
+          >
+            F
+          </option>
+          <option
+            value="B1 C1 E1 K12"
+            class="Bfirst Cfirst Efirst Kfirst Ksecond"
+          >
+            G
+          </option>
+          <option value="B1 C1 I12" class="Bfirst Cfirst Ifrist Isecond">
+            L
+          </option>
           <option value="B1" class="Bfirst">M</option>
           <option value="B1" class="Bfirst">Q</option>
           <option value="B1" class="Bfirst">R</option>
@@ -234,16 +306,8 @@
           <option value="F2" class="Fsecond">의무A</option>
           <option value="F2" class="Fsecond">전투A</option>
           <option value="F2" class="Fsecond">항공A</option>
-          <option value="H2" class="Hsecond">드론</option>  
+          <option value="H2" class="Hsecond">드론</option>
         </select>
-
-        <script src="//code.jquery.com/jquery.min.js"></script>
-        <script src='//rawgit.com/tuupola/jquery_chained/master/jquery.chained.min.js'></script>
-        <script>
-          $("#grade").chained("#department");
-          $("#class").chained("#grade");
-         
-        </script>
 
         <!-- <label>Interests:</label>
         <input
@@ -265,7 +329,11 @@
           name="user_interest"
         /><label class="light" for="business">Business</label> -->
       </fieldset>
-      <button type="submit">가입하기</button>
+      <button id="submit" type="submit">가입하기</button>
     </form>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//rawgit.com/tuupola/jquery_chained/master/jquery.chained.min.js"></script>
+    <script src="../../static/js/chained.js"></script>
   </body>
 </html>

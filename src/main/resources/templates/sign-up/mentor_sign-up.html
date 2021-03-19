@@ -11,6 +11,9 @@
       type="text/css"
     />
     <link rel="stylesheet" href="../../static/css/sign-up.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+    <script src="../../static/js/postcodify.js"></script>
   </head>
   <body>
     <form action="../../templates/main/index.html" method="post">
@@ -29,16 +32,50 @@
 
         <label for="phoneNo">휴대폰 번호</label>
         <input type="tel" id="phoneNo" name="user_phoneNo" />
+
+        <!-- 검색 기능-->
+        <label for="corp_detail_addr">주소찾기</label>
+        <div id="postcodify"></div>
+
+        <input
+          type="text"
+          name="postcode"
+          id="postcode"
+          value=""
+          placeholder="우편번호"
+          readonly
+        /><br />
+        <input
+          type="text"
+          name="address"
+          id="address"
+          value=""
+          placeholder="주소"
+          readonly
+        /><br />
+        <input
+          type="text"
+          name="details"
+          id="details"
+          value=""
+          placeholder="상세주소"
+        /><br />
+        <input
+          type="text"
+          name="extra_info"
+          id="extra_info"
+          value=""
+          placeholder="세부주소"
+          readonly
+        /><br />
       </fieldset>
       <fieldset>
         <legend><span class="number">2</span>상세 정보</legend>
         <label for="workplace">직장:</label>
         <input type="text" id="workplace" name="user_workplace" />
       </fieldset>
-      <fieldset>
-      </fieldset>
-      
-      <button type="submit">가입하기</button>
+
+      <button id="submit" type="submit">가입하기</button>
     </form>
   </body>
 </html>
