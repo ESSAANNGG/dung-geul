@@ -69,20 +69,20 @@
     
     <div class="main" id="main1">
             <div class="main-head">
-                <h3>회원리스트<h3>
+                <h3>회원리스트</h3>
             </div>
             <div class="main-guide">
                 <div class="main-guide-select">
                     <div class="main-guide-c">
                         <div class="circle"></div><h2>구분</h2>
-                        <select name="job">
-                            <option value="">회원 구분</option>
-                            <option value="학생">학생</option>
-                            <option value="교직원">교직원</option>
-                            <option value="교수">교수</option>
-                            <option value="멘토">멘토</option>
-                            <option value="상담사">상담사</option>
-                        </select>
+                            <select name="job">
+                                <option value="">회원 구분</option>
+                                <option value="학생">학생</option>
+                                <option value="기업">기업</option>
+                                <option value="교수">교수</option>
+                                <option value="멘토">멘토</option>
+                                <option value="상담사">상담사</option>
+                            </select>
                     </div>
 
 
@@ -104,16 +104,17 @@
 
                     <div class="main-guide-c">
                         <div class="circle"></div><h2>이름</h2>
-                        <select name="job">
+                        <select name="i_n">
                             <option value="아이디">아이디</option>
                             <option value="이름">이름</option>
                         </select>
-                        <input type="text" style="height:25px; margin:auto 0;">
+                        <input type="text" style="height:25px; margin:auto 0;" name="i_n_text">
                     </div>
                 </div>
                 <div class="main-guide-choese">
                     <button style="margin:auto 3px; width:100px; height:100px; background-color:#07bad4; 
-                    color:white; font-size:16px; font-weight:bolder;">검색</button>
+                    color:white; font-size:16px; font-weight:bolder;"
+                            onclick="select()">검색</button>
                 </div>
             </div>
             <h5 style="margin-left:30px; font-weight:300;" >검색 결과 : ? 명</h5>

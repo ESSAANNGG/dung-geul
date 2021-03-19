@@ -15,7 +15,7 @@ function menu_script_1(){
         down[0].style.display="none";
         up[0].style.display="inline-block";
 
-        
+
         menu[1].style.backgroundColor="#353535";
         sub[1].style.height="0px";
         down[1].style.display="inline-block";
