@@ -11,7 +11,7 @@ function menu_script_1(){
     if (flag_1 == 0){  
 
         menu[0].style.backgroundColor="#01b9ff";
-        sub[0].style.height="190px";
+        sub[0].style.height="170px";
         down[0].style.display="none";
         up[0].style.display="inline-block";
 
@@ -54,7 +54,7 @@ function menu_script_2(){
     if (flag_2 == 0){  
 
         menu[1].style.backgroundColor="#01b9ff";
-        sub[1].style.height="190px";
+        sub[1].style.height="170px";
         down[1].style.display="none";
         up[1].style.display="inline-block";
         
@@ -95,7 +95,7 @@ function menu_script_3(){
     if (flag_3 == 0){  
 
         menu[2].style.backgroundColor="#01b9ff";
-        sub[2].style.height="190px";
+        sub[2].style.height="170px";
         down[2].style.display="none";
         up[2].style.display="inline-block"
 
@@ -135,7 +135,7 @@ function menu_script_4(){
     if (flag_4 == 0){  
 
         menu[3].style.backgroundColor="#01b9ff";
-        sub[3].style.height="190px";
+        sub[3].style.height="170px";
         down[3].style.display="none";
         up[3].style.display="inline-block"
 
