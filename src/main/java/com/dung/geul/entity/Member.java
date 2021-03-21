@@ -5,16 +5,17 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@AttributeOverrides({
+        @AttributeOverride(name = "regDate", column = @Column(name = "user_regdate")),
+        @AttributeOverride(name = "modDate", column = @Column(name = "user_modDate"))
+})
 public class Member extends BaseEntity {
 
     @Id

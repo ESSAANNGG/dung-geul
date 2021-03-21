@@ -1,0 +1,38 @@
+package com.dung.geul.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDate;
+
+@Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+public class apply implements Serializable {
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ap_em_num" ,foreignKey = @ForeignKey(name="ap_em_num_fk"))
+    private com.capstone.five.entity.Empoly em_num;
+
+    @Column(nullable = false)
+    private LocalDate ap_date;  //지원 일자
+
+    @Column(length = 5)
+    private Long ap_ds; // 회망 연봉
+
+    @Column(length = 20)
+    private String ap_area; // 희망 근무 지역
+
+    @Column(length = 20)
+    private String ap_task; //희망 업무
+
+    @Column(length = 1,nullable = false)
+    private Long ap_pass; //서류합격유무
+
+}
