@@ -14,8 +14,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Table(name="empoly")
-public class Empoly {
+// @Table(name="empoly")  필요없어보여서 주석처리 했음 - 정혜리
+@AttributeOverrides({
+        @AttributeOverride(name = "regDate", column = @Column(name = "em_regdate")),
+        @AttributeOverride(name = "modDate", column = @Column(name = "em_modDate"))
+})
+public class Empoly extends BaseEntity{
+    // baseEntity 추가 (채용공고 등록일, 수정일로 사용) - 정혜리
 
     @Id
     @Column(name = "em_num")

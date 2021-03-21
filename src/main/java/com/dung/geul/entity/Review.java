@@ -20,15 +20,15 @@ public class Review extends BaseEntity {       // 후기 테이블
     @Id
     @ManyToOne
     @JoinColumn(name = "r_pr_num",foreignKey = @ForeignKey(name="r_pr_num_pfk"))
-    private com.capstone.five.entity.Program pr_num;                     // 지원프로그램 번호
+    private Program pr_num;                     // 지원프로그램 번호
 
     @Id
     @ManyToOne
     @JoinColumn(name = "r_cv_user_id",foreignKey = @ForeignKey(name="r_cv_user_id_pfk"))
-    private com.capstone.five.entity.CV cv_user_id;                   // 학생
+    private CV cv_user_id;                   // 학생  // 패키지명 지움 -정혜리
 
     @Column(length = 255, nullable = true)
-    private String r_content;                  // 내용
+    private String r_content;                  // 내용    // 패키지명 지움 -정혜리
 
    /* @Column(length = 20, nullable = true)
     private LocalDate r_date;*/                       // 작성일자

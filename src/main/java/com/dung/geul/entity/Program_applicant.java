@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -23,9 +24,10 @@ public class Program_applicant  {    // 지원프로그램신청자 테이블
     @Id
     @ManyToOne
     @JoinColumn(name = "pa_cv_pr_user_id",foreignKey = @ForeignKey(name="pa_cv_pr_user_id_pfk"))
-    private com.capstone.five.entity.CV cv_user_id;                          //아이디
+    private CV cv_user_id;                   //아이디   //패키지명 지움 - 정혜리
 
     @Temporal(TemporalType.DATE)
+    @CreatedDate                                    // 신청일 자동으로 값 넣는거 추가 - 정혜리
     private LocalDate pa_date;                    // 신청일
 
     @Column(length = 1, nullable = false)

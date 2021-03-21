@@ -29,9 +29,9 @@ public class Report implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "re_mentor_num" ,foreignKey = @ForeignKey(name="re_mentor_num_fk"))
-    private com.capstone.five.entity.Mentoring mentor_num;
+    private Mentoring mentor_num;  // 패키지명 지움 -정혜리
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "re_consult_num" ,foreignKey = @ForeignKey(name="re_consult_num_fk"))
-    private com.capstone.five.entity.Consulting consult_num;
+    private Consulting consult_num; // 패키지명 지움 -정혜리
 }
