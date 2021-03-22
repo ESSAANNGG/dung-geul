@@ -13,7 +13,7 @@ import java.sql.Clob;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Table(name = "introduce")
+// @Table(name = "introduce") 필요없어 보여서 주석처리했음 -정혜리
 public class Introduce extends BaseEntity {
 
     @Id
@@ -25,6 +25,6 @@ public class Introduce extends BaseEntity {
     private Clob content;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private com.capstone.five.entity.CV cv_user_id; //FK
+    private CV cv_user_id; //FK  패키지명 지움 - 정혜리
 
 }
