@@ -1,4 +1,4 @@
-var content = document.getElementsByClassName("menubox-body-content");
+var menu = document.getElementsByClassName("menubox-body-menu");
 var sub = document.getElementsByClassName("menubox-body-sub");
 var down = document.getElementsByClassName("fas fa-chevron-down");
 var up = document.getElementsByClassName("fas fa-chevron-up");
@@ -7,26 +7,26 @@ var flag_1 = 0;
 var flag_2 = 0;
 var flag_3 = 0;
 var flag_4 = 0;
-function content_script_1(){
-    if (flag_1 === 0){
+function menu_script_1(){
+    if (flag_1 == 0){  
 
-        content[0].style.backgroundColor="#353535";
-        sub[0].style.height="190px";
+        menu[0].style.backgroundColor="#01b9ff";
+        sub[0].style.height="170px";
         down[0].style.display="none";
         up[0].style.display="inline-block";
 
-        
-        content[1].style.backgroundColor="#3d3d3d";
+
+        menu[1].style.backgroundColor="#353535";
         sub[1].style.height="0px";
         down[1].style.display="inline-block";
         up[1].style.display="none";
 
-        content[2].style.backgroundColor="#3d3d3d";
+        menu[2].style.backgroundColor="#353535";
         sub[2].style.height="0px";
         down[2].style.display="inline-block";
         up[2].style.display="none";
 
-        content[3].style.backgroundColor="#3d3d3d";
+        menu[3].style.backgroundColor="#353535";
         sub[3].style.height="0px";
         down[3].style.display="inline-block";
         up[3].style.display="none";
@@ -41,7 +41,7 @@ function content_script_1(){
 
     else if (flag_1 == 1){
 
-        content[0].style.backgroundColor="#3d3d3d";
+        menu[0].style.backgroundColor="#353535";
         sub[0].style.height="0px";
         down[0].style.display="inline-block";
         up[0].style.display="none";
@@ -50,26 +50,26 @@ function content_script_1(){
     }
 }
 
-function content_script_2(){
-    if (flag_2 === 0){
+function menu_script_2(){
+    if (flag_2 == 0){  
 
-        content[1].style.backgroundColor="#353535";
-        sub[1].style.height="190px";
+        menu[1].style.backgroundColor="#01b9ff";
+        sub[1].style.height="170px";
         down[1].style.display="none";
         up[1].style.display="inline-block";
         
 
-        content[0].style.backgroundColor="#3d3d3d";
+        menu[0].style.backgroundColor="#353535";
         sub[0].style.height="0px";
         down[0].style.display="inline-block";
         up[0].style.display="none";
 
-        content[2].style.backgroundColor="#3d3d3d";
+        menu[2].style.backgroundColor="#353535";
         sub[2].style.height="0px";
         down[2].style.display="inline-block";
         up[2].style.display="none";
 
-        content[3].style.backgroundColor="#3d3d3d";
+        menu[3].style.backgroundColor="#353535";
         sub[3].style.height="0px";
         down[3].style.display="inline-block";
         up[3].style.display="none";
@@ -82,7 +82,7 @@ function content_script_2(){
 
     else if (flag_2 == 1){
 
-        content[1].style.backgroundColor="#3d3d3d";
+        menu[1].style.backgroundColor="#353535";
         sub[1].style.height="0px";
         down[1].style.display="inline-block";
         up[1].style.display="none";
@@ -91,25 +91,25 @@ function content_script_2(){
     }
 }
 
-function content_script_3(){
+function menu_script_3(){
     if (flag_3 == 0){  
 
-        content[2].style.backgroundColor="#353535";
-        sub[2].style.height="190px";
+        menu[2].style.backgroundColor="#01b9ff";
+        sub[2].style.height="170px";
         down[2].style.display="none";
         up[2].style.display="inline-block"
 
-        content[0].style.backgroundColor="#3d3d3d";
+        menu[0].style.backgroundColor="#353535";
         sub[0].style.height="0px";
         down[0].style.display="inline-block";
         up[0].style.display="none";
 
-        content[1].style.backgroundColor="#3d3d3d";
+        menu[1].style.backgroundColor="#353535";
         sub[1].style.height="0px";
         down[1].style.display="inline-block";
         up[1].style.display="none";
 
-        content[3].style.backgroundColor="#3d3d3d";
+        menu[3].style.backgroundColor="#353535";
         sub[3].style.height="0px";
         down[3].style.display="inline-block";
         up[3].style.display="none";
@@ -122,7 +122,7 @@ function content_script_3(){
 
     else if (flag_3 == 1){
 
-        content[2].style.backgroundColor="#3d3d3d";
+        menu[2].style.backgroundColor="#353535";
         sub[2].style.height="0px";
         down[2].style.display="inline-block";
         up[2].style.display="none";
@@ -131,25 +131,25 @@ function content_script_3(){
     }
 }
 
-function content_script_4(){
+function menu_script_4(){
     if (flag_4 == 0){  
 
-        content[3].style.backgroundColor="#353535";
-        sub[3].style.height="190px";
+        menu[3].style.backgroundColor="#01b9ff";
+        sub[3].style.height="170px";
         down[3].style.display="none";
         up[3].style.display="inline-block"
 
-        content[0].style.backgroundColor="#3d3d3d";
+        menu[0].style.backgroundColor="#353535";
         sub[0].style.height="0px";
         down[0].style.display="inline-block";
         up[0].style.display="none";
 
-        content[1].style.backgroundColor="#3d3d3d";
+        menu[1].style.backgroundColor="#353535";
         sub[1].style.height="0px";
         down[1].style.display="inline-block";
         up[1].style.display="none";
 
-        content[2].style.backgroundColor="#3d3d3d";
+        menu[2].style.backgroundColor="#353535";
         sub[2].style.height="0px";
         down[2].style.display="inline-block";
         up[2].style.display="none";
@@ -164,7 +164,7 @@ function content_script_4(){
 
     else if (flag_4 == 1){
 
-        content[3].style.backgroundColor="#3d3d3d";
+        menu[3].style.backgroundColor="#353535";
         sub[3].style.height="0px";
         down[3].style.display="inline-block";
         up[3].style.display="none";

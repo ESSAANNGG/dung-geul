@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="../../static/css/normalize.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="../../static/css/sign-up.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+    <script src="../../static/js/postcodify.js"></script>
+    <script src="../../static/js/sign-up.js"></script>
+  </head>
+  <body>
+    <form id="signUp" name="signUp" method="post">
+      <h1>회원 가입</h1>
+
+      <fieldset>
+        <label for="user_id">아이디:</label>
+        <input type="text" id="user_id" name="user_id" required />
+
+        <label for="password">비밀번호</label>
+        <input type="password" id="user_pw" name="user_pw" required />
+
+        <label for="name">이름:</label>
+        <input type="text" id="user_name" name="user_name" required />
+
+        <label for="mail">이메일</label>
+        <input type="email" id="user_email" name="user_email" required />
+
+        <label for="user_ph">휴대폰 번호</label>
+        <input type="tel" id="user_ph" name="user_ph" required />
+
+        <!-- 검색 기능-->
+        <label for="addr">주소찾기</label>
+        <div id="postcodify"></div>
+
+        <input
+          type="text"
+          name="user_postcode"
+          id="postcode"
+          value=""
+          placeholder="우편번호"
+          readonly
+        /><br />
+        <input
+          type="text"
+          name="user_addr"
+          id="user_addr"
+          value=""
+          placeholder="주소"
+          readonly
+        /><br />
+        <input
+          type="text"
+          name="user_addr-details"
+          id="user_addr-details"
+          value=""
+          placeholder="상세주소"
+        /><br />
+        <input
+          type="text"
+          name="user_addr-extra_info"
+          id="extra_info"
+          value=""
+          placeholder="세부주소"
+          readonly
+        /><br />
+      </fieldset>
+      <input
+        type="text"
+        name="role"
+        id="role"
+        class="role"
+        value="MENTOR"
+        readonly
+      />
+      <fieldset>
+        <legend><span class="number">2</span>상세 정보</legend>
+        <label for="user_job">직장:</label>
+        <input type="text" id="user_job" name="user_job" />
+      </fieldset>
+
+      <button id="submit" type="submit">가입하기</button>
+    </form>
+  </body>
+</html>

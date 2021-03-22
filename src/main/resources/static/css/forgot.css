@@ -46,6 +46,7 @@ fieldset {
     padding-block-end: 0.625em;
     min-inline-size: min-content;
     border-style: none;
+<<<<<<< HEAD
 }
 
 p {
@@ -53,6 +54,17 @@ p {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+=======
+    width: 25em;
+
+}
+
+p {
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+>>>>>>> origin/master
 }
 
 h2 {
@@ -114,6 +126,10 @@ input, a {
     width: 460px;
     height: 100%;
     min-height: 323px;
+<<<<<<< HEAD
+=======
+    margin-left: 40px;
+>>>>>>> origin/master
 }
 
 #loginWrap .sign {
@@ -124,9 +140,12 @@ input, a {
     margin-bottom: 0;
     padding-bottom: 2px;
     border-bottom: 3px solid #21209c;
+<<<<<<< HEAD
     -webkit-box-shadow: 0 7px 9px -9px #222;
     -moz-box-shadow: 0 7px 9px -9px #222;
     box-shadow: 0 7px 9px -9px #222;
+=======
+>>>>>>> origin/master
 }
 
 #loginWrap .page-tit p {
@@ -146,7 +165,11 @@ input, a {
 }
 
 #loginWrap .radio-wrap label {
+<<<<<<< HEAD
     padding-left: 5px;
+=======
+        padding-left: 5px;
+>>>>>>> origin/master
 }
 
 #loginWrap .radio-wrap input {
@@ -222,6 +245,10 @@ input, a {
     text-align: center;
     color: #ffffff;
     background: #21209c;
+<<<<<<< HEAD
+=======
+    border: 1px solid #21209c;
+>>>>>>> origin/master
     font-size: 16px;
     box-sizing: border-box;
     border-radius: 5px;
@@ -229,6 +256,7 @@ input, a {
     margin-top: 0;
     /* margin-right: 20px; */
     margin-left: 18%;
+<<<<<<< HEAD
     -webkit-box-shadow: 0 8px 10px -10px #222;
     -moz-box-shadow: 0 8px 10px -10px #222;
     box-shadow: 0 8px 10px -10px #222;
@@ -236,6 +264,8 @@ input, a {
 
 #loginWrap .login_bt01:hover {
     background: #2828bd;
+=======
+>>>>>>> origin/master
 }
 
 #loginWrap .mlog-sign {
@@ -245,12 +275,26 @@ input, a {
     margin: 0 auto;
 }
 
+<<<<<<< HEAD
+=======
+#loginWrap .mlog-sign .sign {
+    position: relative;
+    width: 460px;
+    height: 100%;
+    min-height: 323px;
+    margin-left: 40px;
+}
+>>>>>>> origin/master
 
 #loginWrap h2.login_sub_tit {
     font-weight: 600;
     font-size: 20px;
     color: #000;
+<<<<<<< HEAD
     margin-bottom: 5px;
+=======
+    margin-bottom: 10px;
+>>>>>>> origin/master
     padding-bottom: 20px;
     border-bottom: 1px solid #dddddd;
 }
@@ -287,14 +331,24 @@ input[type=radio]:before {
     -moz-transition: -moz-transform .4s cubic-bezier(.45,1.8,.5,.75);
     transition: transform .4s cubic-bezier(.45,1.8,.5,.75);
     -webkit-transform: rotate(
+<<<<<<< HEAD
             -45deg
     ) scale(0,0);
+=======
+-45deg
+) scale(0,0);
+>>>>>>> origin/master
     -moz-transform: rotate(-45deg) scale(0,0);
     -ms-transform: rotate(-45deg) scale(0,0);
     -o-transform: rotate(-45deg) scale(0,0);
     transform: rotate(
+<<<<<<< HEAD
             -45deg
     ) scale(0,0);
+=======
+-45deg
+) scale(0,0);
+>>>>>>> origin/master
     color: #21209c;
     content: "";
     font-size: 14px;
@@ -373,6 +427,7 @@ input[type=radio]:after {
     padding: 10px;
     padding-top: 10px;
 }
+<<<<<<< HEAD
 
 img {
     width: 100%;
@@ -392,3 +447,5 @@ img {
 
 }
 
+=======
+>>>>>>> origin/master
