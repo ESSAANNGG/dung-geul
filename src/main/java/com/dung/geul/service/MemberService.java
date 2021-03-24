@@ -55,7 +55,7 @@ public interface MemberService {
 
         // 기업 entity 객체 생성
         Enterprise enterprise = Enterprise.builder()
-                .user_id(member)
+                .member(member)
                 .etp_num(enterpriseDTO.getEtp_num())
                 .etp_name(enterpriseDTO.getEtp_name())
                 .etp_ceo_name(enterpriseDTO.getEtp_ceo_name())

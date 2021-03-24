@@ -14,10 +14,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class apply implements Serializable {
+public class Apply implements Serializable {
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ap_em_num" ,foreignKey = @ForeignKey(name="ap_em_num_fk"))
+    @JoinColumn(name = "ap_em_num")
     private Empoly em_num; // Empoly 앞에 패키지명이 붙어있길래 지움 - 정혜리
 
     @Column(nullable = false)
