@@ -8,7 +8,7 @@ public class WebController {
 
     @GetMapping("/")
     public String index(){
-        return "/index";
+        return "/main/index";
     }
 
     @GetMapping("sign-up")
