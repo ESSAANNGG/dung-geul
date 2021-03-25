@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영진전문대</title>
+    <link rel="stylesheet" href="css/forgot.css">
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/forgot.js"></script>
+</head>
+<body>
+<div id="cententWrapper">
+    <div id="contentWrap">
+        <div id="banner"><a href="#"><img src="img/제목 없음-1.png"></a></div>
+        <div id="content">
+            <div id="loginWrap" style="margin-top: 70px;">
+                <div class="page-tit">
+                    <p class="common_pro_tit">아이디/비밀번호 찾기
+                        <span class="common_pro_tit2">취업의 명문! 영진전문대학교</span>
+                    </p>
+                </div>
+                <div class="mlog-sign">
+                    <div class="mlog">
+                        <h2 class="login_sub_tit">아이디 찾기</h2>
+                        <fieldset>
+                            <legend>find ID</legend>
+                            <div class="radio-wrap">
+                                <label class="find_id_email">
+                                    <input type="radio" name="find_id_type" value="email" checked="checked">
+                                    이메일로 찾기
+                                </label>
+                                <label class="find_id_phone" style="margin-left: 20px;">
+                                    <input type="radio" name="find_id_type" value="mobile">
+                                    휴대폰 번호로 찾기
+                                </label>
+                            </div>
+                            <ul class="frm-list">
+                                <li class="user-name">
+                                    <span>이름</span>
+                                    <input type="text" id="name" name="name" class="MS_input_txt" value maxlength="30" title="이름" placeholder>
+                                </li>
+                                <li id="find_id_email_wrap">
+                                    <span>이메일</span>
+                                    <input type="text" id="find_id_email" name="find_id_email" class="MS_input_txt" value maxlength="80" title="이메일 주소" placeholder>
+                                </li>
+                                <li id="find_id_mobile_wrap" style="display: none;">
+                                    <span>PHONE</span>
+                                    <input type="text" id="find_id_mobile" name="find_id_mobile" class="MS_input_txt" value maxlength="20" title="휴대폰 번호">
+                                </li>
+                                <a class="login_bt01" href="#">아이디 찾기</a>
+                            </ul>
+                            <p class="bottom_text">회원가입 시 입력하신 이름+이메일 또는 휴대폰 번호로 찾을 수 있습니다.</p>
+                            <div class="find_wrap">
+                                <div>
+                                    <a style="cursor: pointer;">회원가입 바로 가기 ></a>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <!-- 아이디 찾기 끝 -->
+                    <!-- 비밀번호 찾기 시작 -->
+                    <div class="sign">
+                        <h2 class="login_sub_tit">임시 비밀번호 발급</h2>
+                        <div id="find_pw_input_wrap" style="display: block;">
+                            <fieldset>
+                                <legend>find Password</legend>
+                                <div class="radio-wrap">
+                                    <label class="find_email">
+                                        <input type="radio" class="find_pw_email" name="find_pw_type" value="email" checked="checked">
+                                        이메일로 찾기
+                                    </label>
+                                    <label class="find_phone" style="margin-left: 20px;">
+                                        <input type="radio" class="find_pw_phone" name="find_pw_type" value="mobile">
+                                        휴대폰 번호로 찾기
+                                    </label>
+                                </div>
+                                <ul class="frm-list">
+                                    <li class="user-name">
+                                        <span>아이디</span>
+                                        <input type="text" name="user_id" id="user_id" value class="MS_input_txt" size="10" maxlength="12">
+                                    </li>
+                                    <li id="find_pw_email_wrap" style="display: list-item";>
+                                        <span>이메일</span>
+                                        <input type="text" id="email" name="email" class="MS_input_txt" value maxlength="80" title="이메일 주소" placeholder>
+                                    </li>
+                                    <li id="find_pw_mobile_wrap" style="display: none;">
+                                        <span>PHONE</span>
+                                        <input type="text" id="mobile" name="mobile" class="MS_input_txt" value maxlength="20" title="휴대폰 번호">
+                                    </li>
+                                    <a class="login_bt01" href="#">비밀번호 찾기</a>
+                                </ul>
+                                <p class="bottom_text">회원가입 시 입력하신 이메일 또는 휴대폰 번호로 임시 비밀번호를 보내 드립니다.</p>
+                                <div class="find_wrap">
+                                    <div>
+                                        <a style="cursor: pointer;">회원가입 바로 가기 ></a>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <!-- 비밀번호 찾기 끝 -->
+                </div>
+                <!-- .mlog-sign -->
+            </div>
+            <!-- .page-body -->
+        </div>
+        <!-- #loginWrap -->
+    </div>
+    <!-- #content -->
+</div>
+<!-- contentWrap -->
+</div>
+<!-- #contentWrapper -->
+</body>
+</html>

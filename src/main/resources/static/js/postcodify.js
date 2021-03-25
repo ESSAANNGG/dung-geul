@@ -1,7 +1,7 @@
 $(function () {
   $("#postcodify").postcodify({
     insertPostcode5: "#postcode",
-    insertAddress: "#address",
+    insertAddress: "#user_addr",
     insertDetails: "#details",
     insertExtraInfo: "#extra_info",
     hideOldAddresses: false,
