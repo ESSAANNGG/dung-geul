@@ -23,7 +23,7 @@ public class Report implements Serializable {
     @Column(length = 255, nullable = false)
     private String re_file;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "re_user_id" ,foreignKey = @ForeignKey(name="re_user_id_fk"))
     private Member user_id;
 
@@ -33,5 +33,5 @@ public class Report implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "re_consult_num" ,foreignKey = @ForeignKey(name="re_consult_num_fk"))
-    private Consulting consult_num; // 패키지명 지움 -정혜리
+    private Consulting consult_num; // 패키지명 지움 -정혜리*/
 }

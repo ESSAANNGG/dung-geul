@@ -3,6 +3,7 @@ package com.dung.geul.dto;
 import com.dung.geul.entity.Member;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -29,7 +30,7 @@ public class EnterpriseDTO extends MemberDTO {
 
     private String etp_detail_addr; // 상세주소
 
-    private LocalDateTime etp_year; // 설립년도
+    private LocalDate etp_year; // 설립년도
 
     private int etp_member; // 직원 수
 

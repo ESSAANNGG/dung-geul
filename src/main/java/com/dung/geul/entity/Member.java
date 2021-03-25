@@ -18,11 +18,15 @@ import java.util.Set;
         @AttributeOverride(name = "regDate", column = @Column(name = "user_regdate")),
         @AttributeOverride(name = "modDate", column = @Column(name = "user_modDate"))
 })
+@Table(name ="member")
 public class Member extends BaseEntity {
 
     @Id
-    private String user_id; // Long -> String - 정혜리
+    private String user_id; // Long -> String - 정혜리 TEMP_ID
 
+
+    @OneToOne(mappedBy = "member")
+    private Enterprise enterprise;
 
     @Column(length = 18, nullable = false)
     private String user_name;
