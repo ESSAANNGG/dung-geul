@@ -40,4 +40,26 @@ public class MemberRepositoryTest {
 
 
     }
+
+    @Test
+    public void memberInsertTest(){
+
+        Member member = Member.builder()
+                .user_id("userID")
+                .user_pw("1111")
+                .user_name("userName")
+                .user_ph(01011112222)
+                .user_email("user@email")
+                .user_addr("userAddress")
+                .user_dept("컴퓨터정보계열")
+                .user_class("WD-A")
+                .build();
+
+        member.addMemberRole(MemberRole.USER);
+        member.addMemberRole(MemberRole.STUDENT);
+
+        memberRepository.save(member);
+
+        System.out.println("회원 한명 추가 id : userID, pw : 1111");
+    }
 }
