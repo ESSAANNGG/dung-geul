@@ -11,15 +11,7 @@ public class WebController {
         return "/main/index";
     }
 
-    @GetMapping("/sign-up")
-    public String signUp(){
-        return "/sign-up/user_classification";
-    }
 
-    @GetMapping("/login")
-    public String login(){
-        return "/login/loginl";
-    }
 
 
 }
