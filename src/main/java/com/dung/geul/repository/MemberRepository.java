@@ -18,4 +18,8 @@ public interface MemberRepository extends JpaRepository<Member, String> {
 
     // 이메일/아이디 체크 만들기
 
+    //이메일 체크
+    @Query("select m from Member m where m.user_email = :user_email")
+    Optional<Member> findByEmail(@Param("user_email") String user_email);
+
 }
