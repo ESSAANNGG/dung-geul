@@ -22,13 +22,17 @@ public class Config extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+
+
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        http.csrf().disable()
-                .authorizeRequests()
-                .anyRequest().permitAll()
-                .and()
-                .formLogin().loginPage("/login/login")
+
+        // 권한별 접근 지정하기 (permitAll = 권한 확인 안함)
+        http.authorizeRequests()
+                .anyRequest().permitAll();
+
+        // 로그인 처리 지정하기
+        http.formLogin().loginPage("/login")            // controller mapping
                 .loginProcessingUrl("/loginProc")
                 .defaultSuccessUrl("/index");
         //http.rememberMe().tokenValiditySeconds(60*60*7).userDetailsService(principalDatail);
