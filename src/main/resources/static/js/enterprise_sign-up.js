@@ -12,10 +12,19 @@ let signUp = {
       user_name: $("#user_name").val(),
       user_email: $("#user_email").val(),
       user_ph: $("#user_ph").val(),
+      user_postcode: $("#postcode").val(),
       user_addr: $("#user_addr").val(),
-      user_dept: $("#user_dept").val(),
-      user_class: $("#user_class").val(),
-      user_job: $("#user_job").val(),
+      details: $("#details").val(),
+      extra_info: $("#extra_info").val(),
+      user_enterprise: $("#enterprise").val(),
+      user_corp_num: $("#corp_num").val(),
+      user_corp_rep: $("#corp_rep").val(),
+      corp_fx: $("#corp_fx").val(),
+      corp_home: $("#corp_home").val(),
+      corp_contents: $("#corp_contents").val(),
+      corp_year: $("#corp_year").val(),
+      corp_member: $("#corp_member").val(),
+      corp_Sector: $("#corp_Sector").val(),
       role: $("#role").val(),
     };
 
@@ -39,3 +48,5 @@ let signUp = {
       });
   },
 };
+
+index.init();

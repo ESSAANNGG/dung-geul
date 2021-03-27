@@ -4,22 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up Form</title>
-    <link rel="stylesheet" href="../../static/css/normalize.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Nunito:400,300"
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="../../static/css/sign-up.css" />
+    <link rel="stylesheet" href="/css/sign-up.css" />
     <script src="//code.jquery.com/jquery.min.js"></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-    <script src="../../static/js/postcodify.js"></script>
-    <script src="../../static/js/sign-up.js"></script>
+    <script src="/js/postcodify.js"></script>
+    <script src="/js/sign-up.js"></script>
   </head>
   <body>
-    <form id="signUp" name="signUp" method="post">
+    <form action="/signUp/member" id="signUp" name="signUp" method="post">
       <h1>회원 가입</h1>
 
       <fieldset>
@@ -60,14 +60,14 @@
         /><br />
         <input
           type="text"
-          name="user_addr-details"
-          id="user_addr-details"
+          name="details"
+          id="details"
           value=""
           placeholder="상세주소"
         /><br />
         <input
           type="text"
-          name="user_addr-extra_info"
+          name="extra_info"
           id="extra_info"
           value=""
           placeholder="세부주소"
@@ -90,24 +90,24 @@
         <label for="department">계열/학과 선택</label>
         <select id="department" name="department">
           <option value="">-- 계열/학과 --</option>
-          <option value="computer-information">컴퓨터정보계열</option>
-          <option value="Mechanical-Engineering">컴퓨터응용기계계열</option>
-          <option value="ICT-Semiconductor&Electronics">
+          <option value="computer-information_">컴퓨터정보계열</option>
+          <option value="Mechanical-Engineering_">컴퓨터응용기계계열</option>
+          <option value="ICT-Semiconductor&Electronics_">
             ICT반도체전자계열
           </option>
-          <option value="electrical-engineering">신재생에너지전기계열</option>
-          <option value="architecture&interior-design">
+          <option value="electrical-engineering_">신재생에너지전기계열</option>
+          <option value="architecture&interior-design_">
             건축인테리어디자인계열
           </option>
-          <option value="Military">부사관계열</option>
-          <option value="Contents-Design">콘텐츠디자인과</option>
-          <option value="Drone-Avionics">드론항공전자과</option>
-          <option value="Bussiness">경영회계서비스계열</option>
-          <option value="HotelAirlin-Service&Tourism">호텔항공관광계열</option>
-          <option value="Social-Welfare">사회복지과</option>
-          <option value="Childhood-Education">유아교육과</option>
-          <option value="Medical-Administration">보건의료행정과</option>
-          <option value=" Nursing">간호학과</option>
+          <option value="Military_">부사관계열</option>
+          <option value="Contents-Design_">콘텐츠디자인과</option>
+          <option value="Drone-Avionics_">드론항공전자과</option>
+          <option value="Bussiness_">경영회계서비스계열</option>
+          <option value="HotelAirlin-Service&Tourism_">호텔항공관광계열</option>
+          <option value="Social-Welfare_">사회복지과</option>
+          <option value="Childhood-Education_">유아교육과</option>
+          <option value="Medical-Administration_">보건의료행정과</option>
+          <option value=" Nursing_">간호학과</option>
           <!-- <option value="O">스마트금형과</option>
           <option value="P">스마트기계과</option> -->
         </select>
@@ -920,6 +920,6 @@
     </form>
 
     <script src="//rawgit.com/tuupola/jquery_chained/master/jquery.chained.min.js"></script>
-    <script src="../../static/js/chained.js"></script>
+    <script src="/js/chained.js"></script>
   </body>
 </html>

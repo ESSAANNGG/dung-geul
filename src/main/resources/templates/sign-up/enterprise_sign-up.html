@@ -4,20 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up Form</title>
-    <link rel="stylesheet" href="../../static/css/normalize.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Nunito:400,300"
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="../../static/css/sign-up.css" />
+    <link rel="stylesheet" href="/css/sign-up.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-    <script src="../../static/js/postcodify.js"></script>
-    <script src="../../static/js/enterprise_sign-up.js"></script>
+    <script src="/js/postcodify.js"></script>
+    <script src="/js/enterprise_sign-up.js"></script>
   </head>
   <body>
-    <form id="signUp" name="signUp" method="post">
+    <form action="/sigUp/enterprise" id="signUp" name="signUp" method="post">
       <h1>회원 가입</h1>
 
       <fieldset>
@@ -58,14 +58,14 @@
         /><br />
         <input
           type="text"
-          name="user_addr-details"
-          id="user_addr-details"
+          name="details"
+          id="details"
           value=""
           placeholder="상세주소"
         /><br />
         <input
           type="text"
-          name="user_addr-extra_info"
+          name="extra_info"
           id="extra_info"
           value=""
           placeholder="세부주소"
@@ -88,7 +88,7 @@
         <label for="corp_num">사업자등록번호</label>
         <input type="number" id="corp_num" name="user_corp_num" />
 
-        <label for="corp_rep">이름:</label>
+        <label for="corp_rep">대표 이름:</label>
         <input type="text" id="corp_rep" name="user_corp_rep" />
 
         <label for="corp_fx">팩스 번호</label>
