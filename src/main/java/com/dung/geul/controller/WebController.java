@@ -11,9 +11,4 @@ public class WebController {
         return "/main/index";
     }
 
-//    @GetMapping("/error")
-//    public void error(){}
-
-
-
 }
