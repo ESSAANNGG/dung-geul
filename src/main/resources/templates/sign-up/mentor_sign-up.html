@@ -13,10 +13,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
     <script src="/js/postcodify.js"></script>
-    <script src="/js/sign-up.js"></script>
   </head>
   <body>
-    <form action="/signUp/member" id="signUp" name="signUp" method="post">
+   <form action="/sigUp/mentor" id="signUp" name="signUp" method="POST">
       <h1>회원 가입</h1>
 
       <fieldset>
@@ -57,7 +56,7 @@
         /><br />
         <input
           type="text"
-          name="details"
+          name="user_addr_details"
           id="details"
           value=""
           placeholder="상세주소"
@@ -87,5 +86,6 @@
 
       <button id="submit" type="submit">가입하기</button>
     </form>
+    <script src="/js/mentor_sign-up.js"></script>
   </body>
 </html>

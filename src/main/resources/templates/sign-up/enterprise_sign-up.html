@@ -13,10 +13,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
     <script src="/js/postcodify.js"></script>
-    <script src="/js/enterprise_sign-up.js"></script>
   </head>
   <body>
-    <form action="/sigUp/enterprise" id="signUp" name="signUp" method="post">
+    <form action="/sigUp/enterprise" id="signUp" name="signUp" method="POST">
       <h1>회원 가입</h1>
 
       <fieldset>
@@ -26,90 +25,95 @@
         <label for="password">비밀번호</label>
         <input type="password" id="user_pw" name="user_pw" required />
 
-        <label for="name">이름:</label>
+        <label for="name">담당자 이름:</label>
         <input type="text" id="user_name" name="user_name" required />
 
-        <label for="mail">이메일</label>
+        <label for="mail">담당자 이메일</label>
         <input type="email" id="user_email" name="user_email" required />
 
-        <label for="user_ph">휴대폰 번호</label>
+        <label for="user_ph">담당자 휴대폰 번호</label>
         <input type="tel" id="user_ph" name="user_ph" required />
 
-        <!-- 검색 기능-->
-        <label for="addr">주소찾기</label>
-        <div id="postcodify"></div>
+        <fieldset class="12">
+          <legend><span class="number">2</span>상세 정보</legend>
+          <label for="enterprise">기업 명:</label>
+          <input type="text" id="etp_name" name="etp_name" />
 
+          <label for="corp_num">사업자등록번호</label>
+          <input type="number" id="etp_num" name="etp_num" />
+
+          <label for="corp_rep">대표자 이름:</label>
+          <input type="text" id="etp_ceo_name" name="etp_ceo_name" />
+
+          <label for="etp_ph">기업 전화번호</label>
+          <input type="tel" id="etp_ph" name="etp_ph" />
+
+          <label for="corp_px">팩스 번호</label>
+          <input type="tel" id="etp_px" name="etp_px" />
+
+          <label for="corp_home">홈페이지 url</label>
+          <input type="url" id="etp_home" name="etp_home" />
+
+          <label for="corp_contents">주요사업내용</label>
+          <textarea id="etp_contents" name="etp_contents"></textarea>
+
+          <!-- 검색 기능-->
+          <label for="addr">주소찾기</label>
+          <div id="postcodify"></div>
+
+          <input
+            type="text"
+            name="etp_post"
+            id="postcode"
+            value=""
+            placeholder="우편번호"
+            readonly
+          /><br />
+          <input
+            type="text"
+            name="etp_addr"
+            id="etp_addr"
+            value=""
+            placeholder="주소"
+            readonly
+          /><br />
+          <input
+            type="text"
+            name="etp_detail_addr"
+            id="details"
+            value=""
+            placeholder="상세주소"
+          /><br />
+          <input
+            type="text"
+            name="extra_info"
+            id="extra_info"
+            value=""
+            placeholder="세부주소"
+            readonly
+          /><br />
+        </fieldset>
         <input
           type="text"
-          name="user_postcode"
-          id="postcode"
-          value=""
-          placeholder="우편번호"
+          name="role"
+          id="role"
+          class="role"
+          value="ENTERPRISE"
           readonly
-        /><br />
-        <input
-          type="text"
-          name="user_addr"
-          id="user_addr"
-          value=""
-          placeholder="주소"
-          readonly
-        /><br />
-        <input
-          type="text"
-          name="details"
-          id="details"
-          value=""
-          placeholder="상세주소"
-        /><br />
-        <input
-          type="text"
-          name="extra_info"
-          id="extra_info"
-          value=""
-          placeholder="세부주소"
-          readonly
-        /><br />
-      </fieldset>
-      <input
-        type="text"
-        name="role"
-        id="role"
-        class="role"
-        value="ENTERPRISE"
-        readonly
-      />
-      <fieldset class="12">
-        <legend><span class="number">2</span>상세 정보</legend>
-        <label for="enterprise">회사명:</label>
-        <input type="text" id="enterprise" name="user_enterprise" />
-
-        <label for="corp_num">사업자등록번호</label>
-        <input type="number" id="corp_num" name="user_corp_num" />
-
-        <label for="corp_rep">대표 이름:</label>
-        <input type="text" id="corp_rep" name="user_corp_rep" />
-
-        <label for="corp_fx">팩스 번호</label>
-        <input type="tel" id="corp_fx" name="corp_fx" />
-
-        <label for="corp_home">홈페이지 url</label>
-        <input type="url" id="corp_home" name="corp_home" />
-
-        <label for="corp_contents">주요사업내용</label>
-        <textarea id="corp_contents" name="corp_contents"></textarea>
+        />
 
         <label for="">설립년도</label>
-        <input class type="date" id="corp_year" name="corp_year" />
+        <input class type="date" id="etp_year" name="etp_year" />
 
         <label for="">직원수</label>
-        <input type="number" id="corp_member" name="corp_member" />
+        <input type="number" id="etp_member" name="etp_member" />
 
         <label for="">업종</label>
-        <input type="text" id="corp_Sector" name="corp_Sector" />
+        <input type="text" id="etp_Sectorr" name="etp_Sector" />
       </fieldset>
 
       <button id="submit" type="submit">가입하기</button>
     </form>
+    <script src="/js/enterprise_sign-up.js"></script>
   </body>
 </html>

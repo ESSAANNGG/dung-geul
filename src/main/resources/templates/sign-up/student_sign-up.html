@@ -58,7 +58,7 @@
         /><br />
         <input
           type="text"
-          name="details"
+          name="user_addr_details"
           id="details"
           value=""
           placeholder="상세주소"
@@ -86,7 +86,7 @@
       </fieldset>
       <fieldset>
         <label for="department">계열/학과 선택</label>
-        <select id="department" name="department">
+        <select id="user_dept" name="user_dept">
           <option value="">-- 계열/학과 --</option>
           <option value="computer-information_">컴퓨터정보계열</option>
           <option value="Mechanical-Engineering_">컴퓨터응용기계계열</option>
@@ -110,7 +110,7 @@
           <option value="P">스마트기계과</option> -->
         </select>
         <label for="grade">학년 선택</label>
-        <select id="grade" name="grade">
+        <select id="user_grade" name="user_grade">
           <option value="">-- 학년 --</option>
           <option
             class="computer-information_"
@@ -251,270 +251,192 @@
           <option class="P" value="Pfirst">1</option>
         </select>
         <label for="class">반 선택</label>
-        <select id="class" name="class">
+        <select id="user_class" name="user_class">
           <option value="">-- 반 --</option>
           <option
-            value="computer-information_1 Mechanical-Engineering_1 ICT-Semiconductor&Electronics_1 architecture&interior-design_1 Bussiness_1 HotelAirlin-Service&Tourism_1 Social-Welfare_12 Childhood-Education_123  Nursing_123 Military_1 Drone-Avionics_1 Medical-Administration_1"
+            value="A"
             class="computer-information_first Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Bussiness_frist HotelAirlin-Service&Tourism_first Social-Welfare_first Social-Welfare_second Childhood-Education_first Childhood-Education_second Childhood-Education_third Nursing_first Nursing_second Nursing_third Military_first Drone-Avionics_first Medical-Administration_first"
           >
             A
           </option>
           <option
-            value="computer-information_1 Mechanical-Engineering_1 ICT-Semiconductor&Electronics_1 architecture&interior-design_1 Bussiness_1 HotelAirlin-Service&Tourism_1 Social-Welfare_12 Childhood-Education_123  Nursing_123 Military_1 Drone-Avionics_1"
+            value="B"
             class="computer-information_first Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Bussiness_frist HotelAirlin-Service&Tourism_first Social-Welfare_first Social-Welfare_second Childhood-Education_first Childhood-Education_second Childhood-Education_third Nursing_first Nursing_second Nursing_third Military_first Drone-Avionics_first"
           >
             B
           </option>
           <option
-            value="computer-information_1 Mechanical-Engineering_1 ICT-Semiconductor&Electronics_1 architecture&interior-design_1 Bussiness_1 HotelAirlin-Service&Tourism_1 Social-Welfare_12  Nursing_123 Military_1"
+            value="C"
             class="computer-information_first Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Bussiness_frist HotelAirlin-Service&Tourism_first Social-Welfare_first Social-Welfare_second Nursing_first Nursing_second Nursing_third Military_first"
           >
             C
           </option>
           <option
-            value="computer-information_1 Mechanical-Engineering_1 ICT-Semiconductor&Electronics_1 architecture&interior-design_1 Bussiness_1 HotelAirlin-Service&Tourism_1 Social-Welfare_12 Military_1"
+            value="D"
             class="computer-information_first Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Bussiness_frist HotelAirlin-Service&Tourism_first Social-Welfare_first Social-Welfare_second Military_first"
           >
             D
           </option>
           <option
-            value="computer-information_1 Mechanical-Engineering_1 ICT-Semiconductor&Electronics_1 architecture&interior-design_1 Bussiness_1 Social-Welfare_12 Military_1"
+            value="E"
             class="computer-information_first Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Bussiness_frist Social-Welfare_first Social-Welfare_second Military_first"
           >
             E
           </option>
           <option
-            value="Mechanical-Engineering_1 ICT-Semiconductor&Electronics_1 architecture&interior-design_1 Social-Welfare_12"
+            value="F"
             class="Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Social-Welfare_first Social-Welfare_second"
           >
             F
           </option>
           <option
-            value="Mechanical-Engineering_1 ICT-Semiconductor&Electronics_1 architecture&interior-design_1 Social-Welfare_12"
+            value="G"
             class="Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Social-Welfare_first Social-Welfare_second"
           >
             G
           </option>
           <option
-            value="Mechanical-Engineering_1 ICT-Semiconductor&Electronics_1 Bussiness_12"
+            value="L"
             class="Mechanical-Engineering_first ICT-Semiconductor&Electronics_first Bussiness_frist Bussiness_second"
           >
             L
           </option>
-          <option
-            value="Mechanical-Engineering_1"
-            class="Mechanical-Engineering_first"
-          >
-            M
-          </option>
-          <option
-            value="Mechanical-Engineering_1"
-            class="Mechanical-Engineering_first"
-          >
-            Q
-          </option>
-          <option
-            value="Mechanical-Engineering_1"
-            class="Mechanical-Engineering_first"
-          >
-            R
-          </option>
-          <option
-            value="Mechanical-Engineering_1"
-            class="Mechanical-Engineering_first"
-          >
-            T
-          </option>
-          <option
-            value="computer-information_1"
-            class="computer-information_first"
-          >
-            J1
-          </option>
-          <option
-            value="computer-information_1"
-            class="computer-information_first"
-          >
-            J2
-          </option>
-          <option
-            value="computer-information_1"
-            class="computer-information_first"
-          >
+          <option value="M" class="Mechanical-Engineering_first">M</option>
+          <option value="Q" class="Mechanical-Engineering_first">Q</option>
+          <option value="R" class="Mechanical-Engineering_first">R</option>
+          <option value="T" class="Mechanical-Engineering_first">T</option>
+          <option value="J1" class="computer-information_first">J1</option>
+          <option value="J2" class="computer-information_first">J2</option>
+          <option value="외국인유학생" class="computer-information_first">
             외국인유학생
           </option>
           <option
-            value="computer-information_23"
+            value="CI-D"
             class="computer-information_second computer-information_third"
           >
             CI-D
           </option>
           <option
-            value="computer-information_23"
+            value="CI-E"
             class="computer-information_second computer-information_third"
           >
             CI-E
           </option>
           <option
-            value="computer-information_23"
+            value="CP-A"
             class="computer-information_second computer-information_third"
           >
             CP-A
           </option>
           <option
-            value="computer-information_23"
+            value="CP-B"
             class="computer-information_second computer-information_third"
           >
             CP-B
           </option>
           <option
-            value="computer-information_23"
+            value="CP-J"
             class="computer-information_second computer-information_third"
           >
             CP-J
           </option>
           <option
-            value="computer-information_23"
+            value="GC-A"
             class="computer-information_second computer-information_third"
           >
             GC-A
           </option>
           <option
-            value="computer-information_23"
+            value="GC-C"
             class="computer-information_second computer-information_third"
           >
             GC-C
           </option>
           <option
-            value="computer-information_23"
+            value="WD-A"
             class="computer-information_second computer-information_third"
           >
             WD-A
           </option>
           <option
-            value="computer-information_23"
+            value="WD-J"
             class="computer-information_second computer-information_third"
           >
             WD-J
           </option>
           <option
-            value="Mechanical-Engineering_12"
+            value="구미A"
             class="Mechanical-Engineering_first Mechanical-Engineering_second"
           >
             구미A
           </option>
           <option
-            value="Mechanical-Engineering_12"
+            value="성서A"
             class="Mechanical-Engineering_first Mechanical-Engineering_second"
           >
             성서A
           </option>
           <option
-            value="Mechanical-Engineering_12"
+            value="스마트금형"
             class="Mechanical-Engineering_first Mechanical-Engineering_second"
           >
             스마트금형
           </option>
-          <option
-            value="Mechanical-Engineering_1"
-            class="Mechanical-Engineering_first"
-          >
+          <option value="스마트기계" class="Mechanical-Engineering_first">
             스마트기계
           </option>
           <option
-            value="Mechanical-Engineering_12"
+            value="중국S"
             class="Mechanical-Engineering_first Mechanical-Engineering_second"
           >
             중국S
           </option>
           <option
-            value="Mechanical-Engineering_12"
+            value="중국S-1"
             class="Mechanical-Engineering_first Mechanical-Engineering_second"
           >
             중국S-1
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="CAD/CAM" class="Mechanical-Engineering_second">
             CAD/CAM
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="CADCAM-I" class="Mechanical-Engineering_second">
             CADCAM-I
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="융합기계설비" class="Mechanical-Engineering_second">
             융합기계설비
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="금형/CAM" class="Mechanical-Engineering_second">
             금형/CAM
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="기계A" class="Mechanical-Engineering_second">
             기계A
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="기계설계A" class="Mechanical-Engineering_second">
             기계설계A
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="석유화학A" class="Mechanical-Engineering_second">
             석유화학A
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="스마트제조설계" class="Mechanical-Engineering_second">
             스마트제조설계A
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="에너지설비" class="Mechanical-Engineering_second">
             에너지설비
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="유니테크" class="Mechanical-Engineering_second">
             유니테크
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="일본A" class="Mechanical-Engineering_second">
             일본A
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="일본B" class="Mechanical-Engineering_second">
             일본B
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="자동화A" class="Mechanical-Engineering_second">
             자동화A
           </option>
-          <option
-            value="Mechanical-Engineering_2"
-            class="Mechanical-Engineering_second"
-          >
+          <option value="자동화B" class="Mechanical-Engineering_second">
             자동화B
           </option>
           <option value="O1" class="Ofirst">스마트금형A</option>
@@ -525,373 +447,290 @@
           <option value="O2" class="Osecond">스마트금형A-2</option>
           <option value="O2" class="Osecond">스마트금형B-1</option>
           <option
-            value="ICT-Semiconductor&Electronics_1"
+            value="E-융합전자"
             class="ICT-Semiconductor&Electronics_first"
           >
             E-융합전자
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_12"
+            value="E-전자위탁"
             class="ICT-Semiconductor&Electronics_first ICT-Semiconductor&Electronics_second"
           >
             E-전자위탁
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_12"
+            value="I-일본취업"
             class="ICT-Semiconductor&Electronics_first ICT-Semiconductor&Electronics_second"
           >
             I-일본취업
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_12"
+            value="I-입도"
             class="ICT-Semiconductor&Electronics_first ICT-Semiconductor&Electronics_second"
           >
             I-입도
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_1"
+            value="S-중국유학"
             class="ICT-Semiconductor&Electronics_first"
           >
             S-중국유학
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="E-ICT전자A"
             class="ICT-Semiconductor&Electronics_second"
           >
             E-ICT전자A
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="E-ICT전자B"
             class="ICT-Semiconductor&Electronics_second"
           >
             E-ICT전자B
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="E-구미위탁"
             class="ICT-Semiconductor&Electronics_second"
           >
             E-구미위탁
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="E-전자디플A"
             class="ICT-Semiconductor&Electronics_second"
           >
             E-전자디플A
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="E-전자디플B"
             class="ICT-Semiconductor&Electronics_second"
           >
             E-전자디플B
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="I-SDI위탁"
             class="ICT-Semiconductor&Electronics_second"
           >
             I-SDI위탁
           </option>
-          <option
-            value="ICT-Semiconductor&Electronics_2"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="S-공정" class="ICT-Semiconductor&Electronics_second">
             S-공정
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="S-하이닉스"
             class="ICT-Semiconductor&Electronics_second"
           >
             S-하이닉스
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="I-전자소재A"
             class="ICT-Semiconductor&Electronics_second"
           >
             I-전자소재A
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="I전자소재B"
             class="ICT-Semiconductor&Electronics_second"
           >
             I전자소재B
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="S-반도체A"
             class="ICT-Semiconductor&Electronics_second"
           >
             S-반도체A
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="S-반도체B"
             class="ICT-Semiconductor&Electronics_second"
           >
             S-반도체B
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="S-중국유학I"
             class="ICT-Semiconductor&Electronics_second"
           >
             S-중국유학I
           </option>
           <option
-            value="ICT-Semiconductor&Electronics_2"
+            value="S-중국유학II"
             class="ICT-Semiconductor&Electronics_second"
           >
             S-중국유학II
           </option>
-          <option
-            value="electrical-engineering_1"
-            class="electrical-engineering_first"
-          >
+          <option value="전기A" class="electrical-engineering_first">
             전기A
           </option>
-          <option
-            value="electrical-engineering_1"
-            class="electrical-engineering_first"
-          >
+          <option value="전기B" class="electrical-engineering_first">
             전기B
           </option>
-          <option
-            value="electrical-engineering_1"
-            class="electrical-engineering_first"
-          >
+          <option value="전기C" class="electrical-engineering_first">
             전기C
           </option>
-          <option
-            value="electrical-engineering_1"
-            class="electrical-engineering_first"
-          >
+          <option value="전기D" class="electrical-engineering_first">
             전기D
           </option>
-          <option
-            value="electrical-engineering_1"
-            class="electrical-engineering_first"
-          >
+          <option value="전기E" class="electrical-engineering_first">
             전기E
           </option>
-          <option
-            value="electrical-engineering_1"
-            class="electrical-engineering_first"
-          >
+          <option value="전기F" class="electrical-engineering_first">
             전기F
           </option>
-          <option
-            value="electrical-engineering_2"
-            class="electrical-engineering_second"
-          >
+          <option value="에너지전기" class="electrical-engineering_second">
             에너지전기
           </option>
-          <option
-            value="electrical-engineering_2"
-            class="electrical-engineering_second"
-          >
+          <option value="일본전기" class="electrical-engineering_second">
             일본전기
           </option>
-          <option
-            value="electrical-engineering_2"
-            class="electrical-engineering_second"
-          >
+          <option value="전기I" class="electrical-engineering_second">
             전기I
           </option>
-          <option
-            value="electrical-engineering_2"
-            class="electrical-engineering_second"
-          >
+          <option value="전기설비A" class="electrical-engineering_second">
             전기설비A
           </option>
-          <option
-            value="electrical-engineering_2"
-            class="electrical-engineering_second"
-          >
+          <option value="전기설비B" class="electrical-engineering_second">
             전기설비B
           </option>
-          <option
-            value="electrical-engineering_2"
-            class="electrical-engineering_second"
-          >
+          <option value="전기자동화" class="electrical-engineering_second">
             전기자동화
           </option>
-          <option
-            value="electrical-engineering_2"
-            class="electrical-engineering_second"
-          >
+          <option value="전기철도" class="electrical-engineering_second">
             전기철도
           </option>
-          <option
-            value="electrical-engineering_2"
-            class="electrical-engineering_second"
-          >
+          <option value="전기화학" class="electrical-engineering_second">
             전기화학
           </option>
           <option
-            value="architecture&interior-design_12"
+            value="건축K"
             class="architecture&interior-design_first architecture&interior-design_second"
           >
             건축K
           </option>
-          <option
-            value="architecture&interior-design_2"
-            class="architecture&interior-design_second"
-          >
+          <option value="건축A" class="architecture&interior-design_second">
             건축A
           </option>
-          <option
-            value="architecture&interior-design_2"
-            class="architecture&interior-design_second"
-          >
+          <option value="건축B" class="architecture&interior-design_second">
             건축B
           </option>
-          <option
-            value="architecture&interior-design_2"
-            class="architecture&interior-design_second"
-          >
+          <option value="실내A" class="architecture&interior-design_second">
             실내A
           </option>
-          <option
-            value="architecture&interior-design_2"
-            class="architecture&interior-design_second"
-          >
+          <option value="실내E" class="architecture&interior-design_second">
             실내E
           </option>
           <option
-            value="architecture&interior-design_2"
+            value="실내건축시공관리"
             class="architecture&interior-design_second"
           >
             실내건축시공관리
           </option>
           <option
-            value="architecture&interior-design_2"
+            value="전시디자인"
             class="architecture&interior-design_second"
           >
             전시디자인
           </option>
-          <option value="Contents-Design_1" class="Contents-Design_first">
-            콘텐츠A
-          </option>
-          <option value="Contents-Design_1" class="Contents-Design_first">
-            콘텐츠B
-          </option>
-          <option value="Contents-Design_1" class="Contents-Design_first">
-            콘텐츠C
-          </option>
-          <option value="Contents-Design_1" class="Contents-Design_first">
-            콘텐츠D
-          </option>
-          <option value="Contents-Design_2" class="Contents-Design_second">
-            시각
-          </option>
-          <option value="Contents-Design_2" class="Contents-Design_second">
+          <option value="콘텐츠A" class="Contents-Design_first">콘텐츠A</option>
+          <option value="콘텐츠B" class="Contents-Design_first">콘텐츠B</option>
+          <option value="콘텐츠C" class="Contents-Design_first">콘텐츠C</option>
+          <option value="콘텐츠D" class="Contents-Design_first">콘텐츠D</option>
+          <option value="시각" class="Contents-Design_second">시각</option>
+          <option value="시각영상" class="Contents-Design_second">
             시각영상
           </option>
-          <option value="Contents-Design_2" class="Contents-Design_second">
+          <option value="인터넷광고마케팅" class="Contents-Design_second">
             인터넷광고마케팅
           </option>
-          <option value="Contents-Design_2" class="Contents-Design_second">
-            콘텐츠
-          </option>
-          <option value="Bussiness_1" class="Bussiness_frist">
+          <option value="콘텐츠" class="Contents-Design_second">콘텐츠</option>
+          <option value="글로벌비즈니스" class="Bussiness_frist">
             글로벌비즈니스
           </option>
-          <option value="Bussiness_1" class="Bussiness_frist">마케팅J</option>
-          <option value="Bussiness_1" class="Bussiness_frist">마케팅R</option>
-          <option value="Bussiness_1" class="Bussiness_frist">마케팅T</option>
-          <option value="Bussiness_1" class="Bussiness_frist">중국U</option>
-          <option value="Bussiness_2" class="Bussiness_second">
+          <option value="마케팅J" class="Bussiness_frist">마케팅J</option>
+          <option value="마케팅R" class="Bussiness_frist">마케팅R</option>
+          <option value="마케팅T" class="Bussiness_frist">마케팅T</option>
+          <option value="중국U" class="Bussiness_frist">중국U</option>
+          <option value="글로벌비즈니스" class="Bussiness_second">
             글로벌비즈니스
           </option>
-          <option value="Bussiness_2" class="Bussiness_second">마케팅A</option>
-          <option value="Bussiness_2" class="Bussiness_second">마케팅B</option>
-          <option value="Bussiness_2" class="Bussiness_second">마케팅C</option>
-          <option value="Bussiness_2" class="Bussiness_second">마케팅J</option>
-          <option value="Bussiness_2" class="Bussiness_second">마케팅M</option>
-          <option value="Bussiness_2" class="Bussiness_second">마케팅R</option>
-          <option value="Bussiness_2" class="Bussiness_second">마케팅T</option>
-          <option value="Bussiness_2" class="Bussiness_second">중국Q</option>
-          <option value="Bussiness_2" class="Bussiness_second">중국U</option>
-          <option value="Bussiness_2" class="Bussiness_second">회계A</option>
-          <option value="Bussiness_2" class="Bussiness_second">회계B</option>
-          <option value="Bussiness_2" class="Bussiness_second">회계C</option>
+          <option value="마케팅A" class="Bussiness_second">마케팅A</option>
+          <option value="마케팅B" class="Bussiness_second">마케팅B</option>
+          <option value="마케팅C" class="Bussiness_second">마케팅C</option>
+          <option value="마케팅J" class="Bussiness_second">마케팅J</option>
+          <option value="마케팅M" class="Bussiness_second">마케팅M</option>
+          <option value="마케팅R" class="Bussiness_second">마케팅R</option>
+          <option value="마케팅T" class="Bussiness_second">마케팅T</option>
+          <option value="중국Q" class="Bussiness_second">중국Q</option>
+          <option value="중국U" class="Bussiness_second">중국U</option>
+          <option value="회계A" class="Bussiness_second">회계A</option>
+          <option value="회계B" class="Bussiness_second">회계B</option>
+          <option value="회계C" class="Bussiness_second">회계C</option>
           <option
-            value="HotelAirlin-Service&Tourism_12"
+            value="글로벌관광"
             class="HotelAirlin-Service&Tourism_first HotelAirlin-Service&Tourism_second"
           >
             글로벌관광
           </option>
           <option
-            value="HotelAirlin-Service&Tourism_12"
+            value="한국어관광A"
             class="HotelAirlin-Service&Tourism_first HotelAirlin-Service&Tourism_second"
           >
             한국어관광A
           </option>
-          <option
-            value="HotelAirlin-Service&Tourism_1"
-            class="HotelAirlin-Service&Tourism_first"
-          >
+          <option value="한국어관광B" class="HotelAirlin-Service&Tourism_first">
             한국어관광B
           </option>
           <option
-            value="HotelAirlin-Service&Tourism_12"
+            value="의료관광코디네이터"
             class="HotelAirlin-Service&Tourism_second"
           >
             의료관광코디네이터
           </option>
           <option
-            value="HotelAirlin-Service&Tourism_12"
+            value="일본관광서비스A"
             class="HotelAirlin-Service&Tourism_second"
           >
             일본관광서비스A
           </option>
           <option
-            value="HotelAirlin-Service&Tourism_12"
+            value="일본관광서비스B"
             class="HotelAirlin-Service&Tourism_second"
           >
             일본관광서비스B
           </option>
           <option
-            value="HotelAirlin-Service&Tourism_12"
+            value="중국관광서비스"
             class="HotelAirlin-Service&Tourism_second"
           >
             중국관광서비스
           </option>
-          <option
-            value="HotelAirlin-Service&Tourism_12"
-            class="HotelAirlin-Service&Tourism_second"
-          >
+          <option value="특급호텔" class="HotelAirlin-Service&Tourism_second">
             특급호텔
           </option>
-          <option
-            value="HotelAirlin-Service&Tourism_12"
-            class="HotelAirlin-Service&Tourism_second"
-          >
+          <option value="항공서비스" class="HotelAirlin-Service&Tourism_second">
             항공서비스
           </option>
           <option
-            value="HotelAirlin-Service&Tourism_12"
+            value="항공에어부산"
             class="HotelAirlin-Service&Tourism_second"
           >
             항공에어부산
           </option>
           <option
-            value="HotelAirlin-Service&Tourism_12"
+            value="호텔외식아웃백"
             class="HotelAirlin-Service&Tourism_second"
           >
             호텔외식아웃백
           </option>
-          <option
-            value="HotelAirlin-Service&Tourism_12"
-            class="HotelAirlin-Service&Tourism_second"
-          >
+          <option value="호텔카지노" class="HotelAirlin-Service&Tourism_second">
             호텔카지노
           </option>
-          <option value="Military_1" class="Military_first">군사B</option>
-          <option value="Military_2" class="Military_second">국방A</option>
-          <option value="Military_2" class="Military_second">국방B</option>
-          <option value="Military_2" class="Military_second">군사A</option>
-          <option value="Military_2" class="Military_second">의무A</option>
-          <option value="Military_2" class="Military_second">전투A</option>
-          <option value="Military_2" class="Military_second">항공A</option>
-          <option value="Drone-Avionics_2" class="Drone-Avionics_second">
-            드론
-          </option>
+          <option value="군사B" class="Military_first">군사B</option>
+          <option value="국방A" class="Military_second">국방A</option>
+          <option value="국방B" class="Military_second">국방B</option>
+          <option value="군사A" class="Military_second">군사A</option>
+          <option value="의무A" class="Military_second">의무A</option>
+          <option value="전투A" class="Military_second">전투A</option>
+          <option value="항공A" class="Military_second">항공A</option>
+          <option value="드론" class="Drone-Avionics_second">드론</option>
         </select>
 
         <!-- <label>Interests:</label>
@@ -921,6 +760,5 @@
     <script src="/js/chained.js"></script>
 
     <script src="/js/sign-up.js"></script>
-
   </body>
 </html>

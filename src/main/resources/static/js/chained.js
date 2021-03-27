@@ -1,2 +1,2 @@
-$("#grade").chained("#department");
-$("#class").chained("#grade");
+$("#user_grade").chained("#user_dept");
+$("#user_class").chained("#user_grade");

@@ -16,9 +16,6 @@ let signUp = {
       user_postcode: $("#postcode").val(),
       user_addr: $("#user_addr").val(),
       user_addr_details: $("#user_addr_details").val(),
-      user_dept: $("#user_dept").val(), //계열
-      user_grade: $("#user_grade").val(), //학년
-      user_class: $("#user_class").val(), //반
       role: $("#role").val()
     };
 
@@ -28,7 +25,7 @@ let signUp = {
 
     $.ajax({
       type: "POST",
-      url: "/sigUp/student",
+      url: "/sigUp/counselor",
       data: JSON.stringify(userData),
       contentType: "application/json; charset=utf-8",
       dataType: "json",

@@ -28,7 +28,7 @@ let signUp = {
 
     $.ajax({
       type: "POST",
-      url: "/sigUp/student",
+      url: "/sigUp/professor",
       data: JSON.stringify(userData),
       contentType: "application/json; charset=utf-8",
       dataType: "json",

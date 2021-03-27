@@ -1,6 +1,7 @@
 let signUp = {
   init: function () {
     $("#submit").on("click", () => {
+      alert("sign-up.js실행");
       this.save();
     });
   },
@@ -12,35 +13,28 @@ let signUp = {
       user_name: $("#user_name").val(),
       user_email: $("#user_email").val(),
       user_ph: $("#user_ph").val(),
-      etp_post: $("#postcode").val(),
-      etp_addr: $("#etp_addr").val(),
-      etp_detail_addr: $("#etp_detail_addr").val(),
-      etp_name: $("#etp_name").val(),
-      etp_num: $("#etp_num").val(),
-      etp_ceo_name: $("#etp_ceo_name").val(),
-      etp_ph: $("#etp_ph").var(),
-      etp_fx: $("#etp_px").val(),
-      etp_home: $("#etp_home").val(),
-      etp_contents: $("#etp_contents").val(),
-      etp_year: $("#etp_year").val(),
-      etp_member: $("#etp_member").val(),
-      etp_Sector: $("#etp_Sector").val(),
+      user_postcode: $("#postcode").val(),
+      user_addr: $("#user_addr").val(),
+      user_addr_details: $("#user_addr_details").val(),
+      user_job: $("user_job").val(),
       role: $("#role").val(),
     };
 
-    console.log(userData);
+    alert("userdate 전송 ! " + JSON.stringify(userData));
+    console.log(JSON.stringify(userData));
+    alert(JSON.stringify(userData));
 
     $.ajax({
       type: "POST",
-      url: "/sigUp/enterprise",
+      url: "/sigUp/mentor",
       data: JSON.stringify(userData),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
     })
       .done(function (response) {
-        alert("승인 요청 되었습니다.");
+        alert("회원가입이 완료되었습니다");
 
-        location.href = "/index";
+        location.href = "/";
       })
       .fail(function (err) {
         alert("회원가입을 실패하였습니다.");
@@ -49,4 +43,4 @@ let signUp = {
   },
 };
 
-index.init();
+signUp.init();
