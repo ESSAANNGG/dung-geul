@@ -17,9 +17,11 @@ public class AuthMemberDTO extends User {
 
     private String user_pw;
 
-    private int user_ph;
+    private String user_ph;
 
     private String user_addr;
+
+    private String user_addr_details;
 
     private String user_email;
 

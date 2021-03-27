@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../static/css/login.css" />
+    <link rel="stylesheet" href="/css/login.css" />
     <style>
       body {
-        background-image: url("../../static/img/back.jpg");
+        background-image: url("/img/back.jpg");
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -17,13 +17,13 @@
   <body>
     <div class="container" id="container">
       <div class="form-container sign-in-container">
-        <form action="#">
-          <a href="#"><img src="../static/img/가로조합_국문_영문.jpg"></a>
+        <form action="/loginProc" method="post">
+          <a href="#"><img src="/img/가로조합_국문_영문.jpg"</a>
           <h1>LOGIN</h1>
           <span>로그인을 해 주세요</span>
-          <input type="ID" placeholder="ID" required />
-          <input type="password" placeholder="Password" required />
-          <a href="../forgot/forgot.html">아이디/비밀번호 찾기</a>
+          <input type="ID" placeholder="ID" name="username" required />
+          <input type="password" placeholder="Password" name="password" required />
+          <a href="/forgot/forgot.html">아이디/비밀번호 찾기</a>
           <button>로그인</button>
         </form>
       </div>
@@ -32,7 +32,9 @@
           <div class="overlay-panel overlay-right">
             <h1>기업 회원이라면?</h1>
             <p>채용 공고 등록하러 가기</p>
-              <button class="ghost" id="signUp"><a href="../sign-up/user_classification.html">가입하기</a></button>
+            <a href="/sign-up/user_classification.html">
+              <button class="ghost" id="signUp">가입하기</button>
+            </a>
           </div>
         </div>
       </div>

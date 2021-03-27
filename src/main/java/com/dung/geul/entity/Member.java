@@ -35,16 +35,25 @@ public class Member extends BaseEntity {
     private String user_pw;
 
     @Column(length = 11, nullable = false)
-    private int user_ph;
+    private String user_ph;
+
+    @Column(length = 120, nullable = false)
+    private String user_postcode;
 
     @Column(length = 120, nullable = false)
     private String user_addr;
+
+    @Column(length = 120)
+    private String user_addr_details;
 
     @Column(length = 50, nullable = false, unique = true)
     private String user_email;
 
     @Column(length = 50)
     private String user_dept;  //교직원 부서, 교수 소속계열, 학생소속계열
+
+    @Column(length = 50)
+    private String user_grade;
 
     @Column(length = 50)
     private String user_class; // 교수,학생 담당반

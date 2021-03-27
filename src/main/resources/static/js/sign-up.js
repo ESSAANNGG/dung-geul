@@ -1,12 +1,13 @@
 let signUp = {
   init: function () {
     $("#submit").on("click", () => {
+
+      alert("sign-up.js실행");
       this.save();
     });
   },
 
   save: function () {
-    alert("호출");
 
     let userData = {
       user_id: $("#user_id").val(),
@@ -16,20 +17,20 @@ let signUp = {
       user_ph: $("#user_ph").val(),
       user_postcode: $("#postcode").val(),
       user_addr: $("#user_addr").val(),
-      details: $("#details").val(),
-      extra_info: $("#extra_info").val(),
-      user_department: $("#department").val(),
-      user_grade: $("#grade").val(),
-      user_class: $("#class").val(),
-      user_job: $("#user_job").val(),
+      user_addr_details: $("#details").val(),
+      user_dept: $("#department").val(), //계열
+      user_grade: $("#grade").val(), //학년
+      user_class: $("#class").val(), //반
       role: $("#role").val(),
     };
 
-    console.log(userData);
+    alert("userdate 전송 ! " + JSON.stringify(userData));
+    console.log(JSON.stringify(userData));
+    alert(JSON.stringify(userData));
 
     $.ajax({
       type: "POST",
-      url: "/signUp/member",
+      url: "/sigUp/student",
       data: JSON.stringify(userData),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
@@ -37,7 +38,7 @@ let signUp = {
       .done(function (response) {
         alert("회원가입이 완료되었습니다");
 
-        location.href = "/index";
+        location.href = "/";
       })
       .fail(function (err) {
         alert("회원가입을 실패하였습니다.");
@@ -46,4 +47,4 @@ let signUp = {
   },
 };
 
-index.init();
+signUp.init();
