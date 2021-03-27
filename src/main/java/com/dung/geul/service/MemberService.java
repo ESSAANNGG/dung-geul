@@ -18,7 +18,9 @@ public interface MemberService {
                 .user_name(memberDTO.getUser_name())
                 .user_pw(pw)
                 .user_ph(memberDTO.getUser_ph())
+                .user_postcode(memberDTO.getUser_postcode())
                 .user_addr(memberDTO.getUser_addr())
+                .user_addr_details(memberDTO.getUser_addr_details())
                 .user_email(memberDTO.getUser_email())
                 .build();
 

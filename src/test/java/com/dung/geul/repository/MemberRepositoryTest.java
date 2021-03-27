@@ -21,7 +21,7 @@ public class MemberRepositoryTest {
                 .user_addr("user1Address")
                 .user_email("user2Email")
                 .user_name("user1Name")
-                .user_ph(01020635065)
+                .user_ph("01020635065")
                 .user_pw("1234")
                 .user_class("userClass")
                 .user_dept("userDept")
@@ -48,7 +48,7 @@ public class MemberRepositoryTest {
                 .user_id("userID")
                 .user_pw("1111")
                 .user_name("userName")
-                .user_ph(01011112222)
+                .user_ph("01011112222")
                 .user_email("user@email")
                 .user_addr("userAddress")
                 .user_dept("컴퓨터정보계열")
@@ -61,5 +61,11 @@ public class MemberRepositoryTest {
         memberRepository.save(member);
 
         System.out.println("회원 한명 추가 id : userID, pw : 1111");
+    }
+
+    @Test
+    public void memberSelectTest(){
+
+        System.out.println(memberRepository.findByIdWidthRole("member1ID"));
     }
 }

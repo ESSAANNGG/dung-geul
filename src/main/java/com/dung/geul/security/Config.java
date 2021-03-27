@@ -31,10 +31,12 @@ public class Config extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().permitAll();
 
+        http.csrf().disable();
+
         // 로그인 처리 지정하기
         http.formLogin().loginPage("/login")            // controller mapping
                 .loginProcessingUrl("/loginProc")
-                .defaultSuccessUrl("/index");
+                .defaultSuccessUrl("/");
         //http.rememberMe().tokenValiditySeconds(60*60*7).userDetailsService(principalDatail);
 
     }
