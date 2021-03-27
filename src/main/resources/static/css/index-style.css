@@ -103,9 +103,12 @@ a {
 
 /* main */
 main {
-  background-image: url("../../static/img/background.png");
+  background-image: url("/img/mainback2.jpg");
   width: 100%;
-  height: 1000px;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   margin: 0 auto;
   padding-bottom: 50px;
   display: flex;
@@ -118,18 +121,19 @@ main {
 
 .intro {
   margin: auto;
-  padding-top: 80px;
+  padding-top: 30px;
   width: 446px;
   height: 360px;
   z-index: -1;
   position: relative;
+  opacity: 0.8;
 }
 
 .intro > h2,
 h1,
 h4 {
   text-align: center;
-  color: #5d5c5a;
+  color: black;
 }
 .intro > h2 {
   font-weight: var(--weight-bold);
@@ -163,20 +167,20 @@ h4 {
 }
 
 .up > div {
-  margin: 0px 10px;
-  width: 262px;
-  height: 347px;
-  border: 1px solid #ddd;
+  margin: 0px;
+  width: 190px;
+  height: 170px;
+  
   position: relative;
   padding-top: 30px;
   text-align: center;
 }
 
 .down > div {
-  margin: 0px 10px;
-  width: 262px;
-  height: 347px;
-  border: 1px solid #ddd;
+ margin: 0px;
+  width: 190px;
+  height: 170px;
+  
   position: relative;
   padding-top: 30px;
   text-align: center;
@@ -207,7 +211,7 @@ h5 {
   display: flex;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 238, 0, 0.815);
   position: absolute;
   top: 0;
   left: 0;
@@ -218,14 +222,30 @@ h5 {
   flex-direction: column;
   align-items: center;
 }
+.quick-menu__carrerTest,
+.quick-menu__carrerTest a {
+  background-color: rgba(68, 65, 65, 0.781);
+}
+
+.quick-menu__mentoring,
+.quick-menu__mentoring a {
+  background-color: rgba(68, 65, 65, 0.781);
+}
 
 .quick-menu__counseling,
 .quick-menu__counseling a {
-  background-color: #aa47bce3;
+background-color: #545e60e8;
 }
 
 .quick-menu__counseling__content {
   padding-top: 60px;
+}
+
+.quick-menu__mentoring:hover .quick-menu__mentoring__content {
+  opacity: 1;
+}
+.quick-menu__carrerTest:hover .quick-menu__carrerTest__content {
+  opacity: 1;
 }
 
 .quick-menu__counseling:hover .quick-menu__counseling__content {
@@ -234,7 +254,7 @@ h5 {
 
 .quick-menu__program,
 .quick-menu__program a {
-  background-color: #64b5f6;
+  background-color: #545e60e8
 }
 .quick-menu__program__content {
   padding-top: 60px;
@@ -246,7 +266,7 @@ h5 {
 
 .quick-menu__application,
 .quick-menu__application a {
-  background-color: #4dd0e1e7;
+  background-color: rgba(68, 65, 65, 0.781);;
 }
 
 .quick-menu__application__content {
@@ -259,7 +279,7 @@ h5 {
 
 .quick-menu__job-opening,
 .quick-menu__job-opening a {
-  background-color: #aed581e8;
+  background-color: #545e60e8;
 }
 
 .quick-menu__job-opening__content {
@@ -284,13 +304,13 @@ h5 {
 /* 227 */
 @media screen and (max-width: 1142px) {
   .up > div {
-    width: 200px;
+    width: 190px;
   }
 }
 
 @media screen and (max-width: 1142px) {
   .down > div {
-    width: 200px;
+    width: 190px;
   }
 }
 
@@ -305,17 +325,27 @@ h5 {
   }
 
   .up > div {
-    margin: 10px 5px;
-    width: 262px;
-    height: 220px;
+    margin: 0px;
+    width: 190px;
+   height: 150px;
+   padding-top:15px;
   }
 
   .down > div {
-    margin: 10px 5px;
-    width: 262px;
-    height: 220px;
+    margin: 0px;
+    width: 190px;
+  height: 150px;
+  padding-top:15px;
   }
+  .quick-menu__mentoring,
+.quick-menu__mentoring a {
+  background-color: #545e60e8;
+}
 
+.quick-menu__program,
+.quick-menu__program a {
+  background-color: rgba(68, 65, 65, 0.781);
+}
   .quick-menu__counseling__content,
   .quick-menu__program__content {
     padding-top: 10px;
@@ -327,12 +357,17 @@ h5 {
 }
 
 @media screen and (max-width: 575px) {
+  
+  .quick-menu {
+    
+  }
+  }
   .up > div {
-    width: 220px;
+    width: 190px;
   }
 
   .down > div {
-    width: 220px;
+    width: 190px;
   }
 }
 

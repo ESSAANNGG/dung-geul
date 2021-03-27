@@ -16,132 +16,171 @@
     <title>main</title>
   </head>
   <body>
+    <navbar>
+      <div class="nav">
+        <ul class="dep1">
+          <li class="logo">
+            <a href="#">영진전문대학교</a>
+          </li>
+          <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+            <a href="#">진로설계</a>
+            <ul class="dep2" onmouseover="nav_on()">
+              <li><a href="#">진로심리검사</a></li>
+              <li><a href="#">직업정보</a></li>
+            </ul>
+          </li>
+          <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+            <a href="#">직무역량강화</a>
+            <ul class="dep2" onmouseover="nav_on()">
+              <li><a href="#">지원프로그램</a></li>
+              <li><a href="#">자격증/수료증 관리</a></li>
+              <li><a href="#">백호마일리지</a></li>
+            </ul>
+          </li>
+          <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+            <a href="#">구직역량강화</a>
+            <ul class="dep2" onmouseover="nav_on()">
+              <li><a href="#">이력서/자소서 tip!</a></li>
+              <li><a href="#">이력서/자소서 등록</a></li>
+              <li><a href="#">온라인 멘토링</a></li>
+              <li><a href="#">모의면접</a></li>
+            </ul>
+          </li>
+          <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+            <a href="#">구직서비스</a>
+            <ul class="dep2" onmouseover="nav_on()">
+              <li><a href="#">채용정보</a></li>
+              <li><a href="#">채용등록</a></li>
+              <li><a href="#">입사지원관리</a></li>
+            </ul>
+          </li>
+          <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+            <a href="#">상담관리</a>
+            <ul class="dep2" onmouseover="nav_on()">
+              <li><a href="#">허허</a></li>
+            </ul>
+          </li>
+          <li class="login">
+            <a href="/login">로그인</a>
+          </li>
+          <li class="join">
+            <a href="sign-up">회원가입</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav2">
+        <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
+      </div>
+    </navbar>
     <main>
-      <navbar>
-        <div class="nav">
-          <ul class="dep1">
-            <li class="logo">
-              <a href="#">영진전문대학교</a>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">진로설계</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">진로심리검사</a></li>
-                <li><a href="#">직업정보</a></li>
-              </ul>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">직무역량강화</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">지원프로그램</a></li>
-                <li><a href="#">자격증/수료증 관리</a></li>
-                <li><a href="#">백호마일리지</a></li>
-              </ul>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">구직역량강화</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">이력서/자소서 tip!</a></li>
-                <li><a href="#">이력서/자소서 등록</a></li>
-                <li><a href="#">온라인 멘토링</a></li>
-                <li><a href="#">모의면접</a></li>
-              </ul>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">구직서비스</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">채용정보</a></li>
-                <li><a href="#">채용등록</a></li>
-                <li><a href="#">입사지원관리</a></li>
-              </ul>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">상담관리</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">허허</a></li>
-              </ul>
-            </li>
-            <li class="login">
-              <a href="/login">로그인</a>
-            </li>
-            <li class="join">
-              <a href="sign-up">회원가입</a>
-            </li>
-          </ul>
-        </div>
-        <div class="nav2">
-          <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
-        </div>
-      </navbar>
-
       <div class="intro">
         <h2>영진전문대학은 취업의 격이 다릅니다.</h2>
         <h1 class="intro_center">취업정보센터</h1>
-        <h4>YEUNGJIN UNIVERSITY JOP CENTER</h4>
+        <!-- <h4>YEUNGJIN UNIVERSITY JOP CENTER</h4> -->
       </div>
       <div class="quick-menu">
         <div class="up">
-          <div class="quick-menu__counseling">
-            <p>Counseling / Test</p>
-            <h2>상담/검사</h2>
-            <h5>
-              각종 상담과 심리검사를 <br />
-              신청할 수 있습니다.
-            </h5>
-            <img src="../../static/img/1.PNG" alt="" />
-            <div class="hide quick-menu__counseling__content">
-              <a href="#">진로 상담</a>
+          <div class="quick-menu__carrerTest">
+            <p>Career Test</p>
+            <h2>직업심리검사</h2>
+            <!-- <h5>
+              워크넷에서 제공하는 <br />
+              테스트를 할 수 있습니다.
+            </h5> -->
+            <a href="#">
+              <div class="hide quick-menu__carrerTest__content">
+                <!-- <a href="#">진로 상담</a>
               <a href="#">취업 상담</a>
               <a href="#">창업 상담</a>
-              <a href="#">심리 검사</a>
-            </div>
+              <a href="#">심리 검사</a> -->
+              </div>
+            </a>
+          </div>
+
+          <div class="quick-menu__counseling">
+            <p>Counseling</p>
+            <h2>상담신청</h2>
+            <!-- <h5>
+              전문 상담사를 통한 <br />
+              상담 서비스
+            </h5> -->
+            <a href="#">
+              <div class="hide quick-menu__counseling__content">
+                <!-- <a href="#">진로 지원</a>
+              <a href="#">취업 지원</a>
+              <a href="#">창업 지원</a>
+              <a href="#">멘토링</a> -->
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="up">
+          <div class="quick-menu__mentoring">
+            <p>Mentoring</p>
+            <h2>온라인 멘토링</h2>
+            <!-- <h5>
+              각종 상담과 심리검사를 <br />
+              신청할 수 있습니다.
+            </h5> -->
+            <a href="#">
+              <div class="hide quick-menu__mentoring__content">
+                <!-- <a href="#">진로 상담</a>
+              <a href="#">취업 상담</a>
+              <a href="#">창업 상담</a>
+              <a href="#">심리 검사</a> -->
+              </div>
+            </a>
           </div>
 
           <div class="quick-menu__program">
             <p>Program</p>
-            <h2>프로그램</h2>
-            <h5>
+            <h2>지원 프로그램</h2>
+            <!-- <h5>
               취업정보센터에서 준비한 <br />
               프로그램을 안내합니다.
-            </h5>
-            <img src="../../static/img/1.PNG" alt="" />
-            <div class="hide quick-menu__program__content">
-              <a href="#">진로 지원</a>
+            </h5> -->
+            <a href="#">
+              <div class="hide quick-menu__program__content">
+                <!-- <a href="#">진로 지원</a>
               <a href="#">취업 지원</a>
               <a href="#">창업 지원</a>
-              <a href="#">멘토링</a>
-            </div>
+              <a href="#">멘토링</a> -->
+              </div>
+            </a>
           </div>
         </div>
         <div class="down">
           <div class="quick-menu__application">
             <p>Application</p>
-            <h2>지원서</h2>
-            <h5>
+
+            <h2>지원서 작성</h2>
+            <!-- <h5>
               지원서의 작성방법과 <br />
               작성공간을 제공합니다.
-            </h5>
-            <img src="../../static/img/1.PNG" alt="" />
-            <div class="hide quick-menu__application__content">
-              <a href="#">이력서 작성</a>
+            </h5> -->
+            <a href="#">
+              <div class="hide quick-menu__application__content">
+                <!-- <a href="#">이력서 작성</a>
               <a href="#">자소서 작성</a>
-              <a href="#">작성방법</a>
-            </div>
+              <a href="#">작성방법</a> -->
+              </div>
+            </a>
           </div>
           <!-- 입사 지원 -->
           <div class="quick-menu__job-opening">
             <p>Apply</p>
             <h2>입사 지원</h2>
-            <h5>
+            <!-- <h5>
               채용정보를 제공하고 <br />
               입사지원이 가능합니다.
-            </h5>
-            <img src="../../static/img/1.PNG" alt="" />
-            <div class="hide quick-menu__job-opening__content">
-              <a href="#">교내채용정보</a>
+            </h5> -->
+            <a href="#">
+              <div class="hide quick-menu__job-opening__content">
+                <!-- <a href="#">교내채용정보</a>
               <a href="#">교외채용정보</a>
-              <a href="#">입사지원관리</a>
-            </div>
+              <a href="#">입사지원관리</a> -->
+              </div>
+            </a>
           </div>
         </div>
       </div>
