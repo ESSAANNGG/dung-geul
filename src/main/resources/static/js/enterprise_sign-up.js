@@ -12,20 +12,20 @@ let signUp = {
       user_name: $("#user_name").val(),
       user_email: $("#user_email").val(),
       user_ph: $("#user_ph").val(),
-      etp_post: $("#postcode").val(),
-      etp_addr: $("#etp_addr").val(),
-      etp_detail_addr: $("#etp_detail_addr").val(),
       etp_name: $("#etp_name").val(),
       etp_num: $("#etp_num").val(),
       etp_ceo_name: $("#etp_ceo_name").val(),
       etp_ph: $("#etp_ph").var(),
       etp_fx: $("#etp_px").val(),
+      etp_post: $("#postcode").val(),
+      etp_addr: $("#etp_addr").val(),
+      etp_detail_addr: $("#etp_detail_addr").val(),
       etp_home: $("#etp_home").val(),
       etp_contents: $("#etp_contents").val(),
       etp_year: $("#etp_year").val(),
       etp_member: $("#etp_member").val(),
       etp_Sector: $("#etp_Sector").val(),
-      role: $("#role").val(),
+      role: $("#role").val()
     };
 
     console.log(userData);
