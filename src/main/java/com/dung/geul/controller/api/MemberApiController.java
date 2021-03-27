@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ApiJoinController {
+public class MemberApiController {
 
     @Autowired
     private MemberServiceImpl memberService;
