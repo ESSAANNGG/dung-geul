@@ -68,4 +68,5 @@ public class MemberRepositoryTest {
 
         System.out.println(memberRepository.findByIdWidthRole("member1ID"));
     }
+
 }
