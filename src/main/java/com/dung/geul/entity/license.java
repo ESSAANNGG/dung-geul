@@ -32,7 +32,11 @@ public class license implements Serializable {
     private String lic_name; // 자격증 이름
 
     @Column(length = 4, nullable = false)
-    private LocalDate lic_date; // 취득일
+    private LocalDate lic_acquisition_date; // 취득일
+
+    // 유효기간
+    private LocalDate lic_effective_date;   // 유효일
+    private LocalDate lic_due_date; // 마감일
 
     private String lic_file; // 첨부파일
 

@@ -15,6 +15,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 public class Apply implements Serializable {
+    // 입사지원테이블
+
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ap_em_num")

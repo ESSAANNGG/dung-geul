@@ -32,6 +32,7 @@ public interface MemberService {
         // 가입자별로 role이랑 추가 칼럼 값 주기
         if(role.equals("STUDENT")){
             member.setUser_dept(memberDTO.getUser_dept());
+            member.setUser_grade(memberDTO.getUser_grade());
             member.setUser_class(memberDTO.getUser_class());
 
             member.addMemberRole(MemberRole.STUDENT);
@@ -57,7 +58,7 @@ public interface MemberService {
 
         // 기업 entity 객체 생성
         Enterprise enterprise = Enterprise.builder()
-                .member(member)
+                .user_id(member)
                 .etp_num(enterpriseDTO.getEtp_num())
                 .etp_name(enterpriseDTO.getEtp_name())
                 .etp_ceo_name(enterpriseDTO.getEtp_ceo_name())

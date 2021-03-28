@@ -20,7 +20,8 @@ import java.time.LocalDate;
 public class Carrer extends BaseEntity {
 
     @Id
-    private String cr_name; //자격증 등록번호
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String cr_name; // 경력 번호
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
@@ -29,9 +30,19 @@ public class Carrer extends BaseEntity {
 
     private String cr_task; // 담당업무
 
+    private String cr_position; //직위
+
+
+    // 근무일자
     @Column(name = "cr_em")
     private LocalDate cr_employment; //입사 일자
 
     @Column(name = "cr_res")
     private LocalDate cr_resignation; //퇴사 일자
+
+
+
+    private String reason_resign;   // 퇴사 사유
+
+    private int Salary; // 연봉
 }

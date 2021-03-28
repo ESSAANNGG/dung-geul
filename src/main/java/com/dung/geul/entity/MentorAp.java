@@ -14,7 +14,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Getter
 @Table(name = "mentor_ap")
-public class Mentor_ap implements Serializable {
+public class MentorAp implements Serializable {
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
