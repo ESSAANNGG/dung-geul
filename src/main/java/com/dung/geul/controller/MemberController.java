@@ -38,4 +38,24 @@ public class MemberController {
     public String professorSignUp(){
         return "/sign-up/professor_sign-up";
     }
+
+    @GetMapping("/mentor_sign-up")
+    public String mentorSignUp(){
+        return "/sign-up/mentor_sign-up";
+    }
+
+    @GetMapping("/enterprise_sign-up")
+    public String enterpriseSignUp(){
+        return "/sign-up/enterprise_sign-up";
+    }
+
+    @GetMapping("/counselor_sign-up")
+    public String counselorSignUp(){
+        return "/sign-up/counselor_sign-up";
+    }
+
+    @GetMapping("/forgot_find")
+    public String forgot(){
+        return "/forgot/forgot";
+    }
 }
