@@ -16,7 +16,7 @@ function menu_script_1(){
 
      
         menu[0].style.backgroundColor="#01b9ff";
-        sub[0].style.height="130px";
+        sub[0].style.height="170px";
         down[0].style.display="none";
         up[0].style.display="block";
 
@@ -182,11 +182,21 @@ function menu_script_4(){
 let main = document.getElementsByClassName("main");
 //  let main = document.querySelectorAll(".main");
 
-function main1(){
+//함수를 여러개 만들지않고 div아이디의 오른쪽 세문자만 추출해 case로 바꿀지 고민중
+function main1_1(){
     [...main].forEach(e=>e.style.display="none");
-    document.getElementById("main1").style.display="block";
+    document.getElementById("main1_1").style.display="block";
 }
-function main2(){
+function main1_2(){
     [...main].forEach(e=>e.style.display="none");
-    document.getElementById("main2").style.display="block";
+    document.getElementById("main1_2").style.display="block";
 }
+function main1_3(){
+    [...main].forEach(e=>e.style.display="none");
+    document.getElementById("main1_3").style.display="block";
+}
+function main1_4(){
+    [...main].forEach(e=>e.style.display="none");
+    document.getElementById("main1_4").style.display="block";
+}
+

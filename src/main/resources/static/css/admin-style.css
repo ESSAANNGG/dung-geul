@@ -96,17 +96,24 @@ input{
 
 
 
-#main2{
+#main1_2{
+    display:none;
+}
+#main1_3{
+    display:none;
+}
+#main1_4{
     display:none;
 }
 
+
+/* 따로 경로를 지정해주지 않은것은 main1_1(회원리스트)+a의 css */
 .main{
-    display:block;
+    display:inline-block;
     width:1685px;
     height:935px;
     padding:0px;
     background-color: #eeeeee;
-
 }
 .main-head{
     width:1685px;
@@ -127,8 +134,8 @@ input{
 }
 
 
-
-.main-guide{
+/* main박스의 검색구역 */
+.main-search{
     width:1600px;
     height:150px;
     margin: 50px auto 90px auto;
@@ -137,16 +144,16 @@ input{
     box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
     display:flex;
 }
-.main-guide-select{
+.main-search-c{
     width:1600px;
     margin:auto 0px;
 
 }
-.main-guide-c{
+.main-search-line{
     margin-bottom: 5px;
     display:flex;
 }
-.main-guide-c > h2{
+.main-search-line > h2{
     font-size:15px;
     width:150px;
     color:#585858;
@@ -162,10 +169,19 @@ input{
     border-radius:50%;
     background-color:#6d6d6d;
 }
-.main-guide-choese{
+.main-search-choose{
     height:100px;
     margin: auto;
     margin-right:30px;
+}
+.main-search-choose button{
+    margin:auto 3px; 
+    width:100px; 
+    height:100px; 
+    background-color:#07bad4;
+    color:white; 
+    font-size:16px; 
+    font-weight:bolder;
 }
 
 
@@ -233,13 +249,6 @@ input{
     width:150px;
 }
 
-/* function 실행코드 단축을위해 detail클래스를 따로둠 */
-.detailHead{
-    display:inline-block;
-    text-align:center;
-    width:70px;
-    margin:0px;
-}
 .detail{
     display:inline-block;
     text-align:center;
@@ -249,11 +258,10 @@ input{
 
 
 
-.btnside{
+.btnBottom{
     display: flex;
-    width:400px;
-    margin: 0 auto;
-    text-align:center;
+    width:1685px;
+    justify-content: center;
     font-size:25px;
 }
 .btnpage{
@@ -269,7 +277,7 @@ input{
 
 
 
-
+/* 상세보기 */
 .detailEnter{
     display:block;
     visibility:hidden;
@@ -297,3 +305,140 @@ input{
     /* box-shadow: 0px 0px 1px 1px rgb(192, 192, 192); */
 }
 
+
+/*main1_2 회원가입승인의 일괄 승인/삭제버튼 */
+/*main1_3 회원등급수정의 일괄 승인/삭제버튼 */
+.btnAllow{
+    display:inline-block;
+    position:absolute;
+    width:300px;
+    left:400px;
+    font-size:20px;
+    font-weight:300;
+    color:#585858;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.btnAllow button{
+    width:110px;
+    font-weight:bolder;
+}
+.btnAllow button:hover{
+    background-color:#07bad4;
+    color:white; 
+}
+
+
+
+/*main1_3 회원등급수정의 리스트 크기 조절,요청등급 추가*/
+#main1_3 .joindate{
+    width:150px;
+}
+#main1_3 .grade{
+    width:60px;
+}
+#main1_3 .req-grade{
+    display:inline-block;
+    width:80px;
+    text-align:center;
+}
+#main1_3 .detail{
+    width:120px;
+}
+
+
+
+/* main1_4 회원통계의 통계구역들 */
+.main-join-stat{
+    display:block;
+    width:1600px;
+    height:390px;
+    margin: 50px auto 50px auto;
+    background-color: #ffffff;
+    font-size:0px; /*graph와 level div의 여백공간 없애기*/
+    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
+}
+.main-join-head{
+    width:1600px;
+    height:60px;
+    margin:0px;
+    padding-left:3%;
+    background-color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0px 0.5px 1.5px 0px rgb(192, 192, 192);
+}
+.main-join-head > h6{
+    margin:0px;
+    line-height: 400%;
+    font-size:15px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    color:#585858;
+}
+.main-join-monthChart{
+    display:inline-block;
+    width:1200px;
+    height:330px;
+}
+#chartdiv {
+    width: 1200px;
+    height: 330px;
+    font-size:13px;
+  }
+
+
+
+.main-join-yearChart{
+    display:inline-block;
+    float:right;
+    width:390px;
+    height:330px;
+    margin:0px;
+    background-color:#363b3e;
+    color:rgb(192, 192, 192);
+    box-shadow: -2px -0.5px 0px 0.5px rgb(192, 192, 192);
+    overflow-y: scroll;
+}
+.main-join-yearChart-year::-webkit-scrollbar {
+    /* width: 0px;
+    background-color: #363b3e; */
+}
+.main-join-yearChart-year{
+    display:block;
+    height:65px;
+    margin:0px;
+    text-align: center;
+}
+.main-join-yearChart-year > h1{
+    margin:0px;
+    color:#ffffff;
+}
+
+
+
+
+
+.main-stat-lap{
+    display:block;
+    width:1600px;
+    height:330px;
+    margin:0 auto;
+    padding:0px;
+    background-color: #eeeeee;
+}
+.main-grade-stat{
+    display:inline-block;
+    width:780px;
+    height:330px;
+    padding-left:60px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
+}
+.main-major-stat{
+    display:inline-block;
+    float:right;
+    width:780px;
+    height:330px;
+    padding-left:60px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
+}
