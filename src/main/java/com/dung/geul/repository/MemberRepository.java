@@ -18,8 +18,11 @@ public interface MemberRepository extends JpaRepository<Member, String> {
 
     // 이메일/아이디 체크 만들기
 
+    //findBy : 규칙, Email : 문법 => select * from member where email = ?
+    // ? 자리엔 파라미터로 넘어온 user_email이 들어감
+
     //이메일 체크
     @Query("select m from Member m where m.user_email = :user_email")
-    Optional<Member> findByEmail(@Param("user_email") String user_email);
+    Optional<Member> findByUser_email(@Param("user_email") String user_email);
 
 }

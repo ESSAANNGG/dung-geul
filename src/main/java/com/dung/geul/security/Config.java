@@ -35,7 +35,7 @@ public class Config extends WebSecurityConfigurerAdapter {
 
         // 로그인 처리 지정하기
         http.formLogin().loginPage("/login")            // controller mapping
-                .loginProcessingUrl("/loginProc")
+                .loginProcessingUrl("/loginProc")       // loginProc 주소가 들어오면 springsecurity가 로그인을 대신 진행한다
                 .defaultSuccessUrl("/");
         //http.rememberMe().tokenValiditySeconds(60*60*7).userDetailsService(principalDatail);
 

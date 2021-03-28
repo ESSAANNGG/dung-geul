@@ -32,7 +32,7 @@ public class MemberRepositoryTest {
 
         memberRepository.save(member);
 
-        Optional<Member> result = memberRepository.findByEmail("user2Email");
+        Optional<Member> result = memberRepository.findByUser_email("user2Email");
 
         System.out.print("Member는     " + result.get());
 

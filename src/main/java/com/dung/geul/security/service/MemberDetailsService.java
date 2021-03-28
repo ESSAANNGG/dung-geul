@@ -17,9 +17,12 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+// 로그인 요청이 오면 시큐리티가 자동으로 UserDetailsService 타입으로 IoC되어있는
+// 클래스의 loadUserByUsername 함수를 실행함
+
 @Log4j2
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class MemberDetailsService implements UserDetailsService {
 
     // 로그인 서비스
@@ -32,19 +35,19 @@ public class MemberDetailsService implements UserDetailsService {
         log.info("진행 - MemberDetailsService loadUserByUsername의 username: " + username);
 
         // id로 찾은 member 객체를 담음
-        Optional<Member> result = memberRepository.findById(username);
+        Optional<Member> memberOptional = memberRepository.findByIdWidthRole(username);
 
-        if (result.isEmpty()) {
+        if (memberOptional.isEmpty()) {
             throw new UsernameNotFoundException("Check ID");
         }
 
-        Member member = result.get();
+        Member member = memberOptional.get();
 
-        System.out.println("결과확인 result : " + result);
-        System.out.println("결과확인 result.get() : " + result.get());
-        System.out.println("결과확인 member : " + member);
+        System.out.println("결과확인 memberOptional : " + memberOptional);
+        System.out.println("결과확인 memberOptional.get() : " + memberOptional.get());
+        System.out.println("결과확인 memberOptional : " + member);
 
-        log.info("진행 - MemberDetailsService loadUserByUsername의 result : " + result);
+        log.info("진행 - MemberDetailsService loadUserByUsername의 memberOptional : " + memberOptional);
 
         //Member를 UserDetails 타입으로 처리하기 위해 AuthMemberDTO 타입으로 변환
 
@@ -58,13 +61,17 @@ public class MemberDetailsService implements UserDetailsService {
         authMemberDTO.setUser_name(member.getUser_name());
         authMemberDTO.setUser_email(member.getUser_email());
         authMemberDTO.setUser_ph(member.getUser_ph());
+        authMemberDTO.setUser_postcode(member.getUser_postcode());
         authMemberDTO.setUser_addr(member.getUser_addr());
+        authMemberDTO.setUser_addr_details(member.getUser_addr_details());
+
 
         // 멤버 권한 별 추가 정보 기입
 
         if (member.getRoleSet().contains(MemberRole.STUDENT)) {
 
             authMemberDTO.setUser_dept(member.getUser_dept());
+            authMemberDTO.setUser_grade(member.getUser_grade());
             authMemberDTO.setUser_class(member.getUser_class());
 
         } else if (member.getRoleSet().contains(MemberRole.MENTO)) {
