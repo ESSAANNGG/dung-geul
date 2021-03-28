@@ -34,5 +34,8 @@ public class MemberController {
         return "/sign-up/student_sign-up";
     }
 
-
+    @GetMapping("/professor_sign-up")
+    public String professorSignUp(){
+        return "/sign-up/professor_sign-up";
+    }
 }
