@@ -19,9 +19,12 @@ import java.time.LocalDateTime;
 public class Enterprise implements Serializable{
 
         @Id
-        @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "user_id")
-        private Member user_id;
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private String etp_id;
+
+        @OneToOne
+        @JoinColumn(name="member")
+        private Member member;
 
         @Column(length = 10, nullable = false)
         private String etp_num; //기업명
