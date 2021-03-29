@@ -1,0 +1,77 @@
+h2, h4, body, ul, li {
+    margin: 0; padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+.menu {
+    float: left;
+    width: 250px;
+}
+#bar h2 {
+    line-height: 100px;
+    margin: 0; padding: 0;
+    background-color: #1a508b;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+#bar > ul > li > h4 {
+    background-color: #203b58;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+}
+#bar > ul {
+    margin: 0 0 60px 0;
+}
+#bar > ul > li a:hover, #bar > ul > li > a.on {
+    background: rgba(0, 0,0, 0.2);
+    border-bottom: 1px solid rgba(0, 0,0, 0.1);
+    color: #fff;
+}
+#bar > ul > li > a {
+    padding: 50px;
+    letter-spacing: -5px;
+    word-break: keep-all;
+    line-height: 1.5;
+}
+#bar > ul > li > ul {
+    margin: 0; padding: 30px 0;
+    background: rgba(190, 190, 190, 0.486);
+    border-bottom: 1px solid rgba(0, 0,0, 0.1);
+    border-top: 2px solid #1a508b;
+}
+#bar ul ul a {
+    padding: 3px 15px;
+    border: none;
+    font-size: 14px;
+}
+#bar li li a {
+    padding: 5px 20px;
+    border: none;
+    font-size: 16px;
+    color: #555;
+
+}
+a, a:active {
+    color: #000;
+    text-decoration: none;
+}
+#bar a {
+    display: block;
+    position: relative;
+}
+ul {
+    line-height: 1.8;
+}
+ul, li {
+    list-style: none;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}

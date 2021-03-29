@@ -22,21 +22,15 @@ public class Config extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-
-        // 권한별 접근 지정하기 (permitAll = 권한 확인 안함)
-        http.authorizeRequests()
-                .anyRequest().permitAll();
-
-        http.csrf().disable();
-
-        // 로그인 처리 지정하기
-        http.formLogin().loginPage("/login")            // controller mapping
-                .loginProcessingUrl("/loginProc")       // loginProc 주소가 들어오면 springsecurity가 로그인을 대신 진행한다
-                .defaultSuccessUrl("/");
+        http.csrf().disable()
+                .authorizeRequests()
+                .anyRequest().permitAll()
+                .and()
+                .formLogin().loginPage("/login/login")
+                .loginProcessingUrl("/loginProc")
+                .defaultSuccessUrl("/index");
         //http.rememberMe().tokenValiditySeconds(60*60*7).userDetailsService(principalDatail);
 
     }
