@@ -20,9 +20,8 @@ public class Mentoring implements Serializable {
 
     @Id
     @Column(name = "mentor_num")
-    private Long num;
+    private Long mentoring_id;
 
-    @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mentor_user_id" ,foreignKey = @ForeignKey(name="metor_user_id_pfk"))
     private Member user_id;

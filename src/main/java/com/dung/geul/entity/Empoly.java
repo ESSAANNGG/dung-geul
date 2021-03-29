@@ -20,6 +20,7 @@ import java.time.LocalDate;
         @AttributeOverride(name = "modDate", column = @Column(name = "em_modDate"))
 })
 public class Empoly extends BaseEntity{
+    // 채용공고
     // baseEntity 추가 (채용공고 등록일, 수정일로 사용) - 정혜리
 
     @Id
@@ -45,7 +46,7 @@ public class Empoly extends BaseEntity{
 
     private LocalDate em_end_date;
 
-    @Column(length = 255, nullable = false)
+    @Column(nullable = false)
     private String em_file;
 
     @ManyToOne(fetch = FetchType.LAZY)

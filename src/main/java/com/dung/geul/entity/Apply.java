@@ -18,6 +18,9 @@ public class Apply implements Serializable {
     // 입사지원테이블
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long ap_id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ap_em_num")
     private Empoly em_num; // Empoly 앞에 패키지명이 붙어있길래 지움 - 정혜리

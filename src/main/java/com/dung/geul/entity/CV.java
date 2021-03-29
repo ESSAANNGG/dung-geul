@@ -18,41 +18,55 @@ import java.time.LocalDate;
 public class CV  implements Serializable{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long cv_id;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cv_user_id" ,foreignKey = @ForeignKey(name="cv_user_id_fk"))
     private Member user_id;
 
-    private String user_name_chinese;
+    private String user_name;
 
-    private LocalDate brthdate;
+    private int user_age;
 
-    @Column(length = 1, nullable = false)
-    private String cv_mil; // 병력사항 (군필, 미필, 면제)
+    private String user_hp;
 
-    private String cv_mil_exemption;    //면제 사유
+    private String user_email;
 
-    private String cv_mil_os;  // 병과
+//    private String user_name_chinese;
 
-    private String cv_mil_rank;  // 계급
+    private LocalDate brth;
 
-    private String cv_mil_division; //군별
-
-    private String cv_mil_date;     // 복무기간
-
-
-    @Column(length = 1, nullable = false)
-    private String cv_disability; //장애여부
-
-    private String cv_disability_type;  // 장애 종류
-
-    private String cv_disability_grade; // 장애 등급
-
-
-    private String cv_fam_position;    // 가족사항(몇남 몇녀 중 몇째)
-
-    private String cv_hobby;    // 취미
-
-    private String cv_specialty;    // 특기
+//    // 병역 시작
+//    @Column(length = 1, nullable = false)
+//    private String cv_mil; // 병력사항 (군필, 미필, 면제)
+//
+//    private String cv_mil_exemption;    //면제 사유
+//
+//    private String cv_mil_os;  // 병과
+//
+//    private String cv_mil_rank;  // 계급
+//
+//    private String cv_mil_division; //군별
+//
+//    private String cv_mil_date;     // 복무기간
+//    // 병역 끝
+//
+//    // 우대사항 시작
+//    @Column(length = 1, nullable = false)
+//    private String cv_disability; //장애여부
+//
+//    private String cv_disability_type;  // 장애 종류
+//
+//    private String cv_disability_grade; // 장애 등급
+//    //우대사항 끝
+//
+//
+//    private String cv_fam_position;    // 가족사항(몇남 몇녀 중 몇째)
+//
+//    private String cv_hobby;    // 취미
+//
+//    private String cv_specialty;    // 특기
 
 //  엑셀파일에 없어서 뺌
 //    @Column(length = 1, nullable = false)

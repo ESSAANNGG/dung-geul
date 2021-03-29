@@ -30,7 +30,7 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().loginPage("/login/login")
                 .loginProcessingUrl("/loginProc")
-                .defaultSuccessUrl("/index");
+                .defaultSuccessUrl("/");
         //http.rememberMe().tokenValiditySeconds(60*60*7).userDetailsService(principalDatail);
 
     }
