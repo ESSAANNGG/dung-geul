@@ -27,15 +27,31 @@ public class CV  implements Serializable{
 
     private String user_name;
 
-    private int user_age;
+    private LocalDate birth;
 
     private String user_hp;
 
     private String user_email;
 
+    public int getAge(){
+
+        int currentYear = LocalDate.now().getYear();
+        int currentDay = LocalDate.now().getDayOfYear();
+
+        System.out.print("year : " + currentYear  + " day : " + currentDay);
+
+        System.out.println("birth : " + birth);
+
+        int age = currentYear - this.birth.getYear();
+
+        // 생일이 지났는지 안지났는지
+        if(currentDay < birth.getDayOfYear()) age--;
+
+        return age;
+    }
+
 //    private String user_name_chinese;
 
-    private LocalDate brth;
 
 //    // 병역 시작
 //    @Column(length = 1, nullable = false)

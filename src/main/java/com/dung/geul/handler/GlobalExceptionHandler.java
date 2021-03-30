@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(value = Exception.class)
-    public JoinResultPageDTO<String> HandleException(Exception e){
-
-//        model.addAttribute(
-//                new JoinResultPageDTO<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value())
-//        );
-
-        return new JoinResultPageDTO<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
-    }
+//    @ExceptionHandler(value = Exception.class)
+//    public JoinResultPageDTO<String> HandleException(Exception e){
+//
+////        model.addAttribute(
+////                new JoinResultPageDTO<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value())
+////        );
+//
+//        return new JoinResultPageDTO<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
+//    }
 }

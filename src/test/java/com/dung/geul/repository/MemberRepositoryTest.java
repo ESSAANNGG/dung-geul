@@ -64,6 +64,28 @@ public class MemberRepositoryTest {
     }
 
     @Test
+    public void insertCounselor(){
+
+        Member member = Member.builder()
+                .user_id("counselor1")
+                .user_pw("1111")
+                .user_name("상담사1")
+                .user_ph("01011112222")
+                .user_email("counselor@email")
+                .user_postcode("41521")
+                .user_addr("대구광역시 북구 복현로36길 32-13")
+                .user_addr_details("상세주소입니다아아")
+                .build();
+
+        member.addMemberRole(MemberRole.USER);
+        member.addMemberRole(MemberRole.COUNSELOR);
+
+        memberRepository.save(member);
+
+        System.out.println("회원 한명 추가 id : userID, pw : 1111");
+    }
+
+    @Test
     public void memberSelectTest(){
 
         System.out.println(memberRepository.findByIdWidthRole("member1ID"));

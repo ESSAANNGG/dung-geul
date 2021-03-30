@@ -36,11 +36,7 @@ let signUp = {
       .done(function (response) {
         alert("회원가입이 완료되었습니다");
 
-        location.href = "/";
-      })
-      .fail(function (err) {
-        alert("회원가입을 실패하였습니다.");
-        console.log(JSON.stringify(err));
+        location.href = '"'+ response +'"';
       });
   },
 };

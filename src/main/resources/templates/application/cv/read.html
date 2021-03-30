@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>이력서 조회 페이지</title>
+</head>
+<body>
+    <form action="/application/cv/modify">
+
+        <input type="hidden" name="user_id" id="user_id" th:value="${cv.getUser_id()}" readonly>
+
+        <!--인적사항 시작-->
+        성명(한글) : <input type="text" name="user_name" id="user_name" th:value="${cv.getUser_name()}" readonly>
+<!--        (한자) : <input type="text" name="name_china" id="name_china"> -->
+        <br>
+        <input type="text" name="user_brth" id="user_brth" th:value="${cv.getBirth()}" readonly> <br>
+        만 <input type="text" name="user_age" id="user_age" th:value="${age}" readonly>세   <br> <!--thymeleaf 쓸거임-->
+        HP: <input type="text" name="user_hp" id="user_hp" th:value="${cv.getUser_hp()}" readonly>  <br><!--이것도 값 member에서 넣게 바꿀거임-->
+        이메일: <input type="email" name="user_email" id="user_email" th:value="${cv.getUser_email()}" readonly> <br>
+        <!--인적사항 끝-->
+        <br><br>
+
+        <a th:href="@{/application/cv/modify(cv_id = ${cv.getCv_id()})}">수정하기</a>
+
+        <!--학력 시작-->
+<!--        학력사항<br>-->
+
+<!--        고등학교 <br>-->
+<!--        년도 : <input type="text" name="edc_date" id="high_edc_date">-->
+<!--        학교명 : <input type="text" name="edc_school" id="high_edc_school">-->
+<!--        학과 : <input type="text" name="edc_dept" id="high_edc_dept">-->
+<!--        졸업구분 :-->
+<!--        <input type="radio" name="high_edc_graduated" value="졸업"> 졸업-->
+<!--        <input type="radio" name="high_edc_graduated" value="졸업"> 중퇴-->
+
+<!--        평점 <input type="text" name="edc_gpa" id="edc_gpa">  /-->
+<!--        만점 <input type="text" name="edc_gpa" id="edc_ps">-->
+<!--        <br>-->
+
+<!--        전문대학교<br>-->
+<!--        년도 : <input type="text" name="college_edc_date" id="college_edc_date">-->
+<!--        학교명 : <input type="text" name="college_edc_school" id="college_edc_school">-->
+<!--        학과 : <input type="text" name="college_edc_dept" id="college_edc_dept">-->
+<!--        졸업구분 :-->
+<!--        <input type="radio" name="colg_edc_graduated" value="졸업"> 졸업-->
+<!--        <input type="radio" name="colg_edc_graduated" value="졸예"> 졸예-->
+<!--        <input type="radio" name="colg_edc_graduated" value="중퇴"> 중퇴-->
+
+<!--        <br>-->
+
+<!--        대학교<br>-->
+<!--        년도 : <input type="text" name="univ1_edc_date" id="univ1_edc_date">-->
+<!--        학교명 : <input type="text" name="univ1_edc_school" id="univ1_edc_school">-->
+<!--        학과 : <input type="text" name="univ1_edc_dept" id="univ1_edc_dept">-->
+<!--        졸업구분 :-->
+<!--        <input type="radio" name="univ2_edc_graduated" value="입학"> 입학-->
+<!--        <input type="radio" name="univ2_edc_graduated" value="편입"> 편입-->
+
+<!--        <br>-->
+
+<!--        대학교<br>-->
+<!--        년도 : <input type="text" name="univ2_edc_date" id="univ2_edc_date">-->
+<!--        학교명 : <input type="text" name="univ2_edc_school" id="univ2_edc_school">-->
+<!--        학과 : <input type="text" name="univ2_edc_dept" id="univ2_edc_dept">-->
+<!--        졸업구분 :-->
+<!--        <input type="radio" name="univ2_edc_graduated" value="졸업"> 졸업-->
+<!--        <input type="radio" name="univ2_edc_graduated" value="졸예"> 졸예-->
+<!--        <input type="radio" name="univ2_edc_graduated" value="중퇴"> 중퇴-->
+
+<!--        <br>-->
+
+<!--        대학원<br>-->
+<!--        년도 : <input type="text" name="master_edc_date" id="master_edc_date">-->
+<!--        학교명 : <input type="text" name="master_edc_school" id="master_edc_school">-->
+<!--        학과 : <input type="text" name="master_edc_dept" id="master_edc_dept">-->
+<!--        <br>-->
+<!--        졸업구분 :-->
+<!--        <input type="radio" name="master_edc_graduated" value="졸업"> 졸업-->
+<!--        <input type="radio" name="master_edc_graduated" value="수료"> 수료-->
+<!--        <input type="radio" name="master_edc_graduated" value="졸예"> 졸예-->
+<!--        <input type="radio" name="master_edc_graduated" value="중퇴"> 중퇴-->
+
+<!--        <br>-->
+<!--        석사논문 : <input type="text" name="master_edc_paper">-->
+
+<!--        <br>-->
+
+<!--        대학원<br>-->
+<!--        년도 : <input type="text" name="doctorate_edc_date" id="doctorate_edc_date">-->
+<!--        학교명 : <input type="text" name="doctorate_edc_school" id="doctorate_edc_school">-->
+<!--        학과 : <input type="text" name="doctorate_edc_dept" id="doctorate_edc_dept">-->
+<!--        <br>-->
+<!--        졸업구분 :-->
+<!--        <input type="radio" name="doctorate_edc_graduated" value="졸업"> 졸업-->
+<!--        <input type="radio" name="doctorate_edc_graduated" value="수료"> 수료-->
+<!--        <input type="radio" name="doctorate_edc_graduated" value="졸예"> 졸예-->
+<!--        <input type="radio" name="doctorate_edc_graduated" value="중퇴"> 중퇴-->
+<!--        <br>-->
+<!--        박사논문 : <input type="text" name="doctorate_edc_paper">-->
+
+<!--        &lt;!&ndash;학력 끝&ndash;&gt;-->
+
+<!--        <br><br>-->
+
+<!--        &lt;!&ndash;병역 시작&ndash;&gt;-->
+<!--        <input type="radio" name="cv_mil" value="군필">군필-->
+<!--        <input type="radio" name="cv_mil" value="미필">미필-->
+<!--        <input type="radio" name="cv_mil" value="면제">면제-->
+
+<!--        <br>-->
+<!--        면제 사유 : <input type="text" name="cv_mil_exemption" id="cv_mil_exemption">-->
+<!--        <br>-->
+<!--        복무기간 : <input type="text" name="cv_mil_date" id="cv_mil_date">-->
+<!--        <br>-->
+<!--        병과 : <input type="text" name="cv_mil_os" id="cv_mil_os">-->
+<!--        <br>-->
+<!--        계급 : <input type="text" name="cv_mil_rank" id="cv_mil_rank">-->
+<!--        <br>-->
+<!--        군별 : <input type="text" name="cv_mil_division" id="cv_mil_division">-->
+<!--        &lt;!&ndash; 병역 끝&ndash;&gt;-->
+
+<!--        <br>-->
+
+<!--        &lt;!&ndash;우대사항 시작&ndash;&gt;-->
+<!--        장애인 등록여부 : <input type="radio" name="cv_disability" value="yes">네-->
+<!--        <input type="radio" name="cv_disability" value="no">아니요-->
+<!--        <br>-->
+<!--        장애 종류 : <input type="text" name="cv_disability_type" id="cv_disability_type">-->
+<!--        <br>-->
+<!--        장애 등급 : <input type="text" name="cv_disability_grade" id="cv_disability_grade">-->
+<!--        &lt;!&ndash;우대사항 끝&ndash;&gt;-->
+
+<!--        <br>-->
+<!--        &lt;!&ndash;가족사항 시작&ndash;&gt;-->
+<!--        <input type="text" name="cv_fam_position" id="cv_fam_position">-->
+<!--        &lt;!&ndash;가족사항 끝&ndash;&gt;-->
+
+<!--        <br>-->
+<!--        취미 : <input type="text" name="cv_hobby" id="cv_hobby">-->
+<!--        <br>-->
+<!--        특기 : <input type="text" name="cv_specialty" id="cv_specialty">-->
+
+<!--        &lt;!&ndash;경력사항 시작&ndash;&gt;-->
+<!--        -->
+<!--        &lt;!&ndash;경력사항 끝&ndash;&gt;-->
+    </form>
+</body>
+</html>

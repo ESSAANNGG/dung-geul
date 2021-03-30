@@ -24,11 +24,15 @@ public class Config extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
+        // 권한별 주소 접근 설정
         http.csrf().disable()
                 .authorizeRequests()
-                .anyRequest().permitAll()
-                .and()
-                .formLogin().loginPage("/login/login")
+                .antMatchers("/cv").hasRole("STUDENT")
+                .anyRequest().permitAll();
+
+        // 로그인 설정
+        http.formLogin()
+                .loginPage("/login")
                 .loginProcessingUrl("/loginProc")
                 .defaultSuccessUrl("/");
         //http.rememberMe().tokenValiditySeconds(60*60*7).userDetailsService(principalDatail);
