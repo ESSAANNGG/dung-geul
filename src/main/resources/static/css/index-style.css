@@ -369,7 +369,7 @@ background-color: #545e60e8;
   .down > div {
     width: 190px;
   }
-}
+
 
 /* notice */
 
@@ -384,42 +384,53 @@ a {
 .container {
   display: block;
   position: relative;
-  top: 50px;
+  width: 100%;
+  margin: 0 auto;
 }
 @media screen and (max-width: 1720px) {
   .notice {
+    width: 650px;
+  }
+  .notice .btn {
     display: none;
   }
 }
-
 .notice {
-  width: 1500px;
+  width: 1200px;
   height: 60px;
   position: relative;
   overflow: hidden; /*이 부분만 풀면 내용 숨겨져요*/
-  margin-left: 200px;
-  margin-bottom: 50px;
+  margin: 120px auto;
+  padding-top: 30px;
 }
-.notice h3 {
-  text-decoration: underline;
-  text-underline-position: under;
-  position: absolute;
-  top: 7px;
-  color: black;
-  font-size: 35px;
+h3 {
+  width: 250px;
+  color: #2a2a72;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  z-index: 1;
 }
-
+.notice h3:before {
+  content: "\f0f3";
+  font-family: FontAwesome;
+  font-weight: 900;
+  margin: -3px 10px 0;
+  font-size: 40px;
+  vertical-align: middle;
+  display: inline-block;
+}
 .notice ul {
   position: relative;
 }
 .notice ul li {
+  padding-left: 20px;
   position: relative;
-  padding: 0 13%;
+  padding: 0 20%;
   height: 60px;
-  line-height: 60px;
-  font-size: 35px;
+  font-size: 40px;
+  font-weight: 700;
 }
-
 .notice .btn {
   position: absolute;
   right: 10px;
@@ -433,227 +444,125 @@ a {
 .notice .btn span:nth-child(1) {
   margin-right: 15%;
 }
+
+.listbox {
+  width: 1200px;
+  height: 570px;
+  margin: 120px auto;
+  display: flex;
+  justify-content: space-around;
+}
 .list {
-  float: left;
-}
-.list2 {
-  float: left;
-}
-/* 탭 메뉴*/
-.tabmenu {
-  width: 640px;
-  margin-left: 220px;
-}
-.tabmenu ul {
-  margin-top: 20px;
-  height: 30px;
-  width: 100%;
-  border-left: 1px solid #eee;
-}
-.tabmenu ul li {
-  float: left;
-  width: 140px;
-  height: 50px;
-  line-height: 50px;
   text-align: center;
-  border: 1px solid #eee;
-  background-color: #fafafa;
-  cursor: pointer;
-  border-left: 0;
+  width: 500px;
+  height: 550px;
+  background: #fff;
+  border-top: 5px solid #2a2a72;
+  border-bottom: 5px solid #2a2a72;
+  box-shadow: -1px 1px 10px rgba(114, 114, 114, 0.441);
+  float: left;
 }
-.tabmenu ul li.on {
-  background-color: #fff;
-  color: black;
-  font-weight: bold;
-  border-left: 1px solid #eee;
-}
-/* 탭 모양 구성 */
-.tabmenu .list {
-  width: 100%;
-  height: 100%;
-  border-top: 0;
-  border: 1px solid #eee;
-  padding: 20px;
-  font-size: 15px;
-  display: none;
-}
-.tabmenu .list2 {
-  width: 100%;
-  height: 100%;
-  border-top: 0;
-  border: 1px solid #eee;
-  padding: 20px;
-  font-size: 15px;
-  display: none;
+
+.list2 {
+  text-align: center;
+  width: 500px;
+  height: 550px;
+  background: #fff;
+  border-top: 5px solid #2a2a72;
+  border-bottom: 5px solid #2a2a72;
+  box-shadow: -1px 1px 10px rgba(114, 114, 114, 0.441);
+  float: left;
 }
 /* 메뉴 */
-.item {
-  overflow: hidden;
-  padding: 15px;
-  border-top: none;
-}
 .thumnail {
-  float: left;
-  width: 94%;
-  border-top: none;
-  padding: 20px;
-  border-bottom: 1px solid #ccc;
-  font-size: 22px;
+  padding-bottom: 40px;
+  padding-top: 20px;
+  font-size: 20px;
 }
-.thumnail > img {
-  vertical-align: middle;
-}
-.thumnail > p {
-  float: right;
+.thumnail > .thum-1 {
   margin-top: 10px;
+  line-height: 2;
+  padding: 5px;
+}
+.thumnail > span {
+  float: right;
+  margin-top: 2px;
+  text-align: center;
   font-size: 12px;
 }
-.thumnail:hover {
-  text-shadow: 5px 3px 2px #ddd;
+.inside_tit {
+  padding: 20px;
+  background-color: #2a2a72;
+  color: white;
+  line-height: 22px;
+  text-align: center;
+}
+.outside_tit {
+  padding: 20px;
+  background-color: #2a2a72;
+  color: white;
+  line-height: 22px;
+  text-align: center;
 }
 
-/* 포토 슬라이드 */
-@media screen and (max-width: 1720px) {
-  .photo {
-    display: none;
-  }
-  .thumnail > img {
-    display: none;
-  }
+.list > .thumnail > .thum-1 > span {
+  font-size: 10px;
+  margin-left: 20px;
+  border-bottom: 1px solid #ccc;
 }
-.photo {
-  width: 440px;
-  height: 440px;
-  position: absolute;
-  overflow: hidden;
-  margin-left: 870px;
-  margin-top: 23px;
-  border: 1px solid #ccc;
-}
-.photo a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-  text-shadow: #ddd;
-}
-
-.photo a:first-of-type {
-  left: 10px;
-}
-.photo a:last-of-type {
-  right: 10px;
-}
-.photo .photo-item {
-  position: absolute;
-  width: 100%;
-  /* overflow: hidden; */
-  height: 440px;
-  background: center center no-repeat;
+.list2 > .thumnail > .thum-1 > span {
+  font-size: 10px;
+  margin-left: 20px;
+  border-bottom: 1px solid #ccc;
 }
 
 /* 아이콘 */
-@media screen and (max-width: 1720px) {
-  .icon,
-  .news1,
-  .news2 {
-    display: none;
-  }
+.service_wrap {
+  margin: 0 auto;
+  width: 1200px;
+  height: 500px;
+  padding: 50px;
 }
-.icon {
-  width: 380px;
-  height: 445px;
-  margin-left: 1320px;
-  margin-top: 23px;
+#service {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20%;
+  margin: 0 auto;
+  background-color: #2a2a72;
 }
-.news1 {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 45%;
-  height: 180px;
+#service ul {
+  margin: 0 auto;
+}
+#service ul li {
   float: left;
+  width: 25%;
+  box-sizing: border-box;
+  padding: 0 7%;
 }
-.news2 {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 45%;
-  height: 180px;
-  float: left;
-  margin-left: 5px;
+#service ul li .c_wrap {
+  justify-content: space-around;
+  background: #fff;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  color: #2a2a72;
+  text-align: center;
+  font-size: 60px;
+  padding: 25px;
+  padding-top: 35px;
 }
-.news2 > a > img {
-  width: 100px;
-  height: 100px;
-  position: absolute;
+#service .sv_tit {
+  font-size: 40px;
+  color: #fff;
+  padding: 50px;
+  padding-bottom: 60px;
 }
-.news2 > p {
-  display: none;
-}
-.news2:hover > p {
-  display: inline;
-  font-size: 18px;
-  color: white;
-}
-.news2:hover {
-  background-color: navy;
-  width: 45%;
-  height: 180px;
-}
-.news2:hover > h5 {
-  display: none;
-}
-.news2 > h5 {
-  position: absolute;
-}
-.news1 > a > img {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-}
-.news1 > p {
-  display: none;
-}
-.news1:hover > p {
-  display: inline;
-  font-size: 18px;
-  color: white;
-}
-.news1:hover {
-  background-color: navy;
-  width: 45%;
-  height: 180px;
-}
-.news1:hover > h5 {
-  display: none;
-}
-.news1 > h5 {
-  position: absolute;
-}
-.call > img {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 91%;
-  height: 252px;
-  background-color: #f6f5f5;
-  top: 5px;
-  position: relative;
-}
-
-@media screen and (max-width: 1142px) {
-  .tabmenu {
-    width: 550px;
-    margin-left: 95px;
-    margin-bottom: 450px;
-  }
-}
-@media screen and (max-width: 1730px) {
-  .tabmenu {
-    width: 550px;
-    margin-left: 95px;
-    margin-bottom: 450px;
-  }
+#service ul li span {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 600;
+  display: inline-block;
+  padding-top: 20%;
 }
 
 /* footer */
