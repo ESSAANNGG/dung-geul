@@ -397,28 +397,28 @@ a {
     display: none;
   }
 }
-
 .notice {
   width: 1200px;
   height: 60px;
   position: relative;
   overflow: hidden; /*이 부분만 풀면 내용 숨겨져요*/
-  margin: 40px auto;
+  margin: 120px auto;
+  padding-top: 30px;
 }
 h3 {
   width: 250px;
-  top: 8px;
   color: #2a2a72;
-  font-size: 31px;
-  font-weight: bold;
+  font-size: 40px;
+  font-weight: 700;
   letter-spacing: -1px;
+  z-index: 1;
 }
 .notice h3:before {
   content: "\f0f3";
   font-family: FontAwesome;
   font-weight: 900;
-  margin: -9px 10px 0 0;
-  font-size: 25px;
+  margin: -3px 10px 0;
+  font-size: 40px;
   vertical-align: middle;
   display: inline-block;
 }
@@ -428,10 +428,10 @@ h3 {
 .notice ul li {
   padding-left: 20px;
   position: relative;
-  padding: 0 17%;
+  padding: 0 20%;
   height: 60px;
-  line-height: 60px;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: 700;
 }
 .notice .btn {
   position: absolute;
@@ -567,6 +567,7 @@ h3 {
   display: inline-block;
   padding-top: 20%;
 }
+
 
 /* footer */
 .bottom_menu {
