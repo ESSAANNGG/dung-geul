@@ -1,0 +1,309 @@
+/* navbar */
+
+ul .dep1, .dep2,
+li .logo {
+  list-style: none;
+}
+a {
+  text-decoration: dotted;
+  color: black;
+}
+
+/*depth들을 감싸고있는 박스*/
+
+@media screen and (max-width: 1250px) {
+  .nav {
+    width: 1250px;
+  }
+}
+.nav {
+
+  text-align: center;
+  height: 100px;
+  transition-property: all;
+  transition-duration: 0.8s;
+
+}
+
+.nav2 {
+ 
+  display: block;
+  height: 0px;
+  background-color: rgb(231, 231, 231);
+  transition-property: all;
+  transition-duration: 1.2s;
+
+}
+
+/*depth1*/
+.nav .dep1 {
+
+  font-size: 0px;
+  padding-top: 20px;
+  height: 100px;
+}
+
+.nav .dep1 > li {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  font-size: 16px;
+}
+.nav .dep1 > li.logo {
+  width: 200px;
+  /*li.menu를 한꺼번에 묶어서 하지않은 이유는 a태그때문에 li.menu가 갇혀있기때문*/
+}
+.nav .dep1 > li.menu {
+  width: 150px;
+}
+.nav .dep1 > li.login {
+  margin-left: 50px;
+}
+
+.nav .dep1 > li.login,
+.nav .dep1 > li.join {
+  width: 100px;
+}
+/*depth2*/
+.nav .dep2 {
+
+  width: 150px;
+
+  display: block;
+  height: 0px;
+  overflow: hidden;
+  padding-top: 10px;
+  transition-property: height;
+  transition-duration: 1.2s;
+}
+.nav .dep2 a {
+  display: block;
+  padding: 10px 0;
+}
+.nav .dep1 > li > a {
+  display: block;
+  padding: 30px 0;
+}
+
+.nav .dep1 > li:hover > a {
+  color: green;
+}
+.nav .dep2 > li:hover > a {
+  color: green;
+}
+
+/* nav end */
+
+
+/* side bar */
+
+
+
+ * {
+    box-sizing: border-box;
+} 
+.menu2 {
+    float: left;
+    width:100%;
+}
+#bar h2 {
+    line-height: 100px;
+    margin: 0; padding: 0;
+    background-color: #1a508b;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+#bar > ul > li > h4 {
+    background-color: #203b58;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+}
+#bar > ul {
+    margin: 0 0 60px 0;
+}
+#bar > ul > li a:hover, #bar > ul > li > a.on {
+    background: rgba(0, 0,0, 0.2);
+    border-bottom: 1px solid rgba(0, 0,0, 0.1);
+    color: #fff;
+}
+#bar > ul > li > a {
+    padding: 50px;
+    letter-spacing: -5px;
+    word-break: keep-all;
+    line-height: 1.5;
+}
+#bar > ul > li > ul {
+    margin: 0; padding: 30px 0;
+    background: rgba(190, 190, 190, 0.486);
+    border-bottom: 1px solid rgba(0, 0,0, 0.1);
+    border-top: 2px solid #1a508b;
+}
+#bar ul ul a {
+    padding: 3px 15px;
+    border: none;
+    font-size: 14px;
+}
+#bar li li a {
+    padding: 5px 20px;
+    border: none;
+    font-size: 16px;
+    color: #555;
+
+}
+a, a:active {
+    color: #000;
+    text-decoration: none;
+}
+#bar a {
+    display: block;
+    position: relative;
+}
+ul {
+    line-height: 1.8;
+}
+/* ul, li {
+    list-style: none;
+} */
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+
+
+
+/* footer */
+.bottom_menu {
+  margin-top: 350px; /*임시*/
+  text-align: center;
+  font-size: 0px;
+  width: 100%;
+  height: 70px;
+  background-color: rgb(35, 49, 71);
+  color: white;
+  border-top: 1px solid rgb(128, 129, 219);
+}
+.bottom_menu .bottom_1 {
+  position: relative;
+  font-size: 17px;
+  color: white;
+  width: 25%;
+  line-height: 420%;
+  display: inline-block;
+
+  transition-property: all;
+  transition-duration: 2s;
+}
+.bottom_menu .bottom_2 {
+  position: relative;
+  font-size: 17px;
+  color: white;
+  width: 25%;
+  line-height: 420%;
+  display: inline-block;
+
+  transition-property: all;
+  transition-duration: 2s;
+}
+
+@media screen and (max-width: 1180px) {
+  .bottom_menu {
+    width: 1180px;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .bottom_c_1 {
+    width: 1180px;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .bottom_c_2 {
+    width: 1180px;
+  }
+}
+.bottom_c_1 {
+  background-color: cornflowerblue;
+  height: 0px;
+  display: block;
+  overflow: hidden;
+  transition-property: all;
+  transition-duration: 2s;
+}
+.bottom_c_2 {
+  background-color: cornflowerblue;
+  display: flex;
+  justify-content: center;
+  height: 0px;
+  overflow: hidden;
+  transition-property: all;
+  transition-duration: 2s;
+}
+
+.bottom_c_2 > ul {
+  display: inline;
+  width: 300px;
+  text-align: left;
+  list-style: disc;
+}
+
+.group1 > li {
+  display: inline-block;
+  position: left;
+  width: 70px;
+  text-align: left;
+  margin-top: 20px;
+  list-style-type: disc;
+}
+.group2 > li {
+  display: inline-block;
+  position: left;
+  width: 70px;
+  text-align: left;
+  margin-top: 20px;
+  list-style: disc;
+}
+.group3 > li {
+  display: inline-block;
+  position: left;
+  width: 70px;
+  text-align: left;
+  margin-top: 20px;
+  list-style: disc;
+}
+li.group_title {
+  width: 300px;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 1180px) {
+  .footer {
+    width: 1180px;
+  }
+}
+.footer {
+  padding: 20px;
+  padding-left: 200px;
+  font-size: 13px;
+  text-align: left;
+  background-color: rgb(79, 101, 145);
+  color: WHITE;
+}
+.footer_1,
+.footer_2,
+.footer_3 {
+  margin-bottom: 10px;
+}
+.footer_1 {
+  display: flex;
+}
+.footer_1_c {
+  margin-right: 20px;
+}
+
+/* footer end */
