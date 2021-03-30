@@ -351,7 +351,7 @@ input{
 .main-join-stat{
     display:block;
     width:1600px;
-    height:390px;
+    height:340px;
     margin: 50px auto 50px auto;
     background-color: #ffffff;
     font-size:0px; /*graph와 level div의 여백공간 없애기*/
@@ -361,55 +361,57 @@ input{
     width:1600px;
     height:60px;
     margin:0px;
-    padding-left:3%;
+    padding-left:30px;
     background-color: #ffffff;
     font-family: 'Open Sans', sans-serif;
     box-shadow: 0px 0.5px 1.5px 0px rgb(192, 192, 192);
 }
-.main-join-head > h6{
+.main-join-head > h5{
     margin:0px;
     line-height: 400%;
-    font-size:15px;
-    font-family: 'Nanum Gothic', sans-serif;
-    font-weight: 700;
-    color:#585858;
+    font-size:15px; 
+    /* font-family: 'Nanum Gothic', sans-serif; */
+    /* font-weight: 700;  */
+    /* color:#585858; */
+    color:#363b3e;
 }
 .main-join-monthChart{
     display:inline-block;
     width:1200px;
-    height:330px;
+    height:280px;
 }
-#chartdiv {
+#joinChartdiv {
     width: 1200px;
-    height: 330px;
+    height: 280px;
     font-size:13px;
   }
 
 
-
+  
 .main-join-yearChart{
     display:inline-block;
     float:right;
     width:390px;
-    height:330px;
+    height:280px;
     margin:0px;
     background-color:#363b3e;
     color:rgb(192, 192, 192);
-    box-shadow: -2px -0.5px 0px 0.5px rgb(192, 192, 192);
-    overflow-y: scroll;
+    box-shadow: -1px -0.5px 0px 0.5px rgb(192, 192, 192);
 }
 .main-join-yearChart-year::-webkit-scrollbar {
-    /* width: 0px;
-    background-color: #363b3e; */
+    width: 0px;
+    background-color: #363b3e; 
 }
 .main-join-yearChart-year{
     display:block;
     height:65px;
     margin:0px;
     text-align: center;
+    overflow-y:scroll;
 }
 .main-join-yearChart-year > h1{
     margin:0px;
+    height:65px;
     color:#ffffff;
 }
 
@@ -420,25 +422,101 @@ input{
 .main-stat-lap{
     display:block;
     width:1600px;
-    height:330px;
+    height:390px;
     margin:0 auto;
     padding:0px;
     background-color: #eeeeee;
 }
+.main-views-stat{
+    display:inline-block;
+    float:left;
+    width:1150px;
+    height:390px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
+}
+.main-views-head {
+    height:30px;
+    margin-top:15px;
+    padding-left:30px;
+    color:#363b3e;
+    font-size:14px;
+    font-weight:700;
+}
+#viewsChartDiv {
+    width: 100%;
+    height: 276px;
+    font-size:10px;
+}
+/* .main-major-stat{
+    display:inline-block;
+    float:left;
+    width:520px;
+    height:330px;
+    margin-left:20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);  
+}
+.main-major-head{
+    height:30px;
+    margin-top:15px;
+    padding-left:30px;
+    color:#363b3e;
+    font-size:14px;
+    font-weight:700;
+} */
+
+
 .main-grade-stat{
     display:inline-block;
-    width:780px;
-    height:330px;
-    padding-left:60px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
-}
-.main-major-stat{
-    display:inline-block;
     float:right;
-    width:780px;
-    height:330px;
-    padding-left:60px;
+    width:410px;
+    height:200px;
     background-color: #ffffff;
     box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
 }
+.main-grade-head{
+    height:30px;
+    margin-top:15px;
+    padding-left:30px;
+    color:#363b3e;
+    font-size:14px;
+    font-weight:700;
+}
+.main-grade-list-head{
+    color:#a8a8a8;
+    font-size:15px;
+    font-weight:600;
+    padding-left:30px;
+}
+.main-grade-list{
+    padding-left:30px;
+    font-size:14px;
+    font-weight:600;
+    color:#363b3e;
+}
+.grade-year{
+    display:inline-block;
+    width:70px;
+}
+.grade-student{
+    display:inline-block;
+    width:70px;
+}
+.grade-enter{
+    display:inline-block;
+    width:50px;
+}
+.grade-professor{
+    display:inline-block;
+    width:50px;
+}
+.grade-counselor{
+    display:inline-block;
+    width:60px;
+}
+.grade-mentor{
+    display:inline-block;
+    width:50px;
+}
+
