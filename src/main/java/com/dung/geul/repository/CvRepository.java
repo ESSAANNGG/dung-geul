@@ -12,4 +12,6 @@ public interface CvRepository extends JpaRepository<CV, Long> {
 
     @Query("select c from CV c where c.user_id = :user_id")
     Optional<CV> findByUser_id(@Param("user_id") Member user_id);
+
+
 }

@@ -56,6 +56,7 @@ public class ApplicationController {
         model.addAttribute("loginUserAge", 24); // 24는 임시값 >> 추후 나이계산해서 수정하기
 
         return "/application/cv/register";
+
     }
 
     @GetMapping("/cv/read")
