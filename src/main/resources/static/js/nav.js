@@ -6,9 +6,9 @@ var intro_center = document.getElementsByClassName("intro_center")
 
 function nav_on(){
     nav[0].style.backgroundColor="white";     
-    nav2[0].style.height="150px";
+    nav2[0].style.height="163px";
     for(var i = 0; i<dep2.length; i++){
-        dep2[i].style.height="150px"; 
+        dep2[i].style.height="163px"; 
     }
 
     // intro[0].style.height="200px";
