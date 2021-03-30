@@ -75,15 +75,15 @@ a {
 }
 /*depth2*/
 .nav .dep2 {
-  position: relative;
+  position: absolute;
   width: 150px;
-  z-index: 4;
   display: block;
   height: 0px;
   overflow: hidden;
   padding-top: 10px;
   transition-property: height;
   transition-duration: 1.2s;
+  z-index: 4;
 }
 .nav .dep2 a {
   display: block;
@@ -102,7 +102,13 @@ a {
 }
 
 /* main */
+.mainWrap{
+  position:relative;
+  height:600px;
+}
 main {
+  position:absolute;
+  top:200px;
   background-image: url("/img/mainback2.jpg");
   width: 100%;
   height: 500px;
@@ -113,8 +119,7 @@ main {
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  z-index: -3;
+  
 }
 
 /* intro */
@@ -156,6 +161,7 @@ h4 {
 }
 
 .quick-menu {
+  position:relative;
   display: flex;
   margin: 0 110px;
   justify-content: center;

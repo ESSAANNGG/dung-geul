@@ -11,8 +11,8 @@ function nav_on(){
         dep2[i].style.height="300px"; 
     }
 
-    intro[0].style.height="200px";
-    intro_center[0].style.fontSize="50px"
+    // intro[0].style.height="200px";
+    // intro_center[0].style.fontSize="50px"
 
 }
 
