@@ -1,7 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:700");
 
-
 html,
 body,
 div,
@@ -127,10 +126,10 @@ q:after {
   content: none;
 }
 
-  table {
+table {
   border-collapse: collapse;
   border-spacing: 0;
-} 
+}
 
 body {
   -webkit-text-size-adjust: none;
@@ -171,7 +170,7 @@ body {
   background: #f2f5f3;
 }
 
-body.is-preload *,
+/* body.is-preload *,
 body.is-preload *:before,
 body.is-preload *:after {
   -moz-animation: none !important;
@@ -182,7 +181,7 @@ body.is-preload *:after {
   -webkit-transition: none !important;
   -ms-transition: none !important;
   transition: none !important;
-}
+} */
 
 body,
 input,
@@ -323,8 +322,7 @@ dl {
 
 .square {
   list-style-type: square;
-  color:rgb(13, 13, 92);
-  
+  color: rgb(13, 13, 92);
 }
 .triangle {
   list-style-type: disclosure-closed;
@@ -454,7 +452,6 @@ header > p {
 .row > .col-3 {
   width: 200px;
   height: 400px;
-
 }
 
 .row > .off-3 {
@@ -594,7 +591,7 @@ header > p {
 }
 
 /* 사이드바 설정 */
-.row > .col-3{
+.row > .col-3 {
   padding: 0px;
 }
 
@@ -2286,7 +2283,7 @@ form ::-moz-focus-inner {
 
 /* Tables */
 
- table {
+table {
   width: 100%;
   text-align: center;
 }
@@ -2297,11 +2294,7 @@ table.default {
 
 table tr {
   border-top: solid 2px #c9cecb;
-
-  
 }
-
-
 
 table tr:first-child {
   border-top: 0;
@@ -2324,13 +2317,13 @@ table th {
   font-weight: 700;
   text-transform: uppercase;
   color: #6b7770;
-  border-top: 1px solid black
+  border-top: 1px solid black;
 }
 
 table thead {
   background: #e7eae8;
   color: #fff;
-} 
+}
 
 /* Box */
 
@@ -2453,10 +2446,10 @@ table thead {
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 2em 0;
+  padding: 0px;
   background: #fff;
   margin: 0 auto;
-  z-index:2;
+  z-index: 2;
 }
 
 #header .logo {
@@ -2692,7 +2685,12 @@ table thead {
 }
 
 /* Main */
-
+#mainWrap {
+  z-index: -10000;
+  position: absolute;
+  top: 140px;
+  width: 100%;
+}
 #main {
   background: #fff;
   border-top: solid 5px #1f3786d5;
@@ -2717,6 +2715,7 @@ table thead {
 /* Footer */
 
 #footer {
+  position: relative;
   text-align: center;
   padding: 8em 0 8em 0;
 }
@@ -3141,8 +3140,6 @@ table thead {
     margin-bottom: 2em;
   }
 
-  
-
   /* Button */
 
   input[type="button"],
@@ -3276,7 +3273,6 @@ table thead {
 
 .border {
   text-align: center;
-  padding : 15px;
+  padding: 15px;
   border: 1px solid black;
 }
-
