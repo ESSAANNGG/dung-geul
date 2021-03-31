@@ -22,7 +22,7 @@ $(document).ready(function () {
             if(count<0){
                 count=length;
             }
-            for(let k=0; k<length+1; k++){
+            for(let k=1; k<length+1; k++){
                 let t = $notice_list.eq(k).offset().top;
                 console.log(t)
                 if(t>541){
@@ -49,38 +49,4 @@ $(document).ready(function () {
             }, 300)
         }
     })
-
-    var scroll = function() {
-        timer = setTimeout(function(){
-            $('#scroll li:first').animate({marginTop: '-=60px'}, 300, function(){
-            // 넘어가는 간격과 속도
-                $(this).detach().appendTo('ul#scroll').removeAttr('style');
-                
-            });
-            scroll();
-        }, 2000);         
-      };
-    //   $(document).on(function(){
-    //     $('#scroll li:last').hide().prependTo($('#scroll')).slideDown();
-    //     clearTimeout(timer);
-    //     scroll();
-    //   }); 
-      $(document).on(function(){
-            $('#scroll li:first').animate({marginTop: '+=60px'}, 300, function() {
-            // 넘어가는 간격과 속도
-            $(this).detach().appendTo('ul#scroll').removeAttr('style')
-            });
-            clearTimeout(timer);
-            scroll();
-          })
-  var scrollover = function() { // 마우스 오버 시에 멈춤
-    $('#scroll').mouseover(function(){
-      clearTimeout(timer);
-    });
-    $('#scroll').mouseout(function(){
-        scroll();
-    });  
-  };
-  scrollover();
-  scroll();
 });
