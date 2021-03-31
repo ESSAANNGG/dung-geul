@@ -413,22 +413,21 @@ a {
   position: relative;
   overflow: hidden; /*이 부분만 풀면 내용 숨겨져요*/
   margin: 120px auto;
-  padding-top: 30px;
 }
 h3 {
   width: 250px;
   color: #2a2a72;
   font-size: 40px;
   font-weight: 700;
-  letter-spacing: -1px;
+  letter-spacing: -2px;
   z-index: 1;
 }
 .notice h3:before {
   content: "\f0f3";
   font-family: FontAwesome;
   font-weight: 900;
-  margin: -3px 10px 0;
-  font-size: 40px;
+  margin: 0px 10px 0;
+  font-size: 30px;
   vertical-align: middle;
   display: inline-block;
 }
@@ -592,7 +591,7 @@ aside:hover {
   box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.74);
 }
 
-i {
+aside > span > i {
   font-size: 1.3em;
   padding: 18px 0 0 18px;
   color: #fff;
