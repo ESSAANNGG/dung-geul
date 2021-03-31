@@ -9,6 +9,10 @@ a {
   color: black;
 }
 
+ .nav {
+   width:inherit;
+ }
+
 /*depth들을 감싸고있는 박스*/
 
 @media screen and (max-width: 1250px) {

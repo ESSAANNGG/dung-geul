@@ -37,7 +37,7 @@ a {
   position: relative;
   display: block;
   height: 0px;
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(248, 248, 248);
   transition-property: all;
   transition-duration: 1.2s;
   z-index: 4;
@@ -75,15 +75,15 @@ a {
 }
 /*depth2*/
 .nav .dep2 {
-  position: relative;
+  position: absolute;
   width: 150px;
-  z-index: 4;
   display: block;
   height: 0px;
   overflow: hidden;
   padding-top: 10px;
   transition-property: height;
   transition-duration: 1.2s;
+  z-index: 4;
 }
 .nav .dep2 a {
   display: block;
@@ -102,19 +102,32 @@ a {
 }
 
 /* main */
+.mainWrap {
+  z-index: -9999;
+  position: relative;
+  height: 600px;
+}
 main {
-  background-image: url("/img/mainback2.jpg");
+  z-index: -100;
+  position: absolute;
+  top: 117px;
+
   width: 100%;
   height: 500px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+
   margin: 0 auto;
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  z-index: -3;
+}
+
+.background {
+  z-index: -99;
+  background-image: url("/img/mainback2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -4;
 }
 
 /* intro */
@@ -124,7 +137,7 @@ main {
   padding-top: 30px;
   width: 446px;
   height: 360px;
-  z-index: -1;
+  z-index: -4;
   position: relative;
   opacity: 0.8;
 }
@@ -156,6 +169,7 @@ h4 {
 }
 
 .quick-menu {
+  position: relative;
   display: flex;
   margin: 0 110px;
   justify-content: center;
@@ -164,23 +178,24 @@ h4 {
 .up,
 .down {
   display: flex;
+  z-index: 100;
 }
 
 .up > div {
   margin: 0px;
   width: 190px;
   height: 170px;
-  
+
   position: relative;
   padding-top: 30px;
   text-align: center;
 }
 
 .down > div {
- margin: 0px;
+  margin: 0px;
   width: 190px;
   height: 170px;
-  
+
   position: relative;
   padding-top: 30px;
   text-align: center;
@@ -203,11 +218,11 @@ h5 {
 }
 
 .quick-menu a:hover {
-  background-color: #fff;
   color: #000;
 }
 
 .hide {
+  z-index: 10;
   display: flex;
   width: 100%;
   height: 100%;
@@ -234,7 +249,7 @@ h5 {
 
 .quick-menu__counseling,
 .quick-menu__counseling a {
-background-color: #545e60e8;
+  background-color: #545e60e8;
 }
 
 .quick-menu__counseling__content {
@@ -254,7 +269,7 @@ background-color: #545e60e8;
 
 .quick-menu__program,
 .quick-menu__program a {
-  background-color: #545e60e8
+  background-color: #545e60e8;
 }
 .quick-menu__program__content {
   padding-top: 60px;
@@ -266,7 +281,7 @@ background-color: #545e60e8;
 
 .quick-menu__application,
 .quick-menu__application a {
-  background-color: rgba(68, 65, 65, 0.781);;
+  background-color: rgba(68, 65, 65, 0.781);
 }
 
 .quick-menu__application__content {
@@ -327,25 +342,25 @@ background-color: #545e60e8;
   .up > div {
     margin: 0px;
     width: 190px;
-   height: 150px;
-   padding-top:15px;
+    height: 150px;
+    padding-top: 15px;
   }
 
   .down > div {
     margin: 0px;
     width: 190px;
-  height: 150px;
-  padding-top:15px;
+    height: 150px;
+    padding-top: 15px;
   }
   .quick-menu__mentoring,
-.quick-menu__mentoring a {
-  background-color: #545e60e8;
-}
+  .quick-menu__mentoring a {
+    background-color: #545e60e8;
+  }
 
-.quick-menu__program,
-.quick-menu__program a {
-  background-color: rgba(68, 65, 65, 0.781);
-}
+  .quick-menu__program,
+  .quick-menu__program a {
+    background-color: rgba(68, 65, 65, 0.781);
+  }
   .quick-menu__counseling__content,
   .quick-menu__program__content {
     padding-top: 10px;
@@ -357,19 +372,16 @@ background-color: #545e60e8;
 }
 
 @media screen and (max-width: 575px) {
-  
   .quick-menu {
-    
   }
-  }
-  .up > div {
-    width: 190px;
-  }
+}
+.up > div {
+  width: 190px;
+}
 
-  .down > div {
-    width: 190px;
-  }
-
+.down > div {
+  width: 190px;
+}
 
 /* notice */
 
@@ -481,6 +493,9 @@ h3 {
 }
 .thumnail > .thum-1 {
   margin-top: 10px;
+  
+  font-style: 12px;
+
   line-height: 2;
   padding: 5px;
 }
@@ -522,6 +537,7 @@ h3 {
   width: 1200px;
   height: 500px;
   padding: 50px;
+
 }
 #service {
   width: 100%;
@@ -564,6 +580,27 @@ h3 {
   display: inline-block;
   padding-top: 20%;
 }
+
+/* aside */
+
+aside{
+  position: fixed;
+  width: 50px; height: 50px;
+  border-radius: 7px;
+  right: 20px;
+  bottom: 20px;
+  background-color: #2b2e4a;
+}
+aside:hover {
+  box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.74);
+}
+
+i {
+  font-size: 1.3em;
+  padding: 18px 0 0 18px;
+  color: #fff;
+}
+
 
 /* footer */
 .bottom_menu {

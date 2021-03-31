@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
+    <script
+      src="https://kit.fontawesome.com/3a29a769fa.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
@@ -16,572 +20,601 @@
     <title>main</title>
   </head>
   <body>
-    <navbar>
-      <div class="nav">
-        <ul class="dep1">
-          <li class="logo">
-            <a href="#">영진전문대학교</a>
-          </li>
-          <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-            <a href="#">진로설계</a>
-            <ul class="dep2" onmouseover="nav_on()">
-              <li><a href="#">진로심리검사</a></li>
-              <li><a href="#">직업정보</a></li>
-            </ul>
-          </li>
-          <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-            <a href="#">직무역량강화</a>
-            <ul class="dep2" onmouseover="nav_on()">
-              <li><a href="#">지원프로그램</a></li>
-              <li><a href="#">자격증/수료증 관리</a></li>
-              <li><a href="#">백호마일리지</a></li>
-            </ul>
-          </li>
-          <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-            <a href="#">구직역량강화</a>
-            <ul class="dep2" onmouseover="nav_on()">
-              <li><a href="#">이력서/자소서 tip!</a></li>
-              <li><a href="#">이력서/자소서 등록</a></li>
-              <li><a href="#">온라인 멘토링</a></li>
-              <li><a href="#">모의면접</a></li>
-            </ul>
-          </li>
-          <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-            <a href="#">구직서비스</a>
-            <ul class="dep2" onmouseover="nav_on()">
-              <li><a href="#">채용정보</a></li>
-              <li><a href="#">채용등록</a></li>
-              <li><a href="#">입사지원관리</a></li>
-            </ul>
-          </li>
-          <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-            <a href="#">상담관리</a>
-            <ul class="dep2" onmouseover="nav_on()">
-              <li><a href="#">허허</a></li>
-            </ul>
-          </li>
-          <li class="login">
-            <a href="/login" th:if="!${loginUser}">로그인</a>
-            <a href="/logout" th:if="${loginUser}">로그아웃</a>
-          </li>
-          <li class="join">
-            <a href="/sign-up">회원가입</a>
-          </li>
-        </ul>
-      </div>
-      <div class="nav2">
-        <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
-      </div>
-    </navbar>
-    <main>
-      <div class="intro">
-        <h2>영진전문대학은 취업의 격이 다릅니다.</h2>
-        <h1 class="intro_center">취업정보센터</h1>
-        <!-- <h4>YEUNGJIN UNIVERSITY JOP CENTER</h4> -->
-      </div>
-      <div class="quick-menu">
-        <div class="up">
-          <div class="quick-menu__carrerTest">
-            <p>Career Test</p>
-            <h2>직업심리검사</h2>
-            <!-- <h5>
+    <div class="mainWrap">
+      <navbar>
+        <div class="nav">
+          <ul class="dep1">
+            <li class="logo">
+              <a href="#">영진전문대학교</a>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+              <a href="#">진로설계</a>
+              <ul class="dep2" onmouseover="nav_on()">
+                <li><a href="#">진로심리검사</a></li>
+                <li><a href="#">직업정보</a></li>
+              </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+              <a href="#">직무역량강화</a>
+              <ul class="dep2" onmouseover="nav_on()">
+                <li><a href="#">지원프로그램</a></li>
+                <li><a href="#">자격증 관리</a></li>
+                <li><a href="#">수료증 관리</a></li>
+              </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+              <a href="#">구직역량강화</a>
+              <ul class="dep2" onmouseover="nav_on()">
+                <li><a href="#">이력서/자소서</a></li>
+                <li><a href="#">온라인 멘토링</a></li>
+              </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+              <a href="#">구직서비스</a>
+              <ul class="dep2" onmouseover="nav_on()">
+                <li><a href="#">채용정보</a></li>
+                <li><a href="#">채용등록</a></li>
+              </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+              <a href="#">상담관리</a>
+              <ul class="dep2" onmouseover="nav_on()">
+                <li><a href="#">진로상담</a></li>
+                <li><a href="#">취업상담</a></li>
+                <li><a href="#">창업상담</a></li>
+              </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+              <a href="#">센터소개</a>
+              <ul class="dep2" onmouseover="nav_on()">
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">업무소개</a></li>
+              </ul>
+            </li>
+            <li class="login">
+              <a href="/login" th:if="!${loginUser}">로그인</a>
+              <a href="/logout" th:if="${loginUser}">로그아웃</a>
+            </li>
+            <li class="join">
+              <a href="/sign-up">회원가입</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav2">
+          <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
+        </div>
+      </navbar>
+      <main>
+        <div class="background">
+          <div class="intro">
+            <h2>영진전문대학은 취업의 격이 다릅니다.</h2>
+            <h1 class="intro_center">취업정보센터</h1>
+            <!-- <h4>YEUNGJIN UNIVERSITY JOP CENTER</h4> -->
+          </div>
+          <div class="quick-menu">
+            <div class="up">
+              <div class="quick-menu__carrerTest">
+                <p>Career Test</p>
+                <h2>직업심리검사</h2>
+                <!-- <h5>
               워크넷에서 제공하는 <br />
               테스트를 할 수 있습니다.
             </h5> -->
-            <a href="#">
-              <div class="hide quick-menu__carrerTest__content">
-                <!-- <a href="#">진로 상담</a>
+                <a href="#">
+                  <div class="hide quick-menu__carrerTest__content">
+                    <!-- <a href="#">진로 상담</a>
               <a href="#">취업 상담</a>
               <a href="#">창업 상담</a>
               <a href="#">심리 검사</a> -->
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
 
-          <div class="quick-menu__counseling">
-            <p>Counseling</p>
-            <h2>상담신청</h2>
-            <!-- <h5>
+              <div class="quick-menu__counseling">
+                <p>Counseling</p>
+                <h2>상담신청</h2>
+                <!-- <h5>
               전문 상담사를 통한 <br />
               상담 서비스
             </h5> -->
-            <a href="#">
-              <div class="hide quick-menu__counseling__content">
-                <!-- <a href="#">진로 지원</a>
+                <a href="#">
+                  <div class="hide quick-menu__counseling__content">
+                    <!-- <a href="#">진로 지원</a>
               <a href="#">취업 지원</a>
               <a href="#">창업 지원</a>
               <a href="#">멘토링</a> -->
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
-        </div>
-        <div class="up">
-          <div class="quick-menu__mentoring">
-            <p>Mentoring</p>
-            <h2>온라인 멘토링</h2>
-            <!-- <h5>
+            </div>
+            <div class="up">
+              <div class="quick-menu__mentoring">
+                <p>Mentoring</p>
+                <h2>온라인 멘토링</h2>
+                <!-- <h5>
               각종 상담과 심리검사를 <br />
               신청할 수 있습니다.
             </h5> -->
-            <a href="#">
-              <div class="hide quick-menu__mentoring__content">
-                <!-- <a href="#">진로 상담</a>
+                <a href="#">
+                  <div class="hide quick-menu__mentoring__content">
+                    <!-- <a href="#">진로 상담</a>
               <a href="#">취업 상담</a>
               <a href="#">창업 상담</a>
               <a href="#">심리 검사</a> -->
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
 
-          <div class="quick-menu__program">
-            <p>Program</p>
-            <h2>지원 프로그램</h2>
-            <!-- <h5>
+              <div class="quick-menu__program">
+                <p>Program</p>
+                <h2>지원 프로그램</h2>
+                <!-- <h5>
               취업정보센터에서 준비한 <br />
               프로그램을 안내합니다.
             </h5> -->
-            <a href="#">
-              <div class="hide quick-menu__program__content">
-                <!-- <a href="#">진로 지원</a>
+                <a href="#">
+                  <div class="hide quick-menu__program__content">
+                    <!-- <a href="#">진로 지원</a>
               <a href="#">취업 지원</a>
               <a href="#">창업 지원</a>
               <a href="#">멘토링</a> -->
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
-        </div>
-        <div class="down">
-          <div class="quick-menu__application">
-            <p>Application</p>
+            </div>
+            <div class="down">
+              <div class="quick-menu__application">
+                <p>Application</p>
 
-            <h2>지원서 작성</h2>
-            <!-- <h5>
+                <h2>지원서 작성</h2>
+                <!-- <h5>
               지원서의 작성방법과 <br />
               작성공간을 제공합니다.
             </h5> -->
-            <a href="#">
-              <div class="hide quick-menu__application__content">
-                <!-- <a href="#">이력서 작성</a>
+                <a href="#">
+                  <div class="hide quick-menu__application__content">
+                    <!-- <a href="#">이력서 작성</a>
               <a href="#">자소서 작성</a>
               <a href="#">작성방법</a> -->
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
-          <!-- 입사 지원 -->
-          <div class="quick-menu__job-opening">
-            <p>Apply</p>
-            <h2>입사 지원</h2>
-            <!-- <h5>
+              <!-- 입사 지원 -->
+              <div class="quick-menu__job-opening">
+                <p>Apply</p>
+                <h2>입사 지원</h2>
+                <!-- <h5>
               채용정보를 제공하고 <br />
               입사지원이 가능합니다.
             </h5> -->
-            <a href="#">
-              <div class="hide quick-menu__job-opening__content">
-                <!-- <a href="#">교내채용정보</a>
+                <a href="#">
+                  <div class="hide quick-menu__job-opening__content">
+                    <!-- <a href="#">교내채용정보</a>
               <a href="#">교외채용정보</a>
               <a href="#">입사지원관리</a> -->
+                  </div>
+                </a>
               </div>
-            </a>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
 
-    <!-- 공지사항 -->
-    <div class="container">
-      <div class="notice">
-        <h3>공지사항</h3>
-        <ul id="scroll">
-          <li>
-            <a href="#"><b>1. Lorem ipsum dolor sit amet.</b></a>
-          </li>
-          <li>
-            <a href="#"><b>2. Lorem ipsum dolor sit amet.</b></a>
-          </li>
-          <li>
-            <a href="#"><b>3. Lorem ipsum dolor sit amet.</b></a>
-          </li>
-          <li>
-            <a href="#"><b>4. Lorem ipsum dolor sit amet.</b></a>
-          </li>
-          <li>
-            <a href="#"><b>5. Lorem ipsum dolor sit amet.</b></a>
-          </li>
-          <li>
-            <a href="#"><b>6. Lorem ipsum dolor sit amet.</b></a>
-          </li>
-          <li>
-            <a href="#"><b>7. Lorem ipsum dolor sit amet.</b></a>
-          </li>
-          <li>
-            <a href="#"><b>8. Lorem ipsum dolor sit amet.</b></a>
-          </li>
-          <li>
-            <a href="#"><b>9. Lorem ipsum dolor sit amet.</b></a>
-          </li>
-          <li>
-            <a href="#"><b>10. Lorem ipsum dolor sit amet.</b></a>
-          </li>
-        </ul>
-        <div class="btn">
-          <span>▲</span>
-          <span>▼</span>
-        </div>
-      </div>
-      <div class="tabmenu">
-        <ul>
-          <li class="inside">교내 채용 정보</li>
-          <li class="outside">교외 채용 정보</li>
-        </ul>
-        <div class="list">
-          <!-- 교내 채용 공고 리스트 -->
-          <div class="thumnail">
-            <img src="http://placehold.it/40x40/f6f5f5" alt="as" />
-            <b>1. Lorem ipsum dolor sit amet. </b>
-            <p>만료일 0000-00-00</p>
+          <!-- aside -->
+
+        <aside><span><i class="fas fa-angle-up"></i></span></aside>
+
+        <!-- 공지사항 -->
+        <div class="container">
+          <div class="notice">
+            <h3>공지사항</h3>
+            <ul id="scroll">
+              <li>
+                <a href="#"><b>1. Lorem ipsum dolor sit amet.</b></a>
+              </li>
+              <li>
+                <a href="#"><b>2. Lorem ipsum dolor sit amet.</b></a>
+              </li>
+              <li>
+                <a href="#"><b>3. Lorem ipsum dolor sit amet.</b></a>
+              </li>
+              <li>
+                <a href="#"><b>4. Lorem ipsum dolor sit amet.</b></a>
+              </li>
+              <li>
+                <a href="#"><b>5. Lorem ipsum dolor sit amet.</b></a>
+              </li>
+              <li>
+                <a href="#"><b>6. Lorem ipsum dolor sit amet.</b></a>
+              </li>
+              <li>
+                <a href="#"><b>7. Lorem ipsum dolor sit amet.</b></a>
+              </li>
+              <li>
+                <a href="#"><b>8. Lorem ipsum dolor sit amet.</b></a>
+              </li>
+              <li>
+                <a href="#"><b>9. Lorem ipsum dolor sit amet.</b></a>
+              </li>
+              <li>
+                <a href="#"><b>10. Lorem ipsum dolor sit amet.</b></a>
+              </li>
+            </ul>
+            <div class="btn">
+              <span>▲</span>
+              <span>▼</span>
+            </div>
+          </div>
+          <div class="listbox">
+            <div class="list">
+              <h2 class="inside_tit">교내채용정보</h2>
+
+              <!-- 교내 채용 공고 리스트 -->
+              <ul class="thumnail">
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+              </ul>
+            </div>
+            <!-- list -->
+            <div class="list2">
+              <h2 class="outside_tit">교외채용정보</h2>
+              <!-- 교외 채용 공고 리스트 -->
+              <ul class="thumnail">
+                <li class="thum-1">
+                  <a href="#">2. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+                <li class="thum-1">
+                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
+                  <span>만료일 0000-00-00</span>
+                </li>
+              </ul>
+            </div>
+            <!-- list2 -->
           </div>
 
-          <div class="thumnail">
-            <img src="http://placehold.it/40x40/f6f5f5" />
-            <b>2. Lorem ipsum dolor sit amet. </b>
-            <p>만료일 0000-00-00</p>
+          <section id="service">
+            <div class="service_wrap">
+              <h2 class="sv_tit">부가 서비스</h2>
+              <ul>
+                <li class="_ic">
+                  <a href="#" target="_blank" alt="취업 뉴스">
+                    <div class="c_wrap">
+                      <i class="far fa-address-card"></i>
+                    </div>
+                    <span class="sub">취업뉴스</span></a
+                  >
+                </li>
+                <li class="_ic">
+                  <a href="#" target="_blank" alt="창업 뉴스">
+                    <div class="c_wrap"><i class="far fa-building"></i></div>
+                    <span class="sub">창업뉴스</span></a
+                  >
+                </li>
+                <li class="_ic">
+                  <a href="#" target="_blank" alt="센터 소개">
+                    <div class="c_wrap">
+                      <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <span class="sub">센터소개</span></a
+                  >
+                </li>
+                <li class="_ic">
+                  <a href="#" target="_blank" alt="지원 프로그램">
+                    <div class="c_wrap"><i class="fas fa-map-signs"></i></div>
+                    <span class="sub">지원 프로그램</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <!-- footer -->
+        <div class="bottom_menu">
+          <div class="bottom_1" onclick="bottom_script_1()">전공 학과 소개</div>
+          <div class="bottom_2" onclick="bottom_script_2()">교내사이트</div>
+        </div>
+        <div class="bottom_c_1">
+          <div class="mov" id="movtag_left" onclick="left_mov()">◀</div>
+          <div class="major_div_1">
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://computer.yju.ac.kr/" target="_blank"
+                  >컴퓨터정보계열</a
+                >
+              </li>
+              <li>컴퓨터프로그래밍 전공</li>
+              <li>웹 데이터베이스 전공</li>
+              <li>스마트게임콘텐츠 전공</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://mech.yju.ac.kr/" target="_blank"
+                  >컴퓨터응용기계계열</a
+                >
+              </li>
+              <li>스마트 융합설계시스템 전공</li>
+              <li>스마트 CAD/CAM시스템 전공</li>
+              <li>로봇 자동화시스템 전공</li>
+              <li>석유화학 플랜트시스템</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://infocom.yju.ac.kr/" target="_blank"
+                  >ICT 반도체전자계열</a
+                >
+              </li>
+              <li>전자정보 전공</li>
+              <li>솔라반도체 전공</li>
+              <li>IT소재 전공</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://elec.yju.ac.kr/" target="_blank"
+                  >신재생에너지전기계열</a
+                >
+              </li>
+              <li>스마트 전기 전공</li>
+              <li>에너지설비 전공</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://archi.yju.ac.kr/major/" target="_blank"
+                  >건축인테리어디자인계열</a
+                >
+              </li>
+              <li>건축 전공</li>
+              <li>실내건축 디자인 전공</li>
+              <li>전시 디자인 전공</li>
+            </ul>
           </div>
 
-          <div class="thumnail">
-            <img src="http://placehold.it/40x40/f6f5f5" />
-            <b>3. Lorem ipsum dolor sit amet. </b>
-            <p>만료일 0000-00-00</p>
+          <div class="major_div_2">
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://nco.yju.ac.kr/" target="_blank">부사관계열</a>
+              </li>
+              <li>국방전자통신 전공</li>
+              <li>의무/전투 부사관 전공</li>
+              <li>항공정비 전공</li>
+              <li>공군 부사관학군단</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://design.yju.ac.kr/" target="_blank"
+                  >콘텐츠디자인과</a
+                >
+              </li>
+              <li>시각 영상디자인 전공</li>
+              <li>온라인 콘텐츠디자인 전공</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://drone.yju.ac.kr/" target="_blank"
+                  >드론항공전자과</a
+                >
+              </li>
+              <li>드론항공전자과</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://business.yju.ac.kr/" target="_blank"
+                  >경영회계서비스계열</a
+                >
+              </li>
+              <li>전산세무회계 전공</li>
+              <li>서비스마케팅 전공</li>
+              <li>사무/금융 전공</li>
+              <li>글로벌 비즈니스 전공</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://tour.yju.ac.kr/" target="_blank"
+                  >호텔항공관광 계열</a
+                >
+              </li>
+              <li>호텔외식 카지노 전공</li>
+              <li>항공 서비스 전공</li>
+              <li>일본 공항/호텔 전공</li>
+              <li>중국 공항/면세점 전공</li>
+              <li>조리 전공</li>
+            </ul>
           </div>
 
-          <div class="thumnail">
-            <img src="http://placehold.it/40x40/f6f5f5" />
-            <b>4. Lorem ipsum dolor sit amet. </b>
-            <p>만료일 0000-00-00</p>
+          <div class="major_div_3">
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://bokji.yju.ac.kr/" target="_blank"
+                  >사회복지과</a
+                >
+              </li>
+              <li>사회복지특별반</li>
+              <li>장애인복지반</li>
+              <li>노인복지반</li>
+              <li>보육교사반</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://ece.yju.ac.kr/index" target="_blank"
+                  >유아교육과</a
+                >
+              </li>
+              <li>유아교육과</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://healthcare.yju.ac.kr/" target="_blank"
+                  >보건의료행정학과</a
+                >
+              </li>
+              <li>보건의료행정학과</li>
+            </ul>
+            <ul class="major_ul">
+              <li class="major_title">
+                <a href="https://nursing.yju.ac.kr/" target="_blank"
+                  >간호학과</a
+                >
+              </li>
+              <li>간호학과</li>
+            </ul>
           </div>
-
-          <div class="thumnail">
-            <img src="http://placehold.it/40x40/f6f5f5" />
-            <b>5. Lorem ipsum dolor sit amet. </b>
-            <p>만료일 0000-00-00</p>
-          </div>
-        </div>
-        <div class="list2">
-          <!-- 교외 채용 공고 리스트 -->
-          <div class="thumnail">
-            <img src="http://placehold.it/40x40/f6f5f5" />
-            <b>6. Lorem ipsum dolor sit amet. </b>
-            <p>만료일 0000-00-00</p>
-          </div>
-
-          <div class="thumnail">
-            <img src="http://placehold.it/40x40/f6f5f5" />
-            <b>7. Lorem ipsum dolor sit amet. </b>
-            <p>만료일 0000-00-00</p>
-          </div>
-
-          <div class="thumnail">
-            <img src="http://placehold.it/40x40/f6f5f5" />
-            <b>8. Lorem ipsum dolor sit amet. </b>
-            <p>만료일 0000-00-00</p>
-          </div>
-
-          <div class="thumnail">
-            <img src="http://placehold.it/40x40/f6f5f5" />
-            <b>9. Lorem ipsum dolor sit amet. </b>
-            <p>만료일 0000-00-00</p>
-          </div>
-
-          <div class="thumnail">
-            <img src="http://placehold.it/40x40/f6f5f5" />
-            <b>10. Lorem ipsum dolor sit amet. </b>
-            <p>만료일 0000-00-00</p>
-          </div>
-        </div>
-      </div>
-      <div class="photo">
-        <!-- <div class="photo-name">
-  <p>포토존</p>
-</div> -->
-        <div class="photo-item">
-          <img src="http://placehold.it/440x440/f6f5f5" />
-        </div>
-        <div class="photo-item">
-          <img src="http://placehold.it/440x440/d3e0ea" />
-        </div>
-        <div class="photo-item">
-          <img src="http://placehold.it/440x440/fcf8ec" />
-        </div>
-        <div class="photo-item">
-          <img src="http://placehold.it/440x440/d3e0ea" alt="" />
+          <span class="mov" id="movtag_right" onclick="right_mov()">▶</span>
         </div>
 
-        <a class="arrow" href="#">&lt;</a>
-        <a class="arrow" href="#">&gt;</a>
-      </div>
-
-      <div class="icon">
-        <div class="news1">
-          <p>창업 뉴스 보러 가기</p>
-          <a href="#"><img src="../../static/img/창업.png" /></a>
-          <h5>창업 뉴스</h5>
+        <div class="bottom_c_2">
+          <ul class="group1" style="list-style-type: circle">
+            <li class="group_title">관련사이트</li>
+            <li>
+              <a
+                href="http://iacf.yju.ac.kr/CmsHome/MainDefault.jsp"
+                target="_blank"
+                >산학협력단</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://job.yju.ac.kr/CmsHome/MainDefault.jsp"
+                target="_blank"
+                >종합인력개발센터</a
+              >
+            </li>
+            <li>
+              <a href="https://jobcenter.yju.ac.kr/" target="_blank"
+                >대학일자리센터</a
+              >
+            </li>
+            <li>
+              <a href="https://welfare.yju.ac.kr/" target="_blank"
+                >장애학생지원센터</a
+              >
+            </li>
+            <li>
+              <a href="https://counseling.yju.ac.kr/" target="_blank"
+                >학생상담실</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://iac.yju.ac.kr/CmsHome/MainDefault.jsp"
+                target="_blank"
+                >국제교류원</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://ctl.yju.ac.kr/?url=aHR0cHM6Ly9jdGwueWp1LmFjLmtyLw%3D%3D&sig=CSFDDPV2Iu_uLsFeRdoKaqfSG64yBAD3_-TqyRRY"
+                target="_blank"
+                >교수학습지원센터</a
+              >
+            </li>
+            <li>
+              <a href="http://www.yjservice.or.kr/" target="_blank"
+                >사회봉사단</a
+              >
+            </li>
+            <li>
+              <a href="http://www.ycc.ac.kr/" target="_blank"
+                >영진사이버대학교</a
+              >
+            </li>
+            <li>
+              <a href="https://child.yju.ac.kr/" target="_blank"
+                >영진 부설 유치원</a
+              >
+            </li>
+            <li><a href="https://yel.yjc.ac.kr/" target="_blank">YEL</a></li>
+          </ul>
+          <ul class="group2">
+            <li class="group_title">부설기관</li>
+            <li>
+              <a href="https://www.dgev.ac.kr/" target="_blank"
+                >대구 경북 영어마을</a
+              >
+            </li>
+            <li>
+              <a href="https://edu.yju.ac.kr/" target="_blank">평생 교육원</a>
+            </li>
+          </ul>
+          <ul class="group3">
+            <li class="group_title">부속기관</li>
+            <li>
+              <a href="https://itcenter.yju.ac.kr/" target="_blank"
+                >IT 지원센터</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://lib.yju.ac.kr/WebYJC/Aspx/main/index.aspx"
+                target="_blank"
+                >영진전문대학 도서관</a
+              >
+            </li>
+            <li>
+              <a href="https://rntc.yju.ac.kr/" target="_blank">영진전문대학</a>
+            </li>
+          </ul>
         </div>
-
-        <div class="news2">
-          <p>취업 뉴스 보러 가기</p>
-          <a href="#"><img src="../../static/img/취업.png" /></a>
-          <h5>취업 뉴스</h5>
+        <div class="footer">
+          <ul class="footer_1">
+            <li class="footer_1_c">개인정보처리방침</li>
+            <li class="footer_1_c">이메일무단수집거부</li>
+            <li class="footer_1_c">저작권보호방침</li>
+            <li class="footer_1_c">입찰정보</li>
+            <li class="footer_1_c">예산공고</li>
+          </ul>
+          <ul class="footer_2">
+            <li class="footer_2_c">전화번호 : 053-819-1000</li>
+            <li class="footer_2_c">전화번호 : 053-770-2233</li>
+            <li class="footer_2_c">전화번호 : 053-819-1114</li>
+          </ul>
+          <ul class="footer_3">
+            <li class="footer_3_c">
+              COPYRIGHT (C) DAEGU HAANY UNIVERSITY.ALL RIGHTS RESERVED.
+            </li>
+          </ul>
         </div>
-
-        <div class="call">
-          <img src="/img/guide.png" />
-        </div>
-      </div>
-    </div>
-    <!-- footer -->
-    <div class="bottom_menu">
-      <div class="bottom_1" onclick="bottom_script_1()">전공 학과 소개</div>
-      <div class="bottom_2" onclick="bottom_script_2()">교내사이트</div>
-    </div>
-    <div class="bottom_c_1">
-      <div class="mov" id="movtag_left" onclick="left_mov()">◀</div>
-      <div class="major_div_1">
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://computer.yju.ac.kr/" target="_blank"
-              >컴퓨터정보계열</a
-            >
-          </li>
-          <li>컴퓨터프로그래밍 전공</li>
-          <li>웹 데이터베이스 전공</li>
-          <li>스마트게임콘텐츠 전공</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://mech.yju.ac.kr/" target="_blank"
-              >컴퓨터응용기계계열</a
-            >
-          </li>
-          <li>스마트 융합설계시스템 전공</li>
-          <li>스마트 CAD/CAM시스템 전공</li>
-          <li>로봇 자동화시스템 전공</li>
-          <li>석유화학 플랜트시스템</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://infocom.yju.ac.kr/" target="_blank"
-              >ICT 반도체전자계열</a
-            >
-          </li>
-          <li>전자정보 전공</li>
-          <li>솔라반도체 전공</li>
-          <li>IT소재 전공</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://elec.yju.ac.kr/" target="_blank"
-              >신재생에너지전기계열</a
-            >
-          </li>
-          <li>스마트 전기 전공</li>
-          <li>에너지설비 전공</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://archi.yju.ac.kr/major/" target="_blank"
-              >건축인테리어디자인계열</a
-            >
-          </li>
-          <li>건축 전공</li>
-          <li>실내건축 디자인 전공</li>
-          <li>전시 디자인 전공</li>
-        </ul>
-      </div>
-
-      <div class="major_div_2">
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://nco.yju.ac.kr/" target="_blank">부사관계열</a>
-          </li>
-          <li>국방전자통신 전공</li>
-          <li>의무/전투 부사관 전공</li>
-          <li>항공정비 전공</li>
-          <li>공군 부사관학군단</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://design.yju.ac.kr/" target="_blank"
-              >콘텐츠디자인과</a
-            >
-          </li>
-          <li>시각 영상디자인 전공</li>
-          <li>온라인 콘텐츠디자인 전공</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://drone.yju.ac.kr/" target="_blank"
-              >드론항공전자과</a
-            >
-          </li>
-          <li>드론항공전자과</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://business.yju.ac.kr/" target="_blank"
-              >경영회계서비스계열</a
-            >
-          </li>
-          <li>전산세무회계 전공</li>
-          <li>서비스마케팅 전공</li>
-          <li>사무/금융 전공</li>
-          <li>글로벌 비즈니스 전공</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://tour.yju.ac.kr/" target="_blank"
-              >호텔항공관광 계열</a
-            >
-          </li>
-          <li>호텔외식 카지노 전공</li>
-          <li>항공 서비스 전공</li>
-          <li>일본 공항/호텔 전공</li>
-          <li>중국 공항/면세점 전공</li>
-          <li>조리 전공</li>
-        </ul>
-      </div>
-
-      <div class="major_div_3">
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://bokji.yju.ac.kr/" target="_blank">사회복지과</a>
-          </li>
-          <li>사회복지특별반</li>
-          <li>장애인복지반</li>
-          <li>노인복지반</li>
-          <li>보육교사반</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://ece.yju.ac.kr/index" target="_blank">유아교육과</a>
-          </li>
-          <li>유아교육과</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://healthcare.yju.ac.kr/" target="_blank"
-              >보건의료행정학과</a
-            >
-          </li>
-          <li>보건의료행정학과</li>
-        </ul>
-        <ul class="major_ul">
-          <li class="major_title">
-            <a href="https://nursing.yju.ac.kr/" target="_blank">간호학과</a>
-          </li>
-          <li>간호학과</li>
-        </ul>
-      </div>
-      <span class="mov" id="movtag_right" onclick="right_mov()">▶</span>
-    </div>
-
-    <div class="bottom_c_2">
-      <ul class="group1" style="list-style-type: circle">
-        <li class="group_title">관련사이트</li>
-        <li>
-          <a
-            href="http://iacf.yju.ac.kr/CmsHome/MainDefault.jsp"
-            target="_blank"
-            >산학협력단</a
-          >
-        </li>
-        <li>
-          <a href="http://job.yju.ac.kr/CmsHome/MainDefault.jsp" target="_blank"
-            >종합인력개발센터</a
-          >
-        </li>
-        <li>
-          <a href="https://jobcenter.yju.ac.kr/" target="_blank"
-            >대학일자리센터</a
-          >
-        </li>
-        <li>
-          <a href="https://welfare.yju.ac.kr/" target="_blank"
-            >장애학생지원센터</a
-          >
-        </li>
-        <li>
-          <a href="https://counseling.yju.ac.kr/" target="_blank">학생상담실</a>
-        </li>
-        <li>
-          <a href="http://iac.yju.ac.kr/CmsHome/MainDefault.jsp" target="_blank"
-            >국제교류원</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://ctl.yju.ac.kr/?url=aHR0cHM6Ly9jdGwueWp1LmFjLmtyLw%3D%3D&sig=CSFDDPV2Iu_uLsFeRdoKaqfSG64yBAD3_-TqyRRY"
-            target="_blank"
-            >교수학습지원센터</a
-          >
-        </li>
-        <li>
-          <a href="http://www.yjservice.or.kr/" target="_blank">사회봉사단</a>
-        </li>
-        <li>
-          <a href="http://www.ycc.ac.kr/" target="_blank">영진사이버대학교</a>
-        </li>
-        <li>
-          <a href="https://child.yju.ac.kr/" target="_blank"
-            >영진 부설 유치원</a
-          >
-        </li>
-        <li><a href="https://yel.yjc.ac.kr/" target="_blank">YEL</a></li>
-      </ul>
-      <ul class="group2">
-        <li class="group_title">부설기관</li>
-        <li>
-          <a href="https://www.dgev.ac.kr/" target="_blank"
-            >대구 경북 영어마을</a
-          >
-        </li>
-        <li>
-          <a href="https://edu.yju.ac.kr/" target="_blank">평생 교육원</a>
-        </li>
-      </ul>
-      <ul class="group3">
-        <li class="group_title">부속기관</li>
-        <li>
-          <a href="https://itcenter.yju.ac.kr/" target="_blank">IT 지원센터</a>
-        </li>
-        <li>
-          <a
-            href="http://lib.yju.ac.kr/WebYJC/Aspx/main/index.aspx"
-            target="_blank"
-            >영진전문대학 도서관</a
-          >
-        </li>
-        <li>
-          <a href="https://rntc.yju.ac.kr/" target="_blank">영진전문대학</a>
-        </li>
-      </ul>
-    </div>
-    <div class="footer">
-      <ul class="footer_1">
-        <li class="footer_1_c">개인정보처리방침</li>
-        <li class="footer_1_c">이메일무단수집거부</li>
-        <li class="footer_1_c">저작권보호방침</li>
-        <li class="footer_1_c">입찰정보</li>
-        <li class="footer_1_c">예산공고</li>
-      </ul>
-      <ul class="footer_2">
-        <li class="footer_2_c">전화번호 : 053-819-1000</li>
-        <li class="footer_2_c">전화번호 : 053-770-2233</li>
-        <li class="footer_2_c">전화번호 : 053-819-1114</li>
-      </ul>
-      <ul class="footer_3">
-        <li class="footer_3_c">
-          COPYRIGHT (C) DAEGU HAANY UNIVERSITY.ALL RIGHTS RESERVED.
-        </li>
-      </ul>
+      </main>
     </div>
   </body>
 </html>
