@@ -3,7 +3,7 @@ package com.dung.geul.controller.api;
 import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.dto.JoinResultPageDTO;
 import com.dung.geul.dto.MemberDTO;
-import com.dung.geul.service.CvService;
+import com.dung.geul.service.CvServiceImpl;
 import com.dung.geul.service.MemberServiceImpl;
 
 import lombok.extern.log4j.Log4j2;
@@ -22,7 +22,7 @@ public class MemberApiController {
     private MemberServiceImpl memberService;
 
     @Autowired
-    private CvService cvService;
+    private CvServiceImpl cvServiceImpl;
 
 
     // 회원가입

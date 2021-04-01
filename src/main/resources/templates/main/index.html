@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <script
       src="https://kit.fontawesome.com/3a29a769fa.js"
@@ -72,9 +72,8 @@
               </ul>
             </li>
             <li class="login">
-
-
-              <a href="/login">로그인</a>
+              <a href="/login" th:if="!${loginUser}">로그인</a>
+              <a href="/logout" th:if="${loginUser}">로그아웃</a>
             </li>
             <li class="join">
               <a href="/sign-up">회원가입</a>

@@ -68,7 +68,6 @@ public class Member extends BaseEntity {
         roleSet.add(memberRole);
     }
 
-
     // 회원에 따라 있을수도 있고 없을 수도 있어서 setter 만듬
 
     public void setUser_dept(String user_dept) {
