@@ -17,6 +17,8 @@ public class WebController {
         System.out.print("authMemberDTO : " + authMemberDTO);
 
         return "/main/index";
+
+
     }
 
 }
