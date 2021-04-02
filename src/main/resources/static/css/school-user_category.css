@@ -22,9 +22,15 @@ h3 {
 }
 
 .radio {
-  border: 1px solid black;
+  border: 0.3px solid #cfcecebd;
   padding: 10px 10px 10px 100px;
   margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #cfcecebd;
+}
+
+.radio:hover {
+  background-color: #858383;
 }
 
 label {
