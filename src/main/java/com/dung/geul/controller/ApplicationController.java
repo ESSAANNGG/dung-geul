@@ -32,15 +32,13 @@ public class ApplicationController {
     @GetMapping("/cv/before")
     public String cvBefore(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
-        String result = "";
+        String result = "/application/cv/before";
 
         Member member = memberRepository.findById(authMemberDTO.getUser_id()).get();
 
         Optional<CV> cv = cvRepository.findByUser_id(member);
 
-        if(cv.isEmpty()){
-            result = "/application/cv/before";
-        } else {
+        if(!cv.isEmpty()){
             result = "redirect:/application/cv/read";
         }
 

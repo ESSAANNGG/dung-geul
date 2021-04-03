@@ -16,10 +16,10 @@ public class EmpolyRepositoryTest {
 
     @Test
     public void testInsertDummies(){
-
-        IntStream.rangeClosed(1,100).forEach(i -> {
-            Empoly em = Empoly.builder().title("Sample...." + i).build();
-            empolyRepository.save(em);
-        });
+//
+//        IntStream.rangeClosed(1,100).forEach(i -> {
+//            Empoly em = Empoly.builder().title("Sample...." + i).build();
+//            empolyRepository.save(em);
+//        });
     }
 }

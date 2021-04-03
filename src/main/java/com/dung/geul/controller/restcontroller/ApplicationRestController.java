@@ -1,4 +1,4 @@
-package com.dung.geul.controller.api;
+package com.dung.geul.controller.restcontroller;
 
 import com.dung.geul.dto.CvPageDTO;
 import com.dung.geul.service.CvServiceImpl;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 @RequestMapping("/application")
-public class ApplicationApiController {
+public class ApplicationRestController {
 
     @Autowired
     private CvServiceImpl cvServiceImpl;

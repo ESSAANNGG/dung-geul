@@ -1,4 +1,4 @@
-package com.dung.geul.controller.api;
+package com.dung.geul.controller.restcontroller;
 
 import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.dto.JoinResultPageDTO;
@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 @Log4j2
-public class MemberApiController {
+public class MemberRestController {
 
     @Autowired
     private MemberServiceImpl memberService;
