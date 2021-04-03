@@ -20,6 +20,9 @@ public class Introduce extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long intro_num;
 
+    @Column(nullable = false)
+    private String intro_title;   // 자격증 제목
+
     @Lob
     @Column(name = "intro_content", nullable = false)
     private Clob content;

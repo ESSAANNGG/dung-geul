@@ -18,9 +18,6 @@ import java.time.LocalDate;
 public class CV  implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long cv_id;
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cv_user_id" ,foreignKey = @ForeignKey(name="cv_user_id_fk"))
     private Member user_id;
@@ -50,7 +47,8 @@ public class CV  implements Serializable{
         return age;
     }
 
-//    private String user_name_chinese;
+    @Column(length = 1, nullable = false)
+    private String cv_military; // 병력사항
 
 
 //    // 병역 시작

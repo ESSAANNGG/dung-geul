@@ -1,9 +1,6 @@
 package com.dung.geul.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -18,6 +15,7 @@ import java.util.Set;
         @AttributeOverride(name = "regDate", column = @Column(name = "user_regdate")),
         @AttributeOverride(name = "modDate", column = @Column(name = "user_modDate"))
 })
+@ToString
 @Table(name ="member")
 public class Member extends BaseEntity {
 
@@ -73,9 +71,28 @@ public class Member extends BaseEntity {
     }
 
 
-    // 회원에 따라 있을수도 있고 없을 수도 있어서 setter 만듬
+    // 수정 가능한 항목
 
-    public void setUser_dept(String user_dept) {
+    public void memberModify(String user_name,
+                             String user_ph,
+                             String user_email,
+                             String user_postcode,
+                             String user_addr,
+                             String user_addr_details)
+    {
+        this.user_postcode = user_postcode;
+        this.user_addr = user_addr;
+        this.user_addr_details = user_addr_details;
+        this.user_name = user_name;
+        this.user_ph = user_ph;
+        this.user_email = user_email;
+    }
+
+    public void modUser_pw(String user_pw){
+        this.user_pw = user_pw;
+    }
+
+    public void modUser_dept(String user_dept) {
         this.user_dept = user_dept;
     }
 
@@ -87,9 +104,10 @@ public class Member extends BaseEntity {
         this.user_class = user_class;
     }
 
-    public void setUser_job(String user_job) {
+    public void modUser_job(String user_job) {
         this.user_job = user_job;
     }
+
 
     /*
     Set : 순서가 없고 중복을 허용하지 않는 데이터의 집합
