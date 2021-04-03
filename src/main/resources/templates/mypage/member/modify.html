@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보 조회페이지</title>
+</head>
+<body>
+<form action="/mypage/member/modify" method="post" th:if="${memberDTO}" onsubmit="return false;">
+    <div>
+        <input type="text" name="user_id" id="user_id" th:value="${memberDTO.getUser_id()}">
+    </div>
+
+    <div>
+        <input type="text" name="user_name" th:value="${memberDTO.getUser_name()}">
+    </div>
+
+    <div>
+        <input type="text" name="user_email" th:value="${memberDTO.getUser_email()}">
+    </div>
+
+    <div>
+        <input type="text" name="user_ph" th:value="${memberDTO.getUser_ph()}">
+    </div>
+
+    <div>
+        <input type="text" name="user_postcode" th:value="${memberDTO.getUser_postcode()}">
+    </div>
+
+    <div>
+        <input type="text" name="user_addr" th:value="${memberDTO.getUser_addr()}">
+    </div>
+
+    <div>
+        <input type="text" name="user_addr_details" th:value="${memberDTO.getUser_addr_details()}">
+    </div>
+
+    <div th:if="!${roles.isEmpty()}">
+        <div th:if="${roles.contains('STUDENT')}">
+            <input type="text" name="user_dept" th:value="${memberDTO.getUser_dept}">
+        </div>
+        <div th:if="${roles.contains('STUDENT')}">
+            <input type="text" name="user_dept" th:value="${memberDTO.getUser_grade}">
+        </div>
+        <div th:if="${roles.contains('STUDENT')}">
+            <input type="text" name="user_dept" th:value="${memberDTO.getUser_class}">
+        </div>
+        <div th:if="${roles.contains('MENTO')}">
+            <input type="text" name="user_job" th:value="${memberDTO.getUser_job}">
+        </div>
+    </div>
+
+
+    <input type="submit" value="수정" id="modifyMember">
+</form>
+
+<a th:href="@{/mypage/member/modifyPw/${memberDTO.getUser_id}}">
+    <button>비밀번호 변경하기</button>
+</a>
+
+<a th:href="@{/mypage/member/delete(user=${memberDTO.getUser_id()})}" methods="GET">삭제</a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="/js/modify_member.js"></script>
+
+</body>
+</html>

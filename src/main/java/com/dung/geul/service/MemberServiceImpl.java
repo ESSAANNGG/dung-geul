@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class MemberServiceImpl implements MemberService{
 
@@ -49,6 +51,49 @@ public class MemberServiceImpl implements MemberService{
         Enterprise enterprise = EnterpriseDtoToEntity(enterpriseDTO, member);
 
         enterpriseRepository.save(enterprise);
+
+    }
+
+    // 회원정보 수정
+    public void modifyMember(MemberDTO memberDTO) {
+
+        Optional<Member> member = memberRepository.findById(memberDTO.getUser_id());
+
+        if(!member.isEmpty()){
+            Member memberEntity = member.get();
+
+            memberEntity.memberModify(
+                    memberDTO.getUser_name(),
+                    memberDTO.getUser_ph(),
+                    memberDTO.getUser_email(),
+                    memberDTO.getUser_postcode(),
+                    memberDTO.getUser_addr(),
+                    memberDTO.getUser_addr_details()
+            );
+            System.out.println("서비스 - modifyMember()의 memberDTO : " + memberDTO.toString());
+            System.out.println("회원 정보 수정 : " + memberEntity.toString());
+            memberRepository.save(memberEntity);
+        }
+    }
+
+    public void modifyMemberPw(String user_id){
+//
+//        Optional<Member> member = memberRepository.findById(user_id);
+//
+//        String pw = encoder.encode(memberDTO.getUser_pw());
+//
+//        if (!member.isEmpty()){
+//            Member memberEntity = member.get();
+//
+//            memberEntity.modUser_pw(pw);
+//
+//            System.out.println("비밀번호 변경");
+//
+//            memberRepository.save(memberEntity);
+//
+//
+//        }
+
 
     }
 }

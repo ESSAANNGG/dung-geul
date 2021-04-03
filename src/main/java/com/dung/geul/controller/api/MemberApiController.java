@@ -10,8 +10,7 @@ import lombok.extern.log4j.Log4j2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
@@ -27,7 +26,7 @@ public class MemberApiController {
 
     // 회원가입
     @PostMapping("/sigUp/student")
-    public RedirectView joinMember(MemberDTO memberDTO){
+    public RedirectView joinMember(@RequestBody MemberDTO memberDTO){
 
         System.out.println("ApiMemberController : joinMember() 실행");
         System.out.println("MemberDTO : " + memberDTO);
@@ -40,7 +39,7 @@ public class MemberApiController {
     }
 
     @PostMapping("/sigUp/enterprise")
-    public JoinResultPageDTO<Integer> joinEnterprise(EnterpriseDTO enterPriseDTO){
+    public JoinResultPageDTO<Integer> joinEnterprise(@RequestBody EnterpriseDTO enterPriseDTO){
 
         System.out.println("ApiMemberController : joinEnterprise() 실행");
         System.out.println("enterPriseDTO : " + enterPriseDTO);
@@ -50,4 +49,23 @@ public class MemberApiController {
         return new JoinResultPageDTO<>(1, HttpStatus.OK.value());
     }
 
+    //회원정보 수정
+    @PutMapping("/mypage/member/modify")
+    public RedirectView modifyMemberInfo(MemberDTO memberDTO){
+
+        memberService.modifyMember(memberDTO);
+
+        return new RedirectView("/mypage/member/read");
+    }
+
+    //비밀번호 수정
+    @PutMapping("/mypage/member/modifyPw/{user_id}")
+    public String modifyMemberPw(@PathVariable(name = "user_id") String user_id){
+
+        System.out.println("서비스 - modifyMemberPw user_id : " + user_id);
+
+        memberService.modifyMemberPw(user_id);
+
+        return "/mypage/member/modify?pw=mod";
+    }
 }

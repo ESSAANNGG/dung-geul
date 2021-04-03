@@ -24,6 +24,10 @@ public class Member extends BaseEntity {
     @Id
     private String user_id; // Long -> String - 정혜리 TEMP_ID
 
+
+    @OneToOne(mappedBy = "member")
+    private Enterprise enterprise;
+
     @Column(length = 18, nullable = false)
     private String user_name;
 
@@ -75,11 +79,11 @@ public class Member extends BaseEntity {
         this.user_dept = user_dept;
     }
 
-    public void setUser_grade(String user_grade) {
+    public void modUser_grade(String user_grade) {
         this.user_grade = user_grade;
     }
 
-    public void setUser_class(String user_class) {
+    public void modUser_class(String user_class) {
         this.user_class = user_class;
     }
 

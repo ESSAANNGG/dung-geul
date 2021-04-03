@@ -27,7 +27,8 @@ public class Config extends WebSecurityConfigurerAdapter {
         // 권한별 주소 접근 설정
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/cv").hasRole("STUDENT")
+                .antMatchers("/application/cv/**").hasRole("STUDENT")
+                .antMatchers("/mypage/**").hasRole("USER")
                 .anyRequest().permitAll();
 
         // 로그인 설정

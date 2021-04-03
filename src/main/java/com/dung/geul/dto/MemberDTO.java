@@ -1,11 +1,13 @@
 package com.dung.geul.dto;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 
 @Data
+@ToString
 public class MemberDTO {
 
     private String user_id;
