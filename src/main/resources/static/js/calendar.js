@@ -18,6 +18,7 @@ $(".main-join-yearChart").on('mousewheel',function(e){
         indexc=indexc+1;
         count=1;//차트에서 년도를 올릴지 내릴지 계산하는 count 1이면 년도 +1
         viewsChartYearSelect(count);
+        joinChartYearSelect(count);
         }
  
     } else { 
@@ -27,6 +28,7 @@ $(".main-join-yearChart").on('mousewheel',function(e){
         indexc=indexc-1;
         count=0;//차트에서 년도를 올릴지 내릴지 계산하는 count 0이면 년도 -1
         viewsChartYearSelect(count);
+        joinChartYearSelect(count);
         }
     }
       

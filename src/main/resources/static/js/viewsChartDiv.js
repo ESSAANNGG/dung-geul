@@ -1,7 +1,7 @@
 var date = new Date();
 date.setDate(0);
 date.setMonth(-1);
-var year = date.getFullYear();
+var year = date.getFullYear();     //다른 차트와 year를 공유
 year=year+1; //2020년으로 출력되어 일단 +1
 var month = ("0" + (1 + date.getMonth())).slice(-2);
 var day = ("0" + date.getDate()).slice(-2);
