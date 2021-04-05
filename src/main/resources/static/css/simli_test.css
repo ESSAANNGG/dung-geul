@@ -3298,7 +3298,7 @@ table thead {
 
 .process-flex {
   display: flex;
-  
+
   align-items: center;
 }
 
@@ -3308,10 +3308,8 @@ table thead {
 }
 .process {
   text-align: center;
-  border: 1px dotted  rgba(117, 117, 117, 0.514);
-  padding: 2.8rem 3.5rem;
-
-  
+  border: 1px dotted rgba(117, 117, 117, 0.514);
+  padding: 0 3.5rem;
 }
 
 .testStart {
@@ -3371,5 +3369,25 @@ table thead {
   color: rgb(31, 30, 30);
   font-weight: 600;
   font-size: 0.9rem;
+}
+
+.orange {
+  background-color: #f15922;
+  padding: 1.8em 3.8em;
+}
+
+.yellow {
+  background-color: #f7941e;
+  padding: 2.6em 3.8em;
+}
+
+.green {
+  background-color: #00ac5c;
+  padding: 1.8em 3.8em;
+}
+
+.process h4 {
+  font-size: x-large;
+  padding-bottom: 0.3em;
 }
 /* 심리 END */
