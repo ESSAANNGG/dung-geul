@@ -63,7 +63,7 @@ a {
   font-weight: 600;
 }
 .nav .dep1 > li.logo {
-  font-size:16px;
+  font-size: 16px;
   font-weight: 600;
   width: 200px;
   /*li.menu를 한꺼번에 묶어서 하지않은 이유는 a태그때문에 li.menu가 갇혀있기때문*/
@@ -77,8 +77,8 @@ a {
 
 .nav .dep1 > li.login,
 .nav .dep1 > li.join {
-  color:#666666;
-  font-size:12px;
+  color: #666666;
+  font-size: 12px;
   font-weight: 500;
   width: 100px;
 }
@@ -95,15 +95,14 @@ a {
   transition-property: height;
   transition-duration: 1.2s;
   z-index: 4;
-
 }
 .nav .dep2 a {
   display: block;
   padding: 10px 0;
-  color:#555555;
+  color: #555555;
   font-family: "Noto Sans KR", Arial, Tahoma, sans-serif;
-  font-weight:500;
-  font-size:14px;
+  font-weight: 500;
+  font-size: 14px;
 }
 .nav .dep1 > li > a {
   display: block;
@@ -285,7 +284,7 @@ h5 {
 
 .quick-menu__program,
 .quick-menu__program a {
-  background-color: #545e60e8;
+  background-color: rgba(68, 65, 65, 0.781);
 }
 .quick-menu__program__content {
   padding-top: 60px;
@@ -297,7 +296,7 @@ h5 {
 
 .quick-menu__application,
 .quick-menu__application a {
-  background-color: rgba(68, 65, 65, 0.781);
+  background-color: #545e60e8;
 }
 
 .quick-menu__application__content {
@@ -310,7 +309,7 @@ h5 {
 
 .quick-menu__job-opening,
 .quick-menu__job-opening a {
-  background-color: #545e60e8;
+  background-color: rgba(68, 65, 65, 0.781);
 }
 
 .quick-menu__job-opening__content {
@@ -596,9 +595,10 @@ h3 {
 
 /* aside */
 
-aside{
+aside {
   position: fixed;
-  width: 50px; height: 50px;
+  width: 50px;
+  height: 50px;
   border-radius: 7px;
   right: 20px;
   bottom: 20px;
@@ -613,7 +613,6 @@ i {
   padding: 18px 0 0 18px;
   color: #fff;
 }
-
 
 /* footer */
 .bottom_menu {
