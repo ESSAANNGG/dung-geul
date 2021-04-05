@@ -28,28 +28,11 @@ public interface MemberService {
 
         String role = memberDTO.getRole();
 
-        // 모든 가입자에 부여되는 role
-        member.addMemberRole(MemberRole.USER);
-
-        // 가입자별로 role이랑 추가 칼럼 값 주기
-        if(role.equals("STUDENT")){
-            member.setUser_dept(memberDTO.getUser_dept());
-            member.setUser_grade(memberDTO.getUser_grade());
-            member.setUser_class(memberDTO.getUser_class());
-
-            member.addMemberRole(MemberRole.STUDENT);
-        }else if(role.equals("MENTO")){
-            member.setUser_job(member.getUser_job());
-
-            member.addMemberRole(MemberRole.MENTO);
-        } else if(role.equals("COUNSELOR")){
-            // 상담 분야 ??
-
-            member.addMemberRole(MemberRole.COUNSELOR);
-
-        } else if(role.equals("ENTERPRISE")){
-            member.addMemberRole(MemberRole.ENTERPRISE);
+        if(role != null) {
+            this.RoleAndCloumAdd(member, memberDTO, role);
         }
+
+        System.out.println("save member : " + member.toString());
 
         return member;
     }
@@ -78,6 +61,32 @@ public interface MemberService {
                 .build();
 
         return enterprise;
+    }
+
+
+
+    default void RoleAndCloumAdd(Member member, MemberDTO memberDTO, String role){
+
+        member.addMemberRole(MemberRole.USER);
+
+        if (role.equals("STUDENT")) {
+            member.modUser_dept(memberDTO.getUser_dept());
+            member.modUser_grade(memberDTO.getUser_grade());
+            member.modUser_class(memberDTO.getUser_class());
+
+            member.addMemberRole(MemberRole.STUDENT);
+        } else if (role.equals("MENTO")) {
+            member.modUser_job(member.getUser_job());
+
+            member.addMemberRole(MemberRole.MENTO);
+        } else if (role.equals("COUNSELOR")) {
+            // 상담 분야 ??
+
+            member.addMemberRole(MemberRole.COUNSELOR);
+
+        } else if (role.equals("ENTERPRISE")) {
+            member.addMemberRole(MemberRole.ENTERPRISE);
+        }
     }
 
     // 회원정보를 보기위해
@@ -119,5 +128,6 @@ public interface MemberService {
 //
 //        return memberDTO;
 //    }
+
 
 }

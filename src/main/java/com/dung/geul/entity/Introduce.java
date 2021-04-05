@@ -20,6 +20,7 @@ public class Introduce extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long intro_num;
 
+
     private String title;
 
     @Lob

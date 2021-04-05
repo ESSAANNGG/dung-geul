@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 비밀번호 수정 페이지</title>
+</head>
+<body>
+
+<h1>비밀번호 수정</h1>
+
+<form>
+    <input type="hidden" th:value="${user_id}" id="user_id">
+
+    현재 비밀번호 <input type="password" id="user_pw_old">
+    새로운 비밀번호 <input type="password" id="user_pw_new">
+    새로운 비밀번호 확인 <input type="password" id="user_pw_confirm">
+    <!-- 비밀번호 확인 같은지 체크해주세요 -->
+    <button id="submit">변경하기</button>
+</form>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="/js/modify_member_pw.js"></script>
+
+</body>
+</html>

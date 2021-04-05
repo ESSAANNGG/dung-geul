@@ -5,6 +5,7 @@ import com.dung.geul.entity.MemberRole;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Optional;
 
@@ -13,6 +14,9 @@ public class MemberRepositoryTest {
 
     @Autowired
     private MemberRepository memberRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
     @Test
     public void memberRoleRead(){
@@ -44,11 +48,16 @@ public class MemberRepositoryTest {
     @Test
     public void memberInsertTest(){
 
+        String pw = encoder.encode("123");
+
         Member member = Member.builder()
                 .user_id("userID")
-                .user_pw("1111")
+                .user_pw(pw)
                 .user_name("userName")
                 .user_ph("01011112222")
+                .user_postcode("23445")
+                .user_addr("복현동123 주소주")
+                .user_addr_details("상세주소 상세주소")
                 .user_email("user@email")
                 .user_addr("userAddress")
                 .user_dept("컴퓨터정보계열")
@@ -89,9 +98,11 @@ public class MemberRepositoryTest {
     public void insertAdmin(){
 
         Member member = Member.builder()
-                .user_id("admin")
+
+                .user_id("admin1")
                 .user_pw("1111")
-                .user_name("admin")
+                .user_name("관리자")
+
                 .user_ph("01011112222")
                 .user_email("admin@email")
                 .user_postcode("41521")
@@ -104,7 +115,9 @@ public class MemberRepositoryTest {
 
         memberRepository.save(member);
 
-        System.out.println("회원 한명 추가 id : admin, pw : 1111");
+
+        System.out.println("회원 한명 추가 id : admin1, pw : 1111");
+
     }
 
     @Test
