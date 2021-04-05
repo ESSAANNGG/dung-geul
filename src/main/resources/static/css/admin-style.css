@@ -49,12 +49,11 @@ input{
     padding-left:15%;
     border-bottom:solid 1px #5a5a5a;
 }
-.menubox-header>h2{
-    margin:auto;
+.menubox-header{
     color:white;
-    font-size:23px;
-    font-family: 'Roboto', sans-serif;
-    font-weight:normal
+    font-size:21px;
+    font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
+    font-weight:400
 }
 
 .menubox-body{
@@ -68,32 +67,34 @@ input{
     padding-top:20px;
     padding-left:10%;
     color:#eeeeee;
-    
-}
-.menubox-body-menu > h4{
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size:13px;
-    font-weight:650;
-    margin:0px;
-}
 
+    font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
+    font-size:14px;
+    font-weight:500;
+    margin:0px;
+
+}
 
 .menubox-body-sub{
     display:block;
-    overflow: hidden; 
     height:0px;
     padding-left:30%;
-    color:#eeeeee;
-        transition-property: height;
-        transition-duration: 0.8s;
-}
-.menubox-body-sub > h4{
-    font-size:13px;
-    font-weight:650;
-    font-family: 'Nanum Gothic', sans-serif;
-    margin:20px 0;
-}
 
+    overflow: hidden; 
+    transition-property: height;
+    transition-duration: 0.8s;
+}
+.menubox-body-sub > p{
+    height:35px;
+
+    font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:#eeeeee;
+
+    line-height: 50px;
+
+}
 
 
 #main1_2{
@@ -121,15 +122,14 @@ input{
     margin:0px;
     padding-left:3%;
     background-color: #ffffff;
-    font-family: 'Open Sans', sans-serif;
     box-shadow: 0px 0.5px 0px 0px rgb(192, 192, 192);
 }
 .main-head > h4{
     margin:0px;
     line-height: 300%;
-    font-size:21px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    font-size:18px;
+    font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
+    font-weight:600;
     color:#585858;
 }
 
@@ -442,6 +442,9 @@ input{
     color:#363b3e;
     font-size:14px;
     font-weight:700;
+}
+.main-views-select{
+    float : right;
 }
 #viewsChartDiv {
     width: 100%;

@@ -1,11 +1,19 @@
 package com.dung.geul.dto;
 
-import lombok.Data;
+import com.dung.geul.entity.MemberRole;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MemberDTO {
 
     private String user_id;
@@ -33,7 +41,6 @@ public class MemberDTO {
     private String user_job; //직장
 
     private String role;
-
 
 
 }

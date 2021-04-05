@@ -1,9 +1,8 @@
-package com.dung.geul.controller.api;
+package com.dung.geul.controller.restcontroller;
 
 import com.dung.geul.dto.CvPageDTO;
-import com.dung.geul.service.CvService;
+import com.dung.geul.service.CvServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +11,10 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 @RequestMapping("/application")
-public class ApplicationApiController {
+public class ApplicationRestController {
 
     @Autowired
-    private CvService cvService;
+    private CvServiceImpl cvServiceImpl;
 
     @PostMapping("/cv/register")
     public RedirectView cvRegister(CvPageDTO cvPageDTO){
@@ -23,7 +22,7 @@ public class ApplicationApiController {
         System.out.println("ApplicationApiController : cvRegister() 실행");
         System.out.println("cvPageDTO : " + cvPageDTO);
 
-        cvService.register(cvPageDTO);
+        cvServiceImpl.register(cvPageDTO);
 
         return new RedirectView("/application/cv/read");
     }
@@ -34,7 +33,7 @@ public class ApplicationApiController {
         System.out.println("ApplicationApiController : cvModify() 실행");
         System.out.println("cvPageDTO : " + cvPageDTO);
 
-        cvService.modify(cvPageDTO);
+        cvServiceImpl.modify(cvPageDTO);
 
         return new RedirectView("/application/cv/read");
     }
@@ -45,7 +44,7 @@ public class ApplicationApiController {
         System.out.println("ApplicationApiController : cvRegister() 실행");
         System.out.println("enterPriseDTO : " + cv_id);
 
-        cvService.delete(cv_id);
+        cvServiceImpl.delete(cv_id);
 
         return new RedirectView("/application/cv/read");
     }

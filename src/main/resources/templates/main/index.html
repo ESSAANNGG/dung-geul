@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <script
       src="https://kit.fontawesome.com/3a29a769fa.js"
@@ -9,14 +9,13 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
     />
-    <script src="/js/jquery-3.5.1.min.js"></script>
-    <script src="/js/scroll.js"></script>
-    <script src="/js/tabmenu.js"></script>
-    <script src="/js/footer.js"></script>
-    <script src="/js/nav.js"></script>
-    <script src="/js/photo.js"></script>
-    <script src="/js/aside.js"></script>
-    <link rel="stylesheet" href="/css/index-style.css" />
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/tabmenu.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/photo.js"></script>
+    <link rel="stylesheet" href="css/index-style.css" />
     <meta charset="UTF-8" />
     <title>main</title>
   </head>
@@ -73,10 +72,12 @@
               </ul>
             </li>
             <li class="login">
-              <a href="/login">로그인</a>
+              <a href="/login" th:if="!${loginUser}">로그인</a>
+              <a href="/logout" th:if="${loginUser}">로그아웃</a>
             </li>
             <li class="join">
-              <a href="/sign-up">회원가입</a>
+              <a href="/sign-up" th:if="!${loginUser}">회원가입</a>
+              <a href="/mypage/member/before" th:if="${loginUser}">마이페이지</a>
             </li>
           </ul>
         </div>
@@ -240,11 +241,10 @@
               </li>
             </ul>
             <div class="btn">
-              <span><i class="fas fa-angle-up"></i></span>
-              <span><i class="fas fa-angle-down"></i></span>
+              <span>▲</span>
+              <span>▼</span>
             </div>
           </div>
-          <div class="back">
           <div class="listbox">
             <div class="list">
               <h2 class="inside_tit">교내채용정보</h2>
@@ -278,7 +278,6 @@
                   <span>만료일 0000-00-00</span>
                 </li>
               </ul>
-              <span><i class="fas fa-chevron-circle-left"></i><i class="fas fa-chevron-circle-right"></i></span>
             </div>
             <!-- list -->
             <div class="list2">
@@ -315,7 +314,6 @@
             </div>
             <!-- list2 -->
           </div>
-          </div> <!-- back-->
 
           <section id="service">
             <div class="service_wrap">

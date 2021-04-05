@@ -37,5 +37,9 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/");
         //http.rememberMe().tokenValiditySeconds(60*60*7).userDetailsService(principalDatail);
 
+        http.logout().logoutSuccessUrl("/");
+
     }
+
+
 }
