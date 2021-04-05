@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>취업정보센터</title>
     <meta charset="utf-8" />
@@ -8,8 +8,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="/css/center_guide.css" />
-    <link rel="stylesheet" href="/css/frame.css">
+
+    <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
+    <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
+
+
   </head>
   <body class="is-preload">
     <div id="page-wrapper">
@@ -22,7 +25,7 @@
         <div class="nav">
           <ul class="dep1">
               <li class="logo">
-                  <a href="#">영진전문대학교</a>
+                  <a href="/" th:href="@{/#}">영진전문대학교</a>
               </li>
               <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
                   <a href="#">진로설계</a>
@@ -89,8 +92,9 @@
         <ul id="menu_bar">
             <li id="menu_con1"><h4>센터정보</h4>
                 <ul id="sb_detail">
-                    <li><a href="#">센터소개</a></li>
-                    <li><a href="#">주요업무내용</a></li>
+                    <li><a href="#" th:href="@{/center-information/center_introduction}">센터소개</a></li>
+                    <li><a href="#" th:href="@{/center-information/main_business}">주요업무내용</a></li>
+                    <li><a href="#" th:href="@{/center-information/notice_board}">공지사항</a></li>
                 </ul>
             </li>
             <!-- <li id="menu_con2"><h4>직업 정보</h4>
@@ -170,13 +174,13 @@
   <tr>
     <td data-th="계열학과">컴퓨터정보계열</td>
     <td class="table-border" >김경태</td>
-    <td class="table-border >5300</td>
+    <td class="table-border">5300</td>
     <td data-th="휴대폰번호">010-5790-1828</td>
   </tr>
    <tr>
     <td data-th="계열학과">컴퓨터응용기계계열</td>
-    <td class="table-border ">윤갑석</td>
-    <td class="table-border >5214</td>
+    <td class="table-border">윤갑석</td>
+    <td class="table-border" >5214</td>
     <td data-th="휴대폰번호">010-8638-1683</td>
   </tr>
   <tr>
