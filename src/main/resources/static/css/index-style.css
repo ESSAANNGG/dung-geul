@@ -424,7 +424,7 @@ a {
 }
 .notice {
   width: 1200px;
-  height: 100px;
+  height: 60px;
   position: relative;
   overflow: hidden; /*이 부분만 풀면 내용 숨겨져요*/
   margin: 120px auto;
@@ -457,12 +457,11 @@ h3 {
   height: 60px;
   font-size: 40px;
   font-weight: 700;
-  top:-50px;
 }
 .notice .btn {
   position: absolute;
   right: 10px;
-  top: 75%;
+  top: 50%;
   transform: translateY(-50%);
   width: 10px;
   text-align: center;
