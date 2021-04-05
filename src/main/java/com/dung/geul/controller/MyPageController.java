@@ -1,29 +1,21 @@
 package com.dung.geul.controller;
 
-import com.dung.geul.dto.MemberDTO;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.MemberServiceImpl;
-import com.dung.geul.service.MyPageServiceImpl;
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashSet;
 import java.util.Set;
 
 @Controller
 @RequestMapping("/mypage")
 public class MyPageController {        // 마이페이지 관련 컨트롤러
-
-    @Autowired
-    private MyPageServiceImpl myPageServiceImpl;
 
     @Autowired
     private MemberServiceImpl memberService;
@@ -55,14 +47,13 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     }
 
-    @GetMapping("/mypage/member/modifyPw/{user_id}")
-    public String ModifyPw(@PathVariable(name = "user_id") String user_id, Model model){
+    @GetMapping("/member/modifyPw")
+    public void ModifyMemberPw(String user_id, Model model){
 
-        System.out.println("pwModifyPageRead() 실행 user_id : " + user_id);
+        System.out.println("ModifyPw() 실행 user_id : " + user_id);
 
         model.addAttribute("user_id", user_id);
-
-        return "/member/modify_pw";
     }
+
 
 }

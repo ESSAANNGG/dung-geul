@@ -1,6 +1,7 @@
 let signUp = {
   init: function () {
-    $("#submit").on("click", () => {
+    $("#submit").on("click", (event) => {
+      event.preventDefault();
       alert("sign-up.js실행");
       this.save();
     });

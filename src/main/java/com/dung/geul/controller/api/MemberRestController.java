@@ -3,6 +3,7 @@ package com.dung.geul.controller.api;
 import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.dto.JoinResultPageDTO;
 import com.dung.geul.dto.MemberDTO;
+import com.dung.geul.dto.MemberPwDTO;
 import com.dung.geul.service.CvService;
 import com.dung.geul.service.MemberServiceImpl;
 
@@ -15,7 +16,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 @Log4j2
-public class MemberApiController {
+public class MemberRestController {
 
     @Autowired
     private MemberServiceImpl memberService;
@@ -49,23 +50,43 @@ public class MemberApiController {
         return new JoinResultPageDTO<>(1, HttpStatus.OK.value());
     }
 
+
+
     //회원정보 수정
-    @PutMapping("/mypage/member/modify")
-    public RedirectView modifyMemberInfo(MemberDTO memberDTO){
+    @PostMapping("/mypage/member/modify")
+    public int modifyMemberInfo(@RequestBody MemberDTO memberDTO){
+
+        System.out.println("회원 controller modifymemeberinfo - MemberDTO : "+memberDTO.toString());
 
         memberService.modifyMember(memberDTO);
 
-        return new RedirectView("/mypage/member/read");
+        int result = 1;
+
+        return result;
     }
 
     //비밀번호 수정
-    @PutMapping("/mypage/member/modifyPw/{user_id}")
-    public String modifyMemberPw(@PathVariable(name = "user_id") String user_id){
+    @PostMapping("/mypage/member/modifyPw")
+    public int modifyMemberPw(@RequestBody MemberPwDTO memberPwDTO){
 
-        System.out.println("서비스 - modifyMemberPw user_id : " + user_id);
+        System.out.println("서비스 - modifyMemberPw() MemberPwDTO : " + memberPwDTO.toString());
 
-        memberService.modifyMemberPw(user_id);
+        int result = memberService.modifyMemberPw(memberPwDTO);    // 현재 비밀번호 다름 : 0,  성공 : 1
 
-        return "/mypage/member/modify?pw=mod";
+        System.out.println("Result : " + result);
+
+        return result;
     }
+
+    @GetMapping("/mypage/member/delete")
+    public RedirectView deleteMember(@RequestParam String user_id){
+
+        System.out.println("member mypage delete () - user_id : " + user_id);
+
+        memberService.deleteMember(user_id);
+
+        return new RedirectView("/");
+        
+    }
+
 }

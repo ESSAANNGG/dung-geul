@@ -18,6 +18,9 @@ import java.time.LocalDate;
 public class CV  implements Serializable{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long cv_id;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cv_user_id" ,foreignKey = @ForeignKey(name="cv_user_id_fk"))
     private Member user_id;

@@ -1,41 +1,10 @@
 let modify = {
     init: function () {
-        $("#modifyPwBtn").on("click", () => {
-            alert("modifyPwBtn 실행");
-            this.modifyBtnPwFn();
-        });
-
-        $("#modifyMember").on("click", () => {
+        $("#modifyMember").on("click", (event) => {
+            event.preventDefault();
             alert("modifyMember 실행");
             this.modifyMemberFn();
         });
-    },
-
-    modifyBtnPwFn: function () {
-        let userData = {
-            user_id: $("#user_id").val(),
-            user_pw: $("#user_pw").val()
-        };
-
-        console.log(JSON.stringify(userData));
-        alert(JSON.stringify(userData));
-
-        $.ajax({
-            type: "POST",
-            url: "/mypage/member/modifyPw",
-            data: JSON.stringify(userData),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-        }).done(function (response) {
-                alert("비밀번호가 변경되었습니다.");
-
-                location.replace(`${response}`);
-        }).error(function (err) {
-            console.log(err);
-
-            alert("변경 실패");
-
-        })
     },
 
     modifyMemberFn: function () {
@@ -44,7 +13,7 @@ let modify = {
             user_name: $("#user_name").val(),
             user_email: $("#user_email").val(),
             user_ph: $("#user_ph").val(),
-            user_postcode: $("#postcode").val(),
+            user_postcode: $("#user_postcode").val(),
             user_addr: $("#user_addr").val(),
             user_addr_details: $("#user_addr_details").val(),
             user_dept: $("#user_dept").val(), //계열
@@ -56,18 +25,22 @@ let modify = {
         alert(JSON.stringify(userData));
 
         $.ajax({
-            type: "POST",
+            type: "post",
             url: "/mypage/member/modify",
             data: JSON.stringify(userData),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-        })
-            .done(function (response) {
-                alert("회원정보 수정이 완료되었습니다");
+            success : function (result) {
 
-                location.href = '"'+ response +'"';
-            });
-    },
-};
+                console.log(result);
+
+                if(result == 1){
+                    alert("수정 성공");
+                    location.href = "/mypage/member/read";
+                }
+            }
+        })
+    }
+}
 
 modify.init();
