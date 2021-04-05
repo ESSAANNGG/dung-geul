@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -27,7 +28,7 @@ public class ConsultRepositoryTest {
             consultRepository.save(consult);
         });
     }
-
+    @Transactional
     @Test
     public void testRead1(){
         Optional<Consult> result = consultRepository.findById(50L);
