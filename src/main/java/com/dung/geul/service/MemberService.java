@@ -8,6 +8,8 @@ import com.dung.geul.entity.MemberRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.Set;
+
 public interface MemberService {
 
     // 교내회원 회원가입을 위해 dto -> entity
@@ -62,6 +64,7 @@ public interface MemberService {
     }
 
 
+
     default void RoleAndCloumAdd(Member member, MemberDTO memberDTO, String role){
 
         member.addMemberRole(MemberRole.USER);
@@ -85,5 +88,46 @@ public interface MemberService {
             member.addMemberRole(MemberRole.ENTERPRISE);
         }
     }
+
+    // 회원정보를 보기위해
+//    default MemberDTO memberEntityToDto(Member member){
+//
+//        System.out.println("MemberService의 memberEntityToDto 실행 : " + member);
+//
+//        MemberDTO memberDTO = MemberDTO.builder()
+//                .user_id(member.getUser_id())
+//                .user_pw(member.getUser_pw())
+//                .user_name(member.getUser_name())
+//                .user_email(member.getUser_email())
+//                .user_postcode(member.getUser_postcode())
+//                .user_addr(member.getUser_addr())
+//                .user_addr_details(member.getUser_addr_details())
+//                .user_ph(member.getUser_ph())
+//                .build();
+//
+//        System.out.println("memberDTO : " + memberDTO);
+//
+//        Set<MemberRole> roleSet = member.getRoleSet();
+//
+//        System.out.println("roleSet : " + roleSet.toString());
+//
+//        if(roleSet.contains(MemberRole.STUDENT)) {
+//            memberDTO.addMemberRole(MemberRole.STUDENT);
+//
+//        } else if(roleSet.contains(MemberRole.MENTO)){
+//            memberDTO.addMemberRole(MemberRole.MENTO);
+//
+//        } else if(roleSet.contains("COUNSELOR")){
+//            memberDTO.addMemberRole(MemberRole.STUDENT);
+//
+//        } else if(roleSet.contains("ENTERPRISE")){
+//            member.addMemberRole(MemberRole.ENTERPRISE);
+//        }
+//
+//        memberDTO.addMemberRole(MemberRole.USER);
+//
+//        return memberDTO;
+//    }
+
 
 }

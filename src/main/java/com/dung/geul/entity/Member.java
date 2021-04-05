@@ -71,6 +71,7 @@ public class Member extends BaseEntity {
     }
 
 
+
     // 수정 가능한 항목
 
     public void memberModify(String user_name,
@@ -91,6 +92,7 @@ public class Member extends BaseEntity {
     public void modUser_pw(String user_pw){
         this.user_pw = user_pw;
     }
+
 
     public void modUser_dept(String user_dept) {
         this.user_dept = user_dept;

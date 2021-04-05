@@ -37,5 +37,4 @@ public class MemberDTO {
     private String role;
 
 
-
 }

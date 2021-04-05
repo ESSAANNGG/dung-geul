@@ -41,4 +41,6 @@ public class Config extends WebSecurityConfigurerAdapter {
         http.logout().logoutSuccessUrl("/");
 
     }
+
+
 }

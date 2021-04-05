@@ -98,9 +98,11 @@ public class MemberRepositoryTest {
     public void insertAdmin(){
 
         Member member = Member.builder()
+
                 .user_id("admin1")
                 .user_pw("1111")
                 .user_name("관리자")
+
                 .user_ph("01011112222")
                 .user_email("admin@email")
                 .user_postcode("41521")
@@ -113,7 +115,9 @@ public class MemberRepositoryTest {
 
         memberRepository.save(member);
 
+
         System.out.println("회원 한명 추가 id : admin1, pw : 1111");
+
     }
 
     @Test

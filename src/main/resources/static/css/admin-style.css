@@ -49,12 +49,11 @@ input{
     padding-left:15%;
     border-bottom:solid 1px #5a5a5a;
 }
-.menubox-header>h2{
-    margin:auto;
+.menubox-header{
     color:white;
-    font-size:23px;
-    font-family: 'Roboto', sans-serif;
-    font-weight:normal
+    font-size:21px;
+    font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
+    font-weight:400
 }
 
 .menubox-body{
@@ -68,32 +67,34 @@ input{
     padding-top:20px;
     padding-left:10%;
     color:#eeeeee;
-    
-}
-.menubox-body-menu > h4{
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size:13px;
-    font-weight:650;
-    margin:0px;
-}
 
+    font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
+    font-size:14px;
+    font-weight:500;
+    margin:0px;
+
+}
 
 .menubox-body-sub{
     display:block;
-    overflow: hidden; 
     height:0px;
     padding-left:30%;
-    color:#eeeeee;
-        transition-property: height;
-        transition-duration: 0.8s;
-}
-.menubox-body-sub > h4{
-    font-size:13px;
-    font-weight:650;
-    font-family: 'Nanum Gothic', sans-serif;
-    margin:20px 0;
-}
 
+    overflow: hidden; 
+    transition-property: height;
+    transition-duration: 0.8s;
+}
+.menubox-body-sub > p{
+    height:35px;
+
+    font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:#eeeeee;
+
+    line-height: 50px;
+
+}
 
 
 #main1_2{
@@ -121,15 +122,14 @@ input{
     margin:0px;
     padding-left:3%;
     background-color: #ffffff;
-    font-family: 'Open Sans', sans-serif;
     box-shadow: 0px 0.5px 0px 0px rgb(192, 192, 192);
 }
 .main-head > h4{
     margin:0px;
     line-height: 300%;
-    font-size:21px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    font-size:18px;
+    font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
+    font-weight:600;
     color:#585858;
 }
 
@@ -280,29 +280,80 @@ input{
 /* 상세보기 */
 .detailEnter{
     display:block;
-    visibility:hidden;
     position:fixed;
     width:1920px;
     height:935px;
+
+    visibility:hidden;
     z-index:1;
 }
 .detailBox{
     display:block;
-    visibility:hidden;
     position:fixed;
     margin:auto;
     left:0;
     right:0;
-    top:15%;
-    width:40%;
-    height:70%;   
+    top:5%;
+    width:33%;
+    height:90%;
+    padding:40px;
+    margin:auto;
+    padding:40px;
+    background-color: #ffffff;
+    color:#545c64;
+
+    border-radius: 5px;
+    font-weight: 700;
+    /* font-family: 나눔고딕, NanumGothic, ng, Apple Gothic; */
+    font-size:14px;
     
+    visibility:hidden;
     opacity:0;
     transition-property:opacity;
     transition-duration: 0.5s;
     z-index:2;
-    background-color: #eeeeee;
+
     /* box-shadow: 0px 0px 1px 1px rgb(192, 192, 192); */
+}
+.detail-grade{
+    width:115px;
+    height:35px;
+    padding:0 12px;
+
+    background-color: #3f6ad8;
+    color:#ffffff;
+    border-radius: 7px 3px 3px 7px;
+    box-shadow: 0px 0px 1px 1px #9cc9f8; /*없앨지 말지 고민*/
+}
+.detail-head{
+    display:flex;
+    height:35px;
+    margin-top:5px;
+    line-height: 35px;
+    font-weight:400;
+    font-size:14px;
+}
+.detail-body{
+    height:35px;
+    font-weight:400;
+    font-size:16px;
+    padding:0 12px;
+    margin-bottom:5px;
+}
+.detail-body:focus{
+    box-shadow: 0px 0px 3px 2px #9cc9f8;
+    outline: none;
+}
+.detail-button{
+    display:inline-block;
+    width:90px;
+    height:30px;
+    margin:20px 10px 0px 0px;
+    background-color: #3f6ad8;
+    color:#ffffff;
+
+    font-weight: 500;
+    font-size:13px;
 }
 
 
@@ -340,9 +391,7 @@ input{
     display:inline-block;
     width:80px;
     text-align:center;
-}
-#main1_3 .detail{
-    width:120px;
+    margin-right:30px;
 }
 
 
@@ -442,6 +491,9 @@ input{
     color:#363b3e;
     font-size:14px;
     font-weight:700;
+}
+.main-views-select{
+    float : right;
 }
 #viewsChartDiv {
     width: 100%;

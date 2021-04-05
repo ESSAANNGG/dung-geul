@@ -44,8 +44,8 @@ function detail(){
     document.getElementsByClassName("detailEnter")[0].style.visibility="visible";
 
     document.getElementsByClassName("detailBox")[0].style.opacity="1";
-    document.getElementsByClassName("detailBox")[0].style.boxShadow="0px 0px 1px 1px rgb(192, 192, 192)";
-    document.getElementsByClassName("bodyLap")[0].style.opacity="0.4";
+    document.getElementsByClassName("detailBox")[0].style.boxShadow="0px 0px 5px 1px rgb(192, 192, 192)";
+    document.getElementsByClassName("bodyLap")[0].style.opacity="0.3";
 
 }
 

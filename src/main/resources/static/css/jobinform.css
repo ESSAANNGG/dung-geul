@@ -1,0 +1,152 @@
+.menu {
+    float: left;
+    width: 220px;
+}
+/* sidemenu */
+body {
+    background: #eee;
+    margin: 0 auto;
+}
+input, button, select {
+    border: none;
+    color: #333;
+    margin: 0;
+    line-height: inherit;
+    font-size: 16px;
+    border-radius: 5px;
+}
+#content {
+    float: left;
+    width: 1020px;
+    margin: 0 30px;
+    background: #fff;
+    border-radius: 8px;
+}
+#job-main-wrap {
+    padding: 130px 0 80px;
+}
+.d_width {
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    transition: all 0.5s;
+}
+#job-wrap {
+    position: relative;
+    padding: 30px;
+    height: 100px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+}
+#job-wrap h3 {
+    padding: 0;
+    line-height: 1;
+    font-weight: 900 !important;
+}
+.search-con {
+    width: 100%;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+.search-box-body {
+    padding: 50px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+}
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+}
+.search-box {
+    float: left;
+    background: #f6f6f6;
+    border-radius: 3px;
+    padding: 30px;
+    width: 100%;
+}
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: .25em;
+}
+.search-box .label {
+    color: #000;
+    line-height: 40px;
+    margin-right: 20px;
+}
+.search-box>div>div {
+    float: left;
+    vertical-align: middle;
+}
+.form-inline {
+    display: inline;
+    flex-flow: row wrap;
+    align-items: center;
+}
+button, input {
+    overflow: visible;
+}
+input[type=text] {
+    min-height: 30px;
+    border: 1px solid #ddd;
+    text-indent: 10px;
+    transition: all 0.5s;
+    vertical-align: middle;
+}
+.form-control {
+    display: inline;
+    font-size: 0.875rem;
+    width: 250px;
+    height: 40px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    background-color: #fff;
+    background-clip: padding-box;
+    box-shadow: none;
+}
+.btn-d {
+    display: inline;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #2b2e4a;
+    background-color: #2b2e4a;
+    font-size: 0.875rem;
+    color: #fff;
+    padding: 0 15px;
+    line-height: 38px;
+}
+.bx1_wh {
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+ul.d2 li {
+    float: left;
+    width: 50%;
+}
+.bx1_wh li {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+ul, li {
+    list-style: none;
+}
+.h3, h3 {
+    font-size: 1.25rem;
+    margin: 1rem 0 0.5rem;
+    letter-spacing: -1px;
+}
+.clearfix:before {
+    display: table;
+    content: " ";
+    box-sizing: border-box;
+}

@@ -9,12 +9,15 @@ public class EmpolyRepositoryTest {
     @Autowired
     private EmpolyRepository empolyRepository;
 
-//    @Test
-//    public void testInsertDummies(){
+    @Test
+    public void testInsertDummies(){
+
 //
 //        IntStream.rangeClosed(1,100).forEach(i -> {
 //            Empoly em = Empoly.builder().title("Sample...." + i).build();
 //            empolyRepository.save(em);
 //        });
-//    }
+
+    }
+
 }

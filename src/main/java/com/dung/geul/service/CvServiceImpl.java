@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
-public class CvService {
+public class CvServiceImpl {
 
     @Autowired
     private CvRepository cvRepository;

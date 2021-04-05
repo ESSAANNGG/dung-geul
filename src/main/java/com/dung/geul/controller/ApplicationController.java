@@ -32,17 +32,13 @@ public class ApplicationController {
     @GetMapping("/cv/before")
     public String cvBefore(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
-        System.out.println("진행 : ApplicationController - cvBefore 실행 ");
-
-        String result = "";
+        String result = "/application/cv/before";
 
         Member member = memberRepository.findById(authMemberDTO.getUser_id()).get();
 
         Optional<CV> cv = cvRepository.findByUser_id(member);
 
-        if(cv.isEmpty()){
-            result = "/application/cv/before";
-        } else {
+        if(!cv.isEmpty()){
             result = "redirect:/application/cv/read";
         }
 
@@ -62,15 +58,9 @@ public class ApplicationController {
     @GetMapping("/cv/read")
     public String read(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
-        System.out.println("진행 - Controller : read : authMemberDTO : " + authMemberDTO);
-
         Member member = memberRepository.findById(authMemberDTO.getUser_id()).get();
 
-        System.out.println("진행 - cvRepository.findByUser_id(member) : " + cvRepository.findByUser_id(member));
-
         CV cv = cvRepository.findByUser_id(member).get();
-
-        System.out.println("진행 - (member).get() : " + cv);
 
         model.addAttribute("cv", cv);
         model.addAttribute("age", 24);  // 추후 수정
@@ -80,8 +70,6 @@ public class ApplicationController {
 
     @GetMapping("/cv/modify")
     public String modify(Model model, Long cv_id){
-        System.out.println("컨트롤러 get Mapping /cv/modify :" + cv_id);
-        System.out.println("cv_id :" + cv_id);
 
         CV cv = cvRepository.getOne(cv_id);
 
