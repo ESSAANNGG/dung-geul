@@ -79,9 +79,9 @@ a, a:active {
     display: block;
     position: relative;
 }
-/* ul {
+#bar ul {
     line-height: 1.8;
-} */
+}
 /* ul, li {
     list-style: none;
 } */
