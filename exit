@@ -1,0 +1,954 @@
+[33mcommit 94426a209432d774d2a7931b689849c6743341ee[m[33m ([m[1;36mHEAD -> [m[1;32mnotice_board_branch[m[33m)[m
+Merge: efbebc7 bea7d9d
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Mon Apr 5 20:24:04 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit efbebc74516d77c7e6187621952ee7d935066c11[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Mon Apr 5 20:23:26 2021 +0900
+
+    job-information 20:23 0405
+
+[33mcommit bea7d9ded325322ab68babc7e15028e5c3ca4f92[m[33m ([m[1;31morigin/notice_board_branch[m[33m)[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Mon Apr 5 16:11:15 2021 +0900
+
+    Revert "공지사항 수정"
+    
+    This reverts commit 7c9f8720f9b8a8d7ca6cbd3570f2a084d9c131ae.
+
+[33mcommit 7c9f8720f9b8a8d7ca6cbd3570f2a084d9c131ae[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Mon Apr 5 16:10:43 2021 +0900
+
+    공지사항 수정
+
+[33mcommit ecb309baf9ded4da8fb5b2156a56be36c4cd2d6a[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Mon Apr 5 15:53:57 2021 +0900
+
+    메인화면 수정
+    
+    중단 메뉴 수정
+
+[33mcommit 4667fbc2b5c8fc961be7a818e7a376ad7166b3b3[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Mon Apr 5 15:46:07 2021 +0900
+
+    직업심리 검사 완성
+    
+    심리 검사 끗
+
+[33mcommit 463af6bce8367901b16b0350a5f1fd5b7b8ed203[m
+Author: ksh3760 <63641306+ksh3760@users.noreply.github.com>
+Date:   Mon Apr 5 14:24:50 2021 +0900
+
+    update center_information
+
+[33mcommit d83e0a6700583111f9ca1906df0cc98f573ae043[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Mon Apr 5 14:08:54 2021 +0900
+
+    simli_test
+    
+    직업심리검사!
+
+[33mcommit 3b1f1a9886fdbd2727aeb99c0d9c87035505da5b[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Mon Apr 5 14:07:30 2021 +0900
+
+    어드민 유저상세정보
+
+[33mcommit 6b615c9bd638ae4ef6789b8842beb8defe6ceab1[m
+Merge: 8715737 49990c7
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Mon Apr 5 11:28:09 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/main/resources/templates/main/index.html
+
+[33mcommit 49990c77bf94ad0a7e4017f6966f947ec20d5fd9[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Mon Apr 5 00:17:53 2021 +0900
+
+    admin 회원가입 차트 완료
+
+[33mcommit 0f1a1ae56e2e5ec90c81bd6b66ebf557fc6a7c50[m
+Author: HyeRi <cos850@naver.com>
+Date:   Sat Apr 3 11:35:41 2021 +0900
+
+    패키지명 변경(controller/api -> controller/restController)
+    메인페이지 회원가입/마이페이지 변경
+
+[33mcommit 86dcace19139bf39df6265c7203e1e9aa87aa9e1[m
+Author: HyeRi <cos850@naver.com>
+Date:   Fri Apr 2 20:20:03 2021 +0900
+
+    관리자 추가 테스트코드
+
+[33mcommit dfb238509671ce1d6ed08eb6ac52d2e6ca427cf6[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Fri Apr 2 20:15:52 2021 +0900
+
+    어드민 방문자조회 와넛ㅇ
+
+[33mcommit aed66f240e1033ba4a397af8efe865a712dbccba[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Fri Apr 2 11:04:54 2021 +0900
+
+    school-user_category update
+    
+    디자인 살짝수정
+
+[33mcommit 4feea2779f033998ea18b387dfbf2a34baa902f2[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Thu Apr 1 20:11:09 2021 +0900
+
+    sign-up 수정
+    
+    간호학과 ,경영회계서비스계열  오류 수정
+
+[33mcommit c07d5c6ca85b0f8a2c49a1d01ba0756d7d21f4f0[m
+Author: HyeRi <cos850@naver.com>
+Date:   Thu Apr 1 11:42:59 2021 +0900
+
+    로그인 로그아웃 수정 3
+
+[33mcommit 5f00c1bf3cc391f4a248b591ccb2026baa23b0e8[m
+Author: HyeRi <cos850@naver.com>
+Date:   Thu Apr 1 11:31:47 2021 +0900
+
+    로그인 로그아웃 수정 2
+
+[33mcommit 87157375db2e6038380d4d94de9dbfe58fb3375e[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Wed Mar 31 20:20:04 2021 +0900
+
+    a href 0329 10:31
+
+[33mcommit 155c48deec6aeffe60f198ce49ea718d079527da[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Wed Mar 31 20:06:43 2021 +0900
+
+    경로수정
+
+[33mcommit 7ffce560a96928b8a42621566e3952b4eb3ec36d[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Wed Mar 31 20:00:21 2021 +0900
+
+    상단메뉴수정
+
+[33mcommit f5114381b1d0cb7a01a14846ee2c49d0c2cdf609[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Wed Mar 31 19:49:51 2021 +0900
+
+    index.css 수정 19:49
+
+[33mcommit 5edab8fa1a13503cdad6a2fc98ba27052e177d13[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Wed Mar 31 19:49:20 2021 +0900
+
+    a href 0329 10:31
+
+[33mcommit b696b9b8d974b5b42d6e9c912a8a2e87b3856670[m
+Merge: d8580da 3892b0e
+Author: cos850 <68280248+cos850@users.noreply.github.com>
+Date:   Wed Mar 31 19:45:15 2021 +0900
+
+    Merge pull request #5 from LSJ97/mypage
+    
+    로그인 로그아웃 수정
+
+[33mcommit 3892b0ea02c549975a56140b44f7f8ccd63980c0[m
+Merge: eaa52ef d8580da
+Author: cos850 <68280248+cos850@users.noreply.github.com>
+Date:   Wed Mar 31 19:44:34 2021 +0900
+
+    Merge branch 'master' into mypage
+
+[33mcommit eaa52eff95df06f92a41c7424cda5651a3c57316[m
+Author: HyeRi <cos850@naver.com>
+Date:   Wed Mar 31 19:37:44 2021 +0900
+
+    로그인 로그아웃 수정
+
+[33mcommit d8580da5ec109ffb406f858ba169fdf24a1d8e24[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Wed Mar 31 18:52:04 2021 +0900
+
+    aside.js 0331 18:51
+
+[33mcommit 647c1371456ef5e37ca12bea6203d75943c45a62[m
+Merge: a873b38 a0d2204
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Wed Mar 31 18:32:29 2021 +0900
+
+    Merge branch 'master' of https://github.com/LSJ97/dung-geul
+
+[33mcommit a873b388299c61e2aed73997d229faeee82efd98[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Wed Mar 31 18:32:09 2021 +0900
+
+    a href 0329 10:31
+
+[33mcommit a0d22049a5c784e4f10fd5363b59ab6af1fa6190[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Wed Mar 31 18:09:29 2021 +0900
+
+    center-navbar
+    
+    센터정보 상단메뉴 수정
+
+[33mcommit fa1f85c8253971578d2a57b00290be6322c991c2[m
+Merge: f67402f 57c69d6
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Tue Mar 30 20:22:09 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 57c69d60c5ff24c04e16bfeca03479c9cfdbf012[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Tue Mar 30 20:13:10 2021 +0900
+
+    index fixed a bug
+    
+    quick menu
+
+[33mcommit a491590bac5171f5f7bcbe6a6cf311a1e7f1fecb[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Tue Mar 30 19:35:18 2021 +0900
+
+    main 수정
+    
+    민우야..
+
+[33mcommit f67402f5b7fbc0d7b378c3ab280412226ad258ba[m
+Merge: 03de94b a081542
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Tue Mar 30 19:15:01 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit a0815429be79318be4d047a74d19ad3ddad5c0ed[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Tue Mar 30 18:48:00 2021 +0900
+
+    메인화면 nav 수정
+
+[33mcommit 03de94bdb4e27eca2bb905789c41b3030a690b4f[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Tue Mar 30 18:40:11 2021 +0900
+
+    a href 0329 10:31
+
+[33mcommit d2dcdd1e939df118a6764f50985d93694e75a612[m
+Author: HyeRi <cos850@naver.com>
+Date:   Tue Mar 30 18:37:32 2021 +0900
+
+    공지사항 css 수정 0330
+
+[33mcommit a14494131bee6af5614884594bac2bd929a76811[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Tue Mar 30 16:29:09 2021 +0900
+
+    index 수정
+    
+    공지사항~ 푸터전까지
+
+[33mcommit 5b6d5469e9cdc270e5cf57f6bd5baee7e4e7ed44[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Tue Mar 30 16:09:38 2021 +0900
+
+    center
+    
+    경로수정
+
+[33mcommit 4d9bc8602cd66de7035ef4907198922a8b8e8408[m
+Author: dodo <do8017@naver.com>
+Date:   Tue Mar 30 14:42:51 2021 +0900
+
+    Empoly list , Repository, service , Controller 추가
+
+[33mcommit b143ddf03ded7526e5c2201d90730e1d53f49162[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Tue Mar 30 14:30:18 2021 +0900
+
+    a링크 재수정
+
+[33mcommit 5f6db7d718f835128962d60ce6c5b0bb69447858[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Tue Mar 30 14:12:36 2021 +0900
+
+    메인 메뉴밀림 수정/로긘,회원가입연결
+
+[33mcommit c3738f8804596ed8cf99a6cb35ad160408af3532[m
+Author: HyeRi <cos850@naver.com>
+Date:   Tue Mar 30 13:45:14 2021 +0900
+
+    테스트
+
+[33mcommit 2a956df76ed4dd74d66a987da91c162a79b5196b[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Tue Mar 30 13:09:41 2021 +0900
+
+    관리자 통계수정
+
+[33mcommit 3b51012722f3792610049cc4f20e8dd738bd6394[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Tue Mar 30 12:55:19 2021 +0900
+
+    center-introduction
+    
+    오타수정
+
+[33mcommit 3567dff91034fa7d8e003e13a602c88c8cdb64ef[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Tue Mar 30 12:34:51 2021 +0900
+
+    center-information
+    
+    센터 안내(센터소개, 주요업무내용)
+
+[33mcommit c1e38e142441b7d2c66a2879719c89b7e665b96a[m
+Author: HyeRi <cos850@naver.com>
+Date:   Tue Mar 30 11:26:09 2021 +0900
+
+    1. 이력서 등록 수정 삭제 구현(삭제 아직,,)
+    2. 상담사 insert 테스트코드 만들어둠
+
+[33mcommit fead99589f37e03e2f4e25d1269463c4d364c010[m[33m ([m[1;32mcommit[m[33m)[m
+Author: HyeRi <cos850@naver.com>
+Date:   Mon Mar 29 11:38:47 2021 +0900
+
+    DB WARN 뜨는거 바꿨어요(FK+id 분리하고 id는 자동생성 시쿼스로 변경)
+
+[33mcommit 992c2d3e138ea4b9645a1c57bbc0f0aac20564b9[m
+Author: HyeRi <cos850@naver.com>
+Date:   Mon Mar 29 11:38:47 2021 +0900
+
+    commit 오류 수정
+
+[33mcommit 55e17642ce524ddc492c77b65b925b90994fbfeb[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Mon Mar 29 10:31:48 2021 +0900
+
+    a href 0329 10:31
+
+[33mcommit bcb82bf268b8dccd0e94f8332f60fdc42787afde[m
+Author: HyeRi <cos850@naver.com>
+Date:   Mon Mar 29 02:01:24 2021 +0900
+
+    이력서 관련 엔티티 클래스 수정
+
+[33mcommit f995851b3217950d2e1ff095a9789684b7fe5385[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Sun Mar 28 23:50:05 2021 +0900
+
+    관리자 회원통계
+
+[33mcommit 3403875b72a7e28dcb1a4ccd6d54d0175e76b5e5[m
+Author: HyeRi <cos850@naver.com>
+Date:   Sun Mar 28 20:22:21 2021 +0900
+
+    login 구현 (교내회원만)
+
+[33mcommit 5be6b0e7529478cffbde07b007844622d2aa52e1[m
+Author: HP <dltkdwns19@naver.com>
+Date:   Sun Mar 28 12:22:53 2021 +0900
+
+    컨트롤러추가 + 넘김페이지 연결
+
+[33mcommit 8118f4b40d2f3a8866ebe94398d1cd11e849a030[m
+Author: HP <dltkdwns19@naver.com>
+Date:   Sun Mar 28 12:04:24 2021 +0900
+
+    컨트롤러
+
+[33mcommit c9defceffb13b6ed682cfa4a1e3aad473002f8ba[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sun Mar 28 00:18:51 2021 +0900
+
+    main quickmenu
+    
+    quickmenu
+
+[33mcommit cb865b7fe9bb21838c322b10f7235ff80b78a6a1[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 27 21:41:36 2021 +0900
+
+    enterprise_sign-up
+    
+    js
+
+[33mcommit 13b253071579ffed9916d9892e2454b2c4e11050[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 27 21:23:43 2021 +0900
+
+    sign-up 수정
+    
+    회원 구분 별 js 추가 id value 수정
+    학생,교수 class 수정
+
+[33mcommit f51d567fabfaee654936c9393437ce4f1778b324[m
+Merge: 7ec85b4 7d81275
+Author: HP <dltkdwns19@naver.com>
+Date:   Sat Mar 27 19:18:49 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 7ec85b43a65240d719c382c5495f25a3b9ec598d[m
+Author: HyeRi <cos850@naver.com>
+Date:   Sat Mar 27 19:09:52 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/main/resources/templates/sign-up/school-user_category.html
+
+[33mcommit 7d8127557288518ebaf3c13b80ba76551a5badb1[m
+Author: HyeRi <cos850@naver.com>
+Date:   Sat Mar 27 19:09:52 2021 +0900
+
+    school-user_category.html 수정했어요 !
+
+[33mcommit 3a455efa3dbd88bd1ae435604ad08ea4f429f94e[m
+Merge: f29f31d 1a57570
+Author: HyeRi <cos850@naver.com>
+Date:   Sat Mar 27 19:04:09 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/main/resources/templates/sign-up/school-user_category.html
+
+[33mcommit 1a57570ba0f7bff643ae998556a424ebad22b007[m
+Merge: be3bd0e 385d5c0
+Author: HP <dltkdwns19@naver.com>
+Date:   Sat Mar 27 18:26:14 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/main/resources/templates/sign-up/school-user_category.html
+
+[33mcommit 385d5c028cfa553571f7431f579ec50ec88eb4ee[m
+Merge: b02f614 4d6b34a
+Author: cos850 <68280248+cos850@users.noreply.github.com>
+Date:   Sat Mar 27 18:23:16 2021 +0900
+
+    Merge pull request #4 from LSJ97/hyeri
+    
+    회원가입수정
+
+[33mcommit 4d6b34a1e16cd16b45ecb89718a22f0101f93792[m
+Merge: 8380d34 b02f614
+Author: cos850 <68280248+cos850@users.noreply.github.com>
+Date:   Sat Mar 27 18:23:01 2021 +0900
+
+    Merge branch 'master' into hyeri
+
+[33mcommit f29f31d4390bacb7418207511ce16ac31908048c[m
+Merge: 6b0493e b02f614
+Author: HyeRi <cos850@naver.com>
+Date:   Sat Mar 27 17:39:15 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/main/resources/templates/sign-up/school-user_category.html
+
+[33mcommit be3bd0e9610354ad00ce223ed114bfe5f65a2e50[m
+Merge: b02f614 8380d34
+Author: HP <dltkdwns19@naver.com>
+Date:   Sat Mar 27 17:33:46 2021 +0900
+
+    Merge remote-tracking branch 'origin/hyeri'
+    
+    # Conflicts:
+    #       src/main/resources/templates/sign-up/school-user_category.html
+
+[33mcommit b02f614d9b06fe7dbfd77388c79dfb865fd7d36b[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 27 17:28:52 2021 +0900
+
+    signup 수정
+    
+    528
+
+[33mcommit 8380d34d41ba04321fb1d9cc64b65313444aa591[m
+Author: HyeRi <cos850@naver.com>
+Date:   Sat Mar 27 17:26:29 2021 +0900
+
+    회원가입 수정(DB 추가함)
+
+[33mcommit db744f00de5517b6714402a0c328f98bedef6e12[m
+Merge: 9bf04ce 62ad54d
+Author: HP <dltkdwns19@naver.com>
+Date:   Sat Mar 27 15:31:28 2021 +0900
+
+    Merge remote-tracking branch 'origin/hyeri'
+    
+    # Conflicts:
+    #       src/main/resources/templates/login/login.html
+    #       src/main/resources/templates/sign-up/school-user_category.html
+
+[33mcommit 9bf04ce7c97a09fe0c1694db407225837e02b1f3[m
+Merge: d5fcbd4 1945031
+Author: HP <dltkdwns19@naver.com>
+Date:   Sat Mar 27 15:22:00 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 8caa20d242c4c0ffc4fa44aac5f19ae89b1bc7aa[m
+Merge: 62ad54d 1945031
+Author: HyeRi <cos850@naver.com>
+Date:   Sat Mar 27 14:32:04 2021 +0900
+
+    Merge remote-tracking branch 'origin/master' into hyeri
+    
+    # Conflicts:
+    #       src/main/resources/templates/sign-up/school-user_category.html
+
+[33mcommit 1945031ed84b2e9e8835e4ad9ff65818d2607c94[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 27 14:08:25 2021 +0900
+
+    경로수정
+    
+    css,js
+
+[33mcommit 6b0493ebc65f8afcfd5ace196b32b59f8d605bc6[m
+Merge: 0606c7b 129b777
+Author: HyeRi <cos850@naver.com>
+Date:   Sat Mar 27 14:00:53 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 129b777e373dbb027db768bbc11582ccdd7fde74[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 27 13:50:39 2021 +0900
+
+    sign-up ajax
+    
+    데이터 전송 부분 수정
+
+[33mcommit d5fcbd4506c824c466befb1bfdaa4d7fb0fa5a90[m
+Merge: 080c990 67c4348
+Author: HP <dltkdwns19@naver.com>
+Date:   Fri Mar 26 19:48:14 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 0606c7ba4271f21a5bb56f3c0d1a398ca662f72c[m
+Merge: 81c08e6 67c4348
+Author: HyeRi <cos850@naver.com>
+Date:   Fri Mar 26 19:45:41 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 81c08e6b61c9e3f5ed6146f4d18316e987b56bb8[m
+Author: HyeRi <cos850@naver.com>
+Date:   Fri Mar 26 19:02:05 2021 +0900
+
+    controller 수정
+
+[33mcommit 2b047b5b4b329108af27bf8d4a1c8d20b19388a6[m
+Author: HyeRi <cos850@naver.com>
+Date:   Fri Mar 26 14:49:58 2021 +0900
+
+    controller 수정
+
+[33mcommit 67c43487baabd3aee00bf9756337b4500d414cae[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Fri Mar 26 19:40:36 2021 +0900
+
+    sign-up
+    
+    sign-up 오류 수정
+
+[33mcommit 62ad54d3622256f668fa1e7bd9dd3ccf6e2f00ab[m
+Author: HyeRi <cos850@naver.com>
+Date:   Fri Mar 26 19:02:05 2021 +0900
+
+    회원가입 수정
+
+[33mcommit 080c990a7305f0dd614f72a035255ffdd6815152[m
+Merge: 11055ba 98d9503
+Author: HP <dltkdwns19@naver.com>
+Date:   Fri Mar 26 16:05:41 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 98d9503114a6c4655a86c51d9a12f793bfe68735[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Fri Mar 26 15:26:25 2021 +0900
+
+    category
+    
+    category
+
+[33mcommit 11055ba379d3b76584d00a1c0119832fc301d00c[m
+Merge: 9f5e179 b82e043
+Author: HP <dltkdwns19@naver.com>
+Date:   Fri Mar 26 15:03:50 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/main/resources/templates/login/login.html
+
+[33mcommit 0354f4ac94185412b7546ff83ffbada2db98e865[m
+Merge: 8bd4923 b82e043
+Author: HyeRi <cos850@naver.com>
+Date:   Fri Mar 26 14:53:53 2021 +0900
+
+    Merge remote-tracking branch 'origin/master' into hyeri
+    
+    # Conflicts:
+    #       src/main/resources/templates/login/login.html
+
+[33mcommit 8bd49231d461878d1bcefd312eabf09f5bece256[m
+Author: HyeRi <cos850@naver.com>
+Date:   Fri Mar 26 14:49:58 2021 +0900
+
+    로그인(ing)
+
+[33mcommit b82e0438a799d3338b47afc5a8c91fadb3c5cf75[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Fri Mar 26 10:18:49 2021 +0900
+
+    a href 0326 10:18
+
+[33mcommit 691b7dda78e9d915e269ce0e2a143cb99d08ed04[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Fri Mar 26 10:07:42 2021 +0900
+
+    forgot.js
+
+[33mcommit eec56d6a7ced39b3e43c835fec41b4435a92ebbc[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Fri Mar 26 10:06:55 2021 +0900
+
+    forgot.js
+
+[33mcommit 6e7140f0eaa546ff7e8eda3428e8e5ccd51a5b2a[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Fri Mar 26 10:05:18 2021 +0900
+
+    수정
+
+[33mcommit c9887d1d6e7af61c01acd0bad7b860eb555f8aa6[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Fri Mar 26 09:45:45 2021 +0900
+
+    login.html
+
+[33mcommit 9f5e179a22982ed6c01a9c2dc0cdf7fd53b4c7d6[m
+Merge: 9efb904 99e8b9b
+Author: HP <dltkdwns19@naver.com>
+Date:   Fri Mar 26 09:33:44 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 99e8b9b11cb35235c4cef5d9b8f22ba77e8a815a[m
+Merge: 69b1c3c 51b046a
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Fri Mar 26 00:42:38 2021 +0900
+
+    Merge branch 'master' of https://github.com/LSJ97/dung-geul
+
+[33mcommit 69b1c3ca98e3d141851e9ffaf3a275d76bb69b73[m
+Author: yam-yam-yam-yam <77680103+yam-yam-yam-yam@users.noreply.github.com>
+Date:   Fri Mar 26 00:42:34 2021 +0900
+
+    어드민 회원관리
+
+[33mcommit 9efb90430f8322e0339750311346c153d3e41693[m
+Merge: 91540f5 51b046a
+Author: HP <dltkdwns19@naver.com>
+Date:   Thu Mar 25 11:55:06 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 496a5277b2b452a2e6fced8b83e8ce032590eb9b[m
+Merge: 0e4dfa2 51b046a
+Author: HyeRi <cos850@naver.com>
+Date:   Thu Mar 25 00:26:53 2021 +0900
+
+    Merge remote-tracking branch 'origin/master' into hyeri
+
+[33mcommit 51b046a1842b964c88e9ef18b65633db45599b5f[m
+Merge: 8a9806b 2e71dbb
+Author: cos850 <68280248+cos850@users.noreply.github.com>
+Date:   Thu Mar 25 00:20:32 2021 +0900
+
+    Merge pull request #3 from LSJ97/hyeri
+    
+    entity 오류수정
+
+[33mcommit 0e4dfa2255c565e5ec4a058c75dc6ce9e111480b[m
+Merge: 2e71dbb 8a9806b
+Author: HyeRi <cos850@naver.com>
+Date:   Thu Mar 25 00:18:14 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 2e71dbb2f42956c79c077b6d791b08164e36e080[m
+Author: HyeRi <cos850@naver.com>
+Date:   Thu Mar 25 00:14:56 2021 +0900
+
+    entity 오류수정 (enterprise, member entity에 oneToOne 관계 제맘대로 수정했는데 한번씩 봐주세요!!)
+
+[33mcommit 91540f5ef74e654e2a979efdc68739d2a54db446[m
+Author: HP <dltkdwns19@naver.com>
+Date:   Wed Mar 24 22:42:55 2021 +0900
+
+     /
+
+[33mcommit 1f1066b9939171698d293b65f08427f4000e1462[m
+Author: HP <dltkdwns19@naver.com>
+Date:   Wed Mar 24 22:40:46 2021 +0900
+
+    forgot.html src 수정
+
+[33mcommit 8a9806beca04633216f3db29c7d3b1223c6bf30a[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Mon Mar 22 20:40:12 2021 +0900
+
+    FORGOT
+
+[33mcommit ca9a6d90ab2f8a8f951fb17641f4f1dd954a7a88[m
+Merge: b1cf34f 6a9884e
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Mon Mar 22 15:17:09 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/main/resources/static/css/forgot.css
+
+[33mcommit b1cf34fcc4b492066058ff1149945210c6d261a8[m
+Author: burnrare <77714362+burnrare@users.noreply.github.com>
+Date:   Mon Mar 22 15:16:20 2021 +0900
+
+    forgot
+
+[33mcommit 6a9884e2fc8046b277ec1dc341f2c9a079b56695[m
+Merge: b61149a d2b93b7
+Author: cos850 <68280248+cos850@users.noreply.github.com>
+Date:   Mon Mar 22 13:16:22 2021 +0900
+
+    Merge pull request #2 from LSJ97/hyeri
+    
+    회원가입 기능 추가
+
+[33mcommit d2b93b79be4788149e2000ca5e69bf4e8399a138[m
+Author: HyeRi <cos850@naver.com>
+Date:   Mon Mar 22 02:38:30 2021 +0900
+
+    회원가입 기능 추가
+    + 엔티티 테이블 수정 (수정한 부분은 주석에 표시했아요)
+    + application.properties ddl-auto=update 부분 create로 변경
+
+[33mcommit b61149afa44c4117b77d3c19080886b97549706f[m
+Author: DODO <do8017@naver.com>
+Date:   Sun Mar 21 20:41:09 2021 +0900
+
+    테이블 추가
+
+[33mcommit 4fe629fb254b98ba01b0a88ad7b045301be733c5[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 20 20:42:37 2021 +0900
+
+    Delete test.html
+    
+    Delete test.html
+
+[33mcommit 3d043b5b3d5844401b57b6658a60647ea6d2df33[m
+Merge: fbb0699 d64a3c2
+Author: Ron <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 20 20:41:19 2021 +0900
+
+    Merge pull request #1 from LSJ97/brach/test
+    
+    11
+
+[33mcommit d64a3c2800ecf28a5ecfec371a0469ba4d05c5c9[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 20 20:40:06 2021 +0900
+
+    11
+    
+    11
+
+[33mcommit fbb069918012b89fade8eb40491ad05f8c8fed83[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 20 18:55:13 2021 +0900
+
+    sign-up ajax
+    
+    회원가입 ajax 뽀개기
+
+[33mcommit 122af7268dac5d1706b5037ae4f0b9b1aabcfb31[m
+Merge: a3cca6d 18acda5
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 20 16:31:15 2021 +0900
+
+    Merge branch 'master' of https://github.com/LSJ97/dung-geul
+
+[33mcommit a3cca6d06204a3182350331ed7c62ff8249138ad[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Sat Mar 20 16:31:09 2021 +0900
+
+    sign-up
+    
+    4:31
+
+[33mcommit 18acda55e997caa416892d98f1bda1aaaf761c9d[m
+Author: hansu6612 <76238366+hansu6612@users.noreply.github.com>
+Date:   Fri Mar 19 20:38:05 2021 +0900
+
+    admin페이지 반응형 미완
+
+[33mcommit 32e00b8ef43efd89bc7635e33b983bdc0e999cf3[m
+Author: hansu6612 <76238366+hansu6612@users.noreply.github.com>
+Date:   Fri Mar 19 19:35:27 2021 +0900
+
+    어드민페이지 유저목록검색 ajax 1트
+
+[33mcommit e296f15a40913429ced0d4d2cdf11ffed9130c83[m
+Author: hansu6612 <76238366+hansu6612@users.noreply.github.com>
+Date:   Fri Mar 19 19:29:31 2021 +0900
+
+    admin 조건검색 ajax전
+
+[33mcommit 39cbf86929a15a2642e9bbccc1d0415e134f0795[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Fri Mar 19 19:13:04 2021 +0900
+
+    link
+    
+    메인페이지 연결
+
+[33mcommit ea7670789ad38213ab8901b5289a3f20cc7eb433[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Fri Mar 19 11:09:41 2021 +0900
+
+    sign-up
+    
+    required popup
+
+[33mcommit 22394dd1cd4417e6a9992a3e53b674359d68958b[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Fri Mar 19 09:28:42 2021 +0900
+
+    postcode.
+    
+    postcodyfy.js
+
+[33mcommit 5db3c059053919f4ae097e7c9c2523a9c06ad1a4[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Fri Mar 19 09:20:52 2021 +0900
+
+    frorm+address
+    
+    address
+
+[33mcommit 9420cb0da5e594f250c1668a14270a3146ad7842[m
+Author: DODO <do8017@naver.com>
+Date:   Fri Mar 19 08:45:15 2021 +0900
+
+    baseEntity 추가
+
+[33mcommit 15140b15c0776ba572d7246c915bcc4364e6affe[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Fri Mar 19 01:15:20 2021 +0900
+
+    enterprise
+    
+    기업양식
+
+[33mcommit a623bcc9a666a6e03884a136090d8a58f7ef8c4c[m
+Merge: 24e00c1 8426458
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Thu Mar 18 20:42:40 2021 +0900
+
+    Merge branch 'master' of https://github.com/LSJ97/dung-geul
+
+[33mcommit 8426458a53b28f84166091a90aaad69d573e69ff[m
+Merge: d7b9ec4 6f446c9
+Author: DODO <do8017@naver.com>
+Date:   Thu Mar 18 20:42:15 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 24e00c141baa08f2dee94f48906c08ebdd87a818[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Thu Mar 18 20:42:06 2021 +0900
+
+    main
+    
+    main 수정
+
+[33mcommit d7b9ec42284fa43d15059772187b94d9e2b77659[m
+Author: DODO <do8017@naver.com>
+Date:   Thu Mar 18 20:42:05 2021 +0900
+
+    baseEntity 추가
+
+[33mcommit 6f446c9728b4e53f6b95809d5687f41cfa9f1995[m
+Merge: 893cb98 ef35083
+Author: hansu6612 <76238366+hansu6612@users.noreply.github.com>
+Date:   Thu Mar 18 20:36:19 2021 +0900
+
+    Merge branch 'master' of https://github.com/LSJ97/dung-geul
+
+[33mcommit 893cb98ea46ab7ec8f826348a9b6f995f6471881[m
+Author: hansu6612 <76238366+hansu6612@users.noreply.github.com>
+Date:   Thu Mar 18 20:36:16 2021 +0900
+
+    관리자페이지_회원리스트_체크
+
+[33mcommit ef35083e7464331c964a8b661faffb66fa38c550[m
+Merge: d8130cc d8901fe
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Thu Mar 18 20:27:57 2021 +0900
+
+    Merge branch 'master' of https://github.com/LSJ97/dung-geul
+
+[33mcommit d8130cc48cc28d480b39633db61009c4eb0900f7[m
+Author: JiHyunSeo46 <68982653+JiHyunSeo46@users.noreply.github.com>
+Date:   Thu Mar 18 20:27:54 2021 +0900
+
+    sign-up
+    
+    3/18
+
+[33mcommit d8901fed3f769a093b114af1074fd8b04c746359[m
+Merge: b5fbc51 146a06c
+Author: HP <dltkdwns19@naver.com>
+Date:   Thu Mar 18 20:08:50 2021 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit b5fbc5160e11d28ace01ec708f4484c6be6ab9fc[m
+Author: HP <dltkdwns19@naver.com>
+Date:   Thu Mar 18 20:06:36 2021 +0900
+
+    css추가
+
+[33mcommit 146a06c36e9e0bfeb42a73c3e42fedc996529ba0[m
+Author: hansu6612 <76238366+hansu6612@users.noreply.github.com>
+Date:   Thu Mar 18 19:39:54 2021 +0900
+
+    어드민 폴더 수정
+
+[33mcommit ee16b3d74f9d70494da9e87d19f76a54dd68ce71[m
+Author: HP <dltkdwns19@naver.com>
+Date:   Thu Mar 18 18:01:06 2021 +0900
+
+    취합
