@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>공지사항</title>
+    <title>공지사항 글쓰기</title>
     <meta charset="utf-8" />
     <meta
             name="viewport"
@@ -11,7 +10,6 @@
 
     <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
-    <link rel="stylesheet" href="/src/main/resources/static/css/nav.css" th:href="@{/css/nav.css}">
 
 </head>
 <body class="is-preload">
@@ -28,7 +26,7 @@
                     <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
                         <a href="#">진로설계</a>
                         <ul class="dep2" onmouseover="nav_on()" >
-                            <li><a href="/career-planning/simli_test">진로심리검사</a></li>
+                            <li><a href="#">진로심리검사</a></li>
                             <li><a href="#">직업정보</a></li>
                         </ul>
                     </li>
@@ -76,7 +74,6 @@
         </navbar>
     </header>
 
-
     <!-- Main -->
     <div id="mainWrap">
         <section id="main">
@@ -119,40 +116,22 @@
 
                             <!-- Board table -->
                             <div class="container">
-                                <h2>공지사항</h2>
-                                <div>게시글 수: <span th:text="${#lists.size(boards)}"></span></div>
-    <!--                                <div class="form-group mx-sm-3 mb-2">-->
-    <!--                                    <label for="searchText" class="sr-only">search</label>-->
-    <!--                                    <input type="text" class="form-control" id="searchText" name="searchText"-->
-    <!--                                           th:value="${param.searchText}" placeholder="검색 ">-->
-    <!--                                    <button type="submit" class="btn btn-outline-success">검색</button>-->
-    <!--                                </div>-->
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                <th>글 번호</th>
-                                                <th>제목</th>
-                                                <th>작성자</th>
-                                                <th>작성일</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr th:each="board : ${boards}">
-                                                <td th="${board.id}">1</td>
-                                                <td th="${board.title}">공지사항 제목</td>
-                                                <td th="${board.b}">John Doe</td>
-                                                <td>2021-00-00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                <h1>공지사항 게시글 작성</h1>
+                                <form>
+                                    <input type="hidden">
+                                    <div class="form-group">
+                                        <label for="title">글 제목</label>
+                                        <input placeholder="제목을 입력하세요.">
                                     </div>
-                              </div>
-                              <!-- 등록 버튼 -->
-                              <div>
-                                <a th:href="@{/center-information/notice_board_form}">글쓰기</a>
-                              </div>
-
+                                    <div class="form-group">
+                                        <label for="content">글 내용</label>
+                                        <textarea placeholder="내용을 입력하세요."></textarea>
+                                    </div>
+                                    <div class="text-end">
+                                        <a th:href="@{/center-information/notice_board}">취소</a>
+                                        <button type="submit">등록</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
 
@@ -185,7 +164,7 @@
 <!--                        </tr>-->
 
 
-
+                    </div>
                 </div>
             </div>
         </section>
