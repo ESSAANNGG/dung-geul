@@ -15,9 +15,12 @@
 <!--    (한자) : <input type="text" name="name_china" id="name_china">-->
     <br>
    생년월일 : <input type="text" name="user_brth" id="user_brth"> <br>
-    만 <input type="text" name="user_age" id="user_age" th:value="${loginUserAge}" readonly>세   <br> <!--thymeleaf 쓸거임-->
-    HP: <input type="text" name="user_hp" id="user_hp" th:value="${loginUser.user_ph}" readonly>  <br><!--이것도 값 member에서 넣게 바꿀거임-->
-    이메일: <input type="email" name="user_email" id="user_email" th:value="${loginUser.user_email}" readonly> <br>
+    만<input type="text" name="user_age" id="user_age" th:value="${loginUserAge}" readonly>세<br>
+    <!--thymeleaf 쓸거임-->
+    HP: <input type="text" name="user_hp" id="user_hp" th:value="${loginUser.user_ph}" readonly><br>
+    <!--이것도 값 member에서 넣게 바꿀거임-->
+    이메일: <input type="email" name="user_email" id="user_email" th:value="${loginUser.user_email}" readonly>
+    <br>
     <input type="submit">
 </form>
 

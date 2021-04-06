@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 
-@Entity
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,7 +23,7 @@ public class Board implements Serializable {
     private Long num; //글 번호
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name="b_user_id_fk"))
+    @JoinColumn(name ="b_user_id",foreignKey = @ForeignKey(name="b_user_id_fk"))
     private Member b; // userid (FK) 작성자
 
     @Column(length = 50, nullable = false)
@@ -36,7 +36,7 @@ public class Board implements Serializable {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name="b_board_id_fk"))
+    @JoinColumn(name="b_board_id" , foreignKey = @ForeignKey(name="b_board_id_fk"))
     private Board board; //글번호 본인 참조 FK
 
     //file 데이터타입 이랑 본인참조 어캐할지

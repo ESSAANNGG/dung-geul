@@ -25,7 +25,7 @@ public class Carrer extends BaseEntity {
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cr_user_id" ,foreignKey = @ForeignKey(name="cr_user_id_fk"))
+    @JoinColumn(name = "cr_cv_user_id" ,foreignKey = @ForeignKey(name="cr_cv_user_id_fk"))
     private CV cv_user_id;
 
     private String cr_task; // 담당업무

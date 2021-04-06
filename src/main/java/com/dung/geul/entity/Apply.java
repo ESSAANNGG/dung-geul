@@ -23,7 +23,7 @@ public class Apply implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ap_em_num")
-    private Empoly em_num; // Empoly 앞에 패키지명이 붙어있길래 지움 - 정혜리
+    private Employ em_num; // Empoly 앞에 패키지명이 붙어있길래 지움 - 정혜리
 
     @Column(nullable = false)
     private LocalDate ap_date;  //지원 일자

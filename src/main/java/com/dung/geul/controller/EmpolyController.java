@@ -1,36 +1,47 @@
 package com.dung.geul.controller;
 
-import com.dung.geul.entity.Empoly;
-import com.dung.geul.repository.EmpolyRepository;
+import com.dung.geul.dto.EmployDTO;
+import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.service.EmployService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@RequestMapping("/Empoly")
+@Log4j2
+@RequestMapping("/Employ")
 @Controller
 public class EmpolyController {
+
     @Autowired
-    EmpolyRepository empolyRepository;
+    private EmployService service;
 
     @GetMapping("/list")
-    public String list(Model model, Pageable pageable){
-        Page<Empoly> EmpolyList = empolyRepository.findAll(pageable);
+    public void list(PageRequestDTO pageRequestDTO, Model model) {
 
-       int startPage = Math.max(1, EmpolyList.getPageable().getPageNumber() - 4);
-       int endPage = Math.min(EmpolyList.getTotalPages(),EmpolyList.getPageable().getPageNumber() + 4);
+        model.addAttribute("result", service.getList(pageRequestDTO));
+    }
 
+    @GetMapping("/read")
+    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model) {
+        //@ModelAttribute는 클라이언트가 전송하는 여러 파라미터들을 1대1로 객체에 바인딩하여 다시 View로 넘겨서 출력하기 위해 사용되는 오브젝트이다.
 
-       model.addAttribute("startPage", startPage);
-       model.addAttribute("endPage", endPage);
-       model.addAttribute("EmpolyList", EmpolyList);
-        return "Empoly/list";
+        log.info("num :" +num);
+
+        EmployDTO dto = service.read(num);
+
+        model.addAttribute("dto", dto);
+    }
+
+    @GetMapping("/register")
+    public String register() {
+
+        return "/Employ/register";
     }
 
 }
