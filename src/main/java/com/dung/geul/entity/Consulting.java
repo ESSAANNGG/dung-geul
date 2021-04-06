@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +17,7 @@ import java.util.Date;
 public class Consulting  implements Serializable {    // 상담 테이블
 
     @Id
-    @Column(name = "cnosult_num")
+    @Column(name = "consult_num")
     private Long num;
 
     /*@Id

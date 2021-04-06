@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+
+    <title>Title</title>
+</head>
+<body>
+<div class="apply_form_area">
+    <div class="container">
+        <div class="row justify-content-center">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="apply_info_text text-center">
+                            <h1>채용 등록</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="single_field col-md-12">
+                            제목<input type="text" class="single_field col-md-10" name="em_title"
+                                                          id="em_title" placeholder="제목">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="submit_btn">
+                            <button class="boxed-btn3" id="emReg" name="emReg" type="submit">등록</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script th:inline="javascript" src="js/Employ.js"></script>
+</body>
+</html>

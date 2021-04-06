@@ -13,8 +13,6 @@ var flag_4 = 0;
 function menu_script_1(){
     if (flag_1 == 0){  
 
-
-     
         menu[0].style.backgroundColor="#01b9ff";
         sub[0].style.height="170px";
         down[0].style.display="none";
