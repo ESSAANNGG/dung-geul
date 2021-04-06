@@ -1,22 +1,27 @@
 package com.dung.geul.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@AttributeOverrides({
+        @AttributeOverride(name = "regDate", column = @Column(name = "con_regdate")),
+        @AttributeOverride(name = "modDate", column = @Column(name = "con_modDate"))
+})
 public class ConsultDTO {
     private Long cno;
     private String field;
     private String detail_field;
     private String user_id;
-    private LocalDateTime regDate;
-    private LocalDateTime modData;
+//    private LocalDateTime regDate;
+//    private LocalDateTime modData;
 }

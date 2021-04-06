@@ -1,17 +1,16 @@
 package com.dung.geul.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class Consult extends BaseEntity {
+@AllArgsConstructor
+@Getter
+public class Consult extends BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
