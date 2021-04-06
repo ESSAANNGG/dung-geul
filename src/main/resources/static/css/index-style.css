@@ -592,7 +592,6 @@ h3 {
 }
 
 /* aside */
-
 aside {
   position: fixed;
   width: 50px;
@@ -601,6 +600,7 @@ aside {
   right: 20px;
   bottom: 20px;
   background-color: #2b2e4a;
+  z-index: 9999;
 }
 aside:hover {
   box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.74);
