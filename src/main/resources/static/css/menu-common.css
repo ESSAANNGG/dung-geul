@@ -182,8 +182,10 @@ body.is-preload *:after {
   -ms-transition: none !important;
   transition: none !important;
 } */
+  
 
-body,
+/*footer망가져서 body-->>section 교체*/
+section,
 input,
 textarea,
 select {
