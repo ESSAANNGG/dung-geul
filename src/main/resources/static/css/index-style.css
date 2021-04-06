@@ -34,8 +34,9 @@ a {
 }
 
 .nav2 {
-  position: relative;
+  position: absolute;
   display: block;
+  width:100%;
   height: 0px;
   background-color: rgb(252, 250, 250);
   transition-property: all;
@@ -124,8 +125,7 @@ a {
 }
 main {
   display: flex;
-  position: absolute;
-  top: 117px;
+  position: relative;
 
   width: 100%;
   height: 500px;
