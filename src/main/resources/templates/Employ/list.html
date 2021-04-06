@@ -1,61 +1,148 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
+
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/js/nav.js"></script>
+
+
+
+    <link rel="stylesheet" href="/css/employ.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/menu-common.css" />
+    <link rel="stylesheet" href="/css/frame.css" />
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <title>채용공고</title>
 </head>
-<body th:align="center">
-
-<h1>채용공고</h1>
-
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">번호</th>
-            <th scope="col">제목</th>
-            <th scope="col">작성일</th>
-            <th scope="col">마감일</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="dto: ${result.dtoList}">
-            <th scope="row">
-                <a th:href="@{/Employ/read(num = ${dto.num}, page = ${result.page})}"
-                    th:text="${dto.num}">
-                </a>
-            </th>
-            <td th:text="${dto.title}"></td>
-            <td th:text="${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}"></td>
-            <td th:text="${#temporals.format(dto.modDate, 'YYYY-MM-dd ')}"></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <ul class="pagination  h-100 justify-content-center align-items-center">
-        <li class="page-item" th:if="${result.prev}">
-            <a class="page-link" th:href="@{/Employ/list(page=${result.start -1 }) }" tabindex="-1" >Previous</a>
+<body>
+  <navbar>
+    <div class="nav">
+      <ul class="dep1">
+        <li class="logo">
+          <a href="#">영진전문대학교</a>
         </li>
-        <li th:class="'page-item ' + ${result.page == page?'active':''}"
-           th:each="page:${result.pageList}">
-            <a class="page-link" th:href="@{/Employ/list(page=${page})}" th:text="${page}"></a>
+        <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+          <a href="#">진로설계</a>
+          <ul class="dep2" onmouseover="nav_on()">
+            <li><a href="#">진로심리검사</a></li>
+            <li><a href="#">직업정보</a></li>
+            <li><a href="#">직업사전</a></li>
+          </ul>
         </li>
-        <li class="page-item" th:if="${result.next}">
-            <a class="page-link" th:href="@{/Employ/list(page=${result.end +1 })}">Next</a>
+        <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+          <a href="#">직무역량강화</a>
+          <ul class="dep2" onmouseover="nav_on()">
+            <li><a href="#">지원프로그램</a></li>
+            <li><a href="#">자격증 관리</a></li>
+            <li><a href="#">수료증 관리</a></li>
+          </ul>
         </li>
-    </ul>
+        <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+          <a href="#">구직역량강화</a>
+          <ul class="dep2" onmouseover="nav_on()">
+            <li><a href="#">이력서 관리</a></li>
+            <li><a href="#">자소서 관리</a></li>
+          </ul>
+        </li>
+        <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+          <a href="#">구직서비스</a>
+          <ul class="dep2" onmouseover="nav_on()">
+            <li><a href="#">채용정보</a></li>
+            <li><a href="#">채용등록</a></li>
+          </ul>
+        </li>
+        <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+          <a href="#">상담</a>
+          <ul class="dep2" onmouseover="nav_on()">
+            <li><a href="#">상담소개</a></li>
+            <li><a href="#">상담신청</a></li>
+          </ul>
+        </li>
+        <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+          <a href="#">센터정보</a>
+          <ul class="dep2" onmouseover="nav_on()">
+            <li><a href="/center-information/center_introduction">센터소개</a></li>
+            <li><a href="/center-information/main_business">주요업무내용</a></li>
+            <li><a href="/center-information/notice_board">공지사항</a></li>
+          </ul>
+        </li>
+        <li class="login">
+          <a href="/login" th:if="!${loginUser}">로그인</a>
+          <a href="/logout" th:if="${loginUser}">로그아웃</a>
+        </li>
+        <li class="join">
+          <a href="/sign-up" th:if="!${loginUser}">회원가입</a>
+          <a href="/mypage/member/before" th:if="${loginUser}">마이페이지</a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav2">
+      <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
+    </div>
+  </navbar>
 
-    <span>
-        <a th:href="@{/templates/Employ/register}">
-            <button type="button" class = "btn btn-outline-primary">REGISTER</button>
-        </a>
-    </span>
+            <!-- Main -->
+                <section id="main">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        <div class="sidebar">
+                         <div class="menu2">
+              <div id="bar">
+                  <h2>채용</h2>
+                  <ul id="menu_bar">
+                      <li id="menu_con1"><h4>채용정보</h4>
+                          <ul id="sb_detail">
+                              <li><a href="#">채용정보</a></li>
+                              <li><a href="#">채용등록</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div> <!-- bar -->
+                         </div> <!-- menu -->
+
+
+
+
+
+                        </div>
+
+
+
+                      </div>
+
+
+
+                      </div>
+                      </div>
+                      </section>
+                      </div>
+
+
+                      <div class="footer">
+                        <ul class="footer_1">
+                          <li class="footer_1_c">개인정보처리방침</li>
+                          <li class="footer_1_c">이메일무단수집거부</li>
+                          <li class="footer_1_c">저작권보호방침</li>
+                          <li class="footer_1_c">입찰정보</li>
+                          <li class="footer_1_c">예산공고</li>
+                        </ul>
+                        <ul class="footer_2">
+                          <li class="footer_2_c">전화번호 : 053-819-1000</li>
+                          <li class="footer_2_c">전화번호 : 053-770-2233</li>
+                          <li class="footer_2_c">전화번호 : 053-819-1114</li>
+                        </ul>
+                        <ul class="footer_3">
+                          <li class="footer_3_c">
+                            COPYRIGHT (C) DAEGU YEUNGJIN UNIVERSITY.ALL RIGHTS RESERVED.
+                          </li>
+                        </ul>
+                      </div>
 </body>
-
 </html>
