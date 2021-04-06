@@ -1,0 +1,128 @@
+/* 심리 */
+
+.box.page-content .h2-small {
+  font-size: 2.5em;
+  margin-top: 10px;
+}
+
+.square {
+  list-style-type: square;
+  color: rgb(13, 13, 92);
+}
+
+.border-box {
+  /* text-align: center; */
+  color: rgb(70, 66, 66);
+  padding: 15px;
+  border: 0.5px dotted rgba(117, 117, 117, 0);
+  font-size: 1.2em;
+  display: inline-block;
+}
+
+.simli-type {
+  margin-bottom: 1.3em;
+  display: inline-block;
+  font-size: 18.6px;
+}
+
+.simli-box {
+  padding-top: 10px;
+  border: 0.5px dotted rgba(117, 117, 117, 0.514);
+  margin-bottom: 0px;
+}
+
+.process-flex {
+  display: flex;
+
+  align-items: center;
+}
+
+.max {
+  width: 100%;
+  padding-left: 1.5rem;
+}
+.process {
+  text-align: center;
+  border: 1px dotted rgba(117, 117, 117, 0.514);
+  padding: 0 3.5rem;
+}
+
+.testStart {
+  -webkit-appearance: none;
+  display: inline-block;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #2252b3;
+  color: #fff;
+  line-height: 2.6rem;
+  border: 0;
+  border-radius: 8px;
+  outline: 0;
+  cursor: pointer;
+  -moz-transition: background-color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  -o-transition: background-color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 0.9em;
+  padding: 0px 15px 0px 15px;
+  height: 40px;
+  text-align: center;
+}
+
+.content-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  margin-top: px;
+  margin-bottom: 10px;
+  margin-right: 90px;
+  font-size: 0.9rem;
+}
+
+.fa-bullhorn {
+  display: inline-block;
+  margin: 0 0.8em;
+  font-size: 3.5em;
+  color: #3c5a98;
+}
+
+#simli-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #faf7f0;
+}
+
+#simli-intro > p {
+  margin-top: 3em;
+  margin-right: 1.5em;
+  color: rgb(31, 30, 30);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.orange {
+  background-color: #f15922;
+  padding: 1.8em 3.8em;
+}
+
+.yellow {
+  background-color: #f7941e;
+  padding: 2.6em 3.8em;
+}
+
+.green {
+  background-color: #00ac5c;
+  padding: 1.8em 3.8em;
+}
+
+.process h4 {
+  font-size: x-large;
+  padding-bottom: 0.3em;
+}
+/* 심리 END */

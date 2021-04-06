@@ -1,19 +1,13 @@
 package com.dung.geul.dto;
 
-import com.dung.geul.entity.MemberRole;
-import lombok.*;
+import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-@Getter
-@Setter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
+@ToString
 public class MemberDTO {
 
     private String user_id;

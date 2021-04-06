@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보 조회페이지</title>
+</head>
+<body>
+    <div>
+        <h1>[[${memberDTO.getUser_name}]]님 마이페이지</h1>
+    </div>
+    <div>
+        <h5> 아이디 : [[${memberDTO.getUser_id()}]]</h5>
+    </div>
+
+    <div>
+        <h5> 이름 : [[${memberDTO.getUser_name()}]] </h5>
+    </div>
+
+    <div>
+        <h5> 연락처 : [[${memberDTO.getUser_ph()}]]</h5>
+    </div>
+
+    <div>
+        <h5> 주소 </h5>
+        <h6> 우편번호 : [[${memberDTO.getUser_postcode()}]]</h6>
+        <h6>주소    : [[${memberDTO.getUser_addr()}]]</h6>
+        <h6>상세주소 : [[${memberDTO.getUser_addr_details()}]]</h6>
+    </div>
+
+    <a href="/mypage/member/modify">수정하기</a>
+
+   
+
+
+</body>
+</html>

@@ -49,7 +49,8 @@ public class CV  implements Serializable{
         return age;
     }
 
-//    private String user_name_chinese;
+    @Column(length = 1, nullable = false)
+    private String cv_military; // 병력사항
 
 
 //    // 병역 시작

@@ -25,3 +25,7 @@ function nav_off() {
     dep2[i].style.height = "0px";
   }
 }
+
+function angle_up(){
+  window.scrollTo({top:0, behavior:'smooth'});
+}

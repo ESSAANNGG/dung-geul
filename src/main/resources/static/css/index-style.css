@@ -1,5 +1,5 @@
 @import "reset.css";
-@import "common.css";
+@import "common.css"; 
 
 body {
   position: relative;
@@ -17,117 +17,10 @@ a {
   color: black;
 }
 
-/*depth들을 감싸고있는 박스*/
-
-@media screen and (max-width: 1370px) {
-  .nav {
-    width: 1370px;
-  }
-}
-.nav {
-  position: relative;
-  text-align: center;
-  height: 100px;
-  transition-property: all;
-  transition-duration: 0.8s;
-  z-index: 99;
-}
-
-.nav2 {
-  position: relative;
-  display: block;
-  height: 0px;
-  background-color: rgb(252, 250, 250);
-  transition-property: all;
-  transition-duration: 1.2s;
-  z-index: 4;
-
-  box-shadow: 0px 3px 3px 0px rgba(128, 128, 128, 0.466);
-}
-
-/*depth1*/
-.nav .dep1 {
-  position: relative;
-  z-index: 4;
-  font-size: 0px;
-  padding-top: 20px;
-  height: 100px;
-}
-
-.nav .dep1 > li {
-  display: inline-block;
-  vertical-align: top;
-  text-align: center;
-  font-size: 20px;
-  font-family: "Noto Sans KR", Arial, Tahoma, sans-serif;
-  font-weight: 600;
-}
-.nav .dep1 > li.logo {
-  font-size:16px;
-  font-weight: 600;
-  width: 200px;
-  /*li.menu를 한꺼번에 묶어서 하지않은 이유는 a태그때문에 li.menu가 갇혀있기때문*/
-}
-.nav .dep1 > li.menu {
-  width: 150px;
-}
-.nav .dep1 > li.login {
-  margin-left: 50px;
-}
-
-.nav .dep1 > li.login,
-.nav .dep1 > li.join {
-  color:#666666;
-  font-size:12px;
-  font-weight: 500;
-  width: 100px;
-}
-/*depth2*/
-.nav .dep2 {
-  position: absolute;
-  display: block;
-  width: 150px;
-  height: 0px;
-
-  overflow: hidden;
-  padding-top: 10px;
-
-  transition-property: height;
-  transition-duration: 1.2s;
-  z-index: 4;
-
-}
-.nav .dep2 a {
-  display: block;
-  padding: 10px 0;
-  color:#555555;
-  font-family: "Noto Sans KR", Arial, Tahoma, sans-serif;
-  font-weight:500;
-  font-size:14px;
-}
-.nav .dep1 > li > a {
-  display: block;
-  padding: 30px 0;
-}
-
-.nav .dep1 > li:hover > a {
-  color: green;
-}
-.nav .dep2 > li:hover > a {
-  color: green;
-}
-
 /* main */
-.mainWrap {
-  position: relative;
-  height: 600px;
-  z-index: -9999;
-}
 main {
   display: flex;
-  position: absolute;
-  top: 117px;
-
+  position: relative;
   width: 100%;
   height: 500px;
 
@@ -153,7 +46,7 @@ main {
   padding-top: 30px;
   width: 446px;
   height: 360px;
-  z-index: -4;
+  z-index: -1;
   position: relative;
   opacity: 0.8;
 }
@@ -185,7 +78,6 @@ h4 {
 }
 
 .quick-menu {
-  position: relative;
   display: flex;
   margin: 0 110px;
   justify-content: center;
@@ -194,7 +86,6 @@ h4 {
 .up,
 .down {
   display: flex;
-  z-index: 100;
 }
 
 .up > div {
@@ -234,11 +125,11 @@ h5 {
 }
 
 .quick-menu a:hover {
+  background-color: #fff;
   color: #000;
 }
 
 .hide {
-  z-index: 10;
   display: flex;
   width: 100%;
   height: 100%;
@@ -285,7 +176,7 @@ h5 {
 
 .quick-menu__program,
 .quick-menu__program a {
-  background-color: #545e60e8;
+  background-color: #545e60e8
 }
 .quick-menu__program__content {
   padding-top: 60px;
@@ -297,7 +188,7 @@ h5 {
 
 .quick-menu__application,
 .quick-menu__application a {
-  background-color: rgba(68, 65, 65, 0.781);
+  background-color: rgba(68, 65, 65, 0.781);;
 }
 
 .quick-menu__application__content {
@@ -359,14 +250,14 @@ h5 {
     margin: 0px;
     width: 190px;
     height: 150px;
-    padding-top: 15px;
+    padding-top:15px;
   }
 
   .down > div {
     margin: 0px;
     width: 190px;
     height: 150px;
-    padding-top: 15px;
+    padding-top:15px;
   }
   .quick-menu__mentoring,
   .quick-menu__mentoring a {
@@ -388,7 +279,9 @@ h5 {
 }
 
 @media screen and (max-width: 575px) {
+
   .quick-menu {
+
   }
 }
 .up > div {
@@ -397,6 +290,7 @@ h5 {
 
 .down > div {
   width: 190px;
+}
 }
 
 /* notice */
@@ -423,28 +317,29 @@ a {
     display: none;
   }
 }
+
+
 .notice {
   width: 1200px;
   height: 60px;
   position: relative;
   overflow: hidden; /*이 부분만 풀면 내용 숨겨져요*/
-  margin: 120px auto;
-  padding-top: 30px;
+  margin: 40px auto;
 }
 h3 {
   width: 250px;
+  top: 8px;
   color: #2a2a72;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 31px;
+  font-weight: bold;
   letter-spacing: -1px;
-  z-index: 1;
 }
 .notice h3:before {
   content: "\f0f3";
   font-family: FontAwesome;
   font-weight: 900;
-  margin: -3px 10px 0;
-  font-size: 40px;
+  margin: -9px 10px 0 0;
+  font-size: 25px;
   vertical-align: middle;
   display: inline-block;
 }
@@ -454,10 +349,11 @@ h3 {
 .notice ul li {
   padding-left: 20px;
   position: relative;
-  padding: 0 20%;
+  padding: 0 17%;
   height: 60px;
-  font-size: 40px;
-  font-weight: 700;
+  line-height: 60px;
+  font-size: 30px;
+
 }
 .notice .btn {
   position: absolute;
@@ -594,21 +490,23 @@ h3 {
   padding-top: 20%;
 }
 
-/* aside */
 
-aside{
+/* aside */
+aside {
   position: fixed;
-  width: 50px; height: 50px;
+  width: 50px;
+  height: 50px;
   border-radius: 7px;
   right: 20px;
   bottom: 20px;
   background-color: #2b2e4a;
+  z-index: 9999;
 }
 aside:hover {
   box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.74);
 }
 
-i {
+aside > span > i {
   font-size: 1.3em;
   padding: 18px 0 0 18px;
   color: #fff;
