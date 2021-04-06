@@ -1,4 +1,17 @@
+/* @import "reset.css";
+@import "common.css"; */
 
+ ul,
+li {
+  list-style: none;
+} 
+
+  .nav {
+  line-height: 1;
+}   
+  .dep1 {
+    line-height: 1;
+  }
 @media screen and (max-width: 1370px) {
   .nav {
     width: 1370px;

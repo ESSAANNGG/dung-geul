@@ -1,5 +1,5 @@
 @import "reset.css";
-@import "common.css";
+@import "common.css"; 
 
 body {
   position: relative;
@@ -489,6 +489,29 @@ h3 {
   display: inline-block;
   padding-top: 20%;
 }
+
+
+/* aside */
+aside {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 7px;
+  right: 20px;
+  bottom: 20px;
+  background-color: #2b2e4a;
+  z-index: 9999;
+}
+aside:hover {
+  box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.74);
+}
+
+aside > span > i {
+  font-size: 1.3em;
+  padding: 18px 0 0 18px;
+  color: #fff;
+}
+
 
 /* footer */
 .bottom_menu {
