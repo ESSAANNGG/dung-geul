@@ -44,7 +44,8 @@ input, button, select {
     font-weight: 900 !important;
 }
 .search-con {
-    width: 100%;
+    margin: 20px auto;
+    width: 89%;
     padding: 30px;
     background: #fff;
     border: 1px solid #ddd;
