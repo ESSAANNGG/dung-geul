@@ -38,23 +38,18 @@ input, button, select {
     margin: 0;
     border-bottom: 1px solid #eee;
 }
-#job-wrap h3 {
-    padding: 0;
-    line-height: 1;
-    font-weight: 900 !important;
-}
 .search-con {
-    margin: 20px auto;
+    margin: 60px 50px 0 50px;
     width: 89%;
     padding: 30px;
     background: #fff;
     border: 1px solid #ddd;
+    border-radius: 3px;
 }
 .search-box-body {
     padding: 50px;
     margin: 0;
     width: 100%;
-    height: 100%;
     min-height: 560px;
 }
 h1 {
@@ -69,20 +64,27 @@ h1 {
     padding: 30px;
     width: 100%;
 }
-.label {
+.search-box .label {
+    color: #000;
+    line-height: 40px;
+    margin-right: 20px;
     display: inline;
     padding: .2em .6em .3em;
     font-size: 75%;
     font-weight: 700;
     text-align: center;
     white-space: nowrap;
-    border-radius: .25em;
 }
-.search-box .label {
+.search-box .label1 {
     color: #000;
     line-height: 40px;
-    margin-right: 20px;
+    padding-left: .6em;
+    font-size: 75%;
+    font-weight: 700;
+    width: 75px;
+    /* float: left; */
 }
+
 .search-box>div>div {
     float: left;
     vertical-align: middle;
@@ -106,12 +108,13 @@ input[type=text] {
     display: inline;
     font-size: 0.875rem;
     width: 250px;
-    height: 40px;
+    height: 35px;
     padding: 6px 12px;
     border-radius: 3px;
     background-color: #fff;
     background-clip: padding-box;
     box-shadow: none;
+    float: left;
 }
 .btn-d {
     display: inline;
@@ -123,23 +126,43 @@ input[type=text] {
     font-size: 0.875rem;
     color: #fff;
     padding: 0 15px;
-    line-height: 38px;
+    line-height: 32px;
 }
 .bx1_wh {
+    margin: 50px auto;
     padding: 30px;
-    background: #fff;
-    border: 1px solid #ddd;
+    background: #f6f6f6;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+.bx1_wh h3 {
+    margin-top: -25px;
+    border-bottom: 1px solid #ccc;
+    border-bottom-width: 2px;
+    padding: 30px;
+    line-height: 1;
+    font-size: 23px;
+    font-weight: 900 !important;
 }
 ul.d2 li {
+    margin: 0 auto;
+    padding: 10px;
     float: left;
     width: 50%;
+    font-size: 13px;
+    font-weight: 900;
+}
+ul.d2 li:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    margin-left: -1.0em;
+    margin-right: 0.5em;
 }
 .bx1_wh li {
+    padding-left: 30px;
     padding-top: 3px;
     padding-bottom: 3px;
-}
-ul, li {
-    list-style: none;
 }
 .h3, h3 {
     font-size: 1.25rem;
