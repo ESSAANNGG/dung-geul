@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/center-information")
-public class Center_information_controller {
+public class
+Center_information_controller {
 
     @GetMapping("/center_introduction")
     public String center_introduction() { return "center-information/center_introduction"; }

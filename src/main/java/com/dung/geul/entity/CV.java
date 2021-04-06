@@ -16,7 +16,6 @@ import java.time.LocalDate;
 @Getter
 @Table(name = "cv")
 public class CV  implements Serializable{
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long cv_id;

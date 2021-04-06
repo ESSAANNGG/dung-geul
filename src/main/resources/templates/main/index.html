@@ -16,6 +16,7 @@
     <script src="js/nav.js"></script>
     <script src="js/photo.js"></script>
     <link rel="stylesheet" href="css/index-style.css" />
+    <link rel="stylesheet" href="css/nav.css" />
     <meta charset="UTF-8" />
     <title>main</title>
   </head>
@@ -29,8 +30,9 @@
             <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
               <a href="#">진로설계</a>
               <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">진로심리검사</a></li>
+                <li><a href="/career-planning/simli_test">진로심리검사</a></li>
                 <li><a href="#">직업정보</a></li>
+                <li><a href="#">직업사전</a></li>
               </ul>
             </li>
             <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
@@ -44,28 +46,28 @@
             <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
               <a href="#">구직역량강화</a>
               <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">이력서/자소서</a></li>
-                <li><a href="#">온라인 멘토링</a></li>
+                <li><a href="#">이력서 관리</a></li>
+                <li><a href="#">자소서 관리</a></li>
               </ul>
             </li>
             <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
               <a href="#">구직서비스</a>
               <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">채용정보</a></li>
-                <li><a href="#">채용등록</a></li>
+                <li><a href="/Employ/list">채용정보</a></li>
+                <li><a href="/Employ/register">채용등록</a></li>
               </ul>
             </li>
             <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">상담관리</a>
+              <a href="#">상담</a>
               <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">진로상담</a></li>
-                <li><a href="#">취업상담</a></li>
-                <li><a href="#">창업상담</a></li>
+                <li><a href="#">상담소개</a></li>
+                <li><a href="#">상담신청</a></li>
               </ul>
             </li>
             <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="/center-information/center_introduction">센터소개</a>
+              <a href="#">센터정보</a>
               <ul class="dep2" onmouseover="nav_on()">
+                <li><a href="/center-information/center_introduction">센터소개</a></li>
                 <li><a href="/center-information/main_business">주요업무내용</a></li>
                 <li><a href="/center-information/notice_board">공지사항</a></li>
               </ul>
@@ -97,15 +99,15 @@
                 <p>Career Test</p>
                 <h2>직업심리검사</h2>
                 <!-- <h5>
-              워크넷에서 제공하는 <br />
-              테스트를 할 수 있습니다.
-            </h5> -->
-                <a href="#">
+                워크넷에서 제공하는 <br />
+                테스트를 할 수 있습니다.
+              </h5> -->
+                <a href="/career-planning/simli_test">
                   <div class="hide quick-menu__carrerTest__content">
                     <!-- <a href="#">진로 상담</a>
-              <a href="#">취업 상담</a>
-              <a href="#">창업 상담</a>
-              <a href="#">심리 검사</a> -->
+                <a href="#">취업 상담</a>
+                <a href="#">창업 상담</a>
+                <a href="#">심리 검사</a> -->
                   </div>
                 </a>
               </div>
@@ -114,85 +116,84 @@
                 <p>Counseling</p>
                 <h2>상담신청</h2>
                 <!-- <h5>
-              전문 상담사를 통한 <br />
-              상담 서비스
-            </h5> -->
+                전문 상담사를 통한 <br />
+                상담 서비스
+              </h5> -->
                 <a href="#">
                   <div class="hide quick-menu__counseling__content">
                     <!-- <a href="#">진로 지원</a>
-              <a href="#">취업 지원</a>
-              <a href="#">창업 지원</a>
-              <a href="#">멘토링</a> -->
+                <a href="#">취업 지원</a>
+                <a href="#">창업 지원</a>
+                <a href="#">멘토링</a> -->
                   </div>
                 </a>
               </div>
             </div>
             <div class="up">
-<!--              <div class="quick-menu__mentoring">-->
-<!--                <p>Mentoring</p>-->
-<!--                <h2>온라인 멘토링</h2>-->
-<!--                &lt;!&ndash; <h5>-->
-<!--              각종 상담과 심리검사를 <br />-->
-<!--              신청할 수 있습니다.-->
-<!--            </h5> &ndash;&gt;-->
-<!--                <a href="#">-->
-<!--                  <div class="hide quick-menu__mentoring__content">-->
-<!--                    &lt;!&ndash; <a href="#">진로 상담</a>-->
-<!--              <a href="#">취업 상담</a>-->
-<!--              <a href="#">창업 상담</a>-->
-<!--              <a href="#">심리 검사</a> &ndash;&gt;-->
-<!--                  </div>-->
-<!--                </a>-->
-<!--              </div>-->
-
-              <div class="quick-menu__program">
-                <p>Program</p>
-                <h2>지원 프로그램</h2>
+              <div class="quick-menu__mentoring">
+                <p>Mentoring</p>
+                <h2>지원프로그램</h2>
                 <!-- <h5>
-              취업정보센터에서 준비한 <br />
-              프로그램을 안내합니다.
-            </h5> -->
+                각종 상담과 심리검사를 <br />
+                신청할 수 있습니다.
+              </h5> -->
                 <a href="#">
-                  <div class="hide quick-menu__program__content">
-                    <!-- <a href="#">진로 지원</a>
-              <a href="#">취업 지원</a>
-              <a href="#">창업 지원</a>
-              <a href="#">멘토링</a> -->
+                  <div class="hide quick-menu__mentoring__content">
+                    <!-- <a href="#">진로 상담</a>
+                <a href="#">취업 상담</a>
+                <a href="#">창업 상담</a>
+                <a href="#">심리 검사</a> -->
                   </div>
                 </a>
               </div>
-              <div class="quick-menu__application">
-                <p>Application</p>
 
-                <h2>지원서 작성</h2>
+              <div class="quick-menu__program">
+                <p>Program</p>
+                <h2>채용공고</h2>
                 <!-- <h5>
-              지원서의 작성방법과 <br />
-              작성공간을 제공합니다.
-            </h5> -->
+                취업정보센터에서 준비한 <br />
+                프로그램을 안내합니다.
+              </h5> -->
                 <a href="#">
-                  <div class="hide quick-menu__application__content">
-                    <!-- <a href="#">이력서 작성</a>
-              <a href="#">자소서 작성</a>
-              <a href="#">작성방법</a> -->
+                  <div class="hide quick-menu__program__content">
+                    <!-- <a href="#">진로 지원</a>
+                <a href="#">취업 지원</a>
+                <a href="#">창업 지원</a>
+                <a href="#">멘토링</a> -->
                   </div>
                 </a>
               </div>
             </div>
             <div class="down">
+              <div class="quick-menu__application">
+                <p>Application</p>
 
+                <h2>지원서 작성</h2>
+                <!-- <h5>
+                지원서의 작성방법과 <br />
+                작성공간을 제공합니다.
+              </h5> -->
+                <a href="#">
+                  <div class="hide quick-menu__application__content">
+                    <!-- <a href="#">이력서 작성</a>
+                <a href="#">자소서 작성</a>
+                <a href="#">작성방법</a> -->
+                  </div>
+                </a>
+              </div>
               <!-- 입사 지원 -->
               <div class="quick-menu__job-opening">
                 <p>Apply</p>
                 <h2>입사 지원</h2>
                 <!-- <h5>
-              채용정보를 제공하고 <br />
-              입사지원이 가능합니다.
-            </h5> -->
+                채용정보를 제공하고 <br />
+                입사지원이 가능합니다.
+              </h5> -->
                 <a href="#">
                   <div class="hide quick-menu__job-opening__content">
                     <!-- <a href="#">교내채용정보</a>
-              <a href="#">교외채용정보</a>
-              <a href="#">입사지원관리</a> -->
+                <a href="#">교외채용정보</a>
+                <a href="#">입사지원관리</a> -->
                   </div>
                 </a>
               </div>
