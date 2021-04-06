@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/jobinform.css" />
+
+    <link rel="stylesheet" href="css/jobimform.css" />
     <link rel="stylesheet" href="css/sidemenu.css" />
+    <script src="https://kit.fontawesome.com/4f031e5608.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -37,19 +39,26 @@
             </ul>
         </div> <!-- bar -->
     </div> <!-- menu -->
+
     <div id="content">
+
         <div id="job-wrap">
+
             <h1>직업 정보 조회</h1>
+
             <div class="search-con">
                 <p>우리나라의 대표적인 830여개의 직업에 대한 정보를 소개합니다.
                     한국고용정보원 미래직업연구팀이 매년 실시하는 재직자 조사 결과를 바탕으로,
                     각 직업이 어떤 일을 하는지, 그 일을 하기 위해서는 어떤 교육․훈련이나
                     자격이 필요한지, 각 직업은 어떤 특성을 지니는지 소개합니다.</p>
             </div>
+
             <div class="search-box-body">
+
                 <div class="search-box">
                     <div class="clear-search">
                         <div class="label">키워드 검색</div>
+
                         <div class="label-con form-inline">
                             <form id="jobsearch_k" name="jobsearch_k" method="post" action="#">
                                 <input type="hidden" name="type" value="k">
@@ -60,7 +69,9 @@
                         </div>
                         <!-- label-con form-inline -->
                     </div> <!-- clear-search -->
-                    <div class="label">조건별 검색</div>
+                    <br />
+                    <div class="label1">조건별 검색</div>
+
                     <div class="label-con form-inline">
                         <form id="jobsearch_c" name="jobsearch_c" method="post" action="#">
                             <input type="hidden" id="pageIndex" name="pageIndex" value="1">
@@ -86,11 +97,16 @@
                             </select>
                             <button type="submit" class="btn-d" onclick="job_search2(); return false;">검색</button>
                         </form>
-                    </div>
-                </div>
-                <h3>직업정보찾기 10건</h3>
-                <div class="bx1_wh">
-                    <ul class="clearfix d2 text-xs">
+                    </div> <!-- label-con form-inline -->
+                </div>  <!-- search-box -->
+                <div class="bx1_wh" style="float: left;">
+
+                    <h3>직업정보찾기 10건</h3>
+                    <ul class="clear fix d2 text-xs">
+                        <li><a href="#"><span>간호사</span></a></li>
+                        <li><a href="#"><span>간호사</span></a></li>
+                        <li><a href="#"><span>간호사</span></a></li>
+                        <li><a href="#"><span>간호사</span></a></li>
                         <li><a href="#"><span>간호사</span></a></li>
                         <li><a href="#"><span>간호사</span></a></li>
                         <li><a href="#"><span>간호사</span></a></li>
@@ -99,7 +115,8 @@
                         <li><a href="#"><span>간호사</span></a></li>
                         <li><a href="#"><span>간호사</span></a></li>
                     </ul>
-                </div>
+                </div>  <!-- bx1_wh -->
+
             </div>
             <!-- search-box-body -->
         </div>

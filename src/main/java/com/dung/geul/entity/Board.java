@@ -20,6 +20,7 @@ public class Board implements Serializable {
 
     @Id
     @Column(name = "board_num")
+    @GeneratedValue(strategy = GenerationType.AUTO) // Auto increment
     private Long num; //글 번호
 
     @ManyToOne(fetch = FetchType.LAZY)
