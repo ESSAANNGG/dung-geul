@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -28,14 +29,22 @@ public class ConsultRepositoryTest {
             consultRepository.save(consult);
         });
     }
-    @Transactional
+
     @Test
     public void testRead1(){
-        Optional<Consult> result = consultRepository.findById(50L);
+        Optional<Consult> result = consultRepository.findById(123L);
 
         Consult consult = result.get();
 
         System.out.println(consult);
+//        System.out.println(consult.);
+    }
 
+    @Test
+    public void res() {
+        Object result = consultRepository.getConsultWithuser_id(50L);
+        Object[] arr = (Object[]) result;
+        System.out.println("-------------------------");
+        System.out.println(Arrays.toString(arr));
     }
 }
