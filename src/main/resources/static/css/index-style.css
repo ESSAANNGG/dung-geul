@@ -19,9 +19,9 @@ a {
 
 /*depth들을 감싸고있는 박스*/
 
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 1250px) {
   .nav {
-    width: 1370px;
+    width: 1250px;
   }
 }
 .nav {
@@ -34,16 +34,13 @@ a {
 }
 
 .nav2 {
-  position: absolute;
+  position: relative;
   display: block;
-  width:100%;
   height: 0px;
-  background-color: rgb(252, 250, 250);
+  background-color: rgb(231, 231, 231);
   transition-property: all;
   transition-duration: 1.2s;
   z-index: 4;
-
-  box-shadow: 0px 3px 3px 0px rgba(128, 128, 128, 0.466);
 }
 
 /*depth1*/
@@ -59,13 +56,9 @@ a {
   display: inline-block;
   vertical-align: top;
   text-align: center;
-  font-size: 20px;
-  font-family: "Noto Sans KR", Arial, Tahoma, sans-serif;
-  font-weight: 600;
+  font-size: 16px;
 }
 .nav .dep1 > li.logo {
-  font-size: 16px;
-  font-weight: 600;
   width: 200px;
   /*li.menu를 한꺼번에 묶어서 하지않은 이유는 a태그때문에 li.menu가 갇혀있기때문*/
 }
@@ -78,32 +71,23 @@ a {
 
 .nav .dep1 > li.login,
 .nav .dep1 > li.join {
-  color: #666666;
-  font-size: 12px;
-  font-weight: 500;
   width: 100px;
 }
 /*depth2*/
 .nav .dep2 {
-  position: absolute;
-  display: block;
+  position: relative;
   width: 150px;
+  z-index: 4;
+  display: block;
   height: 0px;
-
   overflow: hidden;
   padding-top: 10px;
-
   transition-property: height;
   transition-duration: 1.2s;
-  z-index: 4;
 }
 .nav .dep2 a {
   display: block;
   padding: 10px 0;
-  color: #555555;
-  font-family: "Noto Sans KR", Arial, Tahoma, sans-serif;
-  font-weight: 500;
-  font-size: 14px;
 }
 .nav .dep1 > li > a {
   display: block;
@@ -118,31 +102,19 @@ a {
 }
 
 /* main */
-.mainWrap {
-  position: relative;
-  height: 600px;
-  z-index: -9999;
-}
 main {
-  display: flex;
-  position: relative;
-
+  background-image: url("img/mainback2.jpg");
   width: 100%;
   height: 500px;
-
-  margin: 0 auto;
-  padding-bottom: 50px;
-  flex-direction: column;
-  z-index: -100;
-}
-
-.background {
-  z-index: -99;
-  background-image: url("/img/mainback2.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  z-index: -4;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: -3;
 }
 
 /* intro */
@@ -152,7 +124,7 @@ main {
   padding-top: 30px;
   width: 446px;
   height: 360px;
-  z-index: -4;
+  z-index: -1;
   position: relative;
   opacity: 0.8;
 }
@@ -184,7 +156,6 @@ h4 {
 }
 
 .quick-menu {
-  position: relative;
   display: flex;
   margin: 0 110px;
   justify-content: center;
@@ -193,7 +164,6 @@ h4 {
 .up,
 .down {
   display: flex;
-  z-index: 100;
 }
 
 .up > div {
@@ -233,11 +203,11 @@ h5 {
 }
 
 .quick-menu a:hover {
+  background-color: #fff;
   color: #000;
 }
 
 .hide {
-  z-index: 10;
   display: flex;
   width: 100%;
   height: 100%;
@@ -284,7 +254,7 @@ h5 {
 
 .quick-menu__program,
 .quick-menu__program a {
-  background-color: rgba(68, 65, 65, 0.781);
+  background-color: #545e60e8
 }
 .quick-menu__program__content {
   padding-top: 60px;
@@ -296,7 +266,7 @@ h5 {
 
 .quick-menu__application,
 .quick-menu__application a {
-  background-color: #545e60e8;
+  background-color: rgba(68, 65, 65, 0.781);;
 }
 
 .quick-menu__application__content {
@@ -309,7 +279,7 @@ h5 {
 
 .quick-menu__job-opening,
 .quick-menu__job-opening a {
-  background-color: rgba(68, 65, 65, 0.781);
+  background-color: #545e60e8;
 }
 
 .quick-menu__job-opening__content {
@@ -358,14 +328,14 @@ h5 {
     margin: 0px;
     width: 190px;
     height: 150px;
-    padding-top: 15px;
+    padding-top:15px;
   }
 
   .down > div {
     margin: 0px;
     width: 190px;
     height: 150px;
-    padding-top: 15px;
+    padding-top:15px;
   }
   .quick-menu__mentoring,
   .quick-menu__mentoring a {
@@ -387,7 +357,9 @@ h5 {
 }
 
 @media screen and (max-width: 575px) {
+
   .quick-menu {
+
   }
 }
 .up > div {
@@ -396,6 +368,7 @@ h5 {
 
 .down > div {
   width: 190px;
+}
 }
 
 /* notice */
@@ -422,27 +395,29 @@ a {
     display: none;
   }
 }
+
+
 .notice {
   width: 1200px;
   height: 60px;
   position: relative;
   overflow: hidden; /*이 부분만 풀면 내용 숨겨져요*/
-  margin: 120px auto;
+  margin: 40px auto;
 }
 h3 {
   width: 250px;
+  top: 8px;
   color: #2a2a72;
-  font-size: 40px;
-  font-weight: 700;
-  letter-spacing: -2px;
-  z-index: 1;
+  font-size: 31px;
+  font-weight: bold;
+  letter-spacing: -1px;
 }
 .notice h3:before {
   content: "\f0f3";
   font-family: FontAwesome;
   font-weight: 900;
-  margin: 0px 10px 0;
-  font-size: 30px;
+  margin: -9px 10px 0 0;
+  font-size: 25px;
   vertical-align: middle;
   display: inline-block;
 }
@@ -452,10 +427,11 @@ h3 {
 .notice ul li {
   padding-left: 20px;
   position: relative;
-  padding: 0 20%;
+  padding: 0 17%;
   height: 60px;
-  font-size: 40px;
-  font-weight: 700;
+  line-height: 60px;
+  font-size: 30px;
+
 }
 .notice .btn {
   position: absolute;
@@ -507,6 +483,7 @@ h3 {
 }
 .thumnail > .thum-1 {
   margin-top: 10px;
+  font-style: 12px;
   line-height: 2;
   padding: 5px;
 }
@@ -589,27 +566,6 @@ h3 {
   font-weight: 600;
   display: inline-block;
   padding-top: 20%;
-}
-
-/* aside */
-aside {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  border-radius: 7px;
-  right: 20px;
-  bottom: 20px;
-  background-color: #2b2e4a;
-  z-index: 9999;
-}
-aside:hover {
-  box-shadow: 2px 2px 5px rgba(44, 44, 44, 0.74);
-}
-
-aside > span > i {
-  font-size: 1.3em;
-  padding: 18px 0 0 18px;
-  color: #fff;
 }
 
 /* footer */
