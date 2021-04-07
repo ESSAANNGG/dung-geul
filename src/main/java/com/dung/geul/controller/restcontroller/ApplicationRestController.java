@@ -16,6 +16,7 @@ public class ApplicationRestController {
     @Autowired
     private CvServiceImpl cvServiceImpl;
 
+    // 이력서 관련
     @PostMapping("/cv/register")
     public RedirectView cvRegister(CvPageDTO cvPageDTO){
 
