@@ -16,6 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Getter
 @Table(name="board")
+@Entity
 public class Board implements Serializable {
 
     @Id
@@ -39,6 +40,14 @@ public class Board implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="b_board_id" , foreignKey = @ForeignKey(name="b_board_id_fk"))
     private Board board; //글번호 본인 참조 FK
+
+    public String getTitle() {
+        return board_title;
+    }
+
+    public void setTitle(String title) {
+        this.board_title = title;
+    }
 
     //file 데이터타입 이랑 본인참조 어캐할지
 
