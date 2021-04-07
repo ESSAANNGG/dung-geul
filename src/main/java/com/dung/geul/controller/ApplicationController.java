@@ -6,6 +6,8 @@ import com.dung.geul.entity.Member;
 import com.dung.geul.repository.CvRepository;
 import com.dung.geul.repository.MemberRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
+import com.dung.geul.service.MemberService;
+import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,9 @@ public class ApplicationController {
     @Autowired
     private MemberRepository memberRepository;
 
+    @Autowired
+    private MemberServiceImpl memberService;
+
 
     @GetMapping("/cv/before")
     public String cvBefore(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
@@ -48,7 +53,10 @@ public class ApplicationController {
     @GetMapping("/cv/register")
     public String register(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
-        model.addAttribute("loginUser", authMemberDTO);
+
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
+
+        model.addAttribute("loginUser", member);
         model.addAttribute("loginUserAge", 24); // 24는 임시값 >> 추후 나이계산해서 수정하기
 
         return "/application/cv/register";
