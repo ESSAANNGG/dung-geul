@@ -2,6 +2,7 @@ package com.dung.geul.controller;
 
 
 import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.notice_boardDTO;
 import com.dung.geul.entity.Board;
 import com.dung.geul.repository.BoardRepository;
 import com.dung.geul.service.notice_boardService;
@@ -14,7 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.awt.print.Pageable;
 import java.util.List;
@@ -48,6 +51,24 @@ public class Center_information_controller {
         model.addAttribute("result", service.getList(pageRequestDTO));
 
         return "center-information/notice_board";
+    }
+
+    @GetMapping("/notice_board_register")
+    public void register() {
+        log.info("REGISTER GET...");
+    }
+
+    @PostMapping("/notice_board_register")
+    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes){
+
+        log.info("dto..." + dto);
+
+        //새로 추가된 엔티티의 번호
+        Long num = service.register(dto);
+
+        redirectAttributes.addFlashAttribute("msg", num);
+
+        return "redirect:/center-information/notice_board";
     }
 
 }

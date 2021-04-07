@@ -34,20 +34,22 @@ public class Board implements Serializable {
 //    @Lob
 //    private Clob board_content; //내용
 
+// ------------------------------------------------------
+
+//    @Column(length = 1500, nullable = false)
+//    private String content;     // 내용
+
+//    @Column(length = 50, nullable = false)
+//    private Member b;      // 작성자
+
+// ------------------------------------------------------
+
     private String board_file; //첨부파일
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="b_board_id" , foreignKey = @ForeignKey(name="b_board_id_fk"))
     private Board board; //글번호 본인 참조 FK
-
-    public String getTitle() {
-        return board_title;
-    }
-
-    public void setTitle(String title) {
-        this.board_title = title;
-    }
 
     //file 데이터타입 이랑 본인참조 어캐할지
 

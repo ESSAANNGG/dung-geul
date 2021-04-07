@@ -18,6 +18,8 @@ public class notice_boardDTO {
 
     private String title;   // 게시글 제목
 
+    private String content; // 게시글 내용
+
     private Member b;   // 게시글 작성자
 
     // 게시글 파일

@@ -35,7 +35,7 @@ public class notice_boardServiceImpl implements notice_boardService {
 
     @Override
     public notice_boardDTO read(Long num) {
-        log.info("num :" +num);
+        log.info("num :" + num);
 
         Optional<Board> result = boardRepository.findById(num);
 
@@ -46,11 +46,11 @@ public class notice_boardServiceImpl implements notice_boardService {
     @Override
     public Long register(notice_boardDTO notice_boardDTO) {
 
-        Board employ = dtoToEntity(notice_boardDTO);
+        Board board = dtoToEntity(notice_boardDTO);
 
-        boardRepository.save(employ);
+        boardRepository.save(board);
 
-        return employ.getNum();
+        return board.getNum();
     }
 
     @Override
