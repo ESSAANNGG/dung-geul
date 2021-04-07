@@ -21,15 +21,14 @@ public class MemberRestController {
 
     // 회원가입
     @PostMapping("/sigUp/student")
-    public RedirectView joinMember(@RequestBody MemberDTO memberDTO){
+    public String joinMember(@RequestBody MemberDTO memberDTO){
 
         System.out.println("ApiMemberController : joinMember() 실행");
         System.out.println("MemberDTO : " + memberDTO);
 
         memberService.joinMember(memberDTO);
 
-        return new RedirectView("/login");
-
+        return "/login";
 
     }
 

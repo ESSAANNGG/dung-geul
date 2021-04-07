@@ -14,7 +14,7 @@
     성명(한글) : <input type="text" name="user_name" id="user_name" th:value="${loginUser.getUser_name()}" readonly>
 <!--    (한자) : <input type="text" name="name_china" id="name_china">-->
     <br>
-   생년월일 : <input type="text" name="user_brth" id="user_brth"> <br>
+   생년월일 : <input type="text" name="birth" id="birth" placeholder="예)1998-05-21"> <br>
     만<input type="text" name="user_age" id="user_age" th:value="${loginUserAge}" readonly>세<br>
     <!--thymeleaf 쓸거임-->
     HP: <input type="text" name="user_hp" id="user_hp" th:value="${loginUser.user_ph}" readonly><br>
