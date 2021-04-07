@@ -1,4 +1,4 @@
-//package com.dung.geul.repository;
+package com.dung.geul.repository;//package com.dung.geul.repository;
 //
 //import com.dung.geul.entity.Board;
 //import org.springframework.data.domain.Page;
