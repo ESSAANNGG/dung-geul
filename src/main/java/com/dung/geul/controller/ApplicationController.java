@@ -57,7 +57,6 @@ public class ApplicationController {
         Member member = memberService.getMember(authMemberDTO.getUser_id());
 
         model.addAttribute("loginUser", member);
-        model.addAttribute("loginUserAge", 24); // 24는 임시값 >> 추후 나이계산해서 수정하기
 
         return "/application/cv/register";
 
