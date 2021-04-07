@@ -50,8 +50,4 @@ public class Center_information_controller {
         return "center-information/notice_board";
     }
 
-
-// ------------------------------------------------------------------------------------------------------------------
-
-
 }
