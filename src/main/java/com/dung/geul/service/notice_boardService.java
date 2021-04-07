@@ -9,18 +9,20 @@ public interface notice_boardService {
 
     PageResultDTO<notice_boardDTO, Board> getList(PageRequestDTO pageRequestDTO);
 
-    notice_boardDTO read(Long num);
+    notice_boardDTO read(Long board_num);
 
    Long register(notice_boardDTO notice_boardDTO);
 
    void modify(notice_boardDTO notice_boardDTO);
 
-   void remove(Long num);
+   void remove(Long board_num);
 
     default Board dtoToEntity(notice_boardDTO dto) {    // dto -> entity
         Board entity = Board.builder()
                 .num(dto.getNum())
                 .board_title(dto.getTitle())
+//                .content(dto.getContent())
+//                .b(dto.getB())
                 .build();
 
         return entity;
@@ -30,7 +32,9 @@ public interface notice_boardService {
 
         notice_boardDTO dto = notice_boardDTO.builder()
                 .num(entity.getNum())
-                .title(entity.getTitle())
+                .title(entity.getBoard_title())
+//                .content(entity.getContent())
+//                .b(entity.getB())
                 //.regDate(entity.getRegDate())
                 //.modDate(entity.getModDate())
                 .build();
