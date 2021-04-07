@@ -9,6 +9,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+// 페이지 결과 DTO
 @Data
 public class PageResultDTO<DTO, EN> {
 
@@ -38,6 +39,7 @@ public class PageResultDTO<DTO, EN> {
 
         dtoList = result.stream().map(fn).collect(Collectors.toList());
 
+// ----------------------------------------------------------------------------
         totalpage = result.getTotalPages();
 
         makePageList(result.getPageable());
