@@ -39,8 +39,9 @@ public class Center_information_controller {
     @Autowired
     private BoardRepository repository;
 
-    @GetMapping("/notice_board")
+    @GetMapping("/notice_board")    // 공지사항 게시판 페이지
     public String notice_board(PageRequestDTO pageRequestDTO, Model model) {
+
         log.info("list............." + pageRequestDTO);
 
         // PageResultDTO

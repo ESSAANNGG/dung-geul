@@ -9,7 +9,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-// 페이지 결과 DTO
+// 페이지 결과 DTO : 목록 데이터 페이지 처리
 @Data
 public class PageResultDTO<DTO, EN> {
 
@@ -26,10 +26,10 @@ public class PageResultDTO<DTO, EN> {
     private int size;
 
     //시작 페이지 번호, 끝 페이지 번호
-    private int start,end;
+    private int start, end;
 
     //이전, 다음
-    private boolean prev,next;
+    private boolean prev, next;
 
     //페이지 번호 목록
     private List<Integer> pageList;
@@ -39,25 +39,25 @@ public class PageResultDTO<DTO, EN> {
 
         dtoList = result.stream().map(fn).collect(Collectors.toList());
 
-// ----------------------------------------------------------------------------
         totalpage = result.getTotalPages();
 
         makePageList(result.getPageable());
 
-        }
+    }
 
         private void makePageList(Pageable pageable) {
 
-            this.page = pageable.getPageNumber() +1;
+            this.page = pageable.getPageNumber() +1;    // 0부터 시작하므로 1을 추가
             this.size = pageable.getPageSize();
 
-            int tempEnd = (int)(Math.ceil(page/10.0)) * 10;
+            // temp end page
+            int tempEnd = (int)(Math.ceil(page/10.0)) * 10; // 10페이지 => Math.ceil(1) * 10 = 10
 
             start = tempEnd - 9;
 
             prev = start > 1;
 
-            end = totalpage > tempEnd ? tempEnd : totalpage;
+            end = totalpage > tempEnd ? tempEnd : totalpage;    // if(totalpage > tempEnd) { tempEnd } else { totalpage }
 
             next = totalpage > tempEnd;
 

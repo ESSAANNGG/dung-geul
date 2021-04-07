@@ -26,11 +26,9 @@ public class notice_boardServiceImpl implements notice_boardService {
     @Override
     public PageResultDTO<notice_boardDTO, Board> getList(PageRequestDTO requestDTO) {
 
-        Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());
-
+        Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());    // 글 번호를 기준으로 내림차순
         Page<Board> result = boardRepository.findAll(pageable);
-
-        Function<Board, notice_boardDTO> fn = (entity -> entityToDto(entity));
+        Function<Board, notice_boardDTO> fn = (entity -> entityToDto(entity));      // java util의 함수를 람다식으로 표현
 
         return new PageResultDTO<>(result, fn);
     }
@@ -70,6 +68,5 @@ public class notice_boardServiceImpl implements notice_boardService {
         boardRepository.deleteById(num);
 
     }
-
 
 }

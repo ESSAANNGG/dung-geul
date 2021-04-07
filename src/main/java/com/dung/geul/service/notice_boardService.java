@@ -17,7 +17,7 @@ public interface notice_boardService {
 
    void remove(Long num);
 
-    default Board dtoToEntity(notice_boardDTO dto) {
+    default Board dtoToEntity(notice_boardDTO dto) {    // dto -> entity
         Board entity = Board.builder()
                 .num(dto.getNum())
                 .board_title(dto.getTitle())
@@ -26,7 +26,7 @@ public interface notice_boardService {
         return entity;
     }
 
-    default notice_boardDTO entityToDto(Board entity){
+    default notice_boardDTO entityToDto(Board entity){   // entity -> dto
 
         notice_boardDTO dto = notice_boardDTO.builder()
                 .num(entity.getNum())

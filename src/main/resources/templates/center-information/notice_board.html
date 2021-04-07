@@ -140,6 +140,26 @@
                                     </tdoby>
                                 </table>
 
+                                <!-- 목록 데이터 페이지 처리 -->
+                                <ul class="pagination h-100 justify-content-center align-items-center">
+
+                                    <li class="page-item " th:if="${result.prev}">
+                                        <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.start -1})}" tabindex="-1">이전</a>
+                                    </li>
+
+                                    <li th:class=" 'page-item ' + ${result.page == page?'active':''} " th:each= "page: ${result.pageList}">
+                                        <a class="page-link" th:href="@{/center-information/notice_board(page= ${page})}">
+                                            [[${page}]]
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" th:if="${result.next}">
+                                        <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.end + 1})}">다음</a>
+                                    </li>
+
+                                </ul>
+
+
 
                                 <!-- 등록 버튼 -->
                                 <!-- 관리자만이 공지사항을 작성할 수 있음, 일단 막아놈-->
