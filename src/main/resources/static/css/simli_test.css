@@ -10,6 +10,12 @@
   color: rgb(13, 13, 92);
 }
 
+.circle {
+  list-style-type: circle;
+  color: rgba(223, 68, 68, 0.863);
+  
+}
+
 .border-box {
   /* text-align: center; */
   color: rgb(70, 66, 66);
@@ -34,7 +40,7 @@
 .process-flex {
   display: flex;
 
-  align-items: center;
+
 }
 
 .max {
