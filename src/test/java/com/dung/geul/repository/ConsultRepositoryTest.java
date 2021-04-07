@@ -1,7 +1,11 @@
 package com.dung.geul.repository;
 
+import com.dung.geul.dto.ConsultDTO;
+import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Consult;
 import com.dung.geul.entity.Member;
+import com.dung.geul.service.ConsultService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +19,8 @@ import java.util.stream.IntStream;
 public class ConsultRepositoryTest {
     @Autowired
     private ConsultRepository consultRepository;
-
+    @Autowired
+    private ConsultService consultService;
     @Test
     public void insertConsult(){
         IntStream.rangeClosed(1,100).forEach(i -> {
@@ -42,9 +47,27 @@ public class ConsultRepositoryTest {
 
     @Test
     public void res() {
-        Object result = consultRepository.getConsultWithuser_id(50L);
+        Object result = consultRepository.getConsultWithApply(50L);
         Object[] arr = (Object[]) result;
         System.out.println("-------------------------");
         System.out.println(Arrays.toString(arr));
+    }
+
+    @Test
+    public void testList(){
+        PageRequestDTO pageRequestDTO = new PageRequestDTO();
+
+        PageResultDTO<ConsultDTO, Object[]> result = consultService.getList(pageRequestDTO);
+
+        for (ConsultDTO consultDTO : result.getDtoList()) {
+            System.out.println(consultDTO);
+        }
+    }
+
+    @Test
+    public void Get(){
+        Long cno_num = 50L;
+        ConsultDTO consultDTO = consultService.get(cno_num);
+        System.out.println(consultDTO);
     }
 }

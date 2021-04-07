@@ -12,6 +12,9 @@ public interface ConsultService {
     Long register(ConsultDTO consultDTO);
 
     PageResultDTO<ConsultDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
+
+    ConsultDTO get(Long cno_num);
+
         default Consult dtoToEntity(ConsultDTO consultDTO){
             Member member = Member.builder()
                     .user_id(consultDTO.getUser_id())
@@ -26,7 +29,7 @@ public interface ConsultService {
             return consult;
         }
 
-        default ConsultDTO entityToDTO(Consult consult, Member member){
+        default ConsultDTO entityToDTO(Consult consult,Member member){
             ConsultDTO consultDTO = ConsultDTO.builder()
                     .cno(consult.getCno_num())
                     .field(consult.getConsult_field())

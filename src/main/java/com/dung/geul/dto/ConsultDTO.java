@@ -8,15 +8,10 @@ import javax.persistence.Column;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@AttributeOverrides({
-        @AttributeOverride(name = "regDate", column = @Column(name = "con_regdate")),
-        @AttributeOverride(name = "modDate", column = @Column(name = "con_modDate"))
-})
+@Data
 public class ConsultDTO {
     private Long cno;
     private String field;

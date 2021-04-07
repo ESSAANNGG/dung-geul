@@ -10,7 +10,12 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Consult extends BaseEntity implements Serializable {
+@ToString
+@AttributeOverrides({
+        @AttributeOverride(name = "regDate", column = @Column(name = "regdate")),
+        @AttributeOverride(name = "modDate", column = @Column(name = "modDate"))
+})
+public class Consult extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
