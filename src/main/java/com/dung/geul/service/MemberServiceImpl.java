@@ -1,9 +1,6 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.EnterpriseDTO;
-import com.dung.geul.dto.JoinResultPageDTO;
-import com.dung.geul.dto.MemberDTO;
-import com.dung.geul.dto.MemberPwDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
@@ -34,25 +31,8 @@ public class MemberServiceImpl implements MemberService{
     @Autowired
     private BCryptPasswordEncoder encoder;
 
-    @Autowired private JavaMailSenderImpl mailSender;
-
-    //메일 발송 메소드
-//    @RequestMapping(value = "/sendMail.do")
-//    public String sendMail(final MailVO vo) {
-//        final MimeMessagePreparator preparator = new MimeMessagePreparator() {
-//            @Override
-//            public void prepare(MimeMessage mimeMessage) throws Exception {
-//                final MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
-//                helper.setFrom(vo.getFrom());
-//                helper.setTo(vo.getTo());
-//                helper.setSubject(vo.getSubject());
-//                helper.setText(vo.getContents(), true);
-//            }
-//        };
-//        mailSender.send(preparator); return "result";
-//    }
-
-
+    @Autowired
+    private MailService mailService;
 
 
     public void joinMember(MemberDTO memberDTO){
@@ -161,6 +141,8 @@ public class MemberServiceImpl implements MemberService{
         return result;
     }
 
+    // 회원 삭제
+    // 탈퇴 칼럼 추가해서 바꾸는 걸로 할지,,?
     public void deleteMember(String user_id) {
 
         Optional<Member> memberOpt = memberRepository.findById(user_id);
@@ -190,23 +172,65 @@ public class MemberServiceImpl implements MemberService{
         return id;
     }
 
-    // 아이디와 이메일이 일치하면 임시비밀번호를 발급해주기
-    public int tempPwSendEmail(MemberDTO memberDTO) {
+    // 아이디와 이메일이 일치하면 임시비밀번호를 이메일로 보내
+    public int tempPwSendEmail(MemberForgotPwDTO memberForgotPwDTO) {
 
-        Optional<Member> memberOpt = memberRepository.findByUser_emailAndUser_id(memberDTO.getUser_email(), memberDTO.getUser_id());
+        System.out.println("서비스 memberForgotPwDTO : " +memberForgotPwDTO);
+
+        Optional<Member> memberOpt = memberRepository.findById(memberForgotPwDTO.getUser_id());
+
+        System.out.println("memberOTP : " + memberOpt.toString());
 
         int result;
 
-        if(memberOpt.isEmpty()){
-            result = 0;
-        }else{
-            String tempPw = getRamdomPassword(5);
+        if(!memberOpt.isEmpty()){
 
-            // 이메일 보내는 코드 작성하기 ~~~
-            
-            result = 1;
+            Member member = memberOpt.get();
+
+            String DBemail = member.getUser_email();
+
+            System.out.println(DBemail);
+
+            if(!DBemail.equals(memberForgotPwDTO.getUser_email())){
+                result = 0;
+            }else{
+                System.out.println("else문 실행");
+
+                // 임시비밀번호 만들기
+                String tempPw = getRamdomPassword(5);
+
+                System.out.println("암호 pw : " + tempPw);
+
+                // 메일 보내기
+                MailDTO mailDTO = new MailDTO();
+
+                System.out.println("mailDTO : " + mailDTO.toString());
+
+                mailDTO.setTitle("영진전문대학교 취업지원센터의 임시 비밀번호입니다.");
+                mailDTO.setMessage("안녕하세요 " + memberForgotPwDTO.getUser_id() + "님. \n"
+                        +"영진전문대학교 취업지원센터의 임시 비밀번호입니다.\n"
+                        + "임시 비밀번호 : " + tempPw
+                        + "\n로그인 후 비밀번호를 변경해주세요");
+                mailDTO.setAddress( memberForgotPwDTO.getUser_email());
+
+                System.out.println("mailDTO : " + mailDTO.toString());
+
+                mailService.mailSend(mailDTO);
+
+                System.out.println("mailsend");
+
+                // 임시비밀번호로 변경
+                member.modUser_pw(encoder.encode(tempPw));
+
+                memberRepository.save(member);
+
+                result = 1;
+            }
+        } else{
+            result = 0;
         }
 
+        System.out.println("result : " + result);
         return result;
     }
 

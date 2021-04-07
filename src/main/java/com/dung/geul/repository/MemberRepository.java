@@ -27,9 +27,4 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     @Query("select m.user_id from Member m where m.user_email = :user_email and m.user_name = :user_name")
     String findByUser_emailAndUser_name(@Param("user_email") String user_email, @Param("user_name") String user_name);
 
-    // 이메일이랑 아이디가 DB에 있는지 확인
-    @Query("select m from Member m where m.user_email = :user_email and m.user_id = :user_id")
-    Optional<Member> findByUser_emailAndUser_id(@Param("user_email") String user_email, @Param("user_id") String user_id);
-
-
 }

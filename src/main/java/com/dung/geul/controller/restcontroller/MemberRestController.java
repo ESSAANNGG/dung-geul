@@ -1,9 +1,6 @@
 package com.dung.geul.controller.restcontroller;
 
-import com.dung.geul.dto.EnterpriseDTO;
-import com.dung.geul.dto.JoinResultPageDTO;
-import com.dung.geul.dto.MemberDTO;
-import com.dung.geul.dto.MemberPwDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.service.CvServiceImpl;
 import com.dung.geul.service.MemberServiceImpl;
 
@@ -67,12 +64,18 @@ public class MemberRestController {
 
     //비밀번호 찾기
     @PostMapping("/forgot/pw")
-    public void findPw(@RequestBody MemberDTO memberDTO){
+    public int findPw(@RequestBody MemberForgotPwDTO memberForgotPwDTO){
         // 아이디와 이메일을 받아옴
         System.out.println("memberRestController findPw() 실행");
-        System.out.println("memberDTO : " + memberDTO);
+        System.out.println("forfotPw : " + memberForgotPwDTO);
 
-        memberService.tempPwSendEmail(memberDTO);
+        int result = memberService.tempPwSendEmail(memberForgotPwDTO);  // 1: 성공, 0: 실패
+
+        System.out.println("controller로 돌아옴");
+
+        System.out.println("result : " + result);
+
+        return result;
     }
 
 
