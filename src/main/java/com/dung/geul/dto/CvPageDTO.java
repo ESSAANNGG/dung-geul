@@ -17,8 +17,6 @@ public class CvPageDTO {
     private String user_name;
 
     private LocalDate birth;
-//
-//    private LocalDate currentDate;
 
     private String user_hp;
 
