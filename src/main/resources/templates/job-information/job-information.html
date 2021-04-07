@@ -5,14 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/jobimform.css" />
-    <link rel="stylesheet" href="css/sidemenu.css" />
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/job-inform.js"></script>
+    <link rel="stylesheet" href="/css/jobimform.css" />
+    <link rel="stylesheet" href="/css/sidemenu.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/js/job-inform.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/nav.js"></script>
     <script src="https://kit.fontawesome.com/4f031e5608.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
+
+<navbar>
+    <div class="nav">
+        <ul class="dep1">
+            <li class="logo">
+                <a href="#">영진전문대학교</a>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">진로설계</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="/career-planning/simli_test">진로심리검사</a></li>
+                    <li><a href="/job-information/job-information">직업정보</a></li>
+                    <li><a href="#">직업사전</a></li>
+                </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">직무역량강화</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="#">지원프로그램</a></li>
+                    <li><a href="#">자격증 관리</a></li>
+                    <li><a href="#">수료증 관리</a></li>
+                </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">구직역량강화</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="#">이력서 관리</a></li>
+                    <li><a href="#">자소서 관리</a></li>
+                </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">구직서비스</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="/Employ/list">채용정보</a></li>
+                    <li><a href="/Employ/register">채용등록</a></li>
+                </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">상담</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="#">상담소개</a></li>
+                    <li><a href="#">상담신청</a></li>
+                </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">센터정보</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="/center-information/center_introduction">센터소개</a></li>
+                    <li><a href="/center-information/main_business">주요업무내용</a></li>
+                    <li><a href="/center-information/notice_board">공지사항</a></li>
+                </ul>
+            </li>
+            <li class="login">
+                <a href="/login" th:if="!${loginUser}">로그인</a>
+                <a href="/logout" th:if="${loginUser}">로그아웃</a>
+            </li>
+            <li class="join">
+                <a href="/sign-up" th:if="!${loginUser}">회원가입</a>
+                <a href="/mypage/member/before" th:if="${loginUser}">마이페이지</a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav2">
+        <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
+    </div>
+</navbar>
 
 <div id="job-main-wrap" class="d_width">
     <!-- side -->
@@ -64,7 +133,7 @@
                         <div class="label-con form-inline">
                             <form id="jobsearch_k" name="jobsearch_k" method="post" action="#">
                                 <input type="hidden" name="type" value="k">
-                                <input tupe="text" id="searchCode" name="searchCode" value="키워드 입력"
+                                <input type="text" id="searchCode" name="searchCode" value="키워드 입력"
                                        maxlength="100" class="form-control" placeholder="직종명을 입력하세요.">
                                 <button type="submit" class="btn-d" onclick="job_search(); return false;">검색</button>
                             </form>
@@ -130,6 +199,29 @@
 </div>
 <!-- job-main-wrap -->
 
+<div class="footer">
+    <ul class="footer_1">
+        <li class="footer_1_c">개인정보처리방침</li>
+        <li class="footer_1_c">이메일무단수집거부</li>
+        <li class="footer_1_c">저작권보호방침</li>
+        <li class="footer_1_c">입찰정보</li>
+        <li class="footer_1_c">예산공고</li>
+    </ul>
+    <ul class="footer_2">
+        <li class="footer_2_c">전화번호 : 053-819-1000</li>
+        <li class="footer_2_c">전화번호 : 053-770-2233</li>
+        <li class="footer_2_c">전화번호 : 053-819-1114</li>
+    </ul>
+    <ul class="footer_3">
+        <li class="footer_3_c">
+            COPYRIGHT (C) DAEGU YEUNGJIN UNIVERSITY.ALL RIGHTS RESERVED.
+        </li>
+    </ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </body>
