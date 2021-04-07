@@ -13,6 +13,47 @@
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
     <link rel="stylesheet" href="/src/main/resources/static/css/nav.css" th:href="@{/css/nav.css}">
 
+    
+    <!-- 목록 데이터 페이지 처리, 등록 버튼 CSS 디자인 : 차후 css파일에 수정 要-->
+    <style>
+        /* 목록 데이터 페이지 처리 */
+        .page-ul-div {
+            text-align: center;
+        }
+        
+        .page-ul {
+            display: block;
+            list-style: none;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        /* [글쓰기] 버튼 */
+        .write-btn {
+            color: #fff;
+            background-color: #1a508b;
+
+            font-size: 15px;
+            text-align: right;
+
+        }
+
+        /* [이전], [다음] 버튼 */
+        .page-li {
+            margin: 5px;
+            padding: 5px;
+            border : black;
+            float: left;
+        }
+
+        /* [이전], [다음] 버튼 hover */
+        .page-li:hover {
+                background-color: #1a508b;
+        }
+
+</style>
+
+
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
@@ -114,7 +155,6 @@
 
                     <!-- Content -->
                     <div class="col-9 col-12-medium imp-medium">
-                        <div class="content">
 
                             <!-- Board table -->
                             <div class="container">
@@ -141,36 +181,43 @@
                                 </table>
 
                                 <!-- 목록 데이터 페이지 처리 -->
-                                <ul class="pagination h-100 justify-content-center align-items-center">
-
-                                    <li class="page-item " th:if="${result.prev}">
-                                        <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.start -1})}" tabindex="-1">이전</a>
-                                    </li>
-
-                                    <li th:class=" 'page-item ' + ${result.page == page?'active':''} " th:each= "page: ${result.pageList}">
-                                        <a class="page-link" th:href="@{/center-information/notice_board(page= ${page})}">
-                                            [[${page}]]
-                                        </a>
-                                    </li>
-
-                                    <li class="page-item" th:if="${result.next}">
-                                        <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.end + 1})}">다음</a>
-                                    </li>
-
-                                </ul>
-
-
-
-                                <!-- 등록 버튼 -->
-                                <!-- 관리자만이 공지사항을 작성할 수 있음, 일단 막아놈-->
-                                <!-- 발표 후 a테그에 다음 코드 추가할 것(글 작성 페이지) : th:href="@{/center-information/notice_board_form} "                  -->
-                                <div>
-                                    <a onclick="alert('공지사항 게시글은 관리자만 등록할 수 있습니다.')">글쓰기</a>
+                                <div class="page-ul-div">
+                                    <ul class="page-ul">
+                                        <li class="page-li " th:if="${result.prev}">
+                                            <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.start -1})}" tabindex="-1">이전</a>
+                                        </li>
+    
+                                        <li th:class=" 'page-li ' + ${result.page == page?'active':''} " th:each= "page: ${result.pageList}">
+                                            <a class="page-link" th:href="@{/center-information/notice_board(page= ${page})}">
+                                                [[${page}]]
+                                            </a>
+                                        </li>
+    
+                                        <li class="page-li" th:if="${result.next}">
+                                            <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.end + 1})}">다음</a>
+                                        </li>
+                                    </ul>
                                 </div>
+                                <!-- 목록 데이터 페이지 처리 끝-->
 
                             </div>
-                        </div>
+                            <!-- End Board table -->
+
+                               <!--
+                                <등록 버튼>
+                                    관리자만이 공지사항을 작성할 수 있음, 일단 막아놈-
+                                    발표 후 a태그에 다음 코드 추가할 것(글 작성 페이지) : th:href="@{/center-information/notice_board_form} "
+                                -->
+                                <div class="write-btn-div">
+                                    <!-- <a onclick="alert('공지사항 게시글은 관리자만 등록할 수 있습니다.')">글쓰기</a>-->
+                                    <button type="button" class="write-btn" onclick="alert('공지사항 게시글은 관리자만 등록할 수 있습니다.')">
+                                        글쓰기
+                                    </button>
+                                </div>
+
+                        
                     </div>
+                    <!-- End Content -->
 
 
                 </div>
