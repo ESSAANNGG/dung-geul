@@ -13,7 +13,7 @@
     성명(한글) : <input type="text" name="user_name" id="user_name" th:value="${cv.getUser_name()}" readonly>
     <!--        (한자) : <input type="text" name="name_china" id="name_china"> -->
     <br>
-    <input type="text" name="user_brth" id="user_brth" th:value="${cv.getBirth()}" readonly> <br>
+    <input type="text" name="birth" id="birth" th:value="${cv.getBirth()}" placeholder="예)1998-05-21" readonly> <br>
     만 <input type="text" name="user_age" id="user_age" th:value="${age}" readonly>세   <br>
     HP: <input type="text" name="user_hp" id="user_hp" th:value="${cv.getUser_hp()}" readonly>  <br>
     이메일: <input type="email" name="user_email" id="user_email" th:value="${cv.getUser_email()}" readonly> <br>

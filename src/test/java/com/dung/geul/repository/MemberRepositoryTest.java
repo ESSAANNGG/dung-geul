@@ -51,14 +51,14 @@ public class MemberRepositoryTest {
         String pw = encoder.encode("123");
 
         Member member = Member.builder()
-                .user_id("userID")
+                .user_id("userID2")
                 .user_pw(pw)
-                .user_name("userName")
+                .user_name("123")
                 .user_ph("01011112222")
                 .user_postcode("23445")
                 .user_addr("복현동123 주소주")
                 .user_addr_details("상세주소 상세주소")
-                .user_email("user@email")
+                .user_email("123@aaa.bbb")
                 .user_addr("userAddress")
                 .user_dept("컴퓨터정보계열")
                 .user_class("WD-A")
@@ -124,6 +124,22 @@ public class MemberRepositoryTest {
     public void memberSelectTest(){
 
         System.out.println(memberRepository.findByIdWidthRole("member1ID"));
+    }
+
+    @Test
+    public void findNameAndEmail(){
+
+        String member = memberRepository.findByUser_emailAndUser_name("123@aaa.bbb", "123");
+
+        System.out.println(member);
+
+        System.out.println();
+
+    }
+
+    @Test
+    public void findEmail(){
+
     }
 
 }

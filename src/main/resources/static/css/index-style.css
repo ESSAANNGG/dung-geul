@@ -291,7 +291,6 @@ h5 {
 .down > div {
   width: 190px;
 }
-}
 
 /* notice */
 
@@ -433,12 +432,18 @@ h3 {
 .list > .thumnail > .thum-1 > span {
   font-size: 10px;
   margin-left: 20px;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ccc;
+  padding: 5px;
 }
 .list2 > .thumnail > .thum-1 > span {
   font-size: 10px;
   margin-left: 20px;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ccc;
+  padding: 5px;
 }
 
 /* 아이콘 */

@@ -64,55 +64,65 @@
             <div class="nav">
                 <ul class="dep1">
                     <li class="logo">
-                        <a href="/" th:href="@{/#}">영진전문대학교</a>
+                        <a href="#">영진전문대학교</a>
                     </li>
                     <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
                         <a href="#">진로설계</a>
-                        <ul class="dep2" onmouseover="nav_on()" >
+                        <ul class="dep2" onmouseover="nav_on()">
                             <li><a href="/career-planning/simli_test">진로심리검사</a></li>
-                            <li><a href="#">직업정보</a></li>
+                             <li><a href="/job-information">직업정보</a></li>
+                            <li><a href="#">직업사전</a></li>
                         </ul>
                     </li>
                     <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
                         <a href="#">직무역량강화</a>
-                        <ul class="dep2" onmouseover="nav_on()" >
+                        <ul class="dep2" onmouseover="nav_on()">
                             <li><a href="#">지원프로그램</a></li>
-                            <li><a href="#">자격증/수료증 관리</a></li>
-                            <li><a href="#">백호마일리지</a></li>
+                            <li><a href="#">자격증 관리</a></li>
+                            <li><a href="#">수료증 관리</a></li>
                         </ul>
                     </li>
                     <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
                         <a href="#">구직역량강화</a>
-                        <ul class="dep2" onmouseover="nav_on()" >
-                            <li><a href="#">이력서/자소서 tip!</a></li>
-                            <li><a href="#">이력서/자소서 등록</a></li>
-                            <li><a href="#">온라인 멘토링</a></li>
-                            <li><a href="#">모의면접</a></li>
+                        <ul class="dep2" onmouseover="nav_on()">
+                            <li><a href="#">이력서 관리</a></li>
+                            <li><a href="#">자소서 관리</a></li>
                         </ul>
                     </li>
                     <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
                         <a href="#">구직서비스</a>
-                        <ul class="dep2" onmouseover="nav_on()" >
-                            <li><a href="#">채용정보</a></li>
-                            <li><a href="#">채용등록</a></li>
-                            <li><a href="#">입사지원관리</a></li>
+                        <ul class="dep2" onmouseover="nav_on()">
+                            <li><a href="/Employ/list">채용정보</a></li>
+                            <li><a href="/Employ/register">채용등록</a></li>
                         </ul>
                     </li>
                     <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                        <a href="#">상담관리</a>
+                        <a href="#">상담</a>
                         <ul class="dep2" onmouseover="nav_on()">
-                            <li><a href="#">허허</a></li>
+                            <li><a href="#">상담소개</a></li>
+                            <li><a href="#">상담신청</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                        <a href="#">센터정보</a>
+                        <ul class="dep2" onmouseover="nav_on()">
+                            <li><a href="/center-information/center_introduction">센터소개</a></li>
+                            <li><a href="/center-information/main_business">주요업무내용</a></li>
+                            <li><a href="/center-information/notice_board">공지사항</a></li>
                         </ul>
                     </li>
                     <li class="login">
-                        <a href="#">로그인</a>
+                        <a href="/login" th:if="!${loginUser}">로그인</a>
+                        <a href="/logout" th:if="${loginUser}">로그아웃</a>
                     </li>
                     <li class="join">
-                        <a href="#">회원가입</a>
+                        <a href="/sign-up" th:if="!${loginUser}">회원가입</a>
+                        <a href="/mypage/member/before" th:if="${loginUser}">마이페이지</a>
                     </li>
                 </ul>
             </div>
-            <div class="nav2"><!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
+            <div class="nav2">
+                <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
             </div>
         </navbar>
     </header>

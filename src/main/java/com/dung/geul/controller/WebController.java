@@ -21,4 +21,9 @@ public class WebController {
 
     }
 
+    @GetMapping("/job-information")
+    public String jobInfo(){
+        return "/job-information/job-information";
+    }
+
 }
