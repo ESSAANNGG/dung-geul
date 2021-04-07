@@ -21,13 +21,10 @@ public class MemberRestController {
     @Autowired
     private MemberServiceImpl memberService;
 
-    @Autowired
-    private CvServiceImpl cvServiceImpl;
-
 
     // 회원가입
     @PostMapping("/sigUp/student")
-    public RedirectView joinMember(MemberDTO memberDTO){
+    public RedirectView joinMember(@RequestBody MemberDTO memberDTO){
 
         System.out.println("ApiMemberController : joinMember() 실행");
         System.out.println("MemberDTO : " + memberDTO);
@@ -39,8 +36,9 @@ public class MemberRestController {
 
     }
 
+    // 기업회원가입
     @PostMapping("/sigUp/enterprise")
-    public JoinResultPageDTO<Integer> joinEnterprise(EnterpriseDTO enterPriseDTO){
+    public JoinResultPageDTO<Integer> joinEnterprise(@RequestBody EnterpriseDTO enterPriseDTO){
 
         System.out.println("ApiMemberController : joinEnterprise() 실행");
         System.out.println("enterPriseDTO : " + enterPriseDTO);
@@ -50,7 +48,32 @@ public class MemberRestController {
         return new JoinResultPageDTO<>(1, HttpStatus.OK.value());
     }
 
+    // 아이디 찾기
+    @PostMapping("/forgot/id")
+    public String findId(@RequestBody MemberDTO memberDTO){
+        System.out.println("memberRestController의 findId() 실행");
+        System.out.println("memberDTO = " + memberDTO);
 
+        String id = memberService.confirmNameAndEmail(memberDTO);    //return 성공 = user_id / 실패 = null
+
+        // 아이디와 이메일이 일치하는 DB값 없으면 0 반환
+       if(id.equals(null)){
+            id =  "0";
+        }
+
+        return id;
+    }
+
+
+    //비밀번호 찾기
+    @PostMapping("/forgot/pw")
+    public void findPw(@RequestBody MemberDTO memberDTO){
+        // 아이디와 이메일을 받아옴
+        System.out.println("memberRestController findPw() 실행");
+        System.out.println("memberDTO : " + memberDTO);
+
+        memberService.tempPwSendEmail(memberDTO);
+    }
 
 
     //회원정보 수정

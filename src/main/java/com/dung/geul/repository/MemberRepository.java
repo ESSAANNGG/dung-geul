@@ -16,13 +16,20 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     @Query("select m from Member m where m.user_id = :user_id")
     Optional<Member> findByIdWidthRole(@Param("user_id") String user_id);
 
-    // 이메일/아이디 체크 만들기
-
-    //findBy : 규칙, Email : 문법 => select * from member where email = ?
+    // findBy : 규칙, Email : 문법 => select * from member where email = ?
     // ? 자리엔 파라미터로 넘어온 user_email이 들어감
 
     //이메일 체크
     @Query("select m from Member m where m.user_email = :user_email")
     Optional<Member> findByUser_email(@Param("user_email") String user_email);
+
+    // 이메일과 이름을 받아서 DB에 값이 있는지 확인
+    @Query("select m.user_id from Member m where m.user_email = :user_email and m.user_name = :user_name")
+    String findByUser_emailAndUser_name(@Param("user_email") String user_email, @Param("user_name") String user_name);
+
+    // 이메일이랑 아이디가 DB에 있는지 확인
+    @Query("select m from Member m where m.user_email = :user_email and m.user_id = :user_id")
+    Optional<Member> findByUser_emailAndUser_id(@Param("user_email") String user_email, @Param("user_id") String user_id);
+
 
 }

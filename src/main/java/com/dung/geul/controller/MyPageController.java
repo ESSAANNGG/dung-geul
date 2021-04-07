@@ -1,5 +1,6 @@
 package com.dung.geul.controller;
 
+import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,10 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     @GetMapping({"/member/read", "/member/modify"})
     public void mypageRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-        System.out.println("authMemberDTO : " + authMemberDTO.toString());
 
-        model.addAttribute("memberDTO", authMemberDTO);
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
+
+        model.addAttribute("memberDTO", member);
 
         Set<String> roles = new HashSet<>();
 

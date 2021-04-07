@@ -1,6 +1,6 @@
 $(function () {
   $("#postcodify").postcodify({
-    insertPostcode5: "#postcode",
+    insertPostcode5: "#user_postcode",
     insertAddress: "#user_addr",
     insertDetails: "#details",
     insertExtraInfo: "#extra_info",

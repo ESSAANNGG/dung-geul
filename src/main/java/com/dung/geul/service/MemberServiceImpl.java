@@ -10,9 +10,16 @@ import com.dung.geul.entity.MemberRole;
 import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.mail.internet.MimeMessage;
+import java.security.SecureRandom;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -26,6 +33,27 @@ public class MemberServiceImpl implements MemberService{
 
     @Autowired
     private BCryptPasswordEncoder encoder;
+
+    @Autowired private JavaMailSenderImpl mailSender;
+
+    //메일 발송 메소드
+//    @RequestMapping(value = "/sendMail.do")
+//    public String sendMail(final MailVO vo) {
+//        final MimeMessagePreparator preparator = new MimeMessagePreparator() {
+//            @Override
+//            public void prepare(MimeMessage mimeMessage) throws Exception {
+//                final MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+//                helper.setFrom(vo.getFrom());
+//                helper.setTo(vo.getTo());
+//                helper.setSubject(vo.getSubject());
+//                helper.setText(vo.getContents(), true);
+//            }
+//        };
+//        mailSender.send(preparator); return "result";
+//    }
+
+
+
 
     public void joinMember(MemberDTO memberDTO){
 
@@ -144,6 +172,69 @@ public class MemberServiceImpl implements MemberService{
         }
 
 
+    }
+
+    // mypage read
+    public Member getMember(String user_id) {
+
+        Optional<Member> memberOpt = memberRepository.findById(user_id);
+
+        return memberOpt.get();
+    }
+
+    // 이름과 이메일이 일치하면 아이디값을 반환해주는 메소드
+    public String confirmNameAndEmail(MemberDTO memberDTO) {
+
+        String id = memberRepository.findByUser_emailAndUser_name(memberDTO.getUser_email(), memberDTO.getUser_name());
+
+        return id;
+    }
+
+    // 아이디와 이메일이 일치하면 임시비밀번호를 발급해주기
+    public int tempPwSendEmail(MemberDTO memberDTO) {
+
+        Optional<Member> memberOpt = memberRepository.findByUser_emailAndUser_id(memberDTO.getUser_email(), memberDTO.getUser_id());
+
+        int result;
+
+        if(memberOpt.isEmpty()){
+            result = 0;
+        }else{
+            String tempPw = getRamdomPassword(5);
+
+            // 이메일 보내는 코드 작성하기 ~~~
+            
+            result = 1;
+        }
+
+        return result;
+    }
+
+    // 입력한 숫자만큼의 크기의 랜덤 문자열을 반환 (임시 비밀번호로 사용)
+    public String getRamdomPassword(int size) {
+        char[] charSet = new char[] {
+                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+                'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+                'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',
+                'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+                'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        };
+
+        StringBuffer sb = new StringBuffer();
+        SecureRandom sr = new SecureRandom();
+        sr.setSeed(new Date().getTime());
+
+        int idx = 0;
+
+        int len = charSet.length;
+
+        for (int i=0; i<size; i++) {
+            // idx = (int) (len * Math.random());
+            idx = sr.nextInt(len); // 강력한 난수를 발생시키기 위해 SecureRandom을 사용한다.
+            sb.append(charSet[idx]);
+        }
+            return sb.toString();
     }
 
 }
