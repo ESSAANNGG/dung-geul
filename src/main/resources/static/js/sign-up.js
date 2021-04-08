@@ -33,14 +33,19 @@ let signUp = {
       data: JSON.stringify(userData),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
-      success : function (response) {
-        alert("회원가입이 완료되었습니다");
-
-        location.href = '"' + response + '"';
+      success : function (result) {
+        if(result==1){
+          alert("회원가입이 완료되었습니다");
+          location.href = "/login"
+        }
+        else{
+          alert('회원가입에 실패했습니다');
+          location.href="/student_sign-up";
+        }
       }
 
-    });
-  },
+    })
+  }
 };
 
 signUp.init();

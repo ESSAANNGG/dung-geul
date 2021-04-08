@@ -1,5 +1,6 @@
 package com.dung.geul.controller.restcontroller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.dung.geul.dto.*;
 import com.dung.geul.service.CvServiceImpl;
 import com.dung.geul.service.MemberServiceImpl;
@@ -21,14 +22,16 @@ public class MemberRestController {
 
     // 회원가입
     @PostMapping("/sigUp/student")
-    public String joinMember(@RequestBody MemberDTO memberDTO){
+    public int joinMember(@RequestBody MemberDTO memberDTO){
 
         System.out.println("ApiMemberController : joinMember() 실행");
         System.out.println("MemberDTO : " + memberDTO);
 
-        memberService.joinMember(memberDTO);
+        int result = memberService.joinMember(memberDTO);
 
-        return "/login";
+        System.out.println("restcontroller - result : " + result);
+
+        return result;
 
     }
 
