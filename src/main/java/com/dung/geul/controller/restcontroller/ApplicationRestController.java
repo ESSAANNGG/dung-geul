@@ -16,6 +16,7 @@ public class ApplicationRestController {
     @Autowired
     private CvServiceImpl cvServiceImpl;
 
+    // 이력서 관련
     @PostMapping("/cv/register")
     public RedirectView cvRegister(CvPageDTO cvPageDTO){
 
@@ -46,7 +47,7 @@ public class ApplicationRestController {
 
         cvServiceImpl.delete(cv_id);
 
-        return new RedirectView("/application/cv/read");
+        return new RedirectView("/application/cv/before");
     }
 
 }

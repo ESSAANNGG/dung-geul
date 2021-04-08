@@ -14,7 +14,7 @@ let signUp = {
       user_name: $("#user_name").val(),
       user_email: $("#user_email").val(),
       user_ph: $("#user_ph").val(),
-      user_postcode: $("#postcode").val(),
+      user_postcode: $("#user_postcode").val(),
       user_addr: $("#user_addr").val(),
       user_addr_details: $("#user_addr_details").val(),
       user_dept: $("#user_dept").val(), //계열
@@ -33,13 +33,24 @@ let signUp = {
       data: JSON.stringify(userData),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
-    })
-      .done(function (response) {
-        alert("회원가입이 완료되었습니다");
+      success : function (result) {
+        if(result==1){
+          alert("회원가입이 완료되었습니다");
+          location.href = "/login"
+        }
+        else{
+          alert('회원가입에 실패했습니다');
+          location.href="/student_sign-up";
+        }
+      },
+      error : function (error){
+        alert("수정 실패");
+        console.log(error);
+        location.href = "/mypage/member/read";
+      }
 
-        location.href = '"'+ response +'"';
-      });
-  },
+    })
+  }
 };
 
 signUp.init();

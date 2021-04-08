@@ -1,48 +1,74 @@
-//package com.dung.geul.controller;
-//
-//
-//import com.dung.geul.entity.Board;
-//import com.dung.geul.repository.BoardRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.domain.Page;
-//import org.springframework.data.domain.Pageable;
-//import org.springframework.data.web.PageableDefault;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestParam;
-//
-//import java.util.List;
-//
-//@Controller
-//@RequestMapping("/center-information")
-//public class
-//Center_information_controller {
-//
-//    @GetMapping("/center_introduction")
-//    public String center_introduction() { return "center-information/center_introduction"; }
-//
-//    @GetMapping("/main_business")
-//    public String main_business() { return "center-information/main_business"; }
-//
-//    @GetMapping("/notice_board_form")
-//    public String notice_board_form() { return "center-information/notice_board_form"; }
-//
-////// test ------------------------------------------------------------------------------------------------------------------
-//
-//    @Autowired  // dependence 인잭션 발생 => 서버 기동 시 인스턴스가 들어온다.
-//    private BoardRepository boardRepository;    // 보드레포지토리 인터페이스를 사용하기 위한 변수 => 테이블의 데이터를 가져와서 사용하기 위한 변수
-//
-//    @GetMapping("/notice_board")
-//    public String notice_board(Model model) {
-//        List<Board> boards = boardRepository.findAll(); // DB의 데이터를 모두 불러온다
-//        model.addAttribute("boards", boards);  //(key, value)
-//
-//        return "center-information/notice_board";
-//    }
-//
-//// ------------------------------------------------------------------------------------------------------------------
-//
-//
-//}
+package com.dung.geul.controller;
+
+
+import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.notice_boardDTO;
+import com.dung.geul.entity.Board;
+import com.dung.geul.repository.BoardRepository;
+import com.dung.geul.service.notice_boardService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.awt.print.Pageable;
+import java.util.List;
+
+@Controller
+@RequestMapping("/center-information")
+@RequiredArgsConstructor    // 페이지 목록 처리
+@Log4j2
+public class Center_information_controller {
+
+    @GetMapping("/center_introduction")   // 센터 소개
+    public String center_introduction() { return "center-information/center_introduction"; }
+
+    @GetMapping("/main_business")   // 주요 업무
+    public String main_business() { return "center-information/main_business"; }
+
+    @GetMapping("/notice_board_form")   // 공지 사항 작성 페이지
+    public String notice_board_form() { return "center-information/notice_board_form"; }
+
+    private final notice_boardService service;
+
+    @Autowired
+    private BoardRepository repository;
+
+    @GetMapping("/notice_board")    // 공지사항 게시판 페이지
+    public String notice_board(PageRequestDTO pageRequestDTO, Model model) {
+
+        log.info("list............." + pageRequestDTO);
+
+        // PageResultDTO
+        model.addAttribute("result", service.getList(pageRequestDTO));
+
+        return "center-information/notice_board";
+    }
+
+    @GetMapping("/notice_board_register")
+    public void register() {
+        log.info("REGISTER GET...");
+    }
+
+    @PostMapping("/notice_board_register")
+    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes){
+
+        log.info("dto..." + dto);
+
+        //새로 추가된 엔티티의 번호
+        Long num = service.register(dto);
+
+        redirectAttributes.addFlashAttribute("msg", num);
+
+        return "redirect:/center-information/notice_board";
+    }
+
+}

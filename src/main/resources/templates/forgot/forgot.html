@@ -78,17 +78,17 @@
                                 <ul class="frm-list">
                                     <li class="user-name">
                                         <span>아이디</span>
-                                        <input type="text" name="user_id" id="user_id" value class="MS_input_txt" size="10" maxlength="12">
+                                        <input type="text" name="user_id" id="find_pw_id" value class="MS_input_txt" size="10" maxlength="12">
                                     </li>
                                     <li id="find_pw_email_wrap" style="display: list-item";>
                                         <span>이메일</span>
-                                        <input type="text" id="email" name="email" class="MS_input_txt" value maxlength="80" title="이메일 주소" placeholder>
+                                        <input type="text" id="find_pw_email" name="email" class="MS_input_txt" value maxlength="80" title="이메일 주소" placeholder>
                                     </li>
                                     <li id="find_pw_mobile_wrap" style="display: none;">
                                         <span>PHONE</span>
                                         <input type="text" id="mobile" name="mobile" class="MS_input_txt" value maxlength="20" title="휴대폰 번호">
                                     </li>
-                                    <a class="login_bt01" href="#">비밀번호 찾기</a>
+                                    <a class="login_bt01" id="findPwBtn">비밀번호 찾기</a>
                                 </ul>
                                 <p class="bottom_text">회원가입 시 입력하신 이메일 또는 휴대폰 번호로 임시 비밀번호를 보내 드립니다.</p>
                                 <div class="find_wrap">
@@ -112,5 +112,7 @@
 <!-- contentWrap -->
 </div>
 <!-- #contentWrapper -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="/js/forgotPw.js"></script>
 </body>
 </html>

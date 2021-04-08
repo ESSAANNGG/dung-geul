@@ -39,6 +39,7 @@ let modify = {
                     location.href = "/mypage/member/read";
                 }
             }
+
         })
     }
 }

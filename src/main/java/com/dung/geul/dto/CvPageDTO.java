@@ -4,6 +4,7 @@ import com.dung.geul.entity.Member;
 import lombok.Data;
 import org.apache.tomcat.jni.Local;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -16,9 +17,8 @@ public class CvPageDTO {
 
     private String user_name;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birth;
-//
-//    private LocalDate currentDate;
 
     private String user_hp;
 

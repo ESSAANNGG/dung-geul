@@ -52,8 +52,12 @@ public class CvServiceImpl {
 
     public CV dtoToEntity(CvPageDTO dto){
 
+        System.out.println("이력서 dto -> entity 실행");
+
         // 이력서 주인 찾기
         Optional<Member> member = memberRepository.findById(dto.getUser_id());
+
+        System.out.println("이력서 주인 : " + member.get().toString());
 
         CV cv = CV.builder()
                 .user_id(member.get())
@@ -63,7 +67,7 @@ public class CvServiceImpl {
                 .user_email(dto.getUser_email())
                 .build();
 
-        //cv.setAge(cv.getAge());
+        System.out.println("이력서 entity : " + cv);
 
         return cv;
     }

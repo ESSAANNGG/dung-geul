@@ -16,6 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Getter
 @Table(name="board")
+@Entity
 public class Board implements Serializable {
 
     @Id
@@ -32,6 +33,16 @@ public class Board implements Serializable {
 
 //    @Lob
 //    private Clob board_content; //내용
+
+// ------------------------------------------------------
+
+//    @Column(length = 1500, nullable = false)
+//    private String content;     // 내용
+
+//    @Column(length = 50, nullable = false)
+//    private Member b;      // 작성자
+
+// ------------------------------------------------------
 
     private String board_file; //첨부파일
 
