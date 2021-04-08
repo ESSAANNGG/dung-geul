@@ -42,6 +42,11 @@ let signUp = {
           alert('회원가입에 실패했습니다');
           location.href="/student_sign-up";
         }
+      },
+      error : function (error){
+        alert("수정 실패");
+        console.log(error);
+        location.href = "/mypage/member/read";
       }
 
     })
