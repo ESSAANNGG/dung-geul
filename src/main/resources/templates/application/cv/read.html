@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>이력서 조회 페이지</title>
+    <link rel="stylesheet" href="css/modify.css" />
 </head>
 <body>
 <div id="modify-wrap">
@@ -25,14 +26,14 @@
                 <!--인적사항 끝-->
             </div>
         </form>
-        <div class="button">
+        <div class="button" style="margin-left: 350px !important;">
             <button th:href="@{/application/cv/modify(cv_id = ${cv.getCv_id()})}">수정</button>
         </div>
     </div>
 
 </div>
 
-        <!--학력 시작-->
+<!--학력 시작-->
 <!--        학력사항<br>-->
 
 <!--        고등학교 <br>-->
