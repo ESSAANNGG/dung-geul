@@ -388,16 +388,16 @@ header > p {
 
 /* Row */
 
-.row {
+ .row {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
   align-items: stretch;
 }
 
-.row > * {
+/* .row > * {
   box-sizing: border-box;
-}
+} */
 
 .row.gtr-uniform > * > :last-child {
   margin-bottom: 0;
@@ -584,9 +584,9 @@ header > p {
   margin-left: -50px;
 }
 
-.row > * {
+/* .row > * {
   padding: 50px 0 0 50px;
-}
+} */
 
 /* 사이드바 설정 */
 .row > .col-3 {
@@ -1874,7 +1874,7 @@ header > p {
   top: 0;
   width: 100%;
   height: 100%;
-  background: url("images/overlay.png");
+  /*background: url("img/overlay.png");*/
   border-radius: 8px;
 }
 
@@ -2281,7 +2281,7 @@ form ::-moz-focus-inner {
 
 /* Tables */
 
-table {
+/* table {
   width: 100%;
   text-align: center;
 }
@@ -2321,7 +2321,7 @@ table th {
 table thead {
   background: #e7eae8;
   color: #fff;
-}
+} */
 
 /* Box */
 
@@ -2482,7 +2482,7 @@ table thead {
   left: 0;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.95);
-  background-image: url("images/overlay.png");
+  /*background-image: url("images/overlay.png");*/
   width: 100%;
   height: 3.25em;
   line-height: 3.25em;
@@ -2619,8 +2619,8 @@ table thead {
 
 #banner {
   position: relative;
-  background-image: url("images/overlay.png"), url("images/overlay.png"),
-    url("../../images/banner.jpg");
+  /*background-image: url("images/overlay.png"), url("images/overlay.png"),*/
+  /*  url("../../images/banner.jpg");*/
   background-position: top left, top left, center center;
   background-repeat: repeat, repeat, no-repeat;
   background-size: auto, auto, cover;
@@ -2631,7 +2631,7 @@ table thead {
 #banner .content {
   position: relative;
   background-color: rgba(21, 28, 23, 0.85);
-  background-image: url("images/overlay.png"), url("images/highlight.png");
+  /*background-image: url("images/overlay.png"), url("images/highlight.png");*/
   background-position: top left, center center;
   background-size: auto, 100% 250%;
   background-repeat: repeat, no-repeat;
@@ -2931,7 +2931,7 @@ table thead {
     width: 100%;
     z-index: 10001;
     background-color: rgba(21, 38, 23, 0.8);
-    background-image: url("images/overlay.png");
+    /*background-image: url("images/overlay.png");*/
   }
 
   #titleBar .title {
@@ -3012,14 +3012,14 @@ table thead {
     width: 275px;
     z-index: 10002;
     background-color: #353c37;
-    background-image: url("images/overlay.png"),
-      -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-    background-image: url("images/overlay.png"),
-      -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-    background-image: url("images/overlay.png"),
-      -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-    background-image: url("images/overlay.png"),
-      linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    /*background-image: url("images/overlay.png"),*/
+    /*  -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));*/
+    /*background-image: url("images/overlay.png"),*/
+    /*  -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));*/
+    /*background-image: url("images/overlay.png"),*/
+    /*  -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));*/
+    /*background-image: url("images/overlay.png"),*/
+    /*  linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));*/
     background-repeat: repeat, no-repeat;
     background-size: auto, 100% 100%;
     font-family: "Open Sans Condensed", sans-serif;
@@ -3246,6 +3246,7 @@ table thead {
 
   #copyright .menu li {
     display: block;
+    font-size:50px;
     border-left: 0;
     padding-left: 0;
     line-height: 1.75em;

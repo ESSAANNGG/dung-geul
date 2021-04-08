@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
 // 해결법 : 종료 할때 까지 대기하거나 종료 해달라 해야됨
 // ===============================================================================================
 
-@SpringBootTest
+/*@SpringBootTest
 public class BoardRepositoryTest {
 
     @Autowired
@@ -27,4 +27,4 @@ public class BoardRepositoryTest {
         });
     }
 
-}
+}*/
