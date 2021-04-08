@@ -5,22 +5,32 @@
     <title>이력서 조회 페이지</title>
 </head>
 <body>
-    <form action="/application/cv/modify">
+<div id="modify-wrap">
+    <div id="modify-main" class="main">
+        <h1>마이 이력서</h1>
+        <form action="/application/cv/modify" method="post">
+            <div class="profile">
+                <img src="img/be247503d597fc4b0c5c814ffd68a534.jpg" alt="300x300" style="padding-left: 65px; padding-bottom: 145px;">
+            </div>
+            <input type="hidden" name="cv_id" id="cv_id" th:value="${cv.getCv_id()}">
+            <div class="Mcontent">
+                <!--인적사항 시작-->
+                <p>성명(한글)</p> <input type="text" name="user_name" id="user_name" th:value="${cv.getUser_name()}" readonly>
+                <!--        (한자) : <input type="text" name="name_china" id="name_china"> -->
+                <p>생년월일</p><input type="text" name="birth" id="birth" th:value="${cv.getBirth()}" placeholder="예)1998-05-21" readonly>
+                <p>나이</p><input type="text" name="user_age" id="user_age" th:value="${age}" readonly>
+                <p>휴대폰 번호</p> <input type="text" name="user_hp" id="user_hp" th:value="${cv.getUser_hp()}" readonly>
+                <p>이메일</p> <input type="email" name="user_email" id="user_email" th:value="${cv.getUser_email()}" readonly>
 
-        <input type="hidden" name="user_id" id="user_id" th:value="${cv.getUser_id()}" readonly>
+                <!--인적사항 끝-->
+            </div>
+        </form>
+        <div class="button">
+            <button th:href="@{/application/cv/modify(cv_id = ${cv.getCv_id()})}">수정</button>
+        </div>
+    </div>
 
-        <!--인적사항 시작-->
-        성명(한글) : <input type="text" name="user_name" id="user_name" th:value="${cv.getUser_name()}" readonly>
-<!--        (한자) : <input type="text" name="name_china" id="name_china"> -->
-        <br>
-        <input type="text" name="birth" id="birth" th:value="${cv.getBirth()}" placeholder="예)1998-05-21" readonly> <br>
-        만 <input type="text" name="user_age" id="user_age" th:value="${age}" readonly>세   <br> <!--thymeleaf 쓸거임-->
-        HP: <input type="text" name="user_hp" id="user_hp" th:value="${cv.getUser_hp()}" readonly>  <br><!--이것도 값 member에서 넣게 바꿀거임-->
-        이메일: <input type="email" name="user_email" id="user_email" th:value="${cv.getUser_email()}" readonly> <br>
-        <!--인적사항 끝-->
-        <br><br>
-
-        <a th:href="@{/application/cv/modify(cv_id = ${cv.getCv_id()})}">수정하기</a>
+</div>
 
         <!--학력 시작-->
 <!--        학력사항<br>-->
@@ -143,6 +153,5 @@
 <!--        &lt;!&ndash;경력사항 시작&ndash;&gt;-->
 <!--        -->
 <!--        &lt;!&ndash;경력사항 끝&ndash;&gt;-->
-    </form>
 </body>
 </html>
