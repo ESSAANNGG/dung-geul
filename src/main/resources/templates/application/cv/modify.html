@@ -27,7 +27,7 @@
             </div>
         </form>
         <div class="button">
-            <button th:href="@{/application/cv/delete(cv_id = ${cv.getCv_id()})}">삭제</button>
+            <a th:href="@{/application/cv/delete(cv_id = ${cv.getCv_id()})}"><button>삭제</button></a>
             <button>등록</button>
         </div>
     </div>
