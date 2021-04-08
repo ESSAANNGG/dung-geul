@@ -2,19 +2,19 @@
     float: left;
     width: 220px;
 }
-.nav { display: table; margin: auto;}
+/* sidemenu */
 #main {
     margin-top:40px;
-    background: #fff;
+    background: #eee;
     border-top: solid 5px #1f3786d5;
     border-top-width: 35px;
     border-bottom-width: 10px;
     padding: 0px;
     z-index: 999;
 }
-/* sidemenu */
+.nav { display: table; margin: auto;}
 body {
-    background: #eee;
+    background: #fff;
     margin: 0 auto;
 }
 input, button, select {
