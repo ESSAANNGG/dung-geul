@@ -3,7 +3,8 @@ $(document).ready(function () {
     //채용 글등록 
     $('#emReg').on('click', function () {
         let data = {
-            title: $('#em_title').val()
+            title: $('#em_title').val(),
+            content : $('#em_content').val()
         }
         console.log(data);
         $.ajax({

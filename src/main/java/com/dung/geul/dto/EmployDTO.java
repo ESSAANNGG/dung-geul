@@ -17,9 +17,8 @@ public class EmployDTO {
 
     private String title;
 
-   private String content;
+    private String content;
 
-   private LocalDateTime regDate, modDate;
-
+    private LocalDateTime regDate, modDate;
 
 }

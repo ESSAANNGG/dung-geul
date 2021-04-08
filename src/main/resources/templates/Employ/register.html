@@ -1,11 +1,199 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+
+    <script th:async src="/js/nav.js"></script>
+
+    <link rel="stylesheet" href="/css/employ.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/menu-common.css" />
+    <link rel="stylesheet" href="/css/frame.css" />
+
+     <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script> <!--jquery에서 제공하는 최신 버전의 jQuery url-->
+     <script th:async src="/js/Employ.js"></script>
+
+    <title>Title</title>
+</head>
+
+<body>
+<navbar>
+    <div class="nav">
+        <ul class="dep1">
+            <li class="logo">
+                <a href="#">영진전문대학교</a>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">진로설계</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="/career-planning/simli_test">진로심리검사</a></li>
+                    <li><a href="/job-information/job-information">직업정보</a></li>
+                    <li><a href="#">직업사전</a></li>
+                </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">직무역량강화</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="#">지원프로그램</a></li>
+                    <li><a href="#">자격증 관리</a></li>
+                    <li><a href="#">수료증 관리</a></li>
+                </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">구직역량강화</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="#">이력서 관리</a></li>
+                    <li><a href="#">자소서 관리</a></li>
+                </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">구직서비스</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a th:href="@{/Employ/list}">채용정보</a></li>
+                    <li><a th:href="@{/Employ/register}">채용등록</a></li>
+                </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">상담</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="#">상담소개</a></li>
+                    <li><a href="#">상담신청</a></li>
+                </ul>
+            </li>
+            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
+                <a href="#">센터정보</a>
+                <ul class="dep2" onmouseover="nav_on()">
+                    <li><a href="/center-information/center_introduction">센터소개</a></li>
+                    <li><a href="/center-information/main_business">주요업무내용</a></li>
+                    <li><a href="/center-information/notice_board">공지사항</a></li>
+                </ul>
+            </li>
+            <li class="login">
+                <a href="/login" th:if="!${loginUser}">로그인</a>
+                <a href="/logout" th:if="${loginUser}">로그아웃</a>
+            </li>
+            <li class="join">
+                <a href="/sign-up" th:if="!${loginUser}">회원가입</a>
+                <a href="/mypage/member/before" th:if="${loginUser}">마이페이지</a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav2">
+        <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
+    </div>
+</navbar>
+<!-- Main -->
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="sidebar">
+                    <div class="menu2">
+                        <div id="bar">
+                            <h2>채용</h2>
+                            <ul id="menu_bar">
+                                <li id="menu_con1">
+                                    <h4>채용등록</h4>
+                                    <ul id="sb_detail">
+                                        <li><a th:href="@{/Employ/list}">채용정보</a></li>
+                                        <li><a th:href="@{/Employ/register}">채용등록</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div> <!-- bar -->
+                    </div> <!-- menu -->
+                </div>
+            </div>
+
+            <div class="employ_register">
+                <div class="container">
+                    <div class="register_head">
+                        공고등록
+                        <button>첨부파일 등록</button>
+                    </div>
+
+                    <div class="register_title_wrap">
+                        <div class="register_title">
+                            제목
+                        </div>
+                        <div class="register_title_input">
+                            <input type="text" class="single_field col-md-10" name="em_title" id="em_title"
+                                   placeholder="제목"/>
+                        </div>
+                    </div>
+
+                    <div class="register_cont_wrap">
+                        <div class="register_cont">
+                            내용
+                        </div>
+                        <div class="register_cont_input">
+                            <input type="text" class="single_field col-md-10" name="em_title" id="em_content"
+                                   placeholder="내용">
+                        </div>
+                    </div>
+
+                    <div class="register_sort_wrap">
+                        <div class="register_sort">
+                            구분
+                        </div>
+                        <div class="register_sort_input">
+                            <select name="register_sort_ot">
+                                <option value="직종">직종</option>
+                                <option value="교육관련직">교육관련직</option>
+                                <option value="건설관련직">건설관련직</option>
+                                <option value="기계관련직">기계관련직</option>
+                            </select>
+                            <select name="register_sort_ep">
+                                <option value="고용">고용</option>
+                                <option value="정규직">정규직</option>
+                                <option value="계약직">계약직</option>
+                                <option value="아르바이트">아르바이트</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="register_date_wrap">
+                        <div class="register_start_date">
+                            시작일
+                        </div>
+
+                        <input type="text" class="single_field col-md-10" name="em_title" id="em_title"
+                               placeholder="작성일">
+
+                        <div class="register_end_date">
+                            마감일
+                        </div>
+
+                        <input type="text" class="single_field col-md-10" name="em_title" id="em_title"
+                               placeholder="마감일">
+
+                    </div>
+
+                    <div class="submit_btn">
+                        <button class="boxed-btn3" id="emReg" name="emReg" type="submit">등록</button>
+                    </div>
+                </div>
+
+            </div>
+
+</body>
+
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    &lt;!&ndash; Required meta tags &ndash;&gt;
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    &lt;!&ndash; Bootstrap CSS &ndash;&gt;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 
@@ -36,7 +224,7 @@
         </div>
     </div>
 </div>
-<script th:async src="http://code.jquery.com/jquery-latest.min.js"></script>   <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
+<script th:async src="http://code.jquery.com/jquery-latest.min.js"></script>   &lt;!&ndash; jquery에서 제공하는 최신 버전의 jQuery url&ndash;&gt;
 <script th:async src="/js/Employ.js"></script>
 </body>
-</html>
+</html>-->
