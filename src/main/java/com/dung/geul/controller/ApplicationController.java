@@ -35,13 +35,15 @@ public class ApplicationController {
 
 
     @GetMapping("/cv/before")
-    public String cvBefore(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+    public String cvBefore(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
         String result = "/application/cv/before";
 
         Member member = memberRepository.findById(authMemberDTO.getUser_id()).get();
 
         Optional<CV> cv = cvRepository.findByUser_id(member);
+
+        model.addAttribute("loginUser", authMemberDTO);
 
         if(!cv.isEmpty()){
             result = "redirect:/application/cv/read";
@@ -52,7 +54,6 @@ public class ApplicationController {
 
     @GetMapping("/cv/register")
     public String register(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
-
 
         Member member = memberService.getMember(authMemberDTO.getUser_id());
 
@@ -71,18 +72,20 @@ public class ApplicationController {
 
         model.addAttribute("cv", cv);
         model.addAttribute("age", cv.getAge());  // 추후 수정
+        model.addAttribute("loginUser", authMemberDTO);
 
         return "/application/cv/read";
     }
 
     @GetMapping("/cv/modify")
-    public String modify(Model model, Long cv_id){
+    public String modify(Model model, Long cv_id, @AuthenticationPrincipal AuthMemberDTO authMemberDTO ){
 
         CV cv = cvRepository.getOne(cv_id);
 
         model.addAttribute("cv", cv);
 
         model.addAttribute("age", cv.getAge()); // 24는 임시값 >> 추후 나이계산해서 수정하기
+        model.addAttribute("loginUser", authMemberDTO);
 
         return "/application/cv/modify";
     }

@@ -5,12 +5,15 @@ import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.notice_boardDTO;
 import com.dung.geul.entity.Board;
 import com.dung.geul.repository.BoardRepository;
+import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.notice_boardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,13 +32,19 @@ import java.util.List;
 public class Center_information_controller {
 
     @GetMapping("/center_introduction")   // 센터 소개
-    public String center_introduction() { return "center-information/center_introduction"; }
+    public String center_introduction(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
+        model.addAttribute("loginUser", authMemberDTO);
+        return "center-information/center_introduction"; }
 
     @GetMapping("/main_business")   // 주요 업무
-    public String main_business() { return "center-information/main_business"; }
+    public String main_business(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
+        model.addAttribute("loginUser", authMemberDTO);
+        return "center-information/main_business"; }
 
     @GetMapping("/notice_board_form")   // 공지 사항 작성 페이지
-    public String notice_board_form() { return "center-information/notice_board_form"; }
+    public String notice_board_form(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
+        model.addAttribute("loginUser", authMemberDTO);
+        return "center-information/notice_board_form"; }
 
     private final notice_boardService service;
 
@@ -43,23 +52,25 @@ public class Center_information_controller {
     private BoardRepository repository;
 
     @GetMapping("/notice_board")    // 공지사항 게시판 페이지
-    public String notice_board(PageRequestDTO pageRequestDTO, Model model) {
+    public String notice_board(PageRequestDTO pageRequestDTO, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO) {
 
         log.info("list............." + pageRequestDTO);
 
         // PageResultDTO
         model.addAttribute("result", service.getList(pageRequestDTO));
+        model.addAttribute("loginUser", authMemberDTO);
 
         return "center-information/notice_board";
     }
 
     @GetMapping("/notice_board_register")
-    public void register() {
+    public void register(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
+        model.addAttribute("loginUser", authMemberDTO);
         log.info("REGISTER GET...");
     }
 
     @PostMapping("/notice_board_register")
-    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes){
+    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes, @AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
         log.info("dto..." + dto);
 
@@ -67,6 +78,8 @@ public class Center_information_controller {
         Long num = service.register(dto);
 
         redirectAttributes.addFlashAttribute("msg", num);
+
+        model.addAttribute("loginUser", authMemberDTO);
 
         return "redirect:/center-information/notice_board";
     }
