@@ -5,7 +5,7 @@ var intro = document.getElementsByClassName("intro");
 var intro_center = document.getElementsByClassName("intro_center");
 
 function nav_on() {
-  nav[0].style.backgroundColor = "white";
+  nav[0].style.backgroundColor = "#ffffff";
   nav2[0].style.height = "165px";
   for (var i = 0; i < dep2.length; i++) {
     dep2[i].style.height = "165px";
@@ -19,7 +19,7 @@ function nav_off() {
   /*setTimeout(function() {
         nav[0].style.backgroundColor="transparent"; 
     }, 1000);             오류있음 이유모르겠*/
-  nav[0].style.backgroundColor = "transparent"; /*transparent = 투명한*/
+  nav[0].style.backgroundColor = "#ffffff"; /*transparent = 투명한*/
   nav2[0].style.height = "0px";
   for (var i = 0; i < dep2.length; i++) {
     dep2[i].style.height = "0px";
