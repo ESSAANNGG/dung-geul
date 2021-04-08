@@ -57,7 +57,6 @@ public class ApplicationController {
         Member member = memberService.getMember(authMemberDTO.getUser_id());
 
         model.addAttribute("loginUser", member);
-        model.addAttribute("loginUserAge", 24); // 24는 임시값 >> 추후 나이계산해서 수정하기
 
         return "/application/cv/register";
 
@@ -71,7 +70,7 @@ public class ApplicationController {
         CV cv = cvRepository.findByUser_id(member).get();
 
         model.addAttribute("cv", cv);
-        model.addAttribute("age", 24);  // 추후 수정
+        model.addAttribute("age", cv.getAge());  // 추후 수정
 
         return "/application/cv/read";
     }
@@ -83,7 +82,7 @@ public class ApplicationController {
 
         model.addAttribute("cv", cv);
 
-        model.addAttribute("age", 24); // 24는 임시값 >> 추후 나이계산해서 수정하기
+        model.addAttribute("age", cv.getAge()); // 24는 임시값 >> 추후 나이계산해서 수정하기
 
         return "/application/cv/modify";
     }
