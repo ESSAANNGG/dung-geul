@@ -16,7 +16,7 @@ public class WebController {
 
         System.out.print("authMemberDTO : " + authMemberDTO);
 
-        return "/main/index";
+        return "main/index";
 
 
     }
@@ -24,7 +24,7 @@ public class WebController {
     @GetMapping("/job-information")
     public String jobInfo(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
         model.addAttribute("loginUser", authMemberDTO);
-        return "/job-information/job-information";
+        return "job-information/job-information";
     }
 
 }

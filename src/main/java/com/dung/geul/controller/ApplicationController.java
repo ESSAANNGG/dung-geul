@@ -37,7 +37,7 @@ public class ApplicationController {
     @GetMapping("/cv/before")
     public String cvBefore(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
-        String result = "/application/cv/before";
+        String result = "application/cv/before";
 
         Member member = memberRepository.findById(authMemberDTO.getUser_id()).get();
 
@@ -59,7 +59,7 @@ public class ApplicationController {
 
         model.addAttribute("loginUser", member);
 
-        return "/application/cv/register";
+        return "application/cv/register";
 
     }
 
@@ -74,7 +74,7 @@ public class ApplicationController {
         model.addAttribute("age", cv.getAge());  // 추후 수정
         model.addAttribute("loginUser", authMemberDTO);
 
-        return "/application/cv/read";
+        return "application/cv/read";
     }
 
     @GetMapping("/cv/modify")
@@ -87,7 +87,7 @@ public class ApplicationController {
         model.addAttribute("age", cv.getAge()); // 24는 임시값 >> 추후 나이계산해서 수정하기
         model.addAttribute("loginUser", authMemberDTO);
 
-        return "/application/cv/modify";
+        return "application/cv/modify";
     }
 
 
