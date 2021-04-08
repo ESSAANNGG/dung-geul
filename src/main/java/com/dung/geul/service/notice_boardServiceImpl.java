@@ -34,7 +34,7 @@ public class notice_boardServiceImpl implements notice_boardService {
     }
 
     @Override
-    public notice_boardDTO read(Long num) {
+    public notice_boardDTO read(Long num) { // 방명록의 조회 처리
         log.info("num :" + num);
 
         Optional<Board> result = boardRepository.findById(num);

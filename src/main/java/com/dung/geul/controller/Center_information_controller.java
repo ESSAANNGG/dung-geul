@@ -84,4 +84,33 @@ public class Center_information_controller {
         return "redirect:/center-information/notice_board";
     }
 
+    @GetMapping({"/notice_board_read", "/notice_board_modify"})
+    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model ){
+
+        log.info("num: " + num);
+
+        notice_boardDTO dto = service.read(num);
+
+        model.addAttribute("dto", dto);
+
+    }
+
+    @PostMapping("/notice_board_modify")
+    public String modify(notice_boardDTO dto,
+                         @ModelAttribute("requestDTO") PageRequestDTO requestDTO,
+                         RedirectAttributes redirectAttributes){
+
+        log.info("post modify.........................................");
+        log.info("dto: " + dto);
+
+        service.modify(dto);
+
+        redirectAttributes.addAttribute("page",requestDTO.getPage());
+        redirectAttributes.addAttribute("gno",dto.getNum());
+
+
+        return "redirect:/center-information/notice_board_read";
+
+    }
+
 }

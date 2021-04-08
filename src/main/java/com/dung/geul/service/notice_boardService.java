@@ -9,13 +9,14 @@ public interface notice_boardService {
 
     PageResultDTO<notice_boardDTO, Board> getList(PageRequestDTO pageRequestDTO);
 
-    notice_boardDTO read(Long board_num);
+    notice_boardDTO read(Long board_num);   // 방명록의 조회 처리
 
-   Long register(notice_boardDTO notice_boardDTO);
+    Long register(notice_boardDTO notice_boardDTO);
 
-   void modify(notice_boardDTO notice_boardDTO);
+    void modify(notice_boardDTO notice_boardDTO);
 
-   void remove(Long board_num);
+    void remove(Long board_num);
+
 
     default Board dtoToEntity(notice_boardDTO dto) {    // dto -> entity
         Board entity = Board.builder()
