@@ -47,7 +47,7 @@ public class ApplicationRestController {
 
         cvServiceImpl.delete(cv_id);
 
-        return new RedirectView("/application/cv/read");
+        return new RedirectView("/application/cv/before");
     }
 
 }

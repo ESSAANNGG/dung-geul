@@ -35,8 +35,9 @@ public class MemberServiceImpl implements MemberService{
     private MailService mailService;
 
 
-    public void joinMember(MemberDTO memberDTO){
+    public int joinMember(MemberDTO memberDTO){
 
+        int result = 0;
         System.out.println("MemberServiceImpl");
 
         String pw = encoder.encode(memberDTO.getUser_pw());
@@ -44,6 +45,9 @@ public class MemberServiceImpl implements MemberService{
 
         memberRepository.save(member);
 
+        result = 1;
+
+        return result;
     }
 
     public void joinEnterprise(EnterpriseDTO enterpriseDTO){
