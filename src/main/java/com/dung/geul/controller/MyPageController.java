@@ -49,14 +49,17 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
         model.addAttribute("roles", roles);
 
+        model.addAttribute("loginUser", authMemberDTO);
+
     }
 
     @GetMapping("/member/modifyPw")
-    public void ModifyMemberPw(String user_id, Model model){
+    public void ModifyMemberPw(String user_id, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
         System.out.println("ModifyPw() 실행 user_id : " + user_id);
 
         model.addAttribute("user_id", user_id);
+        model.addAttribute("loginUser", authMemberDTO);
     }
 
 
