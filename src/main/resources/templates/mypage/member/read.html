@@ -27,7 +27,16 @@
         <h6>상세주소 : [[${memberDTO.getUser_addr_details()}]]</h6>
     </div>
 
+    <div th:if="roles.contains('STUDENT')">
+        <h5>학생 추가 정보</h5>
+        <h6>계열 : <span>[[${memberDTO.gerUser_dept}]] </span> </h6>
+        <h6>학년 : <span>[[${memberDTO.gerUser_grade}]] </span> </h6>
+        <h6>반 : <span>[[${memberDTO.gerUser_class}]] </span> </h6>
+    </div>
+
     <a href="/mypage/member/modify">수정하기</a>
+    <br>
+    <a href="/">메인으로 돌아가기</a>
 
    
 
