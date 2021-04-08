@@ -23,9 +23,10 @@ public interface EmployService {
     default Employ dtoToEntity(EmployDTO dto) {
         Employ entity = Employ.builder()
                 .num(dto.getNum())
+                .name(dto.getName())
                 .title(dto.getTitle())
+                .content(dto.getContent())
                 .build();
-
         return entity;
     }
 
@@ -33,7 +34,9 @@ public interface EmployService {
 
         EmployDTO dto = EmployDTO.builder()
                 .num(entity.getNum())
+                .name(entity.getName())
                 .title(entity.getTitle())
+                .content(entity.getContent())
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .build();
