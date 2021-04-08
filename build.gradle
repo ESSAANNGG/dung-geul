@@ -32,7 +32,11 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 }
-
+bootJar{
+    archivesBaseName = '-'
+    archiveFileName = '1.jar'
+    archiveVersion = "0.0.0"
+}
 test {
     useJUnitPlatform()
 }

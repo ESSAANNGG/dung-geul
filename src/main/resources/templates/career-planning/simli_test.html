@@ -26,7 +26,7 @@
               <div class="nav">
                   <ul class="dep1">
                       <li class="logo">
-                          <a href="#">영진전문대학교</a>
+                          <a href="/">영진전문대학교</a>
                       </li>
                       <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
                           <a href="#">진로설계</a>
@@ -47,7 +47,7 @@
                       <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
                           <a href="#">구직역량강화</a>
                           <ul class="dep2" onmouseover="nav_on()">
-                              <li><a href="#">이력서 관리</a></li>
+                              <li><a href="/application/cv/before">이력서 관리</a></li>
                               <li><a href="#">자소서 관리</a></li>
                           </ul>
                       </li>
@@ -79,7 +79,7 @@
                       </li>
                       <li class="join">
                           <a href="/sign-up" th:if="!${loginUser}">회원가입</a>
-                          <a href="/mypage/member/before" th:if="${loginUser}">마이페이지</a>
+                          <a href="/mypage/member/read" th:if="${loginUser}">마이페이지</a>
                       </li>
                   </ul>
               </div>
