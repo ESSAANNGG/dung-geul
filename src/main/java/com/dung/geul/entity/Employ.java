@@ -25,6 +25,9 @@ public class Employ extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long num;
 
+    @Column(name = "em_name", length = 100)
+    private String name;
+
     @Column(name = "em_title",length = 50)
     private String title;
 
@@ -52,4 +55,5 @@ public class Employ extends BaseEntity{
     /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "em_user_id" ,foreignKey = @ForeignKey(name="em_user_id_fk"))
     private Member user_id;*/
+
 }
