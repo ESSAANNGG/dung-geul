@@ -126,16 +126,16 @@ public class MemberRepositoryTest {
         System.out.println(memberRepository.findByIdWidthRole("member1ID"));
     }
 
-    @Test
-    public void findNameAndEmail(){
-
-        String member = memberRepository.findByUser_emailAndUser_name("123@aaa.bbb", "123");
-
-        System.out.println(member);
-
-        System.out.println();
-
-    }
+//    @Test
+//    public void findNameAndEmail(){
+//
+//        String member = memberRepository.findByUser_emailAndUser_name("123@aaa.bbb", "123");
+//
+//        System.out.println(member);
+//
+//        System.out.println();
+//
+//    }
 
     @Test
     public void findEmail(){

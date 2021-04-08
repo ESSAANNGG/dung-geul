@@ -46,7 +46,7 @@ public class EmployController {
     @GetMapping("/register")
     public String register(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
         model.addAttribute("loginUser", authMemberDTO);
-        return "/Employ/register";
+        return "Employ/register";
     }
 
 
