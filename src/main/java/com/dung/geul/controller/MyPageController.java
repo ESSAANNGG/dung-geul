@@ -45,6 +45,8 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
             roles.add("COUNSELOR");
 
 
+        System.out.println(roles.contains("STUDENT"));
+
         model.addAttribute("roles", roles);
 
     }
