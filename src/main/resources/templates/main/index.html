@@ -12,17 +12,16 @@
     <script src="js/scroll.js"></script>
     <script src="js/tabmenu.js"></script>
     <script src="js/footer.js"></script>
-    <script src="js/nav.js"></script>
     <script src="js/photo.js"></script>
 
     <link rel="stylesheet" href="css/index-style.css" />
-    <link rel="stylesheet" href="css/nav.css" />
+
     <meta charset="UTF-8" />
     <title>main</title>
   </head>
   <body>
     <!--네비 div-->
-    <div id="navFragment"></div>
+    <div th:replace="layout/layout :: nav"/>
     <!--네비 div 끝-->
       <main>
         <div class="background">
@@ -461,6 +460,6 @@
           </ul>
         </div>
         <!--footer -->
-        <div class="footerFragment"></div>
+      <footer th:replace="layout/layout :: footer"/>
   </body>
 </html>
