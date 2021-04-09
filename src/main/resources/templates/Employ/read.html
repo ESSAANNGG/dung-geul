@@ -14,7 +14,8 @@
     <title>Title</title>
 </head>
 <body>
-
+<!--네비 div-->
+<div th:replace="layout/layout :: nav"/>
 <div class="form-group">
     <label >Num</label>
     <input type="text" class="form-control" id="num" name="num" th:value="${dto.num}" readonly >
@@ -57,7 +58,8 @@
         </div>
     </div>
 
-
+<!--footer -->
+<footer th:replace="layout/layout :: footer"/>
 
 
 
