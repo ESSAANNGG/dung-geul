@@ -31,18 +31,8 @@ public class Board implements Serializable {
     @Column(length = 50, nullable = false)
     private String board_title; //제목
 
-//    @Lob
-//    private Clob board_content; //내용
-
-// ------------------------------------------------------
-
-//    @Column(length = 1500, nullable = false)
-//    private String content;     // 내용
-
-//    @Column(length = 50, nullable = false)
-//    private Member b;      // 작성자
-
-// ------------------------------------------------------
+    @Column(length = 1500, nullable = false)
+    private String content;     // 내용
 
     private String board_file; //첨부파일
 

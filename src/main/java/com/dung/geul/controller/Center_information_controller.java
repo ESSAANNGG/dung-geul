@@ -110,7 +110,7 @@ public class Center_information_controller {
 
 
         return "redirect:/center-information/notice_board_read";
-
     }
+
 
 }
