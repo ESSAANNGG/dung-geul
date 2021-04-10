@@ -130,18 +130,19 @@ label.light {
 }
 
 .search_button {
-  padding: 10px 39px 10px 39px;
+  padding: 10px 18px;
   color: #fff;
   background-color: #393986;
-  font-size: 18px;
+  font-size: 13px;
   text-align: center;
   font-style: normal;
   border-radius: 5px;
-  width: 50%;
+  width: 22%;
   border: 1px solid #21209c;
   border-width: 1px 1px 3px;
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
   margin-bottom: 10px;
+  margin-left: 1em;
 }
 
 #submit {
@@ -165,6 +166,11 @@ label.light {
 
 #user_id {
   width: 80%;
+  display: inline-block;
+}
+
+#user_postcode {
+  width: 40%;
   display: inline-block;
 }
 

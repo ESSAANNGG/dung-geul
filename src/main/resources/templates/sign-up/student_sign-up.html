@@ -42,7 +42,20 @@
 
         <!-- 검색 기능-->
         <label for="addr">주소찾기</label>
-        <div id="postcodify"></div>
+        <input type="text" id="user_postcode" placeholder="우편번호" />
+        <input
+          class="search_button"
+          type="button"
+          onclick="carrerPostcode()"
+          value="우편번호 찾기"
+        /><br />
+        <input type="text" id="user_addr" placeholder="도로명주소" />
+        <input type="text" id="user_jibunAddr" placeholder="지번주소" />
+        <span id="guide" style="color: #999; display: none"></span>
+        <input type="text" id="user_addr_details" placeholder="상세주소" />
+        <input type="text" id="extra_info" placeholder="참고항목" />
+
+        <!-- <div id="postcodify"></div>
 
         <input
           type="text"
@@ -74,8 +87,9 @@
           value=""
           placeholder="세부주소"
           readonly
-        /><br />
+        /><br /> -->
       </fieldset>
+
       <input
         type="text"
         name="role"
@@ -600,7 +614,8 @@
       </fieldset>
       <button id="submit" type="submit">가입하기</button>
     </form>
-
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/code.js"></script>
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/jquery.chained.js"></script>
     <script>
