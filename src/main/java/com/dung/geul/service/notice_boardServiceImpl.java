@@ -39,8 +39,8 @@ public class notice_boardServiceImpl implements notice_boardService {
 
         Optional<Board> result = boardRepository.findById(num);
 
-        //isPresent() :저장된 값이 존재하면 true를 반환하고, 값이 존재하지 않으면 false를 반환함.
-        return result.isPresent()? entityToDto(result.get()): null;
+        //isPresent() :저장된 값이 존재하면 true(entityToDto)를 반환하고, 값이 존재하지 않으면 false(null)를 반환함.
+        return result.isPresent()? entityToDto(result.get()) : null;
     }
 
     @Override
@@ -53,13 +53,32 @@ public class notice_boardServiceImpl implements notice_boardService {
         return board.getNum();
     }
 
+//    @Override
+//    public void modify(notice_boardDTO notice_boardDTO) {
+//
+//        Board board = dtoToEntity(notice_boardDTO);
+//
+//        boardRepository.save(board);
+//
+//    }
+
     @Override
-    public void modify(notice_boardDTO notice_boardDTO) {
+    public void modify(notice_boardDTO dto) {
 
-        Board board = dtoToEntity(notice_boardDTO);
+        //업데이트 하는 항목은 '제목', '내용'
 
-        boardRepository.save(board);
+        Optional<Board> result = BoardRepository.findById(dto.getNum());
 
+        if(result.isPresent()){
+
+            Board entity = result.get();
+
+            entity.changeTitle(dto.getTitle());
+            entity.changeContent(dto.getContent());
+
+            BoardRepository.save(entity);
+
+        }
     }
 
     @Override

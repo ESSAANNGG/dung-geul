@@ -9,19 +9,19 @@ public interface notice_boardService {
 
     PageResultDTO<notice_boardDTO, Board> getList(PageRequestDTO pageRequestDTO);   // 게시글 조회
 
-    notice_boardDTO read(Long board_num);   // 방명록의 조회 처리
+    notice_boardDTO read(Long num);   // 방명록의 조회 처리
 
-    Long register(notice_boardDTO notice_boardDTO); // 글 작성 페이지
+    Long register(notice_boardDTO dto); // 글 작성 페이지
 
-    void modify(notice_boardDTO notice_boardDTO);
+    void modify(notice_boardDTO dto);   // 글 수정
 
-    void remove(Long board_num);
+    void remove(Long num);    // 글 삭제
 
 
     default Board dtoToEntity(notice_boardDTO dto) {    // dto -> entity
         Board entity = Board.builder()
                 .num(dto.getNum())
-                .board_title(dto.getTitle())
+                .title(dto.getTitle())
                 .content(dto.getContent())
                 .b(dto.getB())
                 .build();
@@ -33,7 +33,7 @@ public interface notice_boardService {
 
         notice_boardDTO dto = notice_boardDTO.builder()
                 .num(entity.getNum())
-                .title(entity.getBoard_title())
+                .title(entity.getTitle())
                 .content(entity.getContent())
                 .b(entity.getB())
                 //.regDate(entity.getRegDate())
