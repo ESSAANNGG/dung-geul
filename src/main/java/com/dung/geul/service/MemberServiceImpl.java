@@ -35,6 +35,7 @@ public class MemberServiceImpl implements MemberService{
     private MailService mailService;
 
 
+    // 회원가입 일반회원
     public int joinMember(MemberDTO memberDTO){
 
         int result = 0;
@@ -50,6 +51,7 @@ public class MemberServiceImpl implements MemberService{
         return result;
     }
 
+    //회원가입 기업
     public void joinEnterprise(EnterpriseDTO enterpriseDTO){
 
         String pw = encoder.encode(enterpriseDTO.getUser_pw());
@@ -66,6 +68,12 @@ public class MemberServiceImpl implements MemberService{
 
         enterpriseRepository.save(enterprise);
 
+    }
+
+    // 아이디 중복 체크
+    public int checkUser_id(String user_id){
+
+        return memberRepository.checkId(user_id);
     }
 
     // 회원정보 수정
