@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-
-
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,7 +27,7 @@ public class Board implements Serializable {
     private Member b; // userid (FK) 작성자
 
     @Column(length = 50, nullable = false)
-    private String title; //제목
+    private String board_title; //제목
 
     @Column(length = 1500, nullable = false)
     private String content; // 내용
@@ -46,7 +44,7 @@ public class Board implements Serializable {
 // 글 수정(제목, 내용) -------------------------------------------------------------
 
     public void changeTitle(String title){
-        this.title = title;
+        this.board_title = title;
     }
 
     public void changeContent(String content){

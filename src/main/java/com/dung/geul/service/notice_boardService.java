@@ -13,15 +13,15 @@ public interface notice_boardService {
 
     Long register(notice_boardDTO dto); // 글 작성 페이지
 
-    void modify(notice_boardDTO dto);   // 글 수정
-
     void remove(Long num);    // 글 삭제
+
+    void modify(notice_boardDTO dto);   // 글 수정
 
 
     default Board dtoToEntity(notice_boardDTO dto) {    // dto -> entity
         Board entity = Board.builder()
                 .num(dto.getNum())
-                .title(dto.getTitle())
+                .board_title(dto.getTitle())
                 .content(dto.getContent())
                 .b(dto.getB())
                 .build();
@@ -33,7 +33,7 @@ public interface notice_boardService {
 
         notice_boardDTO dto = notice_boardDTO.builder()
                 .num(entity.getNum())
-                .title(entity.getTitle())
+                .title(entity.getBoard_title())
                 .content(entity.getContent())
                 .b(entity.getB())
                 //.regDate(entity.getRegDate())

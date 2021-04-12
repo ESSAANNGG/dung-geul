@@ -44,13 +44,18 @@ public class notice_boardServiceImpl implements notice_boardService {
     }
 
     @Override
-    public Long register(notice_boardDTO notice_boardDTO) {
+    public Long register(notice_boardDTO dto) {
 
-        Board board = dtoToEntity(notice_boardDTO);
+        log.info("DTO------------------------");
+        log.info(dto);
 
-        boardRepository.save(board);
+        Board entity = dtoToEntity(dto);
 
-        return board.getNum();
+        log.info(entity);
+
+        boardRepository.save(entity);
+
+        return entity.getNum();
     }
 
 //    @Override
@@ -63,11 +68,19 @@ public class notice_boardServiceImpl implements notice_boardService {
 //    }
 
     @Override
+    public void remove(Long num) {
+
+        boardRepository.deleteById(num);
+
+    }
+
+
+    @Override
     public void modify(notice_boardDTO dto) {
 
         //업데이트 하는 항목은 '제목', '내용'
 
-        Optional<Board> result = BoardRepository.findById(dto.getNum());
+        Optional<Board> result = boardRepository.findById(dto.getNum());
 
         if(result.isPresent()){
 
@@ -76,16 +89,9 @@ public class notice_boardServiceImpl implements notice_boardService {
             entity.changeTitle(dto.getTitle());
             entity.changeContent(dto.getContent());
 
-            BoardRepository.save(entity);
+            boardRepository.save(entity);
 
         }
-    }
-
-    @Override
-    public void remove(Long num) {
-
-        boardRepository.deleteById(num);
-
     }
 
 }
