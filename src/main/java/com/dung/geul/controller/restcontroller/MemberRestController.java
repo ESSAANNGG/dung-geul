@@ -8,6 +8,7 @@ import com.dung.geul.service.MemberServiceImpl;
 import lombok.extern.log4j.Log4j2;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
@@ -45,6 +46,13 @@ public class MemberRestController {
         memberService.joinEnterprise(enterPriseDTO);
 
         return new JoinResultPageDTO<>(1, HttpStatus.OK.value());
+    }
+
+    //아이디 중복 검사
+    @GetMapping("/id-check")
+    public int checkId(@RequestParam("user_id") String user_id){
+
+        return memberService.checkUser_id(user_id); // 0: 중복 아님, 1: 중복
     }
 
     // 아이디 찾기

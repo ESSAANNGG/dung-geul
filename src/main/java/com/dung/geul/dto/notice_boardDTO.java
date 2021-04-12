@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class notice_boardDTO {
+public class notice_boardDTO {  // 공지사항 DTO
 
     private Long num;   // 게시글 번호
 

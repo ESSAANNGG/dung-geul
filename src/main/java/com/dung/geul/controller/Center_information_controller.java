@@ -70,7 +70,8 @@ public class Center_information_controller {
     }
 
     @PostMapping("/notice_board_register")
-    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes, @AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
+    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes,
+                               @AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
         log.info("dto..." + dto);
 
@@ -84,14 +85,27 @@ public class Center_information_controller {
         return "redirect:/center-information/notice_board";
     }
 
-    @GetMapping({"/notice_board_read", "/notice_board_modify"})
-    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model ){
+    @GetMapping({"/notice_board_read", "/notice_board_modify"}) // 매핑을 배열로 두개 처리
+    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model){
 
         log.info("num: " + num);
 
         notice_boardDTO dto = service.read(num);
 
         model.addAttribute("dto", dto);
+
+    }
+
+    @PostMapping("/remove")
+    public String remove(long num, RedirectAttributes redirectAttributes){
+
+        log.info("num: " + num);
+
+        service.remove(num);
+
+        redirectAttributes.addFlashAttribute("msg", num);
+
+        return "redirect:/center-information/notice_board";
 
     }
 
@@ -106,11 +120,11 @@ public class Center_information_controller {
         service.modify(dto);
 
         redirectAttributes.addAttribute("page",requestDTO.getPage());
-        redirectAttributes.addAttribute("gno",dto.getNum());
+        redirectAttributes.addAttribute("num",dto.getNum());
 
 
         return "redirect:/center-information/notice_board_read";
-
     }
+
 
 }

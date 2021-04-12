@@ -17,7 +17,7 @@ public class PageResultDTO<DTO, EN> {
     private List<DTO> dtoList;
 
     //총 페이지 번호
-    private int totalpage;
+    private int totalPage;
 
     //현재 페이지 번호
     private int page;
@@ -39,7 +39,7 @@ public class PageResultDTO<DTO, EN> {
 
         dtoList = result.stream().map(fn).collect(Collectors.toList());
 
-        totalpage = result.getTotalPages();
+        totalPage = result.getTotalPages();
 
         makePageList(result.getPageable());
 
@@ -57,9 +57,9 @@ public class PageResultDTO<DTO, EN> {
 
             prev = start > 1;
 
-            end = totalpage > tempEnd ? tempEnd : totalpage;    // if(totalpage > tempEnd) { tempEnd } else { totalpage }
+            end = totalPage > tempEnd ? tempEnd : totalPage;    // if(totalpage > tempEnd) { tempEnd } else { totalpage }
 
-            next = totalpage > tempEnd;
+            next = totalPage > tempEnd;
 
             pageList = IntStream.rangeClosed(start, end).boxed().collect(Collectors.toList());
         }

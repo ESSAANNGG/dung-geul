@@ -14,7 +14,6 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-    <script src="/js/postcodify.js"></script>
   </head>
   <body>
     <form action="/signUp/professor" id="signUp" name="signUp" method="POST">
@@ -23,6 +22,10 @@
       <fieldset>
         <label for="user_id">아이디:</label>
         <input type="text" id="user_id" name="user_id" required />
+        <button id="checkId">중복 검사</button>
+        <span id="checkIdResult"></span>
+        <!-- 결과 텍스트가 삽입될 칸 -->
+        <div id="Result"></div>
 
         <label for="password">비밀번호</label>
         <input type="password" id="user_pw" name="user_pw" required />
@@ -38,39 +41,18 @@
 
         <!-- 검색 기능-->
         <label for="addr">주소찾기</label>
-        <div id="postcodify"></div>
-
+        <input type="text" id="user_postcode" placeholder="우편번호" />
         <input
-          type="text"
-          name="user_postcode"
-          id="postcode"
-          value=""
-          placeholder="우편번호"
-          readonly
+          class="search_button"
+          type="button"
+          onclick="carrerPostcode()"
+          value="우편번호 찾기"
         /><br />
-        <input
-          type="text"
-          name="user_addr"
-          id="user_addr"
-          value=""
-          placeholder="주소"
-          readonly
-        /><br />
-        <input
-          type="text"
-          name="user_addr_details"
-          id="details"
-          value=""
-          placeholder="상세주소"
-        /><br />
-        <input
-          type="text"
-          name="extra_info"
-          id="extra_info"
-          value=""
-          placeholder="세부주소"
-          readonly
-        /><br />
+        <input type="text" id="user_addr" placeholder="도로명주소" />
+        <!-- <input type="text" id="user_jibunAddr" placeholder="지번주소" /> -->
+        <span id="guide" style="color: #999; display: none"></span>
+        <input type="text" id="user_addr_details" placeholder="상세주소" />
+        <input type="text" id="extra_info" placeholder="참고항목" />
       </fieldset>
       <input
         type="text"
@@ -88,649 +70,490 @@
         <label for="department">계열/학과 선택</label>
         <select id="user_dept" name="user_dept">
           <option value="">-- 계열/학과 --</option>
-          <option value="computer-information_">컴퓨터정보계열</option>
-          <option value="Mechanical-Engineering_">컴퓨터응용기계계열</option>
-          <option value="ICT-Semiconductor&Electronics_">
-            ICT반도체전자계열
-          </option>
-          <option value="electrical-engineering_">신재생에너지전기계열</option>
-          <option value="architecture&interior-design_">
-            건축인테리어디자인계열
-          </option>
-          <option value="Military_">부사관계열</option>
-          <option value="Contents-Design_">콘텐츠디자인과</option>
-          <option value="Drone-Avionics_">드론항공전자과</option>
-          <option value="Bussiness_">경영회계서비스계열</option>
-          <option value="HotelAirlin-Service&Tourism_">호텔항공관광계열</option>
-          <option value="Social-Welfare_">사회복지과</option>
-          <option value="Childhood-Education_">유아교육과</option>
-          <option value="Medical-Administration_">보건의료행정과</option>
-          <option value="Nursing_">간호학과</option>
+          <option value="컴퓨터정보계열">컴퓨터정보계열</option>
+          <option value="컴퓨터응용기계계열">컴퓨터응용기계계열</option>
+          <option value="ICT반도체전자계열">ICT반도체전자계열</option>
+          <option value="신재생에너지전기계열">신재생에너지전기계열</option>
+          <option value="건축인테리어디자인계열">건축인테리어디자인계열</option>
+          <option value="부사관계열">부사관계열</option>
+          <option value="콘텐츠디자인과">콘텐츠디자인과</option>
+          <option value="드론항공전자과">드론항공전자과</option>
+          <option value="경영회계서비스계열">경영회계서비스계열</option>
+          <option value="호텔항공관광계열">호텔항공관광계열</option>
+          <option value="사회복지과">사회복지과</option>
+          <option value="유아교육과">유아교육과</option>
+          <option value="보건의료행정과">보건의료행정과</option>
+          <option value="간호학과">간호학과</option>
           <!-- <option value="O">스마트금형과</option>
           <option value="P">스마트기계과</option> -->
         </select>
         <label for="grade">학년 선택</label>
         <select id="user_grade" name="user_grade">
           <option value="">-- 학년 --</option>
-          <option
-            class="computer-information_"
-            value="computer-information_first"
-          >
-            1
-          </option>
-          <option
-            class="computer-information_"
-            value="computer-information_second"
-          >
-            2
-          </option>
-          <option
-            class="computer-information_"
-            value="computer-information_third"
-          >
-            3
-          </option>
-          <option
-            class="Mechanical-Engineering_"
-            value="Mechanical-Engineering_first"
-          >
-            1
-          </option>
-          <option
-            class="Mechanical-Engineering_"
-            value="Mechanical-Engineering_second"
-          >
-            2
-          </option>
-          <option
-            class="ICT-Semiconductor&Electronics_"
-            value="ICT-Semiconductor&Electronics_first"
-          >
-            1
-          </option>
-          <option
-            class="ICT-Semiconductor&Electronics_"
-            value="ICT-Semiconductor&Electronics_second"
-          >
-            2
-          </option>
-          <option
-            class="electrical-engineering_"
-            value="electrical-engineering_first"
-          >
-            1
-          </option>
-          <option
-            class="electrical-engineering_"
-            value="electrical-engineering_second"
-          >
-            2
-          </option>
-          <option
-            class="architecture&interior-design_"
-            value="architecture&interior-design_first"
-          >
-            1
-          </option>
-          <option
-            class="architecture&interior-design_"
-            value="architecture&interior-design_second"
-          >
-            2
-          </option>
-          <option class="Military_" value="Military_first">1</option>
-          <option class="Military_" value="Military_second">2</option>
-          <option class="Contents-Design_" value="Contents-Design_first">
-            1
-          </option>
-          <option class="Contents-Design_" value="Contents-Design_second">
-            2
-          </option>
-          <option class="Drone-Avionics_" value="Drone-Avionics_first">
-            1
-          </option>
-          <option class="Drone-Avionics_" value="Drone-Avionics_second">
-            2
-          </option>
-          <option class="Bussiness_" value="Bussiness_first">1</option>
-          <option class="Bussiness_" value="Bussiness_second">2</option>
-          <option
-            class="HotelAirlin-Service&Tourism_"
-            value="HotelAirlin-Service&Tourism_first"
-          >
-            1
-          </option>
-          <option
-            class="HotelAirlin-Service&Tourism_"
-            value="HotelAirlin-Service&Tourism_second"
-          >
-            2
-          </option>
-          <option class="Social-Welfare_" value="Social-Welfare_first">
-            1
-          </option>
-          <option class="Social-Welfare_" value="Social-Welfare_second">
-            2
-          </option>
-          <option
-            class="Medical-Administration_"
-            value="Medical-Administration_first"
-          >
-            1
-          </option>
-          <option
-            class="Medical-Administration_"
-            value="Medical-Administration_second"
-          >
-            2
-          </option>
-          <option
-            class="Childhood-Education_"
-            value="Childhood-Education_first"
-          >
-            1
-          </option>
-          <option
-            class="Childhood-Education_"
-            value="Childhood-Education_second"
-          >
-            2
-          </option>
-          <option
-            class="Childhood-Education_"
-            value="Childhood-Education_third"
-          >
-            3
-          </option>
-          <option class="Nursing_" value="Nursing_first">1</option>
-          <option class="Nursing_" value="Nursing_second">2</option>
-          <option class="Nursing_" value="Nursing_third">3</option>
-          <option class="Nursing_" value="Nursing_fourth">4</option>
-          <option class="O" value="Ofirst">1</option>
-          <option class="O" value="Osecond">2</option>
-          <option class="P" value="Pfirst">1</option>
+          <option data-chained="컴퓨터정보계열" value="1">1</option>
+          <option data-chained="컴퓨터정보계열" value="2">2</option>
+          <option data-chained="컴퓨터정보계열" value="3">3</option>
+          <option data-chained="컴퓨터응용기계계열" value="1">1</option>
+          <option data-chained="컴퓨터응용기계계열" value="2">2</option>
+          <option data-chained="ICT반도체전자계열" value="1">1</option>
+          <option data-chained="ICT반도체전자계열" value="2">2</option>
+          <option data-chained="신재생에너지전기계열" value="1">1</option>
+          <option data-chained="신재생에너지전기계열" value="2">2</option>
+          <option data-chained="건축인테리어디자인계열" value="1">1</option>
+          <option data-chained="건축인테리어디자인계열" value="2">2</option>
+          <option data-chained="부사관계열" value="1">1</option>
+          <option data-chained="부사관계열" value="2">2</option>
+          <option data-chained="콘텐츠디자인과" value="1">1</option>
+          <option data-chained="콘텐츠디자인과" value="2">2</option>
+          <option data-chained="드론항공전자과" value="1">1</option>
+          <option data-chained="드론항공전자과" value="2">2</option>
+          <option data-chained="경영회계서비스계열" value="1">1</option>
+          <option data-chained="경영회계서비스계열" value="2">2</option>
+          <option data-chained="호텔항공관광계열" value="1">1</option>
+          <option data-chained="호텔항공관광계열" value="2">2</option>
+          <option data-chained="사회복지과" value="1">1</option>
+          <option data-chained="사회복지과" value="2">2</option>
+          <option data-chained="보건의료행정과" value="1">1</option>
+          <option data-chained="보건의료행정과" value="2">2</option>
+          <option data-chained="유아교육과" value="1">1</option>
+          <option data-chained="유아교육과" value="2">2</option>
+          <option data-chained="유아교육과" value="3">3</option>
+          <option data-chained="간호학과" value="1">1</option>
+          <option data-chained="간호학과" value="2">2</option>
+          <option data-chained="간호학과" value="3">3</option>
+          <option data-chained="간호학과" value="4">4</option>
+          <option data-chained="O" value="Ofirst">1</option>
+          <option data-chained="O" value="Osecond">2</option>
+          <option data-chained="P" value="Pfirst">1</option>
         </select>
         <label for="class">반 선택</label>
         <select id="user_class" name="user_class">
           <option value="">-- 반 --</option>
           <option
             value="A"
-            class="computer-information_first Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Bussiness_first HotelAirlin-Service&Tourism_first Social-Welfare_first Social-Welfare_second Childhood-Education_first Childhood-Education_second Childhood-Education_third Nursing_first Nursing_second Nursing_third Military_first Drone-Avionics_first Medical-Administration_first"
+            data-chained="컴퓨터정보계열+1 컴퓨터응용기계계열+1 ICT반도체전자계열+1 건축인테리어디자인계열+1 경영회계서비스계열+1 호텔항공관광계열+1 사회복지과+1 사회복지과+2 유아교육과+1 유아교육과+2 유아교육과+3 간호학과+1 간호학과+2 간호학과+3 부사관계열+1 드론항공전자과+1 보건의료행정과+1"
           >
             A
           </option>
           <option
             value="B"
-            class="computer-information_first Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Bussiness_first HotelAirlin-Service&Tourism_first Social-Welfare_first Social-Welfare_second Childhood-Education_first Childhood-Education_second Childhood-Education_third Nursing_first Nursing_second Nursing_third Military_first Drone-Avionics_first"
+            data-chained="컴퓨터정보계열+1 컴퓨터응용기계계열+1 ICT반도체전자계열+1 건축인테리어디자인계열+1 경영회계서비스계열+1 호텔항공관광계열+1 사회복지과+1 사회복지과+2 유아교육과+1 유아교육과+2 유아교육과+3 간호학과+1 간호학과+2 간호학과+3 부사관계열+1 드론항공전자과+1"
           >
             B
           </option>
           <option
             value="C"
-            class="computer-information_first Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Bussiness_first HotelAirlin-Service&Tourism_first Social-Welfare_first Social-Welfare_second Nursing_first Nursing_second Nursing_third Military_first"
+            data-chained="컴퓨터정보계열+1 컴퓨터응용기계계열+1 ICT반도체전자계열+1 건축인테리어디자인계열+1 경영회계서비스계열+1 호텔항공관광계열+1 사회복지과+1 사회복지과+2 간호학과+1 간호학과+2 간호학과+3 부사관계열+1"
           >
             C
           </option>
           <option
             value="D"
-            class="computer-information_first Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Bussiness_first HotelAirlin-Service&Tourism_first Social-Welfare_first Social-Welfare_second Military_first"
+            data-chained="컴퓨터정보계열+1 컴퓨터응용기계계열+1 ICT반도체전자계열+1 건축인테리어디자인계열+1 경영회계서비스계열+1 호텔항공관광계열+1 사회복지과+1 사회복지과+2 부사관계열+1"
           >
             D
           </option>
           <option
             value="E"
-            class="computer-information_first Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Bussiness_first Social-Welfare_first Social-Welfare_second Military_first"
+            data-chained="컴퓨터정보계열+1 컴퓨터응용기계계열+1 ICT반도체전자계열+1 건축인테리어디자인계열+1 경영회계서비스계열+1 사회복지과+1 사회복지과+2 부사관계열+1"
           >
             E
           </option>
           <option
             value="F"
-            class="Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Social-Welfare_first Social-Welfare_second"
+            data-chained="컴퓨터응용기계계열+1 ICT반도체전자계열+1 건축인테리어디자인계열+1 사회복지과+1 사회복지과+2"
           >
             F
           </option>
           <option
             value="G"
-            class="Mechanical-Engineering_first ICT-Semiconductor&Electronics_first architecture&interior-design_first Social-Welfare_first Social-Welfare_second"
+            data-chained="컴퓨터응용기계계열+1 ICT반도체전자계열+1 건축인테리어디자인계열+1 사회복지과+1 사회복지과+2"
           >
             G
           </option>
           <option
             value="L"
-            class="Mechanical-Engineering_first ICT-Semiconductor&Electronics_first Bussiness_first Bussiness_second"
+            data-chained="컴퓨터응용기계계열+1 ICT반도체전자계열+1 경영회계서비스계열+1 경영회계서비스계열+2"
           >
             L
           </option>
-          <option value="M" class="Mechanical-Engineering_first">M</option>
-          <option value="Q" class="Mechanical-Engineering_first">Q</option>
-          <option value="R" class="Mechanical-Engineering_first">R</option>
-          <option value="T" class="Mechanical-Engineering_first">T</option>
-          <option value="J1" class="computer-information_first">J1</option>
-          <option value="J2" class="computer-information_first">J2</option>
-          <option value="외국인유학생" class="computer-information_first">
+          <option value="M" data-chained="컴퓨터응용기계계열+1">M</option>
+          <option value="Q" data-chained="컴퓨터응용기계계열+1">Q</option>
+          <option value="R" data-chained="컴퓨터응용기계계열+1">R</option>
+          <option value="T" data-chained="컴퓨터응용기계계열+1">T</option>
+          <option value="J1" data-chained="컴퓨터정보계열+1">J1</option>
+          <option value="J2" data-chained="컴퓨터정보계열+1">J2</option>
+          <option value="외국인유학생" data-chained="컴퓨터정보계열+1">
             외국인유학생
           </option>
-          <option
-            value="CI-D"
-            class="computer-information_second computer-information_third"
-          >
+          <option value="CI-D" data-chained="컴퓨터정보계열+2 컴퓨터정보계열+3">
             CI-D
           </option>
-          <option
-            value="CI-E"
-            class="computer-information_second computer-information_third"
-          >
+          <option value="CI-E" data-chained="컴퓨터정보계열+2 컴퓨터정보계열+3">
             CI-E
           </option>
-          <option
-            value="CP-A"
-            class="computer-information_second computer-information_third"
-          >
+          <option value="CP-A" data-chained="컴퓨터정보계열+2 컴퓨터정보계열+3">
             CP-A
           </option>
-          <option
-            value="CP-B"
-            class="computer-information_second computer-information_third"
-          >
+          <option value="CP-B" data-chained="컴퓨터정보계열+2 컴퓨터정보계열+3">
             CP-B
           </option>
-          <option
-            value="CP-J"
-            class="computer-information_second computer-information_third"
-          >
+          <option value="CP-J" data-chained="컴퓨터정보계열+2 컴퓨터정보계열+3">
             CP-J
           </option>
-          <option
-            value="GC-A"
-            class="computer-information_second computer-information_third"
-          >
+          <option value="GC-A" data-chained="컴퓨터정보계열+2 컴퓨터정보계열+3">
             GC-A
           </option>
-          <option
-            value="GC-C"
-            class="computer-information_second computer-information_third"
-          >
+          <option value="GC-C" data-chained="컴퓨터정보계열+2 컴퓨터정보계열+3">
             GC-C
           </option>
-          <option
-            value="WD-A"
-            class="computer-information_second computer-information_third"
-          >
+          <option value="WD-A" data-chained="컴퓨터정보계열+2 컴퓨터정보계열+3">
             WD-A
           </option>
-          <option
-            value="WD-J"
-            class="computer-information_second computer-information_third"
-          >
+          <option value="WD-J" data-chained="컴퓨터정보계열+2 컴퓨터정보계열+3">
             WD-J
           </option>
           <option
             value="구미A"
-            class="Mechanical-Engineering_first Mechanical-Engineering_second"
+            data-chained="컴퓨터응용기계계열+1 컴퓨터응용기계계열+2"
           >
             구미A
           </option>
           <option
             value="성서A"
-            class="Mechanical-Engineering_first Mechanical-Engineering_second"
+            data-chained="컴퓨터응용기계계열+1 컴퓨터응용기계계열+2"
           >
             성서A
           </option>
           <option
             value="스마트금형"
-            class="Mechanical-Engineering_first Mechanical-Engineering_second"
+            data-chained="컴퓨터응용기계계열+1 컴퓨터응용기계계열+2"
           >
             스마트금형
           </option>
-          <option value="스마트기계" class="Mechanical-Engineering_first">
+          <option value="스마트기계" data-chained="컴퓨터응용기계계열+1">
             스마트기계
           </option>
           <option
             value="중국S"
-            class="Mechanical-Engineering_first Mechanical-Engineering_second"
+            data-chained="컴퓨터응용기계계열+1 컴퓨터응용기계계열+2"
           >
             중국S
           </option>
           <option
             value="중국S-1"
-            class="Mechanical-Engineering_first Mechanical-Engineering_second"
+            data-chained="컴퓨터응용기계계열+1 컴퓨터응용기계계열+2"
           >
             중국S-1
           </option>
-          <option value="CAD/CAM" class="Mechanical-Engineering_second">
+          <option value="CAD/CAM" data-chained="컴퓨터응용기계계열+2">
             CAD/CAM
           </option>
-          <option value="CADCAM-I" class="Mechanical-Engineering_second">
+          <option value="CADCAM-I" data-chained="컴퓨터응용기계계열+2">
             CADCAM-I
           </option>
-          <option value="융합기계설비" class="Mechanical-Engineering_second">
+          <option value="융합기계설비" data-chained="컴퓨터응용기계계열+2">
             융합기계설비
           </option>
-          <option value="금형/CAM" class="Mechanical-Engineering_second">
+          <option value="금형/CAM" data-chained="컴퓨터응용기계계열+2">
             금형/CAM
           </option>
-          <option value="기계A" class="Mechanical-Engineering_second">
+          <option value="기계A" data-chained="컴퓨터응용기계계열+2">
             기계A
           </option>
-          <option value="기계설계A" class="Mechanical-Engineering_second">
+          <option value="기계설계A" data-chained="컴퓨터응용기계계열+2">
             기계설계A
           </option>
-          <option value="석유화학A" class="Mechanical-Engineering_second">
+          <option value="석유화학A" data-chained="컴퓨터응용기계계열+2">
             석유화학A
           </option>
-          <option value="스마트제조설계" class="Mechanical-Engineering_second">
+          <option value="스마트제조설계" data-chained="컴퓨터응용기계계열+2">
             스마트제조설계A
           </option>
-          <option value="에너지설비" class="Mechanical-Engineering_second">
+          <option value="에너지설비" data-chained="컴퓨터응용기계계열+2">
             에너지설비
           </option>
-          <option value="유니테크" class="Mechanical-Engineering_second">
+          <option value="유니테크" data-chained="컴퓨터응용기계계열+2">
             유니테크
           </option>
-          <option value="일본A" class="Mechanical-Engineering_second">
+          <option value="일본A" data-chained="컴퓨터응용기계계열+2">
             일본A
           </option>
-          <option value="일본B" class="Mechanical-Engineering_second">
+          <option value="일본B" data-chained="컴퓨터응용기계계열+2">
             일본B
           </option>
-          <option value="자동화A" class="Mechanical-Engineering_second">
+          <option value="자동화A" data-chained="컴퓨터응용기계계열+2">
             자동화A
           </option>
-          <option value="자동화B" class="Mechanical-Engineering_second">
+          <option value="자동화B" data-chained="컴퓨터응용기계계열+2">
             자동화B
           </option>
-          <option value="O1" class="Ofirst">스마트금형A</option>
-          <option value="O1" class="Ofirst">스마트금형B</option>
-          <option value="P1" class="Pfirst">스마트기계A</option>
-          <option value="P1" class="Pfirst">스마트기계B</option>
-          <option value="O2" class="Osecond">스마트금형A-1</option>
-          <option value="O2" class="Osecond">스마트금형A-2</option>
-          <option value="O2" class="Osecond">스마트금형B-1</option>
-          <option
-            value="E-융합전자"
-            class="ICT-Semiconductor&Electronics_first"
-          >
+          <option value="O1" data-chained="Ofirst">스마트금형A</option>
+          <option value="O1" data-chained="Ofirst">스마트금형B</option>
+          <option value="P1" data-chained="Pfirst">스마트기계A</option>
+          <option value="P1" data-chained="Pfirst">스마트기계B</option>
+          <option value="O2" data-chained="Osecond">스마트금형A-1</option>
+          <option value="O2" data-chained="Osecond">스마트금형A-2</option>
+          <option value="O2" data-chained="Osecond">스마트금형B-1</option>
+          <option value="E-융합전자" data-chained="ICT반도체전자계열+1">
             E-융합전자
           </option>
           <option
             value="E-전자위탁"
-            class="ICT-Semiconductor&Electronics_first ICT-Semiconductor&Electronics_second"
+            data-chained="ICT반도체전자계열+1 ICT반도체전자계열+2"
           >
             E-전자위탁
           </option>
           <option
             value="I-일본취업"
-            class="ICT-Semiconductor&Electronics_first ICT-Semiconductor&Electronics_second"
+            data-chained="ICT반도체전자계열+1 ICT반도체전자계열+2"
           >
             I-일본취업
           </option>
           <option
             value="I-입도"
-            class="ICT-Semiconductor&Electronics_first ICT-Semiconductor&Electronics_second"
+            data-chained="ICT반도체전자계열+1 ICT반도체전자계열+2"
           >
             I-입도
           </option>
-          <option
-            value="S-중국유학"
-            class="ICT-Semiconductor&Electronics_first"
-          >
+          <option value="S-중국유학" data-chained="ICT반도체전자계열+1">
             S-중국유학
           </option>
-          <option
-            value="E-ICT전자A"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="E-ICT전자A" data-chained="ICT반도체전자계열+2">
             E-ICT전자A
           </option>
-          <option
-            value="E-ICT전자B"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="E-ICT전자B" data-chained="ICT반도체전자계열+2">
             E-ICT전자B
           </option>
-          <option
-            value="E-구미위탁"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="E-구미위탁" data-chained="ICT반도체전자계열+2">
             E-구미위탁
           </option>
-          <option
-            value="E-전자디플A"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="E-전자디플A" data-chained="ICT반도체전자계열+2">
             E-전자디플A
           </option>
-          <option
-            value="E-전자디플B"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="E-전자디플B" data-chained="ICT반도체전자계열+2">
             E-전자디플B
           </option>
-          <option
-            value="I-SDI위탁"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="I-SDI위탁" data-chained="ICT반도체전자계열+2">
             I-SDI위탁
           </option>
-          <option value="S-공정" class="ICT-Semiconductor&Electronics_second">
+          <option value="S-공정" data-chained="ICT반도체전자계열+2">
             S-공정
           </option>
-          <option
-            value="S-하이닉스"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="S-하이닉스" data-chained="ICT반도체전자계열+2">
             S-하이닉스
           </option>
-          <option
-            value="I-전자소재A"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="I-전자소재A" data-chained="ICT반도체전자계열+2">
             I-전자소재A
           </option>
-          <option
-            value="I전자소재B"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="I전자소재B" data-chained="ICT반도체전자계열+2">
             I전자소재B
           </option>
-          <option
-            value="S-반도체A"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="S-반도체A" data-chained="ICT반도체전자계열+2">
             S-반도체A
           </option>
-          <option
-            value="S-반도체B"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="S-반도체B" data-chained="ICT반도체전자계열+2">
             S-반도체B
           </option>
-          <option
-            value="S-중국유학I"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="S-중국유학I" data-chained="ICT반도체전자계열+2">
             S-중국유학I
           </option>
-          <option
-            value="S-중국유학II"
-            class="ICT-Semiconductor&Electronics_second"
-          >
+          <option value="S-중국유학II" data-chained="ICT반도체전자계열+2">
             S-중국유학II
           </option>
-          <option value="전기A" class="electrical-engineering_first">
+          <option value="전기A" data-chained="신재생에너지전기계열+1">
             전기A
           </option>
-          <option value="전기B" class="electrical-engineering_first">
+          <option value="전기B" data-chained="신재생에너지전기계열+1">
             전기B
           </option>
-          <option value="전기C" class="electrical-engineering_first">
+          <option value="전기C" data-chained="신재생에너지전기계열+1">
             전기C
           </option>
-          <option value="전기D" class="electrical-engineering_first">
+          <option value="전기D" data-chained="신재생에너지전기계열+1">
             전기D
           </option>
-          <option value="전기E" class="electrical-engineering_first">
+          <option value="전기E" data-chained="신재생에너지전기계열+1">
             전기E
           </option>
-          <option value="전기F" class="electrical-engineering_first">
+          <option value="전기F" data-chained="신재생에너지전기계열+1">
             전기F
           </option>
-          <option value="에너지전기" class="electrical-engineering_second">
+          <option value="에너지전기" data-chained="신재생에너지전기계열+2">
             에너지전기
           </option>
-          <option value="일본전기" class="electrical-engineering_second">
+          <option value="일본전기" data-chained="신재생에너지전기계열+2">
             일본전기
           </option>
-          <option value="전기I" class="electrical-engineering_second">
+          <option value="전기I" data-chained="신재생에너지전기계열+2">
             전기I
           </option>
-          <option value="전기설비A" class="electrical-engineering_second">
+          <option value="전기설비A" data-chained="신재생에너지전기계열+2">
             전기설비A
           </option>
-          <option value="전기설비B" class="electrical-engineering_second">
+          <option value="전기설비B" data-chained="신재생에너지전기계열+2">
             전기설비B
           </option>
-          <option value="전기자동화" class="electrical-engineering_second">
+          <option value="전기자동화" data-chained="신재생에너지전기계열+2">
             전기자동화
           </option>
-          <option value="전기철도" class="electrical-engineering_second">
+          <option value="전기철도" data-chained="신재생에너지전기계열+2">
             전기철도
           </option>
-          <option value="전기화학" class="electrical-engineering_second">
+          <option value="전기화학" data-chained="신재생에너지전기계열+2">
             전기화학
           </option>
           <option
             value="건축K"
-            class="architecture&interior-design_first architecture&interior-design_second"
+            data-chained="건축인테리어디자인계열+1 건축인테리어디자인계열+2"
           >
             건축K
           </option>
-          <option value="건축A" class="architecture&interior-design_second">
+          <option value="건축A" data-chained="건축인테리어디자인계열+2">
             건축A
           </option>
-          <option value="건축B" class="architecture&interior-design_second">
+          <option value="건축B" data-chained="건축인테리어디자인계열+2">
             건축B
           </option>
-          <option value="실내A" class="architecture&interior-design_second">
+          <option value="실내A" data-chained="건축인테리어디자인계열+2">
             실내A
           </option>
-          <option value="실내E" class="architecture&interior-design_second">
+          <option value="실내E" data-chained="건축인테리어디자인계열+2">
             실내E
           </option>
           <option
             value="실내건축시공관리"
-            class="architecture&interior-design_second"
+            data-chained="건축인테리어디자인계열+2"
           >
             실내건축시공관리
           </option>
-          <option
-            value="전시디자인"
-            class="architecture&interior-design_second"
-          >
+          <option value="전시디자인" data-chained="건축인테리어디자인계열+2">
             전시디자인
           </option>
-          <option value="콘텐츠A" class="Contents-Design_first">콘텐츠A</option>
-          <option value="콘텐츠B" class="Contents-Design_first">콘텐츠B</option>
-          <option value="콘텐츠C" class="Contents-Design_first">콘텐츠C</option>
-          <option value="콘텐츠D" class="Contents-Design_first">콘텐츠D</option>
-          <option value="시각" class="Contents-Design_second">시각</option>
-          <option value="시각영상" class="Contents-Design_second">
+          <option value="콘텐츠A" data-chained="콘텐츠디자인과+1">
+            콘텐츠A
+          </option>
+          <option value="콘텐츠B" data-chained="콘텐츠디자인과+1">
+            콘텐츠B
+          </option>
+          <option value="콘텐츠C" data-chained="콘텐츠디자인과+1">
+            콘텐츠C
+          </option>
+          <option value="콘텐츠D" data-chained="콘텐츠디자인과+1">
+            콘텐츠D
+          </option>
+          <option value="시각" data-chained="콘텐츠디자인과+2">시각</option>
+          <option value="시각영상" data-chained="콘텐츠디자인과+2">
             시각영상
           </option>
-          <option value="인터넷광고마케팅" class="Contents-Design_second">
+          <option value="인터넷광고마케팅" data-chained="콘텐츠디자인과+2">
             인터넷광고마케팅
           </option>
-          <option value="콘텐츠" class="Contents-Design_second">콘텐츠</option>
-          <option value="글로벌비즈니스" class="Bussiness_first">
+          <option value="콘텐츠" data-chained="콘텐츠디자인과+2">콘텐츠</option>
+          <option value="글로벌비즈니스" data-chained="경영회계서비스계열+1">
             글로벌비즈니스
           </option>
-          <option value="마케팅J" class="Bussiness_first">마케팅J</option>
-          <option value="마케팅R" class="Bussiness_first">마케팅R</option>
-          <option value="마케팅T" class="Bussiness_first">마케팅T</option>
-          <option value="중국U" class="Bussiness_first">중국U</option>
-          <option value="글로벌비즈니스" class="Bussiness_second">
+          <option value="마케팅J" data-chained="경영회계서비스계열+1">
+            마케팅J
+          </option>
+          <option value="마케팅R" data-chained="경영회계서비스계열+1">
+            마케팅R
+          </option>
+          <option value="마케팅T" data-chained="경영회계서비스계열+1">
+            마케팅T
+          </option>
+          <option value="중국U" data-chained="경영회계서비스계열+1">
+            중국U
+          </option>
+          <option value="글로벌비즈니스" data-chained="경영회계서비스계열+2">
             글로벌비즈니스
           </option>
-          <option value="마케팅A" class="Bussiness_second">마케팅A</option>
-          <option value="마케팅B" class="Bussiness_second">마케팅B</option>
-          <option value="마케팅C" class="Bussiness_second">마케팅C</option>
-          <option value="마케팅J" class="Bussiness_second">마케팅J</option>
-          <option value="마케팅M" class="Bussiness_second">마케팅M</option>
-          <option value="마케팅R" class="Bussiness_second">마케팅R</option>
-          <option value="마케팅T" class="Bussiness_second">마케팅T</option>
-          <option value="중국Q" class="Bussiness_second">중국Q</option>
-          <option value="중국U" class="Bussiness_second">중국U</option>
-          <option value="회계A" class="Bussiness_second">회계A</option>
-          <option value="회계B" class="Bussiness_second">회계B</option>
-          <option value="회계C" class="Bussiness_second">회계C</option>
+          <option value="마케팅A" data-chained="경영회계서비스계열+2">
+            마케팅A
+          </option>
+          <option value="마케팅B" data-chained="경영회계서비스계열+2">
+            마케팅B
+          </option>
+          <option value="마케팅C" data-chained="경영회계서비스계열+2">
+            마케팅C
+          </option>
+          <option value="마케팅J" data-chained="경영회계서비스계열+2">
+            마케팅J
+          </option>
+          <option value="마케팅M" data-chained="경영회계서비스계열+2">
+            마케팅M
+          </option>
+          <option value="마케팅R" data-chained="경영회계서비스계열+2">
+            마케팅R
+          </option>
+          <option value="마케팅T" data-chained="경영회계서비스계열+2">
+            마케팅T
+          </option>
+          <option value="중국Q" data-chained="경영회계서비스계열+2">
+            중국Q
+          </option>
+          <option value="중국U" data-chained="경영회계서비스계열+2">
+            중국U
+          </option>
+          <option value="회계A" data-chained="경영회계서비스계열+2">
+            회계A
+          </option>
+          <option value="회계B" data-chained="경영회계서비스계열+2">
+            회계B
+          </option>
+          <option value="회계C" data-chained="경영회계서비스계열+2">
+            회계C
+          </option>
           <option
             value="글로벌관광"
-            class="HotelAirlin-Service&Tourism_first HotelAirlin-Service&Tourism_second"
+            data-chained="호텔항공관광계열+1 호텔항공관광계열+2"
           >
             글로벌관광
           </option>
           <option
             value="한국어관광A"
-            class="HotelAirlin-Service&Tourism_first HotelAirlin-Service&Tourism_second"
+            data-chained="호텔항공관광계열+1 호텔항공관광계열+2"
           >
             한국어관광A
           </option>
-          <option value="한국어관광B" class="HotelAirlin-Service&Tourism_first">
+          <option value="한국어관광B" data-chained="호텔항공관광계열+1">
             한국어관광B
           </option>
-          <option
-            value="의료관광코디네이터"
-            class="HotelAirlin-Service&Tourism_second"
-          >
+          <option value="의료관광코디네이터" data-chained="호텔항공관광계열+2">
             의료관광코디네이터
           </option>
-          <option
-            value="일본관광서비스A"
-            class="HotelAirlin-Service&Tourism_second"
-          >
+          <option value="일본관광서비스A" data-chained="호텔항공관광계열+2">
             일본관광서비스A
           </option>
-          <option
-            value="일본관광서비스B"
-            class="HotelAirlin-Service&Tourism_second"
-          >
+          <option value="일본관광서비스B" data-chained="호텔항공관광계열+2">
             일본관광서비스B
           </option>
-          <option
-            value="중국관광서비스"
-            class="HotelAirlin-Service&Tourism_second"
-          >
+          <option value="중국관광서비스" data-chained="호텔항공관광계열+2">
             중국관광서비스
           </option>
-          <option value="특급호텔" class="HotelAirlin-Service&Tourism_second">
+          <option value="특급호텔" data-chained="호텔항공관광계열+2">
             특급호텔
           </option>
-          <option value="항공서비스" class="HotelAirlin-Service&Tourism_second">
+          <option value="항공서비스" data-chained="호텔항공관광계열+2">
             항공서비스
           </option>
-          <option
-            value="항공에어부산"
-            class="HotelAirlin-Service&Tourism_second"
-          >
+          <option value="항공에어부산" data-chained="호텔항공관광계열+2">
             항공에어부산
           </option>
-          <option
-            value="호텔외식아웃백"
-            class="HotelAirlin-Service&Tourism_second"
-          >
+          <option value="호텔외식아웃백" data-chained="호텔항공관광계열+2">
             호텔외식아웃백
           </option>
-          <option value="호텔카지노" class="HotelAirlin-Service&Tourism_second">
+          <option value="호텔카지노" data-chained="호텔항공관광계열+2">
             호텔카지노
           </option>
-          <option value="군사B" class="Military_first">군사B</option>
-          <option value="국방A" class="Military_second">국방A</option>
-          <option value="국방B" class="Military_second">국방B</option>
-          <option value="군사A" class="Military_second">군사A</option>
-          <option value="의무A" class="Military_second">의무A</option>
-          <option value="전투A" class="Military_second">전투A</option>
-          <option value="항공A" class="Military_second">항공A</option>
-          <option value="드론" class="Drone-Avionics_second">드론</option>
+          <option value="군사B" data-chained="부사관계열+1">군사B</option>
+          <option value="국방A" data-chained="부사관계열+2">국방A</option>
+          <option value="국방B" data-chained="부사관계열+2">국방B</option>
+          <option value="군사A" data-chained="부사관계열+2">군사A</option>
+          <option value="의무A" data-chained="부사관계열+2">의무A</option>
+          <option value="전투A" data-chained="부사관계열+2">전투A</option>
+          <option value="항공A" data-chained="부사관계열+2">항공A</option>
+          <option value="드론" data-chained="드론항공전자과+2">드론</option>
         </select>
 
         <!-- <label>Interests:</label>
@@ -755,10 +578,17 @@
       </fieldset>
       <button id="submit" type="submit">가입하기</button>
     </form>
-
-    <script src="//rawgit.com/tuupola/jquery_chained/master/jquery.chained.min.js"></script>
-    <script src="/js/chained.js"></script>
+    
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/code.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/jquery.chained.js"></script>
+    <script>
+      $("#user_grade").chained("#user_dept");
+      $("#user_class").chained("#user_grade, #user_dept");
+    </script>
 
     <script src="/js/frofessor_sign-up.js"></script>
+    <script src="/js/check-id.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:script="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>공지사항</title>
     <meta charset="utf-8" />
@@ -11,7 +11,6 @@
 
     <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
-    <link rel="stylesheet" href="/src/main/resources/static/css/nav.css" th:href="@{/css/nav.css}">
 
 
 
@@ -61,71 +60,9 @@
 
     <!-- Header -->
     <header id="header">
-        <navbar>
-            <div class="nav">
-              <ul class="dep1">
-                <li class="logo">
-                  <a href="/">영진전문대학교</a>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                  <a href="#">진로설계</a>
-                  <ul class="dep2" onmouseover="nav_on()">
-                    <li><a href="/career-planning/simli_test">진로심리검사</a></li>
-                    <li><a href="/job-information">직업정보</a></li>
-                    <li><a href="#">직업사전</a></li>
-                  </ul>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                  <a href="#">직무역량강화</a>
-                  <ul class="dep2" onmouseover="nav_on()">
-                    <li><a href="#">지원프로그램</a></li>
-                    <li><a href="#">자격증 관리</a></li>
-                    <li><a href="#">수료증 관리</a></li>
-                  </ul>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                  <a href="#">구직역량강화</a>
-                  <ul class="dep2" onmouseover="nav_on()">
-                    <li><a href="/application/cv/before">이력서 관리</a></li>
-                    <li><a href="#">자소서 관리</a></li>
-                  </ul>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                  <a href="#">구직서비스</a>
-                  <ul class="dep2" onmouseover="nav_on()">
-                    <li><a th:href="@{/Employ/list}"> 채용정보</a></li>
-                    <li><a th:href="@{/Employ/register}"> 채용등록</a></li>
-                  </ul>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                  <a href="#">상담</a>
-                  <ul class="dep2" onmouseover="nav_on()">
-                    <li><a href="#">상담소개</a></li>
-                    <li><a href="#">상담신청</a></li>
-                  </ul>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                  <a href="#">센터정보</a>
-                  <ul class="dep2" onmouseover="nav_on()">
-                    <li><a href="/center-information/center_introduction">센터소개</a></li>
-                    <li><a href="/center-information/main_business">주요업무내용</a></li>
-                    <li><a href="/center-information/notice_board">공지사항</a></li>
-                  </ul>
-                </li>
-                <li class="login">
-                  <a href="/login" th:if="!${loginUser}">로그인</a>
-                  <a href="/logout" th:if="${loginUser}">로그아웃</a>
-                </li>
-                <li class="join">
-                  <a href="/sign-up" th:if="!${loginUser}">회원가입</a>
-                  <a href="/mypage/member/read" th:if="${loginUser}">마이페이지</a>
-                </li>
-              </ul>
-            </div>
-            <div class="nav2">
-              <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
-            </div>
-          </navbar>
+        <!--네비 div-->
+        <div th:replace="layout/layout :: nav"/>
+
     </header>
 
     <!-- Main -->
@@ -168,7 +105,7 @@
                     <style>
                         .container {
                              text-align: center;
-                            
+
                         }
                         .contentBox{
                             width:1000px;
@@ -207,28 +144,49 @@
                     <div class="col-9 col-12-medium imp-medium">
                         <div class="container">
                             <div class="contentBox">
-                            <th:block th:fragment="content">
+                                <th:block th:fragment="content">
 
-                                <h1 class="h1-class">공지사항 상세글</h1>
-    
-                                <div class="form-group">
-                                    <label class="label">글번호</label>
-                                    <input type="text" class="form-control" name="gno" th:value="${dto.num}" readonly >
-                                </div>
-    
-                                <div class="form-group">
-                                    <label class="label">제목</label>
-                                    <input type="text" class="form-control" name="title" th:value="${dto.title}" readonly >
-                                </div>
-                                <div class="form-group">
-                                    <label class="label">내용</label>
-                                    <textarea class="form-control" rows="5" name="content" readonly>[[${dto.content}]]</textarea>
-                                </div>
-    
-                            </th:block>
+                                    <h1 class="mt-4">게시물 상세글</h1>
+
+                                    <div class="form-group">
+                                        <label>글번호</label>
+                                        <input type="text" class="form-control" name="num" th:value="${dto.num}" readonly >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >제목</label>>
+                                        <input type="text" class="form-control" name="title" th:value="${dto.title}" readonly >
+                                    </div>
+                                    <div class="form-group">
+                                        <label >내용</label>
+                                        <textarea class="form-control" rows="5" name="content" readonly>[[${dto.content}]]</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >작성자</label>
+                                        <input type="text" class="form-control" name="b" th:value="${dto.b}" readonly>
+                                    </div>
+
+                                        <!-- 날짜 -->
+                                        <!-- <div class="form-group">
+                                            <label >RegDate</label>
+                                            <input type="text" class="form-control" name="regDate" th:value="${#temporals.format(dto.regDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label >ModDate</label>
+                                            <input type="text" class="form-control" name="modDate" th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
+                                        </div> -->
+
+                                        <a th:href="@{/center-information/notice_board_modify(num = ${dto.num}, page=${requestDTO.page})}">
+                                            <button type="button" class="btn btn-primary">수정</button>
+                                        </a>
+
+                                        <a th:href="@{/center-information/notice_board(page=${requestDTO.page})}">
+                                            <button type="button" class="btn btn-info">뒤로</button>
+                                        </a> 
+
+                                </th:block>                       
                             </div>
                         </div>
-
                     </div>
                     <!-- End Content -->
 
@@ -238,39 +196,17 @@
         </section>
 
 
-        <div class="footer">
-            <ul class="footer_1">
-                <li class="footer_1_c">개인정보처리방침</li>
-                <li class="footer_1_c">이메일무단수집거부</li>
-                <li class="footer_1_c">저작권보호방침</li>
-                <li class="footer_1_c">입찰정보</li>
-                <li class="footer_1_c">예산공고</li>
-            </ul>
-            <ul class="footer_2">
-                <li class="footer_2_c">전화번호 : 053-819-1000</li>
-                <li class="footer_2_c">전화번호 : 053-770-2233</li>
-                <li class="footer_2_c">전화번호 : 053-819-1114</li>
-            </ul>
-            <ul class="footer_3">
-                <li class="footer_3_c">
-                    COPYRIGHT (C) DAEGU YEUNGJIN UNIVERSITY.ALL RIGHTS RESERVED.
-                </li>
-            </ul>
-        </div>
+        <!--footer -->
+        <footer th:replace="layout/layout :: footer"/>
     </div>
 </div>
 </div>
 </section>
 
-
-
-
 </div>
 
 <!-- Scripts -->
 <script src="/js/jquery-3.5.1.min.js"></script>
-<script src="/js/footer.js"></script>
-<script src="/js/nav.js"></script>
 
 <!-- <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>

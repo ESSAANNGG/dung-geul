@@ -34,6 +34,7 @@ public interface MemberService {
 
         System.out.println("save member : " + member.toString());
 
+
         return member;
     }
 

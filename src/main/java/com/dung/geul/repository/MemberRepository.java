@@ -16,6 +16,10 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     @Query("select m from Member m where m.user_id = :user_id")
     Optional<Member> findByIdWidthRole(@Param("user_id") String user_id);
 
+    // 아이디 체크 ( return값이 1 : 아이디 있음(중복), 0 : 아이디 없음(중복아님) )
+    @Query("select count(m.user_id) from Member m where m.user_id = :user_id")
+    int checkId(@Param("user_id") String user_id);
+
     // findBy : 규칙, Email : 문법 => select * from member where email = ?
     // ? 자리엔 파라미터로 넘어온 user_email이 들어감
 

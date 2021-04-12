@@ -7,23 +7,23 @@ import com.dung.geul.entity.Board;
 
 public interface notice_boardService {
 
-    PageResultDTO<notice_boardDTO, Board> getList(PageRequestDTO pageRequestDTO);
+    PageResultDTO<notice_boardDTO, Board> getList(PageRequestDTO pageRequestDTO);   // 게시글 조회
 
-    notice_boardDTO read(Long board_num);   // 방명록의 조회 처리
+    notice_boardDTO read(Long num);   // 방명록의 조회 처리
 
-    Long register(notice_boardDTO notice_boardDTO);
+    Long register(notice_boardDTO dto); // 글 작성 페이지
 
-    void modify(notice_boardDTO notice_boardDTO);
+    void remove(Long num);    // 글 삭제
 
-    void remove(Long board_num);
+    void modify(notice_boardDTO dto);   // 글 수정
 
 
     default Board dtoToEntity(notice_boardDTO dto) {    // dto -> entity
         Board entity = Board.builder()
                 .num(dto.getNum())
                 .board_title(dto.getTitle())
-//                .content(dto.getContent())
-//                .b(dto.getB())
+                .content(dto.getContent())
+                .b(dto.getB())
                 .build();
 
         return entity;
@@ -34,8 +34,8 @@ public interface notice_boardService {
         notice_boardDTO dto = notice_boardDTO.builder()
                 .num(entity.getNum())
                 .title(entity.getBoard_title())
-//                .content(entity.getContent())
-//                .b(entity.getB())
+                .content(entity.getContent())
+                .b(entity.getB())
                 //.regDate(entity.getRegDate())
                 //.modDate(entity.getModDate())
                 .build();
