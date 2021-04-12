@@ -70,11 +70,56 @@
                         </div>
 
                         <!-- Content -->
+
+                        <style>
+                            /* 목록 데이터 페이지 처리 */
+                            .page-ul-div {
+                                text-align: center;
+                            }
+
+                            .page-ul {
+                                display: block;
+                                list-style: none;
+                                margin: 5px;
+                                padding: 5px;
+                            }
+
+                            /* [글쓰기] 버튼 */
+                            .write-btn {
+                                color: #fff;
+                                background-color: #1a508b;
+
+                                font-size: 15px;
+                                text-align: right;
+
+                            }
+
+                            /* [이전], [다음] 버튼 */
+                            .page-li {
+                                margin: 5px;
+                                padding: 5px;
+                                border : black;
+                                float: left;
+                            }
+
+                            /* [이전], [다음] 버튼 hover */
+                            .page-li:hover {
+                                    background-color: #1a508b;
+                            }
+
+                            /* 게시글 등록 창 */
+                            .register-content {
+                                background-color: #f2f2f2;
+                                padding: 10px;
+                            }
+                            
+                        </style>
+
                         <th:block th:fragment="content">
 
                             <h1>공지사항 게시글 수정</h1>
 
-                            <div class="register-content" style="background-color: #f2f2f2; padding: 10px;">
+                            <div class="register-content">
 
                                 <form action="/center-information/notice_board_modify" method="post">
 
