@@ -2,7 +2,7 @@
 
     <html xmlns:th="http://www.thymeleaf.org" xmlns:script="http://www.w3.org/1999/xhtml">
     <head>
-        <title>공지사항</title>
+        <title>공지사항 수정</title>
         <meta charset="utf-8" />
         <meta
                 name="viewport"
@@ -11,45 +11,13 @@
 
         <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
         <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
-        <script src="/js/jquery-3.5.1.min.js"></script>
 
+        <!-- 수정 삭제 동작을 하기 위한 jQuery -->
+        <script src="/js/jquery-3.5.1.min.js"></script>
 
         <!-- 목록 데이터 페이지 처리, 등록 버튼 CSS 디자인 : 차후 css파일에 수정 要-->
         <style>
-            /* 목록 데이터 페이지 처리 */
-            .page-ul-div {
-                text-align: center;
-            }
 
-            .page-ul {
-                display: block;
-                list-style: none;
-                margin: 5px;
-                padding: 5px;
-            }
-
-            /* [글쓰기] 버튼 */
-            .write-btn {
-                color: #fff;
-                background-color: #1a508b;
-
-                font-size: 15px;
-                text-align: right;
-
-            }
-
-            /* [이전], [다음] 버튼 */
-            .page-li {
-                margin: 5px;
-                padding: 5px;
-                border : black;
-                float: left;
-            }
-
-            /* [이전], [다음] 버튼 hover */
-            .page-li:hover {
-                background-color: #1a508b;
-            }
 
         </style>
 
@@ -104,48 +72,51 @@
                         <!-- Content -->
                         <th:block th:fragment="content">
 
-                            <h1 class="mt-4">게시글 수정 페이지</h1>
+                            <h1>공지사항 게시글 수정</h1>
 
-                            <form action="/center-information/notice_board_modify" method="post">
+                            <div class="register-content" style="background-color: #f2f2f2; padding: 10px;">
 
-                                <!--페이지 번호(히든처리) : 수정 후 어디로 갈지 지정  -->
-                                <input type="hidden" name="page" th:value="${requestDTO.page}">
-                                <!-- <input type="hidden" name="type" th:value="${requestDTO.type}" >
-                                <input type="hidden" name="keyword" th:value="${requestDTO.keyword}"> -->
+                                <form action="/center-information/notice_board_modify" method="post">
 
+                                    <!--페이지 번호(히든처리) : 수정 후 어디로 갈지 지정  -->
+                                    <input type="hidden" name="page" th:value="${requestDTO.page}">
+                                    <!-- <input type="hidden" name="type" th:value="${requestDTO.type}" >
+                                    <input type="hidden" name="keyword" th:value="${requestDTO.keyword}"> -->
 
-                                <div class="form-group">
-                                    <label >글번호</label>
-                                    <input type="text" class="form-control" name="num" th:value="${dto.num}" readonly >
-                                </div>
+                                    <div class="form-group">
+                                        <label >글번호</label>
+                                        <input type="text" class="form-control" name="num" th:value="${dto.num}" readonly >
+                                    </div>
 
-                                <div class="form-group">
-                                    <label >제목</label>
-                                    <input type="text" class="form-control" name="title" th:value="${dto.title}">
-                                </div>
+                                    <div class="form-group">
+                                        <label >제목</label>
+                                        <input type="text" class="form-control" name="title" th:value="${dto.title}">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label >내용</label>
-                                    <textarea class="form-control" rows="5" name="content">[[${dto.content}]]</textarea>
-                                </div>
+                                    <div class="form-group">
+                                        <label >내용</label>
+                                        <textarea class="form-control" rows="5" name="content">[[${dto.content}]]</textarea>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label >작성자</label>
-                                    <input type="text" class="form-control" name="writer" th:value="${dto.b}" readonly>
-                                </div>
+                                    <div class="form-group">
+                                        <label >작성자</label>
+                                        <input type="text" class="form-control" name="writer" th:value="${dto.b}" readonly>
+                                    </div>
 
-                                <!-- <div class="form-group">
-                                    <label >RegDate</label>
-                                    <input type="text" class="form-control" th:value="${#temporals.format(dto.regDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label >ModDate</label>
-                                    <input type="text" class="form-control" th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
-                                </div> -->
+                                    <!-- <div class="form-group">
+                                        <label >RegDate</label>
+                                        <input type="text" class="form-control" th:value="${#temporals.format(dto.regDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >ModDate</label>
+                                        <input type="text" class="form-control" th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
+                                    </div> -->
 
-                            </form>
+                                </form>
 
-                            <div>
+                            </div>
+
+                            <div style="padding: 10px;">
                                 <button type="button" class="modifyBtn">수정</button>
                                 <button type="button" class="removeBtn">삭제</button>
                                 <button type="button" class="listBtn">뒤로</button>
@@ -156,6 +127,7 @@
                                 var actionForm = $("form"); //form 태그 객체
 
                                 $(".removeBtn").click(function(){
+                                    alert("삭제 버튼을 클릭!")
                                     actionForm
                                         .attr("action", "/center-information/remove")
                                         .attr("method","post");
@@ -165,12 +137,13 @@
                                 });
 
                                 $(".modifyBtn").click(function() {
+                                    alert("수정 버튼을 클릭!")
                                     if(!confirm("수정하시겠습니까?")){
                                         return ;
                                     }
 
                                     actionForm
-                                        .attr("action", "/center-information/notice_board_modify")
+                                        .attr("action", "/center-information/modify")
                                         .attr("method","post")
                                         .submit();
                                 });
@@ -198,10 +171,8 @@
                                 })
 
                             </script>
-
                         </th:block>
                         <!-- End Content -->
-
 
                     </div>
                 </div>
