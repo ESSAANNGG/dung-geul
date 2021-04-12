@@ -127,7 +127,6 @@
                                 var actionForm = $("form"); //form 태그 객체
 
                                 $(".removeBtn").click(function(){
-                                    alert("삭제 버튼을 클릭!")
                                     actionForm
                                         .attr("action", "/center-information/remove")
                                         .attr("method","post");
@@ -137,7 +136,6 @@
                                 });
 
                                 $(".modifyBtn").click(function() {
-                                    alert("수정 버튼을 클릭!")
                                     if(!confirm("수정하시겠습니까?")){
                                         return ;
                                     }
