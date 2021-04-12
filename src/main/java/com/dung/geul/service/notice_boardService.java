@@ -9,13 +9,13 @@ public interface notice_boardService {
 
     PageResultDTO<notice_boardDTO, Board> getList(PageRequestDTO pageRequestDTO);   // 게시글 조회
 
-    notice_boardDTO read(Long board_num);   // 방명록의 조회 처리
+    notice_boardDTO read(Long num);   // 방명록의 조회 처리
 
-    Long register(notice_boardDTO notice_boardDTO); // 글 작성 페이지
+    Long register(notice_boardDTO dto); // 글 작성 페이지
 
-    void modify(notice_boardDTO notice_boardDTO);
+    void remove(Long num);    // 글 삭제
 
-    void remove(Long board_num);
+    void modify(notice_boardDTO dto);   // 글 수정
 
 
     default Board dtoToEntity(notice_boardDTO dto) {    // dto -> entity

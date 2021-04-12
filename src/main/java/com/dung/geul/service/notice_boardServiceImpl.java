@@ -39,34 +39,59 @@ public class notice_boardServiceImpl implements notice_boardService {
 
         Optional<Board> result = boardRepository.findById(num);
 
-        //isPresent() :저장된 값이 존재하면 true를 반환하고, 값이 존재하지 않으면 false를 반환함.
-        return result.isPresent()? entityToDto(result.get()): null;
+        //isPresent() :저장된 값이 존재하면 true(entityToDto)를 반환하고, 값이 존재하지 않으면 false(null)를 반환함.
+        return result.isPresent()? entityToDto(result.get()) : null;
     }
 
     @Override
-    public Long register(notice_boardDTO notice_boardDTO) {
+    public Long register(notice_boardDTO dto) {
 
-        Board board = dtoToEntity(notice_boardDTO);
+        log.info("DTO------------------------");
+        log.info(dto);
 
-        boardRepository.save(board);
+        Board entity = dtoToEntity(dto);
 
-        return board.getNum();
+        log.info(entity);
+
+        boardRepository.save(entity);
+
+        return entity.getNum();
     }
 
-    @Override
-    public void modify(notice_boardDTO notice_boardDTO) {
-
-        Board board = dtoToEntity(notice_boardDTO);
-
-        boardRepository.save(board);
-
-    }
+//    @Override
+//    public void modify(notice_boardDTO notice_boardDTO) {
+//
+//        Board board = dtoToEntity(notice_boardDTO);
+//
+//        boardRepository.save(board);
+//
+//    }
 
     @Override
     public void remove(Long num) {
 
         boardRepository.deleteById(num);
 
+    }
+
+
+    @Override
+    public void modify(notice_boardDTO dto) {
+
+        //업데이트 하는 항목은 '제목', '내용'
+
+        Optional<Board> result = boardRepository.findById(dto.getNum());
+
+        if(result.isPresent()){
+
+            Board entity = result.get();
+
+            entity.changeTitle(dto.getTitle());
+            entity.changeContent(dto.getContent());
+
+            boardRepository.save(entity);
+
+        }
     }
 
 }
