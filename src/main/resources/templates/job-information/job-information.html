@@ -65,9 +65,10 @@
                         <div class="label">키워드 검색</div>
 
                         <div class="label-con form-inline">
-                            <form id="jobsearch_k" name="jobsearch_k" method="post" action="#">
+                            <form id="jobsearch_k" name="jobsearch_k" method="get" 
+							action="https://www.work.go.kr/consltJobCarpa/srch/jobInfoSrch/srchJobInfo.do?cond=key&searchCode=">
                                 <input type="hidden" name="type" value="k">
-                                <input type="text" id="searchCode" name="searchCode" value="키워드 입력"
+                                <input type="text" id="searchCode" name="searchCode" value=""
                                        maxlength="100" class="form-control" placeholder="직종명을 입력하세요.">
                                 <button type="submit" class="btn-d" onclick="job_search(); return false;">검색</button>
                             </form>
@@ -78,12 +79,11 @@
                     <div class="label1">조건별 검색</div>
 
                     <div class="label-con form-inline">
-                        <form id="jobsearch_c" name="jobsearch_c" method="post" action="#">
                             <input type="hidden" id="pageIndex" name="pageIndex" value="1">
                             <input type="hidden" id="pageUnit" name="pageUnit" value="10">
                             <input type="hidden" id="pageSize" name="pageSize" value="c"
                                    class="form-control">
-                            <input type="hidden" name="nav_ㅈcode" value="job1580811517">
+                            <input type="hidden" name="nav_code" value="job1580811517">
                             <select name="searchType1" id="searchType1" title="조건 1 선택"
                                     class="form-control">
                                 <option value>평균 연봉</option>
@@ -95,33 +95,56 @@
                             <select name="searchType2" id="searchType2" title="조건 2 선택"
                                     class="form-control">
                                 <option value>직업 전망</option>
-                                <option value="74.2">매우 밝음(상위 10% 이상)</option>
-                                <option value="63.3">밝음(상위 20% 이상)</option>
-                                <option value="40.0">보통(중간 이상)</option>
-                                <option value="60.0">전망 안 좋음(감소예상직업)</option>
+                                <option value="1">매우 밝음(상위 10% 이상)</option>
+                                <option value="2">밝음(상위 20% 이상)</option>
+                                <option value="3">보통(중간 이상)</option>
+                                <option value="4">전망 안 좋음(감소예상직업)</option>
                             </select>
-                            <button type="submit" class="btn-d" onclick="job_search2(); return false;">검색</button>
-                        </form>
+							<button onclick="job_search1()">검색</button>
                     </div> <!-- label-con form-inline -->
                 </div>  <!-- search-box -->
                 <div class="bx1_wh" style="float: left;">
                     <div class="search-plz">
-                        <h2>직업 정보를 검색해 주세요.</h2>
-                    </div>
-                    <h3>직업정보찾기 10건</h3>
-                    <ul id="show" class="clear fix d2 text-xs">
-                        <li><a href="#"><span>간호사</span></a></li>
-                        <li><a href="#"><span>간호사</span></a></li>
-                        <li><a href="#"><span>간호사</span></a></li>
-                        <li><a href="#"><span>간호사</span></a></li>
-                        <li><a href="#"><span>간호사</span></a></li>
-                        <li><a href="#"><span>간호사</span></a></li>
-                        <li><a href="#"><span>간호사</span></a></li>
-                        <li><a href="#"><span>간호사</span></a></li>
-                        <li><a href="#"><span>간호사</span></a></li>
-                        <li><a href="#"><span>간호사</span></a></li>
-                        <li><a href="#"><span>간호사</span></a></li>
-                    </ul>
+                        <h2 class="jobInfo">직업 정보를 검색해 주세요.</h2>
+						<!-- 조건별 검색 페이지 이동 -->
+						<a href="javascript:goPage()"></a>
+					</div>
+
+                    <!-- 직업 정보 검색 JS -->
+                    <script>
+
+                        function job_search1() {	// 조건별 검색
+							// 평균 연봉
+							var target1 = document.getElementById("searchType1");
+							// alert('선택된 옵션 text 값=' + target.options[target.selectedIndex].text);     // 옵션 text 값
+							// alert('선택된 옵션 value 값=' + target.options[target.selectedIndex].value);     // 옵션 value 값
+							
+							// 직업 전망
+							var target2 = document.getElementById("searchType2");
+							// alert('선택된 옵션 text 값=' + target.options[target.selectedIndex].text);     // 옵션 text 값
+							// alert('선택된 옵션 value 값=' + target.options[target.selectedIndex].value);     // 옵션 value 값
+
+							// h2(jobInfo)를 선택받은 값과 합쳐서 링크로 만들어서 바꿔주기
+							var st1 = document.getElementById("searchType1").options[target1.selectedIndex].value;
+							var st2 = document.getElementById("searchType2").options[target2.selectedIndex].value;
+
+							var link = "https://www.work.go.kr/consltJobCarpa/srch/jobInfoSrch/srchJobInfo.do?pageIndex=1&pageUnit=10&pageSize=10&cond=cond&searchType1=" + st1 + "&searchType2=" + st2;
+							// alert("st1 = " + st1 + "st2 = " + st2)
+							// alert(link);
+							
+							// var x = document.getElementsByClassName("jobInfo")[0];
+							// x.innerHTML = ;
+
+							goPage(link);
+
+						}
+
+						function goPage(param) {	// 페이지 이동 함수
+							location.href=param;
+						}
+
+                    </script>
+
                 </div>  <!-- bx1_wh -->
 
             </div>
