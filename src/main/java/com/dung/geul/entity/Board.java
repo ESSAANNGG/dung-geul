@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-
-
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,7 +30,7 @@ public class Board implements Serializable {
     private String board_title; //제목
 
     @Column(length = 1500, nullable = false)
-    private String content;     // 내용
+    private String content; // 내용
 
     private String board_file; //첨부파일
 
@@ -42,6 +40,16 @@ public class Board implements Serializable {
     private Board board; //글번호 본인 참조 FK
 
     //file 데이터타입 이랑 본인참조 어캐할지
+
+// 글 수정(제목, 내용) -------------------------------------------------------------
+
+    public void changeTitle(String title){
+        this.board_title = title;
+    }
+
+    public void changeContent(String content){
+        this.content = content;
+    }
 
 
 }

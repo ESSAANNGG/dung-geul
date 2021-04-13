@@ -2,7 +2,7 @@
 
 <html xmlns:th="http://www.thymeleaf.org" xmlns:script="http://www.w3.org/1999/xhtml">
 <head>
-    <title>공지사항</title>
+    <title>공지사항 등록</title>
     <meta charset="utf-8" />
     <meta
             name="viewport"
@@ -47,6 +47,12 @@
         /* [이전], [다음] 버튼 hover */
         .page-li:hover {
                 background-color: #1a508b;
+        }
+
+        /* 게시글 등록 창 */
+        .register-content {
+            background-color: #f2f2f2;
+            padding: 10px;
         }
 
 </style>
@@ -101,36 +107,33 @@
 
                     <!-- Content -->
                         <div class="col-9 col-12-medium imp-medium">
-
-<!--                        <th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">-->
-
                             <th:block th:fragment="content">
+                                <h1>공지사항 게시글 등록</h1>
 
-                                <h1 class="mt-4">공지사항 게시글 등록</h1>
+                                <div class="register-content">
 
-                                <form th:action="@{/center-information/notice_board_register}" th:method="post">
+                                    <form th:action="@{/center-information/notice_board_register}" th:method="post">
 
-                                    <div class="form-group">
-                                        <label>제목</label>
-                                        <input type="text" class="form-control" name="title" placeholder="제목을 입력하세요">
-                                    </div>
-
-                                   <div class="form-group">
-                                        <label>내용</label>
-                                        <textarea class="form-control" rows="5" name="content" placeholder="내용을 입력하세요"></textarea>
-                                    </div>
+                                        <div class="form-group">
+                                            <label>제목</label>
+                                            <input type="text" class="form-control" name="title" placeholder="제목을 입력하세요">
+                                        </div>
 
                                     <div class="form-group">
-                                        <label>작성자</label>
-                                        <input type="text" class="form-control" name="writer" placeholder="작성자">
-                                    </div>
+                                            <label>내용</label>
+                                            <textarea class="form-control" rows="5" name="content" placeholder="내용을 입력하세요"></textarea>
+                                        </div>
 
-                                    <button type="submit" class="btn btn-primary">등록</button>
-                                </form>
+                                        <div class="form-group">
+                                            <label>작성자</label>
+                                            <input type="text" class="form-control" name="b" placeholder="작성자">
+                                        </div>
 
+                                        <button type="submit" class="btn btn-primary">등록</button>
+                                    </form>
+
+                                </div>
                             </th:block>
-
-<!--                        </th:block>-->
 
                     </div>
                     <!-- End Content -->
