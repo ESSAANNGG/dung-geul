@@ -45,6 +45,12 @@ public class MemberController {
         return "sign-up/professor_sign-up";
     }
 
+    @GetMapping("/personnel_sign-up")
+    public String personnelSignUp(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
+        model.addAttribute("loginUser", authMemberDTO);
+        return "sign-up/personnel_sign-up";
+    }
+
     @GetMapping("/mentor_sign-up")
     public String mentorSignUp(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
         model.addAttribute("loginUser", authMemberDTO);

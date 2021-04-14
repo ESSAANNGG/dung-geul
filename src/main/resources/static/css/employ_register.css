@@ -1,0 +1,388 @@
+/*employ regist.html*/
+.content {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 64em;
+  }
+
+.employ_register{
+    display: block;
+    width:850px;
+    margin-left:20px;
+    background-color: #ffffff;
+    color:#768395;
+    box-shadow: 0 0 1px 1px #e2e2e2;
+    border-radius: 8px 8px 8px 8px;
+}
+#employ_register1{
+    display:block;
+}
+#employ_register2{
+    display:none;
+}
+/*공고등록*/
+.register_head{
+    height:100px;
+    line-height:100px;   
+    border-bottom:2px solid #f2f2f2;
+}
+.register_head_txt{
+    margin-left:20px;
+    color:#545d69;
+    font-weight:900;
+    font-size:22px;
+}
+.employ_register input{
+    border-radius: 3px 3px 3px 3px;
+    border:1px solid #768395;
+}
+.employ_register textarea{
+    border-radius: 3px 3px 3px 3px;
+    border:1px solid #768395;
+    resize: none;
+}
+.employ_register select{
+    border-radius: 3px 3px 3px 3px;
+    border:1px solid #768395;
+}
+.employ_register button{
+    border-radius: 3px 3px 3px 3px;
+    border:1px solid #768395;
+}
+
+.employ_register input:focus{
+    outline:none;
+}
+.employ_register textarea:focus{
+    outline:none;
+}
+.employ_register select:focus{
+    outline:none;
+}
+.employ_register button:focus{
+    outline:none;
+}
+
+/*스텝 제목*/
+.register_step_head{
+    display:flex;
+    justify-content: center;
+    width:500px;
+    margin: 20px auto;
+    font-weight: 500;
+    font-size:24px;
+}
+/*공고등록 제목*/
+.register_title_wrap{
+    display: flex;
+    justify-content: center;
+    height:70px;
+    padding:20px;
+    margin: 0 auto;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_title{
+    display:inline-block;
+    width:100px;
+}
+.register_title_input{
+    display:inline-block;
+    width:600px;
+    height:40px;
+    padding:0px 15px;
+    font-size:15px;
+}
+/*공고등록 내용*/
+.register_cont_wrap{
+    display: flex;
+    justify-content: center;
+    height:500px;
+    padding:20px;
+    margin: 0 auto 40px auto;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_cont{
+    display:inline-block;
+    width:100px;
+    height:500px;
+    vertical-align: text-top;
+}
+.register_cont_input{
+    vertical-align: top; 
+    display:inline-block;
+    text-align: top;
+    
+    width:600px;
+    height:500px;
+    padding:0px 15px;
+    font-size:15px;
+}
+
+/*공고등록 구분*/
+/*직종*/
+.register_ot_wrap{
+    display: flex;
+    justify-content: center;
+    height:70px;
+    padding:15px 20px 5px 20px;
+    margin: 0 auto;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_ot{
+    display:inline-block;
+    width:100px;
+}
+
+.register_ot_val_wrap{
+    width:600px;
+}
+.register_ot_val{
+    width:350px;
+    height:40px;
+    padding-left:15px;
+    font-size:14px;
+}
+/*고용형태*/
+.register_ep_wrap{
+    display: flex;
+    justify-content: center;
+    height:50px;
+    margin: 0 auto;
+    padding-top:5px;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_ep{
+    display:inline-block;
+    width:100px;
+}
+.register_ep_val{
+    width:600px;
+    height:40px;
+    padding-left:0px;
+    font-size:13px;
+    font-weight: 500;
+}
+.register_ep_val input{
+    width:15px;
+    height:15px;
+    margin-left:15px;
+    border-radius: 1px 1px 1px 1px;
+    border:1px solid #768395;
+}
+.register_ep_val input:first-child{
+    margin-left:0px;
+}
+
+
+/*공고등록 기간*/
+.register_date_wrap{
+    display: flex;
+    justify-content: center;
+    height:70px;
+    margin: 0 auto;
+    color:#768395;
+    font-weight:600;
+}
+.register_start_date{
+    display:inline-block;
+    width:45px;
+    height:40px;
+    font-size:13px;
+    line-height: 30px;
+}
+.register_end_date{
+    display:inline-block;
+    width:45px;
+    height:40px;
+    font-size:13px;
+    line-height: 30px;
+}
+.register_date_wrap input{
+    display:inline-block;
+    width:140px;
+    height:30px;
+    margin-right:20px;
+    padding-left:5px;
+    font-size:13px;
+}
+
+/*다음단계로 넘어가는 버튼*/
+.base_button_wrap{
+    display:flex;
+    justify-content: center;
+    height:100px;
+}
+.base_button{
+    height:50px;
+    margin:0 10px;
+    background-color:#48505c;
+    font-size:16px;
+    color:#ffffff;
+}
+
+
+
+
+
+
+
+/*상세정보*/
+/*모집인원*/
+.register_TO_wrap{
+    display: flex;
+    justify-content: center;
+    height:60px;
+    padding-top: 20px;
+    margin: 0 auto;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_TO{
+    width:100px;
+    font-size:16px;
+}
+.register_TO_input{
+    width:600px;
+    height:40px;
+    font-size:13px;
+    font-weight: 500; 
+}
+.register_TO_input input{
+    width:80px;
+    padding-left:15px;
+    font-size:13px;
+}
+/*경력*/
+.register_career_wrap{
+    display: flex;
+    justify-content: center;
+    height:50px;
+    padding:10px 0 10px 0;
+    margin: 0 auto;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_career{
+    width:100px;
+    font-size:16px;
+}
+.register_career_input{
+    width:600px;
+    height:40px;  
+    font-size:13px;
+    font-weight: 500; 
+}
+/*학력*/
+.register_education_wrap{
+    display: flex;
+    justify-content: center;
+    height:100px;
+    padding-top :5px;
+    margin: 0 auto;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_education{
+    width:100px;
+    font-size:16px;
+}
+.register_education_input{
+    width:600px;
+    height:40px;  
+    font-size:13px;
+    font-weight: 500; 
+}
+.register_education_val{
+    width:300px;
+    height:40px;
+    padding-left:10px;
+    margin-left:10px;
+    font-size:14px;
+}
+.register_education_text{
+    width:300px;
+    height:40px;  
+    margin:5px 0 0 30px;
+    padding-left:10px;
+    font-size:13px;
+    font-weight: 500; 
+}
+/*근무지역*/
+.register_location_wrap{
+    display: flex;
+    justify-content: center;
+    height:70px;
+    padding-top :15px;
+    margin: 0 auto;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_location{
+    width:100px;
+    font-size:16px;
+}
+.register_location_input{
+    width:600px;
+    height:40px;  
+}
+.register_location_input select{
+    width:250px;
+    margin-right:15px;
+    height:40px;  
+    font-size:13px;
+    font-weight: 500; 
+    padding-left:10px;
+}
+
+
+/*지원방법*/
+.register_addApply_wrap{
+    display: flex;
+    justify-content: center;
+    height:100px;
+    margin: 0 auto;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_addApply{
+    width:100px;
+    font-size:16px;
+}
+.register_addApply_input{
+    width:600px;
+    height:40px;  
+    font-size:13px;
+    font-weight: 500; 
+}
+.register_addApply_input input{
+    width:600px;
+    height:40px;  
+    padding-left:10px;
+    margin-bottom:5px;
+    font-size:13px;
+    font-weight: 500; 
+}
+.register_addApply_btn{
+    position:relative;
+    top:-35px;
+    width:600px;
+    height:50px;
+    font-size:19px;
+    color:#868686;
+}
+
+
+/*진행상황*/

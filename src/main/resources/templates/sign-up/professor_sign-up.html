@@ -14,7 +14,6 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-    <script src="/js/postcodify.js"></script>
   </head>
   <body>
     <form action="/signUp/professor" id="signUp" name="signUp" method="POST">
@@ -24,12 +23,18 @@
         <label for="user_id">아이디:</label>
         <input type="text" id="user_id" name="user_id" required />
         <button id="checkId">중복 검사</button>
-        <span id="checkIdResult"></span>
         <!-- 결과 텍스트가 삽입될 칸 -->
+        <span id="checkIdResult"></span>
         <div id="Result"></div>
 
         <label for="password">비밀번호</label>
         <input type="password" id="user_pw" name="user_pw" required />
+
+        <label for="password">비밀번호 확인</label>
+        <input type="password" id="checkPw" name="checkPw" required />
+        <!-- 결과 텍스트가 삽입될 칸 -->
+        <span id="checkPwResult"></span>
+        <div id="Result"></div>
 
         <label for="name">이름:</label>
         <input type="text" id="user_name" name="user_name" required />
@@ -50,7 +55,7 @@
           value="우편번호 찾기"
         /><br />
         <input type="text" id="user_addr" placeholder="도로명주소" />
-        <input type="text" id="user_jibunAddr" placeholder="지번주소" />
+        <!-- <input type="text" id="user_jibunAddr" placeholder="지번주소" /> -->
         <span id="guide" style="color: #999; display: none"></span>
         <input type="text" id="user_addr_details" placeholder="상세주소" />
         <input type="text" id="extra_info" placeholder="참고항목" />
@@ -591,5 +596,6 @@
 
     <script src="/js/frofessor_sign-up.js"></script>
     <script src="/js/check-id.js"></script>
+    <script src="/js/check-pw.js"></script>
   </body>
 </html>

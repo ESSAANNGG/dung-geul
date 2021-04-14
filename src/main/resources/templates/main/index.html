@@ -9,13 +9,14 @@
       rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
     />
     <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/scroll.js"></script>
-    <script src="js/tabmenu.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="js/thum.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/photo.js"></script>
+    <script src="js/swiper.js"></script>
 
     <link rel="stylesheet" href="css/index-style.css" />
-
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <meta charset="UTF-8" />
     <title>main</title>
   </head>
@@ -142,78 +143,180 @@
 
         <aside><span><i class="fas fa-angle-up" onclick="angle_up()"></i></span></aside>
 
-        <!-- 공지사항 -->
-        <div class="container">
-          <div class="listbox">
-            <div class="list">
-              <h2 class="inside_tit">교내채용정보</h2>
+    <div class="container" style="
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;">
 
-              <!-- 교내 채용 공고 리스트 -->
-              <ul class="thumnail">
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
+      <div class="notice">
 
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
+      </div>
 
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
-              </ul>
+
+      <div class="main-tit">
+        <ul class="tit">
+          <li><a href="#" id="inside" style="color: #23689b; border-bottom: 3px solid #23689b;" >교내 채용</a></li>
+          <li><a href="#" id="outside">교외 채용</a></li>
+          <li><a href="
+            http://www.newsnjob.com/news/articleList.html?sc_section_
+            code=S1N1&view_type=sm">취업 뉴스</a></li>
+          <li><a href="http://www.newsnjob.com/news/articleList.html?sc_section
+            _code=S1N2&view_type=sm">창업 뉴스</a></li>
+        </ul>
+      </div> <!-- main-tit -->
+      <div class="content">
+        <ul>
+          <div class="thum1">
+            <li><a href="#">한화생명</a>
+              <p>개발자 구인 중</p>
+              <span>~21.04.09</span>
+            </li>
+          </div>
+          <div class="thum1">
+            <li><a href="#">한화생명</a>
+              <p>개발자 구인 중</p>
+              <span>~21.04.09</span>
+            </li>
+          </div>          <div class="thum1">
+          <li><a href="#">한화생명</a>
+            <p>개발자 구인 중</p>
+            <span>~21.04.09</span>
+          </li>
+        </div>          <div class="thum1">
+          <li><a href="#">한화생명</a>
+            <p>개발자 구인 중</p>
+            <span>~21.04.09</span>
+          </li>
+        </div>          <div class="thum1">
+          <li><a href="#">한화생명</a>
+            <p>개발자 구인 중</p>
+            <span>~21.04.09</span>
+          </li>
+        </div>          <div class="thum1">
+          <li><a href="#">한화생명</a>
+            <p>개발자 구인 중</p>
+            <span>~21.04.09</span>
+          </li>
+        </div>
+        </ul>
+
+      </div> <!-- content -->
+      <div class="content1" style="display: none;">
+        <ul>
+          <div class="thum1">
+            <li><a href="#">한화생명1</a>
+              <p>개발자 구인 중</p>
+              <span>~21.04.09</span>
+            </li>
+          </div>
+          <div class="thum1">
+            <li><a href="#">한화생명</a>
+              <p>개발자 구인 중</p>
+              <span>~21.04.09</span>
+            </li>
+          </div>
+          <div class="thum1">
+            <li><a href="#">한화생명</a>
+              <p>개발자 구인 중</p>
+              <span>~21.04.09</span>
+            </li>
+          </div>
+          <div class="thum1">
+            <li><a href="#">한화생명</a>
+              <p>개발자 구인 중</p>
+              <span>~21.04.09</span>
+            </li>
+          </div>
+          <div class="thum1">
+            <li><a href="#">한화생명</a>
+              <p>개발자 구인 중</p>
+              <span>~21.04.09</span>
+            </li>
+          </div>
+          <div class="thum1">
+            <li><a href="#">한화생명</a>
+              <p>개발자 구인 중</p>
+              <span>~21.04.09</span>
+            </li>
+          </div>
+        </ul>
+      </div> <!-- content1 -->
+
+      <!-- 공지사항 -->
+      <div id="sub-tit">
+        <h2>백호 활동</h2>
+      </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="slide-top">
+              <img src="img/temp_1604542427864100.png" alt="500x500">
             </div>
-            <!-- list -->
-            <div class="list2">
-              <h2 class="outside_tit">교외채용정보</h2>
-              <!-- 교외 채용 공고 리스트 -->
-              <ul class="thumnail">
-                <li class="thum-1">
-                  <a href="#">2. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
-
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
-
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
-                <li class="thum-1">
-                  <a href="#">1. Lorem ipsum dolor sit amet. </a>
-                  <span>만료일 0000-00-00</span>
-                </li>
-              </ul>
+            <div class="slide-bottom">
+              <p>영진종합작품전</p>
             </div>
-            <!-- list2 -->
+          </div>
+          <div class="swiper-slide">
+            <div class="slide-top">
+              <img src="img/temp_1617092156676100.png" alt="500x500">
+            </div>
+            <div class="slide-bottom">
+              <p>영진종합작품전</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide-top">
+              <img src="img/temp_1617584497274100.png" alt="500x500">
+            </div>
+            <div class="slide-bottom">
+              <p>영진종합작품전</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide-top">
+              <img src="http://placehold.it/200x200/5C73F2" alt="500x500">
+            </div>
+            <div class="slide-bottom">
+              <p>content</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide-top">
+              <img src="http://placehold.it/500/829FD9" alt="500x500">
+            </div>
+            <div class="slide-bottom">
+              <p>content</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide-top">
+              <img src="http://placehold.it/500/0ABBB5" alt="500x500">
+            </div>
+            <div class="slide-bottom">
+              <p>content</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide-top">
+              <img src="http://placehold.it/500/6B4C7F" alt="500x500">
+            </div>
+            <div class="slide-bottom">
+              <p>content</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide-top">
+              <img src="http://placehold.it/500/CAFCFB" alt="500x500">
+            </div>
+            <div class="slide-bottom">
+              <p>content</p>
+            </div>
           </div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div> <!-- container -->
         <!-- footer -->
         <div class="bottom_menu">
           <div class="bottom_1" onclick="bottom_script_1()">전공 학과 소개</div>
