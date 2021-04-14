@@ -31,7 +31,13 @@
         <input type="password" id="user_pw" name="user_pw" required />
 
         <label for="password">비밀번호 확인</label>
-        <input type="password" id="checkPw" name="checkPw" required />
+        <input
+          type="password"
+          id="checkPw"
+          name="checkPw"
+          onkeyup="check_pw()"
+          required
+        />
         <!-- 결과 텍스트가 삽입될 칸 -->
         <span id="checkPwResult"></span>
         <div id="Result"></div>
@@ -596,7 +602,6 @@
           <option value="항공A" data-chained="부사관계열+2">항공A</option>
           <option value="드론" data-chained="드론항공전자과+2">드론</option>
         </select>
-
       </fieldset>
       <button id="submit" type="submit">가입하기</button>
     </form>
