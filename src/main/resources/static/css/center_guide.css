@@ -1919,7 +1919,7 @@ button,
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
-  background: #b1ddab;
+  background:#6b7770;
   color: #fff;
   border: 0;
   line-height: 1em;
@@ -1941,7 +1941,7 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover,
 .button:hover {
-  background: #c1edbb;
+  background: #afb6b2;
 }
 
 input[type="button"]:active,
