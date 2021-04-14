@@ -1,12 +1,12 @@
 let signUp = {
   init: function () {
     $("#submit").on("click", () => {
-      alert("sign-up.js실행");
-      this.save();
+      alert("saveStudent 실행");
+      this.saveCounselor();
     });
   },
 
-  save: function () {
+  saveCounselor: function () {
     let userData = {
       user_id: $("#user_id").val(),
       user_pw: $("#user_pw").val(),
