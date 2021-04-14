@@ -10,5 +10,15 @@ function check_pw() {
   } else if ((p = p_cf)) {
     document.getElementById("checkPwResult").style = "color: black;";
     document.getElementById("checkPwResult").innerHTML = "비밀번호가 같습니다.";
-  }
+  } 
 }
+
+$(function () {
+  $("#user_pw").on('input', function () {
+    if ($("#user_pw").val() == '')
+      $("#checkPw").attr("disabled", true);
+    else {
+      $("#checkPw").attr("disabled", false);
+    }
+  })
+})
