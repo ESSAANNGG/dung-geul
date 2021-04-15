@@ -6,21 +6,28 @@ import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
 import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.MemberRepository;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.mail.internet.MimeMessage;
 import java.security.SecureRandom;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Optional;
+import java.util.function.Function;
 
 @Service
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements MemberService {
 
     @Autowired
     private MemberRepository memberRepository;
@@ -36,38 +43,79 @@ public class MemberServiceImpl implements MemberService{
 
 
     // 회원가입 일반회원
-    public int joinMember(MemberDTO memberDTO){
+    public int joinMember(MemberDTO memberDTO) {
 
-        int result = 0;
         System.out.println("MemberServiceImpl");
 
-        String pw = encoder.encode(memberDTO.getUser_pw());
-        Member member = MemberDtoToEntity(memberDTO, pw);
+        try{
+            String pw = encoder.encode(memberDTO.getUser_pw());
+            Member member = MemberDtoToEntity(memberDTO, pw);
 
-        memberRepository.save(member);
+            memberRepository.save(member);
+            return 1;
+        } catch (Exception e){
+            System.out.println(e);
+            return 0;
+        }
 
-        result = 1;
-
-        return result;
     }
 
     //회원가입 기업
-    public void joinEnterprise(EnterpriseDTO enterpriseDTO){
+    public int joinEnterprise(EnterpriseDTO enterpriseDTO) {
+
+        int result = 0;
+        System.out.println("MemberServiceImpl - enterprise");
 
         String pw = encoder.encode(enterpriseDTO.getUser_pw());
 
         // 회원 테이블 먼저 insert
-
         Member member = MemberDtoToEntity(enterpriseDTO, pw);
 
         memberRepository.save(member);
 
-        // 기업 테이블 insert
+        try {
 
-        Enterprise enterprise = EnterpriseDtoToEntity(enterpriseDTO, member);
+            // 기업 테이블 insert
+            Enterprise enterprise = EnterpriseDtoToEntity(enterpriseDTO, member);
 
-        enterpriseRepository.save(enterprise);
+            enterpriseRepository.save(enterprise);
 
+            result = 1;
+
+        } catch (Exception e) {
+            memberRepository.delete(member);
+            result = 0;
+            System.out.println("error : " + e);
+        }
+
+        return result;
+    }
+
+    //기업 인증
+    @Transactional
+    public int authEnterprise(EnterpriseDTO enterpriseDTO) {
+        System.out.println("memberServiceImpl - authEnterprise : " + enterpriseDTO);
+
+        int result;
+
+        try{
+            Member member = memberRepository.findById(enterpriseDTO.getUser_id()).get();
+            Enterprise enterprise = enterpriseRepository.findByUser_id(member);
+
+            enterprise.modifyEtp_shape(enterpriseDTO.getEtp_shape());   // 기업 형태 추가
+            member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
+            member.modUser_allow(1);                                 // 회원 인증 정보 추가
+
+            memberRepository.save(member);
+            enterpriseRepository.save(enterprise);
+
+            result = 1;
+        }catch (Exception e){
+            System.out.println(e);
+            result = 0;
+        }
+
+        return result;
     }
 
     // 아이디 중복 체크
@@ -110,6 +158,57 @@ public class MemberServiceImpl implements MemberService{
             memberRepository.save(memberEntity);
 
             System.out.println("회원 정보 수정 완료");
+        }
+
+    }
+
+    // 기업 회원 정보 수정
+    // 회원정보 수정
+    public int modifyEtp(EnterpriseDTO enterpriseDTO) {
+
+        System.out.println("etpmodify 실행 " + enterpriseDTO);
+        try {
+            Optional<Member> member = memberRepository.findById(enterpriseDTO.getUser_id());
+
+            Member memberEntity = member.get();
+            Enterprise enterpriseEntity = enterpriseRepository.findByUser_id(memberEntity);
+
+            memberEntity.memberModify(
+                    enterpriseDTO.getUser_name(),
+                    enterpriseDTO.getUser_ph(),
+                    enterpriseDTO.getUser_email(),
+                    enterpriseDTO.getUser_postcode(),
+                    enterpriseDTO.getUser_addr(),
+                    enterpriseDTO.getUser_addr_details()
+
+            );
+
+            enterpriseEntity.modifyEtpInfo(
+                    enterpriseDTO.getEtp_name(),
+                    enterpriseDTO.getEtp_member(),
+                    enterpriseDTO.getEtp_ceo_name(),
+                    enterpriseDTO.getEtp_home(),
+                    enterpriseDTO.getEtp_contents(),
+                    enterpriseDTO.getEtp_fx(),
+                    enterpriseDTO.getEtp_year(),
+                    enterpriseDTO.getEtp_sector()
+            );
+
+
+            System.out.println("회원 정보 수정 : " + memberEntity.toString());
+            System.out.println("회원 정보 수정 : " + enterpriseEntity.toString());
+
+
+            memberRepository.save(memberEntity);
+            System.out.println("회원 정보 수정 - member");
+
+            enterpriseRepository.save(enterpriseEntity);
+            System.out.println("회원 정보 수정 - enterprise");
+
+            return 1;
+        } catch (Exception e){
+            System.out.println("에러발생 : " + e);
+            return 0;
         }
 
     }
@@ -159,21 +258,47 @@ public class MemberServiceImpl implements MemberService{
 
         Optional<Member> memberOpt = memberRepository.findById(user_id);
 
-        if(!memberOpt.isEmpty()) {
+        try{
             Member memberEntiry = memberOpt.get();
 
+            if(memberEntiry.getUser_type().equals("ENTERPRISE")){
+
+                Enterprise etpEntity = enterpriseRepository.findByUser_id(memberEntiry);
+
+                enterpriseRepository.delete(etpEntity);
+
+            }
+
             memberRepository.delete(memberEntiry);
+
+        } catch (Exception e){
+            System.out.println("error발생 : " + e);
+
         }
 
 
     }
 
-    // mypage read
+    // mypage read member
     public Member getMember(String user_id) {
 
         Optional<Member> memberOpt = memberRepository.findById(user_id);
 
         return memberOpt.get();
+    }
+
+    //mypage read Enterprise
+    public EnterpriseDTO getEnterprise(String user_id){
+
+        Object enterprise = memberRepository.findByUser_idEtpJoinMember(user_id);
+
+        Object[] result = (Object[])enterprise;
+        System.out.println("enterprise : " + Arrays.toString(result));
+
+        EnterpriseDTO enterpriseDTO = entityToDto((Enterprise) result[1], (Member) result[0]);
+        System.out.println(enterpriseDTO.toString());
+
+        return enterpriseDTO;
     }
 
     // 이름과 이메일이 일치하면 아이디값을 반환해주는 메소드
@@ -187,11 +312,7 @@ public class MemberServiceImpl implements MemberService{
     // 아이디와 이메일이 일치하면 임시비밀번호를 이메일로 보내
     public int tempPwSendEmail(MemberForgotPwDTO memberForgotPwDTO) {
 
-        System.out.println("서비스 memberForgotPwDTO : " +memberForgotPwDTO);
-
         Optional<Member> memberOpt = memberRepository.findById(memberForgotPwDTO.getUser_id());
-
-        System.out.println("memberOTP : " + memberOpt.toString());
 
         int result;
 
@@ -201,22 +322,15 @@ public class MemberServiceImpl implements MemberService{
 
             String DBemail = member.getUser_email();
 
-            System.out.println(DBemail);
-
             if(!DBemail.equals(memberForgotPwDTO.getUser_email())){
                 result = 0;
             }else{
-                System.out.println("else문 실행");
 
                 // 임시비밀번호 만들기
-                String tempPw = getRamdomPassword(5);
-
-                System.out.println("암호 pw : " + tempPw);
+                String tempPw = getRandomPassword(5);
 
                 // 메일 보내기
                 MailDTO mailDTO = new MailDTO();
-
-                System.out.println("mailDTO : " + mailDTO.toString());
 
                 mailDTO.setTitle("영진전문대학교 취업지원센터의 임시 비밀번호입니다.");
                 mailDTO.setMessage("안녕하세요 " + memberForgotPwDTO.getUser_id() + "님. \n"
@@ -225,11 +339,7 @@ public class MemberServiceImpl implements MemberService{
                         + "\n로그인 후 비밀번호를 변경해주세요");
                 mailDTO.setAddress( memberForgotPwDTO.getUser_email());
 
-                System.out.println("mailDTO : " + mailDTO.toString());
-
                 mailService.mailSend(mailDTO);
-
-                System.out.println("mailsend");
 
                 // 임시비밀번호로 변경
                 member.modUser_pw(encoder.encode(tempPw));
@@ -242,12 +352,11 @@ public class MemberServiceImpl implements MemberService{
             result = 0;
         }
 
-        System.out.println("result : " + result);
         return result;
     }
 
     // 입력한 숫자만큼의 크기의 랜덤 문자열을 반환 (임시 비밀번호로 사용)
-    public String getRamdomPassword(int size) {
+    public String getRandomPassword(int size) {
         char[] charSet = new char[] {
                 '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
@@ -271,6 +380,20 @@ public class MemberServiceImpl implements MemberService{
             sb.append(charSet[idx]);
         }
             return sb.toString();
+    }
+
+
+    // 인증 전 기업 회원 목록 가져오기
+    public PageResultDTO<AllowMemberDTO, Object[]> getList(PageRequestDTO pageRequestDTO){
+
+        Pageable pageable = pageRequestDTO.getPageable(Sort.by("user_regdate"));
+
+        Function<Object[], AllowMemberDTO> fn = (en -> AllowEntityToDTO((Member)en[0], (Enterprise) en[1]));
+
+        Page<Object[]> result = memberRepository.findNotAllowUsers(pageable);
+
+        return new PageResultDTO<>(result, fn);
+
     }
 
 }

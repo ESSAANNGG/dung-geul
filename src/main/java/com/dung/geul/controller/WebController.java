@@ -27,4 +27,8 @@ public class WebController {
         return "job-information/job-information";
     }
 
+    @GetMapping("/counseling/counseling")
+    public void coun(){
+    }
+
 }

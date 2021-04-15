@@ -1,14 +1,11 @@
 package com.dung.geul.service;
 
+import com.dung.geul.dto.AllowMemberDTO;
 import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.dto.MemberDTO;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import java.util.Set;
 
 public interface MemberService {
 
@@ -29,7 +26,7 @@ public interface MemberService {
         String role = memberDTO.getRole();
 
         if(role != null) {
-            this.RoleAndCloumAdd(member, memberDTO, role);
+            this.AddRoleWithColumn(member, memberDTO, role);
         }
 
         System.out.println("save member : " + member.toString());
@@ -44,91 +41,87 @@ public interface MemberService {
 
         // 기업 entity 객체 생성
         Enterprise enterprise = Enterprise.builder()
-                .member(member)
+                .user_id(member)
                 .etp_num(enterpriseDTO.getEtp_num())
                 .etp_name(enterpriseDTO.getEtp_name())
                 .etp_ceo_name(enterpriseDTO.getEtp_ceo_name())
                 .etp_ph(enterpriseDTO.getEtp_ph())
-                .etp_px(enterpriseDTO.getEtp_px())
+                .etp_fx(enterpriseDTO.getEtp_fx())
                 .etp_home(enterpriseDTO.getEtp_home())
                 .etp_contents(enterpriseDTO.getEtp_contents())
-                .etp_post(enterpriseDTO.getEtp_post())
-                .etp_detail_addr(enterpriseDTO.getEtp_detail_addr())
                 .etp_year(enterpriseDTO.getEtp_year())
                 .etp_member(enterpriseDTO.getEtp_member())
-                .etp_Sector(enterpriseDTO.getEtp_Sector())
+                .etp_sector(enterpriseDTO.getEtp_sector())
                 .etp_shape(enterpriseDTO.getEtp_shape())
-                .etp_allow(enterpriseDTO.getEtp_allow())
                 .build();
 
         return enterprise;
     }
 
 
-
-    default void RoleAndCloumAdd(Member member, MemberDTO memberDTO, String role){
+    // 회원에 따라 권한 및 관련 속성 추가
+    default void AddRoleWithColumn(Member member, MemberDTO memberDTO, String role){
 
         member.addMemberRole(MemberRole.USER);
+        member.modUser_type(role);
 
-        if (role.equals("STUDENT")) {
+        if (role.equals("STUDENT") || role.equals("STAFF")) {
             member.modUser_dept(memberDTO.getUser_dept());
             member.modUser_grade(memberDTO.getUser_grade());
             member.modUser_class(memberDTO.getUser_class());
 
             member.addMemberRole(MemberRole.STUDENT);
+
         } else if (role.equals("MENTO")) {
             member.modUser_job(member.getUser_job());
 
+
             member.addMemberRole(MemberRole.MENTO);
+
         } else if (role.equals("COUNSELOR")) {
-            // 상담 분야 ??
 
             member.addMemberRole(MemberRole.COUNSELOR);
 
-        } else if (role.equals("ENTERPRISE")) {
-            member.addMemberRole(MemberRole.ENTERPRISE);
         }
+        //기업은 지금 받지 않음
     }
 
-    // 회원정보를 보기위해
-//    default MemberDTO memberEntityToDto(Member member){
-//
-//        System.out.println("MemberService의 memberEntityToDto 실행 : " + member);
-//
-//        MemberDTO memberDTO = MemberDTO.builder()
-//                .user_id(member.getUser_id())
-//                .user_pw(member.getUser_pw())
-//                .user_name(member.getUser_name())
-//                .user_email(member.getUser_email())
-//                .user_postcode(member.getUser_postcode())
-//                .user_addr(member.getUser_addr())
-//                .user_addr_details(member.getUser_addr_details())
-//                .user_ph(member.getUser_ph())
-//                .build();
-//
-//        System.out.println("memberDTO : " + memberDTO);
-//
-//        Set<MemberRole> roleSet = member.getRoleSet();
-//
-//        System.out.println("roleSet : " + roleSet.toString());
-//
-//        if(roleSet.contains(MemberRole.STUDENT)) {
-//            memberDTO.addMemberRole(MemberRole.STUDENT);
-//
-//        } else if(roleSet.contains(MemberRole.MENTO)){
-//            memberDTO.addMemberRole(MemberRole.MENTO);
-//
-//        } else if(roleSet.contains("COUNSELOR")){
-//            memberDTO.addMemberRole(MemberRole.STUDENT);
-//
-//        } else if(roleSet.contains("ENTERPRISE")){
-//            member.addMemberRole(MemberRole.ENTERPRISE);
-//        }
-//
-//        memberDTO.addMemberRole(MemberRole.USER);
-//
-//        return memberDTO;
-//    }
+    // 기업 인증 목록
+    default AllowMemberDTO AllowEntityToDTO(Member member, Enterprise enterprise){
+        AllowMemberDTO allowMemberDTO = AllowMemberDTO.builder()
+                .user_id(member.getUser_id())
+                .etp_name(enterprise.getEtp_name())
+                .etp_num(enterprise.getEtp_num())
+                .user_regdate(member.getRegDate())
+                .build();
+
+        return allowMemberDTO;
+    }
+
+    default EnterpriseDTO entityToDto(Enterprise e, Member m){
+
+        EnterpriseDTO dto = EnterpriseDTO.builder()
+                .user_id(m.getUser_id())
+                .user_name(m.getUser_name())
+                .user_postcode(m.getUser_postcode())
+                .user_addr(m.getUser_addr())
+                .user_addr_details(m.getUser_addr_details())
+                .user_email(m.getUser_email())
+                .user_ph(m.getUser_ph())
+                .etp_num(e.getEtp_num())
+                .etp_name(e.getEtp_name())
+                .etp_ceo_name(e.getEtp_ceo_name())
+                .etp_member(e.getEtp_member())
+                .etp_home(e.getEtp_home())
+                .etp_sector(e.getEtp_sector())
+                .etp_shape(e.getEtp_shape())
+                .etp_contents(e.getEtp_contents())
+                .etp_fx(e.getEtp_fx())
+                .etp_year(e.getEtp_year())
+                .build();
+
+        return dto;
+    }
 
 
 }
