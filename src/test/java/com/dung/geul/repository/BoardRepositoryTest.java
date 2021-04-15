@@ -22,9 +22,7 @@ public class BoardRepositoryTest {
 //    @Test
 //    public void testInsertDummies(){
 //        IntStream.rangeClosed(1,200).forEach(i -> {
-//            Board em = Board.builder().board_title("Sample Title...." + i)
-//                                      .content("Sample Content")
-//                                      .build();
+//            Board em = Board.builder().board_title("Sample...." + i).build();
 //            boardRepository.save(em);
 //        });
 //    }
