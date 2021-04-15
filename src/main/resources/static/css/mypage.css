@@ -12012,7 +12012,7 @@ fieldset[disabled] .btn-gplus.active {
 
 #content-frame {
   display: flex;
-  height: 800px;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -12021,7 +12021,7 @@ fieldset[disabled] .btn-gplus.active {
 
 #title {
   height: 100px;
-  width: 80%;
+  width: 100%;
   margin-bottom: 4em;
 }
 
@@ -12031,5 +12031,5 @@ fieldset[disabled] .btn-gplus.active {
 }
 
 #main-content {
-  height: 800px;
+  height: inherit;
 }
