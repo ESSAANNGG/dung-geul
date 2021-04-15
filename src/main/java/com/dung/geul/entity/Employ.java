@@ -1,9 +1,12 @@
 package com.dung.geul.entity;
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -12,7 +15,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @ToString
-// @Table(name="empoly")  필요없어보여서 주석처리 했음 - 정혜리
 @AttributeOverrides({
         @AttributeOverride(name = "regDate", column = @Column(name = "em_regdate")),
         @AttributeOverride(name = "modDate", column = @Column(name = "em_modDate"))
@@ -49,11 +51,9 @@ public class Employ extends BaseEntity{
     @Column(name ="em_end_date")
     private LocalDate end_date;
 
-    @Column(name = "em_file",length = 1000)
+    @Column(name = "em_file",length = 2000)
     private String file;
 
-    /*@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "em_user_id" ,foreignKey = @ForeignKey(name="em_user_id_fk"))
-    private Member user_id;*/
+
 
 }
