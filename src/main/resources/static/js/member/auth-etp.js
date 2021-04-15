@@ -21,10 +21,12 @@ let check = {
                 let color;
 
                 if(result==0){
+                    alert("사용가능한 아이디입니다");
                     resultText = "사용가능한 아이디입니다.";
                     color = "green";
                 }
                 else{
+                    alert('사용중인 아이디입니다');
                     resultText = "이미 시용중인 아이디입니다.";
                     color = "red";
                 }

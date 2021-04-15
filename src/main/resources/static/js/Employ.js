@@ -6,7 +6,7 @@ $(document).ready(function () {
         let data = {
             title: $('#em_title').val(),
             content : $('#em_content').val(),
-            file : $('#fileName').val()
+            file : $('#fileName)'.val()
 
         }
         console.log(data);

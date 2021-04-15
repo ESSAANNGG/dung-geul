@@ -37,6 +37,8 @@ public class AuthMemberDTO extends User {
 
     private String user_job; //직장
 
+    private String user_type;   // 회원 구분
+
     public AuthMemberDTO(
             String username,
             String password,

@@ -37,8 +37,8 @@
         <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
           <a href="#">상담</a>
           <ul class="dep2" onmouseover="nav_on()">
-            <li><a href="/counseling/counseling">상담신청</a></li>
-            <li><a href="#">상담내역</a></li>
+            <li><a href="#">상담소개</a></li>
+            <li><a href="#">상담신청</a></li>
           </ul>
         </li>
         <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
@@ -55,7 +55,7 @@
         </li>
         <li class="join">
           <a href="/sign-up" th:if="!${loginUser}">회원가입</a>
-          <a href="/mypage/member/read" th:if="${loginUser}">마이페이지</a>
+          <a href="/mypage/before" th:if="${loginUser}">마이페이지</a>
         </li>
       </ul>
     </div>

@@ -7,18 +7,18 @@ import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Employ;
 
 
+
 public interface EmployService {
 
     PageResultDTO<EmployDTO, Employ> getList(PageRequestDTO pageRequestDTO);
 
-    EmployDTO read(Long num);
+   EmployDTO read(Long num);
 
-    Long register(EmployDTO employDTO);
+   Long register(EmployDTO employDTO);
 
-    void modify(EmployDTO employDTO);
+   void modify(EmployDTO employDTO);
 
-    void remove(Long num);
-
+   void remove(Long num);
 
     default Employ dtoToEntity(EmployDTO dto) {
         Employ entity = Employ.builder()
@@ -26,11 +26,9 @@ public interface EmployService {
                 .name(dto.getName())
                 .title(dto.getTitle())
                 .content(dto.getContent())
-                .file(dto.getFile())
                 .build();
         return entity;
     }
-
 
     default EmployDTO entityToDto(Employ entity){
 
@@ -41,11 +39,8 @@ public interface EmployService {
                 .content(entity.getContent())
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
-                .file(entity.getFile())
                 .build();
 
         return dto;
     }
-
-
 }

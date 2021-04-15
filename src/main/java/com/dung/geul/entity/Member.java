@@ -22,10 +22,6 @@ public class Member extends BaseEntity {
     @Id
     private String user_id; // Long -> String - 정혜리 TEMP_ID
 
-
-    @OneToOne(mappedBy = "member")
-    private Enterprise enterprise;
-
     @Column(length = 18, nullable = false)
     private String user_name;
 
@@ -35,16 +31,16 @@ public class Member extends BaseEntity {
     @Column(length = 11, nullable = false)
     private String user_ph;
 
-    @Column(length = 120, nullable = false)
+    @Column(length = 120)
     private String user_postcode;
 
-    @Column(length = 120, nullable = false)
+    @Column(length = 120)
     private String user_addr;
 
     @Column(length = 120)
     private String user_addr_details;
 
-    @Column(length = 50, nullable = false, unique = true)
+    @Column(length = 50, nullable = false)
     private String user_email;
 
     @Column(length = 50)
@@ -59,9 +55,13 @@ public class Member extends BaseEntity {
     @Column(length = 50)
     private String user_job; //직장
 
+    @Column(length = 1)
+    private int user_allow; // 인증여부 ( 1: 인증 됨, Null : 인증 전)
+
+    private String user_type;   // 회원구분 (기업인증 코드 짜다가 필요해서 넣음)
+
 
     // 회원 권한
-
     @ElementCollection(fetch = FetchType.LAZY)
     @Builder.Default
     private Set<MemberRole> roleSet = new HashSet<>();
@@ -73,14 +73,12 @@ public class Member extends BaseEntity {
 
 
     // 수정 가능한 항목
-
     public void memberModify(String user_name,
                              String user_ph,
                              String user_email,
                              String user_postcode,
                              String user_addr,
-                             String user_addr_details)
-    {
+                             String user_addr_details) {
         this.user_postcode = user_postcode;
         this.user_addr = user_addr;
         this.user_addr_details = user_addr_details;
@@ -110,6 +108,14 @@ public class Member extends BaseEntity {
         this.user_job = user_job;
     }
 
+    // 인증해줄 때 기업 인증 여부 변경
+    public void modUser_allow(int user_allow){
+        this.user_allow = user_allow;
+    }
+
+    public void modUser_type(String user_Type){
+        this.user_type = user_Type;
+    }
 
     /*
     Set : 순서가 없고 중복을 허용하지 않는 데이터의 집합

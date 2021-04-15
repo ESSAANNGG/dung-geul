@@ -64,6 +64,7 @@ public class MemberDetailsService implements UserDetailsService {
         authMemberDTO.setUser_postcode(member.getUser_postcode());
         authMemberDTO.setUser_addr(member.getUser_addr());
         authMemberDTO.setUser_addr_details(member.getUser_addr_details());
+        authMemberDTO.setUser_type(member.getUser_type());
 
 
         // 멤버 권한 별 추가 정보 기입

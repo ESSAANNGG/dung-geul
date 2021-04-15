@@ -1,6 +1,9 @@
 package com.dung.geul.controller;
 
+import com.dung.geul.dto.EnterpriseDTO;
+import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
+import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +24,25 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
     @Autowired
     private MemberServiceImpl memberService;
 
+    // member 교내회원 마이페이지 (학생-STUDENT, 상담사-COUNSELOR, 관리자-ADMIN)
+    // 매핑 기본 주소 : /mypage/
 
-    // member 교내회원 마이페이지 (학생-STUDENT, 멘토-MENTO, 상담사-COUNSELOR, 관리자-ADMIN)
-    // 매핑 기본 주소 : /mypage/member
+    @GetMapping("/before/read")
+    public String mypageBeforeRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+        if(authMemberDTO.getUser_type().equals("ENTERPRISE")){
+            return "redirect:/mypage/etp/read";
+        } else {
+            return "redirect:/mypage/member/read";
+        }
+    }
+    @GetMapping("/before/modify")
+    public String mypageBeforeModify(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+        if(authMemberDTO.getUser_type().equals("ENTERPRISE")){
+            return "redirect:/mypage/etp/modify";
+        } else {
+            return "redirect:/mypage/member/modify";
+        }
+    }
 
     @GetMapping({"/member/read", "/member/modify"})
     public void mypageRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
@@ -53,6 +72,19 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     }
 
+// 기업회원 마이페이지
+    @GetMapping({"/etp/read", "/etp/modify"})
+    public void etpMypageRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
+
+        // user_id를 받아서 enterprise랑 member를 조인한 결과값인 enterpriseDTO를 반환
+        EnterpriseDTO enterpriseDTO = memberService.getEnterprise(authMemberDTO.getUser_id());
+
+        model.addAttribute("etp", enterpriseDTO);
+
+        System.out.println("controller - enterpriseDTO : " + enterpriseDTO.toString());
+
+    }
+
     @GetMapping("/member/modifyPw")
     public void ModifyMemberPw(String user_id, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
@@ -61,6 +93,8 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         model.addAttribute("user_id", user_id);
         model.addAttribute("loginUser", authMemberDTO);
     }
+
+
 
 
 }
