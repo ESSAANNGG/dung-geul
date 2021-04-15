@@ -1,0 +1,178 @@
+.menu {
+    float: left;
+    width: 220px;
+}
+/* sidemenu */
+#main {
+    margin-top:40px;
+    background: #eee;
+    border-top: solid 5px #1f3786d5;
+    border-top-width: 35px;
+    border-bottom-width: 10px;
+    padding: 0px;
+    z-index: 999;
+}
+.nav { display: table; margin: auto;}
+body {
+    background: #fff;
+    margin: 0 auto;
+}
+input, button, select {
+    border: none;
+    color: #333;
+    margin: 0;
+    line-height: inherit;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 8px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+#coun-content {
+    float: left;
+    width: 1020px;
+    margin: 0 30px;
+    background: #fff;
+    border-radius: 8px;
+}
+.d_width {
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    transition: all 0.5s;
+}
+#coun-wrap {
+    position: relative;
+    padding: 30px;
+    height: 100px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+}
+.coun-con {
+    margin: 60px 50px 0 50px;
+    width: 89%;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+.coun-box-body {
+    padding: 50px;
+    margin: 0;
+    width: 100%;
+    min-height: 560px;
+}
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+}
+.coun-box {
+    float: left;
+    background: #f6f6f6;
+    border-radius: 3px;
+    padding: 30px;
+    width: 100%;
+}
+.coun-box .label {
+    color: #000;
+    line-height: 40px;
+    margin-right: 20px;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+}
+.coun-box .label1 {
+    color: #000;
+    line-height: 40px;
+    padding-left: .6em;
+    font-size: 75%;
+    font-weight: 700;
+    width: 75px;
+    /* float: left; */
+}
+
+.coun-box>div>div {
+    float: left;
+    vertical-align: middle;
+}
+.coun-inline {
+    display: inline;
+    flex-flow: row wrap;
+    align-items: center;
+}
+input[type=text] {
+    min-height: 30px;
+    border: 1px solid #ddd;
+    text-indent: 10px;
+    transition: all 0.5s;
+    vertical-align: middle;
+}
+.coun-control {
+    display: inline-block;
+    font-size: 0.875rem;
+    width: 250px;
+    height: 35px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    background-color: #fff;
+    background-clip: padding-box;
+    box-shadow: none;
+    margin-right: 7px;
+}
+.btn-d {
+    display: inline;
+    white-space: nowrap;
+    text-align: center;
+    width: 210px;
+    height: 40px;
+    margin-top: 30px;
+    margin-left: 328px;
+    vertical-align: middle;
+    border: 1px solid #2b2e4a;
+    background-color: #2b2e4a;
+    font-size: 0.875rem;
+    color: #fff;
+    padding: 0 15px;
+    line-height: 32px;
+}
+.d_width {
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    transition: all 0.5s;
+}
+#job-main-wrap {
+    padding: 80px 0 80px;
+}
+/* footer */
+@media screen and (max-width: 1180px) {
+    .footer {
+        width: 1180px;
+    }
+}
+.footer {
+    padding: 20px;
+    padding-left: 200px;
+    font-size: 13px;
+    text-align: left;
+    background-color: rgb(79, 101, 145);
+    color: WHITE;
+    margin-top: 880px;
+}
+.footer_1,
+.footer_2,
+.footer_3 {
+    margin-bottom: 10px;
+}
+.footer_1 {
+    display: flex;
+}
+.footer_1_c {
+    margin-right: 20px;
+}
+
