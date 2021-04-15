@@ -12,46 +12,8 @@
     <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
 
-
-
-    <!-- 목록 데이터 페이지 처리, 등록 버튼 CSS 디자인 : 차후 css파일에 수정 要-->
-    <style>
-        /* 목록 데이터 페이지 처리 */
-        .page-ul-div {
-            text-align: center;
-        }
-
-        .page-ul {
-            display: block;
-            list-style: none;
-            margin: 5px;
-            padding: 5px;
-        }
-
-        /* [글쓰기] 버튼 */
-        .write-btn {
-            color: #fff;
-            background-color: #1a508b;
-
-            font-size: 15px;
-            text-align: right;
-
-        }
-
-        /* [이전], [다음] 버튼 */
-        .page-li {
-            margin: 5px;
-            padding: 5px;
-            border : black;
-            float: left;
-        }
-
-        /* [이전], [다음] 버튼 hover */
-        .page-li:hover {
-            background-color: #1a508b;
-        }
-
-    </style>
+    <!-- 채용공고 등록 게시판 CSS 디자인 -->
+    <link rel="stylesheet" href="/src/main/resources/static/css/employ.css" th:href="@{/css/employ.css}">
 
 
 </head>
@@ -102,93 +64,48 @@
                     </div>
 
                     <!-- Content -->
-                    <style>
-                        .container {
-                             text-align: center;
+                    <div class="notice_board_content">
+                        <th:block th:fragment="content">
+                            <div class="register_head">
+                                <h2 class="register_head">공지사항 게시판</h2>
+                            </div>
 
-                        }
-                        .contentBox{
-                            width:1000px;
-                            background-color: rgb(228, 228, 228);
-                            }
-                        .h1-class {
-                            height: 50px;
-                            line-height: 3em;
-                            padding: 0 1em;
-                            border-bottom:1px solid black;
-                        }
-                        .h1-class:after{
-                            width:200px;
-                        }
-                        .form-group{
-                            margin:15px;
-                        }
-                        .form-group > .label{
-                            display: inline-block;
-                            width:100px;
-                            vertical-align: top;
-                        }
-                        .form-group > input{
-                            width:300px;
-                            border : 1px solid black;
-                            border-radius:5px 5px 5px 5px;
-                        }
-                        .form-group > textarea{
-                            width:300px;
-                            border : 1px solid black;
-                            border-radius:5px 5px 5px 5px;
-                        }
+                            <div class="content">
 
-                    </style>
-
-                    <div class="col-9 col-12-medium imp-medium">
-                        <div class="container">
-                            <div class="contentBox">
-                                <th:block th:fragment="content">
-
-                                    <h1 class="mt-4">게시물 상세글</h1>
+                                <form th:action="@{/center-information/notice_board_register}" th:method="post">
 
                                     <div class="form-group">
                                         <label>글번호</label>
                                         <input type="text" class="form-control" name="num" th:value="${dto.num}" readonly >
                                     </div>
 
-                                    <div class="form-group">
-                                        <label >제목</label>>
+                                    <div class="register_title_wrap">
+                                        <label>제목</label>
                                         <input type="text" class="form-control" name="title" th:value="${dto.title}" readonly >
                                     </div>
-                                    <div class="form-group">
-                                        <label >내용</label>
-                                        <textarea class="form-control" rows="5" name="content" readonly>[[${dto.content}]]</textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label >작성자</label>
-                                        <input type="text" class="form-control" name="b" th:value="${dto.b}" readonly>
+
+                                    <div class="register_cont_wrap">
+                                        <label>내용</label>
+                                        <!-- <input type="text" class="register_cont_input" rows="5" name="content" readonly>[[${dto.content}]]</input> -->
+
+                                        <textarea class="register_cont_textarea" rows="5" name="content" readonly style="width: 100%; height: 100%;">[[${dto.content}]]</textarea>
                                     </div>
 
-                                        <!-- 날짜 -->
-                                        <!-- <div class="form-group">
-                                            <label >RegDate</label>
-                                            <input type="text" class="form-control" name="regDate" th:value="${#temporals.format(dto.regDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label >ModDate</label>
-                                            <input type="text" class="form-control" name="modDate" th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
-                                        </div> -->
-
+                                    <div class="notice_board_content_btn">
                                         <a th:href="@{/center-information/notice_board_modify(num = ${dto.num}, page=${requestDTO.page})}">
                                             <button type="button" class="btn btn-primary">수정</button>
                                         </a>
-
+        
                                         <a th:href="@{/center-information/notice_board(page=${requestDTO.page})}">
                                             <button type="button" class="btn btn-info">뒤로</button>
                                         </a> 
+                                    </div>
+                                </form>
 
-                                </th:block>                       
                             </div>
-                        </div>
+                        </th:block>
                     </div>
-                    <!-- End Content -->
+                   <!-- End Content -->
 
 
                 </div>
