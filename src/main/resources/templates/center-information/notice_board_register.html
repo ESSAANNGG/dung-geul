@@ -12,51 +12,8 @@
     <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
 
-    <!-- 목록 데이터 페이지 처리, 등록 버튼 CSS 디자인 : 차후 css파일에 수정 要-->
-    <style>
-        /* 목록 데이터 페이지 처리 */
-        .page-ul-div {
-            text-align: center;
-        }
-
-        .page-ul {
-            display: block;
-            list-style: none;
-            margin: 5px;
-            padding: 5px;
-        }
-
-        /* [글쓰기] 버튼 */
-        .write-btn {
-            color: #fff;
-            background-color: #1a508b;
-
-            font-size: 15px;
-            text-align: right;
-
-        }
-
-        /* [이전], [다음] 버튼 */
-        .page-li {
-            margin: 5px;
-            padding: 5px;
-            border : black;
-            float: left;
-        }
-
-        /* [이전], [다음] 버튼 hover */
-        .page-li:hover {
-                background-color: #1a508b;
-        }
-
-        /* 게시글 등록 창 */
-        .register-content {
-            background-color: #f2f2f2;
-            padding: 10px;
-        }
-
-</style>
-
+    <!-- 채용공고 등록 게시판 CSS 디자인 -->
+    <link rel="stylesheet" href="/src/main/resources/static/css/employ.css" th:href="@{/css/employ.css}">
 
 </head>
 <body class="is-preload">
@@ -105,38 +62,97 @@
                         </div>
                     </div>
 
+
                     <!-- Content -->
-                        <div class="col-9 col-12-medium imp-medium">
-                            <th:block th:fragment="content">
-                                <h1>공지사항 게시글 등록</h1>
-
-                                <div class="register-content">
-
-                                    <form th:action="@{/center-information/notice_board_register}" th:method="post">
-
-                                        <div class="form-group">
-                                            <label>제목</label>
-                                            <input type="text" class="form-control" name="title" placeholder="제목을 입력하세요">
-                                        </div>
-
+                    <!-- 本 컨텐츠(디자인 수정 전) -->
+                    <!-- <div class="notice_board_content">
+                        <th:block th:fragment="content">
+                            <h1>공지사항 게시글 등록</h1>
+                            <div class="register-content">
+                                <form th:action="@{/center-information/notice_board_register}" th:method="post">
                                     <div class="form-group">
-                                            <label>내용</label>
-                                            <textarea class="form-control" rows="5" name="content" placeholder="내용을 입력하세요"></textarea>
-                                        </div>
+                                        <label>제목</label>
+                                        <input type="text" class="form-control" name="title" placeholder="제목을 입력하세요">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>내용</label>
+                                        <textarea class="form-control" rows="5" name="content" placeholder="내용을 입력하세요"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>작성자</label>
+                                        <input type="text" class="form-control" name="b" placeholder="작성자">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">등록</button>
+                                </form>
+                            </div>
+                        </th:block>
+                    </div> -->
+                    <!-- End Content -->
 
-                                        <div class="form-group">
-                                            <label>작성자</label>
-                                            <input type="text" class="form-control" name="b" placeholder="작성자">
-                                        </div>
-
-                                        <button type="submit" class="btn btn-primary">등록</button>
-                                    </form>
-
+                    <!-- <div class="notice_board_content">
+                        <th:block th:fragment="content">
+                            <div class="register_head">
+                                <div class="register_head_txt">
+                                    공지사항 게시판
                                 </div>
-                            </th:block>
+                            </div>
 
+                            <div class="content">
+                                <div class="register_step_head">
+                                    글 등록
+                                </div>
+
+                                <form th:action="@{/center-information/notice_board_register}" th:method="post">
+
+                                    <div class="register_title_wrap">
+                                        <label>제목</label>
+                                        <input type="text" class="register_title_input"name="title" placeholder="제목을 입력하세요">
+                                    </div>
+
+                                    <div class="register_cont_wrap">
+                                        <label>내용</label>
+                                        <input type="text" class="register_cont_input" rows="5" name="content" placeholder="내용을 입력하세요"></input>
+                                    </div>
+
+                                    <button type="submit" class="base_button" >등록</button>
+                                </form>
+
+                            </div>
+                        </th:block>
+                    </div>  -->
+
+
+                    <!-- Content -->
+                    <div class="notice_board_content">
+                            <div class="register_head">
+                                <div class="register_head_txt">
+                                    공지사항 게시판
+                                </div>
+                            </div>
+
+                            <div class="content">
+
+                                <form th:action="@{/center-information/notice_board_register}" th:method="post">
+
+                                    <div class="register_title_wrap">
+                                        <label>제목</label>
+                                        <input type="text" class="register_title_input"name="title" placeholder="제목을 입력하세요">
+                                    </div>
+
+                                    <div class="register_cont_wrap">
+                                        <label>내용</label>
+                                        <input type="text" class="register_cont_input" rows="5" name="content" placeholder="내용을 입력하세요"></input>
+                                    </div>
+
+                                    <div class="submit_btn">
+                                        <button type="submit">등록</button>
+                                    </div>
+                                </form>
+
+                            </div>
                     </div>
                     <!-- End Content -->
+
 
 
                 </div>
