@@ -3276,3 +3276,16 @@ table thead {
   padding: 15px;
   border: 1px solid black;
 }
+
+/* 공지사항 등록 페이지 CSS */
+.read_num {
+  margin:10px
+}
+
+.notice_board_content {
+  margin: 10px;
+}
+
+.submit_btn {
+  margin: 20px;
+}
