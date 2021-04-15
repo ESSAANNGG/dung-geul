@@ -127,15 +127,10 @@
                     <div class="notice_board_content">
                         <th:block th:fragment="content">
                             <div class="register_head">
-                                <div class="register_head_txt">
-                                    공지사항 게시판
-                                </div>
+                                <h2 class="register_head">공지사항 게시판</h2>
                             </div>
 
                             <div class="content">
-                                <div class="register_step_head">
-                                    글 등록
-                                </div>
 
                                 <form th:action="@{/center-information/notice_board_register}" th:method="post">
 
@@ -149,7 +144,9 @@
                                         <input type="text" class="register_cont_input" rows="5" name="content" placeholder="내용을 입력하세요"></input>
                                     </div>
 
-                                    <button type="submit" class="base_button" >등록</button>
+                                    <div>
+                                        <button type="submit" class="base_button" >등록</button>
+                                    </div>
                                 </form>
 
                             </div>

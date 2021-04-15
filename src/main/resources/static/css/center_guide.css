@@ -3276,3 +3276,22 @@ table thead {
   padding: 15px;
   border: 1px solid black;
 }
+
+/* 등록 버튼 */
+.base_button {
+  margin: 20px;
+
+}
+
+/* 등록 컨텐츠 */
+.notice_board_content {
+  margin: 15px;
+}
+
+.register_head {
+  text-align: center;
+}
+
+.notice_board_content_btn {
+  margin: 20px;
+}
