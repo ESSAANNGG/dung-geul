@@ -15,11 +15,9 @@
         <!-- 수정 삭제 동작을 하기 위한 jQuery -->
         <script src="/js/jquery-3.5.1.min.js"></script>
 
-        <!-- 목록 데이터 페이지 처리, 등록 버튼 CSS 디자인 : 차후 css파일에 수정 要-->
-        <style>
+        <!-- 채용공고 등록 게시판 CSS 디자인 -->
+        <link rel="stylesheet" href="/src/main/resources/static/css/employ.css" th:href="@{/css/employ.css}">
 
-
-        </style>
 
 
     </head>
@@ -70,83 +68,43 @@
                         </div>
 
                         <!-- Content -->
-
-                        <style>
-                            /* 목록 데이터 페이지 처리 */
-                            .page-ul-div {
-                                text-align: center;
-                            }
-
-                            .page-ul {
-                                display: block;
-                                list-style: none;
-                                margin: 5px;
-                                padding: 5px;
-                            }
-
-                            /* [글쓰기] 버튼 */
-                            .write-btn {
-                                color: #fff;
-                                background-color: #1a508b;
-
-                                font-size: 15px;
-                                text-align: right;
-
-                            }
-
-                            /* [이전], [다음] 버튼 */
-                            .page-li {
-                                margin: 5px;
-                                padding: 5px;
-                                border : black;
-                                float: left;
-                            }
-
-                            /* [이전], [다음] 버튼 hover */
-                            .page-li:hover {
-                                    background-color: #1a508b;
-                            }
-
-                            /* 게시글 등록 창 */
-                            .register-content {
-                                background-color: #f2f2f2;
-                                padding: 10px;
-                            }
-                            
-                        </style>
-
-                        <th:block th:fragment="content">
-
-                            <h1>공지사항 게시글 수정</h1>
-
-                            <div class="register-content">
+                        <div class="notice_board_content">
+                            <div class="register_head">
+                                <h2 class="register_head_txt">
+                                    게시글 수정
+                                </h2>
+                            </div>
 
                                 <form action="/center-information/notice_board_modify" method="post">
 
                                     <!--페이지 번호(히든처리) : 수정 후 어디로 갈지 지정  -->
-                                    <input type="hidden" name="page" th:value="${requestDTO.page}">
-                                    <!-- <input type="hidden" name="type" th:value="${requestDTO.type}" >
+                                    <!-- <input type="hidden" name="page" th:value="${requestDTO.page}">
+                                    <input type="hidden" name="type" th:value="${requestDTO.type}">
                                     <input type="hidden" name="keyword" th:value="${requestDTO.keyword}"> -->
 
-                                    <div class="form-group">
-                                        <label >글번호</label>
-                                        <input type="text" class="form-control" name="num" th:value="${dto.num}" readonly >
+                                    <div class="read_num">
+                                        <label>글번호 : [[${dto.num}]]</label>
+                                        <input type="hidden" class="form-control" name="num" th:value="${dto.num}" readonly >
                                     </div>
-
-                                    <div class="form-group">
+                                    <div class="register_title_wrap">
                                         <label >제목</label>
-                                        <input type="text" class="form-control" name="title" th:value="${dto.title}">
+                                        <input type="text" class="register_title_input" name="title" th:value="${dto.title}">
                                     </div>
-
-                                    <div class="form-group">
+                    
+                                    <div class="register_cont_wrap">
                                         <label >내용</label>
-                                        <textarea class="form-control" rows="5" name="content">[[${dto.content}]]</textarea>
+                                        <textarea class="register_cont_input" rows="5" name="content">[[${dto.content}]]</textarea>
                                     </div>
-
-                                    <div class="form-group">
+                    
+                                    <!-- <div class="form-group">
                                         <label >작성자</label>
                                         <input type="text" class="form-control" name="writer" th:value="${dto.b}" readonly>
-                                    </div>
+                                    </div> -->
+
+                                    <!-- <div class="form-group">
+                                        <label >작성자</label>
+                                        <input type="text" class="form-control" name="writer" th:value="${dto.b}" readonly>
+                                    </div> -->
 
                                     <!-- <div class="form-group">
                                         <label >RegDate</label>
@@ -159,9 +117,7 @@
 
                                 </form>
 
-                            </div>
-
-                            <div style="padding: 10px;">
+                            <div class="submit_btn">
                                 <button type="button" class="modifyBtn">수정</button>
                                 <button type="button" class="removeBtn">삭제</button>
                                 <button type="button" class="listBtn">뒤로</button>
@@ -171,7 +127,11 @@
                             <script th:inline="javascript">
                                 var actionForm = $("form"); //form 태그 객체
 
-                                $(".removeBtn").click(function(){
+                                $(".removeBtn").click(function(){   // 삭제
+                                    if(!confirm("삭제하시겠습니까?")){
+                                        return ;
+                                    }
+
                                     actionForm
                                         .attr("action", "/center-information/remove")
                                         .attr("method","post");
@@ -180,18 +140,18 @@
 
                                 });
 
-                                $(".modifyBtn").click(function() {
+                                $(".modifyBtn").click(function() {  // 수정
                                     if(!confirm("수정하시겠습니까?")){
                                         return ;
                                     }
 
                                     actionForm
-                                        .attr("action", "/center-information/modify")
+                                        .attr("action", "/center-information/notice_board_modify")
                                         .attr("method","post")
                                         .submit();
                                 });
 
-                                $(".listBtn").click(function() {
+                                $(".listBtn").click(function() {    // 글 목록
 
                                     //var pageInfo = $("input[name='page']");
                                     var page = $("input[name='page']");
@@ -204,7 +164,6 @@
                                     actionForm.append(type);
                                     // actionForm.append(keyword);
 
-
                                     actionForm
                                         .attr("action", "/center-information/notice_board")
                                         .attr("method","get");
@@ -214,7 +173,9 @@
                                 })
 
                             </script>
-                        </th:block>
+
+
+                        </div>
                         <!-- End Content -->
 
                     </div>
