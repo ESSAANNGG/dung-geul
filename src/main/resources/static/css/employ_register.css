@@ -345,11 +345,13 @@
     font-weight: 500; 
     padding-left:10px;
 }
+
+
 /*지원방법*/
 .register_addApply_wrap{
     display: flex;
     justify-content: center;
-    height:40px;
+    height:100px;
     margin: 0 auto;
     color:#768395;
     font-weight:900;
@@ -361,51 +363,19 @@
 }
 .register_addApply_input{
     width:600px;
-    height:40px;
+    height:40px;  
     font-size:13px;
-    font-weight: 500;
+    font-weight: 500; 
 }
 .register_addApply_input input{
-    margin-right:5px;
-}
-/*첨부파일*/
-.register_file_wrap{
-    display: flex;
-    justify-content: center;
-    height:110px;
-    margin: 0 auto;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
-}
-.register_file{
-    width:100px;
-    font-size:16px;
-}
-.register_file_input{
     width:600px;
     height:40px;  
-    font-size:13px;
-    font-weight: 500; 
-}
-.register_file_input input[type="text"]{
-    width:400px;
-    height:40px;  
     padding-left:10px;
     margin-bottom:5px;
     font-size:13px;
     font-weight: 500; 
 }
-.register_file_input input[type="file"]{
-    width:85px;
-    height:30px;
-    border:0px;
-    padding-left:10px;
-    margin-bottom:5px;
-    font-size:13px;
-    font-weight: 500;
-}
-.register_file_btn{
+.register_addApply_btn{
     position:relative;
     top:-35px;
     width:600px;

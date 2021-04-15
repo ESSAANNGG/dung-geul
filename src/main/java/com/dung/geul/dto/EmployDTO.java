@@ -5,7 +5,6 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +20,5 @@ public class EmployDTO {
     private String content;
 
     private LocalDateTime regDate, modDate;
-
-    private String file;
 
 }
