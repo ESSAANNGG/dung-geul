@@ -85,7 +85,7 @@ public class Center_information_controller {
         return "redirect:/center-information/notice_board";
     }
 
-    @GetMapping({"/notice_board_read", "/notice_board_modify"}) // 게시글 수정 페이지 (매핑을 배열로 두개 처리)
+    @GetMapping({"/notice_board_read", "/notice_board_modify"}) // 매핑을 배열로 두개 처리
     public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model){
 
         log.info("num: " + num);
