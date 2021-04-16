@@ -41,17 +41,17 @@ let signUp = {
       dataType: "json",
       success : function (result) {
         if(result == 1){
-          alert("회원가입 승인 요청 되었습니다.");
+          alert("회원가입 되었습니다. 기업 활동은 승인 시 가능합니다. 승인 진행상황은 마이페이지에서 확인 가능합니다");
 
           location.href = "/login";
         } else {
-          alert("회원가입 신청 실패했습니다");
+          alert("회원가입 실패했습니다");
 
           location.href = "/";
         }
       },
       error : function (error){
-        alert("내부 오류");
+        alert("내부 오류, 회원가입 실패");
         console.log(error);
         location.href = "/";
       }
