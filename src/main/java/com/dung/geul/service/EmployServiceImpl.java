@@ -110,8 +110,8 @@ public class EmployServiceImpl implements EmployService {
         if(type.contains("c")) {
             conditionBuilder.or(qEmploy.content.contains(keyword));
         }
-        if(type.contains("n")){
-            conditionBuilder.or(qEmploy.name.contains(keyword));
+        if(type.contains("ot")){
+            conditionBuilder.or(qEmploy.ot.contains(keyword));
         }
 
         booleanBuilder.and(conditionBuilder);
