@@ -14,7 +14,7 @@ let signUp = {
     // 회원별 값 다르게 받기
 
     // 기본적으로 모든 회원이 다 받는 데이터
-    let baseData = {
+    let data = {
       user_id: $("#user_id").val(),
       user_pw: $("#user_pw").val(),
       user_name: $("#user_name").val(),
@@ -26,33 +26,24 @@ let signUp = {
       role: $("#role").val(),
     };
 
-    let userData; // 전송할 회원가입 정보 전체를 담을거임
+    if($('#role').val() == "STUDENT" || $('#role').val() == "STAFF"){ // 학생이나 교사면 값 추가함 !
+      console.log("student or staff");
 
-    if($('#role').val() == "STUDENT" || $('#role').val() == "STAFF"){ // 학생이나 교사면
-      console.log("student or professor");
-
-      userData = baseData + {
-        user_dept: $("#user_dept").val(), //계열
-        user_grade: $("#user_grade").val(), //학년
-        user_class: $("#user_class").val(), //반
-      }
-
-    } else if($('#role').val() == "COUNSELOR"){   // 상담사면
-      console.log("counselor");
-
-      userData = baseData;
+      data.user_dept = $("#user_dept").val(); //계열
+      data.user_grade = $("#user_grade").val(); //계열
+      data.user_class = $("#user_class").val(); //계열
 
     }
 
     // 값 확인
-    alert("userdate 전송 ! " + JSON.stringify(userData));
-    console.log(JSON.stringify(userData));
+    alert("userdate 전송 ! " + JSON.stringify(data));
+    console.log(JSON.stringify(data));
 
     // 데이터 전송 ajax
     $.ajax({
       type: "POST",
       url: "/sigUp/member",
-      data: JSON.stringify(userData),
+      data: JSON.stringify(data),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success : function (result) {
