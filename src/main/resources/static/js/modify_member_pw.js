@@ -30,10 +30,10 @@ let modify = {
 
                 if (result == 0) {
                     alert("현재 비밀번호를 확인해주세요");
-                    location.replace("/mypage/member/modifyPw");
+                    location.replace("/mypage/before/modify");
                 } else {
                     alert("비밀번호가 변경되었습니다");
-                    location.replace("/mypage/member/modify");
+                    location.replace("/mypage/before/modify");
                 }
             }
         })

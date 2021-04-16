@@ -1,5 +1,7 @@
 package com.dung.geul.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
@@ -8,6 +10,7 @@ import javax.persistence.Id;
 
 @Data
 @ToString
+@AllArgsConstructor
 public class MemberDTO {
 
     private String user_id;

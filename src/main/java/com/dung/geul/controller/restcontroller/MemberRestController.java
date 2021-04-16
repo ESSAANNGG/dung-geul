@@ -22,7 +22,7 @@ public class MemberRestController {
 
 
     // 회원가입
-    @PostMapping("/sigUp/student")
+    @PostMapping("/sigUp/member")
     public int joinMember(@RequestBody MemberDTO memberDTO){
 
         System.out.println("ApiMemberController : joinMember() 실행");
@@ -38,14 +38,14 @@ public class MemberRestController {
 
     // 기업회원가입
     @PostMapping("/sigUp/enterprise")
-    public JoinResultPageDTO<Integer> joinEnterprise(@RequestBody EnterpriseDTO enterPriseDTO){
+    public int joinEnterprise(@RequestBody EnterpriseDTO enterPriseDTO){
 
         System.out.println("ApiMemberController : joinEnterprise() 실행");
         System.out.println("enterPriseDTO : " + enterPriseDTO);
 
-        memberService.joinEnterprise(enterPriseDTO);
+        int result = memberService.joinEnterprise(enterPriseDTO);
 
-        return new JoinResultPageDTO<>(1, HttpStatus.OK.value());
+        return result;
     }
 
     //아이디 중복 검사
@@ -102,6 +102,16 @@ public class MemberRestController {
         return result;
     }
 
+    // 기업 회원 정보 수정
+        @PostMapping("/mypage/etp/modify")
+        public int modifyEtpInfo(@RequestBody EnterpriseDTO enterpriseDTO){
+            System.out.println("controller 실행 ");
+
+            int result = memberService.modifyEtp(enterpriseDTO);
+
+            return result;
+        }
+
     //비밀번호 수정
     @PostMapping("/mypage/member/modifyPw")
     public int modifyMemberPw(@RequestBody MemberPwDTO memberPwDTO){
@@ -123,8 +133,9 @@ public class MemberRestController {
 
         memberService.deleteMember(user_id);
 
-        return new RedirectView("/");
+        return new RedirectView("/logout");
 
     }
+
 
 }

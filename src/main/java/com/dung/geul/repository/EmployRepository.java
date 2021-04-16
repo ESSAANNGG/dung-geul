@@ -3,10 +3,6 @@ package com.dung.geul.repository;
 
 import com.dung.geul.entity.Employ;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-import java.util.List;
-
-public interface EmployRepository extends JpaRepository<Employ, Long>, QuerydslPredicateExecutor<Employ> {
-
+public interface EmployRepository extends JpaRepository<Employ, Long> {
 }

@@ -1,6 +1,8 @@
 package com.dung.geul.repository;
 
 import com.dung.geul.entity.Member;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -30,5 +32,13 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     // 이메일과 이름을 받아서 DB에 값이 있는지 확인
     @Query("select m.user_id from Member m where m.user_email = :user_email and m.user_name = :user_name")
     String findByUser_emailAndUser_name(@Param("user_email") String user_email, @Param("user_name") String user_name);
+
+    // 인증 받기 전인 기업 회원 리스트 가져오기
+    @Query(value = "select m, e from Member m left join Enterprise e on e.user_id = m where m.user_allow is null",
+            countQuery = "select count(m) from Member m where m.user_allow is null and m.user_type = 'enterprise'")
+    Page<Object[]> findNotAllowUsers(Pageable pageable);
+
+    @Query(value = "select m, e from Member m left join Enterprise e on e.user_id = m where m.user_id = :user_id")
+    Object findByUser_idEtpJoinMember(@Param("user_id") String user_id);
 
 }

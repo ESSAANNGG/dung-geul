@@ -1,14 +1,20 @@
 let signUp = {
   init: function () {
+    // 회원가입
     $("#submit").on("click", (event) => {
       event.preventDefault();
       alert("sign-up.js실행");
       this.save();
     });
+
   },
 
   save: function () {
-    let userData = {
+
+    // 회원별 값 다르게 받기
+
+    // 기본적으로 모든 회원이 다 받는 데이터
+    let data = {
       user_id: $("#user_id").val(),
       user_pw: $("#user_pw").val(),
       user_name: $("#user_name").val(),
@@ -17,20 +23,27 @@ let signUp = {
       user_postcode: $("#user_postcode").val(),
       user_addr: $("#user_addr").val(),
       user_addr_details: $("#user_addr_details").val(),
-      user_dept: $("#user_dept").val(), //계열
-      user_grade: $("#user_grade").val(), //학년
-      user_class: $("#user_class").val(), //반
-      role: $("#role").val()
+      role: $("#role").val(),
     };
 
-    alert("userdate 전송 ! " + JSON.stringify(userData));
-    console.log(JSON.stringify(userData));
-    alert(JSON.stringify(userData));
+    if($('#role').val() == "STUDENT" || $('#role').val() == "STAFF"){ // 학생이나 교사면 값 추가함 !
+      console.log("student or staff");
 
+      data.user_dept = $("#user_dept").val(); //계열
+      data.user_grade = $("#user_grade").val(); //계열
+      data.user_class = $("#user_class").val(); //계열
+
+    }
+
+    // 값 확인
+    alert("userdate 전송 ! " + JSON.stringify(data));
+    console.log(JSON.stringify(data));
+
+    // 데이터 전송 ajax
     $.ajax({
       type: "POST",
-      url: "/sigUp/student",
-      data: JSON.stringify(userData),
+      url: "/sigUp/member",
+      data: JSON.stringify(data),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success : function (result) {
@@ -40,17 +53,18 @@ let signUp = {
         }
         else{
           alert('회원가입에 실패했습니다');
-          location.href="/student_sign-up";
+          location.href="/";
         }
       },
       error : function (error){
-        alert("수정 실패");
+        alert("회원가입");
         console.log(error);
         location.href = "/mypage/member/read";
       }
 
     })
-  }
+  } // save() end
+
 };
 
 signUp.init();

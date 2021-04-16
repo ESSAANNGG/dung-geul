@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>기업 마이페이지</title>
+</head>
+<body>
+    <h1>회원 기본 정보</h1>
+    <div>
+        id : [[${etp.getUser_id()}]]
+    </div>
+    <div>
+        이메일 : [[${etp.getUser_email()}]]
+    </div>
+    <div>
+        담당자 이름 : [[${etp.getUser_name()}]]
+    </div>
+
+    <h1>기업 정보</h1>
+    <div>
+        사업자등록번호 : [[${etp.getEtp_num()}]]
+    </div>
+
+    <div>
+        기업명 : [[${etp.getEtp_name()}]]
+    </div>
+
+    <div>
+        우편번호 : [[${etp.getUser_postcode()}]]
+    </div>
+    <div>
+        주소 : [[${etp.getUser_addr()}]]
+    </div>
+    <div>
+        상세주소 : [[${etp.getUser_addr_details()}]]
+    </div>
+    <div>
+        기업 대표자 이름 : [[${etp.getEtp_ceo_name()}]]
+    </div>
+    <div>
+        기업 전화번호  : [[${etp.getUser_ph()}]]
+    </div>
+
+    <h1>기업 추가 정보</h1>
+    <div>
+        기업 직원 수 : [[${etp.getEtp_member()}]]
+    </div>
+    <div>
+        기업 홈페이지 : [[${etp.getEtp_home()}]]
+    </div>
+    <div>
+        기업 업종 : [[${etp.getEtp_sector()}]]
+    </div>
+    <div>
+        기업 형태 : [[${etp.getEtp_shape()}]]
+    </div>
+    <div>
+        기업 주요사업내용 : [[${etp.getEtp_contents()}]]
+    </div>
+    <div>
+        팩스 번호 : [[${etp.getEtp_fx()}]]
+    </div>
+    <div>
+        설립 일자 : [[${etp.getEtp_year()}]]
+    </div>
+
+    <a href="/mypage/etp/modify"><button>수정하기</button></a>
+
+</body>
+</html>

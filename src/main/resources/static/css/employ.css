@@ -183,7 +183,7 @@
 
 }
 /*기업명 아이콘*/
-.employListPost > li > a >  ul.post_corp_name_wrap > i{
+.employListPost > li > a >  ul.post_corp_name > i{
     margin-right:5px;
     line-height:30px;
     color: #feb522;
@@ -197,6 +197,7 @@
     padding-right:30px;
     font-size:14px;
     font-weight: 400;
+
     /* display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
