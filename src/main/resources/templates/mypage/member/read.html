@@ -1,263 +1,232 @@
 <!DOCTYPE html>
-
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>취업정보센터</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
+
+<head>
+    <meta charset="UTF-8">
+    <title>회원 정보</title>
     <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
-       <link rel="stylesheet" href="/css/mypage.css" />
-    <link rel="stylesheet" href="/css/frame.css">
-      <link rel="stylesheet" href="/css/nav.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="/css/mypage.css">
+    <link rel="stylesheet" href="/css/user_info.css">
 
-  </head>
-  <body class="is-preload">
-    <div id="page-wrapper">
-		
-      <!-- Header -->
-      <header id="header">
+</head>
+
+<body>
+<!-- partial:index.partial.html -->
+
+<body>
+<section class="vbox">
+
+    <!-- 상단 네비게이션 자리  -->
+    <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+        <!--취업정보센터 링크 -->
+        <div class="navbar-header aside-md">
+            <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open"
+               data-target="#nav,html"><i class="fa fa-bars"></i></a>
 
 
-          <navbar>
-        <div class="nav">
-          <ul class="dep1">
-            <li class="logo">
-              <a href="#">영진전문대학교</a>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">진로설계</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="/career-planning/simli_test">진로심리검사</a></li>
-                <li><a href="/job-information">직업정보</a></li>
-                <li><a href="#">직업사전</a></li>
-                <li><a href="#">직업사전</a></li>
-              </ul>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">직무역량강화</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">지원프로그램</a></li>
-                <li><a href="#">자격증 관리</a></li>
-                <li><a href="#">수료증 관리</a></li>
-              </ul>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">구직역량강화</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="/application/cv/before">이력서 관리</a></li>
-                <li><a href="#">자소서 관리</a></li>
-              </ul>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">구직서비스</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="/Employ/list">채용정보</a></li>
-                <li><a href="/Employ/register">채용등록</a></li>
-              </ul>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">상담</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="#">상담소개</a></li>
-                <li><a href="#">상담신청</a></li>
-              </ul>
-            </li>
-            <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-              <a href="#">센터정보</a>
-              <ul class="dep2" onmouseover="nav_on()">
-                <li><a href="/center-information/center_introduction">센터소개</a></li>
-                <li><a href="/center-information/main_business">주요업무내용</a></li>
-                <li><a href="/center-information/notice_board">공지사항</a></li>
-              </ul>
-            </li>
-            <li class="login">
-             <a href="/login" th:if="!${loginUser}">로그인</a>
-              <a href="/logout" th:if="${loginUser}">로그아웃</a>
-           </li>
-           <li class="join">
-             <a href="/sign-up" th:if="!${loginUser}">회원가입</a>
-             <a href="/mypage/member/read" th:if="${loginUser}">마이페이지</a>
-            </li>
-          </ul>
+            <a href="/" class="navbar-brand" data-toggle="fullscreen"><i class="fas fa-book-open"></i> </i>
+                취업정보센터</a>
+
+            <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"><i
+                    class="fa fa-cog"></i></a>
         </div>
-        <div class="nav2">
-          <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
-        </div>
-      </navbar>
-      </header>
 
+        <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
+            <!-- 알림표시 -->
+            <!-- open으로 작동 -->
+            <li class="hidden-xs">
+                <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <i class="fa fa-bell"></i>
+                    <span class="badge badge-sm up bg-danger m-l-n-sm count">2</span>
+                </a>
+                <section class="dropdown-menu aside-xl">
+                    <section class="panel bg-white">
+                        <header class="panel-heading b-light bg-light">
+                            <strong>확인하지 않은 <span class="count">2</span>개 알림</strong>
+                        </header>
+                        <div class="list-group list-group-alt animated fadeInRight">
+                            <a href="#" class="media list-group-item">
+                                <!-- <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span> -->
+                                <span class="media-body block m-b-none"> 알림보여주는 자리<br>
+											<small class="text-muted">10분</small>
+											<small class="text-muted">전</small>
+										</span>
+                            </a>
+                            <a href="#" class="media list-group-item">
+										<span class="media-body block m-b-none">알림보여주는 자리<br><small
+                                                class="text-muted">1일</small>
+											<small class="text-muted">전</small></span>
+                            </a>
+                        </div>
 
-      <!-- Main -->
-      <div id="mainWrap">
-      <section id="main">
-        <div class="container">
-          <div class="row">
-            <div class="col-3">
-              <div class="sidebar">
-               <div class="menu2">
-    <div id="bar">
-        <h2>[[${memberDTO.getUser_name}]]님 마이페이지</h2>
-        
-        <ul id="menu_bar">
-            <li id="menu_con1"><h4>회원정보</h4>
-                <ul id="sb_detail">
-                    <li><a href="/mypage/member/read">회원정보</a></li>
-                    <li><a href="/mypage/member/modify">회원정보 수정</a></li>
-                   
-                    
+                        <footer class="panel-footer text-sm">
+                            <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+                            <a href="#notes" data-toggle="class:show animated fadeInRight">모든알림 보러가기</a>
+                        </footer>
+                    </section>
+                </section>
+            </li>
+            <!-- 로그아웃 드롭다운 메뉴 -->
+            <!-- open -->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span> &nbsp; &nbsp;</span> [[${memberDTO.getUser_name}]] 님 <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
+
+                    <li> <a href="/mypage/member/modify">회원 정보수정</a> </li>
+                    <!-- <li> <a href=""> <span class="badge bg-danger pull-right">3</span> 알림 </a> </li>  -->
+                    <li class="divider"></li>
+                    <li> <a href="">Logout</a> </li>
                 </ul>
             </li>
-            <!-- <li id="menu_con2"><h4>직업 정보</h4>
-                <ul id="sb_detail">
-                    <li><a href="#">직업 정보 조회</a></li>
-                    <li><a href="#">직업 사전</a></li>
-                </ul>
-            </li> -->
-            <!--
-            <li id="menu_con3"><h4>상담 정보</h4>
-                <ul id="sb_detail">
-                    <li><a href="#">상담 신청</a></li>
-                    <li><a href="#">상담 내역</a></li>
-                </ul>
-            </li> -->
         </ul>
-    </div> <!-- bar -->
-</div> <!-- menu -->
-               
-              </div>
-            </div>
-            
-            <div class="col-9 col-12-medium imp-medium">
-              <div class="content">
-                <!-- Content -->
+    </header>
+    <!-- 상단 네비게이션 end -->
 
-                <article class="box page-content">
-                  <header>
-					<h2 class="major"><span>회원정보</span></h2>
-                    <h2 class="h2-small"></h2> 
-                  </header>
+    <section>
+        <section class="hbox stretch">
+            <!-- .aside -->
+            <!-- 왼쪽메뉴 -->
+            <!-- nav-xs로 줄임 -->
+            <aside class="bg-dark lter aside-md hidden-print " id="nav">
+                <section class="vbox">
+                    <!--MY HOME-->
+                    <header class="header bg-primary lter text-center clearfix">
+                        <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project">
+                            <i class="fas fa-home"></i>
+                        </button>
+                        <div class="btn-group hidden-nav-xs">
+                            <a href="">
+                                <button type="button" class="btn btn-sm btn-primary"
+                                        style="font-size: 20px; margin-bottom: 10px;"></i> MY
+                                    HOME
 
-                  <section>
-                  
+                                </button>
+                            </a>
 
-                  </section>
+                        </div>
+                    </header>
+                    <!-- MY HOME END -->
+                    <section class="w-f scrollable">
+                        <div class="slim-scroll" data-height="auto" data-disable-fade-out="true"
+                             data-distance="0" data-size="5px" data-color="#333333">
+                            <!-- aside nav 따로 파일 나눠놨어요 -->
+                            <div th:replace="mypage/aside :: nav"/>
+                            <!-- nav end -->
+                        </div>
+                    </section>
 
-                  <section>
-                    <table class="line">
-                      <tr>
-                        <th class="gray bottom-line right-line">아이디</th>
-                        <td class="bottom-line">[[${memberDTO.getUser_id()}]]</td>
-                      </tr>
-                      <tr>
-                        <th class="gray bottom-line right-line">이름</th>
-                        <td class="bottom-line">[[${memberDTO.getUser_name()}]]</td>
-                      </tr>
-                       <tr>
-                        <th class="gray bottom-line right-line">연락처</th>
-                        <td class="bottom-line">[[${memberDTO.getUser_ph()}]]</td>
-                      </tr>
-                       <tr>
-                        <th class="gray bottom-line right-line">주소</th>
-                        <th class="bottom-line">
-                          <table>
-                          <tr>
-                            <th class="">우편번호</th>
-                            <td class="test">[[${memberDTO.getUser_postcode()}]]</td>
-                          </tr>
-                          <tr>
-                            <th class="delete gary">주소</th>
-                            <td class="test">[[${memberDTO.getUser_addr()}]]</td>
-                          </tr>
-                           <tr>
-                            <th>상세주소</th>
-                            <td class="test">[[${memberDTO.getUser_addr_details()}]]</td>
-                          </tr>
-                        </table>
-                        </th>
-                      </tr>
-                    <div th:if="${roles.contains('STUDENT')}">
-                      <tr>
-                        <th class="gray bottom-line right-line">소속</th>
-                        <th class="bottom-line">
-                          <table>
-                          <tr>
-                            <th class="">&nbsp;&nbsp;계열&nbsp;</th>
-                            <td class="test"><span>[[${memberDTO.getUser_dept()}]] </span></td>
-                          </tr>
-                          <tr>
-                            <th class="delete">학년</th>
-                            <td class="test"><span>[[${memberDTO.getUser_grade()}]] </span></td>
-                          </tr>
-                           <tr>
-                            <th>반</th>
-                            <td class="test"><span>[[${memberDTO.getUser_class()}]] </span></td>
-                          </tr>
-                        </table>
-                        </th>
-                      </tr>
-                    </div>
-                    </table>
-                    
-                  </section>
-                  <section>
-                   <!-- <div class="modify">
-                   <a class="white" href="/mypage/member/modify">수정하기</a>
-                   </div> -->
+                    <footer class="footer lt hidden-xs b-t b-dark">
+                        <!-- 메뉴숨길때 btn-icon active -->
+                        <a href="#nav" data-toggle="class:nav-xs"
+                           class="pull-right btn btn-sm btn-dark btn-icon ">
+                            <i class="fa fa-angle-left text"></i>
+                            <i class="fa fa-angle-right text-active"></i>
+                        </a>
+                        <div class="btn-group hidden-nav-xs">
+                        </div>
+                    </footer>
+                </section>
+            </aside>
 
-                  </section>
+            <!-- /.aside -->
+            <!-- 콘텐츠 자리 -->
+            <section id="content">
+                <section class="vbox">
+                    <section class="scrollable padder">
+                        <!-- 요기안에 컨텐츠 넣으면 되용 -->
+                        <div id="content-frame">
+                            <!-- 메뉴제목자리 -->
+                            <div id="title">
+                                <h1>회원 정보</h1>
+                            </div>
+                            <!-- 주요컨텐츠 -->
+                            <div id="main-content">
+                                <table id="user_info">
+                                    <tr class="border-top">
+                                        <th class="gray bottom-line right-line th-center">아이디</th>
+                                        <td class="bottom-line td_padding-left">[[${memberDTO.getUser_id()}]]</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="gray bottom-line right-line th-center">이름</th>
+                                        <td class="bottom-line td_padding-left">[[${memberDTO.getUser_name()}]]</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="gray bottom-line right-line th-center">이메일</th>
+                                        <td class="bottom-line td_padding-left">[[${memberDTO.getUser_email()}]]</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="gray bottom-line right-line th-center">연락처</th>
+                                        <td class="bottom-line td_padding-left">[[${memberDTO.getUser_ph()}]]</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="gray bottom-line right-line th-center">주소</th>
+                                        <th class="bottom-line">
+                                            <table>
+                                                <tr>
+                                                    <th class="th2-center">우편번호</th>
+                                                    <td class="test">[[${memberDTO.getUser_postcode()}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="delete gary th2-center" >주소</th>
+                                                    <td class="test">[[${memberDTO.getUser_addr()}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th2-center">상세주소</th>
+                                                    <td class="test">[[${memberDTO.getUser_addr_details()}]]
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </th>
+                                    </tr>
+                                    <div th:if="${roles.contains('STUDENT')}">
+                                        <tr>
+                                            <th class="gray bottom-line right-line th-center">소속</th>
+                                            <th class="bottom-line">
+                                                <table>
+                                                    <tr>
+                                                        <th class="th2-center th2-padding">계열</th>
+                                                        <td class="test"><span>[[${memberDTO.getUser_dept()}]]
+																	</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th2-center th2-padding">학년</th>
+                                                        <td class="test"><span>[[${memberDTO.getUser_grade()}]]
+																	</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th2-center th2-padding">반</th>
+                                                        <td class="test"><span>[[${memberDTO.getUser_class()}]]
+																	</span></td>
+                                                    </tr>
+                                                </table>
+                                            </th>
+                                        </tr>
+                                    </div>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen"
+                   data-target="#nav"></a>
+            </section>
+            <!-- 콘텐츠 END -->
 
-				 
-                </article>
-              </div>
-            </div>
-           
-                    
-                  </div>
-                </div>
-              </section>
-              <div class="footer">
-                <ul class="footer_1">
-                  <li class="footer_1_c">개인정보처리방침</li>
-                  <li class="footer_1_c">이메일무단수집거부</li>
-                  <li class="footer_1_c">저작권보호방침</li>
-                  <li class="footer_1_c">입찰정보</li>
-                  <li class="footer_1_c">예산공고</li>
-                </ul>
-                <ul class="footer_2">
-                  <li class="footer_2_c">전화번호 : 053-819-1000</li>
-                  <li class="footer_2_c">전화번호 : 053-770-2233</li>
-                  <li class="footer_2_c">전화번호 : 053-819-1114</li>
-                </ul>
-                <ul class="footer_3">
-                  <li class="footer_3_c">
-                    COPYRIGHT (C) DAEGU YEUNGJIN UNIVERSITY.ALL RIGHTS RESERVED.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      
+            <aside class="bg-light lter b-l aside-md hide" id="notes">
+                <div class="wrapper">Notification</div>
+            </aside>
+        </section>
+    </section>
+</section> <!-- Bootstrap -->
+<!-- App -->
 
-     
-    </div>
+</body>
+<!-- partial -->
+<script src="/js/mypage.js"></script>
 
+</body>
 
-    <!-- Scripts -->
-    <script src="/js/jquery-3.5.1.min.js"></script>
-    <script src="/js/footer.js"></script>
-    <script src="/js/nav.js"></script>
-    <!-- <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script> -->
-    <!-- <script src="assets/js/main.js"></script> -->
-  </body>
 </html>

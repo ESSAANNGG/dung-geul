@@ -1,13 +1,10 @@
 $(document).ready(function () {
 
-
-    //채용 글등록 
+    //채용 글등록
     $('#emReg').on('click', function () {
         let data = {
             title: $('#em_title').val(),
-            content : $('#em_content').val(),
-            file : $('#fileName)'.val()
-
+            content : $('#em_content').val()
         }
         console.log(data);
         $.ajax({
@@ -16,15 +13,14 @@ $(document).ready(function () {
             //type : 'POST' 메서드의 별칭입니다. 1.9.0 이전의 jQuery 버전을 사용하는 경우 type을 사용해야합니다.
             url : '/rest/emReg',  //url: 요청이 전송되는 URL이 포함 된 문자열입니다.
             contentType: 'application/json; charset=utf-8',
-            enctype:'multipart/form-data'
             // dataType (default: Intelligent Guess (xml, json, script, or html))  // JSON : 응답을 JSON으로 평가하고 JavaScript 객체를 반환합니다
         }).done(function () {
-           location.href = '/Employ/list';
+            location.href = '/Employ/list';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         })
     });
-    
+
     //채용 글 삭제
     $('#emRemove').on('click', function () {
 
@@ -67,18 +63,6 @@ $(document).ready(function () {
         })
     });
 
-    let searchForm = $("#searchForm");
-
-    $('.btn-search').click(function(e){
-
-        searchForm.submit();
-    });
-
-    $('.btn-clear').click(function(e){
-
-        searchForm.empty().submit();
-    })
-
 });
 
 let stateBtn = document.getElementsByClassName("state"); //0==구직중 1==마감
@@ -97,6 +81,40 @@ function deadline(){
 
 
 
+// $("ep1").attr("checked",true)  ;
+
+// document.getElementById('ep1').checked = false;
+// document.getElementById('ep2').checked = true;
+
+
+
+
+
+//공고등록 > 상세정보의 지원방법 추가,삭제
+let f="addSub";
+let length;
+function Apply(f){
+    var wrap = document.getElementsByClassName('register_addApply_wrap');
+    var wrapH=wrap[0].offsetHeight;
+    length=$('.register_addApply_ul').children().length;
+    //length=$('.register_addApply_li').length; <<으로하니 계속 1,0 값만 생김
+    if(f=='add'){
+        if(length>4){
+            return;
+        }
+        wrap[0].style.height=wrapH+40+'px';
+        $('.register_addApply_ul').append('<li><input type="text" placeholder="지원방법에 대해 기술해주세요.   ex)이메일,문자" ></li>' );
+    }
+    else{
+        if(length==1){
+            return;
+        }
+        wrap[0].style.height=wrapH+(-40)+'px';
+        $('.register_addApply_ul').children().last().remove();
+    }
+};
+
+
 //공고등록 > 페이지 이동하는 함수
 p1=document.getElementById('employ_register1');
 p2=document.getElementById('employ_register2');
@@ -108,79 +126,16 @@ function pageMov(i){
         $('.content').hide();//
         $('.content').slideDown('slow');
         p1.style.display="none"; //위처럼 jquery로 써도됨
-        // p3.style.display="none";
+        p3.style.display="none";
     }
     else if(i==1){
-        console.log("aa");
         $('#employ_register1').show();//1페이지로 교체후
         $('.content').hide();//
         $('.content').slideDown('slow');
         p2.style.display="none"; //위처럼 jquery로 써도됨
-        // p3.style.display="none";
+        p3.style.display="none";
     }
 }
-
-
-
-let cont_func_index=0;
-//본문 내용 자르는 함수
-function post_cont_sub_func(){
-    let post_cont = document.getElementsByClassName("post_cont")[cont_func_index];
-    post_cont_txt=post_cont.innerText;                             //text값을 받아와서 txt에 담음
-    if(post_cont_txt.length > 20){                                //내용이길다면 sub변수에 substr를 이용해 간추림
-        var post_cont_sub=post_cont_txt.substr(0,20)+"...";
-        post_cont.innerText=post_cont_sub;                                        //text 설정
-    }
-
-    cont_func_index=cont_func_index+1; //리스트가 있는 만큼 함수를 적용하기 위해 본문의 for문이 실행될때마다 클래스참조값+1
-}
-
-
-//모집인원 유효성검사
-function checkNumber(event) {
-    var key = event.key;
-    var num = /^[0-9]*$/;
-
-    if( key.check(num) ){
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-let f="addSub";
-let length;
-function Apply(f){
-    var wrap = document.getElementsByClassName('register_file_wrap');
-    var wrapH=wrap[0].offsetHeight;
-    length=$('.register_file_ul').children().length;
-    //length=$('.register_addApply_li').length; <<으로하니 계속 1,0 값만 생김
-    if(f=='add'){
-        if(length>4){
-            alert("첨부파일은 최대5개까지 가능합니다")
-            return;
-        }
-        wrap[0].style.height=wrapH+40+'px';                    /* 아이디와 함수로 전해줄 인덱스값 length를 이용해 만들어 구분*/
-        $('.register_file_ul').append('<li><input type="text" id="fileName' + (length+1) + '" placeholder="추가로 기재할 이력서 양식 등 기타 첨부파일을 올려주세요" readonly><input type="file" onchange="fileChange(this.value,'+ (length+1) +')"></li>' );
-    }
-    else{
-        if(length==1){
-            return;
-        }
-        wrap[0].style.height=wrapH+(-40)+'px';
-        $('.register_file_ul').children().last().remove();
-    }
-};
-
-
-//첨부파일 값을 inputText 로 이동
-function fileChange(value,b){
-    let fileName=document.getElementById('fileName'+b);
-    fileName.value=value;
-}
-
-
 
 
 
@@ -229,6 +184,8 @@ $('document').ready(function() {
             });
         }
     });
+
+
 });
 
 

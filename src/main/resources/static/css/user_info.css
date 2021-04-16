@@ -1,0 +1,175 @@
+/* 회원정보 */
+table {
+    font-size: 2.6rem;
+}
+
+.border-top {
+    border-top: 2px solid rgba(95, 92, 92, 0.836);
+}
+
+.gray {
+    background-color: #eef1f8;
+}
+
+.bottom-line {
+    border-bottom: 0.7px solid rgba(160, 154, 154, 0.685);
+}
+
+.right-line {
+    border-right: 0.7px solid rgba(160, 154, 154, 0.685);
+}
+
+.modify {
+    -webkit-appearance: none;
+    display: inline-block;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #2252b3;
+    color: #fff;
+    line-height: 2.6rem;
+    border: 0;
+    border-radius: 8px;
+    outline: 0;
+    cursor: pointer;
+    -moz-transition: background-color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -o-transition: background-color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 0.9em;
+    padding: 0px 15px 0px 15px;
+    height: 40px;
+    text-align: center;
+}
+
+.white {
+    color: #fff;
+}
+
+.test {
+    text-align: left;
+    font-weight: inherit;
+    font-weight: 300;
+    width: 40em;
+}
+
+.center {
+    float: none;
+}
+
+.red {
+    background: red;
+}
+
+.pass {
+    width: 80%;
+    padding-left: 10em;
+}
+
+.margin-top15 {
+    margin-top: 15px;
+}
+
+th {
+    min-width: 10em;
+}
+
+td {
+    font-size: 1.7rem;
+}
+
+.td_padding-left {
+    padding-left: 10px;
+}
+
+.th-center {
+    line-height: 50px;
+    text-align: center;
+    padding: 0 30px;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.th2-center {
+    padding: 0 30px;
+    font-size: 1.7rem;
+    line-height: 50px;
+    font-weight: 600;
+}
+
+.th2-padding {
+    padding-right: 63px;
+}
+
+.table-child {
+    font-size: 1.7rem;
+}
+
+input {
+    width: 50%;
+}
+
+#modifyMember {
+    width: 80px;
+    float: right;
+}
+
+.password {
+    margin-top: 15px;
+    float: left;
+}
+
+.excute {
+    margin-top: 100px;
+    float: right;
+}
+
+.excute > a {
+    color: rgb(173, 30, 30);
+}
+
+#main-content {
+    width: 100%;
+}
+#modifyPw {
+    width: 100%;
+}
+
+.size > h3 {
+    font-size: 17px;
+}
+
+.input-password {
+    height: 32px;
+    background-color: #ffffff;
+    border: 1px solid black;
+}
+
+.margin-bottom {
+    margin-bottom: 2.5em;
+}
+
+#submit {
+    margin-top: 2.5em;
+    padding: 6px;
+    background-color: #fff;
+    border: 0.2px solid rgba(0, 0, 0, 0.342);
+    font-weight: 900;
+}
+
+.common-button {
+    padding: 6px;
+    background-color: #fff;
+    border: 0.2px solid rgba(0, 0, 0, 0.342);
+    font-weight: 900;
+}
+
+input[type="submit"] {
+    padding: 6px;
+    background-color: #fff;
+    border: 0.2px solid rgba(0, 0, 0, 0.342);
+    font-weight: 900;
+}
+/* 학생마이페이지 end */
