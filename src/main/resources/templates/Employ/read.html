@@ -18,23 +18,76 @@
 <div th:replace="layout/layout :: nav"/>
 <div class="form-group">
     <label >Num</label>
-    <input type="text" class="form-control" id="num" name="num" th:value="${dto.num}" readonly >
-</div>
-
-<div class="form-group">
-    <label >Name</label>
-    <input type="text" class="form-control" id="name" name="name" th:value="${dto.name}" readonly >
-</div>
-
-<div class="form-group">
-    <label >Content</label>
-    <input type="text" class="form-control" id="content" name="content" th:value="${dto.content}" readonly >
+    <input type="text" class="form-control" id="em_num" name="em_num" th:value="${dto.num}" readonly >
 </div>
 
 <div class="form-group">
     <label >Title</label>
-    <input type="text" class="form-control" id="title" name="title" th:value="${dto.title}" readonly >
+    <input type="text" class="form-control" id="em_title" name="em_title" th:value="${dto.title}" readonly >
 </div>
+
+<div class="form-group">
+    <label >Content</label>
+    <input type="text" class="form-control" id="em_content" name="em_content" th:value="${dto.content}" readonly >
+</div>
+
+<div class="form-group">
+    <label >직종 구분</label>
+    <input type="text" class="form-control" id="em_ot" name="em_ot" th:value="${dto.ot}" readonly >
+</div>
+
+<div class="form-group">
+    <label >고용 구분</label>
+    <input type="text" class="form-control" id="em_ep" name="em_ep" th:value="${dto.ep}" readonly >
+</div>
+
+<div class="form-group">
+    <label >시작일</label>
+    <input type="datetime-local" class="form-control" id="em_start_date" name="em_start_date" th:value="${dto.start_date}" readonly >
+</div>
+
+<div class="form-group">
+    <label >마감일</label>
+    <input type="datetime-local" class="form-control" id="em_end_date" name="em_end_date" th:value="${dto.end_date}" readonly >
+</div>
+
+<div class="form-group">
+    <label >모집 인원</label>
+    <input type="text" class="form-control" id="em_people" name="em_people" th:value="${dto.people}" readonly >
+</div>
+
+<div class="form-group">
+    <label >경력</label>
+    <input type="text" class="form-control" id="em_career" name="em_people" th:value="${dto.career}" readonly >
+</div>
+
+<div class="form-group">
+    <label>학력</label>
+    <input type="text" class="form-control" id="em_education" name="em_education" th:value="${dto.education}" readonly >
+</div>
+
+<div class="form-group">
+    <label >급여</label>
+    <input type="text" class="form-control" id="em_salary" name="em_salary" th:value="${dto.salary}" readonly >
+</div>
+
+<div class="form-group">
+    <label >근무 지역 </label>
+    <input type="text" class="form-control" id="em_area" name="em_area" th:value="${dto.area}" readonly >
+</div>
+
+<div class="form-group">
+    <label >지원 방법 </label>
+    <input type="text" class="form-control" id="em_apply" name="em_apply" th:value="${dto.apply}" readonly >
+</div>
+
+<div class="form-group">
+    <label >파일 </label>
+    <input type="text" class="form-control" id="em_file" name="em_file" th:value="${dto.file}" readonly >
+</div>
+
+
+
 
     <div class="from-group">
         <label>작성일</label>
@@ -43,7 +96,7 @@
     </div>
 
     <div class="from-group">
-        <label>마감일</label>
+        <label>최근수정일</label>
         <input type="text" class="form-control" id="modDate" name="modDate"
                th:value="${#temporals.format(dto.modDate, 'YYYY-MM-dd ')}" readonly />
     </div>
