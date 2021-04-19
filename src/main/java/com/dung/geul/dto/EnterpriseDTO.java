@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@ToString
 public class EnterpriseDTO extends MemberDTO {
 
     // 기업 추가 정보

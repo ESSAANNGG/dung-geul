@@ -9,17 +9,21 @@ import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequestMapping("/allow")
 public class AllowRestController {   // 권한 관리 컨트롤러
 
     @Autowired
     MemberServiceImpl memberService;
 
-    @PostMapping("auth/etp/read")
-    public int etpAuth(@RequestBody EnterpriseDTO enterpriseDTO){  // 기업 인증 승인 해줄 때
+
+    // 기업 인증 승인 해줄 때
+    @PostMapping("/etp/allow")
+    public int etpAuth(@RequestBody EnterpriseDTO enterpriseDTO){
         System.out.println(" : " + enterpriseDTO.toString());
         System.out.println("enterpriseDTO : " + enterpriseDTO.toString());
 
