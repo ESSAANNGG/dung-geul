@@ -31,4 +31,8 @@ public class WebController {
     public void coun(){
     }
 
+    @GetMapping("/counseling/studentcoun")
+    public void stu(){
+    }
+
 }
