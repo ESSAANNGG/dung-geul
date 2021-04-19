@@ -172,8 +172,9 @@
     color:#1e1c2c;
     font-size:20px;
     font-weight: 400;
+    z-index:5;
 }
-.employListPost > li > a > ul.post_title > i:hover{
+.employListPost > li > a > ul.post_title_wrap > i:hover{
     color:#2062af;
 }
 /*각 리스트의 기업명*/
@@ -183,7 +184,7 @@
 
 }
 /*기업명 아이콘*/
-.employListPost > li > a >  ul.post_corp_name > i{
+.employListPost > li > a > ul.post_corp_name_wrap > i{
     margin-right:5px;
     line-height:30px;
     color: #feb522;

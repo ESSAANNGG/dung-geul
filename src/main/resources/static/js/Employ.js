@@ -20,7 +20,7 @@ $(document).ready(function () {
             end_date : $('#em_end_date').val(),
             people: $('#em_people').val(),
             career : $('input[name="career"]:checked').val(),
-            education : $('#em_education').val(),
+            education : ed,
             area : $('#em_sido').val()+'/'+$('#em_gugun').val(),
             salary : $('#em_salary').val(),
             apply :   ap
@@ -158,7 +158,7 @@ function post_cont_sub_func(){
 }
 
 
-//모집인원 유효성검사
+//모집인원,급여 유효성검사
 $(document).ready(function(){
     $("#em_people").on("keyup", function() {
         if(isNaN($(this).val())){
@@ -168,7 +168,39 @@ $(document).ready(function(){
         }
         $(this).val($(this).val().replace(/[^0-9]/g,""));
     });
+
+    $("#em_salary").on("keyup", function() {
+        if(isNaN($(this).val())){
+            let error = document.getElementsByClassName("register_salary_error")[0].style.display="inline-block"; //jquery로 안한 이유는 인라인블록을 안하니 망가져서
+            // $('.register_TO_error').show();
+            $('.register_salary_error').fadeOut(3000);
+        }
+        $(this).val($(this).val().replace(/[^0-9]/g,""));
+    });
 });
+
+//학력 변수
+let ed;
+
+//학력 input 제어
+function eduFunc(){
+
+
+    if($("#education").is(":checked")){
+        $('.register_education_val').prop('disabled', 'true');
+         ed = $('#education').val();
+         alert("if");
+    }
+    else{
+        $('.register_education_val').removeAttr("disabled");
+        ed = $('#em_education').val(); //select값 변경없이 체크 해제후 바로 사용할때 필요
+        alert("else");
+    }
+}
+//값 선택할때마다 변수에 값이 들어가게
+function selectValChange(){
+    ed = $('#em_education').val();
+}
 
 
 

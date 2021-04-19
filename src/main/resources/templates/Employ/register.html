@@ -156,7 +156,8 @@
                                 모집인원
                             </div>
                             <div class="register_TO_input">
-                                <input type="text" maxlength="4" id="em_people"/>명
+                                <input type="text" maxlength="4" id="em_people"/>
+                                <p>명</p>
                                 <div class="register_TO_error">숫자만 입력해주세요.</div>
                             </div>
                         </div>
@@ -177,9 +178,8 @@
                                 학력
                             </div>
                             <div class="register_education_input">
-                                <input type="radio" name="education" value="무관" checked>무관
-                                <input type="radio" name="education" value="제한" >제한
-                                <select id="em_education" name="register_education_val" class="register_education_val">
+                                <input type="checkbox" id="education" name="education" value="무관" checked="checked" onclick="eduFunc()">무관
+                                <select id="em_education" name="register_education_val" class="register_education_val" disabled="disabled" onchange="selectValChange(this.value)">
                                     <option value="대학원졸업이상">대학원졸업이상</option>
                                     <option value="대학원재학">대학원재학</option>
                                     <option value="대학교졸업">대학교졸업</option>
@@ -211,6 +211,8 @@
                             </div>
                             <div class="register_salary_input">
                                 <input type="text" id="em_salary">
+                                <p>만원</p>
+                                <div class="register_salary_error">숫자만 입력해주세요.</div>
                             </div>
                         </div>
 

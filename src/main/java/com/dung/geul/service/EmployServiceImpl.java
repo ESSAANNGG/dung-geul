@@ -7,9 +7,10 @@ import com.dung.geul.entity.Employ;
 
 
 import com.dung.geul.entity.QEmploy;
-import com.querydsl.core.BooleanBuilder;
 import com.dung.geul.repository.EmployRepository;
 
+
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.RequiredArgsConstructor;
 
@@ -83,6 +84,7 @@ public class EmployServiceImpl implements EmployService {
 
     }
 
+
     private BooleanBuilder getSearch(PageRequestDTO requestDTO){
 
         String type = requestDTO.getType();
@@ -98,6 +100,7 @@ public class EmployServiceImpl implements EmployService {
         booleanBuilder.and(expression);
 
         if(type == null || type.trim().length() == 0) {
+
             return booleanBuilder;
         }
 
