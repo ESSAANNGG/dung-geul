@@ -193,21 +193,21 @@
 }
 .register_start_date{
     display:inline-block;
-    width:45px;
+    width:70px;
     height:40px;
     font-size:13px;
     line-height: 30px;
 }
 .register_end_date{
     display:inline-block;
-    width:45px;
+    width:70px;
     height:40px;
     font-size:13px;
     line-height: 30px;
 }
 .register_date_wrap input{
     display:inline-block;
-    width:140px;
+    width:200px;
     height:30px;
     margin-right:20px;
     padding-left:5px;
@@ -261,6 +261,19 @@
     padding-left:15px;
     font-size:13px;
 }
+.register_TO_input p{
+    display:inline-block;
+    margin:0px 10px 0 5px;
+    font-size:12px;
+    font-weight:300;
+}
+.register_TO_error{
+    display:none;
+    width:100px;
+    text-align: center;
+    font-size:10px;
+    color:blue;
+}
 /*경력*/
 .register_career_wrap{
     display: flex;
@@ -286,7 +299,7 @@
 .register_education_wrap{
     display: flex;
     justify-content: center;
-    height:100px;
+    height:70px;
     padding-top :5px;
     margin: 0 auto;
     color:#768395;
@@ -322,8 +335,7 @@
 .register_location_wrap{
     display: flex;
     justify-content: center;
-    height:70px;
-    padding-top :15px;
+    height:60px;
     margin: 0 auto;
     color:#768395;
     font-weight:900;
@@ -346,12 +358,54 @@
     padding-left:10px;
 }
 
+.register_salary_wrap {
+    display: flex;
+    justify-content: center;
+    height:50px;
+    margin: 0 auto;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_salary{
+    width:100px;
+    font-size:16px;
+}
+.register_salary_input{
+    display:flex;
+    width:600px;
+    height:40px;
+    align-items: end;
+}
+.register_salary_input p{
+    font-size:12px;
+    font-weight:300;
+    display:inline-block;
+    margin:0px 10px 0 5px;
+}
 
-/*지원방법*/
+.register_salary_input input    {
+    width:200px;
+    height:40px;
+    font-size:13px;
+    font-weight: 500;
+    padding-left:10px;
+}
+
+.register_salary_error{
+    display:none;
+    width:100px;
+    text-align: center;
+    font-size:10px;
+    color:blue;
+}
+
+
+    /*지원방법*/
 .register_addApply_wrap{
     display: flex;
     justify-content: center;
-    height:100px;
+    height:50px;
     margin: 0 auto;
     color:#768395;
     font-weight:900;
@@ -363,19 +417,51 @@
 }
 .register_addApply_input{
     width:600px;
+    height:40px;
+    font-size:13px;
+    font-weight: 500;
+}
+.register_addApply_input input{
+    margin-right:5px;
+}
+/*첨부파일*/
+.register_file_wrap{
+    display: flex;
+    justify-content: center;
+    height:110px;
+    margin: 0 auto;
+    color:#768395;
+    font-weight:900;
+    font-size:16px;
+}
+.register_file{
+    width:100px;
+    font-size:16px;
+}
+.register_file_input{
+    width:600px;
     height:40px;  
     font-size:13px;
     font-weight: 500; 
 }
-.register_addApply_input input{
-    width:600px;
+.register_file_input input[type="text"]{
+    width:400px;
     height:40px;  
     padding-left:10px;
     margin-bottom:5px;
     font-size:13px;
     font-weight: 500; 
 }
-.register_addApply_btn{
+.register_file_input input[type="file"]{
+    width:85px;
+    height:30px;
+    border:0px;
+    padding-left:10px;
+    margin-bottom:5px;
+    font-size:13px;
+    font-weight: 500;
+}
+.register_file_btn{
     position:relative;
     top:-35px;
     width:600px;

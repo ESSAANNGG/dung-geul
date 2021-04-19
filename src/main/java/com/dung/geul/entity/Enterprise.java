@@ -36,10 +36,8 @@ public class Enterprise implements Serializable{
         @Column(length = 11, nullable = false)
         private String etp_ph; // 기업 전화번호
 
-        @Column(length = 12, nullable = false)
         private String etp_fx; // 기업 팩스번호
 
-        @Column(nullable = false)
         private String etp_home; // 기업 홈페이지
 
         private String etp_contents; // 주요사업내용

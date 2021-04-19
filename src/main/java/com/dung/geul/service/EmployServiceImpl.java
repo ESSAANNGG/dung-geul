@@ -6,7 +6,12 @@ import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Employ;
 
 
+import com.dung.geul.entity.QEmploy;
 import com.dung.geul.repository.EmployRepository;
+
+
+import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.RequiredArgsConstructor;
 
 
@@ -32,7 +37,9 @@ public class EmployServiceImpl implements EmployService {
 
         Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());
 
-        Page<Employ> result = employRepository.findAll(pageable);
+        BooleanBuilder booleanBuilder = getSearch(requestDTO); //검색 조건처리
+
+        Page<Employ> result = employRepository.findAll(booleanBuilder, pageable);
 
         Function<Employ, EmployDTO> fn = (entity -> entityToDto(entity));
 
@@ -48,6 +55,7 @@ public class EmployServiceImpl implements EmployService {
         //isPresent() :저장된 값이 존재하면 true를 반환하고, 값이 존재하지 않으면 false를 반환함.
         return result.isPresent()? entityToDto(result.get()): null;
     }
+
 
     @Override
     public Long register(EmployDTO employDTO) {
@@ -65,7 +73,7 @@ public class EmployServiceImpl implements EmployService {
         Employ employ = dtoToEntity(employDTO);
 
         employRepository.save(employ);
-        
+
 
     }
 
@@ -76,5 +84,43 @@ public class EmployServiceImpl implements EmployService {
 
     }
 
+
+    private BooleanBuilder getSearch(PageRequestDTO requestDTO){
+
+        String type = requestDTO.getType();
+
+        BooleanBuilder booleanBuilder = new BooleanBuilder();
+
+        QEmploy qEmploy = QEmploy.employ;
+
+        String keyword = requestDTO.getKeyword();
+
+        BooleanExpression expression = qEmploy.num.gt(0L);
+
+        booleanBuilder.and(expression);
+
+        if(type == null || type.trim().length() == 0) {
+
+            return booleanBuilder;
+        }
+
+        //검색 조건을 작성하기
+        BooleanBuilder conditionBuilder = new BooleanBuilder();
+
+        if(type.contains("t")){
+            conditionBuilder.or(qEmploy.title.contains(keyword));
+        }
+        if(type.contains("c")) {
+            conditionBuilder.or(qEmploy.content.contains(keyword));
+        }
+        if(type.contains("ot")){
+            conditionBuilder.or(qEmploy.ot.contains(keyword));
+        }
+
+        booleanBuilder.and(conditionBuilder);
+
+        return booleanBuilder;
+
+    }
 
 }

@@ -34,78 +34,78 @@
             </ul>
         </div> <!-- bar -->
     </div> <!-- menu -->
-<div id="coun-content">
+    <div id="coun-content">
 
-    <div id="coun-wrap">
+        <div id="coun-wrap">
 
-        <h1>상담 신청</h1>
+            <h1>상담 신청</h1>
 
-        <div class="coun-con">
-            <p>이제는 학교에서 진로, 취업, 창업 상담 받자!
-                우리 학교 학생들을 위한 상담 신청 페이지입니다.
-                본인이 바라는 상담 분야와 세부 사항을 결정하고, 편한 날짜에 맞춰
-                상담 신청을 해 보세요. 자신의 꿈을 향해 한 발짝 더!
-            </p>
-            <img id="coun_img" src="img/">
-        </div>
+            <div class="coun-con">
+                <p>이제는 학교에서 진로, 취업, 창업 상담 받자!
+                    우리 학교 학생들을 위한 상담 신청 페이지입니다.
+                    본인이 바라는 상담 분야와 세부 사항을 결정하고, 편한 날짜에 맞춰
+                    상담 신청을 해 보세요. 자신의 꿈을 향해 한 발짝 더!
+                </p>
+                <img id="coun_img" src="img/">
+            </div>
 
-        <!-- <div class="let_go"><a href="https://www.work.go.kr/jobyoung/weSchEmpConsltRoom/weSchEmpConsltRoomSvcInvite.do">
-          상담 예약 바로 가기</a>
-        </div> -->
+            <!-- <div class="let_go"><a href="https://www.work.go.kr/jobyoung/weSchEmpConsltRoom/weSchEmpConsltRoomSvcInvite.do">
+              상담 예약 바로 가기</a>
+            </div> -->
 
 
-        <div class="coun-box-body">
+            <div class="coun-box-body">
 
-            <div class="coun-box">
-                <div class="clear-coun">
-                    <div class="label">상담 분야</div>
+                <div class="coun-box">
+                    <div class="clear-coun">
+                        <div class="label">상담 분야</div>
+
+                        <div class="coun-inline">
+                            <form id="counsearch_k" name="counsearch_k" method="post" action="#">
+                                <select name="select-field" class="select-field1">
+                                    <option value>상담 분야</option>
+                                    <option value="1">진로 상담</option>
+                                    <option value="2">취업 상담</option>
+                                    <option value="3">창업 상담</option>
+                                </select>
+                                <select name="employ-field" class="select-field1">
+                                    <option value>취업 세부 분야</option>
+                                    <option value>취업 세부 분야 내용 1</option>
+                                    <option value>취업 세부 분야 내용 2</option>
+                                    <option value>취업 세부 분야 내용 3</option>
+                                </select>
+                            </form>
+                        </div>
+                        <!-- label-con form-inline -->
+                    </div> <!-- clear-search -->
+                    <br />
+                    <div class="label1">상담 일자</div>
 
                     <div class="coun-inline">
-                        <form id="counsearch_k" name="counsearch_k" method="post" action="#">
-                            <select name="select-field" class="select-field1">
-                                <option value>상담 분야</option>
-                                <option value="1">진로 상담</option>
-                                <option value="2">취업 상담</option>
-                                <option value="3">창업 상담</option>
-                            </select>
-                            <select name="employ-field" class="select-field1">
-                                <option value>취업 세부 분야</option>
-                                <option value>취업 세부 분야 내용 1</option>
-                                <option value>취업 세부 분야 내용 2</option>
-                                <option value>취업 세부 분야 내용 3</option>
+                        <form id="counsearch_c" name="counsearch_c" method="post" action="#">
+                            <input type='date' name='couns-date'/>
+                            <select name="couns-time" class="select-field1">
+                                <option value>상담 시간</option>
+                                <option value>09:00~10:00</option>
+                                <option value>10:00~11:00</option>
+                                <option value>11:00~12:00</option>
+                                <option value>12:00~13:00</option>
+                                <option value>13:00~14:00</option>
+                                <option value>15:00~16:00</option>
+                                <option value>16:00~17:00</option>
+                                <option value>17:00~18:00</option>
                             </select>
                         </form>
-                    </div>
-                    <!-- label-con form-inline -->
-                </div> <!-- clear-search -->
-                <br />
-                <div class="label1">상담 일자</div>
-
-                <div class="coun-inline">
-                    <form id="counsearch_c" name="counsearch_c" method="post" action="#">
-                        <input type='date' name='couns-date'/>
-                        <select name="couns-time" class="select-field1">
-                            <option value>상담 시간</option>
-                            <option value>09:00~10:00</option>
-                            <option value>10:00~11:00</option>
-                            <option value>11:00~12:00</option>
-                            <option value>12:00~13:00</option>
-                            <option value>13:00~14:00</option>
-                            <option value>15:00~16:00</option>
-                            <option value>16:00~17:00</option>
-                            <option value>17:00~18:00</option>
-                        </select>
-                    </form>
-                </div> <!-- coun-inline -->
-            </div>  <!-- coun-box -->
-            <button type="submit" class="btn-d">신청</button>
+                    </div> <!-- coun-inline -->
+                </div>  <!-- coun-box -->
+                <button type="submit" class="btn-d">신청</button>
+            </div>
+            <!-- coun-box-body -->
         </div>
-        <!-- coun-box-body -->
+        <!-- content -->
     </div>
-    <!-- content -->
+    <!-- coun-wrap -->
 </div>
-<!-- coun-wrap -->
-    </div>
 
 <footer th:replace="layout/layout :: footer"/>
 </body>
