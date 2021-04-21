@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>이력서</title>
+  <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="mypage.css">
+  <link rel="stylesheet" href="/css/user_info.css">
+  <link rel="stylesheet" href="/css/cv.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+
+  <body>
+    <section class="vbox">
+
+      <!-- 상단 네비게이션 자리  -->
+      <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+        <!--취업정보센터 링크 -->
+        <div class="navbar-header aside-md">
+          <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html"><i
+              class="fa fa-bars"></i></a>
+
+
+          <a href="/" class="navbar-brand" data-toggle="fullscreen"><i class="fas fa-book-open"></i> </i>
+            취업정보센터</a>
+
+          <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"><i
+              class="fa fa-cog"></i></a>
+        </div>
+
+
+        <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
+          <!-- 알림표시 -->
+          <!-- open으로 작동 -->
+          <li class="hidden-xs">
+            <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
+              <i class="fa fa-bell"></i>
+              <span class="badge badge-sm up bg-danger m-l-n-sm count">2</span>
+            </a>
+            <section class="dropdown-menu aside-xl">
+              <section class="panel bg-white">
+                <header class="panel-heading b-light bg-light">
+                  <strong>확인하지 않은 <span class="count">2</span>개 알림</strong>
+                </header>
+                <div class="list-group list-group-alt animated fadeInRight">
+                  <a href="#" class="media list-group-item">
+                    <!-- <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span> -->
+                    <span class="media-body block m-b-none"> 알림보여주는 자리<br>
+                      <small class="text-muted">10분</small>
+                      <small class="text-muted">전</small>
+                    </span>
+                  </a>
+                  <a href="#" class="media list-group-item">
+                    <span class="media-body block m-b-none">알림보여주는 자리<br><small class="text-muted">1일</small>
+                      <small class="text-muted">전</small></span>
+                  </a>
+                </div>
+
+                <footer class="panel-footer text-sm">
+                  <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+                  <a href="#notes" data-toggle="class:show animated fadeInRight">모든알림 보러가기</a>
+                </footer>
+              </section>
+            </section>
+          </li>
+          <!-- 로그아웃 드롭다운 메뉴 -->
+          <!-- open -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span> &nbsp; &nbsp;</span> [[${memberDTO.getUser_name}]] 님 <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
+
+              <li> <a href="/mypage/member/modify">회원 정보수정</a> </li>
+              <!-- <li> <a href=""> <span class="badge bg-danger pull-right">3</span> 알림 </a> </li>  -->
+              <li class="divider"></li>
+              <li> <a href="">Logout</a> </li>
+            </ul>
+          </li>
+        </ul>
+      </header>
+      <!-- 상단 네비게이션 end -->
+
+      <section>
+        <section class="hbox stretch">
+          <!-- .aside -->
+          <!-- 왼쪽메뉴 -->
+          <!-- nav-xs로 줄임 -->
+          <aside class="bg-dark lter aside-md hidden-print " id="nav">
+            <section class="vbox">
+              <!--MY HOME-->
+              <header class="header bg-primary lter text-center clearfix">
+                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project">
+                  <i class="fas fa-home"></i>
+                </button>
+                <div class="btn-group hidden-nav-xs">
+                  <a href="">
+                    <button type="button" class="btn btn-sm btn-primary"
+                      style="font-size: 20px; margin-bottom: 10px;"></i> MY
+                      HOME
+
+                    </button>
+                  </a>
+
+                </div>
+              </header>
+              <!-- MY HOME END -->
+              <section class="w-f scrollable">
+                <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0"
+                  data-size="5px" data-color="#333333">
+                  <!-- aside nav 따로 파일 나눠놨어요 -->
+                    <div th:replace="mypage/aside :: nav"/>
+                  <!-- / nav -->
+                </div>
+              </section>
+
+              <footer class="footer lt hidden-xs b-t b-dark">
+                <!-- 메뉴숨길때 btn-icon active -->
+                <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon ">
+                  <i class="fa fa-angle-left text"></i>
+                  <i class="fa fa-angle-right text-active"></i>
+                </a>
+                <div class="btn-group hidden-nav-xs">
+                </div>
+              </footer>
+            </section>
+          </aside>
+
+          <!-- /.aside -->
+          <!-- 콘텐츠 자리 -->
+          <section id="content">
+            <section class="vbox">
+              <section class="scrollable padder">
+                <!-- 요기안에 컨텐츠 넣으면 되용 -->
+                <div id="content-frame">
+                  <!-- 메뉴제목자리 -->
+                  <div id="title">
+                    <h1>이력서</h1>
+                  </div>
+                  <!-- 주요컨텐츠 -->
+                  <form>
+                    <div id="main-content">
+                      <table class="__se_tbl_ext" border="0" cellpadding="0" cellspacing="0" width="680"
+                        style="border-collapse: collapse; width: 100%">
+                        <colgroup>
+                          <col width="34" span="20"
+                            style="mso-width-source: userset; mso-width-alt: 1088; width: 26pt" />
+                        </colgroup>
+                        <tbody>
+                          <tr height="26" class="tr-mso">
+                            <td height="26" class="xl63 td-style1" width="34">　</td>
+                            <td class="xl63 td-style2" width="34">　</td>
+                            <td class="xl63 td-style2" width="34">　</td>
+                            <td class="xl63 td-style2" width="34">　</td>
+                            <td class="xl63 td-style2" width="34">　</td>
+                            <td width="34" style="height: 19.9pt; width: 26pt" align="left" valign="top">
+                              <!--[if !vml]--><span class="mso-ignore"><img src="noname01.bmp"
+                                  v:shapes="Text_x0020_Box_x0020_22" /></span>
+                              <!--[endif]-->
+                              <table cellpadding="0" cellspacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td height="26" class="xl63 td-style1" width="34">
+                                      　
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td class="xl63 td-style3" width="34">　</td>
+                            <td class="xl63 td-style3" width="34">　</td>
+                            <td class="xl63 td-style3" width="34">　</td>
+                            <td class="xl63 td-style3" width="34">　</td>
+                            <td class="xl63 td-style3" width="34">　</td>
+                            <td class="xl63 td-style3" width="34">　</td>
+                            <td class="xl63 td-style3" width="34">　</td>
+                            <td class="xl63 td-style3" width="34">　</td>
+                            <td class="xl63 td-style3" width="34">　</td>
+                            <td colspan="2" class="xl75 td-style4" width="68">
+                              응시부문
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102">
+                              <input type="text" name="응시부문"></input>
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td height="26" class="xl63 td-style6">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td class="xl63 td-style7">
+                              　
+                            </td>
+                            <td colspan="2" class="xl75 td-style4" width="68" style="height: 19.9pt">
+                              희망연봉
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              <Input type="text" name="희망연봉" ></Input>
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso td-style9">
+                            <td height="26" class="xl65">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl65 td-style10">
+                              　
+                            </td>
+                            <td class="xl66 td-style11">
+                              　
+                            </td>
+                            <td class="xl66 td-style11">
+                              　
+                            </td>
+                            <td class="xl66 td-style11">
+                              　
+                            </td>
+                            <td class="xl66 td-style11">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso td-style12">
+                            <td colspan="2" rowspan="5" height="130" class="xl104" width="68">
+                              인적<br />
+                              사항
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              성&nbsp;&nbsp; 명
+                            </td>
+                            <td colspan="2" class="xl115 td-style13" width="68">
+                              &nbsp;(한글)&nbsp;
+                            </td>
+                            <td colspan="4" class="xl116 td-style14" width="136">
+                              　<input type="text" id="name" name="한글이름">
+                            </td>
+                            <td colspan="2" class="xl115 td-style13" width="68">
+                              &nbsp;(한문)&nbsp;
+                            </td>
+                            <td colspan="7" class="xl116 td-style18" width="238">
+                              　<input type="text" name="한문이름">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl75 td-style19" width="102">
+                              생년월일
+                            </td>
+                            <td colspan="6" class="xl75 td-style21" width="204">
+                              　<input type="date" name="생년월일">
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              연령
+                            </td>
+                            <td colspan="6" class="xl84 td-style53">
+                            
+                              만<input type="number" id="age" name="나이">세
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl75 td-style19" width="102">
+                              현주소
+                            </td>
+                            <td colspan="15" class="xl75 td-style52" width="510">
+                              　<input type="text" name="현주소">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl75 td-style19" width="102">
+                              H.P
+                            </td>
+                            <td colspan="6" class="xl84 td-style53" width="204">
+                              　<input type="number" name="H.P">
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              이메일
+                            </td>
+                            <td colspan="6" class="xl75 td-style21" width="204">
+                              　<input type="text" name="이메일">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl75 td-style19" width="102">
+                              지원경로
+                            </td>
+                            <td colspan="15" class="xl75 td-style52" width="510">
+                              　<input type="text" name="지원경로">
+                            </td>
+                          </tr>
+                          <tr height="8" style="mso-height-source: userset; height: 6pt">
+                            <td height="8" class="xl64 td-style33">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="20" style="mso-height-source: userset; height: 15pt">
+                            <td colspan="2" rowspan="10" height="248" class="xl104 td-style64" width="68">
+                              학력<br />
+                              사항
+                            </td>
+                            <td colspan="3" rowspan="2" class="xl89 td-style44" width="102">
+                              년도
+                            </td>
+                            <td colspan="3" rowspan="2" class="xl89 td-style44" width="102">
+                              학교명
+                            </td>
+                            <td colspan="3" rowspan="2" class="xl89 td-style44" width="102">
+                              학과(계열)명
+                            </td>
+                            <td colspan="6" rowspan="2" class="xl89 td-style54" width="204">
+                              졸업구분
+                            </td>
+                            <td colspan="3" class="xl89 td-style55" width="102">
+                              성적
+                            </td>
+                          </tr>
+                          <tr height="20" style="mso-height-source: userset; height: 15pt">
+                            <td colspan="3" height="20" class="xl91 td-style56" width="102">
+                              평점/만점
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl115 td-style40" width="102">
+                              <input type="month" name="고등학교년도">
+                            </td>
+                            <td colspan="3" class="xl98 td-style36" width="102">
+                              <input type="text"  id="school" name="고등학교명" placeholder="고등학교">
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              　<input type="text" name="고등학교학과(계열)명">
+                            </td>
+                            <td colspan="6" class="xl101 td-style39">
+                              <input type="radio" name="고등졸업구분"> 졸업<input type="radio" name="고등졸업구분"> 중퇴
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                            <input type="number" id="grade" name="고등학교성적평점">/<input type="number" id="grade" name="고등학교성적만점">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl115 td-style40" width="102">
+                              <input type="month" name="전문대학교년도">
+                            </td>
+                            <td colspan="3" class="xl98 td-style36" width="102">
+                              <input type="text"  id="school" name="전문대학교명" placeholder="전문대">
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              　<input type="text" name="전문대학과(계열)명">
+                            </td>
+                            <td colspan="6" class="xl101 td-style39">
+                              <input type="radio" name="전문대졸업구분" value="졸업"> 졸업 <input type="radio" name="전문대졸업구분" value="졸예"> 졸예<input type="radio" name="전문대졸업구분" value="중퇴"> 중퇴
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              <input type="number" id="grade" name="전문대성적평점">/<input type="number" id="grade" name="전문대성적만점">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl115 td-style40" width="102">
+                              <input type="month" name="대학교입학년도">
+                            </td>
+                            <td colspan="3" class="xl98 td-style36" width="102">
+                              <input type="text"  id="school" name="입학대학교명" placeholder="대학교">
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              　<input type="text" name="대학교입학학과(계열)명">
+                            </td>
+                            <td colspan="6" class="xl101 td-style39">
+                              <input type="radio" name="대학교입학구분" value="입학"> 입학<input type="radio" name="대학교입학구분" value="편입"> 편입
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              <input type="number" id="grade" name="대학교입학성적평점">/<input type="number" id="grade" name="대학교입학성적만점">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl115 td-style40" width="102">
+                              <input type="month" name="대학교졸업년도">
+                            </td>
+                            <td colspan="3" class="xl98 td-style36" width="102">
+                              <input type="text"  id="school" name="졸업대학교명" placeholder="대학교">
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              　<input type="text" name="대학교졸업학과(계열)명">
+                            </td>
+                            <td colspan="6" class="xl101 td-style39">
+                               <input type="radio" name="대학교졸업구분" value="졸업"> 졸업 <input type="radio" name="대학교졸업구분" value="졸예"> 졸예<input type="radio" name="대학교졸업구분" value="중퇴"> 중퇴
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              <input type="number" id="grade" name="대학교졸업성적평점">/<input type="number" id="grade" name="대학교졸업성적만점">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" rowspan="2" height="52" class="xl105 td-style35" width="102">
+                              <input type="month" id="eogkrdnjs" name="대학원년도">
+                            </td>
+                            <td colspan="3" class="xl98 td-style36" width="102">
+                              <input type="text"  id="school" name="대학원" placeholder="대학원">
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              　<input type="text" name="대학원학과(계열)명">
+                            </td>
+                            <td colspan="6" class="xl101 td-style39">
+                              <input type="radio" name="대학원졸업구분" value="졸업"> 졸업 <input type="radio" name="대학원졸업구분" value="수료"> 수료 <input type="radio" name="대학원졸업구분" value="졸예"> 졸예<input type="radio" name="대학원졸업구분" value="중퇴"> 중퇴
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              <input type="number" id="grade" name="대학원성적평점">/<input type="number" id="grade" name="대학원성적만점">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl98 td-style38" width="102">
+                              석사논문
+                            </td>
+                            <td colspan="12" class="xl95 td-style34" width="408">
+                              　<input type="text" name="석사논문">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" rowspan="2" height="52" class="xl105 td-style35" width="102">
+                              <input type="month"  id="eogkrdnjs" name="대학원년도2">
+                            </td>
+                            <td colspan="3" class="xl98 td-style36" width="102">
+                              <input type="text"  id="school" name="대학원2" placeholder="대학원">
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              　<input type="text" name="대학원학과(계열)명2">
+                            </td>
+                            <td colspan="6" class="xl101 td-style39">
+                              <input type="radio" name="대학원졸업구분2" value="졸업"> 졸업 <input type="radio" name="대학원졸업구분2" value="수료"> 수료 <input type="radio" name="대학원졸업구분2" value="졸예"> 졸예<input type="radio" name="대학원졸업구분2" value="중퇴"> 중퇴
+                            </td>
+                            <td colspan="3" class="xl95 td-style37" width="102">
+                              <input type="number" id="grade" name="대학원성적평점2">/<input type="number" id="grade" name="대학원성적만점2">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl98 td-style38" width="102">
+                              박사논문
+                            </td>
+                            <td colspan="12" class="xl95 td-style34" width="408">
+                              　<input type="text" name="박사논문">
+                            </td>
+                          </tr>
+                          <tr height="8" style="mso-height-source: userset; height: 6pt">
+                            <td height="8" class="xl64 td-style33">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso td-style92">
+                            <td colspan="2" rowspan="2" height="52" class="xl104" width="68">
+                              병역
+                            </td>
+                            <td colspan="6" class="xl77 td-style93" width="204">
+                               <input type="radio" name="병역구분" value="졸업"> 군필 <input type="radio" name="병역구분" value="수료"> 미필 <input type="radio" name="병역구분" value="졸예"> 면제
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              면제사유
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              　<input type="text" name="면제사유">
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              병과
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              　<input type="text" name="병과">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="3" height="26" class="xl75 td-style19" width="102">
+                              복무기간
+                            </td>
+                            <td colspan="3" class="xl84 td-style20" width="102">
+                              　<input type="text" name="복무기간" placeholder="개월">
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              군별
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              　<input type="text" name="군별">
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              계급
+                            </td>
+                            <td colspan="3" class="xl114 td-style57">
+                              　<input type="text"  name="계급">
+                            </td>
+                          </tr>
+                          <tr height="8" style="mso-height-source: userset; height: 6pt">
+                            <td height="8" class="xl64 td-style33">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="20" style="mso-height-source: userset; height: 15pt">
+                            <td colspan="2" rowspan="2" height="40" class="xl85 td-style41" width="68">
+                              우대<br />
+                              사항
+                            </td>
+                            <td colspan="4" rowspan="2" class="xl89 td-style42" width="136">
+                              장애인 등록여부
+                            </td>
+                            <td colspan="2" rowspan="2" class="xl89 td-style43" width="68">
+                                <input id="person" type="radio" name="장애인 등록여부" value="Y">Y/<input type="radio" id="person" name="장애인 등록여부" value="N">N
+                            </td>
+                            <td colspan="3" rowspan="2" class="xl89 td-style44" width="102">
+                              장애 종류
+                            </td>
+                            <td colspan="3" rowspan="2" class="xl89 td-style44" width="102">
+                              　<input type="text" name="장애종류">
+                            </td>
+                            <td colspan="3" rowspan="2" class="xl89 td-style44" width="102">
+                              장애 등급
+                            </td>
+                            <td colspan="3" rowspan="2" class="xl89 td-style44" width="102">
+                              　<input type="text" name="장애등급">
+                            </td>
+                          </tr>
+                          <tr height="20" style="mso-height-source: userset; height: 15pt"></tr>
+                          <tr height="8" style="mso-height-source: userset; height: 6pt">
+                            <td height="8" class="xl64 td-style33">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="2" rowspan="6" height="156" class="xl104 td-style45" width="68">
+                              가족<br />
+                              사항
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              관계
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              성명
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              연령
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              생년월일
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              동거여부
+                            </td>
+                            <td colspan="6" class="xl111 td-style58" width="204">
+                              가족관계
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="2" height="26" class="xl78 td-style59" width="68">
+                              　<input type="text" name="가족관계1">
+                            </td>
+                            <td colspan="2" class="xl78 td-style47">
+                              　<input type="text" name="가족성명1">
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" >
+                              　<input type="number" name="가족연령1">
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="date" name="가족생년월일1" id="">
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="radio" name="동거여부1" id="" value="Y">Y/<input type="radio" name="동거여부1" id="" value="N">N
+                            </td>
+                            <td colspan="6" rowspan="5" class="xl78 td-style65"  width="204">
+                              (<input type="number" class="family-age" name="가족연령1"> )남 (<input type="number" class="family-age" name="가족연령1">)녀 중 (<input type="number" class="family-age" name="가족연령1"> )째
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="2" height="26" class="xl78 td-style59" width="68">
+                              　<input type="text" name="가족관계2">
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              　<input type="text" name="가족성명2">
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              　<input type="number" name="가족연령2">
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="date" name="가족생년월일2" id="">
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="radio" name="동거여부2" id="" value="Y">Y/<input type="radio" name="동거여부2" id="" value="N">N
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="2" height="26" class="xl78 td-style59" width="68">
+                              　<input type="text" name="가족관계3">
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              　<input type="text" name="가족성명3">
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              　<input type="number" name="가족연령3">
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="date" name="가족생년월일3" id="">
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="radio" name="동거여부3" id="" value="Y">Y/<input type="radio" name="동거여부3" id="" value="N">N
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="2" height="26" class="xl78 td-style59" width="68">
+                              　<input type="text" name="가족관계4">
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              　<input type="text" name="가족성명4">
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              　<input type="number" name="가족연령4">
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="date" name="가족생년월일4" id="">
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="radio" name="동거여부4" id="" value="Y">Y/<input type="radio" name="동거여부4" id="" value="N">N
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="2" height="26" class="xl78 td-style59" width="68">
+                              　<input type="text" name="가족관계5">
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              　<input type="text" name="가족성명5">
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              　<input type="number" name="가족연령5">
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="date" name="가족생년월일5" id="">
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="radio" name="동거여부5" id="" value="Y">Y/<input type="radio" name="동거여부5" id="" value="N">N
+                            </td>
+                          </tr>
+                          <tr height="8" style="mso-height-source: userset; height: 6pt">
+                            <td height="8" class="xl64 td-style33">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="40" style="mso-height-source: userset; height: 30pt">
+                            <td colspan="2" height="40" class="xl104 td-style60" width="68">
+                              취미
+                            </td>
+                            <td colspan="9" class="xl115 td-style61" width="306">
+                              　<input type="text" name="취미">
+                            </td>
+                            <td colspan="2" class="xl111 td-style62" width="68">
+                              특기
+                            </td>
+                            <td colspan="7" class="xl79 td-style63" width="238">
+                              　<input type="text" name="특기">
+                            </td>
+                          </tr>
+                          <tr height="8" style="mso-height-source: userset; height: 6pt">
+                            <td height="8" class="xl64 td-style33">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="2" rowspan="6" height="156" class="xl104 td-style45" width="68">
+                              경력<br />
+                              사항
+                            </td>
+                            <td colspan="4" class="xl78 td-style46" width="136">
+                              직장명
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              근무기간
+                            </td>
+                            <td colspan="2" class="xl78 td-style47" width="68">
+                              직위
+                            </td>
+                            <td colspan="4" class="xl78 td-style46" width="136">
+                              담담업무
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              퇴직사유
+                            </td>
+                            <td colspan="2" class="xl75 td-style25" width="68">
+                              연봉
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl81 td-style48">
+                              　<input type="text" name="직장명1">
+                            </td>
+                            <td colspan="3" class="xl81 td-style49">
+                              <input type="date" name="근무기간시작1" id=""><br> ~ <br><input type="date" name="근무기간끝1" id="">
+                            </td>
+                            <td colspan="2" class="xl81 td-style50">
+                              　<input type="text" name=" 직위1">
+                            </td>
+                            <td colspan="4" class="xl81 td-style51">
+                              　<input type="text" name="담당업무1">
+                            </td>
+                            <td colspan="3" class="xl84 td-style20" width="102">
+                              　<input type="text" name="퇴직사유1">
+                            </td>
+                            <td colspan="2" class="xl76 td-style28" width="68">
+                              <input type="number" name="연봉1">만원
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl81 td-style48">
+                              　<input type="text" name="직장명2">
+                            </td>
+                            <td colspan="3" class="xl81 td-style49">
+                              <input type="date" name="근무기간시작2" id=""><br> ~ <br><input type="date" name="근무기간끝2" id="">
+                            </td>
+                            <td colspan="2" class="xl81 td-style50">
+                              　<input type="text" name=" 직위2">
+                            </td>
+                            <td colspan="4" class="xl81 td-style51">
+                              　<input type="text" name="담당업무2">
+                            </td>
+                            <td colspan="3" class="xl84 td-style20" width="102">
+                              　<input type="text" name="퇴직사유2">
+                            </td>
+                            <td colspan="2" class="xl76 td-style28" width="68">
+                              <input type="number" name="연봉2">만원
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl81 td-style48">
+                              　<input type="text" name="직장명3">
+                            </td>
+                            <td colspan="3" class="xl81 td-style49">
+                              <input type="date" name="근무기간시작3" id=""><br> ~ <br><input type="date" name="근무기간끝3" id="">
+                            </td>
+                            <td colspan="2" class="xl81 td-style50">
+                              　<input type="text" name=" 직위3">
+                            </td>
+                            <td colspan="4" class="xl81 td-style51">
+                              　<input type="text" name="담당업무3">
+                            </td>
+                            <td colspan="3" class="xl84 td-style20" width="102">
+                              　<input type="text" name="퇴직사유3">
+                            </td>
+                            <td colspan="2" class="xl76 td-style28" width="68">
+                              <input type="number" name="연봉3">만원
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl81 td-style48">
+                              　<input type="text" name="직장명4">
+                            </td>
+                            <td colspan="3" class="xl81 td-style49">
+                              <input type="date" name="근무기간시작4" id=""><br> ~ <br><input type="date" name="근무기간끝4" id="">
+                            </td>
+                            <td colspan="2" class="xl81 td-style50">
+                              　<input type="text" name=" 직위4">
+                            </td>
+                            <td colspan="4" class="xl81 td-style51">
+                              　<input type="text" name="담당업무4">
+                            </td>
+                            <td colspan="3" class="xl84 td-style20" width="102">
+                              　<input type="text" name="퇴직사유4">
+                            </td>
+                            <td colspan="2" class="xl76 td-style28" width="68">
+                              <input type="number" name="연봉4">만원
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl81 td-style48">
+                              　<input type="text" name="직장명5">
+                            </td>
+                            <td colspan="3" class="xl81 td-style49">
+                              <input type="date" name="근무기간시작5" id=""><br> ~ <br><input type="date" name="근무기간끝5" id="">
+                            </td>
+                            <td colspan="2" class="xl81 td-style50">
+                              　<input type="text" name=" 직위5">
+                            </td>
+                            <td colspan="4" class="xl81 td-style51">
+                              　<input type="text" name="담당업무5">
+                            </td>
+                            <td colspan="3" class="xl84 td-style20" width="102">
+                              　<input type="text" name="퇴직사유5">
+                            </td>
+                            <td colspan="2" class="xl76 td-style28" width="68">
+                              <input type="number" name="연봉5">만원
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td height="26" class="xl67" width="34">
+                              　
+                            </td>
+                            <td class="xl67 td-style67" width="34">
+                              　
+                            </td>
+                            <td class="xl68 td-style68" width="34">
+                              　
+                            </td>
+                            <td class="xl68 td-style68" width="34">
+                              　
+                            </td>
+                            <td class="xl68 td-style68" width="34">
+                              　
+                            </td>
+                            <td class="xl69 td-style69">
+                              　
+                            </td>
+                            <td class="xl69 td-style69">
+                              　
+                            </td>
+                            <td class="xl69 td-style69">
+                              　
+                            </td>
+                            <td class="xl69 td-style69">
+                              　
+                            </td>
+                            <td class="xl69 td-style69">
+                              　
+                            </td>
+                            <td class="xl69 td-style69">
+                              　
+                            </td>
+                            <td class="xl64 td-style70">
+                              　
+                            </td>
+                            <td class="xl69 td-style69">
+                              　
+                            </td>
+                            <td class="xl69 td-style69">
+                              　
+                            </td>
+                            <td class="xl69 td-style69">
+                              　
+                            </td>
+                            <td class="xl68 td-style68" width="34">
+                              　
+                            </td>
+                            <td class="xl68 td-style68" width="34">
+                              　
+                            </td>
+                            <td colspan="3" class="xl123 td-style80" width="102">
+
+                            </td>
+                          </tr>
+                          <tr class="td-style81" height="26">
+                            <td colspan="2" rowspan="4" height="104" class="xl85 td-style82" width="68">
+                              자격<br />
+                              면허
+                            </td>
+                            <td colspan="4" class="xl78 td-style46" width="136">
+                              자격/면허명
+                            </td>
+                            <td colspan="6" class="xl78 td-style83" width="204">
+                              발행기관
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              취득일자
+                            </td>
+                            <td colspan="5" class="xl78 td-style84" width="170">
+                              유효기간
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl120 td-style85" width="136">
+                              　<input type="text" name="자격면허1" id="">
+                            </td>
+                            <td colspan="6" class="xl78 td-style83" width="204">
+                              　<input type="text" name="발행기관1" id="">
+                              　
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="date" name="취득일자1" id="">
+                            </td>
+                            <td colspan="5" class="xl78 td-style84" width="170">
+                              　<input type="date" name="유효기간1" id="">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl120 td-style85" width="136">
+                              　<input type="text" name="자격면허2" id="">
+                            </td>
+                            <td colspan="6" class="xl78 td-style83" width="204">
+                              　<input type="text" name="발행기관2" id="">
+                              　
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="date" name="취득일자2" id="">
+                            </td>
+                            <td colspan="5" class="xl78 td-style84" width="170">
+                              　<input type="date" name="유효기간2" id="">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl120 td-style85" width="136">
+                              　<input type="text" name="자격면허3" id="">
+                            </td>
+                            <td colspan="6" class="xl78 td-style83" width="204">
+                              　<input type="text" name="발행기관3" id="">
+                              　
+                            </td>
+                            <td colspan="3" class="xl78 td-style8" width="102">
+                              　<input type="date" name="취득일자3" id="">
+                            </td>
+                            <td colspan="5" class="xl78 td-style84" width="170">
+                              　<input type="date" name="유효기간3" id="">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="8" style="mso-height-source: userset; height: 6pt">
+                            <td height="8" class="xl67 td-style86" width="34">
+                              　
+                            </td>
+                            <td class="xl67 td-style87" width="34">
+                              　
+                            </td>
+                            <td class="xl70 td-style88" width="34">
+                              　
+                            </td>
+                            <td class="xl70 td-style88" width="34">
+                              　
+                            </td>
+                            <td class="xl70 td-style88" width="34">
+                              　
+                            </td>
+                            <td class="xl70 td-style88" width="34">
+                              　
+                            </td>
+                            <td class="xl71 td-style89" width="34">
+                              　
+                            </td>
+                            <td class="xl72 td-style90" width="34">
+                              　
+                            </td>
+                            <td class="xl71 td-style89" width="34">
+                              　
+                            </td>
+                            <td class="xl71 td-style89" width="34">
+                              　
+                            </td>
+                            <td class="xl71 td-style89" width="34">
+                              　
+                            </td>
+                            <td class="xl71 td-style89" width="34">
+                              　
+                            </td>
+                            <td class="xl73 td-style91" width="34">
+                              　
+                            </td>
+                            <td class="xl73 td-style91" width="34">
+                              　
+                            </td>
+                            <td class="xl73 td-style91" width="34">
+                              　
+                            </td>
+                            <td class="xl73 td-style91" width="34">
+                              　
+                            </td>
+                            <td class="xl68 td-style31" width="34">
+                              　
+                            </td>
+                            <td class="xl68 td-style31" width="34">
+                              　
+                            </td>
+                            <td class="xl74 td-style30" width="34">
+                              　
+                            </td>
+                            <td class="xl74 td-style30" width="34">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="2" rowspan="3" height="78" class="xl104 td-style29" width="68">
+                              외국어
+                            </td>
+                            <td colspan="4" class="xl75 td-style24" width="136">
+                              외국어명
+                            </td>
+                            <td colspan="2" class="xl75 td-style25" width="68">
+                              회화
+                            </td>
+                            <td colspan="2" class="xl75 td-style25" width="68">
+                              독해
+                            </td>
+                            <td colspan="2" class="xl75 td-style25" width="68">
+                              작문
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              TEST명
+                            </td>
+                            <td colspan="2" class="xl75 td-style25" width="68">
+                              점수
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              취득일자
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl124 td-style26" width="136">
+                              　<input type="text" name="외국어명1">
+                            </td>
+                            <td colspan="2" class="xl77 td-style27" width="68">
+                              <input type="radio" name="회화1" id="" value="상">상<input type="radio" name="회화1" id="" value="중">중<input type="radio" name="회화1" id="" value="하">하
+                            </td>
+                            <td colspan="2" class="xl77 td-style27" width="68">
+                              <input type="radio" name="독해1" id="" value="상">상<input type="radio" name="독해1" id="" value="중">중<input type="radio" name="독해1" id="" value="하">하
+                            </td>
+                            <td colspan="2" class="xl77 td-style27" width="68">
+                              <input type="radio" name="작문1" id="" value="상">상<input type="radio" name="작문1" id="" value="중">중<input type="radio" name="작문1" id="" value="하">하
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              　<input type="text" name="TEST명1">
+                            </td>
+                            <td colspan="2" class="xl76 td-style28" width="68">
+                              <input type="number" name="점수1" id="">점
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              　<input type="date" name="취득일자1" id="">
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl124 td-style26" width="136">
+                              　<input type="text" name="외국어명2">
+                            </td>
+                            <td colspan="2" class="xl77 td-style27" width="68">
+                              <input type="radio" name="회화2" id="" value="상">상<input type="radio" name="회화2" id="" value="중">중<input type="radio" name="회화2" id="" value="하">하
+                            </td>
+                            <td colspan="2" class="xl77 td-style27" width="68">
+                              <input type="radio" name="독해2" id="" value="상">상<input type="radio" name="독해2" id="" value="중">중<input type="radio" name="독해2" id="" value="하">하
+                            </td>
+                            <td colspan="2" class="xl77 td-style27" width="68">
+                              <input type="radio" name="작문2" id="" value="상">상<input type="radio" name="작문2" id="" value="중">중<input type="radio" name="작문2" id="" value="하">하
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              　<input type="text" name="TEST명2">
+                            </td>
+                            <td colspan="2" class="xl76 td-style28" width="68">
+                              <input type="number" name="점수2" id="">점
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              　<input type="date" name="취득일자2" id="">
+                            </td>
+                          </tr>
+                          <tr height="8" style="mso-height-source: userset; height: 6pt">
+                            <td height="8" class="xl64 td-style33">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                            <td class="xl64 td-style32">
+                              　
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="2" rowspan="3" height="78" class="xl104 td-style29" width="68">
+                              수상<br />
+                              경력
+                            </td>
+                            <td colspan="4" class="xl75 td-style24" width="136">
+                              명칭
+                            </td>
+                            <td colspan="6" class="xl75 td-style21" width="204">
+                              기관(단체)명
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              일자&nbsp;
+                            </td>
+                            <td colspan="5" class="xl75 td-style22" width="170">
+                              내용
+                            </td>
+                          </tr>
+                          <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl75 td-style23" width="136">
+                              　<input type="text" name="명칭1" id="">
+                            </td>
+                            <td colspan="6" class="xl75 td-style21" width="204">
+                              　<input type="text" name="기관명1" id="">
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              　<input type="date" name="일자1" id="">
+                            </td>
+                            <td colspan="5" class="xl75 td-style22" width="170">
+                              　<input type="text" name="내용1" id="">
+                            </td>
+                          </tr>
+                           <tr height="26" class="tr-mso">
+                            <td colspan="4" height="26" class="xl75 td-style23" width="136">
+                              　<input type="text" name="명칭2" id="">
+                            </td>
+                            <td colspan="6" class="xl75 td-style21" width="204">
+                              　<input type="text" name="기관명2" id="">
+                            </td>
+                            <td colspan="3" class="xl75 td-style5" width="102" style="height: 19.9pt">
+                              　<input type="date" name="일자2" id="">
+                            </td>
+                            <td colspan="5" class="xl75 td-style22" width="170">
+                              　<input type="text" name="내용2" id="">
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <button type="submit" name="save" id="save">저장하기</button>
+
+                    </div>
+                  </form>
+                </div>
+
+              </section>
+
+            </section>
+
+            <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+          </section>
+          <!-- 콘텐츠 END -->
+
+          <aside class="bg-light lter b-l aside-md hide" id="notes">
+            <div class="wrapper">Notification</div>
+          </aside>
+        </section>
+      </section>
+    </section> <!-- Bootstrap -->
+    <!-- App -->
+
+  </body>
+  <!-- partial -->
+  <script src="/js/mypage.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="/js/modify_member.js"></script>
+
+</body>
+
+</html>
