@@ -1,0 +1,286 @@
+/* @import "reset.css";
+@import "common.css";  */
+
+body {
+    background: #f2f5f3;
+}
+
+#main {
+    margin-top:40px;
+    background: #fff;
+    border-top: solid 5px #1f3786d5;
+    border-bottom: solid 5px #c1cac5;
+    border-top-width: 35px;
+    border-bottom-width: 10px;
+    padding: 6em 0 6em 0;
+    z-index: -2;
+}
+
+/*menu-common의 일부 값을 초기화 해줌*/
+/* .row {
+    margin-top: 0px;
+    margin-left: 0px;
+} 
+  
+ .row > * {
+    padding: 0px 0px 0px 0px;
+}*/
+
+/*밑의 이게 있어야.employList이게 적용이됨;;*/
+
+/*employ list.html*/
+.employList{
+    display: block;
+    width:850px;
+    margin-left:20px;
+}
+.employListHead{
+    width:850px;
+    height:60px;
+}
+/*구직중,마감*/
+.employListHead > .state{
+    display:inline-block;
+    width:90px;
+    text-align: center;
+    color:#1e1c2c;
+    background-color: #ffffff;
+    font-size:14px;
+    font-weight:500;
+    border:2px solid #c0c0c4;
+    border-radius: 100px;
+}
+/*구직중*/
+.employListHead > #underway{
+    position:relative;
+    border : 2px solid #2062af;
+    z-index: 1;
+}
+/*마감*/
+.employListHead > #deadline{
+    position:relative;
+    right:30px;
+}
+.search{
+    display:inline-block;
+    width:500px;
+    background-color: aqua;
+}
+/*스크랩바로가기*/
+.scrap_mov{
+    display:inline-block;
+    float:right;
+}
+
+/*리스트 첫줄은 위부분에도 테두리 적용*/
+.employListPost > li:first-child{
+    border-top:1px solid #c0c0c4;
+}
+/*채용공고 각 리스트*/
+.employListPost > li{
+    height:185px;
+    padding:20px;
+    border-bottom:1px solid #c0c0c4;
+
+    transition:background .5s ease-out;
+}
+.employListPost > li:hover{
+    background-color: #2063af0e;
+    border-bottom:2px solid #2062af;
+}
+/*각 리스트에서의 콘텐츠들(제목/내용/...)*/
+.employListPost > li > a > ul{
+    margin:0px;
+}
+/*각리스트의 제목*/
+.post_title{
+    color:#2062af;
+    font-size:21px;
+    font-weight:700;
+}
+/*스크랩 아이콘*/
+.employListPost > li > a > ul.post_title_wrap > i{
+    float:right;
+    line-height:30px;
+    color:#1e1c2c;
+    font-size:20px;
+    font-weight: 400;
+}
+.employListPost > li > a > ul.post_title > i:hover{
+    color:#2062af;
+}
+/*각 리스트의 기업명*/
+.post_corp_name{
+    font-size:16px;
+    font-weight: 500;
+
+}
+/*기업명 아이콘*/
+.employListPost > li > a >  ul.post_corp_name_wrap > i{
+    margin-right:5px;
+    line-height:30px;
+    color: #feb522;
+    font-size:15px;
+    font-weight: 600;
+}
+/*각리스트의 본문내용*/
+.post_cont{
+    height:40px;
+    line-height:20px;
+    padding-right:30px;
+    font-size:14px;
+    font-weight: 400;
+    /* display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden; */
+}
+
+/*등록/마감일 감싸주는 li*/
+.employListPost > li > a > ul >li{
+    display:inline-block;
+}
+/*등록일*/
+.employListPost > li > a > ul > li.post_start_date{
+    width:100px;
+    height:21px;
+    line-height: 21px;
+    text-align: center;
+    border-radius: 50px 50px 50px 50px;
+    background-color:#e8eaee;
+    font-size:12px;
+    font-weight: 500;
+}
+/*등록일 아이콘*/
+.employListPost > li > a > ul > li.post_start_date > i{
+    margin-right:5px;
+}
+/*마감일*/
+.employListPost > li > a > ul > li.post_end_date{
+    font-size:14px;
+    font-weight: 500;
+    float:right;
+}
+/*페이지네이션*/
+.pagination {
+    display:flex;
+    width: 850px;
+    margin-top:40px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*employ regist.html*/
+.employ_register{
+    display: block;
+    width:850px;
+    margin-left:20px;
+}
+/*공고등록*/
+.register_head{
+    height:60px;
+    line-height:60px;
+    border-bottom:1px solid #c0c0c4;
+}
+.employ_register input{
+    border-radius: 5px 5px 5px 5px;
+    border:1px solid black;
+}
+/*첨부파일 등록*/
+.register_head > button{
+    margin-top:15px;
+    float:right;
+    width:100px;
+    height:30px;
+    font-size:15px;
+    font-weight:600;
+    padding:0px;
+    line-height:30px;
+}
+/*공고등록 제목*/
+.register_title_wrap{
+    width:850px;
+    height:100px;
+    padding:20px;
+}
+.register_title{
+    display:inline-block;
+    width:100px;
+}
+.register_title_input{
+    display:inline-block;
+    width:600px;
+}
+/*공고등록 내용*/
+.register_cont_wrap{
+    width:850px;
+    height:550px;
+    padding:20px;
+}
+.register_cont{
+    display:inline-block;
+    width:100px;
+    vertical-align: top;
+}
+.register_cont_input{
+    display:inline-block;
+    width:700px;
+    height:500px;
+}
+.register_cont_input > input{
+    width:700px;
+    height:500px;
+}
+/*공고등록 구분*/
+.register_sort_wrap{
+    width:850px;
+    height:100px;
+    padding:20px;
+}
+.register_sort{
+    display:inline-block;
+    width:100px;
+}
+.register_sort_input{
+    display:inline-block;
+    width:300px;
+}
+/*공고등록 기간*/
+.register_date_wrap{
+    width:850px;
+    height:100px;
+    padding:20px;
+}
+.register_start_date{
+    display:inline-block;
+    width:100px;
+}
+.register_end_date{
+    display:inline-block;
+    width:100px;
+}
+.register_start_date_input{
+    display:inline-block;
+    width:100px;
+}
+.register_end_date_input{
+    display:inline-block;
+    width:100px;
+}
+
+/* .register_date_wrap > input{
+    width:
+} */
