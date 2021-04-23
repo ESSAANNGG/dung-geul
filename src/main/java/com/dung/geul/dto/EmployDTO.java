@@ -40,4 +40,5 @@ public class EmployDTO {
 
     private LocalDateTime regDate, modDate;
 
+
 }

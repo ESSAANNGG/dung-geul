@@ -65,8 +65,8 @@ public class Employ extends BaseEntity{
     @Column(name = "em_file",length = 1000)
     private String file;
 
-    /*@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "em_user_id" ,foreignKey = @ForeignKey(name="em_user_id_fk"))
-    private Member user_id;*/
+    @ManyToOne
+    @JoinColumn(name = "em_etp_id")
+    private Enterprise enterprise;
 
 }

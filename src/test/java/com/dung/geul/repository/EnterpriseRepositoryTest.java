@@ -1,10 +1,13 @@
 package com.dung.geul.repository;
 
+import com.dung.geul.entity.Employ;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.stream.IntStream;
 
 
 @SpringBootTest
@@ -26,4 +29,5 @@ public class EnterpriseRepositoryTest {
         System.out.println(enterprise.toString());
 
     }
+
 }
