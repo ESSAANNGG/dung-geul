@@ -52,7 +52,7 @@ function viewsChartYearSelect(count){
     //31 28 31 30 31 30 31 31 30 31 30 31
     // 객체에 값 입력
     for(let i = 0 ; i < b ; i++) {    // chart.date[0] ~ chart.date[364] 
-        console.log(i);
+        // console.log(i);
 
         if((month % 2 == 1 || month == 8 || month == 10 || month == 12)&&(month != 9 && month != 11)) {    // 31일 까지 있는 달
             if(day < 31) {  // 1달 = 31일
@@ -91,7 +91,7 @@ function viewsChartYearSelect(count){
         data = {"date" : getToday, "price" : ran };
      
         // 출력 ---------------------------------------------------
-        console.log(data)
+        // console.log(data)
         chart.data[i] = data;
     }
 
@@ -180,7 +180,7 @@ function viewsChartSelect(str){ //admin파일에서 매개변수 가져옴
     //31 28 31 30 31 30 31 31 30 31 30 31
     // 객체에 값 입력
     for(let i = 0 ; i < b ; i++) {    // chart.date[0] ~ chart.date[364] 
-        console.log(i);
+        // console.log(i);
 
         if((month % 2 == 1 || month == 8 || month == 10 || month == 12)&&(month != 9 && month != 11)) {    // 31일 까지 있는 달
             if(day < 31) {  // 1달 = 31일
@@ -219,7 +219,7 @@ function viewsChartSelect(str){ //admin파일에서 매개변수 가져옴
         data = {"date" : getToday, "price" : ran };
  
         // 출력 ---------------------------------------------------
-        console.log(data)
+        // console.log(data)
         chart.data[i] = data;
     }
 
@@ -291,7 +291,7 @@ am4core.ready(function() {
     //31 28 31 30 31 30 31 31 30 31 30 31
     // 객체에 값 입력
     for(let i = 0 ; i < b ; i++) {    // chart.date[0] ~ chart.date[364] 
-        console.log(i);
+        // console.log(i);
 
         if((month % 2 == 1 || month == 8 || month == 10 || month == 12)&&(month != 9 && month != 11)) {    // 31일 까지 있는 달
 
@@ -361,7 +361,7 @@ am4core.ready(function() {
 
         
         // 출력 ---------------------------------------------------
-        console.log(data)
+        // console.log(data)
 
 
 

@@ -1,13 +1,13 @@
-var scrollDiv=document.querySelector(".main-join-yearChart-year");
+var scrollDiv=document.querySelector("#main_join_yearChart_year");
 var scrollLocation=scrollDiv.querySelectorAll("H1");
- $('main-join-yearChart-year').offset;
+ $('main_join_yearChart_year').offset;
 
 
 var wheel;
 var date = new Date();
 var currentYear = date.getFullYear();
 var indexc=currentYear;
-$(".main-join-yearChart").on('mousewheel',function(e){ 
+$("#main_join_yearChart").on('mousewheel',function(e){ 
     wheel = e.originalEvent.wheelDelta; 
     e.preventDefault() //마우스 스크롤 밑에서 scrollby로 설정한것만 이동하게
 

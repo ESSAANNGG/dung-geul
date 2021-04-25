@@ -1,7 +1,7 @@
-@font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+/* @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'); */
 
 
 body{
@@ -10,9 +10,8 @@ body{
     height:935px;
 }
 select{
-    height:25px;
+    padding-left:5px;
     margin: auto 0;
-    margin-right:10px;
     color:#6d6d6d;
     border-radius:4px 4px 4px 4px;
     border:1px solid#a8a8a8;
@@ -23,11 +22,13 @@ button{
     color:#6d6d6d;
 }
 input{
+    padding-left:5px;
     border-radius:4px 4px 4px 4px;
     border:1px solid#a8a8a8;
+    color:#6d6d6d;
 }
 
-.bodyLap{
+#bodyWrap{
     display:flex;
     width:1920px;
     height:935px;
@@ -36,32 +37,32 @@ input{
     transition-duration: 0.7s;
 }
 
-.menubox{
+#menubox{
     width:235px;
     height:100%;
     background-color: #353535;
     box-shadow: 1px 0px 3px #6d6d6d inset;
 }
 
-.menubox-header{
+#menubox_header{
     height:62px;
     padding:14px;
     padding-left:15%;
     border-bottom:solid 1px #5a5a5a;
 }
-.menubox-header{
+#menubox_header{
     color:white;
     font-size:21px;
     font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
     font-weight:400
 }
 
-.menubox-body{
+#menubox_body{
     margin-top:10px;
     padding-left:3px; 
 }
 
-.menubox-body-menu{
+.menubox_body_menu{
     display:block;
     height:60px;
     padding-top:20px;
@@ -72,10 +73,20 @@ input{
     font-size:14px;
     font-weight:500;
     margin:0px;
-
 }
 
-.menubox-body-sub{
+.menubox_body_menu i:nth-child(1){ /*메뉴 아이콘*/
+    margin-right:20px; font-size:16px; color:rgb(153, 151, 151);
+}
+.menubox_body_menu i:nth-child(2){ /*아래방향화살표*/
+    font-size:12px; float:right; margin-right:10%; margin-top:3%; color:rgb(153, 151, 151);
+}
+.menubox_body_menu i:nth-child(3){ /*위방향화살표*/
+    display:none; font-size:12px; float:right; margin-right:10%; margin-top:3%; color:rgb(153, 151, 151);
+}
+
+
+.menubox_body_sub{
     display:block;
     height:0px;
     padding-left:30%;
@@ -84,39 +95,35 @@ input{
     transition-property: height;
     transition-duration: 0.8s;
 }
-.menubox-body-sub > p{
+.menubox_body_sub > p{
     height:35px;
-
     font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
     font-size:14px;
     font-weight:500;
     color:#eeeeee;
-
     line-height: 50px;
-
 }
 
 
-#main1_2{
-    display:none;
-}
-#main1_3{
-    display:none;
-}
-#main1_4{
-    display:none;
-}
+
+
 
 
 /* 따로 경로를 지정해주지 않은것은 main1_1(회원리스트)+a의 css */
 .main{
-    display:inline-block;
+    display:none;
     width:1685px;
     height:935px;
     padding:0px;
     background-color: #eeeeee;
 }
-.main-head{
+/* .main:nth-child(1 of .main){
+사파리에서만 지원
+}  */
+.main:nth-child(2){   /*child(1)로 하니 <div id="menubox">가 첫번째 자식요소라 적용안됨*/
+    display:inline-block;
+}
+.main_head{
     width:1685px;
     height:60px;
     margin:0px;
@@ -124,7 +131,7 @@ input{
     background-color: #ffffff;
     box-shadow: 0px 0.5px 0px 0px rgb(192, 192, 192);
 }
-.main-head > h4{
+.main_head > h4{
     margin:0px;
     line-height: 300%;
     font-size:18px;
@@ -135,7 +142,7 @@ input{
 
 
 /* main박스의 검색구역 */
-.main-search{
+.main_search{
     width:1600px;
     height:150px;
     margin: 50px auto 90px auto;
@@ -144,16 +151,18 @@ input{
     box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
     display:flex;
 }
-.main-search-c{
+.main_search_c{
     width:1600px;
     margin:auto 0px;
-
 }
-.main-search-line{
+.main_search_line{
     margin-bottom: 5px;
     display:flex;
 }
-.main-search-line > h2{
+.main_search_line button{
+    margin:auto 3px;
+}
+.main_search_line > h2{
     font-size:15px;
     width:150px;
     color:#585858;
@@ -169,15 +178,28 @@ input{
     border-radius:50%;
     background-color:#6d6d6d;
 }
-.main-search-choose{
+
+.main_search_line select{
+    width:90px;
+    height:25px;
+    margin-right:10px;
+    padding-left:5px;
+}
+.main_search_line input{
+    width:130px; 
+    height:25px; 
+    margin:auto 0; 
+    margin-right:5px;
+}
+.main_search_choose{
     height:100px;
     margin: auto;
     margin-right:30px;
 }
-.main-search-choose button{
-    margin:auto 3px; 
+.main_search_choose button{
     width:100px; 
     height:100px; 
+    margin:auto 3px;  
     background-color:#07bad4;
     color:white; 
     font-size:16px; 
@@ -189,26 +211,25 @@ input{
 
 
 
-.main-content{
+.main_content{
     width:1600px;
     height:480px;
     margin: 15px auto;
     padding: 30px 50px;
+    font-size:15px;
     background-color: #ffffff;
-    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
     color:#585858;
+    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
+    
 }
-.main-content-listhead{
+.main_content_listhead{
     width:1500px;
     height:25px;
     margin:0px auto;
-}
-.main-content-listhead span{
     font-weight: 600;
-    font-size: 15px;
 }
-.main-content-list{
-    font-size:15px;
+
+.main_content_list{
     width:1500px;
     margin:0px auto;
 }
@@ -216,8 +237,7 @@ input{
 /* list의 각 항목들 */
 .check{
     display:inline-block;
-    margin: 0 5px 0 35px;
-
+    width:50px;
 }
 .number{
     display:inline-block;
@@ -278,7 +298,7 @@ input{
 
 
 /* 상세보기 */
-.detailEnter{
+#detailEnter{
     display:block;
     position:fixed;
     width:1920px;
@@ -287,15 +307,15 @@ input{
     visibility:hidden;
     z-index:1;
 }
-.detailBox{
+#detailBox{
     display:block;
     position:fixed;
     margin:auto;
     left:0;
     right:0;
-    top:5%;
+    top:3%;
     width:33%;
-    height:90%;
+    height:95%;
     padding:40px;
     margin:auto;
     padding:40px;
@@ -304,7 +324,6 @@ input{
 
     border-radius: 5px;
     font-weight: 700;
-    /* font-family: 나눔고딕, NanumGothic, ng, Apple Gothic; */
     font-size:14px;
     
     visibility:hidden;
@@ -312,10 +331,8 @@ input{
     transition-property:opacity;
     transition-duration: 0.5s;
     z-index:2;
-
-    /* box-shadow: 0px 0px 1px 1px rgb(192, 192, 192); */
 }
-.detail-grade{
+.d_role{
     width:115px;
     height:35px;
     padding:0 12px;
@@ -323,9 +340,9 @@ input{
     background-color: #3f6ad8;
     color:#ffffff;
     border-radius: 7px 3px 3px 7px;
-    box-shadow: 0px 0px 1px 1px #9cc9f8; /*없앨지 말지 고민*/
+    /* box-shadow: 0px 0px 1px 1px #9cc9f8; 없앨지 말지 고민 */
 }
-.detail-head{
+.d_tagN{
     display:flex;
     height:35px;
     margin-top:5px;
@@ -333,18 +350,18 @@ input{
     font-weight:400;
     font-size:14px;
 }
-.detail-body{
+.d_cont{
     height:35px;
     font-weight:400;
     font-size:16px;
     padding:0 12px;
     margin-bottom:5px;
 }
-.detail-body:focus{
+.d_cont:focus{
     box-shadow: 0px 0px 3px 2px #9cc9f8;
     outline: none;
 }
-.detail-button{
+.d_button{
     display:inline-block;
     width:90px;
     height:30px;
@@ -355,10 +372,13 @@ input{
     font-weight: 500;
     font-size:13px;
 }
+.d_button:nth-of-type(-n+2){
+    display:none;
+}
+
 
 
 /*main1_2 회원가입승인의 일괄 승인/삭제버튼 */
-/*main1_3 회원등급수정의 일괄 승인/삭제버튼 */
 .btnAllow{
     display:inline-block;
     position:absolute;
@@ -371,6 +391,7 @@ input{
 }
 .btnAllow button{
     width:110px;
+    background-color: #ffffff;
     font-weight:bolder;
 }
 .btnAllow button:hover{
@@ -380,24 +401,8 @@ input{
 
 
 
-/*main1_3 회원등급수정의 리스트 크기 조절,요청등급 추가*/
-#main1_3 .joindate{
-    width:150px;
-}
-#main1_3 .grade{
-    width:60px;
-}
-#main1_3 .req-grade{
-    display:inline-block;
-    width:80px;
-    text-align:center;
-    margin-right:30px;
-}
-
-
-
-/* main1_4 회원통계의 통계구역들 */
-.main-join-stat{
+/* main1_3 회원통계의 통계구역들 */
+#main_join_stat{
     display:block;
     width:1600px;
     height:340px;
@@ -406,7 +411,7 @@ input{
     font-size:0px; /*graph와 level div의 여백공간 없애기*/
     box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
 }
-.main-join-head{
+#main_join_head{
     width:1600px;
     height:60px;
     margin:0px;
@@ -415,7 +420,7 @@ input{
     font-family: 'Open Sans', sans-serif;
     box-shadow: 0px 0.5px 1.5px 0px rgb(192, 192, 192);
 }
-.main-join-head > h5{
+#main_join_head > h5{
     margin:0px;
     line-height: 400%;
     font-size:15px; 
@@ -424,7 +429,7 @@ input{
     /* color:#585858; */
     color:#363b3e;
 }
-.main-join-monthChart{
+#main_join_monthChart{
     display:inline-block;
     width:1200px;
     height:280px;
@@ -433,11 +438,11 @@ input{
     width: 1200px;
     height: 280px;
     font-size:13px;
-  }
+}
 
 
   
-.main-join-yearChart{
+#main_join_yearChart{
     display:inline-block;
     float:right;
     width:390px;
@@ -447,18 +452,18 @@ input{
     color:rgb(192, 192, 192);
     box-shadow: -1px -0.5px 0px 0.5px rgb(192, 192, 192);
 }
-.main-join-yearChart-year::-webkit-scrollbar {
+#main_join_yearChart_year::-webkit-scrollbar {
     width: 0px;
     background-color: #363b3e; 
 }
-.main-join-yearChart-year{
+#main_join_yearChart_year{
     display:block;
     height:65px;
     margin:0px;
     text-align: center;
     overflow-y:scroll;
 }
-.main-join-yearChart-year > h1{
+#main_join_yearChart_year > h1{
     margin:0px;
     height:65px;
     color:#ffffff;
@@ -468,7 +473,7 @@ input{
 
 
 
-.main-stat-lap{
+#main_stat_lap{
     display:block;
     width:1600px;
     height:390px;
@@ -476,7 +481,7 @@ input{
     padding:0px;
     background-color: #eeeeee;
 }
-.main-views-stat{
+#main_views_stat{
     display:inline-block;
     float:left;
     width:1150px;
@@ -484,7 +489,7 @@ input{
     background-color: #ffffff;
     box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
 }
-.main-views-head {
+#main_views_head {
     height:30px;
     margin-top:15px;
     padding-left:30px;
@@ -492,34 +497,17 @@ input{
     font-size:14px;
     font-weight:700;
 }
-.main-views-select{
+#main_views_select{
     float : right;
+    margin-right:15px;
 }
 #viewsChartDiv {
     width: 100%;
     height: 276px;
     font-size:10px;
 }
-/* .main-major-stat{
-    display:inline-block;
-    float:left;
-    width:520px;
-    height:330px;
-    margin-left:20px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);  
-}
-.main-major-head{
-    height:30px;
-    margin-top:15px;
-    padding-left:30px;
-    color:#363b3e;
-    font-size:14px;
-    font-weight:700;
-} */
 
-
-.main-grade-stat{
+#main_role_stat{
     display:inline-block;
     float:right;
     width:410px;
@@ -527,7 +515,7 @@ input{
     background-color: #ffffff;
     box-shadow: 0px 0px 1px 0.5px rgb(192, 192, 192);
 }
-.main-grade-head{
+#main_role_head{
     height:30px;
     margin-top:15px;
     padding-left:30px;
@@ -535,39 +523,41 @@ input{
     font-size:14px;
     font-weight:700;
 }
-.main-grade-list-head{
-    color:#a8a8a8;
+#main_role_list_head{
+    color:#757575;
     font-size:15px;
     font-weight:600;
     padding-left:30px;
 }
-.main-grade-list{
-    padding-left:30px;
+#main_role_list{
     font-size:14px;
     font-weight:600;
     color:#363b3e;
 }
-.grade-year{
+#main_role_list .role-year{
+    margin-left:30px;
+}
+.role-year{
     display:inline-block;
     width:70px;
 }
-.grade-student{
+.role-student{
     display:inline-block;
     width:70px;
 }
-.grade-enter{
+.role-enter{
     display:inline-block;
     width:50px;
 }
-.grade-professor{
+.role-professor{
     display:inline-block;
     width:50px;
 }
-.grade-counselor{
+.role-counselor{
     display:inline-block;
     width:60px;
 }
-.grade-mentor{
+.role-mentor{
     display:inline-block;
     width:50px;
 }

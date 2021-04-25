@@ -1,200 +1,76 @@
-var menu = document.getElementsByClassName("menubox-body-menu");
-var sub = document.getElementsByClassName("menubox-body-sub");
+var menu = document.getElementsByClassName("menubox_body_menu");
+var sub = document.getElementsByClassName("menubox_body_sub");
 var down = document.getElementsByClassName("fas fa-chevron-down");
 var up = document.getElementsByClassName("fas fa-chevron-up");
 var menubox = document.getElementsByClassName("menubox");
 
-var flag_1 = 0;
-var flag_2 = 0;
-var flag_3 = 0;
-var flag_4 = 0;
 
-//사이드 메뉴
-function menu_script_1(){
-    if (flag_1 == 0){  
-
-        menu[0].style.backgroundColor="#01b9ff";
-        sub[0].style.height="170px";
-        down[0].style.display="none";
-        up[0].style.display="block";
+//메뉴가 열려있는지 닫혀있는지 확인하는 변수
+//메뉴의 수만큼 변수의 길이를 조절
+var flagArr =[];
+flagArr.length=menu.length;   
 
 
-        menu[1].style.backgroundColor="#353535";
-        sub[1].style.height="0px";
-        down[1].style.display="block";
-        up[1].style.display="none";
-
-        menu[2].style.backgroundColor="#353535";
-        sub[2].style.height="0px";
-        down[2].style.display="block";
-        up[2].style.display="none";
-
-        menu[3].style.backgroundColor="#353535";
-        sub[3].style.height="0px";
-        down[3].style.display="block";
-        up[3].style.display="none";
-
-        
-        flag_1 = 1; 
-        flag_2 = 0;
-        flag_3 = 0;
-        flag_4 = 0;
-    }
-
-    else if (flag_1 == 1){  
-
-        menu[0].style.backgroundColor="#353535";
-        sub[0].style.height="0px";
-        down[0].style.display="block";
-        up[0].style.display="none";
-
-        flag_1 = 0;
-    }
+//전체 배열값에 닫혀있다는 뜻인 0값을 줌  
+//열려있으면 1
+for(let i=0; i<flagArr.length; i++){
+    flagArr[i]=0;
 }
 
-function menu_script_2(){
-    if (flag_2 == 0){  
+let menuNum;
 
-        menu[1].style.backgroundColor="#01b9ff";
-        sub[1].style.height="170px";
-        down[1].style.display="none";
-        up[1].style.display="block";
+//몇번째 메뉴를 클릭한건지 menuNum에 담아옴
+//첫번쨰 메뉴가 0 두번쨰 메뉴가 1...
+function sideMenu(menuNum){
+
+    //flag가 0이면 닫혀있는것. 열어주자
+     if (flagArr[menuNum]== 0){  
+
+            //메뉴 전체css변경
+            $('.menubox_body_menu').css({'background-color':'#353535'});
+            $(".menubox_body_sub").css({'height':'0px'});
+            $(".fas fa-chevron-down").css({'display':'block'});
+            $(".fas fa-chevron-up").css({'display':'none'});
+
+            //on시킨 메뉴만 열어주는 css적용
+            menu[menuNum].style.backgroundColor="#01b9ff";
+            sub[menuNum].style.height="170px";
+            down[menuNum].style.display="none";
+            up[menuNum].style.display="block";
         
+            for(let i=0; i<flagArr.length; i++){
+                flagArr[i]=0;
+            }
+            flagArr[menuNum]=1;
+        }
 
-        menu[0].style.backgroundColor="#353535";
-        sub[0].style.height="0px";
-        down[0].style.display="block";
-        up[0].style.display="none";
-
-        menu[2].style.backgroundColor="#353535";
-        sub[2].style.height="0px";
-        down[2].style.display="block";
-        up[2].style.display="none";
-
-        menu[3].style.backgroundColor="#353535";
-        sub[3].style.height="0px";
-        down[3].style.display="block";
-        up[3].style.display="none";
-
-        flag_1 = 0; 
-        flag_2 = 1;
-        flag_3 = 0;
-        flag_4 = 0;
-    }
-
-    else if (flag_2 == 1){
-
-        menu[1].style.backgroundColor="#353535";
-        sub[1].style.height="0px";
-        down[1].style.display="block";
-        up[1].style.display="none";
-
-        flag_2 = 0;
-    }
+            //flag가 1이면 열려있는것. 닫아주자
+        else if (flagArr[menuNum] == 1){  
+        
+            menu[menuNum].style.backgroundColor="#353535";
+            sub[menuNum].style.height="0px";
+            down[menuNum].style.display="block";
+            up[menuNum].style.display="none";
+        
+            flagArr[menuNum]=0;
+            }
 }
 
-function menu_script_3(){
-    if (flag_3 == 0){  
-
-        menu[2].style.backgroundColor="#01b9ff";
-        sub[2].style.height="170px";
-        down[2].style.display="none";
-        up[2].style.display="block"
-
-        menu[0].style.backgroundColor="#353535";
-        sub[0].style.height="0px";
-        down[0].style.display="block";
-        up[0].style.display="none";
-
-        menu[1].style.backgroundColor="#353535";
-        sub[1].style.height="0px";
-        down[1].style.display="block";
-        up[1].style.display="none";
-
-        menu[3].style.backgroundColor="#353535";
-        sub[3].style.height="0px";
-        down[3].style.display="block";
-        up[3].style.display="none";
-        
-        flag_1 = 0; 
-        flag_2 = 0;
-        flag_3 = 1;
-        flag_4 = 0; 
-    }
-
-    else if (flag_3 == 1){
-
-        menu[2].style.backgroundColor="#353535";
-        sub[2].style.height="0px";
-        down[2].style.display="inline-block";
-        up[2].style.display="none";
-
-        flag_3 = 0;
-    }
-}
-
-function menu_script_4(){
-    if (flag_4 == 0){  
-
-        menu[3].style.backgroundColor="#01b9ff";
-        sub[3].style.height="170px";
-        down[3].style.display="none";
-        up[3].style.display="inline-block"
-
-        menu[0].style.backgroundColor="#353535";
-        sub[0].style.height="0px";
-        down[0].style.display="inline-block";
-        up[0].style.display="none";
-
-        menu[1].style.backgroundColor="#353535";
-        sub[1].style.height="0px";
-        down[1].style.display="inline-block";
-        up[1].style.display="none";
-
-        menu[2].style.backgroundColor="#353535";
-        sub[2].style.height="0px";
-        down[2].style.display="inline-block";
-        up[2].style.display="none";
 
 
-        
-        flag_1 = 0; 
-        flag_2 = 0;
-        flag_3 = 0;
-        flag_4 = 1; 
-    }
-
-    else if (flag_4 == 1){
-
-        menu[3].style.backgroundColor="#353535";
-        sub[3].style.height="0px";
-        down[3].style.display="inline-block";
-        up[3].style.display="none";
-
-        flag_4 = 0;
-    }
-}
 
 
 //메인화면 교체
 let main = document.getElementsByClassName("main");
-//  let main = document.querySelectorAll(".main");
+let mainNum;
 
-//함수를 여러개 만들지않고 div아이디의 오른쪽 세문자만 추출해 case로 바꿀지 고민중
-function main1_1(){
+//main클래스의 첫번째가 뭔진 모르겠지만 이미 존재함
+//그래서 [2]부터 적용
+
+function mainChange(mainNum){
     [...main].forEach(e=>e.style.display="none");
-    document.getElementById("main1_1").style.display="block";
+    document.getElementsByClassName("main")[mainNum].style.display="block";
 }
-function main1_2(){
-    [...main].forEach(e=>e.style.display="none");
-    document.getElementById("main1_2").style.display="block";
-}
-function main1_3(){
-    [...main].forEach(e=>e.style.display="none");
-    document.getElementById("main1_3").style.display="block";
-}
-function main1_4(){
-    [...main].forEach(e=>e.style.display="none");
-    document.getElementById("main1_4").style.display="block";
-}
+
+
 
