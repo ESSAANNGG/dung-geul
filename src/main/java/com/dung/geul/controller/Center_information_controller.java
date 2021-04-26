@@ -52,26 +52,22 @@ public class Center_information_controller {
     private BoardRepository repository;
 
     @GetMapping("/notice_board")    // 공지사항 게시판 페이지
-    public String notice_board(PageRequestDTO pageRequestDTO, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO) {
+    public String notice_board(PageRequestDTO pageRequestDTO, Model model) {
 
         log.info("list............." + pageRequestDTO);
 
         // PageResultDTO
         model.addAttribute("result", service.getList(pageRequestDTO));
-        model.addAttribute("loginUser", authMemberDTO);
-
         return "center-information/notice_board";
     }
 
     @GetMapping("/notice_board_register")
-    public void register(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
-        model.addAttribute("loginUser", authMemberDTO);
+    public void register() {
         log.info("REGISTER GET...");
     }
 
     @PostMapping("/notice_board_register")
-    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes,
-                               @AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
+    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes){
 
         log.info("dto..." + dto);
 
@@ -79,8 +75,6 @@ public class Center_information_controller {
         Long num = service.register(dto);
 
         redirectAttributes.addFlashAttribute("msg", num);
-
-        model.addAttribute("loginUser", authMemberDTO);
 
         return "redirect:/center-information/notice_board";
     }

@@ -32,7 +32,7 @@ public class AllowController {
 
     }
 
-    @GetMapping("/etp/read")
+    @GetMapping("/member/read")
     public void read(@RequestParam("user_id") String user_id, Model model){
 
         EnterpriseDTO etpDTO = memberService.getEnterprise(user_id);

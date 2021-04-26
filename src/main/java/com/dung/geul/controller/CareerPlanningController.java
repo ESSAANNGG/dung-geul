@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CareerPlanningController {
 
     @GetMapping("/simli_test")  // 심리 검사
-    public String simli_test(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
-        model.addAttribute("loginUser", authMemberDTO);
+    public String simli_test() {
         return "career-planning/simli_test";}
 
 }

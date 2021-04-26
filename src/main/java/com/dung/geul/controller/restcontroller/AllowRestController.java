@@ -22,7 +22,7 @@ public class AllowRestController {   // 권한 관리 컨트롤러
 
 
     // 기업 인증 승인
-    @PostMapping("/etp/allow")
+    @PostMapping("/etp/read")
     public int etpAuth(@RequestBody EnterpriseDTO etpDTO){
         System.out.println("controller 실행 user_id : " + etpDTO.toString());
 
@@ -30,7 +30,7 @@ public class AllowRestController {   // 권한 관리 컨트롤러
     }
 
     // 교내 회원 승인
-    @PostMapping
+    @PostMapping("/member/read")
     public int etpAuth(@RequestBody MemberDTO memberDTO){
 
         System.out.println("controller 실행");
