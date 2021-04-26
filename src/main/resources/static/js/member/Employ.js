@@ -151,7 +151,7 @@ function searchVal(sel_num){
                 $("#h_title").text("#제목");
             }
             // $("#h_title").css("text-shadow","-1px -1px 1px");
-            $("#h_title").css("color","#4759ff");
+            $("#h_title").css("color","#4759ff");//제이쿼리로css를 바꾸니 hover css가 덮어씌워짐
 
             //두 방법 다 안됨
             // $ ( "#h_title").animate({textShadow:"#000 0px 0px 0px"});
@@ -163,8 +163,8 @@ function searchVal(sel_num){
               
             //   $("#h_title").css({textShadowBlur:0})
             //       .animate({textShadowBlur:0}, {duration: 1});
-
-            $("#h_title").stop().animate({"color":"#575757"},2000);
+            
+            $("#h_title").stop().animate({"color":"#575757"},2000); //제이쿼리로css를 바꾸니 hover css가 덮어씌워짐
             break;
         case 2:
             val=(search[1].value);

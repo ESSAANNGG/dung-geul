@@ -1,6 +1,3 @@
-
-    
-    
     // Add data
     var monthArr = [12];
     monthArr[0] = "1월";
@@ -126,13 +123,7 @@ am4core.ready(function() {
 
 
 function joinChartYearSelect(count){
-    // if(count==1){
-    //     year=year+1;
-    // }
-    // else if(count==0){
-    //     year=year-1
-    // }
-    alert(year); //다른함수의 year도 맞게 가지고 오는지 확인 viewsChartDiv의 year를 가지고 와서 공유
+
         // Themes begin
         am4core.useTheme(am4themes_material);
         am4core.useTheme(am4themes_animated);

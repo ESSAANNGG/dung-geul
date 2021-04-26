@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,12 +14,31 @@ public class EmployDTO {
 
     private Long num;
 
-    private String name;
-
     private String title;
 
     private String content;
 
+    private String ot;
+
+    private String ep;
+
+    private LocalDateTime start_date, end_date;
+
+    private String people;
+
+    private String career;
+
+    private String education;
+
+    private String salary;
+
+    private String area;
+
+    private String apply;
+
+    private String file;
+
     private LocalDateTime regDate, modDate;
+
 
 }

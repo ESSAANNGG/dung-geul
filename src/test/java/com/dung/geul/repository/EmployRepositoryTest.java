@@ -20,12 +20,10 @@ public class EmployRepositoryTest {
         IntStream.rangeClosed(1,200).forEach(i -> {
             Employ em = Employ.builder()
                     .title("제목....." + i)
-                    .name("영진기업........." + i)
                     .content("[PHP] 웹개발자 모집 공고 데이터베이스 및 온라인정보 제공업업종의 온라인정보제공업,전자상거래업,소프트웨어개발 및 공급업사업을 하는 중소기업")
                     .build();
             employRepository.save(em);
         });
     }
-
 
 }

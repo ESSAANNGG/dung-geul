@@ -1,5 +1,6 @@
 package com.dung.geul.repository;
 
+import com.dung.geul.entity.Employ;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
@@ -10,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDate;
+
+import java.util.stream.IntStream;
 
 
 @SpringBootTest
@@ -85,4 +88,5 @@ public class EnterpriseRepositoryTest {
         }
 
     }
+
 }

@@ -1,0 +1,1403 @@
+#main-content {
+  width: 100%;
+}
+
+input {
+  width: 85%;
+  vertical-align: middle;
+  height: inherit;
+  text-align: center;
+   border: none;
+}
+
+.tr-mso {
+  mso-height-source: userset;
+  height: 19.9pt;
+}
+
+.mso-ignore {
+  mso-ignore: vglayout;
+  position: absolute;
+  z-index: 1;
+  margin-left: 9px;
+  margin-top: 0px;
+  width: 335px;
+  height: 51px;
+}
+
+.td-style1 {
+  font-size: 25pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  background: white;
+  mso-pattern: black none;
+  height: 19.9pt;
+  width: 26pt;
+}
+
+.td-style2 {
+  height: 19.9pt;
+  font-size: 25pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  background: white;
+  mso-pattern: black none;
+  width: 26pt;
+}
+
+.td-style3 {
+  font-size: 25pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  background: white;
+  mso-pattern: black none;
+  width: 26pt;
+}
+
+.td-style4 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 52pt;
+}
+
+.td-style5 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style6 {
+  width: 26pt;
+  font-size: 25pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  background: white;
+  mso-pattern: black none;
+  height: 19.9pt;
+}
+
+.td-style7 {
+  height: 19.9pt;
+  width: 26pt;
+  font-size: 25pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  background: white;
+  mso-pattern: black none;
+}
+
+.td-style8 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style9 {
+  width: 26pt;
+  font-size: 25pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: none;
+  background: white;
+  mso-pattern: black none;
+  height: 19.9pt;
+}
+
+.td-style10 {
+  height: 19.9pt;
+  width: 26pt;
+  font-size: 25pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: none;
+  background: white;
+  mso-pattern: black none;
+}
+
+.td-style11 {
+  height: 19.9pt;
+  width: 26pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: none;
+  background: white;
+  mso-pattern: black none;
+}
+
+.td-style12 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: #d9d9d9;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 99.5pt;
+  width: 52pt;
+}
+
+.td-style13 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 52pt;
+}
+
+.td-style14 {
+  height: 40pt;
+  color: black;
+  font-size: 15pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: none;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  width: 104pt;
+}
+
+.td-style15 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: none;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  width: 182pt;
+}
+
+.td-style16 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 19.9pt;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style17 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 156pt;
+}
+
+.td-style18 {
+  height: 40pt;
+  color: black;
+  font-size: 15pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: none;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  width: 182pt;
+}
+
+.td-style19 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 19.9pt;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style20 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style21 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 156pt;
+}
+
+.td-style22 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 130pt;
+}
+
+.td-style23 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 19.9pt;
+  border-left: none;
+  width: 104pt;
+}
+
+.td-style24 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 104pt;
+}
+
+.td-style25 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 52pt;
+}
+
+.td-style26 {
+  color: black;
+  font-size: 6pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 19.9pt;
+  border-left: none;
+  width: 104pt;
+}
+
+.td-style27 {
+  height: 19.9pt;
+  color: black;
+  font-size: 9pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 52pt;
+}
+
+.td-style28 {
+  height: 19.9pt;
+  color: black;
+  font-size: 9pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: right;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 52pt;
+}
+
+.td-style28 > input {
+  width: 50px;
+}
+
+.td-style29 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: #d9d9d9;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 59.7pt;
+  width: 52pt;
+}
+
+.td-style30 {
+  height: 6pt;
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: right;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 26pt;
+}
+
+.td-style31 {
+  height: 6pt;
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 26pt;
+}
+
+.td-style32 {
+  height: 6pt;
+  width: 26pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  background: white;
+  mso-pattern: black none;
+}
+
+.td-style33 {
+  width: 26pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  background: white;
+  mso-pattern: black none;
+  height: 6pt;
+}
+
+.td-style34 {
+  height: 19.9pt;
+  color: black;
+  font-size: 9pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 312pt;
+}
+
+.td-style35 {
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  height: 39.8pt;
+  width: 78pt;
+}
+
+.td-style36 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: right;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style37 {
+  height: 19.9pt;
+  color: black;
+  font-size: 9pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style38 {
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: right;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  height: 19.9pt;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style39 {
+  height: pt;
+  width: 156pt;
+  font-size: 9pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  border-right: 1px solid black;
+  border-left: none;
+}
+
+.td-style40 {
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  height: 19.9pt;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style41 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid windowtext;
+  background: #d9d9d9;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  height: 30pt;
+  width: 52pt;
+}
+
+.td-style42 {
+  height: 15pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 104pt;
+}
+
+.td-style43 {
+  height: 15pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 68pt;
+}
+
+.td-style44 {
+  height: 15pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 78pt;
+}
+
+.td-style45 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: #d9d9d9;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 119.4pt;
+  width: 52pt;
+}
+
+.td-style46 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 104pt;
+}
+
+.td-style47 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 90pt;
+}
+
+.td-style48 {
+  width: 104pt;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  border-right: 1px solid black;
+  height: 19.9pt;
+  border-left: none;
+}
+
+.td-style49 {
+  height: 16pt;
+  width: 78pt;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  border-right: 1px solid black;
+  border-left: none;
+}
+
+.td-style50 {
+  height: 19.9pt;
+  width: 52pt;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  border-right: 1px solid black;
+  border-left: none;
+}
+
+.td-style51 {
+  height: 19.9pt;
+  width: 104pt;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  border-right: 1px solid black;
+  border-left: none;
+}
+
+.td-style52 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 390pt;
+}
+
+.td-style53 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 156pt;
+}
+
+.td-style54 {
+  height: 15pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 156pt;
+}
+
+.td-style55 {
+  height: 15pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style56 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  height: 15pt;
+  border-left: none;
+  width: 78pt;
+}
+
+.td-style57 {
+  height: 16pt;
+  width: 78pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  border-left: none;
+}
+
+.td-style58 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: #d9d9d9;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 156pt;
+}
+
+.td-style59 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  height: 19.9pt;
+  border-left: none;
+  width: 52pt;
+}
+
+.td-style60 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: #d9d9d9;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 30pt;
+  width: 52pt;
+}
+
+.td-style61 {
+  height: 30pt;
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 234pt;
+}
+
+.td-style62 {
+  height: 30pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: #d9d9d9;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 52pt;
+}
+
+.td-style63 {
+  height: 30pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: none;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  width: 182pt;
+}
+
+.td-style64 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: #d9d9d9;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 189.2pt;
+  width: 52pt;
+}
+
+.td-style65 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  width: 156pt;
+}
+
+.td-style66 {
+  color: black;
+  font-size: 13pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 19.9pt;
+  width: 26pt;
+}
+
+.td-style67 {
+  height: 19.9pt;
+  color: black;
+  font-size: 13pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 26pt;
+}
+
+.td-style68 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 26pt;
+}
+
+.td-style69 {
+  height: 19.9pt;
+  width: 26pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  background: white;
+  mso-pattern: black none;
+}
+
+.td-style70 {
+  height: 19.9pt;
+  width: 26pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  background: white;
+  mso-pattern: black none;
+}
+
+.td-style80 {
+  height: 19.9pt;
+  color: black;
+  font-size: 9pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 78pt;
+}
+
+.td-style81 {
+  page-break-before: always;
+  mso-height-source: userset;
+  height: 19.9pt;
+}
+
+.td-style82 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid windowtext;
+  background: #d9d9d9;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  height: 79.6pt;
+  width: 52pt;
+}
+
+.td-style83 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 156pt;
+}
+
+.td-style84 {
+  height: 19.9pt;
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  border-left: none;
+  width: 130pt;
+}
+
+.td-style85 {
+  color: black;
+  font-size: 6pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border-top: 1px solid windowtext;
+  border-right: none;
+  border-bottom: 1px solid windowtext;
+  border-left: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-right: 1px solid black;
+  height: 19.9pt;
+  border-left: none;
+  width: 104pt;
+}
+
+.td-style86 {
+  color: black;
+  font-size: 13pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 6pt;
+  width: 26pt;
+}
+
+.td-style87 {
+  height: 6pt;
+  color: black;
+  font-size: 13pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 26pt;
+}
+
+.td-style88 {
+  height: 6pt;
+  color: black;
+  font-size: 6pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 26pt;
+}
+
+.td-style89 {
+  height: 6pt;
+  color: black;
+  font-size: 10pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 26pt;
+}
+
+.td-style90 {
+  height: 6pt;
+  color: black;
+  font-size: 13pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 26pt;
+}
+
+.td-style91 {
+  height: 6pt;
+  color: black;
+  font-size: 9pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  width: 26pt;
+}
+
+.td-style92 {
+  color: black;
+  font-size: 10pt;
+  font-weight: 700;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: #d9d9d9;
+  mso-pattern: black none;
+  white-space: normal;
+  height: 39.8pt;
+  width: 52pt;
+}
+
+.td-style93 {
+  height: 19.9pt;
+  color: black;
+  font-size: 9pt;
+  font-family: "맑은 고딕", monospace;
+  mso-font-charset: 129;
+  text-align: center;
+  border: 1px solid windowtext;
+  background: white;
+  mso-pattern: black none;
+  white-space: normal;
+  border-left: none;
+  width: 156pt;
+}
+
+#save {
+  margin-top: 20px;
+}
+
+#name {
+}
+
+#age {
+  width: 50%;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 10%;
+}
+
+#grade {
+  width: 40%;
+}
+
+#eogkrdnjs {
+  height: 26px;
+}
+
+#person {
+  width: 11px;
+}
+
+.family-age {
+  width: 30px;
+}

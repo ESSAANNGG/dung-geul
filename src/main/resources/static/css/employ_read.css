@@ -1,0 +1,228 @@
+*{
+    box-sizing: border-box;
+}
+li{
+    list-style-type: none;
+}
+body{
+    margin:0 auto;
+    background-color: #f4f4f4;;
+}
+h1{
+    margin:0px;
+    font-size:26px;
+    font-weight:700;
+    color:#222222;
+}
+h2{ /*제목 -> 기업명*/
+    margin:0px;
+    margin-bottom:8px;
+    font-size:18px;
+    font-weight:400;
+    color:#222222;
+}
+h3{ /*카테고리별 제목*/
+    display:inline-block;
+    width:600px;
+    margin:0px;
+    color:#222222;  
+}
+h4{ /*기업정보 -> 기업명*/
+    display: flex;
+    margin:0px 0px 15px 0px;
+    color:#444444;
+    font-size:18px;
+    font-weight:400;
+    
+}
+h5{ /*콘텐츠들*/
+    margin:0px;
+    color:#444444;
+    font-size:14px;
+    font-weight:400;
+}
+h6{ /*지원방법의 date font*/
+    margin:0px;
+    color:#444444;
+    font-size:14px;
+    font-weight:400
+}
+.right_text{/*다른공고보러가기*/
+    display:inline-block;
+    float:right;
+    width:200px;
+    margin-top:5px;
+    font-size:13px;
+}
+button:focus{
+    outline: none;
+}
+
+
+
+/*전체를 감싸는 div*/
+#wrap{
+    width:1000px;
+    margin:40px auto;
+    padding:40px;
+    background-color: #ffffff;
+    border:1px solid #e5e6eb;
+}
+/*각 카테고리 헤드들(카테고리 명)*/
+.head{
+    display:inline-block;
+    width:918px;
+    margin:0px;
+    margin-bottom:5px;
+}
+/*각 카테고리 박스들*/
+.box{
+    display:flex;
+    width:918px;
+    border:1px solid #e5e6eb;
+    border-top:1px solid #222222;
+}
+
+
+
+
+
+
+/*제목*/
+#head_wrap{
+    position:relative;
+    width:918px;
+    height:100px;
+    margin-bottom:20px;
+}
+#nav{
+    position:absolute;
+    top:0px;
+    right:0px;
+    width:100px;
+    height:50px;
+    margin:15px 0;
+}
+#nav button{
+    width:90px;
+    height:60px;
+    margin:-3px;
+    background-color: #e5e6eb;
+    border:0px;
+}
+/*기본정보*/
+#base_wrap{
+    width:918px;
+    margin-bottom:40px;
+    padding:25px 0 25px 0;
+    border-top:1px solid #e5e6eb;
+    border-bottom:1px solid #e5e6eb;
+
+}
+#base_wrap li{
+    display:inline-block;
+    margin-top:10px;
+    color:#444444;
+    font-size:14px;
+    font-weight:400;
+}
+#base_wrap li:nth-child(-n+5){
+    margin:0px;
+}
+#base_wrap li.category{
+    width:115px;
+}
+#base_wrap li.data{
+    width:300px;
+}
+
+
+
+/*이미지*/
+#image_wrap{
+    width:918px;
+    margin-bottom:40px;
+    padding:30px 15px;
+    text-align: center;
+}
+
+
+
+/*지원정보*/
+#receipt_wrap{
+    margin-bottom:40px;
+    width:918px;
+}
+/*[지원정보]제목을 제외한 기업정보 박스*/
+#receipt_box{
+    display:flex;
+    padding:10px 0 10px 0;
+}
+#receipt_date{
+    width:250px;
+    padding:20px 0 20px 0;
+    text-align: center;
+    border-right:1px solid #e5e6eb;
+}
+#receipt_date button{
+    width:150px;
+    height:50px;
+    margin:15px 0;
+    border:1px solid #fa9386;
+    background-color: #ff6d5a;
+}
+
+#receipt_cont{
+    width:700px;
+    padding:20px;
+}
+#receipt_cont h5{
+    height:30px;
+}
+
+
+
+
+/*기업정보*/
+#corp_wrap{
+    width:918px;
+    margin-bottom:40px;
+}
+/*[기업정보]제목을 제외한 기업정보 박스*/
+#corp_box{
+
+}
+/*기업로고*/
+#corp_image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:250px;
+    height:240px;
+}
+/*기업정보내용*/
+#corp_cont{
+    width:700px;
+    padding:20px;
+}
+/*기업정보 각 데이터들*/
+#corp_wrap li{
+    display:inline-block;
+    width:300px;
+    height:30px;
+}
+/*홈페이지와 기업주소는 내용이 길어 따로 지정*/
+#corp_wrap li:nth-child(n+8):nth-child(-n+9){
+    width:600px;
+}
+
+
+
+/*지원자 통계*/
+#stats_wrap{
+    width:918px;
+    margin-bottom:40px;
+}
+#stats_box{
+    height:200px; /*임시용*/
+}

@@ -6,48 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
 
     <script  th:async src="http://code.jquery.com/jquery-latest.min.js"></script>   <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
     <script  th:async src="/js/Employ.js"></script>
 
+    <link rel="stylesheet" href="/css/employ_read.css" />
+
     <title>Title</title>
 </head>
 <body>
-<!--네비 div-->
-<div th:replace="layout/layout :: nav"/>
-<div class="form-group">
-    <label >Num</label>
-    <input type="text" class="form-control" id="num" name="num" th:value="${dto.num}" readonly >
-</div>
+<input style="display: block" id="em_num" name="em_num" th:value="${dto.num}" />
 
-<div class="form-group">
-    <label >Name</label>
-    <input type="text" class="form-control" id="name" name="name" th:value="${dto.name}" readonly >
-</div>
 
-<div class="form-group">
-    <label >Content</label>
-    <input type="text" class="form-control" id="content" name="content" th:value="${dto.content}" readonly >
-</div>
-
-<div class="form-group">
-    <label >Title</label>
-    <input type="text" class="form-control" id="title" name="title" th:value="${dto.title}" readonly >
-</div>
-
-    <div class="from-group">
-        <label>작성일</label>
-        <input type="text" class="form-control" id="regDate" name="regDate"
-               th:value="${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}" readonly />
+<div id="wrap">
+    <div id="head_wrap">
+        <h2>네이버웹툰컴퍼니(주)</h2>
+        <h1 id="em_title" th:text="${dto.title}"></h1>
+        <!-- <div id="nav">
+            <button>채용정보</button>
+            <button>지원정보</button>
+            <button>기업정보</button>
+            <button>지원자 통계</button>
+        </div> -->
     </div>
 
-    <div class="from-group">
-        <label>마감일</label>
-        <input type="text" class="form-control" id="modDate" name="modDate"
-               th:value="${#temporals.format(dto.modDate, 'YYYY-MM-dd ')}" readonly />
+    <div id="base_wrap">
+        <li class="category"><h5>직종</h5></li>
+        <li class="data" id="em_ot" th:text="${dto.ot}"></li>
+        <li class="category"><h5>고용형태</h5></li>
+        <li class="data" id="em_ep" th:text="${dto.ep}"></li>
+        <li class="category"><h5>경력</h5></li>
+        <li class="data" id="em_career" th:text="${dto.career}"></li>
+        <li class="category"><h5>학력</h5></li>
+        <li class="data" id="em_education" th:text="${dto.education}"></li>
+        <li class="category"><h5>근무지역</h5></li>
+        <li class="data" id="em_area" th:text="${dto.area}"></li>
+        <li class="category"><h5>급여</h5></li>
+        <li class="data" id="em_salary" th:text="${dto.salary}"></li>
     </div>
 
+    <div id="image_wrap">
+        <img src="/img/naver2.jpg"  alt="My Image">
+    </div>
+
+    <div id="receipt_wrap">
+        <div id="receipt_head" class="head">
+            <h3>지원정보</h3>
+        </div>
+        <div id="receipt_box" class="box">
+            <div id="receipt_date">
+                <h6>남은 기간</h6>
+                <h1 style="color:#ff6d5a">10일 05:10:09</h6>
+<!--                <h6 style="margin-top:10px;">시작일 | <span  id="regDate"  th:text="${dto.start_date}"  ></span></h6>-->
+<!--                <h6 style="margin-top:5px;"  >마감일 | <span id="end_date" th:text="${dto.end_date}" ></span></h6>-->
+                <button><h1 style="font-size:18px; color:#ffffff;">온라인 지원</h1></button>
+            </div>
+            <div id="receipt_cont">
+                <li><h5>모집인원 : <span id="em_people" th:text="${dto.people}"></span></h5></li>
+                <li><h5>지원방법 : <span id="em_apply" th:text="${dto.apply}"></span></h5></li>
+            </div>
+        </div>
+    </div>
+
+    <div id="corp_wrap">
+        <div id="corp_head" class="head">
+            <h3>기업정보</h3>
+            <div class="right_text"><a>이 기업의 다른 공고 보러가기</a></div>
+        </div>
+        <div id="corp_box" class="box">
+            <div id="corp_image">
+                <img src="/img/naver1.jpg" width="200" height="150" alt="My Image">
+            </div>
+            <div id="corp_cont">
+                <h4>네이버웹툰컴퍼니(주)</h4>
+                <li><h5>기업형태 : </h5></li>
+                <li><h5>직원수 : </h5></li>
+                <li><h5>업종 : </h5></li>
+                <li><h5>대표자명 : </h5></li>
+                <li><h5>전화번호 : </h5></li>
+                <li><h5>FAX : </h5></li>
+                <li><h5>홈페이지 : </h5></li>
+                <li><h5>기업주소 : </h5></li>
+            </div>
+        </div>
+    </div>
+
+    <div id="stats_wrap">
+        <div id="stats_head" class="head">
+            <h3>지원자 통계</h3>
+        </div>
+        <div id="stats_box" class="box">
+            
+        </div>
+    </div>
 
 
     <div class="col-md-12">
@@ -57,10 +109,7 @@
             <button class="boxed-btn3" id="emSave" name="emSave" type="submit">저장</button>
         </div>
     </div>
-
-<!--footer -->
-<footer th:replace="layout/layout :: footer"/>
-
+</div>
 
 
 </body>

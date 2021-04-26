@@ -292,8 +292,6 @@ h5 {
   width: 190px;
 }
 
-/* notice */
-
 /* 슬라이드 */
 #sub-tit {
   margin-top: 150px;
@@ -355,9 +353,6 @@ h5 {
   margin-right: 50px;
   float: left;
 }
-.tit li a:hover {
-  box-shadow: 1px 1px 5px #ccc;
-}
 .main-tit {
   width: 1200px;
   background-color: #ccc;
@@ -403,6 +398,7 @@ h5 {
 .thum1:hover {
   box-shadow: 1px 1px 10px #ccc;
 }
+
 
 
 /* aside */
