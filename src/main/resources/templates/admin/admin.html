@@ -18,29 +18,131 @@
 <body>
     <div id="detailEnter" onclick="detailClose()">
         <!-- 상세정보를 클릭시 창에서 나오기위해 클릭하는 div -->
-        <div id="detailBox">
-            <div class="d_role"><i class="fas fa-user-graduate" style="font-size:25px; line-height: 35px;"></i></div>
+        <!-- 학생상세정보 -->
+        <div class="detailBox" id="detail_student">
+            <div class="d_role"><i class="fas fa-user-graduate"></i></div>
             <div class="d_tagN">이름</div>
-            <input type="text" class="d_cont" value="이름" size="60" readonly>
+            <input type="text" class="d_cont" value="이름" readonly>
             <div class="d_tagN">아이디</div>
-            <input type="text" class="d_cont" value="아이디" size="60" readonly>
+            <input type="text" class="d_cont" value="아이디" readonly>
             <div class="d_tagN">비밀번호</div>
-            <input type="text" class="d_cont" value="비밀번호" size="60">
+            <input type="text" class="d_cont" value="비밀번호">
             <div class="d_tagN">전화번호</div>
-            <input type="text" class="d_cont" value="전화번호" size="60">
+            <input type="text" class="d_cont" value="전화번호" readonly>
             <div class="d_tagN">주소</div>
-            <input type="text" class="d_cont" value="주소" size="60">
+            <input type="text" class="d_cont" value="주소" readonly>
             <div class="d_tagN">이메일</div>
-            <input type="text" class="d_cont" value="이메일" size="60">
+            <input type="text" class="d_cont" value="이메일" readonly>
             <div class="d_tagN">가입일</div>
-            <input type="text" class="d_cont" value="회원가입일" size="60" readonly>
-            <div class="d_tagN">계열/반</div>
-            <input type="text" class="d_cont" value="계열/반" size="60">
+            <input type="text" class="d_cont" value="회원가입일" readonly>
+            <div class="d_tagN">소속/반</div>
+            <input type="text" class="d_cont" value="계열/반" readonly>
             <div class="d_tagN">권한</div>
-            <input type="text" class="d_cont" value="학생" size="60" readonly>
-            <button class="d_button">수정</button><button class="d_button">승인</button><button class="d_button">삭제</button>
+            <input type="text" class="d_cont" value="학생" readonly>
+            <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button> 
+            <!-- 스크립트로 수정과 승인 삭제/생성-->
+        </div>
+
+        <!-- 교직원상세정보 -->
+        <div class="detailBox" id="detail_staff">
+            <div class="d_role"><i class="fas fa-user-tie"></i></div>
+            <div class="d_tagN">이름</div>
+            <input type="text" class="d_cont" value="이름" readonly>
+            <div class="d_tagN">아이디</div>
+            <input type="text" class="d_cont" value="아이디" readonly>
+            <div class="d_tagN">비밀번호</div>
+            <input type="text" class="d_cont" value="비밀번호">
+            <div class="d_tagN">전화번호</div>
+            <input type="text" class="d_cont" value="전화번호" readonly>
+            <div class="d_tagN">주소</div>
+            <input type="text" class="d_cont" value="주소" readonly>
+            <div class="d_tagN">이메일</div>
+            <input type="text" class="d_cont" value="이메일" readonly>
+            <div class="d_tagN">가입일</div>
+            <input type="text" class="d_cont" value="회원가입일" readonly>
+            <div class="d_tagN">소속/반</div>
+            <input type="text" class="d_cont" value="계열/반" readonly>
+            <div class="d_tagN">권한</div>
+            <input type="text" class="d_cont" value="교직원" readonly>
+            <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button> 
+        </div>
+
+        <!-- 상담사상세정보 -->
+        <div class="detailBox" id="detail_counselor">
+            <div class="d_role"><i class="fas fa-hands-helping"></i></div>
+            <div class="d_tagN">이름</div>
+            <input type="text" class="d_cont" value="이름" readonly>
+            <div class="d_tagN">아이디</div>
+            <input type="text" class="d_cont" value="아이디" readonly>
+            <div class="d_tagN">비밀번호</div>
+            <input type="text" class="d_cont" value="비밀번호">
+            <div class="d_tagN">전화번호</div>
+            <input type="text" class="d_cont" value="전화번호" readonly>
+            <div class="d_tagN">주소</div>
+            <input type="text" class="d_cont" value="주소" readonly>
+            <div class="d_tagN">이메일</div>
+            <input type="text" class="d_cont" value="이메일" readonly>
+            <div class="d_tagN">가입일</div>
+            <input type="text" class="d_cont" value="회원가입일" readonly>
+            <div class="d_tagN">권한</div>
+            <input type="text" class="d_cont" value="상담사" readonly>
+            <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button> 
+        </div>
+
+        <!-- 기업상세정보 -->
+        <div class="detailBox" id="detail_enterprise">
+            <div class="d_role"><i class="fas fa-building"></i></div>
+            <div class="d_tagN">기업명</div>
+            <input type="text" class="d_cont" value="기업명" readonly>
+            <div class="d_tagN">아이디</div>
+            <input type="text" class="d_cont" value="아이디" readonly>
+            <div class="d_tagN">비밀번호</div>
+            <input type="text" class="d_cont" value="비밀번호">
+            <div class="d_tagN">사업자번호</div>
+            <input type="text" class="d_cont" value="사업자번호" readonly>
+            <div class="d_tagN">대표자명</div>
+            <input type="text" class="d_cont" value="대표자명" readonly>
+            <div class="d_tagN">대표번호</div>
+            <input type="text" class="d_cont" value="대표번호" readonly>
+            <div class="d_tagN">팩스</div>
+            <input type="text" class="d_cont" value="팩스" readonly>
+            <div class="d_tagN">홈페이지</div>
+            <input type="text" class="d_cont" value="홈페이지" readonly>
+            <div class="d_tagN">주요사업내용</div>
+            <input type="text" class="d_cont" value="주요사업내용" readonly>
+            <div class="d_tagN">우편번호</div>
+            <input type="text" class="d_cont" value="우편번호" readonly>
+            <div class="d_tagN">상세주소</div>
+            <input type="text" class="d_cont" value="상세주소" readonly>
+            <div class="d_tagN">설립년도</div>
+            <input type="text" class="d_cont" value="설립년도" readonly>
+            <div class="d_tagN">직원 수</div>
+            <input type="text" class="d_cont" value="직원 수" readonly>
+            <div class="d_tagN">업종</div>
+            <input type="text" class="d_cont" value="업종" readonly>
+            <div class="d_tagN">기업형태</div>
+            <input type="text" class="d_cont" value="기업형태" readonly>
+            <div class="d_tagN">가입일</div>
+            <input type="text" class="d_cont" value="가입일" readonly>
+            <div class="d_tagN">담당자 번호</div>
+            <input type="text" class="d_cont" value="담당자 번호" readonly>
+            <div class="d_tagN">담당자 이메일</div>
+            <input type="text" class="d_cont" value="담당자 이메일" readonly>
+            <div class="d_tagN">권한</div>
+            <input type="text" class="d_cont" value="기업" readonly>
+            <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button> 
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
     <div id="bodyWrap">
         <div id="menubox">
             <div id="menubox_header">
@@ -62,7 +164,6 @@
                 </div>
 
 
-
                 <!--미정-->
                 <div class="menubox_body_menu" onclick="sideMenu(1)">
                     <i class="far fa-user"></i>
@@ -77,8 +178,6 @@
                     <p>미정</p>
                 </div>
 
-
-
                 <!--미정-->
                 <div class="menubox_body_menu" onclick="sideMenu(2)">
                     <i class="far fa-user"></i>
@@ -92,8 +191,6 @@
                     <p>미정</p>
                     <p>미정</p>
                 </div>
-
-
 
                 <!--미정-->
                 <div class="menubox_body_menu" onclick="sideMenu(3)">
@@ -194,7 +291,8 @@
                     <span class="grade">학생</span>
                     <button class="detail" onclick="detail(1)">상세보기</button>
                     <hr style="border:solid 1px #f5f5f5" ;>
-
+                </div>
+                <div class="main_content_list">
                     <input type="checkbox" name="check" class="check">
                     <span class="number">번호</span>
                     <span class="name">이름</span>
@@ -202,10 +300,35 @@
                     <span class="phone">연락처</span>
                     <span class="email">이메일</span>
                     <span class="joindate">가입일</span>
-                    <span class="grade">권한</span>
+                    <span class="grade">기업</span>
                     <button class="detail" onclick="detail(1)">상세보기</button>
                     <hr style="border:solid 1px #f5f5f5" ;>
                 </div>
+                <div class="main_content_list">
+                    <input type="checkbox" name="check" class="check">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>
+                    <span class="username">아이디</span>
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class="joindate">가입일</span>
+                    <span class="grade">상담사</span>
+                    <button class="detail" onclick="detail(1)">상세보기</button>
+                    <hr style="border:solid 1px #f5f5f5" ;>
+                </div>
+                <div class="main_content_list">
+                    <input type="checkbox" name="check" class="check">
+                    <span class="number">번호</span>
+                    <span class="name">이름</span>
+                    <span class="username">아이디</span>
+                    <span class="phone">연락처</span>
+                    <span class="email">이메일</span>
+                    <span class="joindate">가입일</span>
+                    <span class="grade">교직원</span>
+                    <button class="detail" onclick="detail(1)">상세보기</button>
+                    <hr style="border:solid 1px #f5f5f5" ;>
+                </div>
+                
             </div>
 
             <div class="btnBottom">
@@ -305,7 +428,8 @@
                     <span class="grade">학생</span>
                     <button class="detail" onclick="detail(2)">상세보기</button>
                     <hr style="border:solid 1px #f5f5f5" ;>
-
+                </div>
+                <div class="main_content_list">
                     <input type="checkbox" name="check" class="check">
                     <span class="number">번호</span>
                     <span class="name">이름</span>

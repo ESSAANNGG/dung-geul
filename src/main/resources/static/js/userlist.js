@@ -64,32 +64,39 @@ function search_date(search_date_num){
 //상세정보
 //detailNum==1 main1_1 회원리스트 
 //detailNum==2 main1_2 회원가입승인
+
+//detailBox는 어느권한의 상세정보 box를 보여줄지 고르기 위한 변수
+//detailBox==0 학생
+//detailBox==1 교직원
+//detailBox==2 상담사
+//detailBox==3 기업
 let detailNum;
+let detailBox=document.getElementsByClassName("detailBox");   
+//회원정보 pk를 가져와 권한value을 읽은 뒤 알맞은 detailBox로 분류
 function detail(detailNum){
     if(detailNum==1){
-        document.getElementsByClassName("d_button")[0].style.display="inline-block";
-        document.getElementsByClassName("d_button")[1].style.display="none";
+        $('button[name=d_button]').text("수정");
     }
     else if(detailNum==2){
-        document.getElementsByClassName("d_button")[0].style.display="none";
-        document.getElementsByClassName("d_button")[1].style.display="inline-block";
+        $('button[name=d_button]').text("승인");
     }
-    document.getElementById("detailBox").style.visibility="visible";
+
+    detailBox[3].style.visibility="visible";
     document.getElementById("detailEnter").style.visibility="visible";
 
-    document.getElementById("detailBox").style.opacity="1";
-    document.getElementById("detailBox").style.boxShadow="0px 0px 5px 1px rgb(192, 192, 192)";
+    detailBox[3].style.opacity="1";
+    detailBox[3].style.boxShadow="0px 0px 5px 1px rgb(192, 192, 192)";
     document.getElementById("bodyWrap").style.opacity="0.3";
 }
 
 
 let index;
 function detailClose(){
-    document.getElementById("detailBox").addEventListener("click", function(e){
+    detailBox[3].addEventListener("click", function(e){
         index=1; 
     });
     if (index==0) { // close 가 true가 아니면 아래 코드 실행
-      document.getElementById("detailBox").style.visibility="hidden";
+        detailBox[3].style.visibility="hidden";
       document.getElementById("detailEnter").style.visibility="hidden";
       document.getElementById("bodyWrap").style.opacity="1";
     }

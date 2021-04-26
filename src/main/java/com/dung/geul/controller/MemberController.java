@@ -20,58 +20,48 @@ public class MemberController {
     //회원가입
 
     @GetMapping("/sign-up")
-    public String signUp(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-        model.addAttribute("loginUser", authMemberDTO);
+    public String signUp(){
         return "sign-up/user_classification";
     }
 
     @GetMapping("/school-user_category")
-    public String signUpSchoolUserCategory(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-
-        model.addAttribute("loginUser", authMemberDTO);
+    public String signUpSchoolUserCategory(){
 
         return "sign-up/school-user_category";
     }
 
     @GetMapping("/student_sign-up")
-    public String studentSignUp(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-        model.addAttribute("loginUser", authMemberDTO);
+    public String studentSignUp(){
         return "sign-up/student_sign-up";
     }
 
     @GetMapping("/professor_sign-up")
-    public String professorSignUp(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-        model.addAttribute("loginUser", authMemberDTO);
+    public String professorSignUp(){
         return "sign-up/professor_sign-up";
     }
 
     @GetMapping("/personnel_sign-up")
-    public String personnelSignUp(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-        model.addAttribute("loginUser", authMemberDTO);
+    public String personnelSignUp(){
         return "sign-up/personnel_sign-up";
     }
 
     @GetMapping("/mentor_sign-up")
-    public String mentorSignUp(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-        model.addAttribute("loginUser", authMemberDTO);
+    public String mentorSignUp(){
         return "sign-up/mentor_sign-up";
     }
 
     @GetMapping("/enterprise_sign-up")
-    public String enterpriseSignUp(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-        model.addAttribute("loginUser", authMemberDTO);
+    public String enterpriseSignUp(){
         return "sign-up/enterprise_sign-up";
     }
 
     @GetMapping("/counselor_sign-up")
-    public String counselorSignUp(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-        model.addAttribute("loginUser", authMemberDTO);
+    public String counselorSignUp(){
         return "sign-up/counselor_sign-up";
     }
 
     @GetMapping("/forgot_find")
-    public String forgot(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-        model.addAttribute("loginUser", authMemberDTO);
+    public String forgot(){
         return "forgot/forgot";
     }
 
