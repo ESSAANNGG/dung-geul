@@ -1,6 +1,6 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.AllowMemberDTO;
+import com.dung.geul.dto.AllowEtpDTO;
 import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.dto.MemberDTO;
 import com.dung.geul.entity.Enterprise;
@@ -21,13 +21,8 @@ public interface MemberService {
                 .user_addr(memberDTO.getUser_addr())
                 .user_addr_details(memberDTO.getUser_addr_details())
                 .user_email(memberDTO.getUser_email())
+                .user_type(memberDTO.getRole())
                 .build();
-
-        String role = memberDTO.getRole();
-
-        if(role != null) {
-            this.AddRoleWithColumn(member, memberDTO, role);
-        }
 
         System.out.println("save member : " + member.toString());
 
@@ -59,44 +54,68 @@ public interface MemberService {
     }
 
 
-    // 회원에 따라 권한 및 관련 속성 추가
-    default void AddRoleWithColumn(Member member, MemberDTO memberDTO, String role){
+    // 회원에 따라 권한 추가
+    default void AddRole(Member member, String role){
 
         member.addMemberRole(MemberRole.USER);
-        member.modUser_type(role);
 
-        if (role.equals("STUDENT") || role.equals("STAFF")) {
-            member.modUser_dept(memberDTO.getUser_dept());
-            member.modUser_grade(memberDTO.getUser_grade());
-            member.modUser_class(memberDTO.getUser_class());
+        if (role.equals("STUDENT")) {
 
             member.addMemberRole(MemberRole.STUDENT);
 
-        } else if (role.equals("MENTO")) {
-            member.modUser_job(member.getUser_job());
+        } else if (role.equals("STAFF")) {
 
-
-            member.addMemberRole(MemberRole.MENTO);
+            member.addMemberRole(MemberRole.STAFF);
 
         } else if (role.equals("COUNSELOR")) {
 
             member.addMemberRole(MemberRole.COUNSELOR);
 
         }
-        //기업은 지금 받지 않음
+        //기업은 따로 관리자 인증을 통해서 권한 줍니다 (AllowEntityToDTO에서)
+    }
+
+    // 회원별 속성 추가
+    default void AddColumn(Member member, MemberDTO memberDTO){
+
+        if(member.getUser_type().equals("STUDENT") || member.getUser_type().equals("STAFF")) {
+            member.modUser_dept(memberDTO.getUser_dept());
+            member.modUser_grade(memberDTO.getUser_grade());
+            member.modUser_class(memberDTO.getUser_class());
+        }
     }
 
     // 기업 인증 목록
-    default AllowMemberDTO AllowEntityToDTO(Member member, Enterprise enterprise){
-        AllowMemberDTO allowMemberDTO = AllowMemberDTO.builder()
-                .user_id(member.getUser_id())
-                .etp_name(enterprise.getEtp_name())
-                .etp_num(enterprise.getEtp_num())
-                .user_regdate(member.getRegDate())
-                .build();
+    default AllowEtpDTO AllowEntityToDTO(Member m, Enterprise e){
 
-        return allowMemberDTO;
+        AllowEtpDTO allowDTO = new AllowEtpDTO(m.getUser_id());
+
+        if(e == null){        // 기업회원이 아니면
+            allowDTO.setUser_name(m.getUser_name());
+        } else{             // 기업회원이면
+            allowDTO.setEtp_name(e.getEtp_name());
+            allowDTO.setEtp_num(e.getEtp_num());
+        }
+
+        allowDTO.setUser_email(m.getUser_email());
+        allowDTO.setUser_regdate(m.getRegDate());
+
+        return allowDTO;
     }
+//
+//    // 회원 인증 목록
+//    default AllowEtpDTO AllowEntityToDTO(Member m, Enterprise e){
+//        AllowEtpDTO allowEtpDTO = AllowEtpDTO.builder()
+//                .user_id(m.getUser_id())
+//                .etp_name(e.getEtp_name())
+//                .etp_num(e.getEtp_num())
+//                .user_regdate(m.getRegDate())
+//                .build();
+//
+//        return allowEtpDTO;
+//    }
+
+
 
     default EnterpriseDTO entityToDto(Enterprise e, Member m){
 
