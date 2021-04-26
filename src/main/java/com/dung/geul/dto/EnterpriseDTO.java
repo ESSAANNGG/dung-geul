@@ -35,7 +35,7 @@ public class EnterpriseDTO extends MemberDTO {
 
 
     // 이거 두개는 나중에 변경하는거임(관리자가 수동으로)
-    private String etp_shape; // 기업 형태
+    private String etp_shape; // 기업 형태 : 대기업, 중소기업
 
     private String etp_allow; // 인증여부
 

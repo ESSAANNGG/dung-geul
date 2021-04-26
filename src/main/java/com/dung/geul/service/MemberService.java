@@ -1,6 +1,6 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.AllowMemberDTO;
+import com.dung.geul.dto.AllowEtpDTO;
 import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.dto.MemberDTO;
 import com.dung.geul.entity.Enterprise;
@@ -72,7 +72,7 @@ public interface MemberService {
             member.addMemberRole(MemberRole.COUNSELOR);
 
         }
-        //기업은 따로 관리자 인증을 통해서 권한 줍니다
+        //기업은 따로 관리자 인증을 통해서 권한 줍니다 (AllowEntityToDTO에서)
     }
 
     // 회원별 속성 추가
@@ -86,16 +86,36 @@ public interface MemberService {
     }
 
     // 기업 인증 목록
-    default AllowMemberDTO AllowEntityToDTO(Member m, Enterprise e){
-        AllowMemberDTO allowMemberDTO = AllowMemberDTO.builder()
-                .user_id(m.getUser_id())
-                .etp_name(e.getEtp_name())
-                .etp_num(e.getEtp_num())
-                .user_regdate(m.getRegDate())
-                .build();
+    default AllowEtpDTO AllowEntityToDTO(Member m, Enterprise e){
 
-        return allowMemberDTO;
+        AllowEtpDTO allowDTO = new AllowEtpDTO(m.getUser_id());
+
+        if(e == null){        // 기업회원이 아니면
+            allowDTO.setUser_name(m.getUser_name());
+        } else{             // 기업회원이면
+            allowDTO.setEtp_name(e.getEtp_name());
+            allowDTO.setEtp_num(e.getEtp_num());
+        }
+
+        allowDTO.setUser_email(m.getUser_email());
+        allowDTO.setUser_regdate(m.getRegDate());
+
+        return allowDTO;
     }
+//
+//    // 회원 인증 목록
+//    default AllowEtpDTO AllowEntityToDTO(Member m, Enterprise e){
+//        AllowEtpDTO allowEtpDTO = AllowEtpDTO.builder()
+//                .user_id(m.getUser_id())
+//                .etp_name(e.getEtp_name())
+//                .etp_num(e.getEtp_num())
+//                .user_regdate(m.getRegDate())
+//                .build();
+//
+//        return allowEtpDTO;
+//    }
+
+
 
     default EnterpriseDTO entityToDto(Enterprise e, Member m){
 

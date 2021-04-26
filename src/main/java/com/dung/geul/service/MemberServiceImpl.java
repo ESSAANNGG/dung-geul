@@ -1,25 +1,21 @@
 package com.dung.geul.service;
 
+
 import com.dung.geul.dto.*;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
 import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.MemberRepository;
-import net.bytebuddy.asm.Advice;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.mail.internet.MimeMessage;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Date;
@@ -53,8 +49,6 @@ public class MemberServiceImpl implements MemberService {
             Member member = MemberDtoToEntity(memberDTO, pw);
             //맴버별 다른 칼럼 추가
             AddColumn(member, memberDTO);
-            // 권한주기
-            AddRole(member, memberDTO.getRole());
 
             memberRepository.save(member);
             return 1;
@@ -98,16 +92,16 @@ public class MemberServiceImpl implements MemberService {
 
     //기업 인증
     @Transactional
-    public int authEnterprise(EnterpriseDTO enterpriseDTO) {
-        System.out.println("memberServiceImpl - authEnterprise : " + enterpriseDTO);
+    public int authEnterprise(EnterpriseDTO etpDTO) {
+        System.out.println("memberServiceImpl - authEnterprise : " + etpDTO.toString());
 
         try {
-            Member member = memberRepository.findById(enterpriseDTO.getUser_id()).get();
+            Member member = memberRepository.findById(etpDTO.getUser_id()).get();
             Enterprise enterprise = enterpriseRepository.findByUser_id(member);
 
-            enterprise.modifyEtp_shape(enterpriseDTO.getEtp_shape());   // 기업 형태 추가
+            enterprise.modifyEtp_shape(etpDTO.getEtp_shape());   // 기업 형태 저장
             member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
-            member.modUser_allow(1);                                 // 회원 인증 정보 추가
+            member.modUser_allow(1);                                 // 회원 인증 여부 변경
 
             memberRepository.save(member);
             enterpriseRepository.save(enterprise);
@@ -118,6 +112,26 @@ public class MemberServiceImpl implements MemberService {
             return 0;
         }
     }
+
+    // 회원 인증
+    @Transactional
+    public int authMember(MemberDTO memberDTO){
+
+        // 회원 종류별로 role부여
+        try{
+            Member member = memberRepository.getOne(memberDTO.getUser_id());
+
+            // 권한주기
+            AddRole(member, member.getUser_type());
+
+            return 1;
+        } catch (Exception e){
+
+            System.out.println("error : " + e);
+            return 0;
+        }
+    }
+
 
     // 아이디 중복 체크
     public int checkUser_id(String user_id) {
@@ -391,19 +405,28 @@ public class MemberServiceImpl implements MemberService {
 
 
     // 인증 전 기업 회원 목록 가져오기
-    public PageResultDTO<AllowMemberDTO, Object[]> getList(PageRequestDTO pageRequestDTO) {
+    public PageResultDTO<AllowEtpDTO, Object[]> getListEtp(PageRequestDTO pageRequestDTO) {
 
         System.out.println("getList 실행");
+
         Pageable pageable = pageRequestDTO.getPageable(Sort.by("regDate"));
-        System.out.println("pageable page: " + pageable.getPageSize());
-        System.out.println("pageable size: " + pageable.getPageSize());
-        System.out.println("pageable page: " + pageable.getSort());
-        Function<Object[], AllowMemberDTO> fn = (en -> AllowEntityToDTO((Member) en[0], (Enterprise) en[1]));
-        System.out.println("fn함수 실행완료");
+
+        Function<Object[], AllowEtpDTO> fn = (en -> AllowEntityToDTO((Member) en[0], (Enterprise) en[1]));
+
         Page<Object[]> result = memberRepository.findNotAllowUsers(pageable);
-        System.out.println("result : " + Arrays.toString(result.getContent().get(0)));
 
         return new PageResultDTO<>(result, fn);
+
+    }
+
+    // 인증 전 교내 회원 목록 가져오기
+    public PageResultDTO getMemberList(PageRequestDTO pageRequestDTO) {
+
+        System.out.println("getListMember실행");
+        Pageable pageable = pageRequestDTO.getPageable(Sort.by("regDate"));
+
+
+        return null;
 
     }
 
