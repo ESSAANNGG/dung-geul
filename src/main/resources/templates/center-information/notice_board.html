@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:script="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>공지사항</title>
     <meta charset="utf-8" />
@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
 
+    <!--  검색 이벤트 처리를 위한 jQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- 목록 데이터 페이지 처리, 등록 버튼 CSS 디자인 : 차후 css파일에 수정 要-->
     <style>
@@ -111,6 +113,27 @@
                             <h2>공지사항</h2>
                             <!--   <div>게시글 수: <span th:text="${#lists.size(boards)}"></span></div>-->
 
+                        <!-- 검색 조건 -->
+                            <form action="/center-information/notice_board" method="get" id="searchForm">
+                                <div class="input-group">
+                                    <input type="hidden" name="page" value = "1">
+                                    <div class="input-group-prepend">
+                                        <select class="custom-select" name="type">
+                                            <option th:selected="${pageRequestDTO.type == null}">-------</option>
+                                            <option value="t" th:selected="${pageRequestDTO.type =='t'}" >제목</option>
+                                            <option value="c" th:selected="${pageRequestDTO.type =='c'}"  >내용</option>
+                                            <option value="tc"  th:selected="${pageRequestDTO.type =='tc'}" >제목 + 내용</option>
+                                        </select>
+                                    </div>
+                                    <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}">
+                                    <div class="input-group-append" id="button-addon4">
+                                        <button class="btn btn-outline-secondary btn-search" type="button">검색</button>
+                                        <button class="btn btn-outline-secondary btn-clear" type="button">초기화</button>
+                                    </div>
+                                </div>
+                            </form>
+
+
                             <!-- 게시판 테이블 -->
                             <table>
                                 <thead>
@@ -189,6 +212,34 @@
 </div>
 
 <!-- Scripts -->
+
+<!-- 검색 이벤트 처리 -->
+<script th:inline="javascript">
+
+    var msg = [[${msg}]];
+
+    console.log(msg);
+
+    if(msg){
+        $(".modal").modal();
+    }
+    var searchForm = $("#searchForm");
+
+    $('.btn-search').click(function(e){
+
+        searchForm.submit();
+
+    });
+
+    $('.btn-clear').click(function(e){
+
+        searchForm.empty().submit();
+
+    });
+
+
+</script>
+
 <script src="/js/jquery-3.5.1.min.js"></script>
 
 <!-- <script src="assets/js/jquery.min.js"></script>
