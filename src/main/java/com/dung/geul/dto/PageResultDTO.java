@@ -45,23 +45,23 @@ public class PageResultDTO<DTO, EN> {
 
     }
 
-        private void makePageList(Pageable pageable) {
+    private void makePageList(Pageable pageable) {
 
-            this.page = pageable.getPageNumber() +1;    // 0부터 시작하므로 1을 추가
-            this.size = pageable.getPageSize();
+        this.page = pageable.getPageNumber() + 1;    // 0부터 시작하므로 1을 추가
+        this.size = pageable.getPageSize();
 
-            // temp end page
-            int tempEnd = (int)(Math.ceil(page/10.0)) * 10; // 10페이지 => Math.ceil(1) * 10 = 10
+        // temp end page
+        int tempEnd = (int) (Math.ceil(page / 10.0)) * 10; // 10페이지 => Math.ceil(1) * 10 = 10
 
-            start = tempEnd - 9;
+        start = tempEnd - 9;
 
-            prev = start > 1;
+        prev = start > 1;
 
-            end = totalPage > tempEnd ? tempEnd : totalPage;    // if(totalpage > tempEnd) { tempEnd } else { totalpage }
+        end = totalPage > tempEnd ? tempEnd : totalPage;    // if(totalpage > tempEnd) { tempEnd } else { totalpage }
 
-            next = totalPage > tempEnd;
+        next = totalPage > tempEnd;
 
-            pageList = IntStream.rangeClosed(start, end).boxed().collect(Collectors.toList());
-        }
+        pageList = IntStream.rangeClosed(start, end).boxed().collect(Collectors.toList());
     }
+}
 

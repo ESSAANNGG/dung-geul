@@ -85,7 +85,7 @@ public interface MemberService {
         }
     }
 
-    // 기업 인증 목록
+    // 미인증 회원 목록
     default AllowEtpDTO AllowEntityToDTO(Member m, Enterprise e){
 
         AllowEtpDTO allowDTO = new AllowEtpDTO(m.getUser_id());
@@ -102,8 +102,9 @@ public interface MemberService {
 
         return allowDTO;
     }
+
 //
-//    // 회원 인증 목록
+//    // 회원 인증 목록 // 위에꺼 오류 안나게 다 만들면 지우기
 //    default AllowEtpDTO AllowEntityToDTO(Member m, Enterprise e){
 //        AllowEtpDTO allowEtpDTO = AllowEtpDTO.builder()
 //                .user_id(m.getUser_id())

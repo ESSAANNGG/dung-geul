@@ -35,6 +35,7 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/application/cv/**").hasRole("STUDENT")
                 .antMatchers("/mypage/**").hasRole("USER")
+//                .antMatchers("/allow/**").hasRole("ADMIN")
                 .anyRequest().permitAll();
 
         // 로그인 설정
