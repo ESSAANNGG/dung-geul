@@ -14,10 +14,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @ToString
-@AttributeOverrides({
-        @AttributeOverride(name = "regDate", column = @Column(name = "lic_regdate")),
-        @AttributeOverride(name = "modDate", column = @Column(name = "lic_modDate"))
-})
 public class license implements Serializable {
 
     @Id

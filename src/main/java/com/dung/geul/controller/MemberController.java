@@ -26,7 +26,6 @@ public class MemberController {
 
     @GetMapping("/school-user_category")
     public String signUpSchoolUserCategory(){
-
         return "sign-up/school-user_category";
     }
 

@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @Log4j2
 public class MemberRestController {
 // 회원관리 컨트롤러
-    // 로그인, 회원가입, 회원정보 수정, 권한 부여
+    // 로그인, 회원가입, 회원정보 수정
 
 
     @Autowired

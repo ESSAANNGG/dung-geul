@@ -75,12 +75,7 @@ public class MemberDetailsService implements UserDetailsService {
             authMemberDTO.setUser_grade(member.getUser_grade());
             authMemberDTO.setUser_class(member.getUser_class());
 
-        } else if (member.getRoleSet().contains(MemberRole.MENTO)) {
-
-            authMemberDTO.setUser_job(member.getUser_job());
-
         }
-
         // 변환 끝
 
         return authMemberDTO;
