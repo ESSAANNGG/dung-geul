@@ -4,9 +4,9 @@ h2, h4, body, ul, li {
 * {
     box-sizing: border-box;
 }
-.menu {
+.menu2 {
     float: left;
-    width: 250px;
+    width: 210px;
 }
 #bar h2 {
     line-height: 100px;
