@@ -20,8 +20,8 @@ input, button, select {
 }
 #content {
     width: 800px;
-    margin-left: 300px;
-    margin-top: 80px;
+    margin: 80px 0 0 600px;
+    height: 800px;
 }
 #coun-content {
     float: left;
