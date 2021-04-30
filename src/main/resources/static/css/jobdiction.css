@@ -2,6 +2,15 @@
 body {
     background: #fff;
 }
+#main {
+    margin-top:40px;
+    background: #eee;
+    border-top: solid 5px #1f3786d5;
+    border-top-width: 35px;
+    border-bottom-width: 10px;
+    padding: 0px;
+    z-index: 999;
+}
 input, button, select {
     border: none;
     color: #333;
