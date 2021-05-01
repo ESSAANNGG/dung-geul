@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up Form</title>
-  <link
-          href="https://fonts.googleapis.com/css?family=Nunito:400,300"
-          rel="stylesheet"
-          type="text/css"
-  />
-  <link rel="stylesheet" href="/css/sign-up.css" />
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-</head>
-<body>
-<form action="/sigUp/counselor" id="signUp" name="signUp" method="POST" autocomplete="off">
-  <h1>회원 가입</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="/css/sign-up.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+  </head>
+  <body>
+    <form
+      action="/sigUp/counselor"
+      id="signUp"
+      name="signUp"
+      method="POST"
+      autocomplete="off"
+    >
+      <h1>회원 가입</h1>
 
-  <fieldset>
-    <label for="user_id">아이디:</label>
-    <input type="text" id="user_id" name="user_id" required />
-    <button id="checkId">중복 검사</button>
-    <!-- 결과 텍스트가 삽입될 칸 -->
-    <span id="checkIdResult"></span>
-    <div id="Result"></div>
+      <fieldset>
+        <label for="user_id">아이디:</label>
+        <input type="text" id="user_id" name="user_id" required />
+        <button id="checkId">중복 검사</button>
+        <!-- 결과 텍스트가 삽입될 칸 -->
+        <span id="checkIdResult"></span>
+        <div id="Result"></div>
 
-   <label for="password">비밀번호 (6~16자리 특수문자 포함)</label>
+        <label for="password">비밀번호 (6~16자리 특수문자 포함)</label>
         <input
           type="password"
           id="user_pw"
@@ -46,13 +52,13 @@
         />
         &nbsp;<span id="check"></span>
         <!-- 결과 텍스트가 삽입될 칸 -->
-    <span id="checkPwResult"></span>
-    <div id="Result"></div>
+        <span id="checkPwResult"></span>
+        <div id="Result"></div>
 
-    <label for="name">이름:</label>
-    <input type="text" id="user_name" name="user_name" required />
+        <label for="name">이름:</label>
+        <input type="text" id="user_name" name="user_name" required />
 
-    <label for="mail">이메일</label>
+        <label for="mail">이메일</label>
         <input type="text" id="user_email" name="user_email" required />
         <span id="EmailSign">@</span>
         <input
@@ -74,40 +80,40 @@
           <option value="daum.net">daum.net</option>
         </select>
 
-    <label for="user_ph">휴대폰 번호</label>
-    <input type="tel" id="user_ph" name="user_ph" required />
+        <label for="user_ph">휴대폰 번호</label>
+        <input type="tel" id="user_ph" name="user_ph" required />
 
-    <!-- 검색 기능-->
-    <label for="addr">주소찾기</label>
-    <input type="text" id="user_postcode" placeholder="우편번호" />
-    <input
-            class="search_button"
-            type="button"
-            onclick="carrerPostcode()"
-            value="우편번호 찾기"
-    /><br />
-    <input type="text" id="user_addr" placeholder="도로명주소" />
-    <!-- <input type="text" id="user_jibunAddr" placeholder="지번주소" /> -->
-    <span id="guide" style="color: #999; display: none"></span>
-    <input type="text" id="user_addr_details" placeholder="상세주소" />
-    <input type="text" id="extra_info" placeholder="참고항목" />
-  </fieldset>
-  <input
-          type="text"
-          name="role"
-          id="role"
-          class="role"
-          value="COUNSELOR"
-          readonly
-  />
+        <!-- 검색 기능-->
+        <label for="addr">주소찾기</label>
+        <input type="text" id="user_postcode" placeholder="우편번호" readonly />
+        <input
+          class="search_button"
+          type="button"
+          onclick="carrerPostcode()"
+          value="우편번호 찾기"
+        /><br />
+        <input type="text" id="user_addr" placeholder="도로명주소" readonly />
+        <!-- <input type="text" id="user_jibunAddr" placeholder="지번주소" /> -->
+        <span id="guide" style="color: #999; display: none"></span>
+        <input type="text" id="user_addr_details" placeholder="상세주소" />
+        <input type="text" id="extra_info" placeholder="참고항목" readonly />
+      </fieldset>
+      <input
+        type="text"
+        name="role"
+        id="role"
+        class="role"
+        value="COUNSELOR"
+        readonly
+      />
 
-  <button id="submit" type="submit">가입하기</button>
-</form>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="/js/code.js"></script>
-<script src="/js/counselor_sign-up.js"></script>
-<script src="/js/check-id.js"></script>
-<script src="/js/check-pw.js"></script>
-<script src="/js/emailSelect.js"></script>
-</body>
+      <button id="submit" type="submit">가입하기</button>
+    </form>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/code.js"></script>
+    <script src="/js/counselor_sign-up.js"></script>
+    <script src="/js/check-id.js"></script>
+    <script src="/js/check-pw.js"></script>
+    <script src="/js/emailSelect.js"></script>
+  </body>
 </html>
