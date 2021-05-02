@@ -1,9 +1,12 @@
 #sang-main-wrap {
+    width: 1000px;
+    margin: 0 auto;
     padding: 80px 0 80px;
 }
-.menu {
-    float: left;
-    width: 220px;
+.menu2 {
+    display: block;
+    margin-left: 250px;
+    margin-top: 100px;
 }
 /* sidemenu */
 #main {
@@ -15,23 +18,11 @@
     padding: 0px;
     z-index: 999;
 }
-.nav { display: table; margin: auto;}
 body {
     background: #fff;
     margin: 0 auto;
 }
-.d_width {
-    position: relative;
-    width: 1200px;
-    margin: 0 auto;
-    transition: all 0.5s;
-}
-#sang-wrap {
-    width: 1000px;
-    margin: 0 auto;
-}
 #sang-con {
-    float: left;
     width: 1000px;
     margin: 0 30px;
     background: #fff;

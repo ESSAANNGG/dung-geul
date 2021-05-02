@@ -52,9 +52,6 @@ public class Member extends BaseEntity {
     @Column(length = 50)
     private String user_class; // 교수,학생 담당반
 
-    @Column(length = 50)
-    private String user_job; //직장
-
     @Column(length = 1)
     private int user_allow; // 인증여부 ( 1: 인증 됨, Null : 인증 전)
 
@@ -69,7 +66,6 @@ public class Member extends BaseEntity {
     public void addMemberRole(MemberRole memberRole){
         roleSet.add(memberRole);
     }
-
 
 
     // 수정 가능한 항목
@@ -102,10 +98,6 @@ public class Member extends BaseEntity {
 
     public void modUser_class(String user_class) {
         this.user_class = user_class;
-    }
-
-    public void modUser_job(String user_job) {
-        this.user_job = user_job;
     }
 
     // 인증해줄 때 기업 인증 여부 변경

@@ -1,5 +1,6 @@
 package com.dung.geul.repository;
 
+import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,12 +34,23 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     @Query("select m.user_id from Member m where m.user_email = :user_email and m.user_name = :user_name")
     String findByUser_emailAndUser_name(@Param("user_email") String user_email, @Param("user_name") String user_name);
 
-    // 인증 받기 전인 기업 회원 리스트 가져오기
-    @Query(value = "select m, e from Member m left join Enterprise e on e.user_id = m where m.user_allow is null",
-            countQuery = "select count(m) from Member m where m.user_allow is null and m.user_type = 'enterprise'")
+    // 인증 받기 전인 회원 타입별 리스트 가져오기
+    @Query(value = "select m, e\n" +
+            "from Member m left outer join Enterprise e  on m.user_id = e.user_id \n" +
+            "where  m.user_allow = 0 and m.user_type = :user_type",
+            countQuery = "select count(m) from Member m where m.user_allow = 0 and m.user_type = :user_type")
+    Page<Object[]> findByNotAllowAndUser_type(Pageable pageable, @Param("user_type") String user_type);
+
+    // 인증 받기 전인 회원 전체 리스트 가져오기
+    @Query(value = "select m,  e\n" +
+            "from Member m left outer join Enterprise e on m.user_id = e.user_id\n" +
+            "where m.user_allow = 0",
+            countQuery = "select count(m) from Member m where  m.user_allow = 0")
     Page<Object[]> findNotAllowUsers(Pageable pageable);
 
-    @Query(value = "select m, e from Member m left join Enterprise e on e.user_id = m where m.user_id = :user_id")
+
+    //
+    @Query(value = "select m, e from Member m left outer join Enterprise e on e.user_id = m where m.user_id = :user_id")
     Object findByUser_idEtpJoinMember(@Param("user_id") String user_id);
 
 }

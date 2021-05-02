@@ -29,6 +29,8 @@ public class MemberDTO {
 
     private String user_email;
 
+    //
+
     private String user_dept;  // 교수 소속계열, 학생소속계열
 
     private String user_grade;  // 학년
