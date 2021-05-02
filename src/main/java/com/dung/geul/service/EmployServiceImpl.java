@@ -108,13 +108,16 @@ public class EmployServiceImpl implements EmployService {
         BooleanBuilder conditionBuilder = new BooleanBuilder();
 
         if(type.contains("t")){
-            conditionBuilder.or(qEmploy.title.contains(keyword));
-        }
-        if(type.contains("c")) {
-            conditionBuilder.or(qEmploy.content.contains(keyword));
+            conditionBuilder.or(qEmploy.title.contains(keyword)); //제목
         }
         if(type.contains("ot")){
-            conditionBuilder.or(qEmploy.ot.contains(keyword));
+            conditionBuilder.or(qEmploy.ot.contains(keyword));  //직종
+        }
+        if(type.contains("ep")){
+            conditionBuilder.or(qEmploy.ep.contains(keyword));  //고용구분
+        }
+        if(type.contains("area")){
+            conditionBuilder.or(qEmploy.area.contains(keyword));  //근무지역
         }
 
         booleanBuilder.and(conditionBuilder);
