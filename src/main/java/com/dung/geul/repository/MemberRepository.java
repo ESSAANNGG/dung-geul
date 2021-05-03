@@ -48,7 +48,6 @@ public interface MemberRepository extends JpaRepository<Member, String> {
             countQuery = "select count(m) from Member m where  m.user_allow = 0")
     Page<Object[]> findNotAllowUsers(Pageable pageable);
 
-
     //
     @Query(value = "select m, e from Member m left outer join Enterprise e on e.user_id = m where m.user_id = :user_id")
     Object findByUser_idEtpJoinMember(@Param("user_id") String user_id);

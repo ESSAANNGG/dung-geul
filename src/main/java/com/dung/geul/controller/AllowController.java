@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@RequestMapping("/allow")
+@RequestMapping("/admin")
 @Controller
 public class AllowController {
 
@@ -23,7 +23,7 @@ public class AllowController {
     private MemberServiceImpl memberService;
 
     // 전체 회원 인증 전 리스트
-    @GetMapping("/member/list")
+    @GetMapping("/admin")
     public void getList(@RequestParam("type") String type, PageRequestDTO pageRequestDTO, Model model){
         //파라미터로 page, size 를 전달하면 자동으로 pageRequestDTO 객체로 수집된다
 
@@ -33,7 +33,13 @@ public class AllowController {
 
         System.out.println("type : " + type );
 
-        model.addAttribute("list", memberService.getList(pageRequestDTO, type));
+        if(type==null || type.equals("")){
+            type = "USER";
+        }
+
+        model.addAttribute("list", memberService.getList(pageRequestDTO, type).getDtoList());
+
+        System.out.println(memberService.getList(pageRequestDTO, type).toString());
 
     }
 

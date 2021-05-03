@@ -5,6 +5,8 @@ import com.dung.geul.dto.*;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
+import com.dung.geul.handler.ErrorHttpResponse;
+import com.dung.geul.handler.SuccessHttpResponse;
 import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.MemberRepository;
 
@@ -12,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -90,45 +95,60 @@ public class MemberServiceImpl implements MemberService {
         return result;
     }
 
-    //기업 인증
+    //기업 인증     1: 승인 성공,   2: 거절 성공,   -1 : 오류
     @Transactional
-    public int authEnterprise(EnterpriseDTO etpDTO) {
+    public ResponseEntity authEnterprise(EnterpriseDTO etpDTO) {
         System.out.println("memberServiceImpl - authEnterprise : " + etpDTO.toString());
 
         try {
             Member member = memberRepository.findById(etpDTO.getUser_id()).get();
             Enterprise enterprise = enterpriseRepository.findByUser_id(member);
 
-            enterprise.modifyEtp_shape(etpDTO.getEtp_shape());   // 기업 형태 저장
+            if(member == null || enterprise == null) throw new Exception(etpDTO.getUser_id() + "는 존재하지 않는 회원입니다.");
+
+            enterprise.modifyEtp_shape(etpDTO.getEtp_shape());          // 기업 형태 저장
             member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
-            member.modUser_allow(1);                                 // 회원 인증 여부 변경
 
             memberRepository.save(member);
             enterpriseRepository.save(enterprise);
 
-            return 1;
+            return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e);
-            return 0;
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
 
-    // 회원 인증
+    // 회원 인증  1 : 인증완료 , 2 : 거절완료,  -1 : 오류
     @Transactional
-    public int authMember(MemberDTO memberDTO){
+    public ResponseEntity authMember(String[] userIds, String result){
 
         // 회원 종류별로 role부여
         try{
-            Member member = memberRepository.getOne(memberDTO.getUser_id());
 
-            // 권한주기
-            AddRole(member, member.getUser_type());
+            Member member;
 
-            return 1;
+            for (int i =0; i<userIds.length; i++){
+                member = memberRepository.getOne(userIds[i]);
+
+                if(member==null) throw new Exception(userIds[i] + "는 존재하지 않는 회원입니다.");
+
+                if (result.equals("거절")) {     // 거절
+                    member.modUser_allow(2);
+                } else if(result.equals("승인")){    // 승인
+                    AddRole(member, member.getUser_type()); // 권한주기
+                    member.modUser_allow(1);
+                }
+
+            } // end of for
+
+            return new ResponseEntity(HttpStatus.OK);
+
         } catch (Exception e){
 
             System.out.println("error : " + e);
-            return 0;
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+
         }
     }
 
