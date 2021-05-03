@@ -21,6 +21,7 @@
 </header>
 <div id="main"></div>
     <!-- side -->
+<div id="sang-main-wrap" class="d_width">
     <div class="menu2">
         <div id="bar">
             <h2>상담</h2>
@@ -34,10 +35,35 @@
             </ul>
         </div> <!-- bar -->
     </div> <!-- menu -->
-</div>
-<div id="sang-main-wrap">
     <div id="sang-wrap">
         <div id="sang-con">
+            <div id="consss">
+                <from id="sang-k" name="sang-k" method="post">
+                    <input type="date" id="month" class="month">
+                    <select name="select-field" class="select-field">
+                        <option value disabled>상담 분야</option>
+                        <option value="1">진로 상담</option>
+                        <option value="2">취업 상담</option>
+                        <option value="3">창업 상담</option>
+                    </select>
+                    <select name="employ-field" class="select-field">
+                        <option value disabled>취업 세부 분야</option>
+                        <option value>취업 세부 분야 내용 1</option>
+                        <option value>취업 세부 분야 내용 2</option>
+                        <option value>취업 세부 분야 내용 3</option>
+                        <option value disabled>창업 세부 분야</option>
+                        <option value>창업 세부 분야 내용 1</option>
+                        <option value>창업 세부 분야 내용 2</option>
+                        <option value>창업 세부 분야 내용 3</option>
+                        <option value disabled>진로 세부 분야</option>
+                        <option value>진로 세부 분야 내용 1</option>
+                        <option value>진로 세부 분야 내용 2</option>
+                        <option value>진로 세부 분야 내용 3</option>
+                    </select>
+                    <input type="text" class="sang-name" placeholder="이름을 입력해 주세요.">
+                    <button id="btn-s">검색</button>
+                </from>
+            </div>
             <table class="type07">
                 <thead>
                 <tr>

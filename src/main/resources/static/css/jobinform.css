@@ -1,12 +1,11 @@
 #job-main-wrap {
-    width: 1000px;
-    margin: 0 auto;
     padding: 80px 0 80px;
 }
-.menu2 {
-    display: block;
-    margin-left: 250px;
-    margin-top: 100px;
+.d_width {
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    transition: all 0.5s;
 }
 /* sidemenu */
 #main {
@@ -32,7 +31,7 @@ input, button, select {
 }
 #content {
     width: 1020px;
-    margin: 0 30px;
+    margin: 0 0 0 240px;
     background: #fff;
     border-radius: 8px;
 }

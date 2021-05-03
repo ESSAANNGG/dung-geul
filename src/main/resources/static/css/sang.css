@@ -1,12 +1,9 @@
 #sang-main-wrap {
-    width: 1000px;
-    margin: 0 auto;
     padding: 80px 0 80px;
 }
 .menu2 {
-    display: block;
-    margin-left: 250px;
-    margin-top: 100px;
+    float: left;
+    width: 230px;
 }
 /* sidemenu */
 #main {
@@ -22,11 +19,18 @@ body {
     background: #fff;
     margin: 0 auto;
 }
+.d_width {
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    transition: all 0.5s;
+}
 #sang-con {
     width: 1000px;
     margin: 0 30px;
     background: #fff;
     border-radius: 8px;
+    margin-left: 300px;
 }
 #check {
     width: 20px;
@@ -67,7 +71,7 @@ body {
 }
 #selectAll-wrap {
     width: 600px;
-    margin-left: 740px;
+    margin-left: 780px;
 }
 .btn-q {
     width: 60px;
