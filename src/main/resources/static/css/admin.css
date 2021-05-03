@@ -296,11 +296,13 @@ input[type="checkbox"]:checked:before {
     background-color: #ffffff;
     border-bottom: 1px solid #e2e2e2;
 }
+.user_list_body:hover{
+    background-color: #5977b918;
+}
 
 /* list의 각 항목들 */
 span{
     display:inline-block;
-    width:200px;
     height:40px;
     line-height:35px;
     text-align: center;
@@ -347,6 +349,15 @@ span:nth-of-type(1){
 .grade{
     display:inline-block;
     width:110px;
+}
+.user_list_button button{
+    width:90px;
+    height:40px;
+    margin:20px 0px 10px 0px;
+    background-color:#5978b9;
+    color:#ffffff;
+    font-size:14px;
+    border:none;
 }
 
 

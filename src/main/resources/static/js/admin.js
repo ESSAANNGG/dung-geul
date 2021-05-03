@@ -55,13 +55,48 @@ function search_date(search_date_num){
 
 
 //게시판 전체 체크하기
+let checkI;
+let check;
 function checkAll(checkI) {
     let checkName=(checkI.name);                                      //체크한 부모체크박스의 이름을 가져옴 ex)2_1_checkH
-    let check=(checkName.substr(0,9));                                //부모체크박스의 h를 떼어 자식name으로 변경
+    check=(checkName.substr(0,9));                                //부모체크박스의 h를 떼어 자식name으로 변경
     if($('input[name='+checkName+']').is(':checked')==true){          //자식 checkBox에 check적용
         $('input[name='+check+']').prop("checked",true);
     }
-    else if($('input[name='+checkName+']').is(':checked')==false){
-        $('input[name='+check+']').prop("checked",false);
+    else if($('input[name='+checkName+']').is(':checked')==false) {
+        $('input[name=' + check + ']').prop("checked", false);
     }
+}
+
+
+
+//회원가입승인 허가
+let p; //승인인지 거절인지 html으로부터 받아옴
+let perList=[]; //userid값을 담아넣는 배열
+let userid //userid값을 하나하나 담음
+    function permission_ajax(p){
+
+        //체크한 유저목록을 가져와 perList에 담음
+        let perLength=$('input[name="2_2_check"]:checked').length;    //체크 수만큼 반복
+        for(j=0; j<perLength; j++){
+            let perRemove=($("input[name='2_2_check']").index($('input[name="2_2_check"]:checked')));     //회원가입승인 전체 체크중 체크된것들의 인덱스를 가져옴
+            
+            userid=$('.user_list:eq(1) .user_list_body:eq(' + perRemove + ') .username').text();                    //아이디값을 읽어옴
+            perList.push(userid);                                                                                    //전달할 배열에 값 삽입
+            ($('input[name="2_2_check"]').eq(perRemove)).prop("checked",false);                           //해당하는 인덱스의 체크 해제
+            $('input[name="2_2_checkH"]').prop("checked",false);                                          //헤드checkBox 체크 해제
+        }
+        alert(perList);
+        if(p==1){
+            p="승인";
+        }
+        else if(p==2){
+            p="거절";
+        }
+
+        $.ajax({
+            url: "allow/member/read?user_id=user_id]&result=["+p+"]",
+            type:"POST",
+            data: {"user_Id" :perList}
+    })
 }

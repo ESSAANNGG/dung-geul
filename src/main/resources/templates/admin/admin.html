@@ -117,11 +117,11 @@
                             <span class="joindate">가입일</span>
                             <span class="grade">권한</span>
                         </div>
-                        <div class="user_list_body" th:each="dto:${list}">
+                        <div class="user_list_body">
                             <input type="checkbox" name="2_1_check" class="check">
                             <span class="number">1</span>
-                            <span class="name" th:text="${dto}">지민우</span>
-                            <span class="username" th:text="${dto.user_id}">아이디</span>
+                            <span class="name" >지민우</span>
+                            <span class="username">아이디</span>
                             <span class="phone">01021259225</span>
                             <span class="email">dddddd@naver.com</span>
                             <span class="joindate">2013-03-18</span>
@@ -160,7 +160,7 @@
                             <input type="checkbox" name="2_2_check" class="check">
                             <span class="number">1</span>
                             <span class="name">지민우</span>
-                            <span class="username">아이디</span>
+                            <span class="username">yamyam22</span>
                             <span class="phone">01021259225</span>
                             <span class="email">dddddd@naver.com</span>
                             <span class="joindate">2013-03-18</span>
@@ -169,14 +169,29 @@
                         </div>
                         <div class="user_list_body">
                             <input type="checkbox" name="2_2_check" class="check">
-                            <span class="number">번호</span>
+                            <span class="number">2</span>
                             <span class="name">이름</span>
-                            <span class="username">아이디</span>
+                            <span class="username">yamyam33</span>
                             <span class="phone">연락처</span>
                             <span class="email">이메일</span>
                             <span class="joindate">요청일</span>
                             <span class="grade">기업</span>
                             <!-- <button class="detail" onclick="detail(1)">상세보기</button> -->
+                        </div>
+                        <div class="user_list_body">
+                            <input type="checkbox" name="2_2_check" class="check">
+                            <span class="number">3</span>
+                            <span class="name">이름</span>
+                            <span class="username">yamyam44</span>
+                            <span class="phone">연락처</span>
+                            <span class="email">이메일</span>
+                            <span class="joindate">요청일</span>
+                            <span class="grade">기업</span>
+                            <!-- <button class="detail" onclick="detail(1)">상세보기</button> -->
+                        </div>
+                        <div class="user_list_button">
+                            <button onclick="permission_ajax(1)">승인</button>
+                            <button onclick="permission_ajax(2)">삭제</button>
                         </div>
                     </div>
                 </div>
