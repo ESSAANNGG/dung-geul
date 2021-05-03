@@ -12,7 +12,7 @@
     border-top: solid 5px #1f3786d5;
     border-top-width: 35px;
     border-bottom-width: 10px;
-    padding: 0px;
+    padding: 0;
     z-index: 999;
 }
 body {
@@ -31,14 +31,6 @@ body {
     background: #fff;
     border-radius: 8px;
     margin-left: 300px;
-}
-#check {
-    width: 20px;
-    color: #000;
-    background: #ccc;
-}
-#consss {
-    margin-left: 38px;
 }
 .select-field, .sang-name {
     width: 200px;
@@ -75,13 +67,16 @@ body {
 }
 .btn-q {
     width: 60px;
-    background: #fff;
+    background: #1e3c72;
     padding: 15px;
     font-size: 13px;
     font-weight: 800;
     border: 1px solid #ccc;
     border-radius: 15px;
-    margin-left: 5px;
+    color: #fff;
+}
+.btn-q:hover {
+    box-shadow: 2px 2px 5px #ccc;
 }
 table.type07 {
     border-collapse: collapse;
@@ -93,16 +88,15 @@ table.type07 {
 table.type07 thead {
     border-right: 1px solid #ccc;
     border-left: 1px solid #ccc;
-    background: #f8f5f1;
+    background: #1e3c72;
 }
 table.type07 thead th {
-    padding: 20px;
+    padding: 16px;
     font-weight: 900;
     vertical-align: top;
     font-size: 16px;
-    color: #000;
+    color: #fff;
     width: 10px;
-    border-bottom: 1px solid;
 }
 table.type07 tbody th {
     width: 125px;
@@ -110,17 +104,83 @@ table.type07 tbody th {
     font-weight: bold;
     vertical-align: top;
     background: #fff;
+    border-right: 1px solid #ccc;
 }
 table.type07 td {
     width: 300px;
-    padding: 23px;
+    padding: 28px;
     font-size: 15px;
     vertical-align: top;
-    border-bottom: 1px solid #ccc;
     font-weight: 500;
+    border-right: 1px solid #ccc;
 }
 #sang-k {
     width: 1200px;
     margin: 0 auto;
     margin-right: 50px;
+}
+/* list-area */
+#list-area {
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+}
+.coun-list {
+    width: 450px;
+    height: 60px;
+    background: #1e3c72;
+    background: -webkit-linear-gradient(to right, #2a5298, #1e3c72);
+    background: linear-gradient(to right, #2a5298, #1e3c72);
+    text-align: center;
+    font-weight: 900;
+    font-size: 18px;
+    padding: 17px;
+    margin-bottom: 20px;
+    color: #fff;
+    box-shadow: 2px 2px 5px #ccc;
+}
+.coun-list:hover {
+    box-shadow: 5px 5px 6px #ccc;
+}
+#list-area #coun-success {
+    margin-right: 10px;
+}
+.coun-list .sty {
+    color: #fff;
+}
+.me-ok, .ok {
+    color: #ccc;
+}
+#refuse-on {
+    display: none;
+}
+/* modal */
+.window{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    display: none;
+    z-index: 1; background-color: rgba(167, 167, 167, 0.397);
+}
+.window-content{
+    width: 35%;
+    height: 40%;
+    position: fixed;
+    background-color: #fff;
+    z-index: 1;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.window-content span{
+    width: 10vw;
+    height: 30px;
+    border: 1px solid #ccc;
+    position: absolute;
+    text-align: center; line-height: 30px;
+    font-size: 1vw; transition: 0.5s;
+    right: 10px; bottom: 10px;
+    border-radius: 7px;
+    cursor: pointer;
 }
