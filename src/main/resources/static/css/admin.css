@@ -46,7 +46,7 @@ input:focus{
 }
 select{
     appearance: none;   
-    background-image:url("/img/down-arrow.png") no-repeat 95% 50%/13px auto;
+    background:url("/img/down-arrow.png") no-repeat 95% 50%/13px auto;
     padding-left:15px;
 }
 select:focus{
@@ -199,52 +199,52 @@ input[type="checkbox"]:checked:before {
 
 
 /*main2_검색*/
-.user_search {
+#user_search {
     width:1550px;
 }
-.user_search ul{
+#user_search ul{
     width:1550px;
     margin:0px;
     padding:0px;
     font-size:0px;
 }
-.user_search li{
+#user_search li{
     display:inline-block;
     line-height:75px;
     font-size:17px;
 }
-.user_search li:nth-child(1) {
+#user_search li:nth-child(1) {
     width:200px;
     text-align: center;
     background-color: #dbe1ef;
     border-bottom:1.5px solid #c2c9db;
 }
-.user_search li:nth-child(2) {
+#user_search li:nth-child(2) {
     width:1350px;
     padding-left:15px;
     background-color: #ffffff;
     border-bottom:1.5px solid #e6e7ee;
 }
-.user_search ul:last-of-type li{
+#user_search ul:last-of-type li{
     border:none;
 }
 
 
-.user_search select{
+#user_search select{
     position:relative;
     width:300px;
     height:42px;
     border:1px solid #c2c9db;
     font-size:15px;
 }
-.user_search input{
+#user_search input{
     width:300px;
     height:42px;
     border:1px solid #c2c9db;
     font-size:15px;
 }
 /*date 버튼*/
-.user_search button{
+#user_search button{
     width:70px;
     height:42px;
     margin-left:5px;
@@ -252,10 +252,10 @@ input[type="checkbox"]:checked:before {
     border:1px solid #c2c9db;
     font-size:15px;
 }
-.user_search button:hover{
+#user_search button:hover{
     border:2px solid #5978b9;
 }
-.user_search ul button:hover{
+#user_search ul button:hover{
     background-color:#5977b918;
 }
 
@@ -263,12 +263,12 @@ input[type="checkbox"]:checked:before {
 
 
 /*검색버튼*/
-.user_search_button{
+#user_search_button{
     width:1550px;
     margin-top:30px;
     text-align: center;
 }
-.user_search_button button{
+#user_search_button button{
     width:100px;
     height:60px;
     background-color: #5978b9;
@@ -281,9 +281,10 @@ input[type="checkbox"]:checked:before {
 
 
 
-/*main2_회원리스트*/
+/*main2_회원리스트+회원가입승인*/
 .user_list{
     width:1550px;
+    font-size:16px;
 }
 .user_list_head{
     height:40px;
@@ -295,6 +296,7 @@ input[type="checkbox"]:checked:before {
     height:40px;
     background-color: #ffffff;
     border-bottom: 1px solid #e2e2e2;
+    transition-duration: 3s;
 }
 .user_list_body:hover{
     background-color: #5977b918;
@@ -346,9 +348,23 @@ span:nth-of-type(1){
     display:inline-block;
     width:150px;
 }
-.grade{
+.role{
     display:inline-block;
     width:110px;
+}
+.shape{
+    display:inline-block;
+    width:110px;
+}
+.shape select{
+    width:110px;
+    height:40px;
+    line-height:35px;
+    border:0px;
+    padding-left:10px;
+    font-size:16px;
+    outline: none;
+    background:url("/img/down-arrow.png") no-repeat 85% 50%/11px auto;
 }
 .user_list_button button{
     width:90px;
