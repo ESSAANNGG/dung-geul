@@ -1,6 +1,7 @@
 
 body {
     background: #fff;
+    margin: 0 auto;
 }
 #main {
     margin-top:40px;
@@ -8,7 +9,7 @@ body {
     border-top: solid 5px #1f3786d5;
     border-top-width: 35px;
     border-bottom-width: 10px;
-    padding: 0px;
+    padding: 0;
     z-index: 999;
 }
 .d_width {
