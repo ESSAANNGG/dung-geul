@@ -1,5 +1,5 @@
-@import "reset.css";
-@import "common.css";
+@import 'reset.css';
+@import 'common.css';
 *,
 *:before,
 *:after {
@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   color: #384047;
   background: #f4f7f8;
 }
@@ -29,16 +29,16 @@ h1 {
   opacity: 0.6;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="datetime"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
+input[type='text'],
+input[type='password'],
+input[type='date'],
+input[type='datetime'],
+input[type='email'],
+input[type='number'],
+input[type='search'],
+input[type='tel'],
+input[type='time'],
+input[type='url'],
 textarea {
   background: rgba(255, 255, 255, 0.1);
   border: none;
@@ -54,8 +54,8 @@ textarea {
   margin-bottom: 30px;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -75,7 +75,7 @@ select {
   margin-bottom: 30px;
 }
 
-input[type="number"] {
+input[type='number'] {
   background: rgba(255, 255, 255, 0.1);
   border: none;
   font-size: 16px;
@@ -90,8 +90,8 @@ input[type="number"] {
   margin-bottom: 30px;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   margin: 0 4px 8px 0;
 }
 
@@ -164,6 +164,10 @@ label.light {
   border-width: 1px 1px 3px;
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
   margin-bottom: 10px;
+}
+
+.sign_ph {
+  width: 20%;
 }
 
 .role {
