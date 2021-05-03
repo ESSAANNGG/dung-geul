@@ -1,76 +1,67 @@
-var menu = document.getElementsByClassName("menubox_body_menu");
-var sub = document.getElementsByClassName("menubox_body_sub");
-var down = document.getElementsByClassName("fas fa-chevron-down");
-var up = document.getElementsByClassName("fas fa-chevron-up");
-var menubox = document.getElementsByClassName("menubox");
+//메뉴 클릭시
+let menubox_li=document.getElementsByClassName("menubox_li");
 
-
-//메뉴가 열려있는지 닫혀있는지 확인하는 변수
-//메뉴의 수만큼 변수의 길이를 조절
-var flagArr =[];
-flagArr.length=menu.length;   
-
-
-//전체 배열값에 닫혀있다는 뜻인 0값을 줌  
-//열려있으면 1
-for(let i=0; i<flagArr.length; i++){
-    flagArr[i]=0;
+//처음은 맨 윗메뉴를 보여준다
+window.onload = function () {
+    menubox_li[0].style.backgroundColor="#30384b";
 }
+//메뉴 클릭시 색상변경
+$('.menubox_li').click(function(){
+    let menubox_li_index=$(this).index();                           //클래스 순번 받아오기
+    $('.menubox_li').attr('style','backgroundColor: #5978b9');      //전체색상 기본색으로 변경
+    menubox_li[menubox_li_index].style.backgroundColor="#30384b";   //클릭한 메뉴 색상변경
+     
+    //menu_title 변경
+    let menu_title=document.getElementById("menu_title");
+    menu_title.innerHTML=("<h3>"+menubox_li[menubox_li_index].innerText+"</h3>");        //h3태그는 사라져서 innerhtml을 하니 아이콘까지 같이 가져옴 그래서 text+h3태그를 innerhtml로 저장
+});
 
-let menuNum;
 
-//몇번째 메뉴를 클릭한건지 menuNum에 담아옴
-//첫번쨰 메뉴가 0 두번쨰 메뉴가 1...
-function sideMenu(menuNum){
 
-    //flag가 0이면 닫혀있는것. 열어주자
-     if (flagArr[menuNum]== 0){  
 
-            //메뉴 전체css변경
-            $('.menubox_body_menu').css({'background-color':'#353535'});
-            $(".menubox_body_sub").css({'height':'0px'});
-            $(".fas fa-chevron-down").css({'display':'block'});
-            $(".fas fa-chevron-up").css({'display':'none'});
+//main2_1&&main2_2 date
+//search_date_num가 1==오늘 2==이번주 3==이번달 4==전체
+let s_date=document.getElementsByClassName('user_search_date');
+let search_date_num;
+function search_date(search_date_num){
+    let now=new Date();
+    let week=new Date();
+    let month=new Date();
+    let enter=new Date(1);  //파라미터를 한개만 전송하면 1970년도로 자동설정
+    week.setDate(now.getDate()-7);
+    month.setMonth(now.getMonth()-1);
 
-            //on시킨 메뉴만 열어주는 css적용
-            menu[menuNum].style.backgroundColor="#01b9ff";
-            sub[menuNum].style.height="170px";
-            down[menuNum].style.display="none";
-            up[menuNum].style.display="block";
-        
-            for(let i=0; i<flagArr.length; i++){
-                flagArr[i]=0;
-            }
-            flagArr[menuNum]=1;
-        }
+    switch(search_date_num){
+        case 1:
+            s_date[0].value = now.toISOString().substring(0, 10);
+            s_date[1].value = now.toISOString().substring(0, 10);
+            break;
+        case 2:
+            s_date[0].value = week.toISOString().substring(0, 10);
+            s_date[1].value = now.toISOString().substring(0, 10);
+            break;
 
-            //flag가 1이면 열려있는것. 닫아주자
-        else if (flagArr[menuNum] == 1){  
-        
-            menu[menuNum].style.backgroundColor="#353535";
-            sub[menuNum].style.height="0px";
-            down[menuNum].style.display="block";
-            up[menuNum].style.display="none";
-        
-            flagArr[menuNum]=0;
-            }
+        case 3:    
+            s_date[0].value = month.toISOString().substring(0, 10);
+            s_date[1].value = now.toISOString().substring(0, 10);
+            break;
+
+        case 4:
+            s_date[0].value = enter.toISOString().substring(0, 10);
+            s_date[1].value = now.toISOString().substring(0, 10);
+    }
 }
 
 
 
-
-
-//메인화면 교체
-let main = document.getElementsByClassName("main");
-let mainNum;
-
-//main클래스의 첫번째가 뭔진 모르겠지만 이미 존재함
-//그래서 [2]부터 적용
-
-function mainChange(mainNum){
-    [...main].forEach(e=>e.style.display="none");
-    document.getElementsByClassName("main")[mainNum].style.display="block";
+//게시판 전체 체크하기
+function checkAll(checkI) {
+    let checkName=(checkI.name);                                      //체크한 부모체크박스의 이름을 가져옴 ex)2_1_checkH
+    let check=(checkName.substr(0,9));                                //부모체크박스의 h를 떼어 자식name으로 변경
+    if($('input[name='+checkName+']').is(':checked')==true){          //자식 checkBox에 check적용
+        $('input[name='+check+']').prop("checked",true);
+    }
+    else if($('input[name='+checkName+']').is(':checked')==false){
+        $('input[name='+check+']').prop("checked",false);
+    }
 }
-
-
-
