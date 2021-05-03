@@ -108,11 +108,15 @@ let userShape;
         let E_perLength=$('input[name="2_3_check"]:checked').length;    //체크 수만큼 반복
         for(j=0; j<E_perLength; j++){
             let E_perRemove=($("input[name='2_3_check']").index($('input[name="2_3_check"]:checked')));     //회원가입승인 전체 체크중 체크된것들의 인덱스를 가져옴
+            let E_perRemove=($("input[name='2_3_check']").index($('input[name="2_3_check"]:checked')));     //회원가입승인 전체 체크중 체크된것들의 인덱스의 첫번째 가져옴
 
             userid=$('.user_list:eq(2) .user_list_body:eq(' + E_perRemove + ') .username').text();                    //아이디값을 읽어옴
             userShape=$('.user_list_body:eq(' + E_perRemove + ') input[name="2_3_shape"]').val();
             alert(userShape);
             E_perList.push(String(userShape));                                                                                    //전달할 배열에 값 삽입
+            userShape=$('.shapeSelect:eq(' + E_perRemove + ')').val();                                                // 기업형태를 읽어옴
+            E_perList.push([userid,userShape]);                                                                       //전달할 배열에 값 삽입
+
             ($('input[name="2_3_check"]').eq(E_perRemove)).prop("checked",false);                           //해당하는 인덱스의 체크 해제
             $('input[name="2_3_checkH"]').prop("checked",false);                                          //헤드checkBox 체크 해제
         }
