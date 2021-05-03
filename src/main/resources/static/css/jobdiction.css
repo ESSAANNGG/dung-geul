@@ -32,10 +32,11 @@ input, button, select {
     padding: 80px 0 80px;
 }
 #content {
-    width: 1020px;
-    margin: 0 0 0 240px;
+    width: 850px;
+    margin: 0 0 0 380px;
     background: #fff;
     border-radius: 8px;
+    height: 750px;
 }
 #coun-content {
     float: left;
@@ -48,7 +49,6 @@ input, button, select {
     position: relative;
     width: 1400px;
     margin: 0 auto;
-    transition: all 0.5s;
 }
 #job-wrap h1 {
     font-size: 2rem;
