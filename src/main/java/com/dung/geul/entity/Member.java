@@ -3,7 +3,9 @@ package com.dung.geul.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -108,6 +110,8 @@ public class Member extends BaseEntity {
     public void modUser_type(String user_Type){
         this.user_type = user_Type;
     }
+
+
 
     /*
     Set : 순서가 없고 중복을 허용하지 않는 데이터의 집합

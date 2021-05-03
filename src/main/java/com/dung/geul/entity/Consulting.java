@@ -18,7 +18,7 @@ public class Consulting  implements Serializable {    // 상담 테이블
 
     @Id
     @Column(name = "consult_num")
-    private Long num;
+    private Long consult_num;
 
     /*@Id
     @ManyToOne(fetch = FetchType.LAZY)
@@ -34,6 +34,5 @@ public class Consulting  implements Serializable {    // 상담 테이블
 
     @Column(length = 1, nullable = false)
     private String consult_complete;            // 완료 여부
-
 
 }

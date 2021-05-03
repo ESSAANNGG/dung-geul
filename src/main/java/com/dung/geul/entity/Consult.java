@@ -2,8 +2,11 @@ package com.dung.geul.entity;
 
 import lombok.*;
 
+import javax.lang.model.type.ArrayType;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Builder
@@ -26,9 +29,5 @@ public class Consult extends BaseEntity {
 
     @Column(length = 50, nullable = false)
     private String Consult_detail_field;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "applycant_user_id" ,foreignKey = @ForeignKey(name="applycant_user_id_fk"))
-    private Member user_id;
 
 }
