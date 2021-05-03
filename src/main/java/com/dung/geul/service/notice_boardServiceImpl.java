@@ -101,7 +101,6 @@ public class notice_boardServiceImpl implements notice_boardService {
         }
     }
 
-// 작업중 -----------------------------------------------------------------------------------------------------------
 
     private BooleanBuilder getSearch(PageRequestDTO requestDTO){    // 검색처리
 

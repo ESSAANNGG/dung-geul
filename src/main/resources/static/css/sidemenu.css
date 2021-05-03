@@ -4,7 +4,7 @@ h2, h4, body, ul, li {
 * {
     box-sizing: border-box;
 }
-.menu {
+#job-main-wrap .menu {
     float: left;
     width: 250px;
 }
