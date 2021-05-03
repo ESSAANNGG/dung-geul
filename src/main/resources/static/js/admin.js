@@ -70,6 +70,9 @@ function checkAll(checkI) {
 
 
 
+
+
+
 //회원가입승인 허가
 let p; //승인인지 거절인지 html으로부터 받아옴
 let perList=[]; //userid값을 담아넣는 배열
@@ -123,9 +126,11 @@ let userShape;
         else if(p==2){
             p="거절";
         }
-        // $.ajax({
-        //     url: "allow/member/read?user_id=user_id]&result=["+p+"]",
-        //     type:"POST",
-        //     data: {"user_Id" :perList}
-        // })
+        $.ajax({
+            url: "allow/member/read?user_id=user_id]&result=["+p+"]",
+            type:"POST",
+            data: [{"user_Id" :perList,
+                    "shape"   :userShape
+                    }]
+        })
     }
