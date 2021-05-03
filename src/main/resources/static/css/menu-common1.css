@@ -104,9 +104,9 @@ section {
   display: block;
 }
 
-body {
-  line-height: 1;
-}
+/*body {*/
+/*  !*line-height: 1;*!*/
+/*}*/
 
 ol,
 ul {
@@ -182,7 +182,7 @@ body.is-preload *:after {
   -ms-transition: none !important;
   transition: none !important;
 } */
-  
+
 
 /*footer망가져서 body-->>section 교체*/
 section,
@@ -196,76 +196,76 @@ select {
   line-height: 2em;
 }
 
-h1,
-h2,
-h3,
-h5,
-h6 {
-  font-family: "Open Sans Condensed", sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #6b7770;
-  margin: 0 0 0.5em 0;
-  line-height: 1.3;
-}
+/*h1,*/
+/*h2,*/
+/*h3,*/
+/*h5,*/
+/*h6 {*/
+/*  font-family: "Open Sans Condensed", sans-serif;*/
+/*  font-weight: 700;*/
+/*  text-transform: uppercase;*/
+/*  color: #6b7770;*/
+/*  margin: 0 0 0.5em 0;*/
+/*  line-height: 1.3;*/
+/*}*/
 
-h3 {
-  font-family: "Open Sans Condensed", sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #2659c5;
-  margin: 0 0 0.5em 0;
-  line-height: 1.3;
-}
+/*h3 {*/
+/*  font-family: "Open Sans Condensed", sans-serif;*/
+/*  font-weight: 700;*/
+/*  text-transform: uppercase;*/
+/*  color: #2659c5;*/
+/*  margin: 0 0 0.5em 0;*/
+/*  line-height: 1.3;*/
+/*}*/
 
-h4 {
-  font-family: "Open Sans Condensed", sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #030303;
-  margin: 0 0 0em 0;
-  line-height: 1.3;
-}
+/*h4 {*/
+/*  font-family: "Open Sans Condensed", sans-serif;*/
+/*  font-weight: 600;*/
+/*  text-transform: uppercase;*/
+/*  color: #030303;*/
+/*  margin: 0 0 0em 0;*/
+/*  line-height: 1.3;*/
+/*}*/
 
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-  text-decoration: none;
-  color: inherit;
-}
+/*h1 a,*/
+/*h2 a,*/
+/*h3 a,*/
+/*h4 a,*/
+/*h5 a,*/
+/*h6 a {*/
+/*  text-decoration: none;*/
+/*  color: inherit;*/
+/*}*/
 
-h2 {
-  font-size: 1.65em;
-}
+/*h2 {*/
+/*  font-size: 1.65em;*/
+/*}*/
 
-h2.major {
-  position: relative;
-  border-top: solid 5px #e7eae8;
-  font-size: 1.65em;
-  text-align: center;
-  margin: 0 0 3em 0;
-  top: 0.775em;
-}
+/*h2.major {*/
+/*  position: relative;*/
+/*  border-top: solid 5px #e7eae8;*/
+/*  font-size: 1.65em;*/
+/*  text-align: center;*/
+/*  margin: 0 0 3em 0;*/
+/*  top: 0.775em;*/
+/*}*/
 
-h2.major span {
-  background: #fff;
-  position: relative;
-  display: inline-block;
-  top: -0.775em;
-  padding: 0 1.25em 0 1.25em;
-  color: rgba(0, 0, 0, 0.747);
-}
+/*h2.major span {*/
+/*  background: #fff;*/
+/*  position: relative;*/
+/*  display: inline-block;*/
+/*  top: -0.775em;*/
+/*  padding: 0 1.25em 0 1.25em;*/
+/*  color: rgba(0, 0, 0, 0.747);*/
+/*}*/
 
-h3 {
-  font-size: 1.25em;
-}
+/*h3 {*/
+/*  font-size: 1.25em;*/
+/*}*/
 
-h4 {
-  font-size: 1em;
-}
+/*h4 {*/
+/*  font-size: 1em;*/
+/*}*/
 
 a {
   color: #006376;
@@ -389,7 +389,7 @@ header > p {
 
 /* Row */
 
- .row {
+.row {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
@@ -2519,7 +2519,7 @@ table thead {
 #nav li span {
   -moz-transition: background-color 0.075s ease-in-out, color 0.075s ease-in-out;
   -webkit-transition: background-color 0.075s ease-in-out,
-    color 0.075s ease-in-out;
+  color 0.075s ease-in-out;
   -ms-transition: background-color 0.075s ease-in-out, color 0.075s ease-in-out;
   transition: background-color 0.075s ease-in-out, color 0.075s ease-in-out;
   position: relative;
@@ -2569,7 +2569,7 @@ table thead {
   text-align: left;
   min-width: 14em;
   margin-top: -1em;
-  box-shadow: 0 1em 2em 0 rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 1em 2em 0 rgba(0, 0, 0, 0.1);*/
 }
 
 .dropotron li {
@@ -3027,7 +3027,7 @@ table thead {
     font-weight: 700;
     text-transform: uppercase;
     font-size: 1.25em;
-    box-shadow: inset -3px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    /*box-shadow: inset -3px 0px 10px 0px rgba(0, 0, 0, 0.25);*/
   }
 
   #navPanel nav {

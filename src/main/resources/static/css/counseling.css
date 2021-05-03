@@ -1,7 +1,3 @@
-#job-main-wrap .menu {
-    float: left;
-    width: 220px;
-}
 /* sidemenu */
 #main {
     margin-top:40px;
@@ -12,7 +8,6 @@
     padding: 0px;
     z-index: 999;
 }
-.nav { display: table; margin: auto;}
 body {
     background: #fff;
     margin: 0 auto;
@@ -36,12 +31,7 @@ input, button, select {
     background: #fff;
     border-radius: 8px;
 }
-.d_width {
-    position: relative;
-    width: 1400px;
-    margin: 0 auto;
-    transition: all 0.5s;
-}
+
 #coun-wrap {
     position: relative;
     padding: 30px;

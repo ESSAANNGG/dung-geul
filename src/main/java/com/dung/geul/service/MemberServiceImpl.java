@@ -161,8 +161,6 @@ public class MemberServiceImpl implements MemberService {
                 memberEntity.modUser_class(memberDTO.getUser_class());
                 memberEntity.modUser_dept(memberDTO.getUser_dept());
                 memberEntity.modUser_grade(memberDTO.getUser_grade());
-            } else if (memberEntity.getRoleSet().contains(MemberRole.MENTO)) {
-                memberEntity.modUser_job(memberDTO.getUser_job());
             }
 
 
@@ -404,8 +402,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
 
-    // 인증 전 기업 회원 목록 가져오기
-    public PageResultDTO<AllowEtpDTO, Object[]> getListEtp(PageRequestDTO pageRequestDTO) {
+    // 인증 전 회원 목록 가져오기
+    public PageResultDTO<AllowEtpDTO, Object[]> getList(PageRequestDTO pageRequestDTO, String type) {
 
         System.out.println("getList 실행");
 
@@ -413,20 +411,15 @@ public class MemberServiceImpl implements MemberService {
 
         Function<Object[], AllowEtpDTO> fn = (en -> AllowEntityToDTO((Member) en[0], (Enterprise) en[1]));
 
-        Page<Object[]> result = memberRepository.findNotAllowUsers(pageable);
+        Page<Object[]> result;
+        if(type.equals("user")){
+            result = memberRepository.findNotAllowUsers(pageable);
+        } else {
+            result = memberRepository.findByNotAllowAndUser_type(pageable, type.toUpperCase());
+        }
+
 
         return new PageResultDTO<>(result, fn);
-
-    }
-
-    // 인증 전 교내 회원 목록 가져오기
-    public PageResultDTO getMemberList(PageRequestDTO pageRequestDTO) {
-
-        System.out.println("getListMember실행");
-        Pageable pageable = pageRequestDTO.getPageable(Sort.by("regDate"));
-
-
-        return null;
 
     }
 

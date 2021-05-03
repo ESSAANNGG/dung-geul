@@ -7,7 +7,7 @@
     margin: 0 auto;
     max-width: 100%;
     width: 64em;
-  }
+}
 
 .employList{
     display: block;
@@ -53,15 +53,15 @@
     border: solid 2px rgb(49,69,134);
 }
 
- /* #search select{
-    display:none;
-    width:100%;
-    height:100%;
-    padding:20px;
-    margin:0px;
-    font-size:13px;
-    border:none;
-    vertical-align: top;셀렉트만 1px씩 내려와있어서 적용
+/* #search select{
+   display:none;
+   width:100%;
+   height:100%;
+   padding:20px;
+   margin:0px;
+   font-size:13px;
+   border:none;
+   vertical-align: top;셀렉트만 1px씩 내려와있어서 적용
 }  */
 
 
@@ -164,8 +164,7 @@
 #tag{
     position:fixed;
     top:200px;
-    left:1500px;
-    /* width:300px; */
+    right:15%;
     margin-right:50px;
     padding:10px 30px;
     border-radius: 10px 10px 10px 10px;
@@ -187,5 +186,8 @@
     font-size:15px;
     /* color:#575757; */
 }
-
-
+@media screen and (max-width:1000px){
+    #tag{
+        right:200px;
+    }
+}

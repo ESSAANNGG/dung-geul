@@ -50,26 +50,30 @@ public class MemberRepositoryTest {
 
         String pw = encoder.encode("123");
 
-        Member member = Member.builder()
-                .user_id("userID2")
-                .user_pw(pw)
-                .user_name("123")
-                .user_ph("01011112222")
-                .user_postcode("23445")
-                .user_addr("복현동123 주소주")
-                .user_addr_details("상세주소 상세주소")
-                .user_email("123@aaa.bbb")
-                .user_addr("userAddress")
-                .user_dept("컴퓨터정보계열")
-                .user_class("WD-A")
-                .build();
+        for (int i = 0; i<15; i++) {
+            Member member = Member.builder()
+                    .user_id("userID" + i)
+                    .user_pw(pw)
+                    .user_name("123")
+                    .user_ph("01011112222")
+                    .user_postcode("23445")
+                    .user_addr("복현동123 주소주")
+                    .user_addr_details("상세주소 상세주소")
+                    .user_email("123@aaa.bbb")
+                    .user_addr("userAddress")
+                    .user_dept("컴퓨터정보계열")
+                    .user_class("WD-A")
+                    .user_type("STUDENT")
+                    .build();
 
-        member.addMemberRole(MemberRole.USER);
-        member.addMemberRole(MemberRole.STUDENT);
+            member.addMemberRole(MemberRole.USER);
+            member.addMemberRole(MemberRole.STUDENT);
 
-        memberRepository.save(member);
+            memberRepository.save(member);
 
-        System.out.println("회원 한명 추가 id : userID, pw : 1111");
+            System.out.println("회원 한명 추가 id : userID" + i + " , pw : 123");
+        }
+
     }
 
     @Test
@@ -84,6 +88,7 @@ public class MemberRepositoryTest {
                 .user_postcode("41521")
                 .user_addr("대구광역시 북구 복현로36길 32-13")
                 .user_addr_details("상세주소입니다아아")
+                .user_type("COUNSELOR")
                 .build();
 
         member.addMemberRole(MemberRole.USER);
@@ -102,7 +107,6 @@ public class MemberRepositoryTest {
                 .user_id("admin1")
                 .user_pw("1111")
                 .user_name("관리자")
-
                 .user_ph("01011112222")
                 .user_email("admin@email")
                 .user_postcode("41521")

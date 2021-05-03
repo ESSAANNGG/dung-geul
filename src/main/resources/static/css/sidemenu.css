@@ -1,12 +1,6 @@
-h2, h4, body, ul, li {
-    margin: 0; padding: 0;
-}
-* {
-    box-sizing: border-box;
-}
-#job-main-wrap .menu {
+.menu2 {
     float: left;
-    width: 250px;
+    width: 210px;
 }
 #bar h2 {
     line-height: 100px;

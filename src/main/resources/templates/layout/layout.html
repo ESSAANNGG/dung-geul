@@ -65,8 +65,8 @@
                 </ul>
             </li>
             <li class="login">
-                <a sec:authorize="isAuthenticated()" href="/login" >로그인</a>
-                <a sec:authorize="!isAuthenticated()" href="/logout" >로그아웃</a>
+                <a sec:authorize="!isAuthenticated()" href="/login" >로그인</a>
+                <a sec:authorize="isAuthenticated()" href="/logout" >로그아웃</a>
             </li>
             <li class="join">
                 <a sec:authorize="!isAuthenticated()" href="/sign-up" >회원가입</a>

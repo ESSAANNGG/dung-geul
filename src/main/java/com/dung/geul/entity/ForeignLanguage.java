@@ -23,7 +23,6 @@ public class ForeignLanguage extends BaseEntity implements Serializable {
     @Id
     private Long fl_num;
 
-    @Id
     @ManyToOne
     private Member user_id;
 

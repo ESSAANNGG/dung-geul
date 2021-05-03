@@ -10,6 +10,7 @@ import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.MemberRepository;
 import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -19,7 +20,6 @@ public class AllowRestController {   // 권한 관리 컨트롤러
 
     @Autowired
     MemberServiceImpl memberService;
-
 
     // 기업 인증 승인
     @PostMapping("/etp/read")
@@ -34,8 +34,8 @@ public class AllowRestController {   // 권한 관리 컨트롤러
     public int etpAuth(@RequestBody MemberDTO memberDTO){
 
         System.out.println("controller 실행");
-        System.out.println("memberDTO : " + memberDTO);
 
         return memberService.authMember(memberDTO);
     }
+
 }

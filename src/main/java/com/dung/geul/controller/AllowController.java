@@ -1,5 +1,6 @@
 package com.dung.geul.controller;
 
+import com.dung.geul.dto.AllowEtpDTO;
 import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
@@ -21,14 +22,18 @@ public class AllowController {
     @Autowired
     private MemberServiceImpl memberService;
 
-    // 기업 인증 전 리스트
+    // 전체 회원 인증 전 리스트
     @GetMapping("/member/list")
-    public void getList(PageRequestDTO pageRequestDTO, Model model){
+    public void getList(@RequestParam("type") String type, PageRequestDTO pageRequestDTO, Model model){
         //파라미터로 page, size 를 전달하면 자동으로 pageRequestDTO 객체로 수집된다
+
+        // type : USER / ENTERPRISE / STUDENT / STAFF / COUNSELOR
 
         System.out.println("list 컨트롤러 실행");
 
-        model.addAttribute("list", memberService.getListEtp(pageRequestDTO));
+        System.out.println("type : " + type );
+
+        model.addAttribute("list", memberService.getList(pageRequestDTO, type));
 
     }
 
