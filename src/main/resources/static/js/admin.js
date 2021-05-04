@@ -52,6 +52,34 @@ function search_date(search_date_num){
     }
 }
 
+$(':checkbox').click(function(){
+
+    alert('sad');
+});
+//회원 상세정보
+// $('.user_list_body').click(function(e){
+//     if($(':checkbox').click){
+//         alert('sad');
+//     }
+//     $('.detailBox').css("visibility","visible");
+// });
+
+
+// function detail(detailNum){
+//     if(detailNum==1){
+//         $('button[name=d_button]').text("수정");
+//     }
+//     else if(detailNum==2){
+//         $('button[name=d_button]').text("승인");
+//     }
+//
+//     detailBox[3].style.visibility="visible";
+//     document.getElementById("detailEnter").style.visibility="visible";
+//
+//     detailBox[3].style.opacity="1";
+//     detailBox[3].style.boxShadow="0px 0px 5px 1px rgb(192, 192, 192)";
+//     document.getElementById("bodyWrap").style.opacity="0.3";
+// }
 
 
 //게시판 전체 체크하기
@@ -117,7 +145,7 @@ let E_perLength;
 
             userid=$('.user_list:eq(2) .user_list_body:eq(' + E_perRemove + ') .username').text();                    //아이디값을 읽어옴
             userShape=$('.shapeSelect:eq(' + E_perRemove + ')').val();                                                // 기업형태를 읽어옴
-            E_perList.push("{user_Id :" + userid,"shape : " + userShape + "}");                                                                       //전달할 배열에 값 삽입
+            E_perList.push("{user_Id :" + userid,"shape : " + userShape + "}");                                       //전달할 배열에 값 삽입
 
             ($('input[name="2_3_check"]').eq(E_perRemove)).prop("checked",false);                           //해당하는 인덱스의 체크 해제
             $('input[name="2_3_checkH"]').prop("checked",false);                                          //헤드checkBox 체크 해제

@@ -68,8 +68,8 @@ input[type="checkbox"] {
     display:inline-block;
     height: 18px;
     width: 20px;
-    margin: 0px 15px 0 15px;
     line-height:22px;
+    margin:0px !important;
     
     background: -webkit-linear-gradient(#ffffff, #ffffff);
     font-size:15px;
@@ -260,8 +260,6 @@ input[type="checkbox"]:checked:before {
 }
 
 
-
-
 /*검색버튼*/
 #user_search_button{
     width:1550px;
@@ -280,6 +278,93 @@ input[type="checkbox"]:checked:before {
 
 
 
+/*main2_회원 상세정보*/
+.detailBox{
+    display:block;
+    position:fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:3%;
+    width:33%;
+    height:95%;
+    padding:40px;
+    margin:auto;
+    padding:40px;
+    background-color: #ffffff;
+    color:#545c64;
+
+    border-radius: 5px;
+    font-weight: 700;
+    font-size:14px;
+
+    visibility:hidden;
+    overflow-y: scroll;
+    transition-property:opacity;
+    transition-duration: 0.5s;
+    z-index:2;
+}
+.detailBox::-webkit-scrollbar {
+    width: 5px;
+}
+.detailBox::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 10px;
+}
+.detailBox::-webkit-scrollbar-track {
+    background-color: grey;
+    border-radius: 10px;
+
+}
+.detailBox i{
+    font-size:25px;
+    line-height: 35px;
+}
+.detailBox input{
+    width:550px;
+}
+.d_role{
+    width:115px;
+    height:35px;
+    padding:0 12px;
+
+    background-color: #3f6ad8;
+    color:#ffffff;
+    border-radius: 7px 3px 3px 7px;
+    /* box-shadow: 0px 0px 1px 1px #9cc9f8; 없앨지 말지 고민 */
+}
+.d_tagN{
+    display:flex;
+    height:35px;
+    margin-top:5px;
+    line-height: 35px;
+    font-weight:400;
+    font-size:14px;
+}
+.d_cont{
+    height:35px;
+    font-weight:400;
+    font-size:16px;
+    padding:0 12px;
+    margin-bottom:5px;
+}
+.d_cont:focus{
+    box-shadow: 0px 0px 3px 2px #9cc9f8;
+    outline: none;
+}
+.d_button{
+    display:inline-block;
+    width:90px;
+    height:30px;
+    margin:20px 10px 0px 0px;
+    background-color: #3f6ad8;
+    color:#ffffff;
+
+    font-weight: 500;
+    font-size:13px;
+}
+
+
 
 /*main2_회원리스트+회원가입승인*/
 .user_list{
@@ -291,12 +376,15 @@ input[type="checkbox"]:checked:before {
     background-color: #b9c0d3;
     border-top:1px solid #e2e2e2;
     border-bottom:1px solid #e2e2e2;
+    font-size:0px; /*span간 간격을 없애기 위함*/
 }
 .user_list_body{
     height:40px;
     background-color: #ffffff;
     border-bottom: 1px solid #e2e2e2;
-    transition-duration: 3s;
+    font-size:0px;
+    cursor: pointer;
+    transition-duration: 0.5s;
 }
 .user_list_body:hover{
     background-color: #5977b918;
@@ -305,66 +393,63 @@ input[type="checkbox"]:checked:before {
 /* list의 각 항목들 */
 span{
     display:inline-block;
-    height:40px;
+    height:38px;
     line-height:35px;
     text-align: center;
+    padding: 0px 10px;
     border-right:1px solid #e2e2e2;
+    font-size:16px;
+    overflow: hidden;
 }
 span:nth-of-type(1){
     border-left:1px solid #e2e2e2;
 }
 
-.check{
-    display:inline-block;
-    line-height:35px;
-}
 .user_list input{
-    /* transform : scale(1); */
+    margin-top:10px !important;
 }
 .user_list input:focus{
     outline:none;
 }
+.check{
+    width:40px;
+    z-index:1;
+}
 .number{
-    display:inline-block;
-    width:100px;
+    width:110px;
 }
 .name{
-    display:inline-block;
-    width:345px;
+    width:350px;
 }
 .username{
-    display:inline-block;
-    width:280px;
+    width:300px;
 }
 .phone{
-    display:inline-block;
     width:160px;
 }
 .email{
-    display:inline-block;
-    width:330px;
+    width:340px;
 }
 .joindate{
-    display:inline-block;
-    width:150px;
+    width:140px;
 }
 .role{
-    display:inline-block;
     width:110px;
 }
 .shape{
-    display:inline-block;
     width:110px;
+    z-index:1;
 }
 .shape select{
+    text-align: center;
     width:110px;
     height:40px;
     line-height:35px;
     border:0px;
-    padding-left:10px;
     font-size:16px;
     outline: none;
-    background:url("/img/down-arrow.png") no-repeat 85% 50%/11px auto;
+    background:url("/img/down-arrow.png") no-repeat 80% 50%/9px auto;
+
 }
 .user_list_button button{
     width:90px;

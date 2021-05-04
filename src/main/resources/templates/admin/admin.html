@@ -71,14 +71,13 @@
                                 <select name="role">
                                     <option value="">회원 권한</option>
                                     <option value="학생">학생</option>
-                                    <option value="기업">기업</option>
                                     <option value="교수">교직원</option>
                                     <option value="상담사">상담사</option>
                                 </select>
                             </li>
                         </ul>
                         <ul>
-                            <li>이름/기업명</li>
+                            <li>이름</li>
                             <li> <input type="text"></li>
                         </ul>
                         <ul>
@@ -102,15 +101,128 @@
                         </div>
                     </div>
                 </div>
+                <div id="main2_detail">
+                    <div class="detailBox" id="detail_student">
+                        <div class="d_role"><i class="fas fa-user-graduate"></i></div>
+                        <div class="d_tagN">이름</div>
+                        <input type="text" class="d_cont" value="이름" readonly>
+                        <div class="d_tagN">아이디</div>
+                        <input type="text" class="d_cont" value="아이디" readonly>
+                        <div class="d_tagN">비밀번호</div>
+                        <input type="text" class="d_cont" value="비밀번호">
+                        <div class="d_tagN">전화번호</div>
+                        <input type="text" class="d_cont" value="전화번호" readonly>
+                        <div class="d_tagN">주소</div>
+                        <input type="text" class="d_cont" value="주소" readonly>
+                        <div class="d_tagN">이메일</div>
+                        <input type="text" class="d_cont" value="이메일" readonly>
+                        <div class="d_tagN">가입일</div>
+                        <input type="text" class="d_cont" value="회원가입일" readonly>
+                        <div class="d_tagN">소속/반</div>
+                        <input type="text" class="d_cont" value="계열/반" readonly>
+                        <div class="d_tagN">권한</div>
+                        <input type="text" class="d_cont" value="학생" readonly>
+                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+                        <!-- 스크립트로 수정과 승인 삭제/생성-->
+                    </div>
+                        <!-- 교직원상세정보 -->
+<!--                    <div class="detailBox" id="detail_staff">-->
+<!--                        <div class="d_role"><i class="fas fa-user-tie"></i></div>-->
+<!--                        <div class="d_tagN">이름</div>-->
+<!--                        <input type="text" class="d_cont" value="이름" readonly>-->
+<!--                        <div class="d_tagN">아이디</div>-->
+<!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
+<!--                        <div class="d_tagN">비밀번호</div>-->
+<!--                        <input type="text" class="d_cont" value="비밀번호">-->
+<!--                        <div class="d_tagN">전화번호</div>-->
+<!--                        <input type="text" class="d_cont" value="전화번호" readonly>-->
+<!--                        <div class="d_tagN">주소</div>-->
+<!--                        <input type="text" class="d_cont" value="주소" readonly>-->
+<!--                        <div class="d_tagN">이메일</div>-->
+<!--                        <input type="text" class="d_cont" value="이메일" readonly>-->
+<!--                        <div class="d_tagN">가입일</div>-->
+<!--                        <input type="text" class="d_cont" value="회원가입일" readonly>-->
+<!--                        <div class="d_tagN">소속/반</div>-->
+<!--                        <input type="text" class="d_cont" value="계열/반" readonly>-->
+<!--                        <div class="d_tagN">권한</div>-->
+<!--                        <input type="text" class="d_cont" value="교직원" readonly>-->
+<!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
+<!--                    </div>-->
+<!--                        &lt;!&ndash; 상담사상세정보 &ndash;&gt;-->
+<!--                    <div class="detailBox" id="detail_counselor">-->
+<!--                        <div class="d_role"><i class="fas fa-hands-helping"></i></div>-->
+<!--                        <div class="d_tagN">이름</div>-->
+<!--                        <input type="text" class="d_cont" value="이름" readonly>-->
+<!--                        <div class="d_tagN">아이디</div>-->
+<!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
+<!--                        <div class="d_tagN">비밀번호</div>-->
+<!--                        <input type="text" class="d_cont" value="비밀번호">-->
+<!--                        <div class="d_tagN">전화번호</div>-->
+<!--                        <input type="text" class="d_cont" value="전화번호" readonly>-->
+<!--                        <div class="d_tagN">주소</div>-->
+<!--                        <input type="text" class="d_cont" value="주소" readonly>-->
+<!--                        <div class="d_tagN">이메일</div>-->
+<!--                        <input type="text" class="d_cont" value="이메일" readonly>-->
+<!--                        <div class="d_tagN">가입일</div>-->
+<!--                        <input type="text" class="d_cont" value="회원가입일" readonly>-->
+<!--                        <div class="d_tagN">권한</div>-->
+<!--                        <input type="text" class="d_cont" value="상담사" readonly>-->
+<!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash; 기업상세정보 &ndash;&gt;-->
+<!--                    <div class="detailBox" id="detail_enterprise">-->
+<!--                        <div class="d_role"><i class="fas fa-building"></i></div>-->
+<!--                        <div class="d_tagN">기업명</div>-->
+<!--                        <input type="text" class="d_cont" value="기업명" readonly>-->
+<!--                        <div class="d_tagN">아이디</div>-->
+<!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
+<!--                        <div class="d_tagN">비밀번호</div>-->
+<!--                        <input type="text" class="d_cont" value="비밀번호">-->
+<!--                        <div class="d_tagN">사업자번호</div>-->
+<!--                        <input type="text" class="d_cont" value="사업자번호" readonly>-->
+<!--                        <div class="d_tagN">대표자명</div>-->
+<!--                        <input type="text" class="d_cont" value="대표자명" readonly>-->
+<!--                        <div class="d_tagN">대표번호</div>-->
+<!--                        <input type="text" class="d_cont" value="대표번호" readonly>-->
+<!--                        <div class="d_tagN">팩스</div>-->
+<!--                        <input type="text" class="d_cont" value="팩스" readonly>-->
+<!--                        <div class="d_tagN">홈페이지</div>-->
+<!--                        <input type="text" class="d_cont" value="홈페이지" readonly>-->
+<!--                        <div class="d_tagN">주요사업내용</div>-->
+<!--                        <input type="text" class="d_cont" value="주요사업내용" readonly>-->
+<!--                        <div class="d_tagN">우편번호</div>-->
+<!--                        <input type="text" class="d_cont" value="우편번호" readonly>-->
+<!--                        <div class="d_tagN">상세주소</div>-->
+<!--                        <input type="text" class="d_cont" value="상세주소" readonly>-->
+<!--                        <div class="d_tagN">설립년도</div>-->
+<!--                        <input type="text" class="d_cont" value="설립년도" readonly>-->
+<!--                        <div class="d_tagN">직원 수</div>-->
+<!--                        <input type="text" class="d_cont" value="직원 수" readonly>-->
+<!--                        <div class="d_tagN">업종</div>-->
+<!--                        <input type="text" class="d_cont" value="업종" readonly>-->
+<!--                        <div class="d_tagN">기업형태</div>-->
+<!--                        <input type="text" class="d_cont" value="기업형태" readonly>-->
+<!--                        <div class="d_tagN">가입일</div>-->
+<!--                        <input type="text" class="d_cont" value="가입일" readonly>-->
+<!--                        <div class="d_tagN">담당자 번호</div>-->
+<!--                        <input type="text" class="d_cont" value="담당자 번호" readonly>-->
+<!--                        <div class="d_tagN">담당자 이메일</div>-->
+<!--                        <input type="text" class="d_cont" value="담당자 이메일" readonly>-->
+<!--                        <div class="d_tagN">권한</div>-->
+<!--                        <input type="text" class="d_cont" value="기업" readonly>-->
+<!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
+<!--                    </div>-->
+                </div>
                 <div id="main2_1_list">             <!-- 회원관리>회원리스트 -->
                     <div class="sub_menu_title">
                         <h3>회원리스트</h3>
                     </div>
                     <div class="user_list">
                         <div class="user_list_head">
-                            <input type="checkbox" name="2_1_checkH" class="check" onclick="checkAll(this)">
+                            <span class="check"><input type="checkbox" name="2_1_checkH" onclick="checkAll(this)"></span>
                             <span class="number">번호</span>
-                            <span class="name">이름/기업명</span>
+                            <span class="name">이름</span>
                             <span class="username">아이디</span>
                             <span class="phone">연락처</span>
                             <span class="email">이메일</span>
@@ -118,7 +230,7 @@
                             <span class="role">권한</span>
                         </div>
                         <div class="user_list_body">
-                            <input type="checkbox" name="2_1_check" class="check">
+                            <span class="check"><input type="checkbox" name="2_1_check"></span>
                             <span class="number">1</span>
                             <span class="name" >지민우</span>
                             <span class="username">아이디</span>
@@ -128,7 +240,7 @@
                             <span class="role">학생</span>
                         </div>
                         <div class="user_list_body">
-                            <input type="checkbox" name="2_1_check" class="check">
+                            <span class="check"><input type="checkbox" name="2_1_check"></span>
                             <span class="number">번호</span>
                             <span class="name">이름</span>
                             <span class="username">아이디</span>
@@ -145,9 +257,9 @@
                     </div>
                     <div class="user_list">
                         <div class="user_list_head">
-                            <input type="checkbox" name="2_2_checkH" class="check" onclick="checkAll(this)">
+                            <span class="check"><input type="checkbox" name="2_2_checkH" onclick="checkAll(this)"></span>
                             <span class="number">번호</span>
-                            <span class="name">이름/기업명</span>
+                            <span class="name">이름</span>
                             <span class="username">아이디</span>
                             <span class="phone">연락처</span>
                             <span class="email">이메일</span>
@@ -155,7 +267,7 @@
                             <span class="role">권한</span>
                         </div>
                         <div class="user_list_body">
-                            <input type="checkbox" name="2_2_check" class="check">
+                            <span class="check"><input type="checkbox" name="2_2_check"></span>
                             <span class="number">1</span>
                             <span class="name">지민우</span>
                             <span class="username">yamyam22</span>
@@ -165,7 +277,7 @@
                             <span class="role">학생</span>
                         </div>
                         <div class="user_list_body">
-                            <input type="checkbox" name="2_2_check" class="check">
+                            <span class="check"><input type="checkbox" name="2_2_check"></span>
                             <span class="number">2</span>
                             <span class="name">이름</span>
                             <span class="username">yamyam33</span>
@@ -175,7 +287,7 @@
                             <span class="role">상담사</span>
                         </div>
                         <div class="user_list_body">
-                            <input type="checkbox" name="2_2_check" class="check">
+                            <span class="check"><input type="checkbox" name="2_2_check"></span>
                             <span class="number">3</span>
                             <span class="name">이름</span>
                             <span class="username">yamyam44</span>
@@ -193,23 +305,23 @@
                 </div>
                 <div id="main2_3_employList">
                     <div class="sub_menu_title">
-                        <h3>기업회원가입승인</h3>
+                        <h3>기업가입승인</h3>
                     </div>
                     <div class="user_list">
                         <div class="user_list_head">
-                            <input type="checkbox" name="2_3_checkH" class="check" onclick="checkAll(this)">
+                            <span class="check"><input type="checkbox" name="2_3_checkH" onclick="checkAll(this)"></span>
                             <span class="number">번호</span>
-                            <span class="name">이름/기업명</span>
+                            <span class="name">기업명</span>
                             <span class="username">아이디</span>
-                            <span class="phone">연락처</span>
+                            <span class="phone">대표번호</span>
                             <span class="email">이메일</span>
                             <span class="joindate">가입일</span>
                             <span class="shape">기업형태</span>
                         </div>
                         <div class="user_list_body">
-                            <input type="checkbox" name="2_3_check" class="check">
+                            <span class="check"><input type="checkbox" name="2_3_check"></span>
                             <span class="number">1</span>
-                            <span class="name" >네이버어어어어어어어어어</span>
+                            <span class="name" >네이버어어어어어어어어어네이버어어어어어어어어어네이버어어어어어어어어어네이버어어어어어어어어어</span>
                             <span class="username">yamyam123</span>
                             <span class="phone">01021259225</span>
                             <span class="email">dddddd@naver.com</span>
@@ -224,7 +336,7 @@
                             </span>
                         </div>
                         <div class="user_list_body">
-                            <input type="checkbox" name="2_3_check" class="check">
+                            <span class="check"><input type="checkbox" name="2_3_check"></span>
                             <span class="number">2</span>
                             <span class="name" >다으으으으으으으으으으음</span>
                             <span class="username">yamyam456</span>
