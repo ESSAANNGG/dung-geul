@@ -97,6 +97,7 @@ input, button, select {
 #job-wrap h1 {
     font-size: 2rem;
     font-weight: 800;
+    margin-bottom: 30px;
     color: #333;
     border-bottom: 5px solid #f6f6f6;
 }
