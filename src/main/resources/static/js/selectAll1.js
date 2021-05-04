@@ -8,7 +8,7 @@ function selectAll(selectAll)  {
 }
 
 $(document).ready(function(){
-    $("#delete").click(function() {
+    $(".coun-delete").click(function() {
         alert('신청 내역이 삭제되었습니다.');
         $(".window").fadeOut(700);
         $(".window").fadeTo(10, 1);
