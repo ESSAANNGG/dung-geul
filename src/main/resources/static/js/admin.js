@@ -106,12 +106,10 @@ let perLength;
 
 //기업회원가입 승인
 let userShape;
-let E_userList=[];
-let E_shapeList=[];
+let E_perList=[];
 let E_perLength;
     function E_permission_ajax(p){
-        E_userList=[]; //배열이 계속 쌓이는걸 방지 (초기화)
-        E_shapeList=[];
+        E_perList=[]; //배열이 계속 쌓이는걸 방지 (초기화)
         //체크한 유저목록을 가져와 perList에 담음
         E_perLength=$('input[name="2_3_check"]:checked').length;    //체크 수만큼 반복
         for(j=0; j<E_perLength; j++){
@@ -119,14 +117,12 @@ let E_perLength;
 
             userid=$('.user_list:eq(2) .user_list_body:eq(' + E_perRemove + ') .username').text();                    //아이디값을 읽어옴
             userShape=$('.shapeSelect:eq(' + E_perRemove + ')').val();                                                // 기업형태를 읽어옴
-            E_userList.push(userid);                                                                       //전달할 배열에 값 삽입
-            E_shapeList.push(userShape);
+            E_perList.push("{user_Id :" + userid,"shape : " + userShape + "}");                                                                       //전달할 배열에 값 삽입
 
             ($('input[name="2_3_check"]').eq(E_perRemove)).prop("checked",false);                           //해당하는 인덱스의 체크 해제
             $('input[name="2_3_checkH"]').prop("checked",false);                                          //헤드checkBox 체크 해제
         }
 
-        alert((E_userList)+E_shapeList);//디버깅 용도
         if(p==1){
             p="승인";
         }
@@ -137,10 +133,6 @@ let E_perLength;
         $.ajax({
             url: "allow/member/read?user_id=user_id]&result=["+p+"]",
             type:"POST",
-            data: [
-                for (i=0; i<E_perLength; i++){
-                "user_Id" :E_userList,
-                "shape"   :E_shapeList
-                    }]
+            data: E_perList
         })
     }
