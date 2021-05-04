@@ -8,11 +8,8 @@ function selectAll(selectAll)  {
 }
 
 $(document).ready(function(){
-    $(".coun-delete").click(function() {
+    $("#delete").click(function() {
         alert('신청 내역이 삭제되었습니다.');
-        $(".window").fadeOut(700);
-        $(".window").fadeTo(10, 1);
-        $(".window-content").hide(1000);
     })
     $("#coun-delete").click(function() {
         alert('신청 내역이 삭제되었습니다.');
