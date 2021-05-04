@@ -11,7 +11,7 @@ $(document).ready(function(){
     $("#delete").click(function() {
         alert('신청 내역이 삭제되었습니다.');
     })
-    $("#coun-delete").click(function() {
+    $(".coun-delete").click(function() {
         alert('신청 내역이 삭제되었습니다.');
     })
     $("#okay").click(function() {
@@ -21,7 +21,6 @@ $(document).ready(function(){
         alert('신청 내역이 거절되었습니다.')
     })
     $("#success").click(function() {
-        $('.allcheck').checked
         $("#success-on").show();
         $("#refuse-on").hide();
     })
