@@ -10,6 +10,12 @@ function selectAll(selectAll)  {
 $(document).ready(function(){
     $("#delete").click(function() {
         alert('신청 내역이 삭제되었습니다.');
+        $(".window").fadeOut(700);
+        $(".window").fadeTo(10, 1);
+        $(".window-content").hide(1000);
+    })
+    $("#coun-delete").click(function() {
+        alert('신청 내역이 삭제되었습니다.');
     })
     $("#okay").click(function() {
         alert('신청 내역이 승인되었습니다.');
@@ -18,6 +24,7 @@ $(document).ready(function(){
         alert('신청 내역이 거절되었습니다.')
     })
     $("#success").click(function() {
+        $('.allcheck').checked
         $("#success-on").show();
         $("#refuse-on").hide();
     })
@@ -34,7 +41,7 @@ $(document).ready(function(){
 
         // 닫기 버튼 클릭시 역순(윈도우닫기,윈도우컨텐츠닫기)
     })
-    $("#close").click(function(){
+    $(".coun-close").click(function(){
         $(".window").fadeOut(700);
         $(".window").fadeTo(10, 1);
         $(".window-content").hide(1000);
