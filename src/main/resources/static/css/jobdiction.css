@@ -50,8 +50,9 @@ body {
     margin-top:40px;
     background: #eee;
     border-top: solid 5px #1f3786d5;
-    border-top-width: 35px;
+    border-bottom: solid 5px #c1cac5;
     border-bottom-width: 10px;
+    border-top-width: 35px;
     padding: 0;
     z-index: 999;
 }
