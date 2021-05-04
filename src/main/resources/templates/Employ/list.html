@@ -61,11 +61,11 @@
           <div class="employListHead">
             <div id="search">
 
-              <input type="text" class="search" id="s_1" value="제목" maxlength="15">
+              <input type="text" class="search" id="s_title" value="제목" maxlength="15">
 
-              <input type="text" class="search" id="s_2" value="기업명" maxlength="20">
+              <input type="text" class="search" id="s_corp" value="기업명" maxlength="20">
 
-              <select name="직종" class="search" id="s_3" onclick="searchVal(3)">
+              <select name="직종" class="search" id="s_ot" onclick="searchVal('ot')">
                 <option value="직종">직종</option>
                 <option>경영·회계·사무 관련직</option>
                 <option>금융·보험 관련직</option>
@@ -89,7 +89,7 @@
               </select>
 
 
-              <select name="고용구분" class="search" id="s_4" onchange="searchVal(4)">
+              <select name="고용구분" class="search" id="s_ep" onchange="searchVal('ep')">
                 <option value="고용구분">고용구분</option>
                 <option>정규직</option>
                 <option>계약직</option>
@@ -100,7 +100,7 @@
                 <option>해외취업</option>
               </select>
 
-              <select name="기업구분" class="search" id="s_5" onchange="searchVal(5)">
+              <select name="기업구분" class="search" id="s_shape" onchange="searchVal('shape')">
                 <option value="기업구분">기업구분</option>
                 <option>대기업</option>
                 <option>중견기업</option>
@@ -108,8 +108,8 @@
               </select>
 
               <!-- <select name="sido" id="em_sido"></select><select name="gugun" id="em_gugun"></select> -->
-              <select name="sido" class="search" id="s_6" onchange="searchVal(6)"></select>
-              <select name="gugun" class="search" id="s_7" onchange="searchVal(6)"></select>
+              <select name="sido" class="search" id="s_area" onchange="searchVal('area')"></select>
+              <select name="gugun" class="search" id="s_detailArea" onchange="searchVal('area')"></select>
 
             </div>
 
@@ -166,16 +166,6 @@
 
             </li>
 
-            <!--  <li>
-              <ul class="post_title">제목<i class="far fa-bookmark"></i></ul>
-              <ul class="post_corp_name"><i class="fas fa-map-marker-alt"></i>기업명</ul>
-              <ul class="post_cont">내용...</ul>
-              <ul>
-                <li class="post_start_date"><i class="far fa-clock"></i>등록일</li>
-                <li class="post_end_date">마감일</li>
-              </ul>
-            </li>
-            -->
           </div>
 
           <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
@@ -213,6 +203,16 @@
       <li><h2><a class="tags" id="h_ep" onclick="h_tag_js(4)">#고용구분</a></h2></li>
       <li><h2><a class="tags" id="h_shape" onclick="h_tag_js(5)">#기업구분</a></h2></li>        
       <li><h2><a class="tags" id="h_area" onclick="h_tag_js(6)">#근무지역</a></h2></li>
+    </div>
+    <div id="dummy">
+      <input type="checkbox" name="더미" id="dummy_title">
+      <input type="checkbox" name="더미" id="dummy_corp">
+      <input type="checkbox" name="더미" id="dummy_ot">
+      <input type="checkbox" name="더미" id="dummy_ep">
+      <input type="checkbox" name="더미" id="dummy_shape">
+      <input type="checkbox" name="더미" id="dummy_area">
+      <input type="checkbox" name="더미" id="dummy_detailArea">
+
     </div>
   </section>
   </div>

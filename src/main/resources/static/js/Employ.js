@@ -108,45 +108,46 @@ function h_tag_js(tag_num) {
     $(".search").css("display","none");
     switch (tag_num){
         case 1:
-            search[0].style.display="inline-block";
+            search[0].style.display="inline-block"; //#제목
             break;
         case 2:
-            search[1].style.display="inline-block";
+            search[1].style.display="inline-block"; //#기업
             break;
         case 3:
-            search[2].style.display="inline-block";
+            search[2].style.display="inline-block"; //#직종
             break;
         case 4:
-            search[3].style.display="inline-block";
+            search[3].style.display="inline-block"; //#고용구분
             break;
         case 5:
-            search[4].style.display="inline-block";
+            search[4].style.display="inline-block"; //#기업구분
             break;
         case 6:
-            search[5].style.display="inline-block";
-            search[6].style.display="inline-block";
+            search[5].style.display="inline-block"; //#근무지역
+            search[6].style.display="inline-block"; //#근무지역
             break;
     }
 }
 
 //채용리스트 > 해시태그 값 보내기
 $(document).ready(function(){
-    $("#s_1").on("keyup", function() {
-        searchVal(1);
+    $("#s_title").on("keyup", function() {
+        searchVal("title");
+        $("#dummy_title").prop("checked",true);
     });
-    $("#s_2").on("keyup", function() {
-        searchVal(2);
+    $("#s_corp").on("keyup", function() {
+        searchVal("corp");
     });
 });
 
 
 //채용리스트 > 해시태그 값 보내기
-let sel_num=3;
+let sel;
 let val;
-function searchVal(sel_num){
+function searchVal(sel){
     let search=document.getElementsByClassName("search");
-    switch (sel_num){
-        case 1:
+    switch (sel){
+        case 'title':
             val=(search[0].value);
             $("#h_title").text("#"+val);
             if(val==""){
@@ -155,7 +156,7 @@ function searchVal(sel_num){
             $("#h_title").css("color","#4759ff");
             $("#h_title").stop().animate({"color":"#575757"},2000);
             break;
-        case 2:
+        case 'corp':
             val=(search[1].value);
             $("#h_corp").text("#"+val);
             if(val==""){
@@ -164,25 +165,25 @@ function searchVal(sel_num){
             $("#h_corp").css("color","#4759ff");
             $("#h_corp").stop().animate({"color":"#575757"},2000);
             break;
-        case 3:
+        case 'ot':
             val=(search[2].value);
             $("#h_ot").text("#"+val);
             $("#h_ot").css("color","#4759ff");
             $("#h_ot").stop().animate({"color":"#575757"},2000);
             break;
-        case 4:
+        case 'ep':
             val=(search[3].value);
             $("#h_ep").text("#"+val);
             $("#h_ep").css("color","#4759ff");
             $("#h_ep").stop().animate({"color":"#575757"},2000);
             break;
-        case 5:
+        case 'shape':
             val=(search[4].value);
             $("#h_shape").text("#"+val);
             $("#h_shape").css("color","#4759ff");
             $("#h_shape").stop().animate({"color":"#575757"},2000);
             break;
-        case 6:
+        case 'area':
             setTimeout(function() {
                 val=(search[5].value)+" ";
                 if((search[6].value)=="구/군 선택"){
