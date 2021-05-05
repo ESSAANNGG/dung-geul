@@ -423,19 +423,33 @@ public class MemberServiceImpl implements MemberService {
 
 
     // 인증 전 회원 목록 가져오기
-    public PageResultDTO<AllowEtpDTO, Object[]> getList(PageRequestDTO pageRequestDTO, String type) {
+    public PageResultDTO<AllowEtpDTO, Object[]> getNotAllowUserList(int page1, String type, int allow) {
 
         System.out.println("getList 실행");
+
+        PageRequestDTO pageRequestDTO = new PageRequestDTO(page1);
 
         Pageable pageable = pageRequestDTO.getPageable(Sort.by("regDate"));
 
         Function<Object[], AllowEtpDTO> fn = (en -> AllowEntityToDTO((Member) en[0], (Enterprise) en[1]));
 
         Page<Object[]> result;
-        if(type.equals("user")){
-            result = memberRepository.findNotAllowUsers(pageable);
-        } else {
-            result = memberRepository.findByNotAllowAndUser_type(pageable, type.toUpperCase());
+        if(type.equals("USER") || type== null){     // 전체 회원 조회
+
+            if(allow == 0) {    // 미인증 목록
+                result = memberRepository.findNotAllowUsers(pageable);
+            } else {            // 인증 목록
+                result = memberRepository.findAllowUsers(pageable);
+            }
+
+        } else {    // 회원 type별 조회
+
+            if(allow == 0){     // 미인증 목록
+                result = memberRepository.findNotAllowUsers(pageable, type.toUpperCase());
+            } else {            // 인증 목록
+                result = memberRepository.findAllowUsers(pageable, type.toUpperCase());
+            }
+
         }
 
 

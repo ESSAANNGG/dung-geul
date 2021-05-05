@@ -59,6 +59,7 @@ public class EnterpriseRepositoryTest {
                     .build();
 
             m.addMemberRole(MemberRole.USER);
+            m.addMemberRole(MemberRole.ENTERPRISE);
 
             memberRepository.save(m);
 

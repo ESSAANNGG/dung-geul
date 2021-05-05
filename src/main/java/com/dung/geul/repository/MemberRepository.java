@@ -39,17 +39,31 @@ public interface MemberRepository extends JpaRepository<Member, String> {
             "from Member m left outer join Enterprise e  on m.user_id = e.user_id \n" +
             "where  m.user_allow = 0 and m.user_type = :user_type",
             countQuery = "select count(m) from Member m where m.user_allow = 0 and m.user_type = :user_type")
-    Page<Object[]> findByNotAllowAndUser_type(Pageable pageable, @Param("user_type") String user_type);
+    Page<Object[]> findNotAllowUsers(Pageable pageable, @Param("user_type") String user_type);
 
     // 인증 받기 전인 회원 전체 리스트 가져오기
     @Query(value = "select m,  e\n" +
-            "from Member m left outer join Enterprise e on m.user_id = e.user_id\n" +
-            "where m.user_allow = 0",
+            "from Member m, Enterprise e \n" +
+            "where m.user_id = e.user_id and m.user_allow = 0",
             countQuery = "select count(m) from Member m where  m.user_allow = 0")
     Page<Object[]> findNotAllowUsers(Pageable pageable);
 
     //
     @Query(value = "select m, e from Member m left outer join Enterprise e on e.user_id = m where m.user_id = :user_id")
     Object findByUser_idEtpJoinMember(@Param("user_id") String user_id);
+
+    // 인증한 회원 전체 리스트 가져오기
+    @Query(value = "select m, e\n" +
+            "from Member m left outer join Enterprise e  on m.user_id = e.user_id \n" +
+            "where  m.user_allow = 1",
+            countQuery = "select count(m) from Member m where m.user_allow = 0")
+    Page<Object[]> findAllowUsers(Pageable pageable);
+
+    // 인증한 회원 타입별 리스트 가져오기
+    @Query(value = "select m, e\n" +
+            "from Member m left outer join Enterprise e  on m.user_id = e.user_id \n" +
+            "where  m.user_allow = 1 and m.user_type = :user_type",
+            countQuery = "select count(m) from Member m where m.user_allow = 0 and m.user_type = :user_type")
+    Page<Object[]> findAllowUsers(Pageable pageable, @Param("user_type") String user_type);
 
 }

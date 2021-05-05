@@ -35,6 +35,7 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
             return "redirect:/mypage/member/read";
         }
     }
+
     @GetMapping("/before/modify")
     public String mypageBeforeModify(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
         if(authMemberDTO.getUser_type().equals("ENTERPRISE")){
@@ -92,6 +93,7 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
         model.addAttribute("user_id", user_id);
         model.addAttribute("loginUser", authMemberDTO);
+
     }
 
 

@@ -1,5 +1,6 @@
 package com.dung.geul.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,8 +24,11 @@ public class AllowEtpDTO {
 
     private String user_email;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:MM:SS")
-    private LocalDateTime user_regdate;
+    private String user_regdate;
+
+    private String user_ph;
+
+    private String user_type;
 
     public AllowEtpDTO(String user_id){
         this.user_id = user_id;

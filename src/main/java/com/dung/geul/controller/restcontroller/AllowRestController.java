@@ -35,7 +35,7 @@ public class AllowRestController {   // 권한 관리 컨트롤러
 
     // 교내 회원 승인
     @PostMapping("/member/read")
-    public ResponseEntity etpAuth(@RequestParam(value="checkList[]")String[] userIds, @RequestParam("result") String result){
+    public ResponseEntity memberAuth(@RequestParam(value="checkList[]")String[] userIds, @RequestParam("result") String result){
 
         System.out.println("controller 실행");
 

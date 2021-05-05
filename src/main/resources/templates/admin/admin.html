@@ -117,26 +117,17 @@
                             <span class="joindate">가입일</span>
                             <span class="role">권한</span>
                         </div>
-                        <div class="user_list_body">
+                        <div class="user_list_body" th:each="item, i : ${notAllowList}">
                             <input type="checkbox" name="2_1_check" class="check">
-                            <span class="number">1</span>
-                            <span class="name" >지민우</span>
-                            <span class="username">아이디</span>
-                            <span class="phone">01021259225</span>
-                            <span class="email">dddddd@naver.com</span>
-                            <span class="joindate">2013-03-18</span>
-                            <span class="role">학생</span>
+                            <span class="number" >[[${i.count}]]</span>
+                            <span class="name" >[[${item.user_name}]]</span>
+                            <span class="username">[[${item.user_id}]]</span>
+                            <span class="phone">[[${item.user_ph}]]</span>
+                            <span class="email">[[${item.user_email}]]</span>
+                            <span class="joindate">[[${item.user_regdate}]]</span>
+                            <span class="role">[[${item.user_type}]]</span>
                         </div>
-                        <div class="user_list_body">
-                            <input type="checkbox" name="2_1_check" class="check">
-                            <span class="number">번호</span>
-                            <span class="name">이름</span>
-                            <span class="username">아이디</span>
-                            <span class="phone">연락처</span>
-                            <span class="email">이메일</span>
-                            <span class="joindate">가입일</span>
-                            <span class="role">기업</span>
-                        </div>
+
                     </div>
                 </div>
                 <div id="main2_2_list">     <!-- 회원관리>회원가입승인 -->
