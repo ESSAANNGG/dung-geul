@@ -1,12 +1,16 @@
 package com.dung.geul.controller;
 
 
+import com.dung.geul.dto.FileDto;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.notice_boardDTO;
 import com.dung.geul.entity.Board;
 import com.dung.geul.repository.BoardRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
+import com.dung.geul.service.FileService;
 import com.dung.geul.service.notice_boardService;
+import com.dung.geul.service.notice_boardServiceImpl;
+import com.dung.geul.util.MD5Generator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.dom4j.rule.Mode;
@@ -16,13 +20,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.awt.print.Pageable;
+import java.io.File;
 import java.util.List;
 
 @Controller
@@ -118,6 +121,48 @@ public class Center_information_controller {
 
 
         return "redirect:/center-information/notice_board_read";
+    }
+
+// 파일 업로드 -----------------------------------------------------------------------------
+    private notice_boardService notice_boardService;
+    private FileService fileService;
+
+//    public Center_information_controller(notice_boardService notice_boardService, FileService fileService) {
+//        this.notice_boardService = notice_boardService;
+//        this.fileService = fileService;
+//    }
+
+    @PostMapping("/post")
+    public String write(@RequestParam("file") MultipartFile files, notice_boardDTO notice_boardDto) {
+        try {
+            String origFilename = files.getOriginalFilename();
+            String filename = new MD5Generator(origFilename).toString();
+            /* 실행되는 위치의 'files' 폴더에 파일이 저장됩니다. */
+            String savePath = System.getProperty("user.dir") + "\\files";
+            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
+            if (!new File(savePath).exists()) {
+                try{
+                    new File(savePath).mkdir();
+                }
+                catch(Exception e){
+                    e.getStackTrace();
+                }
+            }
+            String filePath = savePath + "\\" + filename;
+            files.transferTo(new File(filePath));
+
+            FileDto fileDto = new FileDto();
+            fileDto.setOrigFilename(origFilename);
+            fileDto.setFilename(filename);
+            fileDto.setFilePath(filePath);
+
+            Long fileId = fileService.saveFile(fileDto);
+            notice_boardDto.setBoard_file(fileId);
+//            notice_boardServiceImpl.savePost(notice_boardDto);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/";
     }
 
 

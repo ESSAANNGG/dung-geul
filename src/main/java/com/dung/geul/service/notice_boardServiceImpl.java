@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -101,6 +102,7 @@ public class notice_boardServiceImpl implements notice_boardService {
         }
     }
 
+// 검색 처리 ----------------------------------------------------------------------------------
 
     private BooleanBuilder getSearch(PageRequestDTO requestDTO){    // 검색처리
 
@@ -131,7 +133,7 @@ public class notice_boardServiceImpl implements notice_boardService {
             conditionBuilder.or(qBoard.content.contains(keyword));          // 내용
         }
 
-//  공지사항 페이지는 관리자만이 작성함으로 작성자는 없어도 무관하다.
+//  공지사항 페이지는 관리자만이 작성함
 //        if(type.contains("w")){
 //            conditionBuilder.or(qBoard.b.contains(keyword));                // 작성자
 //        }
@@ -141,5 +143,31 @@ public class notice_boardServiceImpl implements notice_boardService {
 
         return booleanBuilder;
     }
+
+// -----------------------------------------------------------------------------------------
+
+// 파일 첨부 ---------------------------------------------------------------------------------
+
+    @Transactional
+    public Long savePost(notice_boardDTO notice_boardDto) {
+        return boardRepository.save(notice_boardDto.toEntity()).getNum();
+    }
+
+    @Transactional
+    public notice_boardDTO getPost(Long num) {
+        Board board = boardRepository.findById(num).get();
+
+        notice_boardDTO boardDto = notice_boardDTO.builder()
+                    .num(board.getNum())
+                    .b(board.getB())
+                    .title(board.getBoard_title())
+                    .content(board.getContent())
+                    .board_file(board.getBoard_file())
+    //              .createdDate(board.getCreatedDate())
+                    .build();
+        return boardDto;
+    }
+
+
 
 }

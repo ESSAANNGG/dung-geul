@@ -1,29 +1,50 @@
 package com.dung.geul.dto;
 
+import com.dung.geul.entity.Board;
 import com.dung.geul.entity.Member;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class notice_boardDTO {  // 공지사항 DTO
 
-    private Long num;   // 게시글 번호
+    private Long   num;           // 게시글 번호
+    private String title;         // 게시글 제목
+    private String content;       // 게시글 내용
+    private Member b;             // 게시글 작성자
+    private Long   board_file;    // 게시글 첨부파일
 
-    private String title;   // 게시글 제목
+//    시간
+//    private LocalDateTime createdDate;
+//    private LocalDateTime modifiedDate;
 
-    private String content; // 게시글 내용
+    public Board toEntity() {
+        Board build = Board.builder()
+                .num(num)
+                .b(b)
+                .board_title(title)
+                .content(content)
+                .board_file(board_file)
+                .build();
+        return build;
+    }
 
-    private Member b;   // 게시글 작성자
-
-    // 게시글 파일
-
-    //private LocalDateTime regDate, modDate;
+    @Builder
+    public notice_boardDTO(Long num, Member b, String title, String content, Long board_file) {
+        this.num = num;
+        this.b = b;
+        this.title = title;
+        this.content = content;
+        this.board_file = board_file;
+//      this.createdDate = createdDate;
+//      this.modifiedDate = modifiedDate;
+    }
 
 }
