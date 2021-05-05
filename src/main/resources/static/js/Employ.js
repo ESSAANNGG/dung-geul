@@ -133,10 +133,11 @@ function h_tag_js(tag_num) {
 $(document).ready(function(){
     $("#s_title").on("keyup", function() {
         searchVal("title");
-        $("#dummy_title").prop("checked",true);
+        $("#dummy_title").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
     });
     $("#s_corp").on("keyup", function() {
         searchVal("corp");
+        $("#dummy_corp").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
     });
 });
 
@@ -170,26 +171,54 @@ function searchVal(sel){
             $("#h_ot").text("#"+val);
             $("#h_ot").css("color","#4759ff");
             $("#h_ot").stop().animate({"color":"#575757"},2000);
+            if(val!="직종") {
+                $("#dummy_ot").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+            }
+            else if(val=="직종"){
+                $("#dummy_ot").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+            }
             break;
         case 'ep':
             val=(search[3].value);
             $("#h_ep").text("#"+val);
             $("#h_ep").css("color","#4759ff");
             $("#h_ep").stop().animate({"color":"#575757"},2000);
+            if(val!="고용구분") {
+                $("#dummy_ep").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+            }
+            else if(val=="고용구분"){
+                $("#dummy_ep").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+            }
             break;
         case 'shape':
             val=(search[4].value);
             $("#h_shape").text("#"+val);
             $("#h_shape").css("color","#4759ff");
             $("#h_shape").stop().animate({"color":"#575757"},2000);
+            if(val!="기업구분") {
+                $("#dummy_shape").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+            }
+            else if(val=="기업구분"){
+                $("#dummy_shape").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+            }
             break;
         case 'area':
             setTimeout(function() {
                 val=(search[5].value)+" ";
+
+                    if(val!="시/도 선택 ") {
+                        $("#dummy_area").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+                    }
+                    else if(val=="시/도 선택 "){
+                        $("#dummy_area").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+                    }
+
                 if((search[6].value)=="구/군 선택"){
+                    $("#dummy_detailArea").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
                 }
                 else{
                     val=val+(search[6].value);
+                    $("#dummy_detailArea").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
                 }
                 $("#h_area").text("#"+val);
                 $("#h_area").css("color","#4759ff");

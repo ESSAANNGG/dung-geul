@@ -172,7 +172,7 @@ let perLength;
                             }
                         }
                         else{                                                                                 //기업형태를 선택하였다면 리스트에 추가
-                            E_perList.push("{user_Id:" + userid,"shape:" + userShape + "}");                                       //전달할 배열에 값 삽입
+                            E_perList.push("{user_Id:" + userid + ", shape:" + userShape + "}");                                       //전달할 배열에 값 삽입
                         }
                         ($('input[name="2_4_check"]').eq(E_perRemove)).prop("checked",false);                                  //해당하는 인덱스의 체크 해제
                         $('input[name="2_4_checkH"]').prop("checked",false);                                                   //헤드checkBox 체크 해제
