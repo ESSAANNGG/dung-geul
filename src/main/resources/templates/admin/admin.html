@@ -240,7 +240,7 @@
                             <span class="joindate">가입일</span>
                             <span class="role">권한</span>
                         </div>
-                        <div class="user_list_body" th:each="item, i : ${notAllowList}">
+                        <div class="user_list_body" th:each="item, i : ${allowList}">
                             <span class="check"><input type="checkbox" name="2_1_check"></span>
                             <span class="number" >[[${i.count}]]</span>
                             <span class="name" >[[${item.user_name}]]</span>
@@ -249,16 +249,6 @@
                             <span class="email">[[${item.user_email}]]</span>
                             <span class="joindate">[[${item.user_regdate}]]</span>
                             <span class="role">[[${item.user_type}]]</span>
-                        </div>
-                        <div class="user_list_body">
-                            <span class="check"><input type="checkbox" name="2_1_check"></span>
-                            <span class="number">번호</span>
-                            <span class="name">이름</span>
-                            <span class="username">아이디</span>
-                            <span class="phone">연락처</span>
-                            <span class="email">이메일</span>
-                            <span class="joindate">가입일</span>
-                            <span class="role">기업</span>
                         </div>
                     </div>
                 </div>
@@ -278,36 +268,15 @@
                             <span class="joindate">요청일</span>
                             <span class="role">권한</span>
                         </div>
-                        <div class="user_list_body">
+                        <div class="user_list_body" th:each="item, i : ${notAllowList}">
                             <span class="check"><input type="checkbox" name="2_2_check"></span>
-                            <span class="number">1</span>
-                            <span class="name">지민우</span>
-                            <span class="username">yamyam22</span>
-                            <span class="phone">01021259225</span>
-                            <span class="email">dddddd@naver.com</span>
-                            <span class="joindate">2013-03-18</span>
-                            <span class="role">학생</span>
-                        </div>
-                        <div class="user_list_body">
-                            <span class="check"><input type="checkbox" name="2_2_check"></span>
-                            <span class="number">2</span>
-                            <span class="name">이름</span>
-                            <span class="username">yamyam33</span>
-                            <span class="phone">연락처</span>
-                            <span class="email">이메일</span>
-                            <span class="joindate">요청일</span>
-                            <span class="role">상담사</span>
-                        </div>
-                        <div class="user_list_body">
-                            <span class="check"><input type="checkbox" name="2_2_check"></span>
-                            <span class="number">3</span>
-                            <span class="name">이름</span>
-                            <span class="username">yamyam44</span>
-                            <span class="phone">연락처</span>
-                            <span class="email">이메일</span>
-                            <span class="joindate">요청일</span>
-                            <span class="role">교직원</span>
-                            <!-- <button class="detail" onclick="detail(1)">상세보기</button> -->
+                            <span class="number" >[[${i.count}]]</span>
+                            <span class="name" >[[${item.user_name}]]</span>
+                            <span class="username">[[${item.user_id}]]</span>
+                            <span class="phone">[[${item.user_ph}]]</span>
+                            <span class="email">[[${item.user_email}]]</span>
+                            <span class="joindate">[[${item.user_regdate}]]</span>
+                            <span class="role">[[${item.user_type}]]</span>
                         </div>
                         <div class="user_list_button">
                             <button onclick="permission_ajax(1)">승인</button>
@@ -333,8 +302,7 @@
                         <ul>
                             <li>가입/요청 일자</li>
                             <li>
-                                <input type="date" class="user_search_date"> &nbsp;~&nbsp; <input type="date"
-                                                                                                  class="user_search_date">
+                                <input type="date" class="user_search_date"> &nbsp;~&nbsp; <input type="date" class="user_search_date">
                                 <button onclick="search_date('main2_corp','오늘')">오늘</button>
                                 <button onclick="search_date('main2_corp','이번주')">이번주</button>
                                 <button onclick="search_date('main2_corp','이번달')">이번달</button>
@@ -364,25 +332,15 @@
                             <span class="joindate">가입일</span>
                             <span class="role">권한</span>
                         </div>
-                        <div class="user_list_body">
+                        <div class="user_list_body" th:each="item, i : ${allowList}">
                             <span class="check"><input type="checkbox" name="2_3_check"></span>
-                            <span class="number">1</span>
-                            <span class="name">다음</span>
-                            <span class="username">아이디</span>
-                            <span class="phone">01021259225</span>
-                            <span class="email">dddddd@naver.com</span>
-                            <span class="joindate">2013-03-18</span>
-                            <span class="role">기업</span>
-                        </div>
-                        <div class="user_list_body">
-                            <span class="check"><input type="checkbox" name="2_3_check"></span>
-                            <span class="number">번호</span>
-                            <span class="name">네이버</span>
-                            <span class="username">아이디</span>
-                            <span class="phone">01021259225</span>
-                            <span class="email">이메일</span>
-                            <span class="joindate">가입일</span>
-                            <span class="role">기업</span>
+                            <span class="number" >[[${i.count}]]</span>
+                            <span class="name" >[[${item.user_name}]]</span>
+                            <span class="username">[[${item.user_id}]]</span>
+                            <span class="phone">[[${item.user_ph}]]</span>
+                            <span class="email">[[${item.user_email}]]</span>
+                            <span class="joindate">[[${item.user_regdate}]]</span>
+                            <span class="role">[[${item.user_type}]]</span>
                         </div>
                     </div>
                 </div>
@@ -402,41 +360,21 @@
                             <span class="joindate">가입일</span>
                             <span class="shape">기업형태</span>
                         </div>
-                        <div class="user_list_body">
+                        <div class="user_list_body" th:each="item, i : ${notAllowList}">
                             <span class="check"><input type="checkbox" name="2_4_check"></span>
-                            <span class="number">1</span>
-                            <span class="name">네이버어어어어어어어어어네이버어어어어어어어어어네이버어어어어어어어어어네이버어어어어어어어어어</span>
-                            <span class="username">yamyam123</span>
-                            <span class="phone">01021259225</span>
-                            <span class="email">dddddd@naver.com</span>
-                            <span class="joindate">2013-03-18</span>
-                            <span class="shape">
-                                        <select name="2_3_shape" class="shapeSelect">
-                                            <option value="">기업형태</option>
-                                            <option value="대기업">대기업</option>
-                                            <option value="중견기업">중견기업</option>
-                                            <option value="중소기업">중소기업</option>
-                                        </select>
-                                    </span>
+                            <span class="number" >[[${i.count}]]</span>
+                            <span class="name" >[[${item.user_name}]]</span>
+                            <span class="username">[[${item.user_id}]]</span>
+                            <span class="phone">[[${item.user_ph}]]</span>
+                            <span class="email">[[${item.user_email}]]</span>
+                            <span class="joindate">[[${item.user_regdate}]]</span>
+                            <span class="shape"><select name="2_3_shape" class="shapeSelect">
+                                <option value="">기업형태</option>
+                                <option value="대기업">대기업</option>
+                                <option value="중견기업">중견기업</option>
+                                <option value="중소기업">중소기업</option>
+                            </select></span>
                         </div>
-                        <div class="user_list_body">
-                            <span class="check"><input type="checkbox" name="2_4_check"></span>
-                            <span class="number">2</span>
-                            <span class="name">다으으으으으으으으으으음</span>
-                            <span class="username">yamyam456</span>
-                            <span class="phone">01021259225</span>
-                            <span class="email">dddddd@naver.com</span>
-                            <span class="joindate">2013-03-18</span>
-                            <span class="shape">
-                                        <select name="2_3_shape" class="shapeSelect">
-                                            <option value="">기업형태</option>
-                                            <option value="대기업">대기업</option>
-                                            <option value="중견기업">중견기업</option>
-                                            <option value="중소기업">중소기업</option>
-                                        </select>
-                                    </span>
-                        </div>
-
                         <div class="user_list_button">
                             <button onclick="E_permission_ajax(1)">승인</button>
                             <button onclick="E_permission_ajax(2)">삭제</button>
