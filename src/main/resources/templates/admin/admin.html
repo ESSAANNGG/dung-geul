@@ -17,7 +17,127 @@
 </head>
 
 <body>
+
+<!--모달효과 줄것들은 따로 뺴놓습니다-->
+<div id="main2_detail">
+    <!-- 회원 관리 > 상세 정보 -->
+    <div class="detailBox" id="detail_student">
+        <div class="d_role"><i class="fas fa-user-graduate"></i></div>
+        <div class="d_tagN">이름</div>
+        <input type="text" class="d_cont" value="이름" readonly>
+        <div class="d_tagN">아이디</div>
+        <input type="text" class="d_cont" value="아이디" readonly>
+        <div class="d_tagN">비밀번호</div>
+        <input type="text" class="d_cont" value="비밀번호">
+        <div class="d_tagN">전화번호</div>
+        <input type="text" class="d_cont" value="전화번호" readonly>
+        <div class="d_tagN">주소</div>
+        <input type="text" class="d_cont" value="주소" readonly>
+        <div class="d_tagN">이메일</div>
+        <input type="text" class="d_cont" value="이메일" readonly>
+        <div class="d_tagN">가입일</div>
+        <input type="text" class="d_cont" value="회원가입일" readonly>
+        <div class="d_tagN">소속/반</div>
+        <input type="text" class="d_cont" value="계열/반" readonly>
+        <div class="d_tagN">권한</div>
+        <input type="text" class="d_cont" value="학생" readonly>
+        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+        <!-- 스크립트로 수정과 승인 삭제/생성-->
+    </div>
+    <!-- 교직원상세정보 -->
+    <!--                    <div class="detailBox" id="detail_staff">-->
+    <!--                        <div class="d_role"><i class="fas fa-user-tie"></i></div>-->
+    <!--                        <div class="d_tagN">이름</div>-->
+    <!--                        <input type="text" class="d_cont" value="이름" readonly>-->
+    <!--                        <div class="d_tagN">아이디</div>-->
+    <!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
+    <!--                        <div class="d_tagN">비밀번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="비밀번호">-->
+    <!--                        <div class="d_tagN">전화번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="전화번호" readonly>-->
+    <!--                        <div class="d_tagN">주소</div>-->
+    <!--                        <input type="text" class="d_cont" value="주소" readonly>-->
+    <!--                        <div class="d_tagN">이메일</div>-->
+    <!--                        <input type="text" class="d_cont" value="이메일" readonly>-->
+    <!--                        <div class="d_tagN">가입일</div>-->
+    <!--                        <input type="text" class="d_cont" value="회원가입일" readonly>-->
+    <!--                        <div class="d_tagN">소속/반</div>-->
+    <!--                        <input type="text" class="d_cont" value="계열/반" readonly>-->
+    <!--                        <div class="d_tagN">권한</div>-->
+    <!--                        <input type="text" class="d_cont" value="교직원" readonly>-->
+    <!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
+    <!--                    </div>-->
+    <!--                        &lt;!&ndash; 상담사상세정보 &ndash;&gt;-->
+    <!--                    <div class="detailBox" id="detail_counselor">-->
+    <!--                        <div class="d_role"><i class="fas fa-hands-helping"></i></div>-->
+    <!--                        <div class="d_tagN">이름</div>-->
+    <!--                        <input type="text" class="d_cont" value="이름" readonly>-->
+    <!--                        <div class="d_tagN">아이디</div>-->
+    <!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
+    <!--                        <div class="d_tagN">비밀번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="비밀번호">-->
+    <!--                        <div class="d_tagN">전화번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="전화번호" readonly>-->
+    <!--                        <div class="d_tagN">주소</div>-->
+    <!--                        <input type="text" class="d_cont" value="주소" readonly>-->
+    <!--                        <div class="d_tagN">이메일</div>-->
+    <!--                        <input type="text" class="d_cont" value="이메일" readonly>-->
+    <!--                        <div class="d_tagN">가입일</div>-->
+    <!--                        <input type="text" class="d_cont" value="회원가입일" readonly>-->
+    <!--                        <div class="d_tagN">권한</div>-->
+    <!--                        <input type="text" class="d_cont" value="상담사" readonly>-->
+    <!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
+    <!--                    </div>-->
+
+    <!--                    &lt;!&ndash; 기업상세정보 &ndash;&gt;-->
+    <!--                    <div class="detailBox" id="detail_enterprise">-->
+    <!--                        <div class="d_role"><i class="fas fa-building"></i></div>-->
+    <!--                        <div class="d_tagN">기업명</div>-->
+    <!--                        <input type="text" class="d_cont" value="기업명" readonly>-->
+    <!--                        <div class="d_tagN">아이디</div>-->
+    <!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
+    <!--                        <div class="d_tagN">비밀번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="비밀번호">-->
+    <!--                        <div class="d_tagN">사업자번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="사업자번호" readonly>-->
+    <!--                        <div class="d_tagN">대표자명</div>-->
+    <!--                        <input type="text" class="d_cont" value="대표자명" readonly>-->
+    <!--                        <div class="d_tagN">대표번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="대표번호" readonly>-->
+    <!--                        <div class="d_tagN">팩스</div>-->
+    <!--                        <input type="text" class="d_cont" value="팩스" readonly>-->
+    <!--                        <div class="d_tagN">홈페이지</div>-->
+    <!--                        <input type="text" class="d_cont" value="홈페이지" readonly>-->
+    <!--                        <div class="d_tagN">주요사업내용</div>-->
+    <!--                        <input type="text" class="d_cont" value="주요사업내용" readonly>-->
+    <!--                        <div class="d_tagN">우편번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="우편번호" readonly>-->
+    <!--                        <div class="d_tagN">상세주소</div>-->
+    <!--                        <input type="text" class="d_cont" value="상세주소" readonly>-->
+    <!--                        <div class="d_tagN">설립년도</div>-->
+    <!--                        <input type="text" class="d_cont" value="설립년도" readonly>-->
+    <!--                        <div class="d_tagN">직원 수</div>-->
+    <!--                        <input type="text" class="d_cont" value="직원 수" readonly>-->
+    <!--                        <div class="d_tagN">업종</div>-->
+    <!--                        <input type="text" class="d_cont" value="업종" readonly>-->
+    <!--                        <div class="d_tagN">기업형태</div>-->
+    <!--                        <input type="text" class="d_cont" value="기업형태" readonly>-->
+    <!--                        <div class="d_tagN">가입일</div>-->
+    <!--                        <input type="text" class="d_cont" value="가입일" readonly>-->
+    <!--                        <div class="d_tagN">담당자 번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="담당자 번호" readonly>-->
+    <!--                        <div class="d_tagN">담당자 이메일</div>-->
+    <!--                        <input type="text" class="d_cont" value="담당자 이메일" readonly>-->
+    <!--                        <div class="d_tagN">권한</div>-->
+    <!--                        <input type="text" class="d_cont" value="기업" readonly>-->
+    <!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
+    <!--                    </div>-->
+</div>
+
+<!--modal end-->
+
 <div id="shadow_box">
+<!--modal창 open시 css효과를 주기위한 div-->
 <div id="admin_header">
     <h5>ADMIN</h5>
 </div>
@@ -62,122 +182,6 @@
 
         <div class="main">
             <!-- 회원 관리 -->
-            <div id="main2_detail">
-                <!-- 회원 관리 > 상세 정보 -->
-                <div class="detailBox" id="detail_student">
-                    <div class="d_role"><i class="fas fa-user-graduate"></i></div>
-                    <div class="d_tagN">이름</div>
-                    <input type="text" class="d_cont" value="이름" readonly>
-                    <div class="d_tagN">아이디</div>
-                    <input type="text" class="d_cont" value="아이디" readonly>
-                    <div class="d_tagN">비밀번호</div>
-                    <input type="text" class="d_cont" value="비밀번호">
-                    <div class="d_tagN">전화번호</div>
-                    <input type="text" class="d_cont" value="전화번호" readonly>
-                    <div class="d_tagN">주소</div>
-                    <input type="text" class="d_cont" value="주소" readonly>
-                    <div class="d_tagN">이메일</div>
-                    <input type="text" class="d_cont" value="이메일" readonly>
-                    <div class="d_tagN">가입일</div>
-                    <input type="text" class="d_cont" value="회원가입일" readonly>
-                    <div class="d_tagN">소속/반</div>
-                    <input type="text" class="d_cont" value="계열/반" readonly>
-                    <div class="d_tagN">권한</div>
-                    <input type="text" class="d_cont" value="학생" readonly>
-                    <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
-                    <!-- 스크립트로 수정과 승인 삭제/생성-->
-                </div>
-                <!-- 교직원상세정보 -->
-                <!--                    <div class="detailBox" id="detail_staff">-->
-                <!--                        <div class="d_role"><i class="fas fa-user-tie"></i></div>-->
-                <!--                        <div class="d_tagN">이름</div>-->
-                <!--                        <input type="text" class="d_cont" value="이름" readonly>-->
-                <!--                        <div class="d_tagN">아이디</div>-->
-                <!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
-                <!--                        <div class="d_tagN">비밀번호</div>-->
-                <!--                        <input type="text" class="d_cont" value="비밀번호">-->
-                <!--                        <div class="d_tagN">전화번호</div>-->
-                <!--                        <input type="text" class="d_cont" value="전화번호" readonly>-->
-                <!--                        <div class="d_tagN">주소</div>-->
-                <!--                        <input type="text" class="d_cont" value="주소" readonly>-->
-                <!--                        <div class="d_tagN">이메일</div>-->
-                <!--                        <input type="text" class="d_cont" value="이메일" readonly>-->
-                <!--                        <div class="d_tagN">가입일</div>-->
-                <!--                        <input type="text" class="d_cont" value="회원가입일" readonly>-->
-                <!--                        <div class="d_tagN">소속/반</div>-->
-                <!--                        <input type="text" class="d_cont" value="계열/반" readonly>-->
-                <!--                        <div class="d_tagN">권한</div>-->
-                <!--                        <input type="text" class="d_cont" value="교직원" readonly>-->
-                <!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
-                <!--                    </div>-->
-                <!--                        &lt;!&ndash; 상담사상세정보 &ndash;&gt;-->
-                <!--                    <div class="detailBox" id="detail_counselor">-->
-                <!--                        <div class="d_role"><i class="fas fa-hands-helping"></i></div>-->
-                <!--                        <div class="d_tagN">이름</div>-->
-                <!--                        <input type="text" class="d_cont" value="이름" readonly>-->
-                <!--                        <div class="d_tagN">아이디</div>-->
-                <!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
-                <!--                        <div class="d_tagN">비밀번호</div>-->
-                <!--                        <input type="text" class="d_cont" value="비밀번호">-->
-                <!--                        <div class="d_tagN">전화번호</div>-->
-                <!--                        <input type="text" class="d_cont" value="전화번호" readonly>-->
-                <!--                        <div class="d_tagN">주소</div>-->
-                <!--                        <input type="text" class="d_cont" value="주소" readonly>-->
-                <!--                        <div class="d_tagN">이메일</div>-->
-                <!--                        <input type="text" class="d_cont" value="이메일" readonly>-->
-                <!--                        <div class="d_tagN">가입일</div>-->
-                <!--                        <input type="text" class="d_cont" value="회원가입일" readonly>-->
-                <!--                        <div class="d_tagN">권한</div>-->
-                <!--                        <input type="text" class="d_cont" value="상담사" readonly>-->
-                <!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
-                <!--                    </div>-->
-
-                <!--                    &lt;!&ndash; 기업상세정보 &ndash;&gt;-->
-                <!--                    <div class="detailBox" id="detail_enterprise">-->
-                <!--                        <div class="d_role"><i class="fas fa-building"></i></div>-->
-                <!--                        <div class="d_tagN">기업명</div>-->
-                <!--                        <input type="text" class="d_cont" value="기업명" readonly>-->
-                <!--                        <div class="d_tagN">아이디</div>-->
-                <!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
-                <!--                        <div class="d_tagN">비밀번호</div>-->
-                <!--                        <input type="text" class="d_cont" value="비밀번호">-->
-                <!--                        <div class="d_tagN">사업자번호</div>-->
-                <!--                        <input type="text" class="d_cont" value="사업자번호" readonly>-->
-                <!--                        <div class="d_tagN">대표자명</div>-->
-                <!--                        <input type="text" class="d_cont" value="대표자명" readonly>-->
-                <!--                        <div class="d_tagN">대표번호</div>-->
-                <!--                        <input type="text" class="d_cont" value="대표번호" readonly>-->
-                <!--                        <div class="d_tagN">팩스</div>-->
-                <!--                        <input type="text" class="d_cont" value="팩스" readonly>-->
-                <!--                        <div class="d_tagN">홈페이지</div>-->
-                <!--                        <input type="text" class="d_cont" value="홈페이지" readonly>-->
-                <!--                        <div class="d_tagN">주요사업내용</div>-->
-                <!--                        <input type="text" class="d_cont" value="주요사업내용" readonly>-->
-                <!--                        <div class="d_tagN">우편번호</div>-->
-                <!--                        <input type="text" class="d_cont" value="우편번호" readonly>-->
-                <!--                        <div class="d_tagN">상세주소</div>-->
-                <!--                        <input type="text" class="d_cont" value="상세주소" readonly>-->
-                <!--                        <div class="d_tagN">설립년도</div>-->
-                <!--                        <input type="text" class="d_cont" value="설립년도" readonly>-->
-                <!--                        <div class="d_tagN">직원 수</div>-->
-                <!--                        <input type="text" class="d_cont" value="직원 수" readonly>-->
-                <!--                        <div class="d_tagN">업종</div>-->
-                <!--                        <input type="text" class="d_cont" value="업종" readonly>-->
-                <!--                        <div class="d_tagN">기업형태</div>-->
-                <!--                        <input type="text" class="d_cont" value="기업형태" readonly>-->
-                <!--                        <div class="d_tagN">가입일</div>-->
-                <!--                        <input type="text" class="d_cont" value="가입일" readonly>-->
-                <!--                        <div class="d_tagN">담당자 번호</div>-->
-                <!--                        <input type="text" class="d_cont" value="담당자 번호" readonly>-->
-                <!--                        <div class="d_tagN">담당자 이메일</div>-->
-                <!--                        <input type="text" class="d_cont" value="담당자 이메일" readonly>-->
-                <!--                        <div class="d_tagN">권한</div>-->
-                <!--                        <input type="text" class="d_cont" value="기업" readonly>-->
-                <!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
-                <!--                    </div>-->
-            </div>
-
-
             <div class="main2">                 <!-- 회원 관리 > 회원 관리 -->
                 <div id="main2_search">         <!-- 회원관리 > 회원 관리 > 검색 -->
                     <div class="sub_menu_title">
@@ -443,6 +447,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 </body>

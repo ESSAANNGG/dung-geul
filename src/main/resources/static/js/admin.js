@@ -68,37 +68,40 @@ function search_date(main_num,date_select){
 // 회원 상세정보
 let non_detail=0;
 //.user_list_body안에 있는 체크박스나 select(기업형태)를 클릭했을시 상세정보를 띄우지 않게하기위한 참조변수
+let detail_state=0;
+//상세정보페이지가 켜져있는지 꺼져있는지 확인하기 위한 참조변수;
+
 $('.user_list_body :checkbox, .shape').click(function(){
     non_detail=1;
 })
-//상세정보를 띄워줌
+//체크박스나 select를 클릭하였다면 상세정보를 띄우지않는다.
+//non_detail=0이면 상세정보를 띄워줌
 $('.user_list_body').click(function(e){
     if(non_detail==1){
         non_detail=0;
         return;
     }
     else if(non_detail==0){
-        $('.detailBox').css("visibility","visible");
-        $('.detailBox').css("opacity","1");
+        setTimeout("detail_on()",100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
     }
 });
 
-//
-// function detail(detailNum){
-//     if(detailNum==1){
-//         $('button[name=d_button]').text("수정");
-//     }
-//     else if(detailNum==2){
-//         $('button[name=d_button]').text("승인");
-//     }
-//
-//     detailBox[3].style.visibility="visible";
-//     document.getElementById("detailEnter").style.visibility="visible";
-//
-//     detailBox[3].style.opacity="1";
-//     detailBox[3].style.boxShadow="0px 0px 5px 1px rgb(192, 192, 192)";
-//     document.getElementById("bodyWrap").style.opacity="0.3";
-// }
+function detail_on(){
+    $('.detailBox').css({"visibility":"visible","opacity":"1"});
+    $('#wrap,#admin_header').css("opacity","0.4");
+    detail_state=1;
+}
+
+//상세정보를 닫음
+$('#shadow_box').click(function(e){
+    if(detail_state==1) {
+        $('.detailBox').css({"visibility": "hidden", "opacity": "0"});
+        $('#wrap,#admin_header').css("opacity", "1");
+        detail_state = 0;
+    }
+})
+
+
 
 
 //게시판 전체 체크하기
