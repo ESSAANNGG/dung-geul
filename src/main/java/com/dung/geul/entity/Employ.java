@@ -12,8 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@ToString
-// @Table(name="empoly")  필요없어보여서 주석처리 했음 - 정혜리
+@ToString(exclude = "enterprise")
 @AttributeOverrides({
         @AttributeOverride(name = "regDate", column = @Column(name = "em_regdate")),
         @AttributeOverride(name = "modDate", column = @Column(name = "em_modDate"))
@@ -22,51 +21,53 @@ public class Employ extends BaseEntity{
     // baseEntity 추가 (채용공고 등록일, 수정일로 사용) - 정혜리
 
     @Id
-    @Column(name = "em_num")    // 공고번호
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "em_num")
+
     private Long num;
 
-    @Column(name = "em_title")  // 제목
+    @Column(name = "em_title")
     private String title;
 
-    @Column(name = "em_content",length = 1000)  // 내용
+    @Column(name = "em_content",length = 1000)
     private String content;
 
-    @Column(name ="em_ot")  // 직종 구분
+    @Column(name ="em_ot")
     private String ot;
 
-    @Column(name ="em_ep")  // 고용 구분
-    private String ep;
+    @Column(name ="em_ep")
+    private String ep; //고용구분
 
-    @Column(name ="em_start_date")  // 시작일
+    @Column(name ="em_start_date")
     private LocalDateTime start_date;
 
-    @Column(name ="em_end_date")    // 마감일
+    @Column(name ="em_end_date")
     private LocalDateTime end_date;
 
-    @Column(name = "em_people") // 모집 인원
+    @Column(name = "em_people")
     private String people;
 
-    @Column(name = "em_career") // 경력
+    @Column(name = "em_career")
     private String career;
 
-    @Column(name = "em_education")  // 학력
+    @Column(name = "em_education")
     private String education;
 
-    @Column(name = "em_salary") // 급여
+    @Column(name = "em_salary")
     private String salary;
 
-    @Column(name = "em_area")   // 근무 지역
+    @Column(name = "em_area")
     private String area;
 
-    @Column(name = "em_apply")  // 지원 방법
+    @Column(name = "em_apply")
     private String apply;
 
-    @Column(name = "em_file",length = 1000) // 파일
+    @Column(name = "em_file",length = 1000)
     private String file;
 
-    @ManyToOne
-    @JoinColumn(name = "em_etp_id") // 기업 아이디
-    private Enterprise enterprise;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="em_etp_id")
+    private Enterprise etp_id;
+
 
 }

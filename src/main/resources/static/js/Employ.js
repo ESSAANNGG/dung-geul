@@ -133,11 +133,9 @@ function h_tag_js(tag_num) {
 $(document).ready(function(){
     $("#s_title").on("keyup", function() {
         searchVal("title");
-        $("#dummy_title").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
     });
     $("#s_corp").on("keyup", function() {
         searchVal("corp");
-        $("#dummy_corp").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
     });
 });
 
@@ -151,8 +149,10 @@ function searchVal(sel){
         case 'title':
             val=(search[0].value);
             $("#h_title").text("#"+val);
+            $("#dummy_title").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
             if(val==""){
                 $("#h_title").text("#제목");
+                $("#dummy_title").prop("checked",false);
             }
             $("#h_title").css("color","#4759ff");
             $("#h_title").stop().animate({"color":"#575757"},2000);
@@ -160,8 +160,10 @@ function searchVal(sel){
         case 'corp':
             val=(search[1].value);
             $("#h_corp").text("#"+val);
+            $("#dummy_corp").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
             if(val==""){
                 $("#h_corp").text("#기업");
+                $("#dummy_corp").prop("checked",false)
             }
             $("#h_corp").css("color","#4759ff");
             $("#h_corp").stop().animate({"color":"#575757"},2000);
@@ -233,8 +235,8 @@ let cont_func_index=0;
 function post_cont_sub_func(){
     let post_cont = document.getElementsByClassName("post_cont")[cont_func_index];
     post_cont_txt=post_cont.innerText;                             //text값을 받아와서 txt에 담음
-    if(post_cont_txt.length > 20){                                //내용이길다면 sub변수에 substr를 이용해 간추림
-        var post_cont_sub=post_cont_txt.substr(0,20)+"...";
+    if(post_cont_txt.length > 70){                                //내용이길다면 sub변수에 substr를 이용해 간추림
+        var post_cont_sub=post_cont_txt.substr(0,70)+"...";
         post_cont.innerText=post_cont_sub;                                        //text 설정
     }
 

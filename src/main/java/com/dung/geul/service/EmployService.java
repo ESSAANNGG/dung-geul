@@ -5,11 +5,14 @@ import com.dung.geul.dto.EmployDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Employ;
+import com.dung.geul.entity.Enterprise;
 
 
 public interface EmployService {
 
-    PageResultDTO<EmployDTO, Employ> getList(PageRequestDTO pageRequestDTO);
+//    PageResultDTO<EmployDTO, Employ> getList(PageRequestDTO pageRequestDTO);
+
+    PageResultDTO<EmployDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
 
     EmployDTO read(Long num);
 
@@ -21,6 +24,8 @@ public interface EmployService {
 
 
     default Employ dtoToEntity(EmployDTO dto) {
+
+
         Employ entity = Employ.builder()
                 .num(dto.getNum())
                 .title(dto.getTitle())
@@ -41,7 +46,7 @@ public interface EmployService {
     }
 
 
-    default EmployDTO entityToDto(Employ entity){
+    default EmployDTO entityToDto(Employ entity, Enterprise enterprise ){
 
         EmployDTO dto = EmployDTO.builder()
                 .num(entity.getNum())
@@ -60,6 +65,12 @@ public interface EmployService {
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .file(entity.getFile())
+                .etp_name(enterprise.getEtp_name())
+                .etp_sector(enterprise.getEtp_sector())
+                .etp_ph(enterprise.getEtp_ph())
+                .etp_home(enterprise.getEtp_home())
+                .etp_member(enterprise.getEtp_member())
+                .etp_ceo_name(enterprise.getEtp_ceo_name())
                 .build();
 
         return dto;

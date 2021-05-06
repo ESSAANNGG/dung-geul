@@ -6,7 +6,9 @@ import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Employ;
 
 
+import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.QEmploy;
+import com.dung.geul.entity.QEnterprise;
 import com.dung.geul.repository.EmployRepository;
 
 
@@ -33,15 +35,20 @@ public class EmployServiceImpl implements EmployService {
 
 
     @Override
-    public PageResultDTO<EmployDTO, Employ> getList(PageRequestDTO requestDTO) {
+//    public PageResultDTO<EmployDTO, Employ> getList(PageRequestDTO requestDTO) {
+        public PageResultDTO<EmployDTO, Object[]> getList(PageRequestDTO requestDTO) {
 
         Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());
 
         BooleanBuilder booleanBuilder = getSearch(requestDTO); //검색 조건처리
 
-        Page<Employ> result = employRepository.findAll(booleanBuilder, pageable);
+//        Page<Employ> result = employRepository.findAll(booleanBuilder, pageable);
 
-        Function<Employ, EmployDTO> fn = (entity -> entityToDto(entity));
+        Function<Object[], EmployDTO> fn = (en -> entityToDto((Employ)en[0],(Enterprise)en[1]));
+
+        Page<Object[]> result = employRepository.getEmployWithEnterprise(requestDTO.getPageable(Sort.by("num").descending()));
+
+//        Function<Employ, EmployDTO> fn = (entity -> entityToDto(entity));
 
         return new PageResultDTO<>(result, fn);
     }
@@ -50,10 +57,16 @@ public class EmployServiceImpl implements EmployService {
     public EmployDTO read(Long num) {
         log.info("num :" +num);
 
-        Optional<Employ> result = employRepository.findById(num);
+//        Optional<Employ> result = employRepository.findById(num);
+//
+//        //isPresent() :저장된 값이 존재하면 true를 반환하고, 값이 존재하지 않으면 false를 반환함.
+//        return result.isPresent()? entityToDto(result.get()): null;
 
-        //isPresent() :저장된 값이 존재하면 true를 반환하고, 값이 존재하지 않으면 false를 반환함.
-        return result.isPresent()? entityToDto(result.get()): null;
+        Object result = employRepository.getEmployWithEnterprise(num);
+
+        Object[] arr = (Object[])result;
+
+        return entityToDto((Employ)arr[0], (Enterprise)arr[1]);
     }
 
 
