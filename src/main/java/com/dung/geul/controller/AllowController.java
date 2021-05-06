@@ -31,13 +31,8 @@ public class AllowController {
     // 관리자만
     @GetMapping("/")
     public String admin(@AuthenticationPrincipal AuthMemberDTO member){
-
-        if(member == null){
-            return "redirect:/";
-        }
-
-        if(member.getUser_id().equals("123")) return "redirect:/admin/admin";
-        else return "redirect:/";
+        if(member.getUser_id().equals("admin")) return "/admin/admin";
+        else return "/";
     }
 
     // 전체 회원 인증 리스트 페이지
@@ -55,8 +50,12 @@ public class AllowController {
         if(type==null || type.equals("")){
             type = "USER";
         }
-        if(page1 == null) page1 = 1;
-        if(page2 == null) page2 = 2;
+        if(page1 == null) {
+            page1 = 1;
+        }
+        if(page2 == null){
+            page2 = 1;
+        }
 
         // allow = 0 : 미인증 목록
         // allow = 1 : 인증 목록
