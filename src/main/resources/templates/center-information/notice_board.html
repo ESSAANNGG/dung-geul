@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:script="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>공지사항</title>
     <meta charset="utf-8" />
@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
 
+    <!--  검색 이벤트 처리를 위한 jQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- 목록 데이터 페이지 처리, 등록 버튼 CSS 디자인 : 차후 css파일에 수정 要-->
     <style>
@@ -53,6 +55,33 @@
         .page-li:hover {
             background-color: #1a508b;
         }
+
+        /* 검색 처리 */
+        .input-group {
+            padding: 10px;
+        }
+
+        /* 검색조건 선택창 */
+        .custom-select {
+            border-radius: 0;
+            width: 50%;
+            height: 35px;
+            line-height: 20px;
+        }
+
+        /* 검색 조건 입력창 */
+        .form-control {
+            border-radius: 5px;
+            width: 50%;
+            height: 35px;
+            margin-top: 10px;
+        }
+
+        /* 버튼 */
+        .btn-search, .btn-clear {
+            font-size: 15px;
+        }
+        
 
     </style>
 
@@ -111,6 +140,29 @@
                             <h2>공지사항</h2>
                             <!--   <div>게시글 수: <span th:text="${#lists.size(boards)}"></span></div>-->
 
+                        <!-- 검색 조건 -->
+                            <form action="/center-information/notice_board" method="get" id="searchForm">
+                                <div class="input-group">
+                                    <input type="hidden" name="page" value = "1">
+                                    <span class="input-group-prepend">
+                                        <select class="custom-select" name="type">
+                                            <option value="t" th:selected="${pageRequestDTO.type =='t'}" >제목</option>
+                                            <option value="c" th:selected="${pageRequestDTO.type =='c'}"  >내용</option>
+                                            <option value="tc"  th:selected="${pageRequestDTO.type =='tc'}" >제목 + 내용</option>
+                                        </select>
+                                    </span>
+
+                                    <span>
+                                        <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}">
+                                
+                                        <button class="btn-search" type="button">검색</button>
+                                        <button class="btn-clear" type="button">초기화</button>
+                                    </span>
+                                    
+                                </div>
+                            </form>
+                        <!-- end 검색 조건 -->
+
                             <!-- 게시판 테이블 -->
                             <table>
                                 <thead>
@@ -128,14 +180,14 @@
                                             </a>
                                             </th>
                                         <td>[[${dto.title}]]</td>
-                                        <td>[[${dto.b}]]</td>
+                                        <td>관리자[[${dto.b}]]</td>
                                         <td>YYYY-DD-MM</td>
                                     </tr>
                                 </tdoby>
                             </table>
 
                             <!-- 목록 데이터 페이지 처리 -->
-                            <div class="page-ul-div">
+                            <div class="list-data-page">
                                 <ul class="page-ul">
                                     <li class="page-li " th:if="${result.prev}">
                                         <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.start -1})}" tabindex="-1">이전</a>
@@ -189,6 +241,34 @@
 </div>
 
 <!-- Scripts -->
+
+<!-- 검색 이벤트 처리 -->
+<script th:inline="javascript">
+
+    var msg = [[${msg}]];
+
+    console.log(msg);
+
+    if(msg){
+        $(".modal").modal();
+    }
+    var searchForm = $("#searchForm");
+
+    $('.btn-search').click(function(e){
+
+        searchForm.submit();
+
+    });
+
+    $('.btn-clear').click(function(e){
+
+        searchForm.empty().submit();
+
+    });
+
+
+</script>
+
 <script src="/js/jquery-3.5.1.min.js"></script>
 
 <!-- <script src="assets/js/jquery.min.js"></script>

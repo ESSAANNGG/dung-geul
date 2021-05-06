@@ -282,7 +282,7 @@ button:focus{
     height:700px; /*높이는 트랜지션으로*/
     background-color:#ffffff;
     box-shadow: 0px 0px 2px 5px rgba(234,234,234,0.01);
-    z-index:1;
+    z-index:5;
 }
 
 #apply_submit h1{

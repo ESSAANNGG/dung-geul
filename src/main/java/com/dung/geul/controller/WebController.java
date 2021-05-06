@@ -21,13 +21,13 @@ public class WebController {
         return "job-information/job-information";
     }
 
-    @GetMapping("/counseling/counseling")
-    public void coun(){
-    }
-
-    @GetMapping("/counseling/studentcoun")
-    public void stu(){
-    }
+//    @GetMapping("/counseling/counseling")
+//    public void coun(){
+//    }
+//
+//    @GetMapping("/counseling/studentcoun")
+//    public void stu(){
+//    }
     @GetMapping("/job-information/job-dictionary")
     public void dict(){
     }

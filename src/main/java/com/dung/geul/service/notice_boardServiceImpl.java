@@ -5,7 +5,10 @@ import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.dto.notice_boardDTO;
 import com.dung.geul.entity.Board;
+import com.dung.geul.entity.QBoard;
 import com.dung.geul.repository.BoardRepository;
+import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
@@ -26,9 +29,13 @@ public class notice_boardServiceImpl implements notice_boardService {
     @Override
     public PageResultDTO<notice_boardDTO, Board> getList(PageRequestDTO requestDTO) {
 
-        Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());    // 글 번호(num)를 기준으로 내림차순
-        Page<Board> result = boardRepository.findAll(pageable);
-        Function<Board, notice_boardDTO> fn = (entity -> entityToDto(entity));      // java util의 함수를 람다식으로 표현
+        Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());     // 글 번호(num)를 기준으로 내림차순
+//        Page<Board> result = boardRepository.findAll(pageable);
+
+        BooleanBuilder booleanBuilder = getSearch(requestDTO);                       //검색 조건 처리
+        Page<Board> result = boardRepository.findAll(booleanBuilder, pageable);      //Querydsl 사용
+
+        Function<Board, notice_boardDTO> fn = (entity -> entityToDto(entity));       // java util의 함수를 람다식으로 표현
 
         return new PageResultDTO<>(result, fn);
     }
@@ -92,6 +99,47 @@ public class notice_boardServiceImpl implements notice_boardService {
             boardRepository.save(entity);
 
         }
+    }
+
+
+    private BooleanBuilder getSearch(PageRequestDTO requestDTO){    // 검색처리
+
+        String type = requestDTO.getType();
+
+        BooleanBuilder booleanBuilder = new BooleanBuilder();
+
+        QBoard qBoard = QBoard.board1;
+
+        String keyword = requestDTO.getKeyword();
+
+        BooleanExpression expression = qBoard.num.gt(0L); // gno > 0 조건만 생성
+
+        booleanBuilder.and(expression);
+
+        if(type == null || type.trim().length() == 0){ //검색 조건이 없는 경우
+            return booleanBuilder;
+        }
+
+
+        //검색 조건을 작성하기 (키워드)
+        BooleanBuilder conditionBuilder = new BooleanBuilder();
+
+        if(type.contains("t")){
+            conditionBuilder.or(qBoard.board_title.contains(keyword));      // 제목
+        }
+        if(type.contains("c")){
+            conditionBuilder.or(qBoard.content.contains(keyword));          // 내용
+        }
+
+//  공지사항 페이지는 관리자만이 작성함으로 작성자는 없어도 무관하다.
+//        if(type.contains("w")){
+//            conditionBuilder.or(qBoard.b.contains(keyword));                // 작성자
+//        }
+
+        //모든 조건 통합
+        booleanBuilder.and(conditionBuilder);
+
+        return booleanBuilder;
     }
 
 }

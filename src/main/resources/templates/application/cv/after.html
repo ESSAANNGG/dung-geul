@@ -22,7 +22,7 @@
 
 
       <!--네비 div-->
-     <div th:replace="layout/layout :: nav"/>
+      <div th:replace="layout/layout :: nav"/>
     </header>
 
 
@@ -72,10 +72,13 @@
                   </header>
 
                   <section>
+                   
                     <div id="cv_before">
-                      <h3>등록된 이력서가 없습니다. 이력서를 등록해주세요.</h3>
+                       <a href="read.html" class="link">
+                       <h3>${loginUser.getUser_name()} 님의 대표이력서</h3>
+                    </a>
                       <a id="register" href="cv_register.html
-                      ">이력서 등록하기</a>
+                      ">이력서 수정하기</a>
                     </div>
                   </section>
 
@@ -100,7 +103,7 @@
         </div>
       </section>
       <!--footer -->
-   <footer th:replace="layout/layout :: footer"/>
+      <footer th:replace="layout/layout :: footer"/>
     </div>
   </div>
   </div>
