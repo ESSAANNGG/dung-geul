@@ -33,6 +33,8 @@ public class AuthMemberDTO extends User {
 
     private String user_email;
 
+    private String user_emailDomain;
+
     private String user_dept;  // 학생 소속 계열
 
     private String user_grade; // 학년 소속 학년
