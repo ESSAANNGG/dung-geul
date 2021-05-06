@@ -177,7 +177,7 @@ $(document).ready(function () {
   });
   $('body').on('click', '.delete', function (e) {
     $('.items').last().remove();
-
+    l--;
     i--;
     if (i == 0) {
       $('.delete').hide();
