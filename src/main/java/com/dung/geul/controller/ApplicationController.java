@@ -37,17 +37,25 @@ public class ApplicationController {
     @GetMapping("/cv/before")
     public String cvBefore(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
+        System.out.println("cv before 실행");
+
         String result = "application/cv/before";
 
         Member member = memberRepository.findById(authMemberDTO.getUser_id()).get();
 
+        System.out.println("member : " + member.toString());
+
         Optional<CV> cv = cvRepository.findByUser_id(member);
+
+        System.out.println("cv : " + cv.toString());
 
         model.addAttribute("loginUser", authMemberDTO);
 
         if(!cv.isEmpty()){
             result = "redirect:/application/cv/read";
         }
+
+        System.out.println("result : " + result);
 
         return result;
     }

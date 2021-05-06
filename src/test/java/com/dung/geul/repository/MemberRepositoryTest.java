@@ -111,7 +111,11 @@ public class MemberRepositoryTest {
                 .user_pw(encoder.encode("123"))
                 .user_name("관리자")
                 .user_ph("010")
-                .user_email("admin@email.com")
+                .user_ph2("2063")
+                .user_ph3("5065")
+                .user_email("admin@email")
+                .user_emailDomain("com")
+
                 .user_postcode("41521")
                 .user_addr("대구광역시 북구 복현로36길 32-13")
                 .user_addr_details("상세주소입니다아아")

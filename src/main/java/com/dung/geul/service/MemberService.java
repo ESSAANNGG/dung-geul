@@ -20,10 +20,13 @@ public interface MemberService {
                 .user_name(memberDTO.getUser_name())
                 .user_pw(pw)
                 .user_ph(memberDTO.getUser_ph())
+                .user_ph2(memberDTO.getUser_ph2())
+                .user_ph3(memberDTO.getUser_ph3())
                 .user_postcode(memberDTO.getUser_postcode())
                 .user_addr(memberDTO.getUser_addr())
                 .user_addr_details(memberDTO.getUser_addr_details())
                 .user_email(memberDTO.getUser_email())
+                .user_emailDomain(memberDTO.getUser_emailDomain())
                 .user_type(memberDTO.getRole())
                 .build();
 

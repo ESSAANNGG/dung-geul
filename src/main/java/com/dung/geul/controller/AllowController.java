@@ -57,15 +57,22 @@ public class AllowController {
             page2 = 1;
         }
 
-        // allow = 0 : 미인증 목록
-        // allow = 1 : 인증 목록
-        List<AllowEtpDTO> notAllowList = memberService.getUserList(page1, type, 0).getDtoList();
-        List<AllowEtpDTO> AllowList = memberService.getUserList(page2, type, 1).getDtoList();
+        // allow = 0, page1 : 미인증 목록
+        // allow = 1, page2 : 인증 목록
+        PageResultDTO<AllowEtpDTO, Object[]> notAllowPageResult = memberService.getUserList(page1, type, 0);
+        PageResultDTO<AllowEtpDTO, Object[]> allowPageResult = memberService.getUserList(page2, type, 1);
+
+        List<AllowEtpDTO> notAllowList = notAllowPageResult.getDtoList();
+        List<AllowEtpDTO> AllowList = allowPageResult.getDtoList();
 
         model.addAttribute("notAllowList", notAllowList);
         model.addAttribute("allowList", AllowList);
         model.addAttribute("allowPageList", memberService.getUserList(page2, type, 1).getPageList());
         model.addAttribute("notAllowPageList",memberService.getUserList(page1, type, 0).getPageList() );
+
+        model.addAttribute("allowPageList", allowPageResult.getPageList());
+        model.addAttribute("notAllowPageList", notAllowPageResult.getPageList());
+
 
         System.out.println(notAllowList.toString());
         System.out.println(AllowList.toString());
