@@ -1,20 +1,63 @@
 //메뉴 클릭시
 let menubox_li=document.getElementsByClassName("menubox_li");
-
+let main=document.getElementsByClassName("main");
 //처음은 맨 윗메뉴를 보여준다
+let menuLength=$('.menubox_li').length;
+let menu;
 window.onload = function () {
     menubox_li[0].style.backgroundColor="#30384b";
+    main[0].style.visibility="visible";
+    //css로 일일히 메뉴를 닫기 싫어서 js로 닫아줌
+    MenuOff();
 }
-//메뉴 클릭시 색상변경
+//전체 상세메뉴 닫기
+function MenuOff() {
+    for (i = 0; i < menuLength; i++) {
+        menu = ("main" + String(i + 1));
+        $('.' + menu).css("visibility", "hidden");
+    }
+}
+//메뉴 클릭시
+let menu_index;
+let select_detail_menu;
+let detail_menu;
 $('.menubox_li').click(function(){
-    let menubox_li_index=$(this).index();                           //클래스 순번 받아오기
-    $('.menubox_li').attr('style','backgroundColor: #5978b9');      //전체색상 기본색으로 변경
-    menubox_li[menubox_li_index].style.backgroundColor="#30384b";   //클릭한 메뉴 색상변경
+    menu_index=$(this).index();                               //클래스 순번 받아오기
+    $('.menubox_li').attr('style','backgroundColor: #5978b9');//전체색상 기본색으로 변경
+    menubox_li[menu_index].style.backgroundColor="#30384b";   //클릭한 메뉴 색상변경
+    $('.main').css("visibility","hidden");                    //전체 메뉴 닫기
+    main[menu_index].style.visibility="visible";              //클릭한 메뉴 열기
+
+    MenuOff();                                          //상세 메뉴 열기  1.전체 상세메뉴 닫기
+    menu=("main"+String((menu_index+1)));              //상세 메뉴 열기  2.상세메뉴클래스를참조하기 위해 변수를 만든다 ex)main1,main2
+    $('.'+menu).css("visibility","visible");           //상세 메뉴 열기  3.해당메뉴 visible;
+
+    select_detail_menu=document.getElementsByClassName('guide_select')[menu_index].selectedIndex; //상세메뉴중 뭐를 클릭했는지 가져오기(클릭안했으니 0)
+    detail_menu=document.getElementsByClassName(menu)[select_detail_menu];                                  //메뉴중 상세메뉴 번호 저장
+    $('.'+menu).css("display","none");                                                                      //일단 해당 메뉴의 상세메뉴 전체 없애기
+    detail_menu.style.display="block";                                                                      //해당 상세메뉴 보여주기
      
     //menu_title 변경
     let menu_title=document.getElementById("menu_title");
-    menu_title.innerHTML=("<h3>"+menubox_li[menubox_li_index].innerText+"</h3>");        //h3태그는 사라져서 innerhtml을 하니 아이콘까지 같이 가져옴 그래서 text+h3태그를 innerhtml로 저장
+    menu_title.innerHTML=("<h3>"+menubox_li[menu_index].innerText+"</h3>");        //h3태그는 사라져서 innerhtml을 하니 아이콘까지 같이 가져옴 그래서 text+h3태그를 innerhtml로 저장
+    
+    //menu_guide 변경
+    $('.guide').css("display","none");                                               //전체 가이드 메뉴 안보이게
+    $('.guide:eq(' + menu_index + ')').css("display","inline-block");                //해당 가이드 메뉴 가이드에 띄움
+
 });
+
+//menu_guide 변경할시 상세 메뉴 변경
+$('.guide_select').change(function(){
+    select_detail_menu=document.getElementsByClassName('guide_select')[menu_index].selectedIndex;   //상세메뉴중 뭐를 클릭했는지 가져오기
+    detail_menu=document.getElementsByClassName(menu)[select_detail_menu];                                    //메뉴중 상세메뉴 번호 저장
+    $('.'+menu).css("display","none");          //일단 해당 메뉴의 상세메뉴 전체 없애기;
+    detail_menu.style.display="block";          //해당 상세메뉴 보여주기;
+})
+
+
+
+
 
 
 
@@ -139,12 +182,15 @@ let perLength;
             ($('input[name="2_2_check"]').eq(perRemove)).prop("checked",false);                           //해당하는 인덱스의 체크 해제
             $('input[name="2_2_checkH"]').prop("checked",false);                                          //헤드checkBox 체크 해제
         }
-        alert(perList);//디버깅 용도
+
         if(p==1){
             p="ok";
         }
         else if(p==2){
             p="no";
+        }
+        else if(p==3){
+            p="삭제";
         }
         $.ajax({
             url: "/allow/member/read?result="+p,
@@ -170,7 +216,6 @@ let perLength;
                         let E_perRemove=($("input[name='2_4_check']").index($('input[name="2_4_check"]:checked')));            //회원가입승인 전체 체크중 체크된것들의 인덱스의 첫번째 가져옴
                         userid=$('.user_list:eq(3) .user_list_body:eq(' + E_perRemove + ') .username').text();                 //아이디값을 읽어옴
                         userShape=$('.shapeSelect:eq(' + E_perRemove + ')').val();                                             // 기업형태를 읽어옴
-                        // alert(userShape);
                         if(userShape==""){                                                   //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
                             if(alertIndex==0) {
                                 alert("기업형태를 선택해주세요");                                                                  //알림을 띄워주지않았다면 띄워주고 띄워줬다면 더 띄우지 않음

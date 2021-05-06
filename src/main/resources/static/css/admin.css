@@ -166,7 +166,9 @@ input[type="checkbox"]:checked:before {
 
 
 
-
+.main{
+    visibility: hidden;
+}
 #main_wrap{
     width:100%;
     height:100%;
@@ -174,9 +176,37 @@ input[type="checkbox"]:checked:before {
     background-color: #f0f3fa;
 }
 #menu_guide{
-    width:500px;
+    width:1200px;
     height:40px;
     font-size:18px;
+}
+#menu_guide ul{
+    display:none;
+    margin:0px;
+    padding:0px;
+}
+.guide_select{
+    width:auto;
+}
+#menu_guide select{
+    display:none;
+    margin:0px;
+    padding:0px 0px 0px 0px;
+    font-size: 18px;
+    border:none;
+    overflow:visible;
+    background:url("/img/guide_button.png") no-repeat 100% 50%/11px auto;
+}
+#menu_guide select:focus{
+    outline:none;
+}
+#menu_guide ul:first-of-type{
+    display:inline-block;
+}
+#menu_guide select:first-of-type{
+    display:inline-block;
+    margin:0px;
+    padding:0px;
 }
 #menu_guide img{
     width:15px;
