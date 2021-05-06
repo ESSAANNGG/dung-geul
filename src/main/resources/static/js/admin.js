@@ -167,8 +167,15 @@ function checkAll(checkI) {
 
 
 
-
-
+//기업관리 메뉴 바꿀시
+// function abc() {
+//     val=$('.guide_select').val();
+//     if(val==회원관리){
+//         window.location.href = 'http://localhost:8080/admin/admin?type=univ&page1=1&page2=1';
+//     }
+//     else if(val==기업관리)
+//     window.location.href = 'http://localhost:8080/admin/admin?type=enterprise&page1=1&page2=1';
+// }
 
 //회원가입승인 허가
 let p; //승인인지 거절인지 html으로부터 받아옴
