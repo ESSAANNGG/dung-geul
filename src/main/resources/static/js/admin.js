@@ -70,38 +70,35 @@ function search_date(main_num,date_select){
     let week=new Date();
     let month=new Date();
     let enter=new Date(1);  //파라미터를 한개만 전송하면 1970년도로 자동설정
+    let dateVar;
     week.setDate(now.getDate()-7);
     month.setMonth(now.getMonth()-1);
     if(main_num=="main2_user") {
         switch (date_select) {
-            case '오늘':
-                date_range[0].value = now.toISOString().substring(0, 10);
+            case '오늘': dateVar=now;
                 break;
-            case '이번주':
-                date_range[0].value = week.toISOString().substring(0, 10);
+            case '이번주': dateVar=week;
                 break;
-            case '이번달':
-                date_range[0].value = month.toISOString().substring(0, 10);
+            case '이번달': dateVar=month;
                 break;
-            case '전체':
-                date_range[0].value = enter.toISOString().substring(0, 10);
+            case '전체': dateVar=enter;
+                break;
         }
+        date_range[0].value = dateVar.toISOString().substring(0, 10);
         date_range[1].value = now.toISOString().substring(0, 10);
     }
     else if(main_num=="main2_corp"){
         switch (date_select) {
-            case '오늘':
-                date_range[2].value = now.toISOString().substring(0, 10);
+            case '오늘': dateVar=now;
                 break;
-            case '이번주':
-                date_range[2].value = week.toISOString().substring(0, 10);
+            case '이번주': dateVar=week;
                 break;
-            case '이번달':
-                date_range[2].value = month.toISOString().substring(0, 10);
+            case '이번달': dateVar=month;
                 break;
-            case '전체':
-                date_range[2].value = enter.toISOString().substring(0, 10);
+            case '전체': dateVar=enter;
+                break;
         }
+        date_range[2].value = dateVar.toISOString().substring(0, 10);
         date_range[3].value = now.toISOString().substring(0, 10);
     }
 
@@ -190,7 +187,7 @@ let perLength;
             p="no";
         }
         else if(p==3){
-            p="삭제";
+            p="delete";
         }
         $.ajax({
             url: "/allow/member/read?result="+p,
@@ -234,6 +231,9 @@ let perLength;
                      }
                     else if(p==2){
                         p="no";
+                    }
+                    else if(p==3){
+                        p="delete"
                     }
 
                     $.ajax({
