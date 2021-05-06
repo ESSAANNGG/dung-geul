@@ -6,14 +6,17 @@ import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
+import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -25,9 +28,21 @@ public class AllowController {
     @Autowired
     private MemberServiceImpl memberService;
 
-    // 전체 회원 인증 전 리스트
+    // 관리자만
+    @GetMapping("/")
+    public String admin(@AuthenticationPrincipal AuthMemberDTO member){
+
+        if(member == null){
+            return "redirect:/";
+        }
+
+        if(member.getUser_id().equals("123")) return "redirect:/admin/admin";
+        else return "redirect:/";
+    }
+
+    // 전체 회원 인증 리스트 페이지
     @GetMapping("/admin")
-    public void getList(@RequestParam("type") String type ,@RequestParam("page1") int page1, @RequestParam("page2") int page2, Model model){
+    public void getList(@RequestParam("type") String type ,@RequestParam("page1") Integer page1, @RequestParam("page2") Integer page2, Model model){
         //파라미터로 page, size 를 전달하면 자동으로 pageRequestDTO 객체로 수집된다
 
         // type : USER / ENTERPRISE / STUDENT / STAFF / COUNSELOR / UNIV
@@ -40,6 +55,8 @@ public class AllowController {
         if(type==null || type.equals("")){
             type = "USER";
         }
+        if(page1 == null) page1 = 1;
+        if(page2 == null) page2 = 2;
 
         // allow = 0 : 미인증 목록
         // allow = 1 : 인증 목록
@@ -48,6 +65,8 @@ public class AllowController {
 
         model.addAttribute("notAllowList", notAllowList);
         model.addAttribute("allowList", AllowList);
+        model.addAttribute("allowPageList", memberService.getUserList(page2, type, 1).getPageList());
+        model.addAttribute("notAllowPageList",memberService.getUserList(page1, type, 0).getPageList() );
 
         System.out.println(notAllowList.toString());
         System.out.println(AllowList.toString());
