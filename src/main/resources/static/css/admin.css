@@ -46,7 +46,7 @@ input:focus{
     outline:1px solid #5978b9;
 }
 select{
-    appearance: none;   
+    appearance: none;
     background:url("/img/down-arrow.png") no-repeat 95% 50%/13px auto;
     padding-left:15px;
 }
@@ -71,7 +71,7 @@ input[type="checkbox"] {
     width: 20px;
     line-height:22px;
     margin:0px !important;
-    
+
     background: -webkit-linear-gradient(#ffffff, #ffffff);
     font-size:15px;
     -webkit-appearance:none;
@@ -86,8 +86,8 @@ input[type="checkbox"]:checked:before {
     content: '\2713';
     /*-webkit-margin-start: -12px;       start==left, end==right, before==top, after==bottom*/
     /*-webkit-margin-before:-50px;        top이 안되어서 그냥 relative*/
-    }
-    
+}
+
 
 
 
@@ -186,16 +186,14 @@ input[type="checkbox"]:checked:before {
     padding:0px;
 }
 .guide_select{
-    width:auto;
+    padding-right:30px !important;
 }
 #menu_guide select{
     display:none;
     margin:0px;
-    padding:0px 0px 0px 0px;
     font-size: 18px;
     border:none;
-    overflow:visible;
-    background:url("/img/guide_button.png") no-repeat 100% 50%/11px auto;
+    background:url("/img/guide_button.svg") no-repeat 97% 20%/27px auto;
 }
 #menu_guide select:focus{
     outline:none;
