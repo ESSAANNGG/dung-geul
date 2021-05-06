@@ -67,6 +67,8 @@ public class AllowController {
 
         model.addAttribute("notAllowList", notAllowList);
         model.addAttribute("allowList", AllowList);
+        model.addAttribute("allowPageList", memberService.getUserList(page2, type, 1).getPageList());
+        model.addAttribute("notAllowPageList",memberService.getUserList(page1, type, 0).getPageList() );
 
         model.addAttribute("allowPageList", allowPageResult.getPageList());
         model.addAttribute("notAllowPageList", notAllowPageResult.getPageList());

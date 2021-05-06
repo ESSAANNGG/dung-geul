@@ -103,6 +103,8 @@ public class MemberRepositoryTest {
     @Test
     public void insertAdmin(){
 
+
+
         Member member = Member.builder()
 
                 .user_id("admin")
@@ -113,9 +115,12 @@ public class MemberRepositoryTest {
                 .user_ph3("5065")
                 .user_email("admin@email")
                 .user_emailDomain("com")
+
                 .user_postcode("41521")
                 .user_addr("대구광역시 북구 복현로36길 32-13")
                 .user_addr_details("상세주소입니다아아")
+                .user_type("ADMIN")
+                .user_allow(1)
                 .build();
 
         member.addMemberRole(MemberRole.USER);

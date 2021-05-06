@@ -46,7 +46,7 @@ input:focus{
     outline:1px solid #5978b9;
 }
 select{
-    appearance: none;   
+    appearance: none;
     background:url("/img/down-arrow.png") no-repeat 95% 50%/13px auto;
     padding-left:15px;
 }
@@ -71,7 +71,7 @@ input[type="checkbox"] {
     width: 20px;
     line-height:22px;
     margin:0px !important;
-    
+
     background: -webkit-linear-gradient(#ffffff, #ffffff);
     font-size:15px;
     -webkit-appearance:none;
@@ -86,8 +86,8 @@ input[type="checkbox"]:checked:before {
     content: '\2713';
     /*-webkit-margin-start: -12px;       start==left, end==right, before==top, after==bottom*/
     /*-webkit-margin-before:-50px;        top이 안되어서 그냥 relative*/
-    }
-    
+}
+
 
 
 
@@ -166,7 +166,9 @@ input[type="checkbox"]:checked:before {
 
 
 
-
+.main{
+    visibility: hidden;
+}
 #main_wrap{
     width:100%;
     height:100%;
@@ -174,9 +176,35 @@ input[type="checkbox"]:checked:before {
     background-color: #f0f3fa;
 }
 #menu_guide{
-    width:500px;
+    width:1200px;
     height:40px;
     font-size:18px;
+}
+#menu_guide ul{
+    display:none;
+    margin:0px;
+    padding:0px;
+}
+.guide_select{
+    padding-right:30px !important;
+}
+#menu_guide select{
+    display:none;
+    margin:0px;
+    font-size: 18px;
+    border:none;
+    background:url("/img/guide_button.svg") no-repeat 97% 20%/27px auto;
+}
+#menu_guide select:focus{
+    outline:none;
+}
+#menu_guide ul:first-of-type{
+    display:inline-block;
+}
+#menu_guide select:first-of-type{
+    display:inline-block;
+    margin:0px;
+    padding:0px;
 }
 #menu_guide img{
     width:15px;
@@ -292,12 +320,11 @@ input[type="checkbox"]:checked:before {
     margin:auto;
     left:0;
     right:0;
-    top:3%;
-    width:650px;
-    height:870px;
-    padding:40px;
+    top:7%;
+    width:620px;
+    height:800px;
+    padding:35px;
     margin:auto;
-    padding:40px;
     background-color: #ffffff;
     color:#545c64;
 
@@ -325,15 +352,15 @@ input[type="checkbox"]:checked:before {
 
 }
 .detailBox i{
-    font-size:25px;
+    font-size:23px;
     line-height: 35px;
 }
 .detailBox input{
     width:550px;
 }
 .d_role{
-    width:115px;
-    height:35px;
+    width:110px;
+    height:32px;
     padding:0 12px;
 
     background-color: #3f6ad8;
@@ -343,18 +370,18 @@ input[type="checkbox"]:checked:before {
 }
 .d_tagN{
     display:flex;
-    height:35px;
+    height:30px;
     margin-top:5px;
-    line-height: 35px;
+    line-height: 30px;
     font-weight:400;
-    font-size:14px;
+    font-size:13px;
 }
 .d_cont{
-    height:35px;
+    height:30px;
     font-weight:400;
-    font-size:16px;
-    padding:0 12px;
-    margin-bottom:5px;
+    font-size:13px;
+    padding:0 11px;
+    margin-bottom:4px;
 }
 .d_cont:focus{
     box-shadow: 0px 0px 3px 2px #9cc9f8;
@@ -367,9 +394,10 @@ input[type="checkbox"]:checked:before {
     margin:20px 10px 0px 0px;
     background-color: #3f6ad8;
     color:#ffffff;
+    border:none;
 
     font-weight: 500;
-    font-size:13px;
+    font-size:12px;
 }
 
 
