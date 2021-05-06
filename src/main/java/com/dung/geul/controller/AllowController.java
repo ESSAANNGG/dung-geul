@@ -30,7 +30,7 @@ public class AllowController {
     public void getList(@RequestParam("type") String type ,@RequestParam("page1") int page1, @RequestParam("page2") int page2, Model model){
         //파라미터로 page, size 를 전달하면 자동으로 pageRequestDTO 객체로 수집된다
 
-        // type : USER / ENTERPRISE / STUDENT / STAFF / COUNSELOR
+        // type : USER / ENTERPRISE / STUDENT / STAFF / COUNSELOR / UNIV
         System.out.println("page1 : " + page1 +"\n" +
                 "page2 : " + page2);
         System.out.println("list 컨트롤러 실행");
@@ -43,8 +43,8 @@ public class AllowController {
 
         // allow = 0 : 미인증 목록
         // allow = 1 : 인증 목록
-        List<AllowEtpDTO> notAllowList = memberService.getNotAllowUserList(page1, type, 0).getDtoList();
-        List<AllowEtpDTO> AllowList = memberService.getNotAllowUserList(page2, type, 1).getDtoList();
+        List<AllowEtpDTO> notAllowList = memberService.getUserList(page1, type, 0).getDtoList();
+        List<AllowEtpDTO> AllowList = memberService.getUserList(page2, type, 1).getDtoList();
 
         model.addAttribute("notAllowList", notAllowList);
         model.addAttribute("allowList", AllowList);

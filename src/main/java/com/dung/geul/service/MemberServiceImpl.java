@@ -423,7 +423,7 @@ public class MemberServiceImpl implements MemberService {
 
 
     // 인증 전 회원 목록 가져오기
-    public PageResultDTO<AllowEtpDTO, Object[]> getNotAllowUserList(int page1, String type, int allow) {
+    public PageResultDTO<AllowEtpDTO, Object[]> getUserList(int page1, String type, int allow) {
 
         System.out.println("getList 실행");
 
@@ -437,17 +437,25 @@ public class MemberServiceImpl implements MemberService {
         if(type.equals("USER") || type== null){     // 전체 회원 조회
 
             if(allow == 0) {    // 미인증 목록
-                result = memberRepository.findNotAllowUsers(pageable);
+                result = memberRepository.findByAllowUsers(pageable, 0);
             } else {            // 인증 목록
-                result = memberRepository.findAllowUsers(pageable);
+                result = memberRepository.findByAllowUsers(pageable, 1);
+            }
+
+        } else if(type.equals("UNIV")){ // 교내회원 전체 조회
+
+            if(allow == 0){
+                result = memberRepository.findByAllowUsersNotEnterprise(pageable, 0);
+            } else {
+                result = memberRepository.findByAllowUsersNotEnterprise(pageable, 1);
             }
 
         } else {    // 회원 type별 조회
 
             if(allow == 0){     // 미인증 목록
-                result = memberRepository.findNotAllowUsers(pageable, type.toUpperCase());
+                result = memberRepository.findByAllowUsers(pageable, type.toUpperCase(), 0);
             } else {            // 인증 목록
-                result = memberRepository.findAllowUsers(pageable, type.toUpperCase());
+                result = memberRepository.findByAllowUsers(pageable, type.toUpperCase(), 1);
             }
 
         }
