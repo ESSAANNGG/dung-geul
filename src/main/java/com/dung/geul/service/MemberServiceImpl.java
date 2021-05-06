@@ -177,7 +177,10 @@ public class MemberServiceImpl implements MemberService {
             memberEntity.memberModify(
                     memberDTO.getUser_name(),
                     memberDTO.getUser_ph(),
+                    memberDTO.getUser_ph2(),
+                    memberDTO.getUser_ph3(),
                     memberDTO.getUser_email(),
+                    memberDTO.getUser_emailDomain(),
                     memberDTO.getUser_postcode(),
                     memberDTO.getUser_addr(),
                     memberDTO.getUser_addr_details());
@@ -223,7 +226,10 @@ public class MemberServiceImpl implements MemberService {
             memberEntity.memberModify(
                     enterpriseDTO.getUser_name(),
                     enterpriseDTO.getUser_ph(),
+                    enterpriseDTO.getUser_ph2(),
+                    enterpriseDTO.getUser_ph3(),
                     enterpriseDTO.getUser_email(),
+                    enterpriseDTO.getUser_emailDomain(),
                     enterpriseDTO.getUser_postcode(),
                     enterpriseDTO.getUser_addr(),
                     enterpriseDTO.getUser_addr_details()

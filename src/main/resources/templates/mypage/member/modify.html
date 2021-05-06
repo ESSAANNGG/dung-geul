@@ -163,12 +163,19 @@
                                             <th class="gray bottom-line right-line th-center">이메일</th>
                                             <td class="bottom-line td_padding-left"><input type="text"
                                                                                            id="user_email" th:value="${memberDTO.getUser_email()}">
+                                                <input type="text"
+                                                       id="user_email" th:value="${memberDTO.getUser_emailDomain()}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <th class="gray bottom-line right-line th-center">연락처</th>
-                                            <td class="bottom-line td_padding-left"><input type="text"
-                                                                                           id="user_ph" th:value="${memberDTO.getUser_ph()}"></td>
+                                            <td class="bottom-line td_padding-left">
+                                                <span>
+                                                <input type="text" id="user_ph" th:value="${memberDTO.getUser_ph()}">
+                                                <input type="text" id="user_ph2" th:value="${memberDTO.getUser_ph2()}">
+                                                <input type="text" id="user_ph3" th:value="${memberDTO.getUser_ph3()}">
+                                                </span>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th class="gray bottom-line right-line th-center">주소</th>

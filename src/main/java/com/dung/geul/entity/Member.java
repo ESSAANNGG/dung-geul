@@ -30,8 +30,14 @@ public class Member extends BaseEntity {
     @Column( nullable = false)
     private String user_pw;
 
-    @Column(length = 11, nullable = false)
+    @Column(length = 3, nullable = false)
     private String user_ph;
+
+    @Column(length = 4, nullable = false)
+    private String user_ph2; //=> 휴대폰 번호 나뉘어서 나눔스
+
+    @Column(length = 4, nullable = false)
+    private String user_ph3;
 
     @Column(length = 120)
     private String user_postcode;
@@ -44,6 +50,9 @@ public class Member extends BaseEntity {
 
     @Column(length = 50, nullable = false)
     private String user_email;
+
+    @Column(length = 20, nullable = false)
+    private String user_emailDomain;
 
     @Column(length = 50)
     private String user_dept;  //교직원 부서, 교수 소속계열, 학생소속계열
@@ -73,7 +82,10 @@ public class Member extends BaseEntity {
     // 수정 가능한 항목
     public void memberModify(String user_name,
                              String user_ph,
+                             String user_ph2,
+                             String user_ph3,
                              String user_email,
+                             String user_emailDomain,
                              String user_postcode,
                              String user_addr,
                              String user_addr_details) {
@@ -82,7 +94,10 @@ public class Member extends BaseEntity {
         this.user_addr_details = user_addr_details;
         this.user_name = user_name;
         this.user_ph = user_ph;
+        this.user_ph2 = user_ph2;
+        this.user_ph3 = user_ph3;
         this.user_email = user_email;
+        this.user_emailDomain = user_emailDomain;
     }
 
     public void modUser_pw(String user_pw){
