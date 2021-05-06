@@ -106,28 +106,36 @@ function search_date(main_num,date_select){
 
 
 // 회원 상세정보
-let non_detail=0;
-//.user_list_body안에 있는 체크박스나 select(기업형태)를 클릭했을시 상세정보를 띄우지 않게하기위한 참조변수
-let detail_state=0;
-//상세정보페이지가 켜져있는지 꺼져있는지 확인하기 위한 참조변수;
-
+let non_detail=0;       //.user_list_body안에 있는 체크박스나 select(기업형태)를 클릭했을시 상세정보를 띄우지 않게하기위한 참조변수
+let detail_state=0;     //상세정보페이지가 켜져있는지 꺼져있는지 확인하기 위한 참조변수;
+let detail_per;          //어떤 권한의 사용자인지 확인하는 변수 0=학생 1=교직원 2=상담사 3=기업
 $('.user_list_body :checkbox, .shape').click(function(){
     non_detail=1;
 })
 //체크박스나 select를 클릭하였다면 상세정보를 띄우지않는다.
 //non_detail=0이면 상세정보를 띄워줌
-$('.user_list_body').click(function(e){
-    if(non_detail==1){
-        non_detail=0;
-        return;
-    }
-    else if(non_detail==0){
-        setTimeout("detail_on()",100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
-    }
-});
+function detail(users) {
+        if (non_detail == 1) {
+            non_detail = 0;
+            return;
+        } else if (non_detail == 0) {
+            users_roll=$(users).children('span.role').text();                 //role을 읽어옴
+            setTimeout("detail_on(users_roll)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+        }
+}
 
-function detail_on(){
-    $('.detailBox').css({"visibility":"visible","opacity":"1"});
+function detail_on(users_roll){
+    switch (users_roll) {
+        case '학생': detail_per="detail_student";
+            break;
+        case '교직원': detail_per="detail_staff";
+            break;
+        case '상담사': detail_per="detail_counselor";
+            break;
+        case '기업': case '' : detail_per="detail_enterprise";
+            break;
+    }
+    $('#'+detail_per).css({"visibility":"visible","opacity":"1"});
     $('#wrap,#admin_header').css("opacity","0.4");
     detail_state=1;
 }
@@ -195,7 +203,6 @@ let perLength;
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: JSON.stringify(perList),
-
     })
 }
 
