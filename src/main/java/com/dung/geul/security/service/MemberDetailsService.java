@@ -61,6 +61,8 @@ public class MemberDetailsService implements UserDetailsService {
         authMemberDTO.setUser_name(member.getUser_name());
         authMemberDTO.setUser_email(member.getUser_email());
         authMemberDTO.setUser_ph(member.getUser_ph());
+        authMemberDTO.setUser_ph2(member.getUser_ph());
+        authMemberDTO.setUser_ph3(member.getUser_ph());
         authMemberDTO.setUser_postcode(member.getUser_postcode());
         authMemberDTO.setUser_addr(member.getUser_addr());
         authMemberDTO.setUser_addr_details(member.getUser_addr_details());
