@@ -141,15 +141,18 @@ let perLength;
         }
         alert(perList);//디버깅 용도
         if(p==1){
-            p="승인";
+            p="ok";
         }
         else if(p==2){
-            p="거절";
+            p="no";
         }
         $.ajax({
-            url: "allow/member/read?user_id=user_id]&result=["+p+"]",
+            url: "/allow/member/read?result="+p,
             type:"POST",
-            data: {"user_Id" :perList}
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(perList),
+
     })
 }
 
@@ -182,15 +185,15 @@ let perLength;
                     }
 
                     if(p==1){
-                        p="승인";
+                        p="ok";
                      }
                     else if(p==2){
-                        p="거절";
+                        p="no";
                     }
 
                     $.ajax({
-                        url: "allow/member/read?user_id=user_id]&result=["+p+"]",
+                        url: "/allow/member/read?result=["+p+"]",
                         type:"POST",
-                        data: {"corp": E_perList}
+                        data: E_perList
                     })
                 }

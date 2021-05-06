@@ -25,19 +25,27 @@ public class AllowRestController {   // 권한 관리 컨트롤러
     @Autowired
     MemberServiceImpl memberService;
 
+  //  "allow/member/read?user_id=user_id]&result=["+p+"]"
+
     // 기업 인증 승인
     @PostMapping("/etp/read")
-    public ResponseEntity etpAuth(@RequestBody EnterpriseDTO etpDTO){
+    public ResponseEntity etpAuth(@RequestBody EnterpriseDTO[] etpDTO){
         System.out.println("controller 실행 user_id : " + etpDTO.toString());
+
+        System.out.println(memberService.authEnterprise(etpDTO));
 
         return memberService.authEnterprise(etpDTO);
     }
 
     // 교내 회원 승인
     @PostMapping("/member/read")
-    public ResponseEntity memberAuth(@RequestParam(value="checkList[]")String[] userIds, @RequestParam("result") String result){
+    public ResponseEntity memberAuth(@RequestBody List<String> userIds, @RequestParam("result") String result){
 
         System.out.println("controller 실행");
+
+        System.out.println("userIds = " + userIds + "result" + result);
+
+        System.out.println(memberService.authMember(userIds, result));
 
         return memberService.authMember(userIds, result);
 
