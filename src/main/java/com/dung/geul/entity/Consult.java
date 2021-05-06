@@ -30,4 +30,11 @@ public class Consult extends BaseEntity {
     @Column(length = 50, nullable = false)
     private String Consult_detail_field;
 
+    public void updatefiled(String consult_field) {
+        this.Consult_field = consult_field;
+    }
+
+    public void updatedetail(String consult_detail_field) {
+        this.Consult_detail_field= consult_detail_field;
+    }
 }

@@ -55,13 +55,13 @@ public class ConsultRepositoryTest {
 //    public void testList(){
 //        PageRequestDTO pageRequestDTO = new PageRequestDTO();
 //
-//        PageResultDTO<ConsultDTO, Object[]> result = consultService.getList(pageRequestDTO);
+//        PageResultDTO<ConsultDTO, Consult> result = consultService.getList(pageRequestDTO);
 //
 //        for (ConsultDTO consultDTO : result.getDtoList()) {
 //            System.out.println(consultDTO);
 //        }
 //    }
-//
+
 //    @Test
 //    public void Get(){
 //        Long cno = 50L;

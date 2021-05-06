@@ -5,14 +5,20 @@ import com.dung.geul.dto.ConsultDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Consult;
-import com.dung.geul.entity.Member;
-
-import static org.reflections.util.ConfigurationBuilder.build;
 
 public interface ConsultService {
 
 //    ConsultDTO read(Long cno_num);
-//    PageResultDTO<ConsultDTO, Consult> getList(PageRequestDTO pageRequestDTO);
+    PageResultDTO<ConsultDTO, Consult> getList(PageRequestDTO pageRequestDTO);
+
+    ConsultDTO read(Long cno_num);
+
+    void remove(Long cno_num);
+
+    void modify(ConsultDTO consultDTO);
+
+
+
     Long register(ConsultDTO consultDTO);
 
     default Consult dtoToEntity(ConsultDTO consultDTO){
