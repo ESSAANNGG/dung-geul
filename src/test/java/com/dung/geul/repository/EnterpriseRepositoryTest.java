@@ -48,14 +48,17 @@ public class EnterpriseRepositoryTest {
             Member m = Member.builder()
                     .user_id("etpmember" + i)
                     .user_pw(pw)
-                    .user_ph("01022223333")
+                    .user_ph("010")
+                    .user_ph2("2063")
+                    .user_ph3("5065")
                     .user_name("기업담당자" + i)
                     .user_type("ENTERPRISE")
                     .user_allow(0)
                     .user_postcode("45645")
                     .user_addr("대구시 북구 복현동 424-1")
                     .user_addr_details("초코쿠키2 203호")
-                    .user_email("etpmember" + i + "@naver.com")
+                    .user_email("etpmember" + i)
+                    .user_emailDomain("naver.com")
                     .build();
 
             m.addMemberRole(MemberRole.USER);

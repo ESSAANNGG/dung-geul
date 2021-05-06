@@ -28,12 +28,6 @@ public class AllowController {
     @Autowired
     private MemberServiceImpl memberService;
 
-    // 관리자만
-    @GetMapping("/")
-    public String admin(@AuthenticationPrincipal AuthMemberDTO member){
-        if(member.getUser_id().equals("admin")) return "/admin/admin";
-        else return "/";
-    }
 
     // 전체 회원 인증 리스트 페이지
     @GetMapping("/admin")

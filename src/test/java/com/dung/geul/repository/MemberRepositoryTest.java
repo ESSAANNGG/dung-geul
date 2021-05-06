@@ -55,11 +55,14 @@ public class MemberRepositoryTest {
                     .user_id("userID" + i)
                     .user_pw(pw)
                     .user_name("123")
-                    .user_ph("01011112222")
+                    .user_ph("010")
+                    .user_ph2("1234")
+                    .user_ph3("3333")
                     .user_postcode("23445")
                     .user_addr("복현동123 주소주")
                     .user_addr_details("상세주소 상세주소")
-                    .user_email("123@aaa.bbb")
+                    .user_email("123")
+                    .user_emailDomain("naver.com")
                     .user_addr("userAddress")
                     .user_dept("컴퓨터정보계열")
                     .user_class("WD-A")
@@ -68,7 +71,6 @@ public class MemberRepositoryTest {
                     .build();
 
             member.addMemberRole(MemberRole.USER);
-            member.addMemberRole(MemberRole.STUDENT);
 
             memberRepository.save(member);
 

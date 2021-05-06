@@ -29,6 +29,9 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     @GetMapping("/before/read")
     public String mypageBeforeRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+        if(authMemberDTO.getUser_id().equals("admin")){
+            return "redirect:/admin/admin";
+        }
         if(authMemberDTO.getUser_type().equals("ENTERPRISE")){
             return "redirect:/mypage/etp/read";
         } else {
