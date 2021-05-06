@@ -10,6 +10,8 @@
     <title>Document</title>
     <script src="/js/jquery-3.5.1.min.js"></script>
     <script src="/js/selectAll1.js"></script>
+    <!-- <script src="js/coun-modal.js"></script> -->
+    <script src="https://kit.fontawesome.com/4f031e5608.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- Header -->
@@ -20,8 +22,9 @@
     <div th:replace="layout/layout :: nav"/>
 </header>
 <div id="main"></div>
-    <!-- side -->
-    <div class="menu2">
+<!-- side -->
+<div id="sang-main-wrap" class="d_width">
+<div class="menu2">
         <div id="bar">
             <h2>상담</h2>
             <ul id="menu_bar">
@@ -33,114 +36,247 @@
                 </li>
             </ul>
         </div> <!-- bar -->
-    </div> <!-- menu -->
 </div>
-<div id="sang-main-wrap">
     <div id="sang-wrap">
         <div id="sang-con">
-            <table class="type07">
-                <thead>
-                <tr>
-                    <th scope="cols">순번</th>
-                    <th scope="cols">상담사명</th>
-                    <th scope="cols">상담 분야</th>
-                    <th scope="cols">세부 분류</th>
-                    <th scope="cols">신청 일시</th>
-                    <th scope="cols">상태</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>정혜리</td>
-                    <td>진로 상담</td>
-                    <td><a href="#">진로 계획 세우기</a></td>
-                    <td>21.04.16 18:00</td>
-                    <td>승인 완료</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>정혜리</td>
-                    <td>진로 상담</td>
-                    <td><a href="#">진로 계획 세우기</a></td>
-                    <td>21.04.16 18:00</td>
-                    <td>승인 완료</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>정혜리</td>
-                    <td>진로 상담</td>
-                    <td><a href="#">진로 계획 세우기</a></td>
-                    <td>21.04.16 18:00</td>
-                    <td>승인 완료</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>정혜리</td>
-                    <td>진로 상담</td>
-                    <td><a href="#">진로 계획 세우기</a></td>
-                    <td>21.04.16 18:00</td>
-                    <td>승인 완료</td>
-                </tr>
-                <tr>
-                    <th scope="row">8</th>
-                    <td>정혜리</td>
-                    <td>진로 상담</td>
-                    <td><a href="#">진로 계획 세우기</a></td>
-                    <td>21.04.16 18:00</td>
-                    <td>승인 대기 중
-                        <input class="allcheck"  type="checkbox">
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">8</th>
-                    <td>정혜리</td>
-                    <td>진로 상담</td>
-                    <td><a href="#">진로 계획 세우기</a></td>
-                    <td>21.04.16 18:00</td>
-                    <td>승인 대기 중
-                        <input class="allcheck"  type="checkbox">
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">7</th>
-                    <td >정혜리</td>
-                    <td >진로 상담</td>
-                    <td ><a href="#">진로 계획 세우기</a></td>
-                    <td >21.04.16 18:00</td>
-                    <td >승인 대기 중
-                        <input class="allcheck" type="checkbox" >
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">8</th>
-                    <td>정혜리</td>
-                    <td>진로 상담</td>
-                    <td><a href="#">진로 계획 세우기</a></td>
-                    <td>21.04.16 18:00</td>
-                    <td>승인 대기 중
-                        <input class="allcheck"  type="checkbox">
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">8</th>
-                    <td>정혜리</td>
-                    <td>진로 상담</td>
-                    <td><a href="#">진로 계획 세우기</a></td>
-                    <td>21.04.16 18:00</td>
-                    <td>승인 대기 중
-                        <input class="allcheck"  type="checkbox">
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            <div id="selectAll-wrap">
-                <input type="checkbox" name="animal" value="selectall" onclick='selectAll(this)'/>
-                <b>모두 체크</b>
-                <button class="btn-q" id="delete" style="margin-left: 10px; width: 100px;">상담 취소</button>
+            <div id="consss">
+                <div id="list-area">
+                    <div id="coun-success" class="coun-list">
+                        <span id="success-icon">
+                            <a href="#" id="success" class="sty" >승인된 목록</a></span>
+                    </div>
+                    <div id="coun-refuse" class="coun-list">
+                        <span id="refuse-icon"><a href="#" class="sty" id="refuse">거절된 목록</a></span>
+                    </div>
+                </div>
+            </div> <!-- list-area -->
+            <div id="success-on">
+                <table class="type07">
+                    <thead>
+                    <tr>
+                        <th scope="cols">순번</th>
+                        <th scope="cols">상담사명</th>
+                        <th scope="cols">상담 분야</th>
+                        <th scope="cols">세부 분류</th>
+                        <th scope="cols">신청 일시</th>
+                        <th scope="cols">상태</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="ok">
+                        <th scope="row">4</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#" class="ok">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td>승인 완료</td>
+                    </tr>
+                    <tr class="ok">
+                        <th scope="row">4</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#" class="ok">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td>승인 완료</td>
+                    </tr>
+                    <tr class="ok">
+                        <th scope="row">4</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#" class="ok">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td>승인 완료</td>
+                    </tr>
+                    <tr class="ok">
+                        <th scope="row">4</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#" class="ok">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td>승인 완료</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td>승인 대기 중
+                            <input class="allcheck"  type="checkbox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td>승인 대기 중
+                            <input class="allcheck"  type="checkbox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td >정혜리</td>
+                        <td >진로 상담</td>
+                        <td ><a href="#">진로 계획 세우기</a></td>
+                        <td >21.04.16 18:00</td>
+                        <td >승인 대기 중
+                            <input class="allcheck" type="checkbox" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td>승인 대기 중
+                            <input class="allcheck"  type="checkbox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td>승인 대기 중
+                            <input class="allcheck"  type="checkbox">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-
-
+            <!-- 거절된 목록 -->
+            <div id="refuse-on">
+                <table class="type07">
+                    <thead>
+                    <tr>
+                        <th scope="cols">순번</th>
+                        <th scope="cols">상담사명</th>
+                        <th scope="cols">상담 분야</th>
+                        <th scope="cols">세부 분류</th>
+                        <th scope="cols">신청 일시</th>
+                        <th scope="cols">상태</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="ok">
+                        <th scope="row">4</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#" class="ok">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td><a href="#" class="me-ok">거절 사유</a></td>
+                    </tr>
+                    <tr class="ok">
+                        <th scope="row">4</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#" class="ok">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td><a href="#" class="me-ok">거절 사유</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td >보류 중
+                            <input class="allcheck" type="checkbox">
+                        </td>
+                    </tr>
+                    <tr class="ok">
+                        <th scope="row">4</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#" class="ok">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td><a href="#" class="me-ok">거절 사유</a></td>
+                    </tr>
+                    <tr class="ok">
+                        <th scope="row">4</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#" class="ok">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td><a href="#" class="me-ok">거절 사유</a></td>
+                    </tr>
+                    <tr class="ok">
+                        <th scope="row">4</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#" class="ok">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td><a href="#" class="me-ok">거절 사유</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td >정혜리</td>
+                        <td >진로 상담</td>
+                        <td ><a href="#">진로 계획 세우기</a></td>
+                        <td >21.04.16 18:00</td>
+                        <td >보류 중
+                            <input class="allcheck" type="checkbox" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td>보류 중
+                            <input class="allcheck"  type="checkbox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>정혜리</td>
+                        <td>진로 상담</td>
+                        <td><a href="#">진로 계획 세우기</a></td>
+                        <td>21.04.16 18:00</td>
+                        <td>보류 중
+                            <input class="allcheck"  type="checkbox">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="selectAll-wrap">
+                <button class="btn-q" style="width: 110px;"><input type="checkbox" name="animal" value="selectall" onclick='selectAll(this)'>전체 선택</button>
+                <button class="btn-q" id="delete" style="padding: 16px; width: 110px;">상담 취소</button>
+            </div>
+            <!-- modal -->
+            <div class="window"></div>
+            <div class="window-content">
+                <div class="modal">
+                    <div class="coun-refuse">
+                        <h3>거절 사유<p id="close" class="down" style="
+                        margin: 0 20px 0 0;
+                        float: right;"></p></h3>
+                    </div>
+                    <div class="coun-tit">
+                        <p>일시</p>
+                        <p>상담 내용</p>
+                        <p>신청자</p>
+                    </div>
+                    <div class="coun-text">
+                        <p>2021-04-23</p>
+                        <p>진로 계획 세우기</p>
+                        <p>박수진미란</p>
+                    </div>
+                    <div class="detail-text">
+                        <p>상담사의 상담 시간 불일치로 취소되었습니다.</p>
+                    </div>
+                    <div class="btn-r">
+                        <span class="coun-delete" id="coun-delete">내역 삭제</span>
+                        <span class="coun-close" id="coun-close">닫기</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

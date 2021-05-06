@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Data
 @ToString
@@ -21,6 +22,10 @@ public class MemberDTO {
 
     private String user_ph;
 
+    private String user_ph2;
+
+    private String user_ph3;
+
     private String user_postcode;
 
     private String user_addr;
@@ -29,6 +34,7 @@ public class MemberDTO {
 
     private String user_email;
 
+    private String user_emailDomain;
     //
 
     private String user_dept;  // 교수 소속계열, 학생소속계열
@@ -40,6 +46,7 @@ public class MemberDTO {
     private String user_job; //직장
 
     private String role;
+
 
 
 

@@ -7,6 +7,9 @@ import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
 
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
 public interface MemberService {
 
     // 교내회원 회원가입을 위해 dto -> entity
@@ -17,10 +20,13 @@ public interface MemberService {
                 .user_name(memberDTO.getUser_name())
                 .user_pw(pw)
                 .user_ph(memberDTO.getUser_ph())
+                .user_ph2(memberDTO.getUser_ph2())
+                .user_ph3(memberDTO.getUser_ph3())
                 .user_postcode(memberDTO.getUser_postcode())
                 .user_addr(memberDTO.getUser_addr())
                 .user_addr_details(memberDTO.getUser_addr_details())
                 .user_email(memberDTO.getUser_email())
+                .user_emailDomain(memberDTO.getUser_emailDomain())
                 .user_type(memberDTO.getRole())
                 .build();
 
@@ -94,11 +100,31 @@ public interface MemberService {
             allowDTO.setUser_name(m.getUser_name());
         } else{             // 기업회원이면
             allowDTO.setEtp_name(e.getEtp_name());
+            allowDTO.setUser_name(e.getEtp_name());
             allowDTO.setEtp_num(e.getEtp_num());
         }
 
         allowDTO.setUser_email(m.getUser_email());
-        allowDTO.setUser_regdate(m.getRegDate());
+        allowDTO.setUser_ph(m.getUser_ph());
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm");
+        String RegDateString = m.getRegDate().format(dateTimeFormatter);
+
+        String user_type;
+
+        if(m.getUser_type().equals("STUDENT")) {
+            user_type = "학생";
+        } else if (m.getUser_type().equals("COUNSELOR")){
+            user_type = "상담사";
+        } else if(m.getUser_type().equals("ENTERPRISE")){
+            user_type = "기업";
+        } else {
+            user_type = "교직원";
+        }
+
+        allowDTO.setUser_type(user_type);
+        allowDTO.setUser_regdate(RegDateString);
+
 
         return allowDTO;
     }

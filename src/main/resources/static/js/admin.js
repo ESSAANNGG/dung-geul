@@ -1,76 +1,251 @@
-var menu = document.getElementsByClassName("menubox_body_menu");
-var sub = document.getElementsByClassName("menubox_body_sub");
-var down = document.getElementsByClassName("fas fa-chevron-down");
-var up = document.getElementsByClassName("fas fa-chevron-up");
-var menubox = document.getElementsByClassName("menubox");
+//메뉴 클릭시
+let menubox_li=document.getElementsByClassName("menubox_li");
+let main=document.getElementsByClassName("main");
+//처음은 맨 윗메뉴를 보여준다
+let menuLength=$('.menubox_li').length;
+let menu;
+window.onload = function () {
+    menubox_li[0].style.backgroundColor="#30384b";
+    main[0].style.visibility="visible";
+    //css로 일일히 메뉴를 닫기 싫어서 js로 닫아줌
+    MenuOff();
+}
+//전체 상세메뉴 닫기
+function MenuOff() {
+    for (i = 0; i < menuLength; i++) {
+        menu = ("main" + String(i + 1));
+        $('.' + menu).css("visibility", "hidden");
+    }
+}
+//메뉴 클릭시
+let menu_index;
+let select_detail_menu;
+let detail_menu;
+$('.menubox_li').click(function(){
+    menu_index=$(this).index();                               //클래스 순번 받아오기
+    $('.menubox_li').attr('style','backgroundColor: #5978b9');//전체색상 기본색으로 변경
+    menubox_li[menu_index].style.backgroundColor="#30384b";   //클릭한 메뉴 색상변경
+    $('.main').css("visibility","hidden");                    //전체 메뉴 닫기
+    main[menu_index].style.visibility="visible";              //클릭한 메뉴 열기
+
+    MenuOff();                                          //상세 메뉴 열기  1.전체 상세메뉴 닫기
+    menu=("main"+String((menu_index+1)));              //상세 메뉴 열기  2.상세메뉴클래스를참조하기 위해 변수를 만든다 ex)main1,main2
+    $('.'+menu).css("visibility","visible");           //상세 메뉴 열기  3.해당메뉴 visible;
+
+    select_detail_menu=document.getElementsByClassName('guide_select')[menu_index].selectedIndex; //상세메뉴중 뭐를 클릭했는지 가져오기(클릭안했으니 0)
+    detail_menu=document.getElementsByClassName(menu)[select_detail_menu];                                  //메뉴중 상세메뉴 번호 저장
+    $('.'+menu).css("display","none");                                                                      //일단 해당 메뉴의 상세메뉴 전체 없애기
+    detail_menu.style.display="block";                                                                      //해당 상세메뉴 보여주기
+     
+    //menu_title 변경
+    let menu_title=document.getElementById("menu_title");
+    menu_title.innerHTML=("<h3>"+menubox_li[menu_index].innerText+"</h3>");        //h3태그는 사라져서 innerhtml을 하니 아이콘까지 같이 가져옴 그래서 text+h3태그를 innerhtml로 저장
+    
+    //menu_guide 변경
+    $('.guide').css("display","none");                                               //전체 가이드 메뉴 안보이게
+    $('.guide:eq(' + menu_index + ')').css("display","inline-block");                //해당 가이드 메뉴 가이드에 띄움
+
+});
+
+//menu_guide 변경할시 상세 메뉴 변경
+$('.guide_select').change(function(){
+    select_detail_menu=document.getElementsByClassName('guide_select')[menu_index].selectedIndex;   //상세메뉴중 뭐를 클릭했는지 가져오기
+    detail_menu=document.getElementsByClassName(menu)[select_detail_menu];                                    //메뉴중 상세메뉴 번호 저장
+    $('.'+menu).css("display","none");          //일단 해당 메뉴의 상세메뉴 전체 없애기;
+    detail_menu.style.display="block";          //해당 상세메뉴 보여주기;
+})
 
 
-//메뉴가 열려있는지 닫혀있는지 확인하는 변수
-//메뉴의 수만큼 변수의 길이를 조절
-var flagArr =[];
-flagArr.length=menu.length;   
 
 
-//전체 배열값에 닫혀있다는 뜻인 0값을 줌  
-//열려있으면 1
-for(let i=0; i<flagArr.length; i++){
-    flagArr[i]=0;
+
+
+
+
+//main2_1&&main2_2 date
+//search_date_num가 1==오늘 2==이번주 3==이번달 4==전체
+let date_range=document.getElementsByClassName('user_search_date');
+function search_date(main_num,date_select){
+    let now=new Date();
+    let week=new Date();
+    let month=new Date();
+    let enter=new Date(1);  //파라미터를 한개만 전송하면 1970년도로 자동설정
+    let dateVar;
+    week.setDate(now.getDate()-7);
+    month.setMonth(now.getMonth()-1);
+    if(main_num=="main2_user") {
+        switch (date_select) {
+            case '오늘': dateVar=now;
+                break;
+            case '이번주': dateVar=week;
+                break;
+            case '이번달': dateVar=month;
+                break;
+            case '전체': dateVar=enter;
+                break;
+        }
+        date_range[0].value = dateVar.toISOString().substring(0, 10);
+        date_range[1].value = now.toISOString().substring(0, 10);
+    }
+    else if(main_num=="main2_corp"){
+        switch (date_select) {
+            case '오늘': dateVar=now;
+                break;
+            case '이번주': dateVar=week;
+                break;
+            case '이번달': dateVar=month;
+                break;
+            case '전체': dateVar=enter;
+                break;
+        }
+        date_range[2].value = dateVar.toISOString().substring(0, 10);
+        date_range[3].value = now.toISOString().substring(0, 10);
+    }
+
 }
 
-let menuNum;
 
-//몇번째 메뉴를 클릭한건지 menuNum에 담아옴
-//첫번쨰 메뉴가 0 두번쨰 메뉴가 1...
-function sideMenu(menuNum){
+// 회원 상세정보
+let non_detail=0;       //.user_list_body안에 있는 체크박스나 select(기업형태)를 클릭했을시 상세정보를 띄우지 않게하기위한 참조변수
+let detail_state=0;     //상세정보페이지가 켜져있는지 꺼져있는지 확인하기 위한 참조변수;
+let detail_per;          //어떤 권한의 사용자인지 확인하는 변수 0=학생 1=교직원 2=상담사 3=기업
+$('.user_list_body :checkbox, .shape').click(function(){
+    non_detail=1;
+})
+//체크박스나 select를 클릭하였다면 상세정보를 띄우지않는다.
+//non_detail=0이면 상세정보를 띄워줌
+function detail(users) {
+        if (non_detail == 1) {
+            non_detail = 0;
+            return;
+        } else if (non_detail == 0) {
+            users_roll=$(users).children('span.role').text();                 //role을 읽어옴
+            setTimeout("detail_on(users_roll)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+        }
+}
 
-    //flag가 0이면 닫혀있는것. 열어주자
-     if (flagArr[menuNum]== 0){  
+function detail_on(users_roll){
+    switch (users_roll) {
+        case '학생': detail_per="detail_student";
+            break;
+        case '교직원': detail_per="detail_staff";
+            break;
+        case '상담사': detail_per="detail_counselor";
+            break;
+        case '기업': case '' : detail_per="detail_enterprise";
+            break;
+    }
+    $('#'+detail_per).css({"visibility":"visible","opacity":"1"});
+    $('#wrap,#admin_header').css("opacity","0.4");
+    detail_state=1;
+}
 
-            //메뉴 전체css변경
-            $('.menubox_body_menu').css({'background-color':'#353535'});
-            $(".menubox_body_sub").css({'height':'0px'});
-            $(".fas fa-chevron-down").css({'display':'block'});
-            $(".fas fa-chevron-up").css({'display':'none'});
+//상세정보를 닫음
+$('#shadow_box').click(function(e){
+    if(detail_state==1) {
+        $('.detailBox').css({"visibility": "hidden", "opacity": "0"});
+        $('#wrap,#admin_header').css("opacity", "1");
+        detail_state = 0;
+    }
+})
 
-            //on시킨 메뉴만 열어주는 css적용
-            menu[menuNum].style.backgroundColor="#01b9ff";
-            sub[menuNum].style.height="170px";
-            down[menuNum].style.display="none";
-            up[menuNum].style.display="block";
-        
-            for(let i=0; i<flagArr.length; i++){
-                flagArr[i]=0;
-            }
-            flagArr[menuNum]=1;
+
+
+
+//게시판 전체 체크하기
+let check;
+function checkAll(checkI) {
+    let checkName=(checkI.name);                                      //체크한 부모체크박스의 이름을 가져옴 ex)2_1_checkH
+    check=(checkName.substr(0,9));                                //부모체크박스의 h를 떼어 자식name으로 변경
+    if($('input[name='+checkName+']').is(':checked')==true){          //자식 checkBox에 check적용
+        $('input[name='+check+']').prop("checked",true);
+    }
+    else if($('input[name='+checkName+']').is(':checked')==false) {
+        $('input[name=' + check + ']').prop("checked", false);
+    }
+}
+
+
+
+
+
+
+//회원가입승인 허가
+let p; //승인인지 거절인지 html으로부터 받아옴
+let perList=[]; //userid값을 담아넣는 배열
+let userid //userid값을 하나하나 담음
+let perLength;
+    function permission_ajax(p){
+        perList=[]; //배열이 계속 쌓이는걸 방지 (초기화)
+        //체크한 유저목록을 가져와 perList에 담음
+        perLength=$('input[name="2_2_check"]:checked').length;    //체크 수만큼 반복
+        for(j=0; j<perLength; j++){
+            let perRemove=($("input[name='2_2_check']").index($('input[name="2_2_check"]:checked')));     //회원가입승인 전체 체크중 체크된것들의 인덱스를 가져옴
+            
+            userid=$('.user_list:eq(1) .user_list_body:eq(' + perRemove + ') .username').text();                    //아이디값을 읽어옴
+            perList.push(userid);                                                                                    //전달할 배열에 값 삽입
+            ($('input[name="2_2_check"]').eq(perRemove)).prop("checked",false);                           //해당하는 인덱스의 체크 해제
+            $('input[name="2_2_checkH"]').prop("checked",false);                                          //헤드checkBox 체크 해제
         }
 
-            //flag가 1이면 열려있는것. 닫아주자
-        else if (flagArr[menuNum] == 1){  
-        
-            menu[menuNum].style.backgroundColor="#353535";
-            sub[menuNum].style.height="0px";
-            down[menuNum].style.display="block";
-            up[menuNum].style.display="none";
-        
-            flagArr[menuNum]=0;
-            }
+        if(p==1){
+            p="ok";
+        }
+        else if(p==2){
+            p="no";
+        }
+        else if(p==3){
+            p="delete";
+        }
+        $.ajax({
+            url: "/allow/member/read?result="+p,
+            type:"POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(perList),
+    })
 }
 
+//기업회원가입 승인
+                let userShape;
+                let E_perList=[];
+                let E_perLength;
+                let alertIndex;
+                function E_permission_ajax(p){
+                    E_perList=[];           //배열이 계속 쌓이는걸 방지 (초기화)
+                                            //체크한 유저목록을 가져와 perList에 담음
+                    alertIndex=0;           //기업형태를 선택해주세요 알림을 한번 띄워줬다면 더 띄우지 않게하기 위한 참조변수
+                    E_perLength=$('input[name="2_4_check"]:checked').length;    //체크 수만큼 반복
+                    for(j=0; j<E_perLength; j++){
+                        let E_perRemove=($("input[name='2_4_check']").index($('input[name="2_4_check"]:checked')));            //회원가입승인 전체 체크중 체크된것들의 인덱스의 첫번째 가져옴
+                        userid=$('.user_list:eq(3) .user_list_body:eq(' + E_perRemove + ') .username').text();                 //아이디값을 읽어옴
+                        userShape=$('.shapeSelect:eq(' + E_perRemove + ')').val();                                             // 기업형태를 읽어옴
+                        if(userShape==""){                                                   //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
+                            if(alertIndex==0) {
+                                alert("기업형태를 선택해주세요");                                                                  //알림을 띄워주지않았다면 띄워주고 띄워줬다면 더 띄우지 않음
+                                alertIndex = 1;
+                            }
+                        }
+                        else{                                                                                 //기업형태를 선택하였다면 리스트에 추가
+                            E_perList.push("{user_Id:" + userid + ", shape:" + userShape + "}");                                       //전달할 배열에 값 삽입
+                        }
+                        ($('input[name="2_4_check"]').eq(E_perRemove)).prop("checked",false);                                  //해당하는 인덱스의 체크 해제
+                        $('input[name="2_4_checkH"]').prop("checked",false);                                                   //헤드checkBox 체크 해제
+                    }
 
+                    if(p==1){
+                        p="ok";
+                     }
+                    else if(p==2){
+                        p="no";
+                    }
+                    else if(p==3){
+                        p="delete"
+                    }
 
-
-
-//메인화면 교체
-let main = document.getElementsByClassName("main");
-let mainNum;
-
-//main클래스의 첫번째가 뭔진 모르겠지만 이미 존재함
-//그래서 [2]부터 적용
-
-function mainChange(mainNum){
-    [...main].forEach(e=>e.style.display="none");
-    document.getElementsByClassName("main")[mainNum].style.display="block";
-}
-
-
-
+                    $.ajax({
+                        url: "/allow/member/read?result=["+p+"]",
+                        type:"POST",
+                        data: E_perList
+                    })
+                }

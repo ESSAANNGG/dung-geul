@@ -56,6 +56,33 @@
             background-color: #1a508b;
         }
 
+        /* 검색 처리 */
+        .input-group {
+            padding: 10px;
+        }
+
+        /* 검색조건 선택창 */
+        .custom-select {
+            border-radius: 0;
+            width: 50%;
+            height: 35px;
+            line-height: 20px;
+        }
+
+        /* 검색 조건 입력창 */
+        .form-control {
+            border-radius: 5px;
+            width: 50%;
+            height: 35px;
+            margin-top: 10px;
+        }
+
+        /* 버튼 */
+        .btn-search, .btn-clear {
+            font-size: 15px;
+        }
+        
+
     </style>
 
 
@@ -117,22 +144,24 @@
                             <form action="/center-information/notice_board" method="get" id="searchForm">
                                 <div class="input-group">
                                     <input type="hidden" name="page" value = "1">
-                                    <div class="input-group-prepend">
+                                    <span class="input-group-prepend">
                                         <select class="custom-select" name="type">
-                                            <option th:selected="${pageRequestDTO.type == null}">-------</option>
                                             <option value="t" th:selected="${pageRequestDTO.type =='t'}" >제목</option>
                                             <option value="c" th:selected="${pageRequestDTO.type =='c'}"  >내용</option>
                                             <option value="tc"  th:selected="${pageRequestDTO.type =='tc'}" >제목 + 내용</option>
                                         </select>
-                                    </div>
-                                    <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}">
-                                    <div class="input-group-append" id="button-addon4">
-                                        <button class="btn btn-outline-secondary btn-search" type="button">검색</button>
-                                        <button class="btn btn-outline-secondary btn-clear" type="button">초기화</button>
-                                    </div>
+                                    </span>
+
+                                    <span>
+                                        <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}">
+                                
+                                        <button class="btn-search" type="button">검색</button>
+                                        <button class="btn-clear" type="button">초기화</button>
+                                    </span>
+                                    
                                 </div>
                             </form>
-
+                        <!-- end 검색 조건 -->
 
                             <!-- 게시판 테이블 -->
                             <table>
@@ -151,14 +180,14 @@
                                             </a>
                                             </th>
                                         <td>[[${dto.title}]]</td>
-                                        <td>[[${dto.b}]]</td>
+                                        <td>관리자[[${dto.b}]]</td>
                                         <td>YYYY-DD-MM</td>
                                     </tr>
                                 </tdoby>
                             </table>
 
                             <!-- 목록 데이터 페이지 처리 -->
-                            <div class="page-ul-div">
+                            <div class="list-data-page">
                                 <ul class="page-ul">
                                     <li class="page-li " th:if="${result.prev}">
                                         <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.start -1})}" tabindex="-1">이전</a>

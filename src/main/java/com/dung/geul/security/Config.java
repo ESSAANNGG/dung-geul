@@ -31,12 +31,14 @@ public class Config extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         // 권한별 주소 접근 설정
+
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/application/cv/**").hasRole("STUDENT")
-                .antMatchers("/mypage/**").hasRole("USER")
+//                .antMatchers("/application/cv/**").hasRole("STUDENT")
+//                .antMatchers("/mypage/**").hasRole("USER")
 //                .antMatchers("/allow/**").hasRole("ADMIN")
                 .anyRequest().permitAll();
+
 
         // 로그인 설정
         http.formLogin()

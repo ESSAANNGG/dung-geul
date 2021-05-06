@@ -75,7 +75,39 @@
         </select>
 
     <label for="user_ph">휴대폰 번호</label>
-    <input type="tel" id="user_ph" name="user_ph" required />
+    <label for="user_ph">휴대폰 번호</label>
+        <input
+          style="text-align: center; width: 20%"
+          class="sign_ph"
+          type="tel"
+          id="user_ph"
+          name="user_ph"
+          value="010"
+          required
+          readonly
+        />
+        <span>-</span>
+        <input
+          class="sign_ph"
+          style="text-align: center; width: 20%"
+          type="text"
+          onKeyup="award_year()"
+          maxlength="4"
+          id="user_ph2"
+          name="user_ph2"
+          required
+        />
+        <span>-</span>
+        <input
+          class="sign_ph"
+          style="text-align: center; width: 20%"
+          type="text"
+          onKeyup="award_year()"
+          maxlength="4"
+          id="user_ph3"
+          name="user_ph3"
+          required
+        />
 
     <!-- 검색 기능-->
     <label for="addr">주소찾기</label>
@@ -114,5 +146,10 @@
 <script src="/js/check-id.js"></script>
 <script src="/js/check-pw.js"></script>
 <script src="/js/emailSelect.js"></script>
+<script>
+      function award_year() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+      }
+    </script>
 </body>
 </html>

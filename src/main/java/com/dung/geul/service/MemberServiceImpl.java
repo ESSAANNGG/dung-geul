@@ -5,6 +5,8 @@ import com.dung.geul.dto.*;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
+import com.dung.geul.handler.ErrorHttpResponse;
+import com.dung.geul.handler.SuccessHttpResponse;
 import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.MemberRepository;
 
@@ -12,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -90,45 +96,66 @@ public class MemberServiceImpl implements MemberService {
         return result;
     }
 
-    //기업 인증
+    //기업 인증     1: 승인 성공,   2: 거절 성공,   -1 : 오류
     @Transactional
-    public int authEnterprise(EnterpriseDTO etpDTO) {
+    public ResponseEntity authEnterprise(EnterpriseDTO[] etpDTO) {
         System.out.println("memberServiceImpl - authEnterprise : " + etpDTO.toString());
 
         try {
-            Member member = memberRepository.findById(etpDTO.getUser_id()).get();
-            Enterprise enterprise = enterpriseRepository.findByUser_id(member);
+            Member member;
+            Enterprise enterprise;
+            for (int i = 0; i < etpDTO.length; i++) {
+                member = memberRepository.findById(etpDTO[i].getUser_id()).get();
 
-            enterprise.modifyEtp_shape(etpDTO.getEtp_shape());   // 기업 형태 저장
-            member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
-            member.modUser_allow(1);                                 // 회원 인증 여부 변경
+                enterprise = enterpriseRepository.findByUser_id(member);
 
-            memberRepository.save(member);
-            enterpriseRepository.save(enterprise);
+                if(member == null || enterprise == null) throw new Exception(etpDTO[i].getUser_id() + "는 존재하지 않는 회원입니다.");
 
-            return 1;
+                enterprise.modifyEtp_shape(etpDTO[i].getEtp_shape());          // 기업 형태 저장
+                member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
+
+                memberRepository.save(member);
+                enterpriseRepository.save(enterprise);
+            }
+
+            return new ResponseEntity(HttpStatus.OK);
+
         } catch (Exception e) {
             System.out.println(e);
-            return 0;
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
 
-    // 회원 인증
+    // 회원 인증  1 : 인증완료 , 2 : 거절완료,  -1 : 오류
     @Transactional
-    public int authMember(MemberDTO memberDTO){
+    public ResponseEntity authMember(List<String> userIds, String result){
 
         // 회원 종류별로 role부여
         try{
-            Member member = memberRepository.getOne(memberDTO.getUser_id());
 
-            // 권한주기
-            AddRole(member, member.getUser_type());
+            Member member;
 
-            return 1;
+            for (int i =0; i<userIds.size(); i++){
+                member = memberRepository.getOne(userIds.get(i));
+
+                if(member==null) throw new Exception(userIds.get(i) + "는 존재하지 않는 회원입니다.");
+
+                if (result.equals("no")) {     // 거절
+                    member.modUser_allow(2);
+                } else if(result.equals("ok")){    // 승인
+                    AddRole(member, member.getUser_type()); // 권한주기
+                    member.modUser_allow(1);
+                }
+
+            } // end of for
+
+            return new ResponseEntity(HttpStatus.OK);
+
         } catch (Exception e){
 
             System.out.println("error : " + e);
-            return 0;
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+
         }
     }
 
@@ -150,7 +177,10 @@ public class MemberServiceImpl implements MemberService {
             memberEntity.memberModify(
                     memberDTO.getUser_name(),
                     memberDTO.getUser_ph(),
+                    memberDTO.getUser_ph2(),
+                    memberDTO.getUser_ph3(),
                     memberDTO.getUser_email(),
+                    memberDTO.getUser_emailDomain(),
                     memberDTO.getUser_postcode(),
                     memberDTO.getUser_addr(),
                     memberDTO.getUser_addr_details());
@@ -196,7 +226,10 @@ public class MemberServiceImpl implements MemberService {
             memberEntity.memberModify(
                     enterpriseDTO.getUser_name(),
                     enterpriseDTO.getUser_ph(),
+                    enterpriseDTO.getUser_ph2(),
+                    enterpriseDTO.getUser_ph3(),
                     enterpriseDTO.getUser_email(),
+                    enterpriseDTO.getUser_emailDomain(),
                     enterpriseDTO.getUser_postcode(),
                     enterpriseDTO.getUser_addr(),
                     enterpriseDTO.getUser_addr_details()
@@ -403,19 +436,41 @@ public class MemberServiceImpl implements MemberService {
 
 
     // 인증 전 회원 목록 가져오기
-    public PageResultDTO<AllowEtpDTO, Object[]> getList(PageRequestDTO pageRequestDTO, String type) {
+    public PageResultDTO<AllowEtpDTO, Object[]> getUserList(int page1, String type, int allow) {
 
         System.out.println("getList 실행");
+
+        PageRequestDTO pageRequestDTO = new PageRequestDTO(page1);
 
         Pageable pageable = pageRequestDTO.getPageable(Sort.by("regDate"));
 
         Function<Object[], AllowEtpDTO> fn = (en -> AllowEntityToDTO((Member) en[0], (Enterprise) en[1]));
 
         Page<Object[]> result;
-        if(type.equals("user")){
-            result = memberRepository.findNotAllowUsers(pageable);
-        } else {
-            result = memberRepository.findByNotAllowAndUser_type(pageable, type.toUpperCase());
+        if(type.equals("USER") || type== null){     // 전체 회원 조회
+
+            if(allow == 0) {    // 미인증 목록
+                result = memberRepository.findByAllowUsers(pageable, 0);
+            } else {            // 인증 목록
+                result = memberRepository.findByAllowUsers(pageable, 1);
+            }
+
+        } else if(type.equals("UNIV")){ // 교내회원 전체 조회
+
+            if(allow == 0){
+                result = memberRepository.findByAllowUsersNotEnterprise(pageable, 0);
+            } else {
+                result = memberRepository.findByAllowUsersNotEnterprise(pageable, 1);
+            }
+
+        } else {    // 회원 type별 조회
+
+            if(allow == 0){     // 미인증 목록
+                result = memberRepository.findByAllowUsers(pageable, type.toUpperCase(), 0);
+            } else {            // 인증 목록
+                result = memberRepository.findByAllowUsers(pageable, type.toUpperCase(), 1);
+            }
+
         }
 
 

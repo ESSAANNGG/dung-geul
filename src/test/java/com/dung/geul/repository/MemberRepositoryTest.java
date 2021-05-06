@@ -55,19 +55,22 @@ public class MemberRepositoryTest {
                     .user_id("userID" + i)
                     .user_pw(pw)
                     .user_name("123")
-                    .user_ph("01011112222")
+                    .user_ph("010")
+                    .user_ph2("1234")
+                    .user_ph3("3333")
                     .user_postcode("23445")
                     .user_addr("복현동123 주소주")
                     .user_addr_details("상세주소 상세주소")
-                    .user_email("123@aaa.bbb")
+                    .user_email("123")
+                    .user_emailDomain("naver.com")
                     .user_addr("userAddress")
                     .user_dept("컴퓨터정보계열")
                     .user_class("WD-A")
                     .user_type("STUDENT")
+                    .user_allow(0)
                     .build();
 
             member.addMemberRole(MemberRole.USER);
-            member.addMemberRole(MemberRole.STUDENT);
 
             memberRepository.save(member);
 
@@ -102,16 +105,24 @@ public class MemberRepositoryTest {
     @Test
     public void insertAdmin(){
 
+
+
         Member member = Member.builder()
 
-                .user_id("admin1")
-                .user_pw("1111")
+                .user_id("admin")
+                .user_pw(encoder.encode("123"))
                 .user_name("관리자")
-                .user_ph("01011112222")
+                .user_ph("010")
+                .user_ph2("2063")
+                .user_ph3("5065")
                 .user_email("admin@email")
+                .user_emailDomain("com")
+
                 .user_postcode("41521")
                 .user_addr("대구광역시 북구 복현로36길 32-13")
                 .user_addr_details("상세주소입니다아아")
+                .user_type("ADMIN")
+                .user_allow(1)
                 .build();
 
         member.addMemberRole(MemberRole.USER);

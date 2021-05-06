@@ -21,6 +21,10 @@ public class AuthMemberDTO extends User {
 
     private String user_ph;
 
+    private String user_ph2;
+
+    private String user_ph3;
+
     private String user_postcode;
 
     private String user_addr;
@@ -28,6 +32,8 @@ public class AuthMemberDTO extends User {
     private String user_addr_details;
 
     private String user_email;
+
+    private String user_emailDomain;
 
     private String user_dept;  // 학생 소속 계열
 

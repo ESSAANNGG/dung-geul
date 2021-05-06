@@ -29,12 +29,16 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     @GetMapping("/before/read")
     public String mypageBeforeRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+        if(authMemberDTO.getUser_id().equals("admin")){
+            return "redirect:/admin/admin";
+        }
         if(authMemberDTO.getUser_type().equals("ENTERPRISE")){
             return "redirect:/mypage/etp/read";
         } else {
             return "redirect:/mypage/member/read";
         }
     }
+
     @GetMapping("/before/modify")
     public String mypageBeforeModify(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
         if(authMemberDTO.getUser_type().equals("ENTERPRISE")){
@@ -72,7 +76,7 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     }
 
-// 기업회원 마이페이지
+    // 기업회원 마이페이지
     @GetMapping({"/etp/read", "/etp/modify"})
     public void etpMypageRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
@@ -92,6 +96,7 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
         model.addAttribute("user_id", user_id);
         model.addAttribute("loginUser", authMemberDTO);
+
     }
 
 

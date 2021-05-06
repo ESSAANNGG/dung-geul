@@ -8,16 +8,19 @@ let signUp = {
 
   save: function () {
     let userData = {
-      user_id: $("#user_id").val(),
-      user_pw: $("#user_pw").val(),
-      user_name: $("#user_name").val(),
-      user_email: $("#user_email").val(),
-      user_ph: $("#user_ph").val(),
-      user_postcode: $("#postcode").val(),
-      user_addr: $("#user_addr").val(),
-      user_addr_details: $("#user_addr_details").val(),
-      user_job: $("user_job").val(),
-      role: $("#role").val(),
+      user_id: $('#user_id').val(),
+      user_pw: $('#user_pw').val(),
+      user_name: $('#user_name').val(),
+      user_email: $('#user_email').val(),
+      user_emailDomain: $('#user_emailDomain').val(),
+      user_ph: $('#user_ph').val(),
+      user_ph2: $('#user_ph2').val(),
+      user_ph3: $('#user_ph3').val(),
+      user_postcode: $('#postcode').val(),
+      user_addr: $('#user_addr').val(),
+      user_addr_details: $('#user_addr_details').val(),
+      user_job: $('user_job').val(),
+      role: $('#role').val(),
     };
 
     alert("userdate 전송 ! " + JSON.stringify(userData));
