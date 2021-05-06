@@ -17,8 +17,7 @@ import java.time.LocalDateTime;
 public class Enterprise implements Serializable{
 
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        private Long etp_id;
+        private String etp_id;
 
         @OneToOne
         @JoinColumn(name = "etp_user_id" ,foreignKey = @ForeignKey(name="etp_user_id_fk"))

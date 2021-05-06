@@ -5,11 +5,11 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-
+@Data
+@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 public class EmployDTO {
 
     private Long num;
@@ -39,6 +39,22 @@ public class EmployDTO {
     private String file;
 
     private LocalDateTime regDate, modDate;
+
+    private String etp_name;
+
+    private String etp_sector;
+
+    private String etp_shape;
+
+    private String etp_ph;
+
+    private String etp_home;
+
+    private int etp_member;
+
+    private String etp_ceo_name;
+
+    private String etp_fx;
 
 
 }

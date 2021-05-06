@@ -234,6 +234,9 @@ button:focus{
     width:700px;
     padding:20px;
 }
+#corp_cont span{
+    display:inline-block;
+}
 /*기업정보 각 데이터들*/
 #corp_wrap li{
     display:inline-block;
@@ -261,6 +264,8 @@ button:focus{
 #stats_box{
     height:200px; /*임시용*/
 }
+
+
 
 
 /*온라인 지원*/

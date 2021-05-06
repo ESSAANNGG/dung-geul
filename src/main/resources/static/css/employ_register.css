@@ -1,6 +1,6 @@
 /*employ regist.html*/
 .content {
-    margin: 0 auto;
+    margin: 40px auto 0 auto;
     max-width: 100%;
     width: 64em;
 }
@@ -8,7 +8,7 @@
 .employ_register{
     display: none;
     width:850px;
-    margin-left:20px;
+    margin-left:50px;
     background-color: #ffffff;
     color:#768395;
     box-shadow: 0 0 1px 1px #e2e2e2;
@@ -50,15 +50,7 @@
     outline:none;
 }
 
-/*스텝 제목*/
-.register_step_head{
-    display:flex;
-    justify-content: center;
-    width:500px;
-    margin: 20px auto;
-    font-weight: 500;
-    font-size:24px;
-}
+
 /*공고등록 제목*/
 .register_title_wrap{
     display: flex;
@@ -85,7 +77,7 @@
 .register_cont_wrap{
     display: flex;
     justify-content: center;
-    height:500px;
+    height:200px;
     padding:20px;
     margin: 0 auto 40px auto;
     color:#768395;
@@ -95,7 +87,7 @@
 .register_cont{
     display:inline-block;
     width:100px;
-    height:500px;
+    height:200px;
     vertical-align: text-top;
 }
 .register_cont_input{
@@ -104,7 +96,7 @@
     text-align: top;
 
     width:600px;
-    height:500px;
+    height:200px;
     padding:0px 15px;
     font-size:15px;
 }

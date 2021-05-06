@@ -93,14 +93,14 @@
                         <img src="/img/naver1.jpg" width="200" height="150" alt="My Image">
                     </div>
                     <div id="corp_cont">
-                        <h4>네이버웹툰컴퍼니(주)</h4>
-                        <li><h5>기업형태 : </h5></li>
-                        <li><h5>직원수 : </h5></li>
-                        <li><h5>업종 : </h5></li>
-                        <li><h5>대표자명 : </h5></li>
-                        <li><h5>전화번호 : </h5></li>
-                        <li><h5>FAX : </h5></li>
-                        <li><h5>홈페이지 : </h5></li>
+                        <h4 th:text="${dto.etp_name}"></h4>
+                        <li><h5>기업형태 : <span th:text="${dto.etp_shape}"></span></h5></li>
+                        <li><h5>직원수 : <span th:text="${dto.etp_member}"></h5></li>
+                        <li><h5>업종 : <span th:text="${dto.etp_sector}"></h5></li>
+                        <li><h5>대표자명 : <span th:text="${dto.etp_ceo_name}"></h5></li>
+                        <li><h5>전화번호 : <span th:text="${dto.etp_ph}"></h5></li>
+                        <li><h5>FAX : <span th:text="${dto.etp_fx}"></h5></li>
+                        <li><h5>홈페이지 : <span th:text="${dto.etp_home}"></h5></li>
                         <li><h5>기업주소 : </h5></li>
                     </div>
                 </div>
