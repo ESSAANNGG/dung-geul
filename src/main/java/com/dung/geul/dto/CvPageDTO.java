@@ -22,7 +22,13 @@ public class CvPageDTO {
 
     private String user_hp;
 
+    private String user_hp2;
+
+    private String user_hp3;
+
     private String user_email;
+
+    private String user_emailDomain;
 
     // 현재 만나이 계산
     public int getAge(){

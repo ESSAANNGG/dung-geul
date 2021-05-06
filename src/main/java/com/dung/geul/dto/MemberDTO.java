@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Data
 @ToString
@@ -45,6 +46,7 @@ public class MemberDTO {
     private String user_job; //직장
 
     private String role;
+
 
 
 
