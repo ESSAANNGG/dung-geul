@@ -1,0 +1,227 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    background: #fff;
+    margin: 0 auto;
+}
+#main {
+    margin-top:40px;
+    background: #eee;
+    border-top: solid 5px #1f3786d5;
+    border-bottom: solid 5px #c1cac5;
+    border-bottom-width: 10px;
+    border-top-width: 35px;
+    padding: 0;
+    z-index: 999;
+}
+.d_width {
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+}
+input, button, select {
+    border: none;
+    color: #333;
+    margin: 0;
+    line-height: inherit;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 8px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+#job-main-wrap {
+    padding: 80px 0 80px;
+}
+#content {
+    width: 850px;
+    margin: 0 0 0 380px;
+    background: #fff;
+    border-radius: 8px;
+    height: 750px;
+}
+#coun-content {
+    float: left;
+    width: 1020px;
+    margin: 0 30px;
+    background: #fff;
+    border-radius: 8px;
+}
+.d_width {
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+}
+#job-wrap h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 5px solid #f6f6f6;
+}
+.form-inline {
+    width: 350px;
+    height: 350px;
+    border: 1px solid #b3b3b3;
+    box-shadow: 3px 3px 5px #ccc;
+    /* position: absolute; */
+    display: block;
+    float: left;
+    margin-right: 50px;
+    margin-top: 30px;
+}
+.form-outline {
+    width: 350px;
+    height: 350px;
+    border: 1px solid #b3b3b3;
+    box-shadow: 3px 3px 5px #ccc;
+    /* position: absolute; */
+    display: block;
+    float: left;
+    margin-right: 50px;
+}
+#label {
+    color: rgb(39, 39, 39);
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    margin-left: 125px;
+    margin-top: 40px;
+}
+#label1 {
+    color: rgb(39, 39, 39);
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    margin: -60px 60px 30px 5px;
+}
+/* .on-a {
+    border-bottom: 1px solid #ccc;
+    width: 98px;
+} */
+.a-list {
+    display: inline-block;
+    width: 330px;
+    background-color: #fff;
+    margin-top: 30px;
+    margin-left: 10px;
+
+}
+.a-list > a {
+    font-weight: 800;
+    font-size: 12px;
+    text-align: center;
+    line-height: 5;
+    letter-spacing: 3px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+.a-list > a:hover {
+    box-shadow : -2px 2px 5px #999;
+}
+button, input {
+    overflow: visible;
+}
+input[type=text] {
+    min-height: 30px;
+    border: 1px solid #ddd;
+    text-indent: 10px;
+    transition: all 0.5s;
+    vertical-align: middle;
+}
+.form-control {
+    border: 1px solid #ddd;
+    color: rgb(121, 121, 121);
+    width: 250px;
+    margin: 50px 0 0 48px;
+}
+.btn-d {
+    display: inline;
+    white-space: nowrap;
+    text-align: center;
+    width: 210px;
+    height: 40px;
+    vertical-align: middle;
+    border: 1px solid #2b2e4a;
+    background-color: #2b2e4a;
+    font-size: 0.875rem;
+    color: #fff;
+    padding: 0 15px;
+    line-height: 32px;
+    margin: 40px 0 0 68px;
+}
+.btn-k {
+    display: inline;
+    white-space: nowrap;
+    text-align: center;
+    width: 210px;
+    height: 40px;
+    vertical-align: middle;
+    border: 1px solid #2b2e4a;
+    background-color: #2b2e4a;
+    font-size: 0.875rem;
+    color: #fff;
+    padding: 0 15px;
+    line-height: 32px;
+    margin: 95px 0 0 68px;
+}
+#searchCode {
+    width: 250px;
+    margin: 40px 0 0 50px;
+}
+.search-con {
+    width: 800px;
+    height: 150px;
+    background-color: #f8f8f8;
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: 5px;
+    line-height: 32px;
+    padding: 12px;
+}

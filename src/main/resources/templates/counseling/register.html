@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+<link rel="stylesheet" href="/css/employ_register.css" />
+<link rel="stylesheet" href="/css/menu-common1.css" />
+<link rel="stylesheet" href="/css/frame.css" />
+
+<script th:async src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<body>
+<div th:replace="layout/layout :: nav" />
+
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="sidebar">
+                    <div class="menu2">
+                        <div id="bar">
+                            <h2>상담</h2>
+                            <ul id="menu_bar">
+                                <li id="menu_con1">
+                                    <h4>상담등록</h4>
+                                    <ul id="sb_detail">
+                                        <li><a href="/counseling/counseling">상담 신청</a></li>
+                                        <li><a href="/counseling/studentcoun">상담 내역</a></li>
+                                        <li><a href="/counseling/register">상담 등록</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div> <!-- bar -->
+                    </div> <!-- menu -->
+                </div>
+            </div>
+        <div class="consult_name_wrap">
+            <div class="consult_name">
+                상담종류
+            </div>
+            <div class="consult_name_val_wrap">
+                <select id="con_name" name="consult_name_register" class="consult_name_val">
+                <option>취업 상담</option>
+                <option>창업 상담</option>
+                <option>진로 상담</option>
+                </select>
+            </div>
+        </div>
+
+            <form role="form" action="/counseling/register" th:object="${ConsultForm}"
+                  method="post">
+<!--                <div class="form-group">-->
+<!--                    <label th:for="Consult_field">상담이름</label>-->
+<!--                    <input type="text" th:field="*{Consult_field}" class="form-control" placeholder="이름을 입력하세요"-->
+<!--                           th:class="${#fields.hasErrors('Consult_filed')}? 'form-control-->
+<!--  fieldError' : 'form-control'">-->
+<!--                    <p th:if="${#fields.hasErrors('Consult_filed')}"-->
+<!--                       th:errors="*{Consult_filed}">Incorrect date</p>-->
+<!--                </div>-->
+                <div class="form-group">
+                    <label th:for="Consult_filed">도시</label>
+                    <input type="text" th:field="*{cf}" class="form-control" placeholder="도시를 입력하세요">
+
+
+                    <label th:for="Consult_detail_field">거리</label>
+                    <input type="text" th:field="*{cdf}" class="form-control" placeholder="거리를 입력하세요">
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+</body>
+</html>

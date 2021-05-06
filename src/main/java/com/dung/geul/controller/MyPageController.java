@@ -73,7 +73,7 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     }
 
-// 기업회원 마이페이지
+    // 기업회원 마이페이지
     @GetMapping({"/etp/read", "/etp/modify"})
     public void etpMypageRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 

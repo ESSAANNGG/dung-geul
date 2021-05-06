@@ -24,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -97,22 +98,28 @@ public class MemberServiceImpl implements MemberService {
 
     //기업 인증     1: 승인 성공,   2: 거절 성공,   -1 : 오류
     @Transactional
-    public ResponseEntity authEnterprise(EnterpriseDTO etpDTO) {
+    public ResponseEntity authEnterprise(EnterpriseDTO[] etpDTO) {
         System.out.println("memberServiceImpl - authEnterprise : " + etpDTO.toString());
 
         try {
-            Member member = memberRepository.findById(etpDTO.getUser_id()).get();
-            Enterprise enterprise = enterpriseRepository.findByUser_id(member);
+            Member member;
+            Enterprise enterprise;
+            for (int i = 0; i < etpDTO.length; i++) {
+                member = memberRepository.findById(etpDTO[i].getUser_id()).get();
 
-            if(member == null || enterprise == null) throw new Exception(etpDTO.getUser_id() + "는 존재하지 않는 회원입니다.");
+                enterprise = enterpriseRepository.findByUser_id(member);
 
-            enterprise.modifyEtp_shape(etpDTO.getEtp_shape());          // 기업 형태 저장
-            member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
+                if(member == null || enterprise == null) throw new Exception(etpDTO[i].getUser_id() + "는 존재하지 않는 회원입니다.");
 
-            memberRepository.save(member);
-            enterpriseRepository.save(enterprise);
+                enterprise.modifyEtp_shape(etpDTO[i].getEtp_shape());          // 기업 형태 저장
+                member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
+
+                memberRepository.save(member);
+                enterpriseRepository.save(enterprise);
+            }
 
             return new ResponseEntity(HttpStatus.OK);
+
         } catch (Exception e) {
             System.out.println(e);
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -121,21 +128,21 @@ public class MemberServiceImpl implements MemberService {
 
     // 회원 인증  1 : 인증완료 , 2 : 거절완료,  -1 : 오류
     @Transactional
-    public ResponseEntity authMember(String[] userIds, String result){
+    public ResponseEntity authMember(List<String> userIds, String result){
 
         // 회원 종류별로 role부여
         try{
 
             Member member;
 
-            for (int i =0; i<userIds.length; i++){
-                member = memberRepository.getOne(userIds[i]);
+            for (int i =0; i<userIds.size(); i++){
+                member = memberRepository.getOne(userIds.get(i));
 
-                if(member==null) throw new Exception(userIds[i] + "는 존재하지 않는 회원입니다.");
+                if(member==null) throw new Exception(userIds.get(i) + "는 존재하지 않는 회원입니다.");
 
-                if (result.equals("거절")) {     // 거절
+                if (result.equals("no")) {     // 거절
                     member.modUser_allow(2);
-                } else if(result.equals("승인")){    // 승인
+                } else if(result.equals("ok")){    // 승인
                     AddRole(member, member.getUser_type()); // 권한주기
                     member.modUser_allow(1);
                 }
@@ -423,7 +430,7 @@ public class MemberServiceImpl implements MemberService {
 
 
     // 인증 전 회원 목록 가져오기
-    public PageResultDTO<AllowEtpDTO, Object[]> getNotAllowUserList(int page1, String type, int allow) {
+    public PageResultDTO<AllowEtpDTO, Object[]> getUserList(int page1, String type, int allow) {
 
         System.out.println("getList 실행");
 
@@ -437,17 +444,25 @@ public class MemberServiceImpl implements MemberService {
         if(type.equals("USER") || type== null){     // 전체 회원 조회
 
             if(allow == 0) {    // 미인증 목록
-                result = memberRepository.findNotAllowUsers(pageable);
+                result = memberRepository.findByAllowUsers(pageable, 0);
             } else {            // 인증 목록
-                result = memberRepository.findAllowUsers(pageable);
+                result = memberRepository.findByAllowUsers(pageable, 1);
+            }
+
+        } else if(type.equals("UNIV")){ // 교내회원 전체 조회
+
+            if(allow == 0){
+                result = memberRepository.findByAllowUsersNotEnterprise(pageable, 0);
+            } else {
+                result = memberRepository.findByAllowUsersNotEnterprise(pageable, 1);
             }
 
         } else {    // 회원 type별 조회
 
             if(allow == 0){     // 미인증 목록
-                result = memberRepository.findNotAllowUsers(pageable, type.toUpperCase());
+                result = memberRepository.findByAllowUsers(pageable, type.toUpperCase(), 0);
             } else {            // 인증 목록
-                result = memberRepository.findAllowUsers(pageable, type.toUpperCase());
+                result = memberRepository.findByAllowUsers(pageable, type.toUpperCase(), 1);
             }
 
         }
