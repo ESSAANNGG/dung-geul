@@ -64,6 +64,7 @@ public class MemberRepositoryTest {
                     .user_dept("컴퓨터정보계열")
                     .user_class("WD-A")
                     .user_type("STUDENT")
+                    .user_allow(0)
                     .build();
 
             member.addMemberRole(MemberRole.USER);

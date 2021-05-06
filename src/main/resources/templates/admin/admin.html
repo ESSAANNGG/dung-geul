@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../static/css/common.css" />
-    <link rel="stylesheet" href="../../static/css/admin-style.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
     <title>admin</title>
 
     <!--차트 src-->
@@ -13,554 +13,384 @@
     <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
 </head>
 
 <body>
-    <div id="detailEnter" onclick="detailClose()">
-        <!-- 상세정보를 클릭시 창에서 나오기위해 클릭하는 div -->
-        <!-- 학생상세정보 -->
-        <div class="detailBox" id="detail_student">
-            <div class="d_role"><i class="fas fa-user-graduate"></i></div>
-            <div class="d_tagN">이름</div>
-            <input type="text" class="d_cont" value="이름" readonly>
-            <div class="d_tagN">아이디</div>
-            <input type="text" class="d_cont" value="아이디" readonly>
-            <div class="d_tagN">비밀번호</div>
-            <input type="text" class="d_cont" value="비밀번호">
-            <div class="d_tagN">전화번호</div>
-            <input type="text" class="d_cont" value="전화번호" readonly>
-            <div class="d_tagN">주소</div>
-            <input type="text" class="d_cont" value="주소" readonly>
-            <div class="d_tagN">이메일</div>
-            <input type="text" class="d_cont" value="이메일" readonly>
-            <div class="d_tagN">가입일</div>
-            <input type="text" class="d_cont" value="회원가입일" readonly>
-            <div class="d_tagN">소속/반</div>
-            <input type="text" class="d_cont" value="계열/반" readonly>
-            <div class="d_tagN">권한</div>
-            <input type="text" class="d_cont" value="학생" readonly>
-            <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button> 
-            <!-- 스크립트로 수정과 승인 삭제/생성-->
-        </div>
 
-        <!-- 교직원상세정보 -->
-        <div class="detailBox" id="detail_staff">
-            <div class="d_role"><i class="fas fa-user-tie"></i></div>
-            <div class="d_tagN">이름</div>
-            <input type="text" class="d_cont" value="이름" readonly>
-            <div class="d_tagN">아이디</div>
-            <input type="text" class="d_cont" value="아이디" readonly>
-            <div class="d_tagN">비밀번호</div>
-            <input type="text" class="d_cont" value="비밀번호">
-            <div class="d_tagN">전화번호</div>
-            <input type="text" class="d_cont" value="전화번호" readonly>
-            <div class="d_tagN">주소</div>
-            <input type="text" class="d_cont" value="주소" readonly>
-            <div class="d_tagN">이메일</div>
-            <input type="text" class="d_cont" value="이메일" readonly>
-            <div class="d_tagN">가입일</div>
-            <input type="text" class="d_cont" value="회원가입일" readonly>
-            <div class="d_tagN">소속/반</div>
-            <input type="text" class="d_cont" value="계열/반" readonly>
-            <div class="d_tagN">권한</div>
-            <input type="text" class="d_cont" value="교직원" readonly>
-            <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button> 
-        </div>
+<!--모달효과 줄것들은 따로 뺴놓습니다-->
+<div id="main2_detail">
+    <!-- 회원 관리 > 상세 정보 -->
+    <div class="detailBox" id="detail_student">
+        <div class="d_role"><i class="fas fa-user-graduate"></i></div>
+        <div class="d_tagN">이름</div>
+        <input type="text" class="d_cont" value="이름" readonly>
+        <div class="d_tagN">아이디</div>
+        <input type="text" class="d_cont" value="아이디" readonly>
+        <div class="d_tagN">비밀번호</div>
+        <input type="text" class="d_cont" value="비밀번호">
+        <div class="d_tagN">전화번호</div>
+        <input type="text" class="d_cont" value="전화번호" readonly>
+        <div class="d_tagN">주소</div>
+        <input type="text" class="d_cont" value="주소" readonly>
+        <div class="d_tagN">이메일</div>
+        <input type="text" class="d_cont" value="이메일" readonly>
+        <div class="d_tagN">가입일</div>
+        <input type="text" class="d_cont" value="회원가입일" readonly>
+        <div class="d_tagN">소속/반</div>
+        <input type="text" class="d_cont" value="계열/반" readonly>
+        <div class="d_tagN">권한</div>
+        <input type="text" class="d_cont" value="학생" readonly>
+        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+        <!-- 스크립트로 수정과 승인 삭제/생성-->
+    </div>
+    <!-- 교직원상세정보 -->
+    <!--                    <div class="detailBox" id="detail_staff">-->
+    <!--                        <div class="d_role"><i class="fas fa-user-tie"></i></div>-->
+    <!--                        <div class="d_tagN">이름</div>-->
+    <!--                        <input type="text" class="d_cont" value="이름" readonly>-->
+    <!--                        <div class="d_tagN">아이디</div>-->
+    <!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
+    <!--                        <div class="d_tagN">비밀번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="비밀번호">-->
+    <!--                        <div class="d_tagN">전화번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="전화번호" readonly>-->
+    <!--                        <div class="d_tagN">주소</div>-->
+    <!--                        <input type="text" class="d_cont" value="주소" readonly>-->
+    <!--                        <div class="d_tagN">이메일</div>-->
+    <!--                        <input type="text" class="d_cont" value="이메일" readonly>-->
+    <!--                        <div class="d_tagN">가입일</div>-->
+    <!--                        <input type="text" class="d_cont" value="회원가입일" readonly>-->
+    <!--                        <div class="d_tagN">소속/반</div>-->
+    <!--                        <input type="text" class="d_cont" value="계열/반" readonly>-->
+    <!--                        <div class="d_tagN">권한</div>-->
+    <!--                        <input type="text" class="d_cont" value="교직원" readonly>-->
+    <!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
+    <!--                    </div>-->
+    <!--                        &lt;!&ndash; 상담사상세정보 &ndash;&gt;-->
+    <!--                    <div class="detailBox" id="detail_counselor">-->
+    <!--                        <div class="d_role"><i class="fas fa-hands-helping"></i></div>-->
+    <!--                        <div class="d_tagN">이름</div>-->
+    <!--                        <input type="text" class="d_cont" value="이름" readonly>-->
+    <!--                        <div class="d_tagN">아이디</div>-->
+    <!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
+    <!--                        <div class="d_tagN">비밀번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="비밀번호">-->
+    <!--                        <div class="d_tagN">전화번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="전화번호" readonly>-->
+    <!--                        <div class="d_tagN">주소</div>-->
+    <!--                        <input type="text" class="d_cont" value="주소" readonly>-->
+    <!--                        <div class="d_tagN">이메일</div>-->
+    <!--                        <input type="text" class="d_cont" value="이메일" readonly>-->
+    <!--                        <div class="d_tagN">가입일</div>-->
+    <!--                        <input type="text" class="d_cont" value="회원가입일" readonly>-->
+    <!--                        <div class="d_tagN">권한</div>-->
+    <!--                        <input type="text" class="d_cont" value="상담사" readonly>-->
+    <!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
+    <!--                    </div>-->
 
-        <!-- 상담사상세정보 -->
-        <div class="detailBox" id="detail_counselor">
-            <div class="d_role"><i class="fas fa-hands-helping"></i></div>
-            <div class="d_tagN">이름</div>
-            <input type="text" class="d_cont" value="이름" readonly>
-            <div class="d_tagN">아이디</div>
-            <input type="text" class="d_cont" value="아이디" readonly>
-            <div class="d_tagN">비밀번호</div>
-            <input type="text" class="d_cont" value="비밀번호">
-            <div class="d_tagN">전화번호</div>
-            <input type="text" class="d_cont" value="전화번호" readonly>
-            <div class="d_tagN">주소</div>
-            <input type="text" class="d_cont" value="주소" readonly>
-            <div class="d_tagN">이메일</div>
-            <input type="text" class="d_cont" value="이메일" readonly>
-            <div class="d_tagN">가입일</div>
-            <input type="text" class="d_cont" value="회원가입일" readonly>
-            <div class="d_tagN">권한</div>
-            <input type="text" class="d_cont" value="상담사" readonly>
-            <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button> 
-        </div>
+    <!--                    &lt;!&ndash; 기업상세정보 &ndash;&gt;-->
+    <!--                    <div class="detailBox" id="detail_enterprise">-->
+    <!--                        <div class="d_role"><i class="fas fa-building"></i></div>-->
+    <!--                        <div class="d_tagN">기업명</div>-->
+    <!--                        <input type="text" class="d_cont" value="기업명" readonly>-->
+    <!--                        <div class="d_tagN">아이디</div>-->
+    <!--                        <input type="text" class="d_cont" value="아이디" readonly>-->
+    <!--                        <div class="d_tagN">비밀번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="비밀번호">-->
+    <!--                        <div class="d_tagN">사업자번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="사업자번호" readonly>-->
+    <!--                        <div class="d_tagN">대표자명</div>-->
+    <!--                        <input type="text" class="d_cont" value="대표자명" readonly>-->
+    <!--                        <div class="d_tagN">대표번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="대표번호" readonly>-->
+    <!--                        <div class="d_tagN">팩스</div>-->
+    <!--                        <input type="text" class="d_cont" value="팩스" readonly>-->
+    <!--                        <div class="d_tagN">홈페이지</div>-->
+    <!--                        <input type="text" class="d_cont" value="홈페이지" readonly>-->
+    <!--                        <div class="d_tagN">주요사업내용</div>-->
+    <!--                        <input type="text" class="d_cont" value="주요사업내용" readonly>-->
+    <!--                        <div class="d_tagN">우편번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="우편번호" readonly>-->
+    <!--                        <div class="d_tagN">상세주소</div>-->
+    <!--                        <input type="text" class="d_cont" value="상세주소" readonly>-->
+    <!--                        <div class="d_tagN">설립년도</div>-->
+    <!--                        <input type="text" class="d_cont" value="설립년도" readonly>-->
+    <!--                        <div class="d_tagN">직원 수</div>-->
+    <!--                        <input type="text" class="d_cont" value="직원 수" readonly>-->
+    <!--                        <div class="d_tagN">업종</div>-->
+    <!--                        <input type="text" class="d_cont" value="업종" readonly>-->
+    <!--                        <div class="d_tagN">기업형태</div>-->
+    <!--                        <input type="text" class="d_cont" value="기업형태" readonly>-->
+    <!--                        <div class="d_tagN">가입일</div>-->
+    <!--                        <input type="text" class="d_cont" value="가입일" readonly>-->
+    <!--                        <div class="d_tagN">담당자 번호</div>-->
+    <!--                        <input type="text" class="d_cont" value="담당자 번호" readonly>-->
+    <!--                        <div class="d_tagN">담당자 이메일</div>-->
+    <!--                        <input type="text" class="d_cont" value="담당자 이메일" readonly>-->
+    <!--                        <div class="d_tagN">권한</div>-->
+    <!--                        <input type="text" class="d_cont" value="기업" readonly>-->
+    <!--                        <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>-->
+    <!--                    </div>-->
+</div>
 
-        <!-- 기업상세정보 -->
-        <div class="detailBox" id="detail_enterprise">
-            <div class="d_role"><i class="fas fa-building"></i></div>
-            <div class="d_tagN">기업명</div>
-            <input type="text" class="d_cont" value="기업명" readonly>
-            <div class="d_tagN">아이디</div>
-            <input type="text" class="d_cont" value="아이디" readonly>
-            <div class="d_tagN">비밀번호</div>
-            <input type="text" class="d_cont" value="비밀번호">
-            <div class="d_tagN">사업자번호</div>
-            <input type="text" class="d_cont" value="사업자번호" readonly>
-            <div class="d_tagN">대표자명</div>
-            <input type="text" class="d_cont" value="대표자명" readonly>
-            <div class="d_tagN">대표번호</div>
-            <input type="text" class="d_cont" value="대표번호" readonly>
-            <div class="d_tagN">팩스</div>
-            <input type="text" class="d_cont" value="팩스" readonly>
-            <div class="d_tagN">홈페이지</div>
-            <input type="text" class="d_cont" value="홈페이지" readonly>
-            <div class="d_tagN">주요사업내용</div>
-            <input type="text" class="d_cont" value="주요사업내용" readonly>
-            <div class="d_tagN">우편번호</div>
-            <input type="text" class="d_cont" value="우편번호" readonly>
-            <div class="d_tagN">상세주소</div>
-            <input type="text" class="d_cont" value="상세주소" readonly>
-            <div class="d_tagN">설립년도</div>
-            <input type="text" class="d_cont" value="설립년도" readonly>
-            <div class="d_tagN">직원 수</div>
-            <input type="text" class="d_cont" value="직원 수" readonly>
-            <div class="d_tagN">업종</div>
-            <input type="text" class="d_cont" value="업종" readonly>
-            <div class="d_tagN">기업형태</div>
-            <input type="text" class="d_cont" value="기업형태" readonly>
-            <div class="d_tagN">가입일</div>
-            <input type="text" class="d_cont" value="가입일" readonly>
-            <div class="d_tagN">담당자 번호</div>
-            <input type="text" class="d_cont" value="담당자 번호" readonly>
-            <div class="d_tagN">담당자 이메일</div>
-            <input type="text" class="d_cont" value="담당자 이메일" readonly>
-            <div class="d_tagN">권한</div>
-            <input type="text" class="d_cont" value="기업" readonly>
-            <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button> 
-        </div>
+<!--modal end-->
+
+<div id="shadow_box">
+<!--modal창 open시 css효과를 주기위한 div-->
+<div id="admin_header">
+    <h5>ADMIN</h5>
+</div>
+<div id="wrap">
+    <div id="menubox">
+        <li class="menubox_li">
+            <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPGc+CgkJCTxwYXRoIGQ9Ik0zNjYuMjkyLDIxNS45OUwyNDEuNDE3LDMyNS43ODFjLTAuMTY3LDAuMTQ2LTAuMzMzLDAuMjkyLTAuNDc5LDAuNDQ4Yy00LjA0Miw0LjAyMS02LjI3MSw5LjM4NS02LjI3MSwxNS4xMDQgICAgIGMwLDExLjc2LDkuNTYzLDIxLjMzMywyMS4zMzMsMjEuMzMzYzUuNjY3LDAsMTEuMDIxLTIuMjA4LDE1LjU2My02Ljc1bDEwOS43OTItMTI0Ljg3NWMzLjcwOC00LjIxOSwzLjUtMTAuNjA0LTAuNDc5LTE0LjU4MyAgICAgQzM3Ni44OTYsMjEyLjQ5LDM3MC41NDIsMjEyLjI4MSwzNjYuMjkyLDIxNS45OXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCQkJPHBhdGggZD0iTTI1Niw4NS4zMzNjLTE0MS4xNjcsMC0yNTYsMTE0Ljg0NC0yNTYsMjU2YzAsMjYuNDc5LDQuMTA0LDUyLjY4OCwxMi4xNjcsNzcuOTE3YzEuNDE3LDQuNDE3LDUuNTIxLDcuNDE3LDEwLjE2Nyw3LjQxNyAgICAgaDQ2Ny4zMzNjNC42NDYsMCw4Ljc1LTMsMTAuMTY3LTcuNDE3QzUwNy44OTYsMzk0LjAyMSw1MTIsMzY3LjgxMyw1MTIsMzQxLjMzM0M1MTIsMjAwLjE3NywzOTcuMTY3LDg1LjMzMywyNTYsODUuMzMzeiAgICAgIE00NTguNjY3LDM1MmgzMS4yNmMtMC44MjQsMTguMDQtMy4yMzcsMzUuOTQ3LTguMTc3LDUzLjMzM0gzMC4yNWMtNC45NC0xNy4zODctNy4zNTMtMzUuMjkzLTguMTc3LTUzLjMzM2gzMS4yNiAgICAgQzU5LjIyOSwzNTIsNjQsMzQ3LjIyOSw2NCwzNDEuMzMzYzAtNS44OTYtNC43NzEtMTAuNjY3LTEwLjY2Ny0xMC42NjdoLTMxLjQ2YzEuNTgxLTM0LjkxOSwxMC42OC02Ny44NjUsMjUuOTQ4LTk3LjIwOCAgICAgbDI3LjMyNCwxNS43ODFjMS42ODgsMC45NjksMy41MjEsMS40MjcsNS4zMzMsMS40MjdjMy42NjcsMCw3LjI3MS0xLjkwNiw5LjIyOS01LjMzM2MyLjk1OC01LjEwNCwxLjIwOC0xMS42MjUtMy44OTYtMTQuNTczICAgICBsLTI3LjI2My0xNS43NDZjMTguMzIzLTI4LjUzOSw0Mi42MDItNTIuODE2LDcxLjE0Mi03MS4xMzhsMTUuNzQ2LDI3LjI4YzEuOTU4LDMuNDE3LDUuNTYzLDUuMzMzLDkuMjI5LDUuMzMzICAgICBjMS44MTMsMCwzLjY0Ni0wLjQ1OCw1LjMzMy0xLjQyN2M1LjEwNC0yLjk0OCw2Ljg1NC05LjQ2OSwzLjg5Ni0xNC41NzNsLTE1Ljc3Ny0yNy4zMzJjMjkuMzQ1LTE1LjI3LDYyLjI5My0yNC4zNyw5Ny4yMTUtMjUuOTUxICAgICB2MzEuNDZjMCw1Ljg5Niw0Ljc3MSwxMC42NjcsMTAuNjY3LDEwLjY2N3MxMC42NjctNC43NzEsMTAuNjY3LTEwLjY2N3YtMzEuNDZjMzQuOTIyLDEuNTgxLDY3Ljg3LDEwLjY4MSw5Ny4yMTUsMjUuOTUxICAgICBsLTE1Ljc3NywyNy4zMzJjLTIuOTU4LDUuMTA0LTEuMjA4LDExLjYyNSwzLjg5NiwxNC41NzNjMS42ODgsMC45NjksMy41MjEsMS40MjcsNS4zMzMsMS40MjdjMy42NjcsMCw3LjI3MS0xLjkxNyw5LjIyOS01LjMzMyAgICAgbDE1Ljc0Ni0yNy4yOGMyOC41NCwxOC4zMjIsNTIuODE5LDQyLjU5OSw3MS4xNDIsNzEuMTM4bC0yNy4yNjMsMTUuNzQ2Yy01LjEwNCwyLjk0OC02Ljg1NCw5LjQ2OS0zLjg5NiwxNC41NzMgICAgIGMxLjk1OCwzLjQyNyw1LjU2Myw1LjMzMyw5LjIyOSw1LjMzM2MxLjgxMiwwLDMuNjQ2LTAuNDU4LDUuMzMzLTEuNDI3bDI3LjMyNC0xNS43ODFjMTUuMjY4LDI5LjM0NCwyNC4zNjcsNjIuMjg5LDI1Ljk0OCw5Ny4yMDggICAgIGgtMzEuNDZjLTUuODk2LDAtMTAuNjY3LDQuNzcxLTEwLjY2NywxMC42NjdDNDQ4LDM0Ny4yMjksNDUyLjc3MSwzNTIsNDU4LjY2NywzNTJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+CgkJPC9nPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjwvZz48L3N2Zz4=" />
+            <h5>Dashboard</h5>
+        </li>
+        <li class="menubox_li">
+            <i class="fas fa-users-cog"></i>
+            <h5>회원관리</h5>
+        </li>
+        <li class="menubox_li">
+            <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTYxLjA2OSwxNjkuOTNDNTkuMjEsMTY4LjA2OSw1Ni42MywxNjcsNTQsMTY3cy01LjIwOSwxLjA3LTcuMDcsMi45M0M0NS4wNjksMTcxLjc5LDQ0LDE3NC4zNyw0NCwxNzcgICAgczEuMDY5LDUuMjEsMi45Myw3LjA2OUM0OC43OSwxODUuOTMsNTEuMzcsMTg3LDU0LDE4N3M1LjIxLTEuMDcsNy4wNjktMi45MzFDNjIuOTMsMTgyLjIxLDY0LDE3OS42Myw2NCwxNzcgICAgUzYyLjkzLDE3MS43OSw2MS4wNjksMTY5LjkzeiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNNDM4LDBIMjM1LjY2N2MtNS41MjIsMC0xMCw0LjQ3OC0xMCwxMHM0LjQ3OCwxMCwxMCwxMEg0MzhjNS41MTQsMCwxMCw0LjQ4NiwxMCwxMHY0NTJjMCw1LjUxNC00LjQ4NiwxMC0xMCwxMEg3NCAgICBjLTUuNTE0LDAtMTAtNC40ODYtMTAtMTBWMjE0LjMzM2MwLTUuNTIyLTQuNDc4LTEwLTEwLTEwcy0xMCw0LjQ3OC0xMCwxMFY0ODJjMCwxNi41NDIsMTMuNDU4LDMwLDMwLDMwaDM2NCAgICBjMTYuNTQyLDAsMzAtMTMuNDU4LDMwLTMwVjMwQzQ2OCwxMy40NTgsNDU0LjU0MiwwLDQzOCwweiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMjU2LDQwYy02LjgwNCwwLTEzLjY0MiwwLjUyLTIwLjMyNCwxLjU0NGMtNS40NTksMC44MzgtOS4yMDYsNS45NDEtOC4zNjksMTEuNGMwLjgzNyw1LjQ1OSw1Ljk0Myw5LjIwMSwxMS40LDguMzY5ICAgIEMyNDQuMzksNjAuNDQxLDI1MC4yMDgsNjAsMjU2LDYwYzYyLjMwOSwwLDExMy4wMDEsNTAuNjkyLDExMy4wMDEsMTEzLjAwMWMwLDI3LjY3LTEwLjAwMiw1My4wNDMtMjYuNTc0LDcyLjcxICAgIGMtNy4zMzMtMTIuNjEtMTcuMzQ5LTIzLjQ4Ny0yOS41MDYtMzEuOTI0Yy03LjA5NS00LjkyNC0xNC43MTgtOC44NTQtMjIuNjk4LTExLjc2M2M5LjEwOC04LjkwMywxNC43NzctMjEuMzEsMTQuNzc3LTM1LjAyMiAgICB2LTkuNzVjMC0yNy4wMi0yMS45ODEtNDkuMDAxLTQ5LTQ5LjAwMWMtMjcuMDE5LDAtNDksMjEuOTgxLTQ5LDQ5LjAwMXY5Ljc1YzAsMTMuNzEyLDUuNjY4LDI2LjExOSwxNC43NzcsMzUuMDIyICAgIGMtNy45NzksMi45MDktMTUuNjAyLDYuODM5LTIyLjY5OCwxMS43NjNjLTEyLjIxNSw4LjQ3OC0yMi4yNzEsMTkuNDE2LTI5LjYxMywzMi4xMDJjLTEyLjYyNy0xNS4wMDUtMjEuNDUzLTMzLjQ2MS0yNC45MDYtNTQuMDUgICAgYy0wLjkxMy01LjQ0NS02LjA3NC05LjExOS0xMS41MTYtOC4yMDhjLTUuNDQ3LDAuOTEzLTkuMTIyLDYuMDY5LTguMjA5LDExLjUxNmM1LjE0MiwzMC42NiwyMS4wNTksNTguNzI0LDQ0LjgyLDc5LjAyMSAgICBjMjQuMDMxLDIwLjUyOSw1NC42OTYsMzEuODM1LDg2LjM0NCwzMS44MzVjNzMuMzM3LDAsMTMzLjAwMS01OS42NjQsMTMzLjAwMS0xMzMuMDAxUzMyOS4zMzcsNDAsMjU2LDQweiBNMjI3LDE1Ny4yNTEgICAgYzAtMTUuOTkxLDEzLjAxLTI5LjAwMSwyOS0yOS4wMDFzMjksMTMuMDEsMjksMjkuMDAxdjkuNzVjMCwxNS45OS0xMy4wMSwyOS0yOSwyOXMtMjktMTMuMDEtMjktMjlWMTU3LjI1MXogTTI1NiwyODYuMDAyICAgIGMtMjcuMDc0LDAtNTIuMTA0LTkuNDU0LTcxLjY5NC0yNS40ODJjMTMuNDI4LTI3LjI1Miw0MC44NzktNDQuNTE5LDcxLjY5NC00NC41MTljMzAuNzUxLDAsNTguMTUsMTcuMTk2LDcxLjYwOCw0NC4zNDkgICAgQzMwOC4xMDEsMjc2LjM3MSwyODMuMTU0LDI4Ni4wMDIsMjU2LDI4Ni4wMDJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik0zNDguMzU3LDM5OC4wMDJoLTE0MmMtNS41MjIsMC0xMCw0LjQ3OC0xMCwxMGMwLDUuNTIyLDQuNDc4LDEwLDEwLDEwaDE0MmM1LjUyMywwLDEwLTQuNDc4LDEwLTEwICAgIEMzNTguMzU3LDQwMi40OCwzNTMuODc5LDM5OC4wMDIsMzQ4LjM1NywzOTguMDAyeiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMTcwLjcxLDM0NC45M2MtMS44Ni0xLjg2MS00LjQ0LTIuOTMtNy4wNy0yLjkzcy01LjIxLDEuMDctNy4wNywyLjkzcy0yLjkzLDQuNDQtMi45Myw3LjA3ICAgIGMwLDIuNjM5LDEuMDcxLDUuMjEsMi45Myw3LjA2OWMxLjg2LDEuODYxLDQuNDQsMi45MzEsNy4wNywyLjkzMXM1LjIxLTEuMDcsNy4wNy0yLjkzMWMxLjg3LTEuODU5LDIuOTMtNC40MzksMi45My03LjA2OSAgICBTMTcyLjU4LDM0Ni43OSwxNzAuNzEsMzQ0LjkzeiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMTcwLjcxLDQwMC45M2MtMS44Ni0xLjg2MS00LjQzLTIuOTMtNy4wNy0yLjkzYy0yLjYzLDAtNS4yMSwxLjA3LTcuMDcsMi45M3MtMi45Myw0LjQ0LTIuOTMsNy4wNyAgICBjMCwyLjYzOSwxLjA3MSw1LjIxLDIuOTMsNy4wNjljMS44NiwxLjg2MSw0LjQ0LDIuOTMxLDcuMDcsMi45MzFzNS4yMS0xLjA3LDcuMDctMi45MzFjMS44Ny0xLjg1OSwyLjkzLTQuNDI5LDIuOTMtNy4wNjkgICAgQzE3My42NCw0MDUuMzcsMTcyLjU4LDQwMi43OSwxNzAuNzEsNDAwLjkzeiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMzQ4LjM1NywzNDIuMDAyaC0xNDJjLTUuNTIyLDAtMTAsNC40NzgtMTAsMTBjMCw1LjUyMiw0LjQ3OCwxMCwxMCwxMGgxNDJjNS41MjMsMCwxMC00LjQ3OCwxMC0xMCAgICBDMzU4LjM1NywzNDYuNDgsMzUzLjg3OSwzNDIuMDAyLDM0OC4zNTcsMzQyLjAwMnoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTE2MS42MjYsNTcuNjI5Yy0zLjkwNy0zLjkwNC0xMC4yMzctMy45MDQtMTQuMTQzLDBsLTMyLjU2NiwzMi41NjZsLTExLjEyOS0xMS4xMjljLTMuOTA3LTMuOTA0LTEwLjIzNy0zLjkwNC0xNC4xNDMsMCAgICBjLTMuOTA1LDMuOTA2LTMuOTA1LDEwLjIzOCwwLDE0LjE0M2wxOC4yLDE4LjJjMS45NTMsMS45NTIsNC41MTEsMi45MjksNy4wNzEsMi45MjlzNS4xMTgtMC45NzcsNy4wNzItMi45MjhsMzkuNjM4LTM5LjYzOCAgICBDMTY1LjUzMSw2Ny44NjYsMTY1LjUzMSw2MS41MzQsMTYxLjYyNiw1Ny42Mjl6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik0xMjYsMEM4MC43ODUsMCw0NCwzNi43ODUsNDQsODJjMCw0NS4yMTUsMzYuNzg1LDgyLDgyLDgyYzQ1LjIxNSwwLDgyLTM2Ljc4NSw4Mi04MkMyMDgsMzYuNzg1LDE3MS4yMTUsMCwxMjYsMHogICAgIE0xMjYsMTQ0Yy0zNC4xODcsMC02Mi0yNy44MTMtNjItNjJzMjcuODEzLTYyLDYyLTYyczYyLDI3LjgxMyw2Miw2MlMxNjAuMTg3LDE0NCwxMjYsMTQ0eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjwvZz48L3N2Zz4=" />
+            <h5>채용공고</h5>
+        </li>
+        <li class="menubox_li">
+            <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDE3OC45NjIgMTc4Ljk2MiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsMSwwLDApIj4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik0xNDQuNTQ1LDBIMzQuNDE3Yy05LjQ5MiwwLTE3LjIwNyw3LjcyMi0xNy4yMDcsMTcuMjA3djE0NC41NDZjMCw5LjQ5Myw3LjcxNSwxNy4yMDksMTcuMjA3LDE3LjIwOWgxMTAuMTI4ICAgIGM5LjQ5MiwwLDE3LjIwNy03LjcxNiwxNy4yMDctMTcuMjA5VjE3LjIxMkMxNjEuNzUyLDcuNzIyLDE1NC4wMzcsMCwxNDQuNTQ1LDB6IE0xNDIuMzY1LDYwLjM0ICAgIGMxLjcyOSw2LjQ0Ni0wLjA0MywxMC4yODItMy4yNjgsMTEuMTUyYy0zLjIyMywwLjg1Ni02LjY2OS0xLjU4Ni04LjM5Mi04LjAzYy0wLjUzMi0xLjk2Ny0wLjUzMi00LjEzNC0wLjI5LTYuMjI0ICAgIGMtMC44MzQsMS45MzEtMS45MjgsMy44MjQtMy4zNjEsNS4yNTVjLTQuNzIxLDQuNzE3LTguOTMxLDUuMTAzLTExLjI4NCwyLjczOWMtMi4zNjgtMi4zNTgtMS45OC02LjU2NiwyLjc0NC0xMS4yODkgICAgYzEuNDI2LTEuNDI1LDMuMzExLTIuNTE3LDUuMjQ4LTMuMzU2Yy0yLjA5MywwLjI1MS00LjI3MSwwLjI0Ni02LjIxOS0wLjI4MmMtNi40NDQtMS43MjMtOC44ODYtNS4xODMtOC4wMjEtOC40MDUgICAgYzAuODU0LTMuMjE1LDQuNjk2LTQuOTksMTEuMTQxLTMuMjY3YzEuOTYxLDAuNTI4LDMuODUzLDEuNjIsNS41MjcsMi44NzZjLTEuMjQ2LTEuNjk0LTIuMzQzLTMuNTgyLTIuODU2LTUuNTI5ICAgIGMtMS43MzMtNi40MjcsMC4wMzItMTAuMjYxLDMuMjMtMTEuMTQyYy0wLjE4NywwLjY5LTAuMjg1LDEuMzY4LTAuMiwxLjk4OWMwLjEyMSwxLjA1MywwLjYxOSwxLjk0NSwxLjQzNCwyLjU3MiAgICBjMC42ODIsMC41MjgsMS40ODksMC44MTIsMi4zNDMsMC44MTJjMC44NDIsMCwyLjAwMy0wLjI4NCwzLjMzNC0xLjMxNmMwLjU4NCwxLjA5NywxLjA5OSwyLjQxMSwxLjUxNCwzLjk1MSAgICBjMC41MjYsMS45NjcsMC41MzcsNC4xNCwwLjI3NCw2LjIzYzAuODQyLTEuOTM3LDEuOTQyLTMuODI3LDMuMzcxLTUuMjVjMS4wNDEtMS4wMzcsMi4wMzUtMS44MTksMy4wMDMtMi40NTlsMC4wNS0wLjAwNiAgICBsMC42ODktMC40NDljMy4xNDEtMS43NzYsNS44MzUtMS41NDEsNy41NCwwLjE2NGMyLjM2NiwyLjM1OSwxLjk3OCw2LjU2Ni0yLjczNiwxMS4yODljLTEuNDM0LDEuNDQxLTMuMzI2LDIuNTE3LTUuMjQ3LDMuMzU3ICAgIGMyLjA4LTAuMjQxLDQuMjYzLTAuMjM1LDYuMjE3LDAuMjgzYzMuMiwwLjg2MSw1LjQwNywyLjE1LDYuNzE0LDMuNjI0djYuOTUyYy0xLjc2OCwxLjcxNS01LjA4OSwyLjM2NC05LjgzNywxLjA4OSAgICBjLTEuOTctMC41MjctMy44Ni0xLjYwOS01LjUyOC0yLjg2NEMxNDAuNzUsNTYuNDksMTQxLjg0Miw1OC4zODEsMTQyLjM2NSw2MC4zNHogTTk4LjMwNywzMi4yNDdjLTQuOTc3LDAtNy40LTIuMDA4LTcuNC00LjUwNiAgICBzMi40My00LjUwNyw3LjQtNC41MDdjMS41MTQsMCwzLjA4NiwwLjQxNyw0LjU0NSwwLjk5OWMtMS4yMjktMC45NzQtMi4zNzgtMi4xMjMtMy4xMzUtMy40MzNjLTIuNDkzLTQuMzEtMS45NjUtNy40MiwwLjE5Ni04LjY1NyAgICBjMi4xNTYtMS4yNDUsNS4xMTEtMC4xNDgsNy41OTYsNC4xNWMwLjc2NywxLjMwNSwxLjE4MiwyLjg4NywxLjQxMSw0LjQyN2MwLjIyLTEuNTQsMC42NDYtMy4xMjIsMS40MTQtNC40MjcgICAgYzIuNDcyLTQuMzEsNS40NDQtNS4zOTYsNy41OTMtNC4xNWMyLjE1NiwxLjIzNywyLjY4Miw0LjM0OCwwLjIwNSw4LjY1N2MtMC43NjEsMS4zMTUtMS45MTIsMi40NTktMy4xMzgsMy40MjMgICAgYzEuNDYxLTAuNTczLDMuMDIxLTAuOTg5LDQuNTMtMC45ODljMi4yNSwwLDMuOTQsMC40MjIsNS4xNTUsMS4xMDFjLTEuOTI2LDEuMjA5LTMuNDA0LDMuNzE1LTMuMjE4LDcuNzg0ICAgIGMtMC41ODksMC4wNzEtMS4yMzcsMC4xMjMtMS45MzgsMC4xMjNjLTEuNTEsMC0zLjA4Ni0wLjQxNi00LjUzNS0wLjk5OGMxLjIzLDAuOTY5LDIuMzgyLDIuMTE4LDMuMTM1LDMuNDM0ICAgIGMwLjQ4MywwLjg0MiwwLjgyMSwxLjYxOSwxLjA5MSwyLjM2NmMtMy45MzEtMC42OTUtNy4xNDMtMC4wNjgtOS4xLDEuNjQ3Yy0wLjYwMy0xLjIwNy0wLjk5OC0yLjU2Ny0xLjIwNS0zLjk0ICAgIGMtMC4yMjksMS41NTItMC42NCwzLjEyMi0xLjQwMSw0LjQzM2MtMi40ODgsNC4zMDMtNS40NDgsNS40MDctNy42MDEsNC4xNTNjLTIuMTU2LTEuMjQ1LTIuNjg1LTQuMzUxLTAuMjAxLTguNjU5ICAgIGMwLjc1My0xLjMsMS45MTUtMi40NjUsMy4xMzktMy40MzRDMTAxLjM5MywzMS44MzEsOTkuODIsMzIuMjQ3LDk4LjMwNywzMi4yNDd6IE0xMjkuNDQsMTQuMTQzICAgIGMxLjA1NiwwLjE0NSwyLjEyOSwwLjYsMy4wOTIsMS4xNDFjLTAuNzcxLTAuODA1LTEuNDYyLTEuNzI0LTEuODU4LTIuNzE3Yy0xLjE2OC0yLjg2Mi0wLjcyNS00Ljc5MSwwLjQ4NC01LjY4M2gzLjExICAgIGMwLjg1MiwwLjU5MSwxLjY3MiwxLjY3MiwyLjMyOSwzLjI5N2MwLjM5NCwwLjk5LDAuNTM4LDIuMTQsMC41NDcsMy4yMzdjMC4zMTItMS4wNTQsMC43NzEtMi4xMjQsMS40MjQtMi45NjQgICAgYzIuMTcyLTIuNzc5LDQuMzU2LTMuMjU1LDUuNzQ0LTIuMTY5YzEuNDAxLDEuMDg5LDEuNDY3LDMuMzI1LTAuNzExLDYuMTA0Yy0wLjY1NiwwLjgzOS0xLjU4NywxLjUyOS0yLjUzOSwyLjA5NSAgICBjMS4wODQtMC4yNjUsMi4yMjItMC4zOTksMy4yODMtMC4yNTRjMy40OTEsMC41MDEsNS4wMDQsMi4xNDgsNC43NjEsMy44OTZjLTAuMjUxLDEuNzQzLTIuMTU2LDIuOTI1LTUuNjQ3LDIuNDM4ICAgIGMtMS4wNTYtMC4xNS0yLjEyMS0wLjYwNS0zLjA4NC0xLjE0OWMwLjc2NywwLjgwMSwxLjQ1NCwxLjczMiwxLjg1OSwyLjcxMWMxLjMxNywzLjI2NywwLjYzNSw1LjQwNi0xLjAwOCw2LjA2MyAgICBjLTEuNjI1LDAuNjU2LTMuNjAxLTAuMzkyLTQuOTIzLTMuNjU4Yy0wLjM4My0xLjAwMy0wLjUzNy0yLjE0My0wLjU0OS0zLjI1NmMtMC4zMDYsMS4wNjQtMC43NjcsMi4xMjMtMS40MjEsMi45NjkgICAgYy0yLjE4LDIuNzc0LTQuMzU3LDMuMjU1LTUuNzQ3LDIuMTY5Yy0xLjM5MS0xLjA4MS0xLjQ2Ny0zLjMyNCwwLjcxOS02LjEwMmMwLjY1OS0wLjgzNywxLjU3My0xLjUzNywyLjUzMS0yLjA5NSAgICBjLTEuMDcsMC4yNjItMi4yMjIsMC4zOTYtMy4yODMsMC4yNDFjLTMuNDkxLTAuNDg0LTUuMDAxLTIuMTM3LTQuNzQ5LTMuODg1QzEyNC4wNDUsMTQuODI0LDEyNS45NDksMTMuNjQ3LDEyOS40NCwxNC4xNDN6ICAgICBNMTU0Ljg3NCw0NC42MDJjLTAuODc0LTAuNTU1LTEuODI2LTEuMDc3LTIuOTQyLTEuNTMyYzEuNTA5LTEuODgyLDIuNDM4LTMuNzkyLDIuOTQyLTUuNjlWNDQuNjAyeiBNMTU0Ljg3NCwxNy4yMTJ2MTQuNTEyICAgIGMtMC40MjEtMS4yODQtMS4xMTEtMi40Ny0yLjExMS0zLjQ3MmMtMS4xMDEtMS4xLTIuNDE5LTEuODYxLTMuODY0LTIuMjVjMi42MTgtMS4xMDMsMy44ODgtMy4zMjcsNC4xNzgtNS4zMTYgICAgYzAuMzMxLTIuNDQ5LTAuNjc2LTUuNTcxLTQuMzE5LTcuMzE5YzAuMjk1LTAuNzg1LDAuNDcyLTEuNTcsMC41MjQtMi4zNTNjMC4wOTMtMS4xMjctMC4wOTMtMi4yMTMtMC40ODEtMy4xODUgICAgQzE1Mi4zNzUsOS40NSwxNTQuODc0LDEzLjAzMiwxNTQuODc0LDE3LjIxMnogTTE0NC41NDUsMTcyLjA4NEgzNC40MTdjLTUuNjk4LDAtMTAuMzI1LTQuNjM1LTEwLjMyNS0xMC4zMzFWMTcuMjEyICAgIGMwLTUuNjk0LDQuNjI3LTEwLjMyOSwxMC4zMjUtMTAuMzI5aDkxLjk5NGMtMC4yODQsMC44MzgtMC41MTQsMS44NzctMC40MTUsMy4yNzNjLTEuMzI2LDAuMjE4LTIuNDE5LDAuNjY2LTMuMjg2LDEuMjY2ICAgIGMtMC42NTUtMS4xMzUtMS41OTItMi4wNzEtMi43NjktMi43NDRjLTEuMTU5LTAuNjc5LTIuNDM5LTEuMDI2LTMuNzg3LTEuMDI2Yy0xLjYwMywwLTQuNDU0LDAuNTQ1LTcuMjI4LDMuNzE2ICAgIGMtMi43ODUtMy4xNzEtNS42MzEtMy43MTYtNy4yMjktMy43MTZjLTEuMzM1LDAtMi42MDUsMC4zNDctMy43NzMsMS4wMmMtMS43OTIsMS4wMzItMy4wMjEsMi42MzMtMy41Nyw0LjY2OCAgICBjLTAuNTA5LDEuODcxLTAuMzYsMy45ODgsMC4zOTUsNi4yMjRjLTUuMzk2LDEuMDg2LTcuODUsNC42ODktNy44NSw4LjE4MWMwLDMuNDk3LDIuNDU0LDcuMDk0LDcuODUsOC4xODEgICAgYy0xLjc1MSw1LjIyMywwLjEzMSw5LjE1MSwzLjE1MiwxMC44ODZjMS4xNzIsMC42NzksMi40NDEsMS4wMjYsMy43ODYsMS4wMjZjMC45NjgsMCwyLjU1LTAuMjE5LDQuMzM0LTEuMjg5bDAuNTQ3LDEuMDk0ICAgIGMxLjM1NywyLjM1MywzLjc2Nyw0LjI0Nyw3LjIwMyw1LjYyYy00Ljc1Miw2LjAyMS0zLjk5NiwxMS42NDUtMC44NCwxNC44MDJjMy41MzUsMy41NTUsOS4zNTMsMy4zODcsMTQuODAyLTAuODQ1ICAgIGMyLjExNCw1LjM0Niw1Ljc3NSw4LjQ1MSwxMC4xMjMsOC40NTFjMC43NjEsMCwxLjUyMS0wLjEwMSwyLjI3Ny0wLjMwOWMyLjYwNC0wLjY5NSw0LjY4NC0yLjQ5OCw1Ljg1NS01LjA3NSAgICBjMS4wMjctMi4yODIsMS4zMTItNS4wMjMsMC44NS04LjEzN2MzLjExMSwwLjQ2Niw1LjgyMiwwLjA1NSw4LjAzNi0wLjkyNXYxMDAuNTM3ICAgIEMxNTQuODc0LDE2Ny40NDksMTUwLjI0NiwxNzIuMDg0LDE0NC41NDUsMTcyLjA4NHoiIGZpbGw9IiNmZmZkZmQiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCQk8cGF0aCBkPSJNMTA4LjkyNiwyNC4xNDNjMS45ODgsMCwzLjU5NSwxLjYxMSwzLjU5NSwzLjU5OGMwLDEuOTg2LTEuNjA2LDMuNTk4LTMuNTk1LDMuNTk4Yy0xLjk4NiwwLTMuNTk2LTEuNjEyLTMuNTk2LTMuNTk4ICAgIEMxMDUuMzMsMjUuNzU0LDEwNi45MzksMjQuMTQzLDEwOC45MjYsMjQuMTQzeiIgZmlsbD0iI2ZmZmRmZCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJCTxwYXRoIGQ9Ik0xMzEuNjEyLDQzLjQ5MmMtMi41ODIsMC42OTQtNC4xMDksMy4zNDYtMy40MTksNS45MThjMC42ODgsMi41NzcsMy4zMzksNC4xMDYsNS45MiwzLjQxMSAgICBjMi41NzQtMC42ODQsNC4xMDEtMy4zNTIsMy40MDUtNS45MThDMTM2LjgyNyw0NC4zMzIsMTM0LjE4NSw0Mi44MDIsMTMxLjYxMiw0My40OTJ6IiBmaWxsPSIjZmZmZGZkIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+CgkJPHBhdGggZD0iTTEzNi40NDQsMTUuNzk1YzEuNDExLDAsMi41NjEsMS4xNDQsMi41NjEsMi41NTZjMCwxLjQwOS0xLjE0OSwyLjU1Mi0yLjU2MSwyLjU1MmMtMS40MDYsMC0yLjU1LTEuMTQ0LTIuNTUtMi41NTIgICAgQzEzMy44OTUsMTYuOTM5LDEzNS4wMzgsMTUuNzk1LDEzNi40NDQsMTUuNzk1eiIgZmlsbD0iI2ZmZmRmZCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJCTxwYXRoIGQ9Ik00OC4xODQsOTguNjcySDg5LjQ4YzIuODUsMCw1LjE1Ny0yLjMxLDUuMTU3LTUuMTY3YzAtMi44NS0yLjMwOC01LjE2NS01LjE1Ny01LjE2NUg0OC4xODQgICAgYy0yLjg1MSwwLTUuMTY2LDIuMzE1LTUuMTY2LDUuMTY1QzQzLjAxOCw5Ni4zNjIsNDUuMzMzLDk4LjY3Miw0OC4xODQsOTguNjcyeiIgZmlsbD0iI2ZmZmRmZCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJCTxwYXRoIGQ9Ik0xMzAuNzc1LDEwNi44OEg0OC4xODRjLTIuODUxLDAtNS4xNjYsMi4zMi01LjE2Niw1LjE2NWMwLDIuODU2LDIuMzE1LDUuMTY1LDUuMTY2LDUuMTY1aDgyLjU5MSAgICBjMi44NTgsMCw1LjE2NS0yLjMwOSw1LjE2NS01LjE2NUMxMzUuOTQsMTA5LjIsMTMzLjYzNCwxMDYuODgsMTMwLjc3NSwxMDYuODh6IiBmaWxsPSIjZmZmZGZkIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+CgkJPHBhdGggZD0iTTEzMC43NzUsMTI1LjQzNkg0OC4xODRjLTIuODUxLDAtNS4xNjYsMi4zMDgtNS4xNjYsNS4xNTljMCwyLjg1NywyLjMxNSw1LjE2LDUuMTY2LDUuMTZoODIuNTkxICAgIGMyLjg1OCwwLDUuMTY1LTIuMzAzLDUuMTY1LTUuMTZDMTM1Ljk0LDEyNy43NDMsMTMzLjYzNCwxMjUuNDM2LDEzMC43NzUsMTI1LjQzNnoiIGZpbGw9IiNmZmZkZmQiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCQk8cGF0aCBkPSJNMTMwLjc3NSwxNDMuOTgxSDQ4LjE4NGMtMi44NTEsMC01LjE2NiwyLjMwNy01LjE2Niw1LjE2NGMwLDIuODUsMi4zMTUsNS4xNjUsNS4xNjYsNS4xNjVoODIuNTkxICAgIGMyLjg1OCwwLDUuMTY1LTIuMzE1LDUuMTY1LTUuMTY1QzEzNS45NCwxNDYuMjg4LDEzMy42MzQsMTQzLjk4MSwxMzAuNzc1LDE0My45ODF6IiBmaWxsPSIjZmZmZGZkIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg==" />
+            <h5>게시판관리</h5>
+        </li>
+        <li class="menubox_li">
+            <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTM0NiwzMTljLTUuNTIyLDAtMTAsNC40NzctMTAsMTB2NjljMCwyNy41Ny0yMi40Myw1MC01MCw1MEgxNzguMDMyYy01LjUyMSwwLTkuOTk2LDQuNDczLTEwLDkuOTkzbC0wLjAxNCwxOS44ODIgICAgbC0yMy44NjgtMjMuODY3Yy0xLjU0NS0zLjU0Ny01LjA4MS02LjAwOC05LjE3MS02LjAwOEg3MGMtMjcuNTcsMC01MC0yMi40My01MC01MFYyNDRjMC0yNy41NywyMi40My01MCw1MC01MGgxMDEgICAgYzUuNTIyLDAsMTAtNC40NzcsMTAtMTBzLTQuNDc4LTEwLTEwLTEwSDcwYy0zOC41OTgsMC03MCwzMS40MDItNzAsNzB2MTU0YzAsMzguNTk4LDMxLjQwMiw3MCw3MCw3MGg1OS44NThsNDEuMDcxLDQxLjA3MSAgICBjMS45MTMsMS45MTMsNC40NywyLjkyOSw3LjA3MywyLjkyOWMxLjI4NywwLDIuNTg2LTAuMjQ5LDMuODIxLTAuNzZjMy43MzctMS41NDYsNi4xNzQtNS4xOSw2LjE3Ny05LjIzM0wxODguMDI0LDQ2OEgyODYgICAgYzM4LjU5OCwwLDcwLTMxLjQwMiw3MC03MHYtNjlDMzU2LDMyMy40NzcsMzUxLjUyMiwzMTksMzQ2LDMxOXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTM2Ni42NTUsMGgtMjUuMzA5QzI2MS4yMDIsMCwxOTYsNjUuMjAyLDE5NiwxNDUuMzQ2czY1LjIwMiwxNDUuMzQ1LDE0NS4zNDUsMTQ1LjM0NWgyNS4zMDkgICAgYzEyLjUwOSwwLDI0Ljg5LTEuNTg5LDM2Ljg5LTQuNzI5bDM3LjM4NywzNy4zNjZjMS45MTMsMS45MTEsNC40NjksMi45MjcsNy4wNzEsMi45MjdjMS4yODksMCwyLjU4OS0wLjI0OSwzLjgyNi0wLjc2MiAgICBjMy43MzYtMS41NDgsNi4xNzItNS4xOTQsNi4xNzItOS4yMzh2LTU3Ljg1NmMxNS44MjktMTIuODE5LDI4Ljk3OC0yOS4wMTIsMzguMjA2LTQ3LjEwMiAgICBDNTA2LjY4NywxOTAuNzUxLDUxMiwxNjguNTYyLDUxMiwxNDUuMzQ2QzUxMiw2NS4yMDIsNDQ2Ljc5OCwwLDM2Ni42NTUsMHogTTQ0MS45ODMsMjQ1LjUzNSAgICBjLTIuNTA3LDEuODg5LTMuOTgzLDQuODQ3LTMuOTgzLDcuOTg4djM4LjZsLTI0LjQ3MS0yNC40NThjLTEuOTA0LTEuOTAyLTQuNDU4LTIuOTI3LTcuMDctMi45MjdjLTAuOTgsMC0xLjk3LDAuMTQ1LTIuOTM2LDAuNDQyICAgIGMtMTEuOTAzLDMuNjU4LTI0LjMwNyw1LjUxMi0zNi44NjgsNS41MTJoLTI1LjMwOWMtNjkuMTE3LDAtMTI1LjM0Ni01Ni4yMy0xMjUuMzQ2LTEyNS4zNDZTMjcyLjIzLDIwLDM0MS4zNDYsMjBoMjUuMzA5ICAgIEM0MzUuNzcxLDIwLDQ5Miw3Ni4yMyw0OTIsMTQ1LjM0NkM0OTIsMTg1LjA3Nyw0NzMuNzcsMjIxLjU5NSw0NDEuOTgzLDI0NS41MzV6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik0zOTkuMDMzLDEwOS40MjFjLTEuNDQzLTIwLjkzNS0xOC4zMTktMzcuODExLTM5LjI1NS0zOS4yNTRjLTExLjg2OC0wLjgxNS0yMy4xOTQsMy4xODgtMzEuODYzLDExLjI4MSAgICBjLTguNTUsNy45ODEtMTMuNDUzLDE5LjI2My0xMy40NTMsMzAuOTU0YzAsNS41MjMsNC40NzgsMTAsMTAsMTBjNS41MjIsMCwxMC00LjQ3NywxMC0xMGMwLTYuMjU5LDIuNTIyLTEyLjA2LDcuMS0xNi4zMzMgICAgYzQuNTc0LTQuMjY5LDEwLjU1Mi02LjM4MiwxNi44NDItNS45NDhjMTEuMDI4LDAuNzYsMTkuOTE3LDkuNjQ5LDIwLjY3NywyMC42NzZjMC43NjgsMTEuMTM3LTYuNTM5LDIwLjk3OS0xNy4zNzMsMjMuNDAzICAgIGMtOC43NzgsMS45NjQtMTQuOTA4LDkuNTkyLTE0LjkwOCwxOC41NDl2MjQuMDI1YzAsNS41MjMsNC40NzgsMTAsMTAsMTBjNS41MjMsMCwxMC00LjQ3Nyw5Ljk5OS0xMHYtMjMuMjI2ICAgIEMzODYuOTQ5LDE0OC42OCw0MDAuNDY4LDEzMC4yNDIsMzk5LjAzMywxMDkuNDIxeiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMzYzLjg3LDIwOS4yNmMtMS44Ni0xLjg2LTQuNDQtMi45My03LjA3LTIuOTNzLTUuMjEsMS4wNy03LjA3LDIuOTNjLTEuODYsMS44Ni0yLjkzLDQuNDQtMi45Myw3LjA3ICAgIGMwLDIuNjQsMS4wNzEsNS4yMiwyLjkzLDcuMDhjMS44NiwxLjg2LDQuNDQsMi45Miw3LjA3LDIuOTJzNS4yMS0xLjA2LDcuMDctMi45MmMxLjg2LTEuODcsMi45My00LjQ0LDIuOTMtNy4wOCAgICBDMzY2LjgsMjEzLjcsMzY1LjcyOSwyMTEuMTIsMzYzLjg3LDIwOS4yNnoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTI3NSwzMTBINjRjLTUuNTIyLDAtMTAsNC40NzctMTAsMTBzNC40NzgsMTAsMTAsMTBoMjExYzUuNTIzLDAsMTAtNC40NzcsMTAtMTBTMjgwLjUyMiwzMTAsMjc1LDMxMHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTI4Mi4wNjksMzY4LjkzQzI4MC4yMSwzNjcuMDcsMjc3LjYzLDM2NiwyNzUsMzY2cy01LjIxLDEuMDctNy4wNywyLjkzYy0xLjg2MSwxLjg2LTIuOTMsNC40NC0yLjkzLDcuMDcgICAgczEuMDcsNS4yMSwyLjkzLDcuMDdjMS44NiwxLjg2LDQuNDQsMi45Myw3LjA3LDIuOTNzNS4yMS0xLjA3LDcuMDY5LTIuOTNjMS44NjEtMS44NiwyLjkzMS00LjQzLDIuOTMxLTcuMDcgICAgQzI4NSwzNzMuMzcsMjgzLjkyOSwzNzAuNzksMjgyLjA2OSwzNjguOTN6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik0yMzUuNjY3LDM2Nkg2NGMtNS41MjIsMC0xMCw0LjQ3Ny0xMCwxMHM0LjQ3OCwxMCwxMCwxMGgxNzEuNjY3YzUuNTIzLDAsMTAtNC40NzcsMTAtMTBTMjQxLjE4OSwzNjYsMjM1LjY2NywzNjZ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik0yMTAsMjU0SDY0Yy01LjUyMiwwLTEwLDQuNDc3LTEwLDEwczQuNDc4LDEwLDEwLDEwaDE0NmM1LjUyMywwLDEwLTQuNDc3LDEwLTEwUzIxNS41MjIsMjU0LDIxMCwyNTR6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg==" />
+            <h5>고객문의</h5>
+        </li>
     </div>
 
 
-
-
-
-
-
-
-
-
-    <div id="bodyWrap">
-        <div id="menubox">
-            <div id="menubox_header">
-                ADMIN
-            </div>
-            <div id="menubox_body">
-
-                <!--회원관리-->
-                <div class="menubox_body_menu" onclick="sideMenu(0)">
-                    <i class="far fa-user"></i>
-                    회원관리
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-chevron-up"></i>
-                </div>
-                <div class="menubox_body_sub">
-                    <p onclick="mainChange(0)">회원 리스트</p>
-                    <p onclick="mainChange(1)">회원가입승인</p>
-                    <p onclick="mainChange(2)">회원통계</p>
-                </div>
-
-
-                <!--미정-->
-                <div class="menubox_body_menu" onclick="sideMenu(1)">
-                    <i class="far fa-user"></i>
-                    미정
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-chevron-up"></i>
-                </div>
-                <div class="menubox_body_sub">
-                    <p>미정</p>
-                    <p>미정</p>
-                    <p>미정</p>
-                    <p>미정</p>
-                </div>
-
-                <!--미정-->
-                <div class="menubox_body_menu" onclick="sideMenu(2)">
-                    <i class="far fa-user"></i>
-                    미정
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-chevron-up"></i>
-                </div>
-                <div class="menubox_body_sub">
-                    <p>미정</p>
-                    <p>미정</p>
-                    <p>미정</p>
-                    <p>미정</p>
-                </div>
-
-                <!--미정-->
-                <div class="menubox_body_menu" onclick="sideMenu(3)">
-                    <i class="far fa-user"></i>
-                    미정
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-chevron-up"></i>
-                </div>
-                <div class="menubox_body_sub">
-                    <p>미정</p>
-                    <p>미정</p>
-                    <p>미정</p>
-                    <p>미정</p>
-                </div>
-            </div>
+    <div id="main_wrap">
+        <div id="menu_guide">
+            Dashboard
+            <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnIHRyYW5zZm9ybT0ibWF0cml4KC0xLjgzNjk3MDE5ODcyMTAyOTdlLTE2LDEsLTEsLTEuODM2OTcwMTk4NzIxMDI5N2UtMTYsNTEyLC0yLjg0MjE3MDk0MzA0MDQwMWUtMTQpIj4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxnPgoJCQk8cGF0aCBkPSJNMjU2LDBDMTE0LjYxNSwwLDAsMTE0LjYxNSwwLDI1NnMxMTQuNjE1LDI1NiwyNTYsMjU2czI1Ni0xMTQuNjE1LDI1Ni0yNTZTMzk3LjM4NSwwLDI1NiwweiBNMjU2LDQ4MCAgICAgQzEzMi4yODgsNDgwLDMyLDM3OS43MTIsMzIsMjU2UzEzMi4yODgsMzIsMjU2LDMyczIyNCwxMDAuMjg4LDIyNCwyMjRTMzc5LjcxMiw0ODAsMjU2LDQ4MHoiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCQkJPHBhdGggZD0iTTIxOS4yLDExNi44bC0yMi41NiwyMi41NkwzMTMuNDQsMjU2TDE5Ni44LDM3Mi44bDIyLjU2LDIyLjU2bDEyNy44NC0xMjhjNi4yMDQtNi4yNDEsNi4yMDQtMTYuMzE5LDAtMjIuNTZMMjE5LjIsMTE2LjggICAgIHoiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCQk8L2c+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg==" />
+        </div>
+        <div id="menu_title">
+            <h3>Dashboard</h3>
         </div>
 
-        <!--회원리스트-->
         <div class="main">
-            <div class="main_head">
-                <h4>회원리스트</h4>
-            </div>
-            <div class="main_search">
-                <!--main1_1,main1_2에 같은 디자인인 search box가 있어서 클래스로 지정-->
-                <div class="main_search_c">
-                    <!--guide-select-->
-                    <div class="main_search_line">
-                        <div class="circle"></div>
-                        <h2>권한</h2>
-                        <select name="role">
-                            <option value="">회원 권한</option>
-                            <option value="학생">학생</option>
-                            <option value="기업">기업</option>
-                            <option value="교수">교수</option>
-                            <option value="멘토">멘토</option>
-                            <option value="상담사">상담사</option>
-                        </select>
+            <!-- 회원 관리 -->
+            <div class="main2">                 <!-- 회원 관리 > 회원 관리 -->
+                <div id="main2_search">         <!-- 회원관리 > 회원 관리 > 검색 -->
+                    <div class="sub_menu_title">
+                        <h3>회원검색</h3>
                     </div>
-
-
-
-                    <div class="main_search_line">
-                        <div class="circle"></div>
-                        <h2>가입일</h2>
-                        <input type="date" class="search_date">
-                        <p>~&nbsp;</p>
-                        <input type="date" class="search_date">
-                        <button onclick="search_date(1)">오늘</button>
-                        <button onclick="search_date(2)">이번주</button>
-                        <button onclick="search_date(3)">이번달</button>
-                        <button onclick="search_date(4)">전체</button>
-                    </div>
-
-
-
-                    <div class="main_search_line">
-                        <div class="circle"></div>
-                        <h2>회원명</h2>
-                        <select name="user">
-                            <option value="아이디">아이디</option>
-                            <option value="이름">이름</option>
-                        </select>
-                        <input type="text" style="height:25px; margin:auto 0;">
+                    <div class="user_search">
+                        <ul>
+                            <li>회원권한</li>
+                            <li>
+                                <select name="role">
+                                    <option value="">회원 권한</option>
+                                    <option value="학생">학생</option>
+                                    <option value="교수">교직원</option>
+                                    <option value="상담사">상담사</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>이름</li>
+                            <li> <input type="text"></li>
+                        </ul>
+                        <ul>
+                            <li>아이디</li>
+                            <li><input type="text"></li>
+                        </ul>
+                        <ul>
+                            <li>가입/요청 일자</li>
+                            <li>
+                                <input type="date" class="user_search_date"> &nbsp;~&nbsp; <input type="date" class="user_search_date">
+                                <button onclick="search_date('main2_user','오늘')">오늘</button>
+                                <button onclick="search_date('main2_user','이번주')">이번주</button>
+                                <button onclick="search_date('main2_user','이번달')">이번달</button>
+                                <button onclick="search_date('main2_user','전체')">전체</button>
+                            </li>
+                        </ul>
+                        <div class="user_search_button">
+                            <button>
+                                <h3>검색</h3>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="main_search_choose">
-                    <button onclick="select()">검색</button>
-                </div>
-            </div>
-
-
-
-            <h5 style="margin:0 0 0 50px; font-weight:300;">검색 결과 : ? 명</h5>
-
-            <div class="main_content">
-                <!--main1_1,main1_2에 같은 디자인인 search box가 있어서 클래스로 지정-->
-                <div class="main_content_listhead">
-                    <input type="checkbox" name="check" class="check" onclick="selectAll(this)">
-                    <span class="number">번호</span>
-                    <span class="name">이름</span>
-                    <span class="username">아이디</span>
-                    <span class="phone">연락처</span>
-                    <span class="email">이메일</span>
-                    <span class="joindate">가입일</span>
-                    <span class="grade">권한</span>
-                    <span class="detail">관리</span>
-                </div>
-                <hr style="border:solid 2px #e2e2e2" ;>
-
-                <div class="main_content_list">
-                    <input type="checkbox" name="check" class="check">
-                    <span class="number">1</span>
-                    <span class="name">지민우</span>
-                    <span class="username">아이디</span>
-                    <span class="phone">01021259225</span>
-                    <span class="email">dddddd@naver.com</span>
-                    <span class="joindate">2013-03-18</span>
-                    <span class="grade">학생</span>
-                    <button class="detail" onclick="detail(1)">상세보기</button>
-                    <hr style="border:solid 1px #f5f5f5" ;>
-                </div>
-                <div class="main_content_list">
-                    <input type="checkbox" name="check" class="check">
-                    <span class="number">번호</span>
-                    <span class="name">이름</span>
-                    <span class="username">아이디</span>
-                    <span class="phone">연락처</span>
-                    <span class="email">이메일</span>
-                    <span class="joindate">가입일</span>
-                    <span class="grade">기업</span>
-                    <button class="detail" onclick="detail(1)">상세보기</button>
-                    <hr style="border:solid 1px #f5f5f5" ;>
-                </div>
-                <div class="main_content_list">
-                    <input type="checkbox" name="check" class="check">
-                    <span class="number">번호</span>
-                    <span class="name">이름</span>
-                    <span class="username">아이디</span>
-                    <span class="phone">연락처</span>
-                    <span class="email">이메일</span>
-                    <span class="joindate">가입일</span>
-                    <span class="grade">상담사</span>
-                    <button class="detail" onclick="detail(1)">상세보기</button>
-                    <hr style="border:solid 1px #f5f5f5" ;>
-                </div>
-                <div class="main_content_list">
-                    <input type="checkbox" name="check" class="check">
-                    <span class="number">번호</span>
-                    <span class="name">이름</span>
-                    <span class="username">아이디</span>
-                    <span class="phone">연락처</span>
-                    <span class="email">이메일</span>
-                    <span class="joindate">가입일</span>
-                    <span class="grade">교직원</span>
-                    <button class="detail" onclick="detail(1)">상세보기</button>
-                    <hr style="border:solid 1px #f5f5f5" ;>
-                </div>
-                
-            </div>
-
-            <div class="btnBottom">
-                <i class="far fa-caret-square-left"></i>
-                <div class="btnpage">
-                    1
-                </div>
-                <i class="far fa-caret-square-right"></i>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-        <!--회원가입승인-->
-        <div class="main">
-            <div class="main_head">
-                <h4>회원가입승인</h4>
-            </div>
-            <div class="main_search">
-                <div class="main_search_c">
-                    <div class="main_search_line">
-                        <div class="circle"></div>
-                        <h2>권한</h2>
-                        <select name="role">
-                            <option value="">회원 권한</option>
-                            <option value="학생">학생</option>
-                            <option value="기업">기업</option>
-                            <option value="교수">교수</option>
-                            <option value="멘토">멘토</option>
-                            <option value="상담사">상담사</option>
-                        </select>
+                <div id="main2_list">                           <!-- 회원관리 > 회원 관리 > 회원 리스트 -->
+                    <div class="sub_menu_title">
+                        <h3>회원리스트</h3>
                     </div>
-
-
-
-                    <div class="main_search_line">
-                        <div class="circle"></div>
-                        <h2>신청일</h2>
-                        <input type="date" class="search_date">
-                        <p>~&nbsp;</p>
-                        <input type="date" class="search_date">
-                        <button onclick="search_date(1)">오늘</button>
-                        <button onclick="search_date(2)">이번주</button>
-                        <button onclick="search_date(3)">이번달</button>
-                        <button onclick="search_date(4)">전체</button>
-                    </div>
-
-
-
-                    <div class="main_search_line">
-                        <div class="circle"></div>
-                        <h2>회원명</h2>
-                        <select name="i_n">
-                            <option value="아이디">아이디</option>
-                            <option value="이름">이름</option>
-                        </select>
-                        <input type="text" style="height:25px; margin:auto 0;" name="i_n_text">
+                    <div class="user_list">
+                        <div class="user_list_head">
+                                    <span class="check"><input type="checkbox" name="2_1_checkH"
+                                                               onclick="checkAll(this)"></span>
+                            <span class="number">번호</span>
+                            <span class="name">이름</span>
+                            <span class="username">아이디</span>
+                            <span class="phone">연락처</span>
+                            <span class="email">이메일</span>
+                            <span class="joindate">가입일</span>
+                            <span class="role">권한</span>
+                        </div>
+                        <div class="user_list_body" th:each="item, i : ${allowList}">
+                            <span class="check"><input type="checkbox" name="2_1_check"></span>
+                            <span class="number" >[[${i.count}]]</span>
+                            <span class="name" >[[${item.user_name}]]</span>
+                            <span class="username">[[${item.user_id}]]</span>
+                            <span class="phone">[[${item.user_ph}]]</span>
+                            <span class="email">[[${item.user_email}]]</span>
+                            <span class="joindate">[[${item.user_regdate}]]</span>
+                            <span class="role">[[${item.user_type}]]</span>
+                        </div>
                     </div>
                 </div>
-                <div class="main_search_choose">
-                    <button onclick="select()">검색</button>
-                </div>
-            </div>
-
-
-            <h5 style="margin:0 0 0 50px; font-weight:300;">검색 결과 : ? 명</h5>
-
-            <div class="main_content">
-                <div class="main_content_listhead">
-                    <input type="checkbox" name="check" class="check" onclick="selectAll(this)">
-                    <span class="number">번호</span>
-                    <span class="name">이름</span>
-                    <span class="username">아이디</span>
-                    <span class="phone">연락처</span>
-                    <span class="email">이메일</span>
-                    <span class=joindate>요청일</span>
-                    <span class="grade">권한</span>
-                    <span class="detail">관리</span>
-                </div>
-                <hr style="border:solid 2px #e2e2e2" ;>
-
-                <div class="main_content_list">
-                    <input type="checkbox" name="check" class="check">
-                    <span class="number">1</span>
-                    <span class="name">지민우</span>
-                    <span class="username">아이디</span>
-                    <span class="phone">01021259225</span>
-                    <span class="email">dddddd@naver.com</span>
-                    <span class="joindate">2013-03-18</span>
-                    <span class="grade">학생</span>
-                    <button class="detail" onclick="detail(2)">상세보기</button>
-                    <hr style="border:solid 1px #f5f5f5" ;>
-                </div>
-                <div class="main_content_list">
-                    <input type="checkbox" name="check" class="check">
-                    <span class="number">번호</span>
-                    <span class="name">이름</span>
-                    <span class="username">아이디</span>
-                    <span class="phone">연락처</span>
-                    <span class="email">이메일</span>
-                    <span class="joindate">가입일</span>
-                    <span class="grade">권한</span>
-                    <button class="detail" onclick="detail(2)">상세보기</button>
-                    <hr style="border:solid 1px #f5f5f5" ;>
-
-                </div>
-            </div>
-
-
-            <div class="btnBottom">
-                <div class="btnAllow">
-                    <button>승인</button>
-                    <button>삭제</button>
-                </div>
-                <i class="far fa-caret-square-left"></i>
-                <div class="btnpage">
-
-                </div>
-                <i class="far fa-caret-square-right"></i>
-            </div>
-        </div>
-
-
-
-
-
-
-
-        <!--회원분석-->
-        <div class="main">
-            <div class="main_head">
-                <h4>회원통계</h4>
-            </div>
-            <div id="main_join_stat">
-                <div id="main_join_head">
-                    <h5>회원가입 분석</h5>
-                </div>
-                <div id="main_join_monthChart">
-                    <div id="joinChartdiv">
+                <div id="main2_perList">                        <!-- 회원관리 > 회원 관리 > 회원 가입 인증 -->
+                    <div class="sub_menu_title">
+                        <h3>회원가입승인</h3>
                     </div>
-                </div>
-                <div id="main_join_yearChart">
-                    <i class="far fa-calendar-check"
-                        style="display:block; width: 35px; font-size:35px; margin:100px auto 0px auto; color:#ffffff;"></i>
-                    <!--달력아이콘-->
-                    <div id="main_join_yearChart_year">
-                        <h1 value="0">2021</h1>
-                        <h1 value="1">2020</h1>
-                        <h1 value="2">2019</h1>
-                        <h1 value="3">2018</h1>
-                        <h1 value="4">2017</h1>
-                        <h1 value="5">2016</h1>
-                        <h1 value="6">2015</h1>
-                        <h1 value="7">2014</h1>
-                        <h1 value="8">2013</h1>
+                    <div class="user_list">
+                        <div class="user_list_head">
+                                    <span class="check"><input type="checkbox" name="2_2_checkH"
+                                                               onclick="checkAll(this)"></span>
+                            <span class="number">번호</span>
+                            <span class="name">이름</span>
+                            <span class="username">아이디</span>
+                            <span class="phone">연락처</span>
+                            <span class="email">이메일</span>
+                            <span class="joindate">요청일</span>
+                            <span class="role">권한</span>
+                        </div>
+                        <div class="user_list_body" th:each="item, i : ${notAllowList}">
+                            <span class="check"><input type="checkbox" name="2_2_check"></span>
+                            <span class="number" >[[${i.count}]]</span>
+                            <span class="name" >[[${item.user_name}]]</span>
+                            <span class="username">[[${item.user_id}]]</span>
+                            <span class="phone">[[${item.user_ph}]]</span>
+                            <span class="email">[[${item.user_email}]]</span>
+                            <span class="joindate">[[${item.user_regdate}]]</span>
+                            <span class="role">[[${item.user_type}]]</span>
+                        </div>
+                        <div class="user_list_button">
+                            <button onclick="permission_ajax(1)">승인</button>
+                            <button onclick="permission_ajax(2)">삭제</button>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div id="main_stat_lap">
-                <div id="main_views_stat">
-                    <div id="main_views_head">
-                        <span>방문자 현황</span>
-                        <select id="main_views_select" onchange="viewsChartSelect(this.value)">
-                            <option value=-1>1분기</option>
-                            <option value=2>2분기</option>
-                            <option value=5>3분기</option>
-                            <option value=8>4분기</option>
-                        </select>
+            <div class="main2">                     <!-- 회원관리 > 기업 관리 -->
+                <div id="main2_corp_search">         <!-- 회원관리 > 기업 관리 > 검색 -->
+                    <div class="sub_menu_title">
+                        <h3>기업검색</h3>
                     </div>
-                    <hr style="border:solid 0.5px #e2e2e2; height:0.5px;" ;>
-                    <div id="main-views-chart">
-                        <div id="viewsChartDiv"></div>
+                    <div class="user_search">
+                        <ul>
+                            <li>기업명</li>
+                            <li> <input type="text"></li>
+                        </ul>
+                        <ul>
+                            <li>아이디</li>
+                            <li><input type="text"></li>
+                        </ul>
+                        <ul>
+                            <li>가입/요청 일자</li>
+                            <li>
+                                <input type="date" class="user_search_date"> &nbsp;~&nbsp; <input type="date" class="user_search_date">
+                                <button onclick="search_date('main2_corp','오늘')">오늘</button>
+                                <button onclick="search_date('main2_corp','이번주')">이번주</button>
+                                <button onclick="search_date('main2_corp','이번달')">이번달</button>
+                                <button onclick="search_date('main2_corp','전체')">전체</button>
+                            </li>
+                        </ul>
+                        <div class="user_search_button">
+                            <button>
+                                <h3>검색</h3>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <div id="main_role_stat">
-                    <div id="main_role_head">
-                        <span>회원권한별 가입통계</span>
+                <div id="main2_corp_list">                           <!-- 회원관리 > 기업 관리 > 기업 리스트 -->
+                    <div class="sub_menu_title">
+                        <h3>기업리스트</h3>
                     </div>
-
-                    <hr style="border:solid 0.5px #e2e2e2; height:0.5px;";>
-
-                    <div id="main_role_list_head">
-                        <span class="role-year"></span>
-                        <span class="role-student">학생</span>
-                        <span class="role-enter">기업</span>
-                        <span class="role-professor">교수</span>
-                        <span class="role-counselor">상담사</span>
-                        <span class="role-mentor">멘토</span>
+                    <div class="user_list">
+                        <div class="user_list_head">
+                                    <span class="check"><input type="checkbox" name="2_3_checkH"
+                                                               onclick="checkAll(this)"></span>
+                            <span class="number">번호</span>
+                            <span class="name">기업명</span>
+                            <span class="username">아이디</span>
+                            <span class="phone">대표번호</span>
+                            <span class="email">이메일</span>
+                            <span class="joindate">가입일</span>
+                            <span class="role">권한</span>
+                        </div>
+                        <div class="user_list_body" th:each="item, i : ${allowList}">
+                            <span class="check"><input type="checkbox" name="2_3_check"></span>
+                            <span class="number" >[[${i.count}]]</span>
+                            <span class="name" >[[${item.user_name}]]</span>
+                            <span class="username">[[${item.user_id}]]</span>
+                            <span class="phone">[[${item.user_ph}]]</span>
+                            <span class="email">[[${item.user_email}]]</span>
+                            <span class="joindate">[[${item.user_regdate}]]</span>
+                            <span class="role">[[${item.user_type}]]</span>
+                        </div>
                     </div>
-
-                    <hr style="border:solid 0.5px #e2e2e2";>
-                    
-                    <div id="main_role_list">
-                        <span class="role-year">2021년</span>
-                        <span class="role-student">1888명</span>
-                        <span class="role-enter">55명</span>
-                        <span class="role-professor">5명</span>
-                        <span class="role-counselor">7명</span>
-                        <span class="role-mentor">10명</span>
-
-                    <hr style="border:solid 0.5px #e2e2e2";>
-
-                        <span class="role-year">2020년</span>
-                        <span class="role-student">1888명</span>
-                        <span class="role-enter">55명</span>
-                        <span class="role-professor">5명</span>
-                        <span class="role-counselor">7명</span>
-                        <span class="role-mentor">10명</span>
-
+                </div>
+                <div id="main2_corp_perList">         <!-- 회원관리 > 기업 관리 > 기업 리스트 -->
+                    <div class="sub_menu_title">
+                        <h3>기업가입승인</h3>
+                    </div>
+                    <div class="user_list">
+                        <div class="user_list_head">
+                                    <span class="check"><input type="checkbox" name="2_4_checkH"
+                                                               onclick="checkAll(this)"></span>
+                            <span class="number">번호</span>
+                            <span class="name">기업명</span>
+                            <span class="username">아이디</span>
+                            <span class="phone">대표번호</span>
+                            <span class="email">이메일</span>
+                            <span class="joindate">가입일</span>
+                            <span class="shape">기업형태</span>
+                        </div>
+                        <div class="user_list_body" th:each="item, i : ${notAllowList}">
+                            <span class="check"><input type="checkbox" name="2_4_check"></span>
+                            <span class="number" >[[${i.count}]]</span>
+                            <span class="name" >[[${item.user_name}]]</span>
+                            <span class="username">[[${item.user_id}]]</span>
+                            <span class="phone">[[${item.user_ph}]]</span>
+                            <span class="email">[[${item.user_email}]]</span>
+                            <span class="joindate">[[${item.user_regdate}]]</span>
+                            <span class="shape"><select name="2_3_shape" class="shapeSelect">
+                                <option value="">기업형태</option>
+                                <option value="대기업">대기업</option>
+                                <option value="중견기업">중견기업</option>
+                                <option value="중소기업">중소기업</option>
+                            </select></span>
+                        </div>
+                        <div class="user_list_button">
+                            <button onclick="E_permission_ajax(1)">승인</button>
+                            <button onclick="E_permission_ajax(2)">삭제</button>
+<!--                            <iframe src="/templates/Employ/list.html"></iframe></div>-->
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+</div>
+</div>
+</div>
 </body>
 
-<script src="../../static/js/jquery-3.5.1.min.js"></script>
-<script src="../../static/js/admin.js"></script>
-<script src="../../static/js/userlist.js"></script>
-<script src="../../static/js/calendar.js"></script>
-<script src="../../static/js/joinChartDiv.js"></script>
-<script src="../../static/js/viewsChartDiv.js"></script>
+
+<script src="/js/admin.js"></script>
 
 
 </html>
