@@ -17,7 +17,8 @@ import java.time.LocalDateTime;
 public class Enterprise implements Serializable{
 
         @Id
-        private String etp_id;
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private Long etp_id;
 
         @OneToOne
         @JoinColumn(name = "etp_user_id" ,foreignKey = @ForeignKey(name="etp_user_id_fk"))
@@ -32,8 +33,14 @@ public class Enterprise implements Serializable{
         @Column(length = 10, nullable = false)
         private String etp_ceo_name; // 대표자이름
 
-        @Column(length = 11, nullable = false)
+        @Column(length = 3, nullable = false)
         private String etp_ph; // 기업 전화번호
+
+        @Column(length = 3, nullable = false)
+        private String etp_ph2; // 기업 전화번호
+
+        @Column(length = 3, nullable = false)
+        private String etp_ph3; // 기업 전화번호
 
         private String etp_fx; // 기업 팩스번호
 

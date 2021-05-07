@@ -18,7 +18,11 @@ public class EnterpriseDTO extends MemberDTO {
 
     private String etp_ceo_name; // 대표자이름
 
-    private String etp_ph; // 기업 전화번호
+    private String etp_ph; // 기업 전화번호  1
+
+    private String etp_ph2; // 기업 전화번호  2
+
+    private String etp_ph3; // 기업 전화번호  3
 
     private String etp_fx; // 기업 팩스번호
 
@@ -33,8 +37,7 @@ public class EnterpriseDTO extends MemberDTO {
 
    private String etp_sector; // 업종
 
-
-    // 이거 두개는 나중에 변경하는거임(관리자가 수동으로)
+    // 이거 두개는 나중에 변경하는거임 (관리자가 수동으로)
     private String etp_shape; // 기업 형태 : 대기업, 중소기업
 
     private String etp_allow; // 인증여부

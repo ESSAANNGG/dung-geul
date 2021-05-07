@@ -31,7 +31,7 @@ public class AllowController {
 
     // 전체 회원 인증 리스트 페이지
     @GetMapping("/admin")
-    public void getList(@RequestParam("type") String type ,@RequestParam("page1") Integer page1, @RequestParam("page2") Integer page2, Model model){
+    public void getList(@RequestParam("type") String type ,@RequestParam("page1") int page1, @RequestParam("page2") int page2, Model model){
         //파라미터로 page, size 를 전달하면 자동으로 pageRequestDTO 객체로 수집된다
 
         // type : USER / ENTERPRISE / STUDENT / STAFF / COUNSELOR / UNIV
@@ -44,32 +44,20 @@ public class AllowController {
         if(type==null || type.equals("")){
             type = "USER";
         }
-        if(page1 == null) {
-            page1 = 1;
-        }
-        if(page2 == null){
-            page2 = 1;
-        }
 
         // allow = 0, page1 : 미인증 목록
         // allow = 1, page2 : 인증 목록
         PageResultDTO<AllowEtpDTO, Object[]> notAllowPageResult = memberService.getUserList(page1, type, 0);
         PageResultDTO<AllowEtpDTO, Object[]> allowPageResult = memberService.getUserList(page2, type, 1);
 
-        List<AllowEtpDTO> notAllowList = notAllowPageResult.getDtoList();
-        List<AllowEtpDTO> AllowList = allowPageResult.getDtoList();
-
-        model.addAttribute("notAllowList", notAllowList);
-        model.addAttribute("allowList", AllowList);
-        model.addAttribute("allowPageList", memberService.getUserList(page2, type, 1).getPageList());
-        model.addAttribute("notAllowPageList",memberService.getUserList(page1, type, 0).getPageList() );
-
+        model.addAttribute("notAllowList", notAllowPageResult.getDtoList());
+        model.addAttribute("allowList", allowPageResult.getDtoList());
         model.addAttribute("allowPageList", allowPageResult.getPageList());
-        model.addAttribute("notAllowPageList", notAllowPageResult.getPageList());
+        model.addAttribute("notAllowPageList",notAllowPageResult.getPageList() );
 
 
-        System.out.println(notAllowList.toString());
-        System.out.println(AllowList.toString());
+        System.out.println(notAllowPageResult);
+        System.out.println(allowPageResult);
 
     }
 

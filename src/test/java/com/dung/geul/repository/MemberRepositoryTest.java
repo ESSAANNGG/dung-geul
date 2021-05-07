@@ -46,13 +46,13 @@ public class MemberRepositoryTest {
     }
 
     @Test
-    public void memberInsertTest(){
+    public void studentInsertTest(){
 
         String pw = encoder.encode("123");
 
         for (int i = 0; i<15; i++) {
             Member member = Member.builder()
-                    .user_id("userID" + i)
+                    .user_id("student" + i)
                     .user_pw(pw)
                     .user_name("123")
                     .user_ph("010")

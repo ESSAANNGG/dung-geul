@@ -47,6 +47,8 @@ public interface MemberService {
                 .etp_name(enterpriseDTO.getEtp_name())
                 .etp_ceo_name(enterpriseDTO.getEtp_ceo_name())
                 .etp_ph(enterpriseDTO.getEtp_ph())
+                .etp_ph2(enterpriseDTO.getEtp_ph2())
+                .etp_ph3(enterpriseDTO.getEtp_ph3())
                 .etp_fx(enterpriseDTO.getEtp_fx())
                 .etp_home(enterpriseDTO.getEtp_home())
                 .etp_contents(enterpriseDTO.getEtp_contents())
@@ -108,6 +110,7 @@ public interface MemberService {
         allowDTO.setUser_ph(m.getUser_ph());
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm");
+        System.out.println("m.getRegDate");
         String RegDateString = m.getRegDate().format(dateTimeFormatter);
 
         String user_type;
