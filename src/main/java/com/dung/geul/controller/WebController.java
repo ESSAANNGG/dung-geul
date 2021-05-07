@@ -1,14 +1,9 @@
 package com.dung.geul.controller;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
-import com.dung.geul.security.dto.AuthMemberDTO;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.security.Principal;
-import java.sql.PreparedStatement;
 
 @Controller
 public class WebController {
@@ -28,10 +23,8 @@ public class WebController {
 
     }
 
-    @GetMapping("/job-information")
-    public String jobInfo(){
-
-        return "job-information/job-information";
+    @GetMapping("/job-information/job-information")
+    public void jobInfo(){
     }
 
 //    @GetMapping("/counseling/counseling")
