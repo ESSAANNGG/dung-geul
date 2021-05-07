@@ -1,14 +1,28 @@
-//메뉴 클릭시
 let menubox_li=document.getElementsByClassName("menubox_li");
 let main=document.getElementsByClassName("main");
-//처음은 맨 윗메뉴를 보여준다
-let menuLength=$('.menubox_li').length;
+let menuLength=menubox_li.length;
 let menu;
+
 window.onload = function () {
-    menubox_li[0].style.backgroundColor="#30384b";
-    main[0].style.visibility="visible";
-    //css로 일일히 메뉴를 닫기 싫어서 js로 닫아줌
-    MenuOff();
+    //세션값을 가져옴
+    menu_index = (localStorage.getItem('menu_index'));
+    menu = (localStorage.getItem('menu'));                  //menu 세션값은 menuoff후에 받아온다.
+    alert($('.'+menu));
+
+    if(menu_index==undefined) { //저장된 세션이 없다면
+        menubox_li[0].style.backgroundColor = "#30384b";
+        main[0].style.visibility = "visible";
+        MenuOff();
+        $('.main1').css("visibility","visible");
+    }
+    else {                      //저장된 세션이 있다면
+        menubox_li[menu_index].style.backgroundColor = "#30384b";   //좌측메뉴바 색
+        main[menu_index].style.visibility="visible";                //메뉴
+                                               //전체 메뉴들을 꺼버리면서 menu에 다른값이 생겨서
+        menu = (localStorage.getItem('menu'));                  //menu 세션값은 menuoff후에 받아온다.
+        $('.'+menu).css("visibility","visible");                    //해당메뉴의 전체 상세메뉴
+        alert(String(menu));
+    }
 }
 //전체 상세메뉴 닫기
 function MenuOff() {
@@ -23,14 +37,7 @@ let select_detail_menu;
 let detail_menu;
 $('.menubox_li').click(function(){
     menu_index=$(this).index();                               //클래스 순번 받아오기
-    $('.menubox_li').attr('style','backgroundColor: #5978b9');//전체색상 기본색으로 변경
-    menubox_li[menu_index].style.backgroundColor="#30384b";   //클릭한 메뉴 색상변경
-    $('.main').css("visibility","hidden");                    //전체 메뉴 닫기
-    main[menu_index].style.visibility="visible";              //클릭한 메뉴 열기
-
-    MenuOff();                                          //상세 메뉴 열기  1.전체 상세메뉴 닫기
-    menu=("main"+String((menu_index+1)));              //상세 메뉴 열기  2.상세메뉴클래스를참조하기 위해 변수를 만든다 ex)main1,main2
-    $('.'+menu).css("visibility","visible");           //상세 메뉴 열기  3.해당메뉴 visible;
+    menu=("main"+String((menu_index+1)));                     //상세메뉴클래스를참조하기 위해 변수를 만든다 ex)main1,main2
 
     select_detail_menu=document.getElementsByClassName('guide_select')[menu_index].selectedIndex; //상세메뉴중 뭐를 클릭했는지 가져오기(클릭안했으니 0)
     detail_menu=document.getElementsByClassName(menu)[select_detail_menu];                                  //메뉴중 상세메뉴 번호 저장
@@ -45,6 +52,26 @@ $('.menubox_li').click(function(){
     $('.guide').css("display","none");                                               //전체 가이드 메뉴 안보이게
     $('.guide:eq(' + menu_index + ')').css("display","inline-block");                //해당 가이드 메뉴 가이드에 띄움
 
+    //주소 파라미터 넘기기
+    parameter=menu_index;
+    switch(parameter){
+        case 0: parameter="USER";
+            break;
+        case 1: parameter="UNIV";
+            break;
+        case 2: parameter="USER";
+            break;
+        case 3: parameter="USER";
+            break;
+        case 4: parameter="USER";
+            break;
+    }
+    //세션 스토리지에 css를 저장
+    localStorage.setItem(['menu_index', menu_index],
+                         ['menu',menu]);
+    //파라미터 바꿔서 새로고침하는 함수 호출
+    submit_param(parameter);
+
 });
 
 //menu_guide 변경할시 상세 메뉴 변경
@@ -58,33 +85,25 @@ $('.guide_select').change(function(){
 
 ///////////////////////////////////////////////
 //파라미터 보내기
-//메뉴클릭시 파라미터
-function menuParam(obj){
-    parameter=$('.menubox_li').index(obj);
-    switch(parameter){
-        case 0: parameter="";
-            break;
-        case 1: parameter="S";
-             break;
-        case 2: parameter="";
-             break;
-        case 3: parameter="";
-             break;
-        case 4: parameter="";
-             break;
-    }
-    sumit_param(parameter);
-}
+
 //가이드메뉴(상세메뉴)클릭시 파라미터
-function getParam(obj){
-    if("회원관리"==obj.value){
-        parameter="U"
-    }
-    sumit_param(parameter);
-}
-function sumit_param(parameter){
+$('.guide_select').change(function(){
+  if("회원관리"==this.value){
+      parameter="UNIV";
+  }
+  else if("기업관리"==this.value){
+        parameter="ENTERPRISE";
+  }
+
+  submit_param(parameter);
+})
+
+function submit_param(parameter){
+    menuLength
     location.href="/admin/admin?type=" + parameter + "&page1=1&page2=1";
 }
+
+
 //파라미터 보내기
 ///////////////////////////////////////////////
 
