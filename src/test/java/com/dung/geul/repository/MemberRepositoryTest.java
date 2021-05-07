@@ -105,8 +105,6 @@ public class MemberRepositoryTest {
     @Test
     public void insertAdmin(){
 
-
-
         Member member = Member.builder()
 
                 .user_id("admin")
@@ -131,7 +129,7 @@ public class MemberRepositoryTest {
         memberRepository.save(member);
 
 
-        System.out.println("회원 한명 추가 id : admin1, pw : 1111");
+        System.out.println("회원 한명 추가 id : admin1, pw : 123");
 
     }
 

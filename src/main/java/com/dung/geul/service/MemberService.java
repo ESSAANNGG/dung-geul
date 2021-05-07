@@ -65,8 +65,6 @@ public interface MemberService {
     // 회원에 따라 권한 추가
     default void AddRole(Member member, String role){
 
-        member.addMemberRole(MemberRole.USER);
-
         if (role.equals("STUDENT")) {
 
             member.addMemberRole(MemberRole.STUDENT);
@@ -79,8 +77,9 @@ public interface MemberService {
 
             member.addMemberRole(MemberRole.COUNSELOR);
 
+        } else if (role.equals("ENTERPRISE")) {
+            member.addMemberRole(MemberRole.ENTERPRISE);
         }
-        //기업은 따로 관리자 인증을 통해서 권한 줍니다 (AllowEntityToDTO에서)
     }
 
     // 회원별 속성 추가

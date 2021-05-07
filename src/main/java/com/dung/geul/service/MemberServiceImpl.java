@@ -53,8 +53,9 @@ public class MemberServiceImpl implements MemberService {
             String pw = encoder.encode(memberDTO.getUser_pw());
 
             Member member = MemberDtoToEntity(memberDTO, pw);
-            //맴버별 다른 칼럼 추가
-            AddColumn(member, memberDTO);
+
+            AddColumn(member, memberDTO);   //맴버별 다른 칼럼 추가
+            member.addMemberRole(MemberRole.USER);  // user 권한추가
 
             memberRepository.save(member);
             return 1;
@@ -75,6 +76,8 @@ public class MemberServiceImpl implements MemberService {
 
         // 회원 테이블 먼저 insert
         Member member = MemberDtoToEntity(enterpriseDTO, pw);
+
+        member.addMemberRole(MemberRole.USER);
 
         memberRepository.save(member);
 
