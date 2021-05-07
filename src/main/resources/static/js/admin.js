@@ -56,11 +56,37 @@ $('.guide_select').change(function(){
 })
 
 
-
-
-
-
-
+///////////////////////////////////////////////
+//파라미터 보내기
+//메뉴클릭시 파라미터
+function menuParam(obj){
+    parameter=$('.menubox_li').index(obj);
+    switch(parameter){
+        case 0: parameter="";
+            break;
+        case 1: parameter="S";
+             break;
+        case 2: parameter="";
+             break;
+        case 3: parameter="";
+             break;
+        case 4: parameter="";
+             break;
+    }
+    sumit_param(parameter);
+}
+//가이드메뉴(상세메뉴)클릭시 파라미터
+function getParam(obj){
+    if("회원관리"==obj.value){
+        parameter="U"
+    }
+    sumit_param(parameter);
+}
+function sumit_param(parameter){
+    location.href="/admin/admin?type=" + parameter + "&page1=1&page2=1";
+}
+//파라미터 보내기
+///////////////////////////////////////////////
 
 //main2_1&&main2_2 date
 //search_date_num가 1==오늘 2==이번주 3==이번달 4==전체
@@ -103,6 +129,7 @@ function search_date(main_num,date_select){
     }
 
 }
+
 
 
 // 회원 상세정보
