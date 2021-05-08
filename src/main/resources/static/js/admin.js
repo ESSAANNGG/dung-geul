@@ -3,6 +3,7 @@ let main=document.getElementsByClassName("main");
 let menuLength=menubox_li.length;
 let menu;
 let menu_title=document.getElementById("menu_title");
+let parameter;
 window.onload = function () {
     MenuOff(); //전체 상세메뉴 닫기 menu1 menu2이렇게 여러 클래스가 있어서 자바스크립트로 닫음
 
@@ -60,7 +61,7 @@ $('.menubox_li').click(function(){
     window.sessionStorage.setItem('select_detail_menu',Number(0)); //상세메뉴가 아닌 메뉴클릭을 했을시엔 첫번째 상세메뉴를 보여줌
 
     //파라미터 바꿔서 새로고침하는 함수 호출
-    submit_param();
+    submit_param(parameter);
 
 });
 
@@ -79,7 +80,7 @@ $('.guide_select').change(function(){
     window.sessionStorage.setItem('select_detail_menu',select_detail_menu);
 
     //파라미터 바꿔서 새로고침하는 함수 호출
-    submit_param();
+    submit_param(parameter);
 })
 
 
