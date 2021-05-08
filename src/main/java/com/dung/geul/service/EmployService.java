@@ -22,7 +22,6 @@ public interface EmployService {
 
     void remove(Long num);
 
-
     default Employ dtoToEntity(EmployDTO dto) {
 
 
