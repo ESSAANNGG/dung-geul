@@ -41,6 +41,7 @@ li{
 }
 input{
     padding-left:15px;
+    background-color:#ffffff;
 }
 input:focus{
     outline:1px solid #5978b9;
@@ -270,12 +271,14 @@ input[type="checkbox"]:checked:before {
     width:300px;
     height:42px;
     border:1px solid #c2c9db;
+    background-color: #c2c9db;/*값이 들어가면 색이 #ffffff로 바뀜*/
     font-size:15px;
 }
 .user_search input{
     width:300px;
     height:42px;
     border:1px solid #c2c9db;
+    background-color: #c2c9db;/*값이 들어가면 색이 #ffffff로 바뀜*/
     font-size:15px;
 }
 /*date 버튼*/
