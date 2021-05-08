@@ -4,24 +4,21 @@ let menuLength=menubox_li.length;
 let menu;
 
 window.onload = function () {
+    MenuOff(); //전체 상세메뉴 닫기 menu1 menu2이렇게 여러 클래스가 있어서 자바스크립트로 닫음
     //세션값을 가져옴
-    menu_index = (localStorage.getItem('menu_index'));
-    menu = (localStorage.getItem('menu'));                  //menu 세션값은 menuoff후에 받아온다.
-    alert($('.'+menu));
+    menu_index = (sessionStorage.getItem("menu_index"));
+    menu = (sessionStorage.getItem("menu"));
 
     if(menu_index==undefined) { //저장된 세션이 없다면
         menubox_li[0].style.backgroundColor = "#30384b";
         main[0].style.visibility = "visible";
-        MenuOff();
+
         $('.main1').css("visibility","visible");
     }
     else {                      //저장된 세션이 있다면
         menubox_li[menu_index].style.backgroundColor = "#30384b";   //좌측메뉴바 색
         main[menu_index].style.visibility="visible";                //메뉴
-                                               //전체 메뉴들을 꺼버리면서 menu에 다른값이 생겨서
-        menu = (localStorage.getItem('menu'));                  //menu 세션값은 menuoff후에 받아온다.
         $('.'+menu).css("visibility","visible");                    //해당메뉴의 전체 상세메뉴
-        alert(String(menu));
     }
 }
 //전체 상세메뉴 닫기
@@ -55,20 +52,20 @@ $('.menubox_li').click(function(){
     //주소 파라미터 넘기기
     parameter=menu_index;
     switch(parameter){
-        case 0: parameter="USER";
+        case 0: parameter="STAFF";
             break;
         case 1: parameter="UNIV";
             break;
-        case 2: parameter="USER";
+        case 2: parameter="STAFF";
             break;
-        case 3: parameter="USER";
+        case 3: parameter="STAFF";
             break;
-        case 4: parameter="USER";
+        case 4: parameter="STAFF";
             break;
     }
-    //세션 스토리지에 css를 저장
-    localStorage.setItem(['menu_index', menu_index],
-                         ['menu',menu]);
+    //션 세스토리지에 css를 저장
+    window.sessionStorage.setItem('menu_index', menu_index);
+    window.sessionStorage.setItem('menu',menu);
     //파라미터 바꿔서 새로고침하는 함수 호출
     submit_param(parameter);
 
@@ -99,7 +96,7 @@ $('.guide_select').change(function(){
 })
 
 function submit_param(parameter){
-    menuLength
+    // menuLength
     location.href="/admin/admin?type=" + parameter + "&page1=1&page2=1";
 }
 
