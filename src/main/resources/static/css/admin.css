@@ -196,22 +196,15 @@ input[type="checkbox"]:checked:before {
     padding-right:30px !important;
 }
 #menu_guide select{
-    display:none;
+    display:inline-block;
     margin:0px;
+    padding:0px;
     font-size: 18px;
     border:none;
     background:url("/img/guide_button.svg") no-repeat 97% 20%/27px auto;
 }
 #menu_guide select:focus{
     outline:none;
-}
-#menu_guide ul:first-of-type{
-    display:inline-block;
-}
-#menu_guide select:first-of-type{
-    display:inline-block;
-    margin:0px;
-    padding:0px;
 }
 #menu_guide img{
     width:15px;
