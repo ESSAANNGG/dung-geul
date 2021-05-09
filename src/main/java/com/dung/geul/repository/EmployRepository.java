@@ -11,12 +11,11 @@ import org.springframework.data.repository.query.Param;
 
 public interface EmployRepository extends JpaRepository<Employ, Long>, QuerydslPredicateExecutor<Employ> {
     @Query("select e, w from Employ e left join e.etp_id w where e.num =:num")
-    Object getEmployWithEnterprise(@Param("num") Long num);
+    Object getEmployList(@Param("num") Long num);
 
 
 //    @Query(value = "SELECT e, w FROM Employ e LEFT JOIN e.enterprise w GROUP BY e")
-    @Query(value = "select m,  e\n" +
-            "from Employ m left outer join Enterprise e on m.etp_id = e.etp_id\n")
+    @Query(value = "SELECT e, m FROM Employ e LEFT OUTER JOIN Enterprise m ON e.etp_id = m.etp_id")
     Page<Object[]> getEmployWithEnterprise(Pageable pageable);
 
 

@@ -134,7 +134,7 @@
             </div>
           
             <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}" />-->
-            <div id="dummy" >
+            <div id="dummy">
               <input type="checkbox" name="type" id="dummy_title" value="t" th:checked="${pageRequestDTO.type == 't'}">
               <input type="checkbox" name="더미" id="dummy_corp" >
               <input type="checkbox" name="type" id="dummy_ot" value="ot" th:checked="${pageRequestDTO.type == 'ot'}" >
@@ -153,12 +153,12 @@
           <div class="employListPost">
             <li th:each="dto: ${result.dtoList}">
               <a th:href="@{/Employ/read(num = ${dto.num}, page = ${result.page},
-              type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}">
+              type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
                 <ul class="post_title_wrap">
                   <li class="post_title" th:text="${dto.title}"></li><i class="far fa-bookmark"></i>
                 </ul>
                 <ul class="post_corp_name_wrap"><i class="fas fa-map-marker-alt"></i>
-                  <li class="post_corp_name" th:text="${dto.etp_name}">기업이름</li>
+                  <li class="post_corp_name" th:text="${dto?.etp_name}">기업이름</li>
                 </ul>
                 <ul class="post_cont" th:text="${dto.content}"></ul>
                 <ul>

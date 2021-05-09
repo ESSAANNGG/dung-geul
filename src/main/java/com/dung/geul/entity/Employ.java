@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@ToString(exclude = "etp_id")
 @AttributeOverrides({
         @AttributeOverride(name = "regDate", column = @Column(name = "em_regdate")),
         @AttributeOverride(name = "modDate", column = @Column(name = "em_modDate"))

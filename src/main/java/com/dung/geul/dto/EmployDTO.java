@@ -1,5 +1,6 @@
 package com.dung.geul.dto;
 
+import com.dung.geul.entity.Enterprise;
 import lombok.*;
 
 
@@ -39,6 +40,11 @@ public class EmployDTO {
     private String file;
 
     private LocalDateTime regDate, modDate;
+
+
+    private int etp_id;
+
+    private int etp_num;
 
     private String etp_name;
 

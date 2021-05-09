@@ -18,7 +18,7 @@ public class Enterprise implements Serializable{
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        private Long etp_id;
+        private int etp_id;
 
         @OneToOne
         @JoinColumn(name = "etp_user_id" ,foreignKey = @ForeignKey(name="etp_user_id_fk"))
@@ -36,10 +36,10 @@ public class Enterprise implements Serializable{
         @Column(length = 3, nullable = false)
         private String etp_ph; // 기업 전화번호
 
-        @Column(length = 3, nullable = false)
+        @Column(length = 4, nullable = false)
         private String etp_ph2; // 기업 전화번호
 
-        @Column(length = 3, nullable = false)
+        @Column(length = 4, nullable = false)
         private String etp_ph3; // 기업 전화번호
 
         private String etp_fx; // 기업 팩스번호

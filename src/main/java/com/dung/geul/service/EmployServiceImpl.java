@@ -8,7 +8,6 @@ import com.dung.geul.entity.Employ;
 
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.QEmploy;
-import com.dung.geul.entity.QEnterprise;
 import com.dung.geul.repository.EmployRepository;
 
 
@@ -23,7 +22,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.function.Function;
 
 @Log4j2
@@ -44,7 +42,7 @@ public class EmployServiceImpl implements EmployService {
 
 //        Page<Employ> result = employRepository.findAll(booleanBuilder, pageable);
 
-        Function<Object[], EmployDTO> fn = (en -> entityToDto((Employ)en[0],(Enterprise)en[1]));
+        Function<Object[], EmployDTO> fn = (en -> List((Employ)en[0],(Enterprise)en[1]));
 
         Page<Object[]> result = employRepository.getEmployWithEnterprise(requestDTO.getPageable(Sort.by("num").descending()));
 
@@ -62,7 +60,7 @@ public class EmployServiceImpl implements EmployService {
 //        //isPresent() :저장된 값이 존재하면 true를 반환하고, 값이 존재하지 않으면 false를 반환함.
 //        return result.isPresent()? entityToDto(result.get()): null;
 
-        Object result = employRepository.getEmployWithEnterprise(num);
+        Object result = employRepository.getEmployList(num);
 
         Object[] arr = (Object[])result;
 
@@ -72,9 +70,7 @@ public class EmployServiceImpl implements EmployService {
 
     @Override
     public Long register(EmployDTO employDTO) {
-
         Employ employ = dtoToEntity(employDTO);
-
         employRepository.save(employ);
 
         return employ.getNum();

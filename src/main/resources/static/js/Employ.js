@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+
+
     //채용 글등록 
     $('#emReg').on('click', function () {
 
@@ -23,8 +25,9 @@ $(document).ready(function () {
             education : ed,
             area : $('#em_sido').val()+'/'+$('#em_gugun').val(),
             salary : $('#em_salary').val(),
-            apply :   ap
+            apply :   ap,
 
+            etp_id : $("#em_id").val()
         }
         console.log(data);
         $.ajax({
@@ -82,6 +85,7 @@ $(document).ready(function () {
             alert(JSON.stringify(error));
         })
     });
+
 
     let searchForm = $("#searchForm");
 

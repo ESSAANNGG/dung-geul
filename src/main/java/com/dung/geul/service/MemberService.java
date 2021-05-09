@@ -156,6 +156,7 @@ public interface MemberService {
                 .user_addr_details(m.getUser_addr_details())
                 .user_email(m.getUser_email())
                 .user_ph(m.getUser_ph())
+                .etp_id(e.getEtp_id())
                 .etp_num(e.getEtp_num())
                 .etp_name(e.getEtp_name())
                 .etp_ceo_name(e.getEtp_ceo_name())
@@ -171,5 +172,5 @@ public interface MemberService {
         return dto;
     }
 
-
+    EnterpriseDTO getEnterprise(String user_id);
 }

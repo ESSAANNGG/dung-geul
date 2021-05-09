@@ -21,6 +21,8 @@
 </head>
 
 <body>
+
+<div th:text="${etp.getEtp_id()}">id : [[${etp.getEtp_id()}]]</div>
 <!--네비 div-->
 <div th:replace="layout/layout :: nav" />
 <!-- Main -->
@@ -48,7 +50,8 @@
 
             <div class="employ_register" id="employ_register1">
                 <div class="content">
-
+                    <input type="hidden" name="em_id" id="em_id" title="em_id" th:value="${etp.getEtp_id()}" />
+<!--                    <input type="hidden" name="em_id" id="em_id" title="em_id" th:value="${etp.getUser_id()}" />-->
 <!--                    <div class="register_step_head">-->
 <!--                        기본정보를 입력해주세요-->
 <!--                    </div>-->

@@ -25,20 +25,20 @@ public class Member extends BaseEntity {
     @Id
     private String user_id; // Long -> String - 정혜리 TEMP_ID
 
-    @Column(length = 18, nullable = false)
-    private String user_name;
+    @Column(length = 18 )
+    private String user_name; //nullable = false
 
     @Column( nullable = false)
-    private String user_pw;
+    private String user_pw; //nullable = false
 
-    @Column(length = 3, nullable = false)
-    private String user_ph;
+    @Column(length = 3)
+    private String user_ph;  //nullable = false
 
-    @Column(length = 4, nullable = false)
-    private String user_ph2; //=> 휴대폰 번호 나뉘어서 나눔스
+    @Column(length = 4)
+    private String user_ph2; //=> 휴대폰 번호 나뉘어서 나눔스 //nullable = false
 
-    @Column(length = 4, nullable = false)
-    private String user_ph3;
+    @Column(length = 4)
+    private String user_ph3; //nullable = false
 
     @Column(length = 120)
     private String user_postcode;
@@ -49,11 +49,11 @@ public class Member extends BaseEntity {
     @Column(length = 120)
     private String user_addr_details;
 
-    @Column(length = 50, nullable = false)
-    private String user_email;
+    @Column(length = 50)
+    private String user_email; //nullable = false
 
-    @Column(length = 20, nullable = false)
-    private String user_emailDomain;
+    @Column(length = 20)
+    private String user_emailDomain; //nullable = false
 
     @Column(length = 50)
     private String user_dept;  //교직원 부서, 교수 소속계열, 학생소속계열
@@ -62,10 +62,10 @@ public class Member extends BaseEntity {
     private String user_grade;
 
     @Column(length = 50)
-    private String user_class; // 교수,학생 담당반
+    private String user_class; // 교수,학생 담당반 //nullable = false
 
     @Column(length = 1)
-    private int user_allow; // 인증여부 ( 1: 인증 됨, Null : 인증 전)
+    private int user_allow; // 인증여부 ( 1: 인증 됨, Null : 인증 전) //nullable = false
 
     private String user_type;   // 회원구분 (기업인증 코드 짜다가 필요해서 넣음)
 

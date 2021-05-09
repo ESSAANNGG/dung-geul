@@ -1,33 +1,30 @@
 package com.dung.geul.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Clob;
 
-
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-// @Table(name = "introduce")
+@ToString(exclude = "writer")
 public class Introduce extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long intro_num;
+    private String intro_num;
 
-
+    @Column(name = "intro_title")
     private String title;
 
     @Lob
-    @Column(name = "intro_content", nullable = false)
+    @Column(name = "intro_content")
     private Clob content;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Member cv_user_id;
+    private Member writer;
 
 }
