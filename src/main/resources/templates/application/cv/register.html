@@ -581,6 +581,140 @@
                 </div>
               </section>
               </fieldset>
+
+              <!-- <fieldset id="" style="display:none;" disabled> -->
+              <fieldset id="licFieldset_main" style="display:none;" disabled>
+                <section class="form" id=자격증">
+                  <legend>
+                    <p class="legend">자격증</p>
+                  </legend>
+                  <div class="item_lic">
+                    <div class="info">
+
+                      <div class="common_div width-450">
+                        <label class="absolute-label" for="">자격증 명 </label>
+                        <input class="common_input" type="text" name="lic_name" />
+                      </div>
+                      <div class="common_div width-180">
+                        <label class="absolute-label" for="">취득일 </label>
+                        <input class="common_input" type="date" name="lic_date" />
+                      </div>
+                      <div class="common_div width-180">
+                        <label class="absolute-label" for="">만료일 </label>
+                        <input class="common_input" type="date" name="lic_due_date" />
+                      </div>
+                    </div>
+
+                    <div class="line_lic"></div>
+
+                    <div class="buttonBox">
+                      <button id="add_lic" class="btn add-more button-yellow uppercase" type="button">
+                        <i class="fas fa-plus-circle"></i>
+                        <span style="font-size: 17px">추가</span>
+                      </button>
+                      <button id="delete_lic" type="button" class="btn button-white uppercase">
+                        <i class="fas fa-minus-circle"></i>
+                        <span style="font-size: 17px">제거</span>
+                      </button>
+                    </div>
+                </section>
+              </fieldset>
+
+              <fieldset id="flFieldset_main" style="display:none;" disabled>
+
+                <section class="form" id=어학점수">
+                  <legend>
+                    <p class="legend">어학점수</p>
+                  </legend>
+                  <div class="item_fl">
+                    <div class="info">
+
+                      <div class="common_div width-180">
+                        <label class="absolute-label" for="">외국어명 <span>*</span></label>
+                        <select class="common_select" name="fl_language">
+                          <option value="">-외국어 선택-</option>
+                          <option value="영어">영어</option>
+                          <option value="일본어">일본어</option>
+                          <option value="중국어">중국어</option>
+                          <option value="독일어">독일어</option>
+                          <option value="프랑스어">프랑스어</option>
+                          <option value="스페인어">스페인어</option>
+                          <option value="러시아어">러시아어</option>
+                          <option value="이탈리아어">이탈리아어</option>
+                          <option value="아랍어">아랍어</option>
+                          <option value="태국어">태국어</option>
+                          <option value="마인어">마인어</option>
+                          <option value="그리스어">그리스어</option>
+                          <option value="포르투갈어">포르투갈어</option>
+                          <option value="베트남어">베트남어</option>
+                          <option value="네달란드어">네달란드어</option>
+                          <option value="힌디어">힌디어</option>
+                          <option value="노르웨이어">노르웨이어</option>
+                          <option value="한국어">한국어</option>
+                        </select>
+                      </div>
+
+                      <div class="common_div width-104">
+                        <label class="absolute-label" for="">회화능력 <span>*</span></label>
+                        <select class="common_select" name="fl_conversation">
+                          <option value="상">상</option>
+                          <option value="중">중</option>
+                          <option value="하">하</option>
+                        </select>
+                      </div>
+
+                      <div class="common_div width-104">
+                        <label class="absolute-label" for="">독해능력 <span>*</span></label>
+                        <select class="common_select" name="fl_reading">
+                          <option value="상">상</option>
+                          <option value="중">중</option>
+                          <option value="하">하</option>
+                        </select>
+                      </div>
+
+                      <div class="common_div width-104">
+                        <label class="absolute-label" for="">작문능력 <span>*</span></label>
+                        <select class="common_select" name="fl_writing">
+                          <option value="상">상</option>
+                          <option value="중">중</option>
+                          <option value="하">하</option>
+                        </select>
+                      </div>
+                      <br />
+
+                      <div class="common_div width-408">
+                        <label class="absolute-label" for="">시험종류 </label>
+                        <input class="common_input" type="text" name="fl_name" />
+                      </div>
+                      <div class="common_div width-140">
+                        <label class="absolute-label" for="">점수 </label>
+                        <input class="common_input" type="text" name="fl_score" />
+                      </div>
+                      <div class="common_div width-104">
+                        <label class="absolute-label" for="">급수</label>
+                        <input class="common_input" type="text" name="fl_rank" />
+                      </div>
+                      <div class="common_div width-180">
+                        <label class="absolute-label" for="">취득일 </label>
+                        <input class="common_input" type="date" name="fl_date" />
+                      </div>
+                    </div>
+
+                    <div class="line_fl"></div>
+
+                    <div class="buttonBox">
+                      <button id="add_fl" class="btn add-more button-yellow uppercase" type="button">
+                        <i class="fas fa-plus-circle"></i>
+                        <span style="font-size: 17px">추가</span>
+                      </button>
+                      <button id="delete_fl" type="button" class="btn button-white uppercase">
+                        <i class="fas fa-minus-circle"></i>
+                        <span style="font-size: 17px">제거</span>
+                      </button>
+                    </div>
+                    <div>
+                </section>
+              </fieldset>
  
               
               <section class="form" id="희망조건">

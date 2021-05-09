@@ -95,7 +95,39 @@ $('#btn5').click(function () {
     $('#familPlus').addClass('fa-plus-circle');
     $('#familPlus').css('color', '#1E90FF');
     $('#famFieldset_main').css('display', 'none');
-    $('famFieldset_main').prop('disabled', true);
+    $('#famFieldset_main').prop('disabled', true);
+  }
+});
+
+$('#btn6').click(function () {
+  if ($('#certificatePlus').hasClass('fa-plus-circle') === true) {
+    $('#certificatePlus').removeClass('fa-plus-circle');
+    $('#certificatePlus').addClass('fa-minus-circle');
+    $('#certificatePlus').css('color', '#a4acc7');
+    $('#licFieldset_main').css('display', 'block');
+    $('#licFieldset_main').prop('disabled', false);
+  } else {
+    $('#certificatePlus').removeClass('fa-minus-circle');
+    $('#certificatePlus').addClass('fa-plus-circle');
+    $('#certificatePlus').css('color', '#1E90FF');
+    $('#licFieldset_main').css('display', 'none');
+    $('#licFieldset_main').prop('disabled', true);
+  }
+});
+
+$('#btn7').click(function () {
+  if ($('#languagePlus').hasClass('fa-plus-circle') === true) {
+    $('#languagePlus').removeClass('fa-plus-circle');
+    $('#languagePlus').addClass('fa-minus-circle');
+    $('#languagePlus').css('color', '#a4acc7');
+    $('#flFieldset_main').css('display', 'block');
+    $('#flFieldset_main').prop('disabled', false);
+  } else {
+    $('#languagePlus').removeClass('fa-minus-circle');
+    $('#languagePlus').addClass('fa-plus-circle');
+    $('#languagePlus').css('color', '#1E90FF');
+    $('#flFieldset_main').css('display', 'none');
+    $('#flFieldset_main').prop('disabled', true);
   }
 });
 
@@ -127,13 +159,13 @@ function addmenu2() {
 
 // 엔터 submit 막기 이벤트
 document.addEventListener(
-  'keydown',
-  function (event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-    }
-  },
-  true
+    'keydown',
+    function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+      }
+    },
+    true
 );
 
 // aside end
@@ -157,13 +189,57 @@ $(document).ready(function () {
     l++;
 
     $('.line').before(
-      '<div id="items" class="form-group school-test items">          <div class="info">           <div class="common_div width-140">            <label class="absolute-label" for="">학교구분 <span>*</span></label>            <span class="custom-dropdown big">             <select id="test0' +
+        '<div id="items" class="form-group school-test items">          <div class="info">           <div class="common_div width-140">            <label class="absolute-label" for="">학교구분 <span>*</span></label>            <span class="custom-dropdown big">             <select id="test0' +
         l +
         '" class="common_select schoolSelected1" name="schoolType' +
         l +
         '">              <option class="gray" value=""><p>학교구분</p></option>              <option value="고등학교">고등학교</option>              <option value="전문대">대학(2,3년)</option>              <option value="대학교">대학교(4년)</option>              <option value="대학원">대학원</option>             </select>            </span>           </div>           <div class="common_div width-250">            <label class="absolute-label" for="">학교이름 <span>*</span> </label>            <input class="common_input" name="edc_school' +
         l +
-        '" type="text" autocomplete="off" />                     </div>                                          <fieldset class="school_fieldset hignschool_field" disabled >                       <div class="container1" style="display: none">                       <div class="common_div width-140">                         <label class="absolute-label" for="">졸업년도 <span>*</span> </label>                         <input class="common_input" name="highschool-edc_date" type="text" onKeyup="award_year()" maxlength="4" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>                         <!-- <input class="common_input" name="edc_graduated" autocomplete="off" /> -->                         <select id="test01" class="common_select schoolSelected1" name="highschool-edc_graduated">                           <option class="gray" value="">졸업상태</option>                            <option value="졸업">졸업</option>                            <option value="졸업예정">졸업예정</option>                            <option value="재학중">재학중</option>                         </select>                       </div>                       <!-- <div class="common_div width-140">                         <label class="absolute-label" for="">대입검정고시 <span>*</span></label>                         <input class="common_input" />                       </div> -->                      </div>                     </fieldset>                                          <fieldset class="college_field" disabled>                       <div class="container2" style="display: none">                       <div class="common_div width-200">                         <label class="absolute-label" for="">입학년월 <span>*</span> </label>                         <input class="date_input" name="college-edc_date-start" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-200">                         <label class="absolute-label" for="">졸업년월 <span>*</span></label>                         <input class="common_input" name="college-edc_date-end" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>                         <select id="test01" class="common_select schoolSelected1" name="college-edc_graduated">                           <option class="gray" value="">졸업상태</option>                            <option value="졸업">졸업</option>                            <option value="졸업예정">졸업예정</option>                            <option value="재학중">재학중</option>                            <option value="중퇴">중퇴</option>                            <option value="수료">수료</option>                            <option value="휴학">휴학</option>                         </select>                       </div>                       <!-- <div class="common_div width-50">                         <label class="absolute-label" for="">편입</label>                         <input class="common_input" autocomplete="off" />                       </div> -->                     </div>                                         <div class="container2-1" style="display: none">                       <div class="common_div width-300" style="width: 409px">                         <label class="absolute-label" for="">전공 <span>*</span></label>                         <input class="common_input" name="college-edc_dept" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">학점 <span>*</span></label>                         <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="college-edc_gpa" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">총점 <span>*</span></label>                         <select id="test01" class="common_select schoolSelected1" name="college-edc_ps">                           <option class="gray" value="">총점</option>                            <option value="4.5">4.5</option>                            <option value="4.3">4.3</option>                            <option value="4.0">4.0</option>                            <option value="100">100</option>                         </select>                       </div>                       </div>                     </fieldset>                                          <fieldset class="university_field" disabled>                       <div class="container3" style="display: none">                       <div class="common_div width-200">                         <label class="absolute-label" for="">입학년월 <span>*</span> </label>                         <input class="date_input" name="university-edc_date-start" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-200">                         <label class="absolute-label" for="">졸업년월 <span>*</span></label>                         <input class="common_input" name="university-edc_date-end" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>                         <select id="test01" class="common_select schoolSelected1" name="university-edc_graduated">                           <option class="gray" value="">졸업상태</option>                            <option value="졸업">졸업</option>                            <option value="졸업예정">졸업예정</option>                            <option value="재학중">재학중</option>                            <option value="중퇴">중퇴</option>                            <option value="수료">수료</option>                            <option value="휴학">휴학</option>                         </select>                       </div>                       <!-- <div class="common_div width-50">                         <label class="absolute-label" for="">편입</label>                         <input class="common_input" autocomplete="off" />                       </div> -->                       </div>                                          <div class="container3-1" style="display: none">                       <div class="common_div width-300" style="width: 409px">                         <label class="absolute-label" for="">전공 <span>*</span></label>                         <input class="common_input" name="university-edc_dept" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">학점 <span>*</span></label>                         <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="university-edc_gpa" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">총점 <span>*</span></label>                         <select id="test01" class="common_select schoolSelected1" name="university-edc_ps">                           <option class="gray" value="">총점</option>                            <option value="4.5">4.5</option>                            <option value="4.3">4.3</option>                            <option value="4.0">4.0</option>                            <option value="100">100</option>                         </select>                       </div>                       </div>                     </fieldset>                                          <fieldset class="graduate_field" disabled>                       <div class="container4" style="display: none">                       <div class="common_div width-104">                         <label class="absolute-label" for="">학위 <span>*</span></label>                         <select id="test01" class="common_select schoolSelected1" name="graduate-edc_graduated">                           <option class="gray" value="">학위</option>                            <option value="석사">석사</option>                            <option value="박사">박사</option>                            <option value="석박사">석박사</option>                         </select>                       </div>                       <div class="common_div width-200">                         <label class="absolute-label" for="">입학년월 <span>*</span> </label>                         <input class="common_input" name="graduate-edc_date-start" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-200">                         <label class="absolute-label" for="">졸업년월 <span>*</span></label>                         <input class="common_input" name="graduate-edc_date-end" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>                         <select id="test01" class="common_select schoolSelected1" name="graduate-edc_graduated">                           <option class="gray" value="">졸업상태</option>                            <option value="졸업">졸업</option>                            <option value="졸업예정">졸업예정</option>                            <option value="재학중">재학중</option>                            <option value="중퇴">중퇴</option>                            <option value="수료">수료</option>                            <option value="휴학">휴학</option>                         </select>                       </div>                                      </div>                       <div class="container4-1" style="display: none">                       <div class="common_div width-300" style="width: 374px">                         <label class="absolute-label" for="">전공 <span>*</span></label>                         <input class="common_input" name="graduate-edc_dept" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">학점 <span>*</span></label>                         <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="graduate-edc_gpa" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">총점 <span>*</span></label>                         <select id="test01" class="common_select schoolSelected1" name="graduate-edc_ps">                           <option class="gray" value="">총점</option>                            <option value="4.5">4.5</option>                            <option value="4.3">4.3</option>                            <option value="4.0">4.0</option>                            <option value="100">100</option>                         </select>                       </div>                                              <br />                       <div class="common_div width-full">                         <label class="absolute-label" for="">논문 url<span>*</span></label>                         <input type="url" name="graduate-edc_paper" class="common_input" autocomplete="off" />                       </div>                      </div>                     </fieldset>                                        </div>                 </div> '
+        '" type="text" autocomplete="off" />                     </div>                                          <fieldset class="school_fieldset hignschool_field" disabled >                       <div class="container1" style="display: none">                       <div class="common_div width-140">                         <label class="absolute-label" for="">졸업년도 <span>*</span> </label>                         <input class="common_input" name="highschool-edc_date' +
+        l +
+        '" type="text" onKeyup="award_year()" maxlength="4" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>                         <!-- <input class="common_input" name="edc_graduated" autocomplete="off" /> -->                         <select id="highschool-edc_graduated" class="common_select schoolSelected1" name="highschool-edc_graduated' +
+        l +
+        '">                           <option class="gray" value="">졸업상태</option>                            <option value="졸업">졸업</option>                            <option value="졸업예정">졸업예정</option>                            <option value="재학중">재학중</option>                         </select>                       </div>                      </div>                     </fieldset>                                          <fieldset class="college_field" disabled>                       <div class="container2" style="display: none">                       <div class="common_div width-200">                         <label class="absolute-label" for="">입학년월 <span>*</span> </label>                         <input class="date_input" name="college-edc_date-start' +
+        l +
+        '" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-200">                         <label class="absolute-label" for="">졸업년월 <span>*</span></label>                         <input class="common_input" name="college-edc_date-end' +
+        l +
+        '" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>                         <select id="college-edc_graduated" class="common_select schoolSelected1" name="college-edc_graduated' +
+        l +
+        '">                           <option class="gray" value="">졸업상태</option>                            <option value="졸업">졸업</option>                            <option value="졸업예정">졸업예정</option>                            <option value="재학중">재학중</option>                            <option value="중퇴">중퇴</option>                            <option value="수료">수료</option>                            <option value="휴학">휴학</option>                         </select>                       </div>                     </div>                                         <div class="container2-1" style="display: none">                       <div class="common_div width-300" style="width: 409px">                         <label class="absolute-label" for="">전공 <span>*</span></label>                         <input class="common_input" name="college-edc_dept' +
+        l +
+        '" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">학점 <span>*</span></label>                         <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="college-edc_gpa' +
+        l +
+        '" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">총점 <span>*</span></label>                         <select id="college-edc_ps" class="common_select schoolSelected1" name="college-edc_ps' +
+        l +
+        '">                           <option class="gray" value="">총점</option>                            <option value="4.5">4.5</option>                            <option value="4.3">4.3</option>                            <option value="4.0">4.0</option>                            <option value="100">100</option>                         </select>                       </div>                       </div>                     </fieldset>                                          <fieldset class="university_field" disabled>                       <div class="container3" style="display: none">                       <div class="common_div width-200">                         <label class="absolute-label" for="">입학년월 <span>*</span> </label>                         <input class="date_input" name="university-edc_date-start' +
+        l +
+        '" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-200">                         <label class="absolute-label" for="">졸업년월 <span>*</span></label>                         <input class="common_input" name="university-edc_date-end' +
+        l +
+        '" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>                         <select id="university-edc_graduated" class="common_select schoolSelected1" name="university-edc_graduated' +
+        l +
+        '">                           <option class="gray" value="">졸업상태</option>                            <option value="졸업">졸업</option>                            <option value="졸업예정">졸업예정</option>                            <option value="재학중">재학중</option>                            <option value="중퇴">중퇴</option>                            <option value="수료">수료</option>                            <option value="휴학">휴학</option>                         </select>                       </div>                       <!-- <div class="common_div width-50">                         <label class="absolute-label" for="">편입</label>                         <input class="common_input" autocomplete="off" />                       </div> -->                       </div>                                          <div class="container3-1" style="display: none">                       <div class="common_div width-300" style="width: 409px">                         <label class="absolute-label" for="">전공 <span>*</span></label>                         <input class="common_input" name="university-edc_dept' +
+        l +
+        '" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">학점 <span>*</span></label>                         <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="university-edc_gpa' +
+        l +
+        '" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">총점 <span>*</span></label>                         <select id="university-edc_ps" class="common_select schoolSelected1" name="university-edc_ps' +
+        l +
+        '">                           <option class="gray" value="">총점</option>                            <option value="4.5">4.5</option>                            <option value="4.3">4.3</option>                            <option value="4.0">4.0</option>                            <option value="100">100</option>                         </select>                       </div>                       </div>                     </fieldset>                                          <fieldset class="graduate_field" disabled>                       <div class="container4" style="display: none">                       <div class="common_div width-104">                         <label class="absolute-label" for="">학위 <span>*</span></label>                         <select id="graduate-edc_graduated" class="common_select schoolSelected1" name="graduate-edc_graduated' +
+        l +
+        '">                           <option class="gray" value="">학위</option>                            <option value="석사">석사</option>                            <option value="박사">박사</option>                            <option value="석박사">석박사</option>                         </select>                       </div>                       <div class="common_div width-200">                         <label class="absolute-label" for="">입학년월 <span>*</span> </label>                         <input class="common_input" name="graduate-edc_date-start' +
+        l +
+        '" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-200">                         <label class="absolute-label" for="">졸업년월 <span>*</span></label>                         <input class="common_input" name="graduate-edc_date-end' +
+        l +
+        '" type="month" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>                         <select id="graduate-edc_graduated" class="common_select schoolSelected1" name="graduate-edc_graduated' +
+        l +
+        '">                           <option class="gray" value="">졸업상태</option>                            <option value="졸업">졸업</option>                            <option value="졸업예정">졸업예정</option>                            <option value="재학중">재학중</option>                            <option value="중퇴">중퇴</option>                            <option value="수료">수료</option>                            <option value="휴학">휴학</option>                         </select>                       </div>                                      </div>                       <div class="container4-1" style="display: none">                       <div class="common_div width-300" style="width: 374px">                         <label class="absolute-label" for="">전공 <span>*</span></label>                         <input class="common_input" name="graduate-edc_dept' +
+        l +
+        '" autocomplete="off" />                       </div>                       <div class="common_div width-140">                         <label class="absolute-label" for="">학점 <span>*</span></label>                         <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="graduate-edc_gpa' +
+        l +
+        '" autocomplete="off" />                       </div>                       <div class="common_div width - 140">                         <label class="absolute-label" for="">총점 <span>*</span></label>                         <select id="graduate-edc_ps" class="common_select schoolSelected1" name="graduate-edc_ps' +
+        l +
+        '">                           <option class="gray" value="">총점</option>                            <option value="4.5">4.5</option>                            <option value="4.3">4.3</option>                            <option value="4.0">4.0</option>                            <option value="100">100</option>                         </select>                       </div>                                              <br />                       <div class="common_div width-full">                         <label class="absolute-label" for="">논문 url<span>*</span></label>                         <input type="url" name="graduate-edc_paper' +
+        l +
+        '" class="common_input" autocomplete="off" />                       </div>                      </div>                     </fieldset>                                        </div>                 </div>'
     );
     console.log(l);
     i++;
@@ -218,7 +294,7 @@ $(document).ready(function () {
   $('#add_award').click(function (e) {
     award_name++;
     $('.line_award').before(
-      '<div class="item_award">                   <div class="info">                   <div class="common_div width-350">                     <label class="absolute-label" for="">수상명 <span>*</span></label>                     <input class="common_input" name="awards_des' +
+        '<div class="item_award">                   <div class="info">                   <div class="common_div width-350">                     <label class="absolute-label" for="">수상명 <span>*</span></label>                     <input class="common_input" name="awards_des' +
         award_name +
         ' " />                   </div>                   <div class="common_div width-300">                     <label class="absolute-label" for="">수여기관 </label>                     <input class="common_input" type="text" name="awards_agency' +
         award_name +
@@ -270,7 +346,7 @@ $(document).ready(function () {
   $('#add_family').click(function (e) {
     family_name++;
     $('.line_family').before(
-      ' <div class="item_family"><div class="info"><div class="common_div "><label class="absolute-label" for="">가족관계 <span>*</span></label><select  class="common_select" name="fam_relation' +
+        ' <div class="item_family"><div class="info"><div class="common_div "><label class="absolute-label" for="">가족관계 <span>*</span></label><select  class="common_select" name="fam_relation' +
         family_name +
         ' ">  <option class="gray" value="">가족관계</option><option value="부부">부부</option><option value="부">부</option><option value="모">모</option><option value="자녀">자녀</option><option value="형제">형제</option><option value="자매">자매</option></select></div>  <div class="common_div width-180"><label class="absolute-label" for="">이름 </label><input class="common_input" type="text" name="fam_name' +
         family_name +
@@ -324,7 +400,7 @@ $(document).ready(function () {
   $('#add_carrer').click(function (e) {
     carrer_name++;
     $('.line_carrer').before(
-      ' <div class="item_career"><div class="info"><div class="common_div width-350"><label class="absolute-label" for="">회사명 <span>*</span></label><input class="common_input" name="cr_etp_name' +
+        ' <div class="item_career"><div class="info"><div class="common_div width-350"><label class="absolute-label" for="">회사명 <span>*</span></label><input class="common_input" name="cr_etp_name' +
         carrer_name +
         ' " /></div>  <div class="common_div width-200"><label class="absolute-label" for="">입사일자 </label><input class="common_input" type="date"  name="er_employment' +
         carrer_name +
@@ -371,6 +447,96 @@ $(document).ready(function () {
 });
 
 // 경력사항 추가버튼 END
+
+/* 자격증 추가버튼 */
+
+$(document).ready(function () {
+  let lic_number = 0;
+  let lic_name = 1;
+  let lic_test = 0;
+  let caNumber;
+
+  $('#delete_lic').hide();
+  //when the Add Field button is clicked
+  $('#add_lic').click(function (e) {
+    lic_name++;
+    $('.line_lic').before(
+        '<div class="item_lic">          <div class="info">                   <div class="common_div width-450">           <label class="absolute-label" for="">자격증 명 </label>           <input class="common_input" type="text" name="lic_name" />          </div>          <div class="common_div width-180">           <label class="absolute-label" for="">취득일 </label>           <input class="common_input" type="date" name="lic_date" />          </div>          <div class="common_div width-180">           <label class="absolute-label" for="">만료일 </label>           <input class="common_input" type="date" name="lic_due_date" />          </div>         </div> '
+    );
+    lic_number++;
+    if (lic_number > 0) {
+      $('#delete_lic').fadeIn('1500');
+    }
+    if (lic_number > 3) {
+      $('#add_lic').hide();
+    }
+    lic_test--;
+    console.log(2);
+  });
+  $('body').on('click', '#delete_lic', function (e) {
+    $('.item_lic').last().remove();
+    console.log(1);
+    lic_name--;
+    lic_number--;
+    if (lic_number == 0) {
+      $('#delete_lic').hide();
+    }
+    if (0 <= lic_number < 4) {
+      $('#add_lic').show();
+    }
+
+    lic_test++;
+
+    if (lic_test == -3) {
+      $('#add_lic').show();
+    }
+  });
+});
+
+/* 어학 추가버튼 */
+
+$(document).ready(function () {
+  let fl_number = 0;
+  let fl_name = 1;
+  let fl_test = 0;
+  let caNumber;
+
+  $('#delete_fl').hide();
+  //when the Add Field button is clicked
+  $('#add_fl').click(function (e) {
+    fl_name++;
+    $('.line_fl').before(
+        '<div class="item_fl">                   <div class="info">                      <div class="common_div width-180">                       <label class="absolute-label" for="">외국어명 <span>*</span></label>                       <select class="common_select" name="fl_language">                         <option value="">-외국어 선택-</option>                         <option value="영어">영어</option>                         <option value="일본어">일본어</option>                         <option value="중국어">중국어</option>                         <option value="독일어">독일어</option>                         <option value="프랑스어">프랑스어</option>                         <option value="스페인어">스페인어</option>                         <option value="러시아어">러시아어</option>                         <option value="이탈리아어">이탈리아어</option>                         <option value="아랍어">아랍어</option>                         <option value="태국어">태국어</option>                         <option value="마인어">마인어</option>                         <option value="그리스어">그리스어</option>                         <option value="포르투갈어">포르투갈어</option>                         <option value="베트남어">베트남어</option>                         <option value="네달란드어">네달란드어</option>                         <option value="힌디어">힌디어</option>                         <option value="노르웨이어">노르웨이어</option>                         <option value="한국어">한국어</option>                       </select>                     </div>                      <div class="common_div width-104">                       <label class="absolute-label" for="">회화능력 <span>*</span></label>                       <select class="common_select" name="fl_conversation">                         <option value="상">상</option>                         <option value="중">중</option>                         <option value="하">하</option>                       </select>                     </div>                      <div class="common_div width-104">                       <label class="absolute-label" for="">독해능력 <span>*</span></label>                       <select class="common_select" name="fl_reading">                         <option value="상">상</option>                         <option value="중">중</option>                         <option value="하">하</option>                       </select>                     </div>                      <div class="common_div width-104">                       <label class="absolute-label" for="">작문능력 <span>*</span></label>                       <select class="common_select" name="fl_writing">                         <option value="상">상</option>                         <option value="중">중</option>                         <option value="하">하</option>                       </select>                     </div>                     <br />                      <div class="common_div width-408">                       <label class="absolute-label" for="">시험종류 </label>                       <input class="common_input" type="text" name="fl_name" />                     </div>                     <div class="common_div width-140">                       <label class="absolute-label" for="">점수 </label>                       <input class="common_input" type="text" name="fl_score" />                     </div>                     <div class="common_div width-104">                       <label class="absolute-label" for="">급수</label>                       <input class="common_input" type="text" name="fl_rank" />                     </div>                     <div class="common_div width-180">                       <label class="absolute-label" for="">취득일 </label>                       <input class="common_input" type="date" name="fl_date" />                     </div>                   </div> '
+    );
+    fl_number++;
+    if (fl_number > 0) {
+      $('#delete_fl').fadeIn('1500');
+    }
+    if (fl_number > 3) {
+      $('#add_fl').hide();
+    }
+    fl_test--;
+    console.log(2);
+  });
+  $('body').on('click', '#delete_fl', function (e) {
+    $('.item_fl').last().remove();
+    console.log(1);
+    fl_name--;
+    fl_number--;
+    if (fl_number == 0) {
+      $('#delete_fl').hide();
+    }
+    if (0 <= fl_number < 4) {
+      $('#add_fl').show();
+    }
+
+    fl_test++;
+
+    if (fl_test == -3) {
+      $('#add_fl').show();
+    }
+  });
+});
 
 // 학력사항 양식
 
