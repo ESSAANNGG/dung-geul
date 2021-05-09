@@ -290,28 +290,9 @@
                                 <span class="joindate">[[${item.user_regdate}]]</span>
                                 <span class="role">[[${item.user_type}]]</span>
                             </div>
-
-
-<!--                            <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">-->
-<!--                                <li class="page-item" th:if="${result.prev}">-->
-<!--                                    <a class="page-link" th:href="@{/admin/admin(page=${result.start -1 })}" tabindex="-1">Previous</a>-->
-<!--                                </li>-->
-<!--                                <li th:class="'page-item ' + ${result.page == page?'active':''}" th:each="page:${result.pageList}">-->
-<!--                                    <a class="page-link" th:href="@{/admin/admin(page=${page}-->
-
-<!--            )}" th:text="${page}"></a>-->
-<!--                                </li>-->
-<!--                                <li class="page-item" th:if="${result.next}">-->
-<!--                                    <a class="page-link" th:href="@{/admin/admin(page=${result.end +1 }-->
-
-<!--            )}">Next</a>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-
-
                         </div>
                         <div class="user_list_button">
-                            <button onclick="permission_ajax(3)">삭제</button>
+                            <button onclick="permission_ajax('회원','삭제')">삭제</button>
                         </div>
                     </div>
                     <div id="main2_perList">
@@ -342,8 +323,8 @@
                                 <span class="role">[[${item.user_type}]]</span>
                             </div>
                             <div class="user_list_button">
-                                <button onclick="permission_ajax(1)">승인</button>
-                                <button onclick="permission_ajax(2)">삭제</button>
+                                <button onclick="permission_ajax('회원','승인')">승인</button>
+                                <button onclick="permission_ajax('회원','거절')">거절</button>
                             </div>
                         </div>
                     </div>
@@ -411,7 +392,7 @@
                             </div>
                         </div>
                         <div class="user_list_button">
-                            <button onclick="permission_ajax(3)">삭제</button>
+                            <button onclick="permission_ajax('기업','삭제')">삭제</button>
                         </div>
                     </div>
                     <div id="main2_corp_perList">
@@ -447,8 +428,8 @@
                                         </select></span>
                             </div>
                             <div class="user_list_button">
-                                <button onclick="E_permission_ajax(1)">승인</button>
-                                <button onclick="E_permission_ajax(2)">삭제</button>
+                                <button onclick="permission_ajax('기업','삭제')">승인</button>
+                                <button onclick="permission_ajax('기업','삭제')">거절</button>
                             </div>
                         </div>
                     </div>
