@@ -6,8 +6,8 @@
     <title>회원 정보수정</title>
     <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="/css/mypage.css">
-    <link rel="stylesheet" href="/css/user_info.css">
+    <link rel="stylesheet" href="../../../static/css/mypage.css">
+    <link rel="stylesheet" href="../../../static/css/user_info.css">
 
 </head>
 
@@ -164,6 +164,7 @@
                                             <td class="bottom-line td_padding-left">
                                                 <span>
                                                 <input type="text" id="user_email" th:value="${memberDTO.getUser_email()}">
+                                                <span>@</span>
                                                 <input type="text" id="user_emailDomain" th:value="${memberDTO.getUser_emailDomain()}">
                                                 </span>
                                             </td>
@@ -245,7 +246,7 @@
                                             </div>
                                         </div>
                                     </table>
-                                    <input class="margin-top15" type="submit" value="내용수정" id="modifyMember">
+                                    <input style="display:inline-block" class="margin-top15" type="submit" value="내용수정" id="modifyMember">
                                 </form>
                                 <div class="password common-button">
                                     <a th:href="@{/mypage/member/modifyPw(user_id=${memberDTO.getUser_id})}">
