@@ -113,7 +113,8 @@ input {
 
 #modifyMember {
     width: 80px;
-    float: right;
+    position: absolute;
+    left:1018px;
 }
 
 .password {
@@ -123,7 +124,7 @@ input {
 
 .excute {
     margin-top: 100px;
-    float: right;
+    width: 70px;
 }
 
 .excute > a {
@@ -180,3 +181,13 @@ input[type="submit"] {
     width: 10%;
 }
 /* 학생마이페이지 end */
+
+#user_email {
+     display:inline-block;
+     width: 20%;
+ }
+
+#user_emailDomain {
+    display:inline-block;
+    width: 17%;
+}
