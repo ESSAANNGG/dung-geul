@@ -113,20 +113,17 @@ input {
 
 #modifyMember {
     width: 80px;
-    position: absolute;
-    left:1018px;
+    float: right;
 }
 
 .password {
     margin-top: 15px;
     float: left;
-
-
 }
 
 .excute {
     margin-top: 100px;
-    width: 70px;
+    float: right;
 }
 
 .excute > a {
@@ -183,13 +180,3 @@ input[type="submit"] {
     width: 10%;
 }
 /* 학생마이페이지 end */
-
-#user_email {
-    display:inline-block;
-    width: 20%;
-}
-
-#user_emailDomain {
-    display:inline-block;
-    width: 17%;
-}
