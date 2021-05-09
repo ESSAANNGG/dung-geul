@@ -1,5 +1,25 @@
 //유저관리 전용 js파일
 
+//검색 값이 들어갔을시 css
+$('.user_search select').change(function(){     //검색창의 select에 값을 넣을시
+    search_color(this);
+});
+$('.user_search input').keyup(function (){     //검색창의 input에 값을 넣을시
+    search_color(this);
+})
+    // $('.user_search input').change(function (){     //검색창의 input에 값을 넣을시(날짜)
+    //     search_color(this);
+    // })
+function search_color(a){
+    if(a.value!=""){
+        a.style.backgroundColor="#ffffff";
+    }
+    else{
+        a.style.backgroundColor="#c2c9db";
+    }
+}
+
+//가입/요청일자
 let date_range=document.getElementsByClassName('user_search_date');
 function search_date(main_num,date_select){
     let now=new Date();
@@ -23,10 +43,14 @@ function search_date(main_num,date_select){
     if(main_num=="main2_user") {
         date_range[0].value = dateVar.toISOString().substring(0, 10);
         date_range[1].value = now.toISOString().substring(0, 10);
+        date_range[0].style.backgroundColor="#ffffff";
+        date_range[1].style.backgroundColor="#ffffff";
     }
     else if(main_num=="main2_corp"){
         date_range[2].value = dateVar.toISOString().substring(0, 10);
         date_range[3].value = now.toISOString().substring(0, 10);
+        date_range[2].style.backgroundColor="#ffffff";
+        date_range[3].style.backgroundColor="#ffffff";
     }
 }
 

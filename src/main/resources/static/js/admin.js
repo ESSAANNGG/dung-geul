@@ -92,7 +92,7 @@ function submit_data(){   //
 }
 
 
-//게시판 전체 체크하기
+//전체 게시판 각 리스트별로 체크,해제
 let check;
 function checkAll(checkI) {
     let checkName=(checkI.name);                                      //체크한 부모체크박스의 이름을 가져옴 ex)2_1_checkH
@@ -108,7 +108,7 @@ function checkAll(checkI) {
 //회원가입승인 허가,거절 회원삭제
 let p; //승인인지 거절인지 html으로부터 받아옴
 let perList=[]; //userid값을 담아넣는 배열
-let userid //userid값을 하나하나 담음
+let userid; //userid값을 하나하나 담음
 let perLength;
 function permission_ajax(p){
     perList=[]; //배열이 계속 쌓이는걸 방지 (초기화)
