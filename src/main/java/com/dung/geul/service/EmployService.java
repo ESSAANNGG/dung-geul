@@ -24,7 +24,6 @@ public interface EmployService {
 
     void remove(Long num);
 
-
     default Employ dtoToEntity(EmployDTO dto) {
 
         Enterprise enterprise = Enterprise.builder().etp_id(dto.getEtp_id()).build();

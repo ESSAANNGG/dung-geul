@@ -172,4 +172,11 @@ input[type="submit"] {
     border: 0.2px solid rgba(0, 0, 0, 0.342);
     font-weight: 900;
 }
+
+#user_ph,
+#user_ph2,
+#user_ph3 {
+    display:inline-block;
+    width: 10%;
+}
 /* 학생마이페이지 end */

@@ -57,7 +57,7 @@
                   </div>
                   <div class="common_div width-450">
                     <label class="absolute-label" for="">주소 <span>*</span></label>
-                    <input class="common_input" type="text" name="addr" id="addr"  required />
+                    <input class="common_input" type="text" name="addr" th:value="${loginUser.getUser_addr()}" />
                   </div>
                   <div class="common_div width-410">
                     <label class="absolute-label" for="">지원경로</label>
