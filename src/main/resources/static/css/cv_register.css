@@ -55,7 +55,7 @@
 #aside {
   background-color: rgb(255, 255, 255);
   width: 240px;
-  height: 511px;
+  height: 510px;
   display: inline;
   float: right;
   position: fixed;
@@ -400,13 +400,13 @@ textarea:focus-within {
 #addlist {
   margin: 0px 10px;
   font-size: 16px;
-  margin-top: 20px;
+
   width: 210px;
-  height: 380px;
+  height: 400px;
 }
 
 #addlist > li {
-  margin-bottom: 35px;
+  margin-bottom: 30px;
   font-size: 17px;
 }
 
@@ -414,9 +414,9 @@ textarea:focus-within {
   float: right;
 }
 
-#cvSubmit {
+.cvSubmit {
   width: 100%;
-  height: 63px;
+  height: 60px;
   color: white;
   font-size: 17px;
   background: #3399ff;
