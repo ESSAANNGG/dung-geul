@@ -7,9 +7,10 @@ $('.user_search select').change(function(){     //검색창의 select에 값을 
 $('.user_search input').keyup(function (){     //검색창의 input에 값을 넣을시
     search_color(this);
 })
-    // $('.user_search input').change(function (){     //검색창의 input에 값을 넣을시(날짜)
-    //     search_color(this);
-    // })
+$('.user_search input').change(function (){     //검색창의 input에 값을 넣을시
+    search_color(this);
+})
+
 function search_color(a){
     if(a.value!=""){
         a.style.backgroundColor="#ffffff";
@@ -183,7 +184,7 @@ function permission_ajax(user,p){
         }
     }
 
-    if(userid!=undefined) {
+    if(userid!=undefined) { //아무 체크박스도 체크되지 않았을땐 전송하지않음
         if (user == "회원") {
             $.ajax({
                 url: "/allow/member/read?result=" + p,
