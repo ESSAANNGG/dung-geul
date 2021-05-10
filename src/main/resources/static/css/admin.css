@@ -48,7 +48,7 @@ input:focus{
 }
 select{
     appearance: none;
-    background:url("/img/down-arrow.png") no-repeat 95% 50%/13px auto;
+    background:url("/img/down-arrow.png") no-repeat 94% 50%/13px auto;
     padding-left:15px;
 }
 select:focus{
@@ -60,7 +60,7 @@ button{
 input[type="date"]::-webkit-calendar-picker-indicator {
     display: block;
     position:relative;
-    background-image:url("/img/calendar.png") no-repeat 95% 50%/13px auto;
+    background:url("/img/calendar.png") no-repeat 100% 50%/13px auto;
     right:15px;
     zoom:1.15;
 }
@@ -105,7 +105,7 @@ input[type="checkbox"]:checked:before {
 }
 #admin_header h5{
     display:inline-block;
-    margin-left:35px;
+    margin-left:40px;
     color:#5978b9;
     font-size:23px;
 }
@@ -202,7 +202,7 @@ input[type="checkbox"]:checked:before {
     padding:0px;
     font-size: 18px;
     border:none;
-    background:url("/img/guide_button.svg") no-repeat 97% 20%/27px auto;
+    background:url("/img/guide_button.svg") no-repeat 94% 100%/24px auto;
 }
 #menu_guide select:focus{
     outline:none;
@@ -478,19 +478,20 @@ span:nth-of-type(1){
 .shape{
     width:130px;
     z-index:1;
+    padding:0px;
 }
 .shape select{
-    text-align: center;
+    text-align-last: center;
     width:120px;
     height:40px;
     line-height:35px;
 
-    padding-left:25px;
+    padding:0px 10px;
     border:0px;
     outline: none;
     font-size:16px;
 
-    background:url("/img/down-arrow.png") no-repeat 90% 50%/9px auto;
+    background:url("/img/down-arrow.png") no-repeat 87% 50%/11px auto;
 
 }
 .user_list_button button{
@@ -504,6 +505,21 @@ span:nth-of-type(1){
 }
 
 
+#container{
+    width:1550px;
+    height:550px;
+}
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 360px;
+    max-width: 800px;
+    margin:0px;
+}
+.highcharts-series-0:hover{
+
+}
+.highcharts-series-label{
+    display:none;
+}
 
 
 

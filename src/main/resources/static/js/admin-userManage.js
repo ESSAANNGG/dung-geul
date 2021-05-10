@@ -1,13 +1,13 @@
 //유저관리 전용 js파일
 
 //검색 값이 들어갔을시 css
-$('.user_search select').change(function(){     //검색창의 select에 값을 넣을시
+$('.user_search select').change(function(){    //검색창의 select에 값을 넣을시
     search_color(this);
 });
 $('.user_search input').keyup(function (){     //검색창의 input에 값을 넣을시
     search_color(this);
 })
-$('.user_search input').change(function (){     //검색창의 input에 값을 넣을시
+$('.user_search input').change(function (){    //검색창의 input에 값을 넣을시
     search_color(this);
 })
 
@@ -58,7 +58,7 @@ function search_date(main_num,date_select){
 // 회원 상세정보
 let non_detail=0;       //.user_list_body안에 있는 체크박스나 select(기업형태)를 클릭했을시 상세정보를 띄우지 않게하기위한 참조변수
 let detail_state=0;     //상세정보페이지가 켜져있는지 꺼져있는지 확인하기 위한 참조변수;
-let detail_per;          //어떤 권한의 사용자인지 확인하는 변수 0=학생 1=교직원 2=상담사 3=기업
+let detail_per;         //어떤 권한의 사용자인지 확인하는 변수 0=학생 1=교직원 2=상담사 3=기업
 $('.user_list_body :checkbox, .shape').click(function(){
     non_detail=1;
 })
@@ -167,10 +167,10 @@ function permission_ajax(user,p){
         //기업이면
         else if(user=="기업"){
             if(p=="ok") {           //승인일때만 기업형태가 필요
-                userShape = $('.shapeSelect:eq(' + userChecked + ')').val();                                                  //기업형태를 읽어옴
-                if (userShape == "") {                                                                                          //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
+                userShape = $('.shapeSelect:eq(' + userChecked + ')').val();                                            //기업형태를 읽어옴
+                if (userShape == "") {                                                                                  //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
                     if (alertIndex == 0) {
-                        alert("기업형태를 선택해주세요");                                                                       //알림을 띄워주지않았다면 띄워주고 띄워줬다면 더 띄우지 않음
+                        alert("기업형태를 선택해주세요");                                                                   //알림을 띄워주지않았다면 띄워주고 띄워줬다면 더 띄우지 않음
                         alertIndex = 1;
                     }
                 }
@@ -207,6 +207,7 @@ function permission_ajax(user,p){
         submit_param();
     }
 }
+
 
 //기업가입승인 허가,거절 기업삭제
 // let E_perList=[];
@@ -251,3 +252,53 @@ function permission_ajax(user,p){
 //     })
 //     submit_param();
 // }
+
+
+let datea=[];
+
+let ran;
+$(document).ready(function(){
+    for (i = 0; i < 12; i++) {
+        ran = Math.floor(Math.random() * 100) + 1;
+        datea.push(ran);
+    }
+
+    Highcharts.chart('container', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: ''
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+        },
+        yAxis: {
+            title: {
+                text: '가입자 수(명)'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
+        series: [{
+            name: '2021년',
+            data: datea
+        }, {
+            name: '2020년',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }, {
+            name: '2019년',
+            data: [10,20,30,40,50,60,70,80,90,100,11,16]
+        }
+        ]
+    });
+})
