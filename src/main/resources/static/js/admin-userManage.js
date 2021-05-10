@@ -165,15 +165,20 @@ function permission_ajax(user,p){
 
         //기업이면
         else if(user=="기업"){
-            userShape=$('.shapeSelect:eq(' + userChecked + ')').val();                                                  //기업형태를 읽어옴
-            if(userShape==""){                                                                                          //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
-                if(alertIndex==0) {
-                    alert("기업형태를 선택해주세요");                                                                       //알림을 띄워주지않았다면 띄워주고 띄워줬다면 더 띄우지 않음
-                    alertIndex = 1;
+            if(p=="ok") {           //승인일때만
+                userShape = $('.shapeSelect:eq(' + userChecked + ')').val();                                                  //기업형태를 읽어옴
+                if (userShape == "") {                                                                                          //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
+                    if (alertIndex == 0) {
+                        alert("기업형태를 선택해주세요");                                                                       //알림을 띄워주지않았다면 띄워주고 띄워줬다면 더 띄우지 않음
+                        alertIndex = 1;
+                    }
+                }
+                else{                                                                                                   //기업형태를 선택하였다면 리스트에 추가
+                    userList.push("{user_Id:" + userid + ", shape:" + userShape + "}");                                 //전달할 배열에 값 삽입
                 }
             }
-                else{                                                                                                   //기업형태를 선택하였다면 리스트에 추가
-                userList.push("{user_Id:" + userid + ", shape:" + userShape + "}");                                     //전달할 배열에 값 삽입
+            else{
+                userList.push(userid);
             }
         }
     }
@@ -191,11 +196,14 @@ function permission_ajax(user,p){
     else if(user=="기업"){
         $.ajax({
             url: "/allow/member/read?result=["+p+"]",
-            type:"POST",
-            data: userList
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(userList),
         })
     }
-    submit_param();
+    alert(userList);
+    // submit_param();
 }
 
 //기업가입승인 허가,거절 기업삭제
