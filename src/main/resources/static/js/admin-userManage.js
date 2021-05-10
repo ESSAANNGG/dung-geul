@@ -165,7 +165,7 @@ function permission_ajax(user,p){
 
         //기업이면
         else if(user=="기업"){
-            if(p=="ok") {           //승인일때만
+            if(p=="ok") {           //승인일때만 기업형태가 필요
                 userShape = $('.shapeSelect:eq(' + userChecked + ')').val();                                                  //기업형태를 읽어옴
                 if (userShape == "") {                                                                                          //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
                     if (alertIndex == 0) {
@@ -183,27 +183,28 @@ function permission_ajax(user,p){
         }
     }
 
+    if(userid!=undefined) {
+        if (user == "회원") {
+            $.ajax({
+                url: "/allow/member/read?result=" + p,
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(userList),
+            })
+        } else if (user == "기업") {
+            $.ajax({
+                url: "/allow/member/read?result=[" + p + "]",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(userList),
+            })
+        }
 
-    if(user=="회원") {
-        $.ajax({
-            url: "/allow/member/read?result=" + p,
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            data: JSON.stringify(userList),
-        })
+        alert(userList)
+        submit_param();
     }
-    else if(user=="기업"){
-        $.ajax({
-            url: "/allow/member/read?result=["+p+"]",
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            data: JSON.stringify(userList),
-        })
-    }
-    alert(userList);
-    // submit_param();
 }
 
 //기업가입승인 허가,거절 기업삭제
