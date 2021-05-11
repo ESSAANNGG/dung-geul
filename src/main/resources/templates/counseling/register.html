@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/css/frame.css" />
 
 <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script th:async src="../../static/js/counseling_register.js"></script>
 
 <body>
 <div th:replace="layout/layout :: nav" />
@@ -38,40 +39,51 @@
                     </div> <!-- menu -->
                 </div>
             </div>
-        <div class="consult_name_wrap">
-            <div class="consult_name">
+        <div class="consult_type_wrap">
+            <div class="consult_type">
                 상담종류
             </div>
-            <div class="consult_name_val_wrap">
-                <select id="con_name" name="consult_name_register" class="consult_name_val">
+            <div class="consult_type_val_wrap">
+                <select id="con_type" name="consult_type_register" class="consult_type_val">
                 <option>취업 상담</option>
                 <option>창업 상담</option>
                 <option>진로 상담</option>
                 </select>
             </div>
         </div>
+            <button onclick="submit()"></button>
+        <div class="consult_name_wrap">
+            <div class="consult_name">
+                상담프로그램명
+            </div>
+            <div class="consult_name_val_wrap">
+                <input type="text" class="consult_name_val">
+            </div>
+        </div>
 
-            <form role="form" action="/counseling/register" th:object="${ConsultForm}"
-                  method="post">
+        </div>
+
+<!--            <form role="form" action="/counseling/register" th:object="${ConsultForm}"-->
+<!--                  method="post">-->
+<!--&lt;!&ndash;                <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <label th:for="Consult_field">상담이름</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input type="text" th:field="*{Consult_field}" class="form-control" placeholder="이름을 입력하세요"&ndash;&gt;-->
+<!--&lt;!&ndash;                           th:class="${#fields.hasErrors('Consult_filed')}? 'form-control&ndash;&gt;-->
+<!--&lt;!&ndash;  fieldError' : 'form-control'">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p th:if="${#fields.hasErrors('Consult_filed')}"&ndash;&gt;-->
+<!--&lt;!&ndash;                       th:errors="*{Consult_filed}">Incorrect date</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
 <!--                <div class="form-group">-->
-<!--                    <label th:for="Consult_field">상담이름</label>-->
-<!--                    <input type="text" th:field="*{Consult_field}" class="form-control" placeholder="이름을 입력하세요"-->
-<!--                           th:class="${#fields.hasErrors('Consult_filed')}? 'form-control-->
-<!--  fieldError' : 'form-control'">-->
-<!--                    <p th:if="${#fields.hasErrors('Consult_filed')}"-->
-<!--                       th:errors="*{Consult_filed}">Incorrect date</p>-->
+<!--                    <label th:for="Consult_filed">도시</label>-->
+<!--                    <input type="text" th:field="*{cf}" class="form-control" placeholder="도시를 입력하세요">-->
+
+
+<!--                    <label th:for="Consult_detail_field">거리</label>-->
+<!--                    <input type="text" th:field="*{cdf}" class="form-control" placeholder="거리를 입력하세요">-->
 <!--                </div>-->
-                <div class="form-group">
-                    <label th:for="Consult_filed">도시</label>
-                    <input type="text" th:field="*{cf}" class="form-control" placeholder="도시를 입력하세요">
 
 
-                    <label th:for="Consult_detail_field">거리</label>
-                    <input type="text" th:field="*{cdf}" class="form-control" placeholder="거리를 입력하세요">
-                </div>
-
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+<!--                <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--            </form>-->
 </body>
 </html>
