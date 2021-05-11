@@ -32,7 +32,9 @@ public class Board implements Serializable {
     @Column(length = 1500, nullable = false)
     private String content; // 내용
 
-    private Long board_file; //첨부파일
+    // 첨부파일은 게시물에 필수로 들어가는 내용이 아니기 때문에 null값을 허용한다.(nullable = false x)
+    @Column
+    private Long fileId;    // 파일 아이디
 
 // 시간
 //    @CreatedDate
@@ -61,12 +63,12 @@ public class Board implements Serializable {
 
 
     @Builder    // 모델 객체 생성 시 자동으로 해당 클래스에 빌더를 추가해준다
-    public Board(Long num, Member b, String board_title, String content, Long board_file) {
+    public Board(Long num, Member b, String board_title, String content, Long fileId) {
         this.num = num;
         this.b = b;
         this.board_title = board_title;
         this.content = content;
-        this.board_file = board_file;
+        this.fileId = fileId;
     }
 
 

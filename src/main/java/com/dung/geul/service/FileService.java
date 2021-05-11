@@ -1,7 +1,7 @@
 package com.dung.geul.service;
 
 import com.dung.geul.dto.FileDto;
-import com.dung.geul.entity.File;
+import com.dung.geul.entity.Board_file;
 import com.dung.geul.repository.FileRepository;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +22,7 @@ public class FileService {
 
     @Transactional
     public FileDto getFile(Long id) {
-        File file = fileRepository.findById(id).get();
+        Board_file file = fileRepository.findById(id).get();
 
         FileDto fileDto = FileDto.builder()
                 .id(id)

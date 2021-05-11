@@ -1,22 +1,24 @@
 package com.dung.geul.controller;
 
 
+import com.dung.geul.dto.BoardDto;
 import com.dung.geul.dto.FileDto;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.notice_boardDTO;
-import com.dung.geul.entity.Board;
 import com.dung.geul.repository.BoardRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
+import com.dung.geul.service.BoardService;
 import com.dung.geul.service.FileService;
 import com.dung.geul.service.notice_boardService;
-import com.dung.geul.service.notice_boardServiceImpl;
 import com.dung.geul.util.MD5Generator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,9 +26,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.awt.print.Pageable;
 import java.io.File;
-import java.util.List;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 @RequestMapping("/center-information")
@@ -64,22 +68,11 @@ public class Center_information_controller {
         return "center-information/notice_board";
     }
 
-    @GetMapping("/notice_board_register")
+// -------------------------------------------------------------------------------
+
+    @GetMapping("/notice_board_register")   // 게시글 작성
     public void register() {
         log.info("REGISTER GET...");
-    }
-
-    @PostMapping("/notice_board_register")
-    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes){
-
-        log.info("dto..." + dto);
-
-        //새로 추가된 엔티티의 번호
-        Long num = service.register(dto);
-
-        redirectAttributes.addFlashAttribute("msg", num);
-
-        return "redirect:/center-information/notice_board";
     }
 
     @GetMapping({"/notice_board_read", "/notice_board_modify"}) // 매핑을 배열로 두개 처리
@@ -93,7 +86,7 @@ public class Center_information_controller {
 
     }
 
-    @PostMapping("/remove")
+    @PostMapping("/remove") // 게시글 삭제
     public String remove(long num, RedirectAttributes redirectAttributes){
 
         log.info("num: " + num);
@@ -106,7 +99,7 @@ public class Center_information_controller {
 
     }
 
-    @PostMapping("/notice_board_modify")
+    @PostMapping("/notice_board_modify")    // 게시글 수정
     public String modify(notice_boardDTO dto,
                          @ModelAttribute("requestDTO") PageRequestDTO requestDTO,
                          RedirectAttributes redirectAttributes){
@@ -124,7 +117,7 @@ public class Center_information_controller {
     }
 
 // 파일 업로드 -----------------------------------------------------------------------------
-    private notice_boardService notice_boardService;
+    private BoardService boardService;
     private FileService fileService;
 
 //    public Center_information_controller(notice_boardService notice_boardService, FileService fileService) {
@@ -132,8 +125,18 @@ public class Center_information_controller {
 //        this.fileService = fileService;
 //    }
 
-    @PostMapping("/post")
-    public String write(@RequestParam("file") MultipartFile files, notice_boardDTO notice_boardDto) {
+    @PostMapping("/notice_board_register")  // 게시글 작성, 파일 업로드
+    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes,
+                               @RequestParam("file") MultipartFile files, BoardDto boardDto){
+
+        log.info("dto..." + dto);
+
+        //새로 추가된 엔티티의 번호
+        Long num = service.register(dto);
+
+        redirectAttributes.addFlashAttribute("msg", num);
+
+        // 파일 업로드
         try {
             String origFilename = files.getOriginalFilename();
             String filename = new MD5Generator(origFilename).toString();
@@ -156,14 +159,29 @@ public class Center_information_controller {
             fileDto.setFilename(filename);
             fileDto.setFilePath(filePath);
 
+// fileId 주는 부분 오류 수정할 것
             Long fileId = fileService.saveFile(fileDto);
-            notice_boardDto.setBoard_file(fileId);
-//            notice_boardServiceImpl.savePost(notice_boardDto);
+            boardDto.setFileId(fileId);
+            boardService.savePost(boardDto);
+
         } catch(Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/";
+
+        return "redirect:/center-information/notice_board";
     }
+
+// 파일 다운로드
+//    @GetMapping("/download/{fileId}")   // 다운로드
+//    public ResponseEntity<Resource> fileDownload(@PathVariable("fileId") Long fileId) throws IOException {
+//        FileDto fileDto = fileService.getFile(fileId);
+//        Path path = Paths.get(fileDto.getFilePath());
+//        Resource resource = new InputStreamResource(Files.newInputStream(path));
+//        return ResponseEntity.ok()
+//                .contentType(MediaType.parseMediaType("application/octet-stream"))
+//                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDto.getOrigFilename() + "\"")
+//                .body(resource);
+//    }
 
 
 }

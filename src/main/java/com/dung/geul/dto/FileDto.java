@@ -1,6 +1,6 @@
 package com.dung.geul.dto;
 
-import com.dung.geul.entity.File;
+import com.dung.geul.entity.Board_file;
 import lombok.*;
 
 @Getter
@@ -13,8 +13,8 @@ public class FileDto {
     private String filename;
     private String filePath;
 
-    public File toEntity() {
-        File build = File.builder()
+    public Board_file toEntity() {
+        Board_file build = Board_file.builder()
                 .id(id)
                 .origFilename(origFilename)
                 .filename(filename)

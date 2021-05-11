@@ -6,16 +6,13 @@ import javax.persistence.*;
 
 
 @Entity
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
-@Table(name="file")
 @ToString
-public class File {
+public class Board_file {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO) // Auto increment
     private Long id;                //파일 아이디(pk)
 
     @Column(nullable = false)
@@ -27,11 +24,11 @@ public class File {
     @Column(nullable = false)
     private String filePath;        // 서버에 저장되는 파일 경로
 
-//    @Builder
-//    public File(Long id, String origFilename, String filename, String filePath) {
-//        this.id = id;
-//        this.origFilename = origFilename;
-//        this.filename = filename;
-//        this.filePath = filePath;
-//    }
+    @Builder
+    public Board_file(Long id, String origFilename, String filename, String filePath) {
+        this.id = id;
+        this.origFilename = origFilename;
+        this.filename = filename;
+        this.filePath = filePath;
+    }
 }

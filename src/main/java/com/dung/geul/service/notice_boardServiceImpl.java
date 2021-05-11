@@ -22,6 +22,7 @@ import java.util.function.Function;
 
 @Log4j2
 @Service
+
 @RequiredArgsConstructor
 public class notice_boardServiceImpl implements notice_boardService {
 
@@ -162,7 +163,7 @@ public class notice_boardServiceImpl implements notice_boardService {
                     .b(board.getB())
                     .title(board.getBoard_title())
                     .content(board.getContent())
-                    .board_file(board.getBoard_file())
+                    .fileId(board.getFileId())
     //              .createdDate(board.getCreatedDate())
                     .build();
         return boardDto;
