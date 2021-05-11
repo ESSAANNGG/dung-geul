@@ -41,7 +41,6 @@ li{
 }
 input{
     padding-left:15px;
-    background-color:#ffffff;
 }
 input:focus{
     outline:1px solid #5978b9;
@@ -315,96 +314,6 @@ input[type="checkbox"]:checked:before {
 
 
 
-
-/*main2_회원 상세정보*/
-.detailBox{
-    display:block;
-    position:fixed;
-    margin:auto;
-    left:0;
-    right:0;
-    top:7%;
-    width:620px;
-    height:800px;
-    padding:35px;
-    margin:auto;
-    background-color: #ffffff;
-    color:#545c64;
-
-    border-radius: 5px;
-    font-weight: 700;
-    font-size:14px;
-
-    opacity:0; /*css효과를주기위해*/
-    visibility:hidden;
-    overflow-y: scroll;
-    transition-property:opacity;
-    transition-duration: 0.45s;
-    z-index:3;
-}
-.detailBox::-webkit-scrollbar {
-    width: 5px;
-}
-.detailBox::-webkit-scrollbar-thumb {
-    background-color: #2f3542;
-    border-radius: 10px;
-}
-.detailBox::-webkit-scrollbar-track {
-    background-color: grey;
-    border-radius: 10px;
-
-}
-.detailBox i{
-    font-size:23px;
-    line-height: 35px;
-}
-.detailBox input{
-    width:550px;
-}
-.d_role{
-    width:110px;
-    height:32px;
-    padding:0 12px;
-
-    background-color: #3f6ad8;
-    color:#ffffff;
-    border-radius: 7px 3px 3px 7px;
-    /* box-shadow: 0px 0px 1px 1px #9cc9f8; 없앨지 말지 고민 */
-}
-.d_tagN{
-    display:flex;
-    height:30px;
-    margin-top:5px;
-    line-height: 30px;
-    font-weight:400;
-    font-size:13px;
-}
-.d_cont{
-    height:30px;
-    font-weight:400;
-    font-size:13px;
-    padding:0 11px;
-    margin-bottom:4px;
-}
-.d_cont:focus{
-    box-shadow: 0px 0px 3px 2px #9cc9f8;
-    outline: none;
-}
-.d_button{
-    display:inline-block;
-    width:90px;
-    height:30px;
-    margin:20px 10px 0px 0px;
-    background-color: #3f6ad8;
-    color:#ffffff;
-    border:none;
-
-    font-weight: 500;
-    font-size:12px;
-}
-
-
-
 /*main2_회원리스트+회원가입승인*/
 .user_list{
     width:1550px;
@@ -505,6 +414,101 @@ span:nth-of-type(1){
 }
 
 
+
+
+/*main2_회원 상세정보*/
+.detailBox{
+    display:block;
+    position:fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:7%;
+    width:620px;
+    height:800px;
+    padding:35px;
+    margin:auto;
+    background-color: #ffffff;
+    color:#545c64;
+
+    border-radius: 5px;
+    font-weight: 700;
+    font-size:14px;
+
+       opacity:0; /*css효과를주기위해*/
+    visibility:hidden;
+    overflow-y: scroll;
+    transition-property:opacity;
+    transition-duration: 0.45s;
+    z-index:3;
+}
+.detailBox::-webkit-scrollbar {
+    width: 5px;
+}
+.detailBox::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 10px;
+}
+.detailBox::-webkit-scrollbar-track {
+    background-color: grey;
+    border-radius: 10px;
+
+}
+.detailBox i{
+    font-size:23px;
+    line-height: 35px;
+}
+.detailBox input{
+    width:550px;
+}
+.d_role{
+    width:110px;
+    height:32px;
+    padding:0 12px;
+
+    background-color: #5978b9;
+    color:#ffffff;
+    border-radius: 7px 3px 3px 7px;
+    /* box-shadow: 0px 0px 1px 1px #9cc9f8; 없앨지 말지 고민 */
+}
+.d_tagN{
+    display:flex;
+    height:30px;
+    margin-top:5px;
+    line-height: 30px;
+    font-weight:400;
+    font-size:13px;
+}
+.d_cont{
+    height:30px;
+    font-weight:400;
+    font-size:13px;
+    padding:0 11px;
+    margin-bottom:4px;
+}
+.d_cont:focus{
+    outline:none;
+}
+.d_cont[readonly]{
+    background-color:#dbe1ef;
+    border:1px solid rgb(118, 118, 118);
+}
+.d_button{
+    display:inline-block;
+    width:90px;
+    height:30px;
+    margin:20px 10px 0px 0px;
+    background-color: #5978b9;
+    color:#ffffff;
+    border:none;
+
+    font-weight: 500;
+    font-size:12px;
+}
+
+
+
+/*chart*/
 #container{
     width:1550px;
     height:550px;
@@ -520,15 +524,3 @@ span:nth-of-type(1){
 .highcharts-series-label{
     display:none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
