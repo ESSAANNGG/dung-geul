@@ -11,6 +11,8 @@ window.onload = function () {
     menu = (sessionStorage.getItem("menu"));
     detail_menu = (sessionStorage.getItem("detail_menu"));
     select_detail_menu = (sessionStorage.getItem("select_detail_menu"));
+    parameter = (sessionStorage.getItem("parameter"));          //메뉴나 가이드메뉴를 바꿔 파라미터를 받고 새로고침하고나면 파라미터가 주소창엔 있지만 변수는 초기화됨
+                                                                    //그래서 ex)main2의 승인,거절,삭제등의 버튼을 누르고 주소를
 
     if(menu_index==undefined) { //저장된 세션이 없다면 1번메뉴를 출력해주기위해 참조변수값들을 재설정
         menu_index = 0;
@@ -61,7 +63,7 @@ $('.menubox_li').click(function(){
     window.sessionStorage.setItem('select_detail_menu',Number(0)); //상세메뉴가 아닌 메뉴클릭을 했을시엔 첫번째 상세메뉴를 보여줌
 
     //파라미터 바꿔서 새로고침하는 함수 호출
-    submit_param(parameter);
+    submit_param();
 
 });
 
@@ -80,14 +82,12 @@ $('.guide_select').change(function(){
     window.sessionStorage.setItem('select_detail_menu',select_detail_menu);
 
     //파라미터 바꿔서 새로고침하는 함수 호출
-    submit_param(parameter);
+    submit_param();
 })
 
 
 function submit_param(){  //메뉴클릭,가이드메뉴 선택시
-    location.href="/admin/admin?type=" + parameter + "&page1=1&page2=1";
-}
-function submit_data(){   //
+    window.sessionStorage.setItem('parameter',parameter); //새로고침해도 파라미터가 남아있게
     location.href="/admin/admin?type=" + parameter + "&page1=1&page2=1";
 }
 
@@ -103,86 +103,4 @@ function checkAll(checkI) {
     else if($('input[name='+checkName+']').is(':checked')==false) {
         $('input[name=' + check + ']').prop("checked", false);
     }
-}
-
-//회원가입승인 허가,거절 회원삭제
-let p; //승인인지 거절인지 html으로부터 받아옴
-let perList=[]; //userid값을 담아넣는 배열
-let userid; //userid값을 하나하나 담음
-let perLength;
-function permission_ajax(p){
-    perList=[]; //배열이 계속 쌓이는걸 방지 (초기화)
-    //체크한 유저목록을 가져와 perList에 담음
-    perLength=$('input[name="2_2_check"]:checked').length;    //체크 수만큼 반복
-    for(j=0; j<perLength; j++){
-        let perRemove=($("input[name='2_2_check']").index($('input[name="2_2_check"]:checked')));     //회원가입승인 전체 체크중 체크된것들의 인덱스를 가져옴
-
-        userid=$('.user_list:eq(1) .user_list_body:eq(' + perRemove + ') .username').text();          //아이디값을 읽어옴
-        perList.push(userid);                                                                         //전달할 배열에 값 삽입
-        ($('input[name="2_2_check"]').eq(perRemove)).prop("checked",false);                           //해당하는 인덱스의 체크 해제
-        $('input[name="2_2_checkH"]').prop("checked",false);                                          //헤드checkBox 체크 해제
-    }
-
-    if(p==1){
-        p="ok";
-    }
-    else if(p==2){
-        p="no";
-    }
-    else if(p==3){
-        p="delete";
-    }
-    $.ajax({
-        url: "/allow/member/read?result="+p,
-        type:"POST",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        data: JSON.stringify(perList),
-    })
-    submit_data();
-}
-
-//기업가입승인 허가,거절 기업삭제
-let userShape;
-let E_perList=[];
-let E_perLength;
-let alertIndex;
-function E_permission_ajax(p){
-    E_perList=[];           //배열이 계속 쌓이는걸 방지 (초기화)
-                            //체크한 유저목록을 가져와 perList에 담음
-    alertIndex=0;           //기업형태를 선택해주세요 알림을 한번 띄워줬다면 더 띄우지 않게하기 위한 참조변수
-    E_perLength=$('input[name="2_4_check"]:checked').length;    //체크 수만큼 반복
-    for(j=0; j<E_perLength; j++){
-        let E_perRemove=($("input[name='2_4_check']").index($('input[name="2_4_check"]:checked')));            //회원가입승인 전체 체크중 체크된것들의 인덱스의 첫번째 가져옴
-        userid=$('.user_list:eq(3) .user_list_body:eq(' + E_perRemove + ') .username').text();                 //아이디값을 읽어옴
-        userShape=$('.shapeSelect:eq(' + E_perRemove + ')').val();                                             // 기업형태를 읽어옴
-        if(userShape==""){                                                   //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
-            if(alertIndex==0) {
-                alert("기업형태를 선택해주세요");                                                                  //알림을 띄워주지않았다면 띄워주고 띄워줬다면 더 띄우지 않음
-                alertIndex = 1;
-            }
-        }
-        else{                                                                                 //기업형태를 선택하였다면 리스트에 추가
-            E_perList.push("{user_Id:" + userid + ", shape:" + userShape + "}");                                       //전달할 배열에 값 삽입
-        }
-        ($('input[name="2_4_check"]').eq(E_perRemove)).prop("checked",false);                                  //해당하는 인덱스의 체크 해제
-        $('input[name="2_4_checkH"]').prop("checked",false);                                                   //헤드checkBox 체크 해제
-    }
-
-    if(p==1){
-        p="ok";
-    }
-    else if(p==2){
-        p="no";
-    }
-    else if(p==3){
-        p="delete"
-    }
-
-    $.ajax({
-        url: "/allow/member/read?result=["+p+"]",
-        type:"POST",
-        data: E_perList
-    })
-    submit_data();
 }
