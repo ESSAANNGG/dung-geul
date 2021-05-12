@@ -6,16 +6,13 @@ import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.EmployService;
 
-import com.dung.geul.service.MemberService;
+
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-;
+
 
 @Log4j2
 @RestController
@@ -25,25 +22,27 @@ public class EmployRestController {
     EmployService employService;
 
 
-
     //채용공고등록
     @PostMapping("/rest/emReg")
-    public void register(@RequestBody EmployDTO employDTO){
+    public void register(@RequestBody EmployDTO employDTO) {
         employService.register(employDTO);
 
     }
+
     //채용공고삭제
     @DeleteMapping("/rest/{num}")
-    public ResponseEntity<String> remove(@PathVariable("num") Long num){
+    public ResponseEntity<String> remove(@PathVariable("num") Long num) {
+
+        log.info("Num:" + num);
 
         employService.remove(num);
 
-        return  new ResponseEntity<>("succes", HttpStatus.OK);
+        return new ResponseEntity<>("succes", HttpStatus.OK);
     }
-    
+
     //채용공고수정
     @PutMapping("/rest/emSave")
-    public ResponseEntity<String> modify(@RequestBody EmployDTO employDTO){
+    public ResponseEntity<String> modify(@RequestBody EmployDTO employDTO) {
 
         log.info(employDTO);
 

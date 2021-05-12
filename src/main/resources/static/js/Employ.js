@@ -1,10 +1,7 @@
 $(document).ready(function () {
 
-
-
-    //채용 글등록 
+    //채용 글등록
     $('#emReg').on('click', function () {
-
         let ap = '';
         $('input[type="checkbox"]:checked').each(function(index){
             if(index != 0){
@@ -26,7 +23,6 @@ $(document).ready(function () {
             area : $('#em_sido').val()+'/'+$('#em_gugun').val(),
             salary : $('#em_salary').val(),
             apply :   ap,
-
             etp_id : $("#em_id").val()
         }
         console.log(data);
@@ -47,7 +43,7 @@ $(document).ready(function () {
     //채용 글 삭제
     $('#emRemove').on('click', function () {
 
-        let num = $('#num').val();
+        let num = $('#em_num').val();
         console.log(num);
         $.ajax({
             url: '/rest/' + num ,
@@ -67,12 +63,16 @@ $(document).ready(function () {
     // 채용 글 수정
     $('#emSave').on('click', function() {
 
+
+
         let data = {
             num : $('#em_num').val(),
             title: $('#em_title').val(),
             content : $('#em_content').val(),
-            ot : $('#em_ot').val()
+            ot : $('#em_ot').val(),
+            etp_id : $("#em_id").val()
         }
+
         console.log(data);
         $.ajax({
             url : "/rest/emSave",
@@ -156,10 +156,12 @@ function searchVal(sel){
             $("#dummy_title").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
             if(val==""){
                 $("#h_title").text("#제목");
+                $("#h_title").css("color","#000000");
                 $("#dummy_title").prop("checked",false);
             }
-            $("#h_title").css("color","#4759ff");
-            $("#h_title").stop().animate({"color":"#575757"},2000);
+            else{
+                $("#h_title").css("color","#4759ff");
+            }
             break;
         case 'corp':
             val=(search[1].value);
@@ -167,57 +169,62 @@ function searchVal(sel){
             $("#dummy_corp").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
             if(val==""){
                 $("#h_corp").text("#기업");
+                $("#h_corp").css("color","#000000");
                 $("#dummy_corp").prop("checked",false)
             }
-            $("#h_corp").css("color","#4759ff");
-            $("#h_corp").stop().animate({"color":"#575757"},2000);
+            else{
+                $("#h_corp").css("color","#4759ff");
+            }
             break;
         case 'ot':
             val=(search[2].value);
             $("#h_ot").text("#"+val);
-            $("#h_ot").css("color","#4759ff");
-            $("#h_ot").stop().animate({"color":"#575757"},2000);
             if(val!="직종") {
                 $("#dummy_ot").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+                $("#h_ot").css("color","#4759ff");
             }
             else if(val=="직종"){
                 $("#dummy_ot").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+                $("#h_ot").css("color","#000000");
+
             }
             break;
         case 'ep':
             val=(search[3].value);
             $("#h_ep").text("#"+val);
-            $("#h_ep").css("color","#4759ff");
-            $("#h_ep").stop().animate({"color":"#575757"},2000);
             if(val!="고용구분") {
                 $("#dummy_ep").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+                $("#h_ep").css("color","#4759ff");
             }
             else if(val=="고용구분"){
                 $("#dummy_ep").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+                $("#h_ep").css("color","#000000");
             }
             break;
         case 'shape':
             val=(search[4].value);
             $("#h_shape").text("#"+val);
-            $("#h_shape").css("color","#4759ff");
-            $("#h_shape").stop().animate({"color":"#575757"},2000);
             if(val!="기업구분") {
                 $("#dummy_shape").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+                $("#h_shape").css("color","#4759ff");
             }
             else if(val=="기업구분"){
                 $("#dummy_shape").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+                $("#h_shape").css("color","#000000");
             }
             break;
         case 'area':
             setTimeout(function() {
                 val=(search[5].value)+" ";
 
-                    if(val!="시/도 선택 ") {
-                        $("#dummy_area").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                    }
-                    else if(val=="시/도 선택 "){
-                        $("#dummy_area").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                    }
+                if(val!="시/도 선택 ") {
+                    $("#dummy_area").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+                    $("#h_area").css("color","#4759ff");
+                }
+                else if(val=="시/도 선택 "){
+                    $("#dummy_area").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+                    $("#h_area").css("color","#000000");
+                }
 
                 if((search[6].value)=="구/군 선택"){
                     $("#dummy_detailArea").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
@@ -227,8 +234,7 @@ function searchVal(sel){
                     $("#dummy_detailArea").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
                 }
                 $("#h_area").text("#"+val);
-                $("#h_area").css("color","#4759ff");
-                $("#h_area").stop().animate({"color":"#575757"},2000);
+
             }, 100);
             break;
     }
@@ -406,4 +412,12 @@ function apply_close(){
     $("#main").css("opacity","1");
 }
 
+
+
+//수정페이지
+//깂 받아와서 기본값으로 넣기
+function abcd() {
+    alert(document.querySelector('#em_title').value);
+    alert($('#em_ot').val());
+};
 

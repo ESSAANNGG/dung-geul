@@ -23,7 +23,6 @@ public class Employ extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "em_num")
-
     private Long num;
 
     @Column(name = "em_title")
@@ -68,6 +67,5 @@ public class Employ extends BaseEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="em_etp_id")
     private Enterprise etp_id;
-
 
 }

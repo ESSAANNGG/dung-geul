@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class EnterpriseDTO extends MemberDTO {
 
     // 기업 추가 정보
-    private int etp_id;
+    private Long etp_id;
 
     private String etp_num; //기업명
 
@@ -48,7 +48,7 @@ public class EnterpriseDTO extends MemberDTO {
     public EnterpriseDTO(String user_id, String user_name, String user_pw,
                          String user_ph, String user_ph2, String user_ph3, String user_postcode, String user_addr,
                          String user_addr_details, String user_email, String user_emailDomain, String user_dept,
-                         String user_grade, String user_class, String user_job, String role, int etp_id,
+                         String user_grade, String user_class, String user_job, String role, Long etp_id,
                          String etp_num, String etp_name, String etp_ceo_name, String etp_ph,
                          String etp_fx, String etp_home, String etp_contents, LocalDate etp_year,
                          int etp_member, String etp_sector, String etp_shape, String etp_allow) {

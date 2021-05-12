@@ -5,17 +5,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="/css/employ_register.css" />
+    <link rel="stylesheet" href="/css/employ_modify.css" />
     <link rel="stylesheet" href="/css/menu-common1.css" />
     <link rel="stylesheet" href="/css/frame.css" />
 
-
-    <!--jquery에서 제공하는 최신 버전의 jQuery url-->
     <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script th:async src="/js/Employ.js"></script>
-
+    <!--jquery에서 제공하는 최신 버전의 jQuery url-->
 
 
 
@@ -24,7 +23,6 @@
 
 <body>
 
-<div th:text="${etp.getEtp_id()}" style="display: none">id : [[${etp.getEtp_id()}]]</div>
 <!--네비 div-->
 <div th:replace="layout/layout :: nav" />
 <!-- Main -->
@@ -49,20 +47,17 @@
                     </div> <!-- menu -->
                 </div>
             </div>
-
             <div class="employ_register" id="employ_register1">
-                <div class="content">
-                    <input type="hidden" name="em_id" id="em_id" title="em_id" th:value="${etp.getEtp_id()}" />
-<!--                    <input type="hidden" name="em_id" id="em_id" title="em_id" th:value="${etp.getUser_id()}" />-->
-<!--                    <div class="register_step_head">-->
-<!--                        기본정보를 입력해주세요-->
-<!--                    </div>-->
+                <button onclick="abcd()"></button>
+                <div class="content" id="modifyC">
+                    <input name="em_num" id="em_num" title="em_num" th:value="${dto.num}"/>
+                    <input  name="em_id" id="em_id" title="em_id" th:value="${etp.getEtp_id()}" />
                     <div class="register_title_wrap">
                         <div class="register_title">
                             제목
                         </div>
                         <input type="text" name="em_title" id="em_title" class="register_title_input"
-                               placeholder="공고목록에서 보여질 제목입니다." maxlength="15" />
+                               th:value="${dto.title}" maxlength="15" />
                     </div>
 
                     <div class="register_cont_wrap">
@@ -70,7 +65,7 @@
                             내용
                         </div>
                         <textarea name="em_content" id="em_content" class="register_cont_input"
-                                  placeholder="추가적인 사항을 기입해주세요." maxlength="499"></textarea>
+                                  th:text="${dto.content}" maxlength="499"></textarea>
                     </div>
 
                     <div class="register_ot_wrap">
@@ -78,8 +73,9 @@
                             직종
                         </div>
                         <div class="register_ot_val_wrap">
-                            <select id="em_ot" name="register_ot_val" class="register_ot_val">
-                                <option>--- 직 종 ---</option>
+                            <select id="em_ot" name="register_ot_val" class="register_ot_val" >
+
+                                <option>----- 직종 -----</option>
                                 <option>경영·회계·사무 관련직</option>
                                 <option>금융·보험 관련직</option>
                                 <option>교육관련직</option>
@@ -139,15 +135,14 @@
 
 
 
-
             <div class="employ_register" id="employ_register2">
-                <div class="content">
+                <div class="content" id="modifyC">
                     <div class="register_TO_wrap">
                         <div class="register_TO">
                             모집인원
                         </div>
                         <div class="register_TO_input">
-                            <input type="text" maxlength="4" id="em_people" />
+                            <input type="text" maxlength="4" id="em_people"/>
                             <p>명</p>
                             <div class="register_TO_error">숫자만 입력해주세요.</div>
                         </div>
@@ -247,7 +242,7 @@
 
                     <div class="base_button_wrap">
                         <button class="base_button" onclick="pageMov(2_1)">기본정보 입력으로 이동</button>
-                        <button id="emReg" class="base_button">채용공고 등록하기</button>
+                        <button class="boxed-btn3" id="emSave" name="emSave" type="submit">수정하기</button>
                     </div>
                 </div>
             </div>
@@ -261,7 +256,7 @@
 
 
 </body>
-
+<script src="/js/Employ.js"></script>
 <script>
     function readURL(input) {
         if (input.files && input.files[0]) {

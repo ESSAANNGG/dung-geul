@@ -71,9 +71,15 @@ public interface EmployService {
                 .etp_name(enterprise.getEtp_name())
                 .etp_sector(enterprise.getEtp_sector())
                 .etp_ph(enterprise.getEtp_ph())
+                .etp_ph2(enterprise.getEtp_ph2())
+                .etp_ph3(enterprise.getEtp_ph3())
                 .etp_home(enterprise.getEtp_home())
                 .etp_member(enterprise.getEtp_member())
                 .etp_ceo_name(enterprise.getEtp_ceo_name())
+                .etp_fx(enterprise.getEtp_fx())
+                .etp_shape(enterprise.getEtp_shape())
+                .etp_home(enterprise.getEtp_home())
+
                 .build();
 
         return dto;

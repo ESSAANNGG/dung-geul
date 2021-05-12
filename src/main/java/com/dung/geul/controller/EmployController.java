@@ -53,6 +53,20 @@ public class EmployController {
         model.addAttribute("etp", enterpriseDTO);
     }
 
+    //채용수정이동
+    @GetMapping("/modify")
+    public void modify(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO,@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
+        log.info("num :" +num);
+
+        EnterpriseDTO enterpriseDTO = memberService.getEnterprise(authMemberDTO.getUser_id());
+
+        EmployDTO dto = service.read(num);
+
+        model.addAttribute("etp", enterpriseDTO);
+        model.addAttribute("dto", dto);
+    }
+
+
 
 
 }

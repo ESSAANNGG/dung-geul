@@ -42,9 +42,9 @@ public class EmployDTO {
     private LocalDateTime regDate, modDate;
 
 
-    private int etp_id;
+    private Long etp_id;
 
-    private int etp_num;
+    private String etp_num;
 
     private String etp_name;
 
@@ -53,6 +53,10 @@ public class EmployDTO {
     private String etp_shape;
 
     private String etp_ph;
+
+    private String etp_ph2;
+
+    private String etp_ph3;
 
     private String etp_home;
 

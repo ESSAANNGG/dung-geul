@@ -18,7 +18,7 @@ public class Enterprise implements Serializable{
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        private int etp_id;
+        private Long etp_id;
 
         @OneToOne
         @JoinColumn(name = "etp_user_id" ,foreignKey = @ForeignKey(name="etp_user_id_fk"))

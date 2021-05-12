@@ -22,7 +22,7 @@
     <title>영진전문대 채용공고</title>
 </head>
 <body>
-<input style="display: none" id="em_num" name="em_num" th:value="${dto.num}"/>
+<input id="em_num" name="em_num" th:value="${dto.num}"/>
 
 <div th:replace="layout/layout :: nav" />
 
@@ -31,7 +31,7 @@
         <div id="wrap">
             <div id="head_wrap">
                 <span><a th:href="@{/Employ/list}">다른 공고 보러가기</a></span>
-                <h2>네이버웹툰컴퍼니(주)</h2>
+                <h2>[[${dto.etp_name}]]</h2>
                 <h1 id="em_title" th:text="${dto.title}"></h1>
 
                 <!-- <div id="nav">
@@ -101,7 +101,8 @@
                         <li><h5>직원수 : <span th:text="${dto.etp_member}"></h5></li>
                         <li><h5>업종 : <span th:text="${dto.etp_sector}"></h5></li>
                         <li><h5>대표자명 : <span th:text="${dto.etp_ceo_name}"></h5></li>
-                        <li><h5>전화번호 : <span th:text="${dto.etp_ph}"></h5></li>
+<!--                        <li><h5>전화번호 : <span th:text="${dto.etp_ph}"></h5></li>-->
+                        <li><h5>전화번호 : [[${dto.etp_ph}]]-[[${dto.etp_ph2}]]-[[${dto.etp_ph3}]]</h5></li>
                         <li><h5>FAX : <span th:text="${dto.etp_fx}"></h5></li>
                         <li><h5>홈페이지 : <span th:text="${dto.etp_home}"></h5></li>
                         <li><h5>기업주소 : </h5></li>
@@ -118,13 +119,17 @@
 
                 </div>
             </div>
-            <!--    <div class="col-md-12">-->
-            <!--        <div class="submit_btn">-->
-            <!--            <button class="boxed-btn3" id="emRemove" name="emRemove" type="submit">삭제</button>-->
-            <!--            <button class="boxed-btn3" id="emModify" name="emModify" type="submit">수정</button>-->
-            <!--            <button class="boxed-btn3" id="emSave" name="emSave" type="submit">저장</button>-->
-            <!--        </div>-->
-            <!--    </div>-->
+                <div class="col-md-12">
+                    <div class="submit_btn">
+                        <a th:href="@{/Employ/modify(num = ${dto.num})}">
+                            <button type="button">수정하기</button>
+                        </a>
+                        <button class="boxed-btn3" id="emRemove" name="emRemove" type="submit">삭제</button>
+
+                      <!--  <button class="boxed-btn3" id="emModify" name="emModify" type="submit">수정</button>
+                        <button class="boxed-btn3" id="emSave" name="emSave" type="submit">저장</button>-->
+                    </div>
+                </div>
         </div>
     </section>
 </section>
