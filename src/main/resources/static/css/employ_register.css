@@ -382,7 +382,7 @@
 
 
 /*지원방법*/
-.register_addApply_wrap{
+.register_apply_wrap{
     display: flex;
     justify-content: center;
     height:50px;
@@ -391,17 +391,17 @@
     font-weight:900;
     font-size:16px;
 }
-.register_addApply{
+.register_apply{
     width:100px;
     font-size:16px;
 }
-.register_addApply_input{
+.register_apply_input{
     width:600px;
     height:40px;
     font-size:13px;
     font-weight: 500;
 }
-.register_addApply_input input{
+.register_apply_input input{
     margin-right:5px;
 }
 /*첨부파일*/

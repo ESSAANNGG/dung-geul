@@ -322,7 +322,6 @@ function Apply(f){
     var wrap = document.getElementsByClassName('register_file_wrap');
     var wrapH=wrap[0].offsetHeight;
     length=$('.register_file_ul').children().length;
-    //length=$('.register_addApply_li').length; <<으로하니 계속 1,0 값만 생김
     if(f=='add'){
         if(length>4){
             alert("첨부파일은 최대5개까지 가능합니다")
