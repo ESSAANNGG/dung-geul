@@ -53,6 +53,9 @@ table {
     padding: 0px;
     z-index: -2;
 }
+.menu2 {
+    width: 210px;
+}
 body {
     background: #fff;
     margin: 0 auto;
