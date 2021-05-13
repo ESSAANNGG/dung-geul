@@ -234,38 +234,38 @@ input[type="checkbox"]:checked:before {
 
 
 /*main2_검색*/
-.user_search {
+.search {
     width:1550px;
 }
-.user_search ul{
+.search ul{
     width:1550px;
     margin:0px;
     padding:0px;
     font-size:0px;
 }
-.user_search li{
+.search li{
     display:inline-block;
     line-height:75px;
     font-size:17px;
 }
-.user_search li:nth-child(1) {
+.search li:nth-child(1) {
     width:200px;
     text-align: center;
     background-color: #dbe1ef;
     border-bottom:1.5px solid #c2c9db;
 }
-.user_search li:nth-child(2) {
+.search li:nth-child(2) {
     width:1350px;
     padding-left:15px;
     background-color: #ffffff;
     border-bottom:1.5px solid #e6e7ee;
 }
-.user_search ul:last-of-type li{
+.search ul:last-of-type li{
     border:none;
 }
 
 
-.user_search select{
+.search select{
     position:relative;
     width:300px;
     height:42px;
@@ -273,7 +273,7 @@ input[type="checkbox"]:checked:before {
     background-color: #c2c9db;/*값이 들어가면 색이 #ffffff로 바뀜*/
     font-size:15px;
 }
-.user_search input{
+.search input{
     width:300px;
     height:42px;
     border:1px solid #c2c9db;
@@ -281,7 +281,7 @@ input[type="checkbox"]:checked:before {
     font-size:15px;
 }
 /*date 버튼*/
-.user_search button{
+.search button{
     width:70px;
     height:42px;
     margin-left:5px;
@@ -289,21 +289,21 @@ input[type="checkbox"]:checked:before {
     border:1px solid #c2c9db;
     font-size:15px;
 }
-.user_search button:hover{
+.search button:hover{
     border:2px solid #5978b9;
 }
-.user_search ul button:hover{
+.search ul button:hover{
     background-color:#5977b918;
 }
 
 
 /*검색버튼*/
-.user_search_button{
+.search_button{
     width:1550px;
     margin-top:30px;
     text-align: center;
 }
-.user_search_button button{
+.search_button button{
     width:100px;
     height:60px;
     background-color: #5978b9;

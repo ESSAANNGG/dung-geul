@@ -92,11 +92,47 @@ function submit_param(){  //메뉴클릭,가이드메뉴 선택시
 }
 
 
+
+//모든 메뉴 검색부분의 날짜선택
+let date_range=document.getElementsByClassName('search_date');
+let dateVar;
+$('.search_date_button').click(function(){
+    let now=new Date();
+    let week=new Date();
+    let month=new Date();
+    let enter=new Date(1);  //파라미터를 한개만 전송하면 1970년도로 자동설정
+    week.setDate(now.getDate()-7);
+    month.setMonth(now.getMonth()-1);
+
+    let date_select=$(this).text();
+
+    switch (date_select) {
+        case '오늘': dateVar=now;
+            break;
+        case '이번주': dateVar=week;
+            break;
+        case '이번달': dateVar=month;
+            break;
+        case '전체': dateVar=enter;
+            break;
+    }
+
+    let searchIndex=$('.search').index($(this).parents('.search'));
+    //해당버튼이 어느메뉴의 버튼들인지 ex)처음으로 검색이 나오는메뉴는 회원관리>회원관리니까 회원관리의 검색을 클릭시 0출력
+    searchIndex=searchIndex*2;
+    //클래스 참조를 위해 *2
+    
+    date_range[searchIndex].value = dateVar.toISOString().substring(0, 10);
+    date_range[(searchIndex+1)].value = now.toISOString().substring(0, 10);
+    date_range[searchIndex].style.backgroundColor="#ffffff";
+    date_range[(searchIndex+1)].style.backgroundColor="#ffffff";
+})
+
 //전체 게시판 각 리스트별로 체크,해제
 let check;
 function checkAll(checkI) {
     let checkName=(checkI.name);                                      //체크한 부모체크박스의 이름을 가져옴 ex)2_1_checkH
-    check=(checkName.substr(0,9));                                //부모체크박스의 h를 떼어 자식name으로 변경
+    check=(checkName.substr(0,9));                        //부모체크박스의 h를 떼어 자식name으로 변경
     if($('input[name='+checkName+']').is(':checked')==true){          //자식 checkBox에 check적용
         $('input[name='+check+']').prop("checked",true);
     }

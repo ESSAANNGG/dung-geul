@@ -218,7 +218,7 @@
                         <div class="sub_menu_title">
                             <h3>회원검색</h3>
                         </div>
-                        <div class="user_search">
+                        <div class="search">
                             <ul>
                                 <li>회원권한</li>
                                 <li>
@@ -241,15 +241,15 @@
                             <ul>
                                 <li>가입/요청 일자</li>
                                 <li>
-                                    <input type="date" class="user_search_date"> &nbsp;~&nbsp; <input type="date"
-                                                                                                      class="user_search_date">
-                                    <button onclick="search_date('main2_user','오늘')">오늘</button>
-                                    <button onclick="search_date('main2_user','이번주')">이번주</button>
-                                    <button onclick="search_date('main2_user','이번달')">이번달</button>
-                                    <button onclick="search_date('main2_user','전체')">전체</button>
+                                    <input type="date" class="search_date"> &nbsp;~&nbsp; <input type="date"
+                                                                                                      class="search_date">
+                                    <button class="search_date_button">오늘</button>
+                                    <button class="search_date_button">이번주</button>
+                                    <button class="search_date_button">이번달</button>
+                                    <button class="search_date_button">전체</button>
                                 </li>
                             </ul>
-                            <div class="user_search_button">
+                            <div class="search_button">
                                 <button>
                                     <h3>검색</h3>
                                 </button>
@@ -329,7 +329,7 @@
                         <div class="sub_menu_title">
                             <h3>기업검색</h3>
                         </div>
-                        <div class="user_search">
+                        <div class="search">
                             <ul>
                                 <li>기업명</li>
                                 <li> <input type="text"></li>
@@ -339,17 +339,27 @@
                                 <li><input type="text"></li>
                             </ul>
                             <ul>
-                                <li>가입/요청 일자</li>
+                                <li>기업형태</li>
                                 <li>
-                                    <input type="date" class="user_search_date"> &nbsp;~&nbsp; <input type="date"
-                                                                                                      class="user_search_date">
-                                    <button onclick="search_date('main2_corp','오늘')">오늘</button>
-                                    <button onclick="search_date('main2_corp','이번주')">이번주</button>
-                                    <button onclick="search_date('main2_corp','이번달')">이번달</button>
-                                    <button onclick="search_date('main2_corp','전체')">전체</button>
+                                    <select name="shape">
+                                        <option value="">기업 형태</option>
+                                        <option value="대기업">대기업</option>
+                                        <option value="중견기업">중견기업</option>
+                                        <option value="중소기업">중소기업</option>
+                                    </select>
                                 </li>
                             </ul>
-                            <div class="user_search_button">
+                            <ul>
+                                <li>가입/요청 일자</li>
+                                <li>
+                                    <input type="date" class="search_date"> &nbsp;~&nbsp; <input type="date" class="search_date">
+                                    <button class="search_date_button">오늘</button>
+                                    <button class="search_date_button">이번주</button>
+                                    <button class="search_date_button">이번달</button>
+                                    <button class="search_date_button">전체</button>
+                                </li>
+                            </ul>
+                            <div class="search_button">
                                 <button>
                                     <h3>검색</h3>
                                 </button>
@@ -448,38 +458,42 @@
                         <div class="sub_menu_title">
                             <h3>공고검색</h3>
                         </div>
-                        <div class="user_search">
+                        <div class="search">
                             <ul>
-                                <li>회원권한</li>
-                                <li>
-                                    <select name="role">
-                                        <option value="">회원 권한</option>
-                                        <option value="학생">학생</option>
-                                        <option value="교수">교직원</option>
-                                        <option value="상담사">상담사</option>
-                                    </select>
-                                </li>
+                                <li>기업명</li>
+                                <li> <input type="text"></li>
                             </ul>
                             <ul>
-                                <li>이름</li>
+                                <li>공고제목</li>
                                 <li> <input type="text"></li>
+                            </ul>
+                                <ul>
+                                <li>기업형태</li>
+                                <li>
+                                    <select name="shape">
+                                        <option value="">기업 형태</option>
+                                        <option value="대기업">대기업</option>
+                                        <option value="중견기업">중견기업</option>
+                                        <option value="중소기업">중소기업</option>
+                                    </select>
+                                </li>
                             </ul>
                             <ul>
                                 <li>아이디</li>
                                 <li><input type="text"></li>
                             </ul>
                             <ul>
-                                <li>가입/요청 일자</li>
+                                <li>등록 일자</li>
                                 <li>
-                                    <input type="date" class="user_search_date"> &nbsp;~&nbsp; <input type="date"
-                                                                                                      class="user_search_date">
-                                    <button onclick="search_date('main2_user','오늘')">오늘</button>
-                                    <button onclick="search_date('main2_user','이번주')">이번주</button>
-                                    <button onclick="search_date('main2_user','이번달')">이번달</button>
-                                    <button onclick="search_date('main2_user','전체')">전체</button>
+                                    <input type="date" class="search_date"> &nbsp;~&nbsp; <input type="date"
+                                                                                                      class="search_date">
+                                    <button class="search_date_button">오늘</button>
+                                    <button class="search_date_button">이번주</button>
+                                    <button class="search_date_button">이번달</button>
+                                    <button class="search_date_button">전체</button>
                                 </li>
                             </ul>
-                            <div class="user_search_button">
+                            <div class="search_button">
                                 <button>
                                     <h3>검색</h3>
                                 </button>
