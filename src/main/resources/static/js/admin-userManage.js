@@ -49,7 +49,6 @@ $('#shadow_box').click(function(e){
 
 
 let datea=[];
-
 let ran;
 $(document).ready(function(){
     for (i = 0; i < 12; i++) {

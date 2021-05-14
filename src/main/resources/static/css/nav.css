@@ -6,8 +6,8 @@ li {
   list-style: none;
 }
 
-.nav {
-  line-height: 1;
+navbar li{
+  line-height: 1!important;
 }
 .dep1 {
   line-height: 1;
