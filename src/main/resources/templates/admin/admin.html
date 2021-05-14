@@ -567,15 +567,89 @@
                         <div class="sub_menu_title">
                             <h3>상담등록</h3>
                         </div>
+                        <div class="search">
+                            <ul>
+                                <li>상담 종류</li>
+                                <li>
+                                    <select name="consult_type">
+                                        <option value="">상담 종류</option>
+                                        <option value="진로 상담">진로 상담</option>
+                                        <option value="취업상담">취업 상담</option>
+                                        <option value="창업상담">창업 상담</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>상담 프로그램명</li>
+                                <li> <input type="text"></li>
+                            </ul>
+                            <div class="search_button">
+                                <button>
+                                    <h3>등록</h3>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                     <div id="main6_counsult_search">
                         <div class="sub_menu_title">
-                            <h3>상담목록 검색</h3>
+                            <h3>상담리스트 검색</h3>
+                        </div>
+                        <div class="search">
+                            <ul>
+                                <li>상담 종류</li>
+                                <li>
+                                    <select name="consult_type">
+                                        <option value="">상담 종류</option>
+                                        <option value="진로 상담">진로 상담</option>
+                                        <option value="취업상담">취업 상담</option>
+                                        <option value="창업상담">창업 상담</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>상담 프로그램명</li>
+                                <li> <input type="text"></li>
+                            </ul>
+                            <ul>
+                                <li>담당 상담사</li>
+                                <li> <input type="text"></li>
+                            </ul>
+                            <div class="search_button">
+                                <button>
+                                    <h3>검색</h3>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div id="main6_counsult_list">
                         <div class="sub_menu_title">
                             <h3>상담리스트</h3>
+                        </div>
+                        <div class="list">
+                            <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="3_1_checkH"
+                                                               onclick="checkAll(this)"></span>
+                                <span class="number">번호</span>
+                                <span class="name">기업명</span>
+                                <span class="username">아이디</span>
+                                <span class="phone">대표번호</span>
+                                <span class="email">이메일</span>
+                                <span class="joindate">가입일</span>
+                                <span class="shape">기업형태</span>
+                            </div>
+                            <div class="list_body" onclick="detail(this)">
+                                <span class="check"><input type="checkbox" name="3_1_check"></span>
+                                <span class="number"></span>
+                                <span class="name"></span>
+                                <span class="username"></span>
+                                <span class="phone"></span>
+                                <span class="email"></span>
+                                <span class="joindate"></span>
+                                <span class="role"></span>
+                            </div>
+                        </div>
+                        <div class="list_button">
+                            <button class="parameter_request">삭제</button>
                         </div>
                     </div>
                 </div>
