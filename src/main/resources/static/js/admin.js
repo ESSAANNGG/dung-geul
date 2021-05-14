@@ -128,6 +128,26 @@ $('.search_date_button').click(function(){
     date_range[(searchIndex+1)].style.backgroundColor="#ffffff";
 })
 
+//검색 값이 들어갔을시 css
+$('.search select').change(function(){    //검색창의 select에 값을 넣을시
+    search_color(this);
+});
+$('.search input').keyup(function (){     //검색창의 input에 값을 넣을시
+    search_color(this);
+})
+$('.search input').change(function (){    //검색창의 input에 값을 넣을시
+    search_color(this);
+})
+
+function search_color(a){
+    if(a.value!=""){
+        a.style.backgroundColor="#ffffff";
+    }
+    else{
+        a.style.backgroundColor="#c2c9db";
+    }
+}
+
 //전체 게시판 각 리스트별로 체크,해제
 let check;
 function checkAll(checkI) {

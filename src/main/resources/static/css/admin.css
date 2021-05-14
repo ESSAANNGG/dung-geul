@@ -315,18 +315,18 @@ input[type="checkbox"]:checked:before {
 
 
 /*main2_회원리스트+회원가입승인*/
-.user_list{
+.list{
     width:1550px;
     font-size:16px;
 }
-.user_list_head{
+.list_head{
     height:40px;
     background-color: #b9c0d3;
     border-top:1px solid #e2e2e2;
     border-bottom:1px solid #e2e2e2;
     font-size:0px; /*span간 간격을 없애기 위함*/
 }
-.user_list_body{
+.list_body{
     height:40px;
     background-color: #ffffff;
     border-bottom: 1px solid #e2e2e2;
@@ -334,7 +334,7 @@ input[type="checkbox"]:checked:before {
     cursor: pointer;
     transition-duration: 0.5s;
 }
-.user_list_body:hover{
+.list_body:hover{
     background-color: #5977b918;
 }
 
@@ -353,10 +353,10 @@ span:nth-of-type(1){
     border-left:1px solid #e2e2e2;
 }
 
-.user_list input{
+.list input{
     margin-top:10px !important;
 }
-.user_list input:focus{
+.list input:focus{
     outline:none;
 }
 .check{

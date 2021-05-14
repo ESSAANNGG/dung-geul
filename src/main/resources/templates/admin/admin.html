@@ -211,7 +211,7 @@
             </div>
             <div class="main">
                 <!-- 회원 관리 -->
-                <div class="main2">
+                <div class="main2" id="main2_user">
                     <!-- 회원 관리 > 회원 관리 -->
                     <div id="main2_search">
                         <!-- 회원관리 > 회원 관리 > 검색 -->
@@ -261,10 +261,9 @@
                         <div class="sub_menu_title">
                             <h3>회원리스트</h3>
                         </div>
-                        <div class="user_list">
-                            <div class="user_list_head">
-                                    <span class="check"><input type="checkbox" name="2_1_checkH"
-                                                               onclick="checkAll(this)"></span>
+                        <div class="list">
+                            <div class="list_head">
+                                <span class="check"><input type="checkbox" name="2_1_checkH" onclick="checkAll(this)"></span>
                                 <span class="number">번호</span>
                                 <span class="name">이름</span>
                                 <span class="username">아이디</span>
@@ -273,7 +272,7 @@
                                 <span class="joindate">가입일</span>
                                 <span class="role">권한</span>
                             </div>
-                            <div class="user_list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
+                            <div class="list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
                                 <span class="check"><input type="checkbox" name="2_1_check"></span>
                                 <span class="number">[[${i.count}]]</span>
                                 <span class="name">[[${item.user_name}]]</span>
@@ -283,9 +282,9 @@
                                 <span class="joindate">[[${item.user_regdate}]]</span>
                                 <span class="role">[[${item.user_type}]]</span>
                             </div>
-                        </div>
-                        <div class="user_list_button">
-                            <button onclick="permission_ajax('회원','삭제')">삭제</button>
+                            <div class="user_list_button">
+                                <button class="parameter_request">삭제</button>
+                            </div>
                         </div>
                     </div>
                     <div id="main2_perList">
@@ -293,8 +292,8 @@
                         <div class="sub_menu_title">
                             <h3>회원가입승인</h3>
                         </div>
-                        <div class="user_list">
-                            <div class="user_list_head">
+                        <div class="list">
+                            <div class="list_head">
                                     <span class="check"><input type="checkbox" name="2_2_checkH"
                                                                onclick="checkAll(this)"></span>
                                 <span class="number">번호</span>
@@ -305,7 +304,7 @@
                                 <span class="joindate">요청일</span>
                                 <span class="role">권한</span>
                             </div>
-                            <div class="user_list_body" th:each="item, i : ${notAllowList}"  onclick="detail(this)">
+                            <div class="list_body" th:each="item, i : ${notAllowList}"  onclick="detail(this)">
                                 <span class="check"><input type="checkbox" name="2_2_check"></span>
                                 <span class="number">[[${i.count}]]</span>
                                 <span class="name">[[${item.user_name}]]</span>
@@ -316,13 +315,13 @@
                                 <span class="role">[[${item.user_type}]]</span>
                             </div>
                             <div class="user_list_button">
-                                <button onclick="permission_ajax('회원','승인')">승인</button>
-                                <button onclick="permission_ajax('회원','거절')">거절</button>
+                                <button class="parameter_request">승인</button>
+                                <button class="parameter_request">거절</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="main2">
+                <div class="main2" id="main2_corp">
                     <!-- 회원관리 > 기업 관리 -->
                     <div id="main2_corp_search">
                         <!-- 회원관리 > 기업 관리 > 검색 -->
@@ -371,8 +370,8 @@
                         <div class="sub_menu_title">
                             <h3>기업리스트</h3>
                         </div>
-                        <div class="user_list">
-                            <div class="user_list_head">
+                        <div class="list" id="e_list">
+                            <div class="list_head">
                                     <span class="check"><input type="checkbox" name="2_3_checkH"
                                                                onclick="checkAll(this)"></span>
                                 <span class="number">번호</span>
@@ -381,9 +380,9 @@
                                 <span class="phone">대표번호</span>
                                 <span class="email">이메일</span>
                                 <span class="joindate">가입일</span>
-                                <span class="role">권한</span>
+                                <span class="shape">기업형태</span>
                             </div>
-                            <div class="user_list_body" th:each="item, i : ${allowList}"  onclick="detail(this)">
+                            <div class="list_body" th:each="item, i : ${allowList}"  onclick="detail(this)">
                                 <span class="check"><input type="checkbox" name="2_3_check"></span>
                                 <span class="number">[[${i.count}]]</span>
                                 <span class="name">[[${item.user_name}]]</span>
@@ -395,7 +394,7 @@
                             </div>
                         </div>
                         <div class="user_list_button">
-                            <button onclick="permission_ajax('기업','삭제')">삭제</button>
+                            <button class="parameter_request">삭제</button>
                         </div>
                     </div>
                     <div id="main2_corp_perList">
@@ -403,8 +402,8 @@
                         <div class="sub_menu_title">
                             <h3>기업가입승인</h3>
                         </div>
-                        <div class="user_list">
-                            <div class="user_list_head">
+                        <div class="list" id="e_per_list">
+                            <div class="list_head">
                                     <span class="check"><input type="checkbox" name="2_4_checkH"
                                                                onclick="checkAll(this)"></span>
                                 <span class="number">번호</span>
@@ -415,7 +414,7 @@
                                 <span class="joindate">가입일</span>
                                 <span class="shape">기업형태</span>
                             </div>
-                            <div class="user_list_body" th:each="item, i : ${notAllowList}"  onclick="detail(this)">
+                            <div class="list_body" th:each="item, i : ${notAllowList}"  onclick="detail(this)">
                                 <span class="check"><input type="checkbox" name="2_4_check"></span>
                                 <span class="number">[[${i.count}]]</span>
                                 <span class="name">[[${item.user_name}]]</span>
@@ -431,8 +430,8 @@
                                         </select></span>
                             </div>
                             <div class="user_list_button">
-                                <button onclick="permission_ajax('기업','승인')">승인</button>
-                                <button onclick="permission_ajax('기업','거절')">거절</button>
+                                <button class="parameter_request">승인</button>
+                                <button class="parameter_request">거절</button>
                             </div>
                         </div>
                     </div>
@@ -453,7 +452,7 @@
 
             <div class="main">
                 <!--채용공고-->
-                <div class="main3">
+                <div class="main3" id="main3_employ">
                     <div id="employ_search">
                         <div class="sub_menu_title">
                             <h3>공고검색</h3>
@@ -522,6 +521,7 @@
 
 <script src="/js/admin.js"></script>
 <script src="/js/admin-userManage.js"></script>
+<script src="/js/admin-listAjax.js"></script>
 
 
 </html>
