@@ -70,7 +70,7 @@ $('.parameter_request').click(function(){
 
 function list_ajax(){
     if(List.length==0){                                                                                                 //넘어온 값이 없을 시 알림과 함께 수행하지 않음
-        alert("수행할 목록이 없습니다");
+        return;
     }
     else{
         switch (listIndexId){

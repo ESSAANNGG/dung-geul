@@ -55,7 +55,7 @@ $('.menubox_li').click(function(){
             break;
         case 4: parameter="STAFF";
             break;
-        case 4: parameter="STAFF";
+        case 5: parameter="STAFF";
             break;
     }
     //세션 스토리지에 css를 저장
