@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Board_file {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // Auto increment
+    @GeneratedValue() // Auto increment
     private Long id;                //파일 아이디(pk)
 
     @Column(nullable = false)

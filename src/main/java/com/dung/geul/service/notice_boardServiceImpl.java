@@ -3,7 +3,7 @@ package com.dung.geul.service;
 
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
-import com.dung.geul.dto.notice_boardDTO;
+import com.dung.geul.dto.Notice_boardDTO;
 import com.dung.geul.entity.Board;
 import com.dung.geul.entity.QBoard;
 import com.dung.geul.repository.BoardRepository;
@@ -16,7 +16,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -29,7 +28,7 @@ public class notice_boardServiceImpl implements notice_boardService {
     private final BoardRepository boardRepository;
 
     @Override
-    public PageResultDTO<notice_boardDTO, Board> getList(PageRequestDTO requestDTO) {
+    public PageResultDTO<Notice_boardDTO, Board> getList(PageRequestDTO requestDTO) {
 
         Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());     // 글 번호(num)를 기준으로 내림차순
 //        Page<Board> result = boardRepository.findAll(pageable);
@@ -37,13 +36,13 @@ public class notice_boardServiceImpl implements notice_boardService {
         BooleanBuilder booleanBuilder = getSearch(requestDTO);                       //검색 조건 처리
         Page<Board> result = boardRepository.findAll(booleanBuilder, pageable);      //Querydsl 사용
 
-        Function<Board, notice_boardDTO> fn = (entity -> entityToDto(entity));       // java util의 함수를 람다식으로 표현
+        Function<Board, Notice_boardDTO> fn = (entity -> entityToDto(entity));       // java util의 함수를 람다식으로 표현
 
         return new PageResultDTO<>(result, fn);
     }
 
     @Override
-    public notice_boardDTO read(Long num) { // 방명록의 조회 처리
+    public Notice_boardDTO read(Long num) { // 방명록의 조회 처리
         log.info("num :" + num);
 
         Optional<Board> result = boardRepository.findById(num);
@@ -53,7 +52,7 @@ public class notice_boardServiceImpl implements notice_boardService {
     }
 
     @Override
-    public Long register(notice_boardDTO dto) {
+    public Long register(Notice_boardDTO dto) {
 
         log.info("DTO------------------------");
         log.info(dto);
@@ -85,7 +84,7 @@ public class notice_boardServiceImpl implements notice_boardService {
 
 
     @Override
-    public void modify(notice_boardDTO dto) {
+    public void modify(Notice_boardDTO dto) {
 
         //업데이트 하는 항목은 '제목', '내용'
 
@@ -149,25 +148,25 @@ public class notice_boardServiceImpl implements notice_boardService {
 
 // 파일 첨부 ---------------------------------------------------------------------------------
 
-    @Transactional
-    public Long savePost(notice_boardDTO notice_boardDto) {
-        return boardRepository.save(notice_boardDto.toEntity()).getNum();
-    }
-
-    @Transactional
-    public notice_boardDTO getPost(Long num) {
-        Board board = boardRepository.findById(num).get();
-
-        notice_boardDTO boardDto = notice_boardDTO.builder()
-                    .num(board.getNum())
-                    .b(board.getB())
-                    .title(board.getBoard_title())
-                    .content(board.getContent())
-                    .fileId(board.getFileId())
-    //              .createdDate(board.getCreatedDate())
-                    .build();
-        return boardDto;
-    }
+//    @Transactional
+//    public Long savePost(notice_boardDTO notice_boardDto) {
+//        return boardRepository.save(BoardDto.toEntity()).getNum();
+//    }
+//
+//    @Transactional
+//    public notice_boardDTO getPost(Long num) {
+//        Board board = boardRepository.findById(num).get();
+//
+//        notice_boardDTO boardDto = notice_boardDTO.builder()
+//                    .num(board.getNum())
+//                    .b(board.getB())
+//                    .title(board.getBoard_title())
+//                    .content(board.getContent())
+//                    .fileId(board.getFileId())
+//    //              .createdDate(board.getCreatedDate())
+//                    .build();
+//        return boardDto;
+//    }
 
 
 

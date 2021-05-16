@@ -28,45 +28,45 @@ public class BoardService {
         return boardRepository.save(boardDto.toEntity()).getNum();
     }
 
-    @Transactional
-    public List<BoardDto> getBoardList() {  // 게시물의 목록을 가져온다.
-        List<Board> boardList = boardRepository.findAll();
-        List<BoardDto> boardDtoList = new ArrayList<>();
-
-        for(Board board : boardList) {
-            BoardDto boardDto = BoardDto.builder()
-                    .num(board.getNum())
-                    .b(board.getB())
-                    .board_title(board.getBoard_title())
-                    .content(board.getContent())
-//                    .createdDate(board.getCreatedDate())
-                    .build();
-            boardDtoList.add(boardDto);
-        }
-        return boardDtoList;
-    }
+//    @Transactional
+//    public List<BoardDto> getBoardList() {  // 게시물의 목록을 가져온다.
+//        List<Board> boardList = boardRepository.findAll();
+//        List<BoardDto> boardDtoList = new ArrayList<>();
+//
+//        for(Board board : boardList) {
+//            BoardDto boardDto = BoardDto.builder()
+//                    .num(board.getNum())
+//                    .b(board.getB())
+//                    .board_title(board.getBoard_title())
+//                    .content(board.getContent())
+////                    .createdDate(board.getCreatedDate())
+//                    .build();
+//            boardDtoList.add(boardDto);
+//        }
+//        return boardDtoList;
+//    }
 
     // getPost()로 게시글의 id를 받아와 해당 게시글의 데이터만 가져와서 화면에 출력한다.
-    @Transactional
-    public BoardDto getPost(Long id) {
-        Board board = boardRepository.findById(id).get();
-
-        BoardDto boardDto = BoardDto.builder()
-                .num(board.getNum())
-                .b(board.getB())
-                .board_title(board.getBoard_title())
-                .content(board.getContent())
-                .fileId(board.getFileId())
-//               .createdDate(board.getCreatedDate())
-                .build();
-        return boardDto;
-    }
+//    @Transactional
+//    public BoardDto getPost(Long id) {
+//        Board board = boardRepository.findById(id).get();
+//
+//        BoardDto boardDto = BoardDto.builder()
+//                .num(board.getNum())
+//                .b(board.getB())
+//                .board_title(board.getBoard_title())
+//                .content(board.getContent())
+//                .fileId(board.getFileId())
+////               .createdDate(board.getCreatedDate())
+//                .build();
+//        return boardDto;
+//    }
 
     // 조회 페이지에서 삭제 버튼을 누를 시, /post/{id}로 Delete요청을 한다.
     // 만약 1번 글에서 삭제 버튼을 누를 시 /post/1로 접속된다.
     // id값을 사용하여, 해당글을 DB에서 삭제한다.
-    @Transactional
-    public void deletePost(Long id) {
-        boardRepository.deleteById(id);
-    }   // 삭제
+//    @Transactional
+//    public void deletePost(Long id) {
+//        boardRepository.deleteById(id);
+//    }   // 삭제
 }

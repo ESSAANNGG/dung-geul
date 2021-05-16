@@ -4,7 +4,7 @@ package com.dung.geul.controller;
 import com.dung.geul.dto.BoardDto;
 import com.dung.geul.dto.FileDto;
 import com.dung.geul.dto.PageRequestDTO;
-import com.dung.geul.dto.notice_boardDTO;
+import com.dung.geul.dto.Notice_boardDTO;
 import com.dung.geul.repository.BoardRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.BoardService;
@@ -14,12 +14,7 @@ import com.dung.geul.util.MD5Generator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,10 +22,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Controller
 @RequestMapping("/center-information")
@@ -80,7 +71,7 @@ public class Center_information_controller {
 
         log.info("num: " + num);
 
-        notice_boardDTO dto = service.read(num);
+        Notice_boardDTO dto = service.read(num);
 
         model.addAttribute("dto", dto);
 
@@ -100,7 +91,7 @@ public class Center_information_controller {
     }
 
     @PostMapping("/notice_board_modify")    // 게시글 수정
-    public String modify(notice_boardDTO dto,
+    public String modify(Notice_boardDTO dto,
                          @ModelAttribute("requestDTO") PageRequestDTO requestDTO,
                          RedirectAttributes redirectAttributes){
 
@@ -126,8 +117,8 @@ public class Center_information_controller {
 //    }
 
     @PostMapping("/notice_board_register")  // 게시글 작성, 파일 업로드
-    public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes,
-                               @RequestParam("file") MultipartFile files, BoardDto boardDto){
+    public String registerPost(Notice_boardDTO dto, RedirectAttributes redirectAttributes,
+                               @RequestParam("file") MultipartFile files, BoardDto BoardDto){
 
         log.info("dto..." + dto);
 
@@ -135,13 +126,20 @@ public class Center_information_controller {
         Long num = service.register(dto);
 
         redirectAttributes.addFlashAttribute("msg", num);
+        System.out.println("======================================");
+        System.out.println("글 작성 성공!");
+        System.out.println("======================================");
+
+
 
         // 파일 업로드
         try {
             String origFilename = files.getOriginalFilename();
             String filename = new MD5Generator(origFilename).toString();
+
             /* 실행되는 위치의 'files' 폴더에 파일이 저장됩니다. */
             String savePath = System.getProperty("user.dir") + "\\files";
+
             /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
             if (!new File(savePath).exists()) {
                 try{
@@ -151,6 +149,7 @@ public class Center_information_controller {
                     e.getStackTrace();
                 }
             }
+
             String filePath = savePath + "\\" + filename;
             files.transferTo(new File(filePath));
 
@@ -159,12 +158,22 @@ public class Center_information_controller {
             fileDto.setFilename(filename);
             fileDto.setFilePath(filePath);
 
-// fileId 주는 부분 오류 수정할 것
+            System.out.println("파일 정보 ==========================================");
+            System.out.println(fileDto);
+            System.out.println(origFilename);
+            System.out.println(filename);
+            System.out.println(filePath);
+            System.out.println("파일 정보 ==========================================");
+
+// fileId 주는 부분 오류 수정할 것 ( fileDto에서 id가 null 이 뜸)
             Long fileId = fileService.saveFile(fileDto);
-            boardDto.setFileId(fileId);
-            boardService.savePost(boardDto);
+        System.out.println("fileId : " + fileId);
+            BoardDto.setFileId(fileId);
+            boardService.savePost(BoardDto);
+        System.out.println("BoardDto :" + BoardDto);
 
         } catch(Exception e) {
+            System.out.println("(174번 라인) 오류 =================================");
             e.printStackTrace();
         }
 
