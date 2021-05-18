@@ -25,15 +25,14 @@ h4{
     box-sizing : border-box;
 }
 html{
-    width:100%;
-    height:100%;
+    width:auto;
     height:auto;
     background-color: #5978b9;
 }
 body{
     display:inline-block;
-    width:100%;
-    height:100%;
+    width:auto;
+    height:auto;
     margin:0px;
 }
 li{
@@ -96,15 +95,14 @@ input[type="checkbox"]:checked:before {
 
 
 #admin_header{
-    display:flex;
     align-items: center;
-    width:100%;
+    width:calc(100% + 3px); /*상위 부모를 auto로 할시 전체화면했을때 1px정도의 여백이 남음*/
     height:75px;
     background-color: #ffffff;
 }
 #admin_header h5{
     display:inline-block;
-    margin-left:40px;
+    margin:20px 0px 20px 40px;
     color:#5978b9;
     font-size:23px;
 }
@@ -113,7 +111,7 @@ input[type="checkbox"]:checked:before {
 
 #wrap{
     display:flex;
-    width:100%;
+    width:calc(100% + 3px);
     height:100%;
     background-color: #5978b9;
 }
@@ -174,7 +172,7 @@ input[type="checkbox"]:checked:before {
     .main{
         /*visibility: visible;*/
     }
-    
+
 }
 #main_wrap{
     width:100%;
@@ -412,10 +410,10 @@ span:nth-of-type(1){
 .ot{
     width:270px;
 }
-.ep{
+.startDate{
     width:160px;
 }
-.area{
+.deadline{
     width:160px;
 }
 /*상담관리메뉴*/
@@ -538,10 +536,16 @@ span:nth-of-type(1){
     height:550px;
 }
 .highcharts-figure, .highcharts-data-table table {
-    min-width: 360px;
+    min-width: 1550px;
     max-width: 800px;
     margin:0px;
 }
 .highcharts-series-label{
+    display:none;
+}
+.highcharts-title{
+    display:none;
+}
+.highcharts-axis-title{
     display:none;
 }

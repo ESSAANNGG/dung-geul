@@ -4,20 +4,24 @@
 <head>
     <meta charset="utf-8" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
     <link rel="stylesheet" href="/css/admin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <title>admin</title>
 
     <!--차트 src-->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script><!--데이터에 라벨 붙이는 기능-->
-    <script src="https://code.highcharts.com/modules/exporting.js"></script><!--highchart로 생성한 그래프를 jpg,png등으로 다운받을 수 있음-->
-    <script src="https://code.highcharts.com/modules/export-data.js"></script><!--외부 사용자들이 데이터를 다운로드할 수 있게-->
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <!--데이터에 라벨 붙이는 기능-->
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!--highchart로 생성한 그래프를 jpg,png등으로 다운받을 수 있음-->
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <!--외부 사용자들이 데이터를 다운로드할 수 있게-->
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </head>
 
@@ -91,7 +95,7 @@
     <div class="detailBox" id="detail_enterprise">
         <div class="d_role"><i class="fas fa-building"></i></div>
         <div class="d_tagN">기업명</div>
-        <input type="text" class="d_cont" value="기업명" >
+        <input type="text" class="d_cont" value="기업명">
         <div class="d_tagN">아이디</div>
         <input type="text" class="d_cont" value="아이디" readonly>
         <div class="d_tagN">비밀번호</div>
@@ -99,33 +103,33 @@
         <div class="d_tagN">사업자번호</div>
         <input type="text" class="d_cont" value="사업자번호" readonly>
         <div class="d_tagN">대표자명</div>
-        <input type="text" class="d_cont" value="대표자명" >
+        <input type="text" class="d_cont" value="대표자명">
         <div class="d_tagN">대표번호</div>
-        <input type="text" class="d_cont" value="대표번호" >
+        <input type="text" class="d_cont" value="대표번호">
         <div class="d_tagN">팩스</div>
-        <input type="text" class="d_cont" value="팩스" >
+        <input type="text" class="d_cont" value="팩스">
         <div class="d_tagN">홈페이지</div>
-        <input type="text" class="d_cont" value="홈페이지" >
+        <input type="text" class="d_cont" value="홈페이지">
         <div class="d_tagN">주요사업내용</div>
-        <input type="text" class="d_cont" value="주요사업내용" >
+        <input type="text" class="d_cont" value="주요사업내용">
         <div class="d_tagN">우편번호</div>
-        <input type="text" class="d_cont" value="우편번호" >
+        <input type="text" class="d_cont" value="우편번호">
         <div class="d_tagN">상세주소</div>
-        <input type="text" class="d_cont" value="상세주소" >
+        <input type="text" class="d_cont" value="상세주소">
         <div class="d_tagN">설립년도</div>
-        <input type="text" class="d_cont" value="설립년도" >
+        <input type="text" class="d_cont" value="설립년도">
         <div class="d_tagN">직원 수</div>
-        <input type="text" class="d_cont" value="직원 수" >
+        <input type="text" class="d_cont" value="직원 수">
         <div class="d_tagN">업종</div>
-        <input type="text" class="d_cont" value="업종" >
+        <input type="text" class="d_cont" value="업종">
         <div class="d_tagN">기업형태</div>
-        <input type="text" class="d_cont" value="기업형태" >
+        <input type="text" class="d_cont" value="기업형태">
         <div class="d_tagN">가입일</div>
         <input type="text" class="d_cont" value="가입일" readonly>
         <div class="d_tagN">담당자 번호</div>
-        <input type="text" class="d_cont" value="담당자 번호" >
+        <input type="text" class="d_cont" value="담당자 번호">
         <div class="d_tagN">담당자 이메일</div>
-        <input type="text" class="d_cont" value="담당자 이메일" >
+        <input type="text" class="d_cont" value="담당자 이메일">
         <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
     </div>
 </div>
@@ -173,12 +177,14 @@
 
         <div id="main_wrap">
             <div id="menu_guide">
-                <ul class="guide">Dashboard |               <!--메뉴1-->
+                <ul class="guide">Dashboard |
+                    <!--메뉴1-->
                     <select class="guide_select">
                         <option>dashBorad</option>
                     </select>
                 </ul>
-                <ul class="guide">회원관리 |                <!--메뉴2-->
+                <ul class="guide">회원관리 |
+                    <!--메뉴2-->
                     <select class="guide_select">
                         <option>회원관리</option>
                         <option>기업관리</option>
@@ -186,25 +192,30 @@
                         <!--<option>통계</option>-->
                     </select>
                 </ul>
-                <ul class="guide">채용공고 |                <!--메뉴3-->
+                <ul class="guide">채용공고 |
+                    <!--메뉴3-->
                     <select class="guide_select">
-                        <option>채용공고</option>
+                        <option>공고조회</option>
+                        <option>공고등록</option>
                         <option>미구현</option>
                     </select>
                 </ul>
-                <ul class="guide">게시판관리 |               <!--메뉴4-->
-                    <select class="guide_select">
-                        <option>미구현</option>
-                        <option>미구현</option>
-                    </select>
-                </ul>
-                <ul class="guide">고객문의 |                <!--메뉴5-->
+                <ul class="guide">게시판관리 |
+                    <!--메뉴4-->
                     <select class="guide_select">
                         <option>미구현</option>
                         <option>미구현</option>
                     </select>
                 </ul>
-                <ul class="guide">상담관리 |                <!--메뉴6-->
+                <ul class="guide">고객문의 |
+                    <!--메뉴5-->
+                    <select class="guide_select">
+                        <option>미구현</option>
+                        <option>미구현</option>
+                    </select>
+                </ul>
+                <ul class="guide">상담관리 |
+                    <!--메뉴6-->
                     <select class="guide_select">
                         <option>상담관리</option>
                         <option>상담사</option>
@@ -215,7 +226,8 @@
                 <h3></h3>
             </div>
 
-            <div class="main">          <!--dashboard-->
+            <div class="main">
+                <!--dashboard-->
                 <div class="main1">
 
                 </div>
@@ -253,7 +265,7 @@
                                 <li>가입/요청 일자</li>
                                 <li>
                                     <input type="date" class="search_date"> &nbsp;~&nbsp; <input type="date"
-                                                                                                      class="search_date">
+                                                                                                 class="search_date">
                                     <button class="search_date_button">오늘</button>
                                     <button class="search_date_button">이번주</button>
                                     <button class="search_date_button">이번달</button>
@@ -274,7 +286,8 @@
                         </div>
                         <div class="list">
                             <div class="list_head">
-                                <span class="check"><input type="checkbox" name="2_1_checkH" onclick="checkAll(this)"></span>
+                                    <span class="check"><input type="checkbox" name="2_1_checkH"
+                                                               onclick="checkAll(this)"></span>
                                 <span class="number">번호</span>
                                 <span class="name">이름</span>
                                 <span class="username">아이디</span>
@@ -315,7 +328,7 @@
                                 <span class="joindate">요청일</span>
                                 <span class="role">권한</span>
                             </div>
-                            <div class="list_body" th:each="item, i : ${notAllowList}"  onclick="detail(this)">
+                            <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
                                 <span class="check"><input type="checkbox" name="2_2_check"></span>
                                 <span class="number">[[${i.count}]]</span>
                                 <span class="name">[[${item.user_name}]]</span>
@@ -362,7 +375,8 @@
                             <ul>
                                 <li>가입/요청 일자</li>
                                 <li>
-                                    <input type="date" class="search_date"> &nbsp;~&nbsp; <input type="date" class="search_date">
+                                    <input type="date" class="search_date"> &nbsp;~&nbsp; <input type="date"
+                                                                                                 class="search_date">
                                     <button class="search_date_button">오늘</button>
                                     <button class="search_date_button">이번주</button>
                                     <button class="search_date_button">이번달</button>
@@ -393,7 +407,7 @@
                                 <span class="joindate">가입일</span>
                                 <span class="shape">기업형태</span>
                             </div>
-                            <div class="list_body" th:each="item, i : ${allowList}"  onclick="detail(this)">
+                            <div class="list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
                                 <span class="check"><input type="checkbox" name="2_3_check"></span>
                                 <span class="number">[[${i.count}]]</span>
                                 <span class="name">[[${item.user_name}]]</span>
@@ -425,7 +439,7 @@
                                 <span class="joindate">가입일</span>
                                 <span class="shape">기업형태</span>
                             </div>
-                            <div class="list_body" th:each="item, i : ${notAllowList}"  onclick="detail(this)">
+                            <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
                                 <span class="check"><input type="checkbox" name="2_4_check"></span>
                                 <span class="number">[[${i.count}]]</span>
                                 <span class="name">[[${item.user_name}]]</span>
@@ -450,7 +464,7 @@
                 <div class="main2">
                     <!-- 회원 관리 > 가입 현황-->
                     <div class="sub_menu_title">
-                        <h3>연도별 회원가입자 수</h3>
+                        <h3>가입통계</h3>
                     </div>
                     <!--회원 관리 > 회원 가입 통계-->
                     <figure class="highcharts-figure">
@@ -464,7 +478,7 @@
 
             <div class="main">
                 <!--채용공고-->
-                <div class="main3" id="main3_employ">
+                <div class="main3" id="main3_employ_lookup">
                     <!--채용공고 > 채용공고-->
                     <div id="main3_employ_search">
                         <!--채용공고 > 채용공고 > 공고검색-->
@@ -480,7 +494,7 @@
                                 <li>공고제목</li>
                                 <li> <input type="text"></li>
                             </ul>
-                                <ul>
+                            <ul>
                                 <li>기업형태</li>
                                 <li>
                                     <select name="shape">
@@ -492,10 +506,10 @@
                                 </li>
                             </ul>
                             <ul>
-                                <li>등록 일자</li>
+                                <li>기간</li>
                                 <li>
                                     <input type="date" class="search_date"> &nbsp;~&nbsp; <input type="date"
-                                                                                                      class="search_date">
+                                                                                                 class="search_date">
                                     <button class="search_date_button">오늘</button>
                                     <button class="search_date_button">이번주</button>
                                     <button class="search_date_button">이번달</button>
@@ -510,7 +524,7 @@
                         </div>
                     </div>
                     <div id="main3_employ_list">
-                        <!-- 채용공고 > 채용공고 > 공고리스트 -->
+                        <!-- 채용공고 > 공고조회 > 공고리스트 -->
                         <div class="sub_menu_title">
                             <h3>공고리스트</h3>
                         </div>
@@ -519,12 +533,12 @@
                                     <span class="check"><input type="checkbox" name="3_1_checkH"
                                                                onclick="checkAll(this)"></span>
                                 <span class="employ_number">공고번호</span>
-                                <span class="employ_title">공고제목</span>
+                                <span class="employ_title">제목</span>
                                 <span class="name">기업명</span>
                                 <span class="shape">기업형태</span>
                                 <span class="ot">직종구분</span>
-                                <span class="ep">고용구분</span>
-                                <span class="area">근무지역</span>
+                                <span class="startDate">시작일</span>
+                                <span class="deadline">마감일</span>
                             </div>
                             <div class="list_body" onclick="detail(this)">
                                 <span class="check"><input type="checkbox" name="3_1_check"></span>
@@ -533,8 +547,8 @@
                                 <span class="name">우경정보기술</span>
                                 <span class="shape">대기업</span>
                                 <span class="ot">미용·숙박·여행·오락·스포츠 관련직</span>
-                                <span class="ep">아르바이트/정규직</span>
-                                <span class="area">서울특별시 동대문구</span>
+                                <span class="startDate">2020/09/04</span>
+                                <span class="deadline">2021/09/04</span>
                             </div>
                         </div>
                         <div class="list_button">
@@ -542,6 +556,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="main3" id="main3_employ_register">
+                <!--채용공고 > 공고등록-->
+                ㅁㄴㅇㄴㅁㅇㄴㅁㅇㄴㅁㅇ
             </div>
             <div class="main">
                 <!--게시판관리-->
