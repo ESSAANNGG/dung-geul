@@ -35,21 +35,32 @@ public class EmployServiceImpl implements EmployService {
 
     @Override
 //    public PageResultDTO<EmployDTO, Employ> getList(PageRequestDTO requestDTO) {
-        public PageResultDTO<EmployDTO, Object[]> getList(PageRequestDTO requestDTO) {
+        public PageResultDTO<EmployDTO, Object[]> getList(PageRequestDTO pageRequestDTO) {
 
-        Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());
+//        Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());
+//
+//        BooleanBuilder booleanBuilder = getSearch(requestDTO); //검색 조건처리
+//
+////        Page<Employ> result = employRepository.findAll(booleanBuilder, pageable);
+//
+//        Function<Object[], EmployDTO> fn = (en -> List((Employ)en[0],(Enterprise)en[1]));
+//
+//        Page<Object[]> result = employRepository.getEmployWithEnterprise(requestDTO.getPageable(Sort.by("num").descending()));
+//
+////        Function<Employ, EmployDTO> fn = (entity -> entityToDto(entity));
+//
+//        return new PageResultDTO<>(result, fn);
 
-        BooleanBuilder booleanBuilder = getSearch(requestDTO); //검색 조건처리
 
-//        Page<Employ> result = employRepository.findAll(booleanBuilder, pageable);
+        Function<Object[], EmployDTO> fn = (en -> List((Employ)en[0], (Enterprise)en[1] ));
+        Page<Object[]> result = employRepository.searchpage(
+                pageRequestDTO.getType(),
+                pageRequestDTO.getKeywords(),
+                pageRequestDTO.getPageable(Sort.by("num").descending()) );
 
-        Function<Object[], EmployDTO> fn = (en -> List((Employ)en[0],(Enterprise)en[1]));
+        return new PageResultDTO<>(result , fn);
 
-        Page<Object[]> result = employRepository.getEmployWithEnterprise(requestDTO.getPageable(Sort.by("num").descending()));
 
-//        Function<Employ, EmployDTO> fn = (entity -> entityToDto(entity));
-
-        return new PageResultDTO<>(result, fn);
     }
 
     @Override
@@ -94,7 +105,7 @@ public class EmployServiceImpl implements EmployService {
     }
 
 
-    private BooleanBuilder getSearch(PageRequestDTO requestDTO){
+    /*private BooleanBuilder getSearch(PageRequestDTO requestDTO){
 
         String type = requestDTO.getType();
 
@@ -133,6 +144,6 @@ public class EmployServiceImpl implements EmployService {
 
         return booleanBuilder;
 
-    }
+    }*/
 
 }

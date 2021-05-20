@@ -31,7 +31,7 @@ public class Member extends BaseEntity {
     @Column( nullable = false)
     private String user_pw; //nullable = false
 
-    @Column(length = 3)
+    @Column(length = 11)
     private String user_ph;  //nullable = false
 
     @Column(length = 4)
