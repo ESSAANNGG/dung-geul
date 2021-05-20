@@ -2,8 +2,10 @@ package com.dung.geul.service;
 
 import com.dung.geul.dto.AllowEtpDTO;
 import com.dung.geul.dto.EnterpriseDTO;
+import com.dung.geul.dto.IntroduceDTO;
 import com.dung.geul.dto.MemberDTO;
 import com.dung.geul.entity.Enterprise;
+import com.dung.geul.entity.Introduce;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
 
@@ -172,5 +174,21 @@ public interface MemberService {
         return dto;
     }
 
+    default IntroduceDTO introduceToDTO(Introduce e, Member m){
+
+        IntroduceDTO dto = IntroduceDTO.builder()
+                .num(e.getNum())
+                .title(e.getTitle())
+                .content(e.getContent())
+                .start_date(e.getStart_date())
+                .end_date(e.getEnd_date())
+                .user_id(m.getUser_id())
+                .build();
+
+        return dto;
+    }
+
     EnterpriseDTO getEnterprise(String user_id);
-}
+
+    IntroduceDTO getIntroduce(String user_id);
+ }

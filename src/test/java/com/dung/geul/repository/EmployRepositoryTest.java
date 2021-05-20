@@ -1,10 +1,15 @@
 package com.dung.geul.repository;
 
+import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Employ;
 import com.dung.geul.entity.Enterprise;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
@@ -45,4 +50,21 @@ public class EmployRepositoryTest {
 //        System.out.println(Arrays.toString(arr));
 //    }
 
+    //297쪽
+//    @Test
+//    public void testSearch1() {
+//
+//        employRepository.search1();
+//
+//    }
+/*
+    @Test
+    public void testSearch(){
+
+        Pageable pageable = PageRequest.of(0,10, Sort.by("num").ascending());
+
+        Page<Object[]> result = employRepository.searchpage("t", "1", pageable);
+
+
+    }*/
 }

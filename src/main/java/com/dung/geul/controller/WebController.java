@@ -37,5 +37,11 @@ public class WebController {
     @GetMapping("/job-information/job-dictionary")
     public void dict(){
     }
+    @GetMapping("/upgrade/upgrade")
+    public void cprogram(){
+    }
+    @GetMapping("/upgrade/c-inpression")
+    public void cimpression(){
+    }
 
 }

@@ -23,6 +23,7 @@ $(document).ready(function () {
             area : $('#em_sido').val()+'/'+$('#em_gugun').val(),
             salary : $('#em_salary').val(),
             apply :   ap,
+            file : $('#em_file').val(),
             etp_id : $("#em_id").val()
         }
         console.log(data);
@@ -96,8 +97,16 @@ $(document).ready(function () {
 
     $('.btn-clear').click(function(e){
 
-        searchForm.empty().submit();
+        location.replace('/Employ/list');
     })
+
+    $('#s_area').on("change", function() {
+        $("#sido_keywords").val($(this).val());
+    });
+
+    $('#s_detailArea').on("change", function() {
+        $("#gugun_keywords").val($(this).val());
+    });
 
 });
 

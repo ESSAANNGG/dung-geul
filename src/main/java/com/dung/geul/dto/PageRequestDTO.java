@@ -15,7 +15,9 @@ public class PageRequestDTO {
     private int page;
     private int size;
     private String type;    // 검색 처리를 위한 조건
-    private String keyword; // 검색 처리를 위한 키워드
+    private  String keyword; // 검색 처리를 위한 키워드
+    public  String[] keywords; // 검색 처리를 위한 키워드
+
 
     public PageRequestDTO(){
         this.size = 10;
@@ -30,4 +32,5 @@ public class PageRequestDTO {
     public Pageable getPageable(Sort sort){
         return PageRequest.of(page -1,size,sort);
     }
+
 }

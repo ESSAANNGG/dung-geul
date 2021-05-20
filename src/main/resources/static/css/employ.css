@@ -192,6 +192,8 @@
 
 #dummy{
     /*display:none;*/
+    position:fixed;
+    left:200px;
 }
 
 

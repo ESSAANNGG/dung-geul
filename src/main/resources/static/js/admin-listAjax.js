@@ -52,7 +52,7 @@ $('.parameter_request').click(function(){
                     alertIndex=0;
                     userShape = $('.shapeSelect:eq(' + checked + ')').val();                                            //기업형태를 읽어옴
                     if (userShape == "") {                                                                              //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
-                        if (alertIndex == 0) {
+                        if (alertIndex == 0 && p == "ok") {
                             alert("기업형태를 선택해주세요");                                                               //알림을 띄워주지않았다면 띄워주고 띄워줬다면 더 띄우지 않음
                             alertIndex = 1;
                         }

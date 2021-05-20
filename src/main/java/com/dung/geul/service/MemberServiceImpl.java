@@ -5,16 +5,16 @@ import com.dung.geul.dto.*;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
-import com.dung.geul.handler.ErrorHttpResponse;
-import com.dung.geul.handler.SuccessHttpResponse;
+import com.dung.geul.entity.Introduce;
+
 import com.dung.geul.repository.EnterpriseRepository;
+import com.dung.geul.repository.IntroduceRepository;
 import com.dung.geul.repository.MemberRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,6 +36,9 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     private EnterpriseRepository enterpriseRepository;
+
+    @Autowired
+    private IntroduceRepository introduceRepository;
 
     @Autowired
     private BCryptPasswordEncoder encoder;
@@ -355,6 +358,20 @@ public class MemberServiceImpl implements MemberService {
 
         return enterpriseDTO;
     }
+
+    @Override
+    public IntroduceDTO getIntroduce(String user_id) {
+        Object Introduce = memberRepository.findByUser_idEtpJoinMember(user_id);
+
+        Object[] result = (Object[]) Introduce;
+        System.out.println("Introduce : " + Arrays.toString(result));
+
+        IntroduceDTO introduceDTO = introduceToDTO((Introduce) result[1], (Member) result[0] );
+        System.out.println(introduceDTO.toString());
+
+        return introduceDTO;
+    }
+
 
     // 이름과 이메일이 일치하면 아이디값을 반환해주는 메소드
     public String confirmNameAndEmail(MemberDTO memberDTO) {

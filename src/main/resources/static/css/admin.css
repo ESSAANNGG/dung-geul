@@ -96,7 +96,7 @@ input[type="checkbox"]:checked:before {
 
 #admin_header{
     align-items: center;
-    width:calc(100% + 3px); /*상위 부모를 auto로 할시 전체화면했을때 1px정도의 여백이 남음*/
+    width:calc(100% + 20px); /*상위 부모를 auto로 할시 전체화면했을때 1px정도의 여백이 남음*/
     height:75px;
     background-color: #ffffff;
 }
@@ -111,7 +111,7 @@ input[type="checkbox"]:checked:before {
 
 #wrap{
     display:flex;
-    width:calc(100% + 3px);
+    width:calc(100% + 20px);
     height:100%;
     background-color: #5978b9;
 }
@@ -418,12 +418,15 @@ span:nth-of-type(1){
 }
 /*상담관리메뉴*/
 .content{
-    width:660px;
+    width:520px;
 }
 .regdate{
     width:140px;
 }
 .moddate{
+    width:140px;
+}
+.preference{/*신청건수*/
     width:140px;
 }
 .list_button button{
