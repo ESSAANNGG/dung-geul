@@ -10,7 +10,7 @@ function submit(a){
     counsult_register="{type:" + counsult_type + ", name:" + counsult_name + "}";
     alert(counsult_register);
     $.ajax({
-        url: "dsadsadsadsadsa",
+        url: "/rest/conReg",
         type: "POST",
         contentType: "application/json; charset=utf-8",
         dataType: "json",

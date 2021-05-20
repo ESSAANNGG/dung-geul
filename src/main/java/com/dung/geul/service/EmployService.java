@@ -104,7 +104,7 @@ public interface EmployService {
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .file(entity.getFile())
-                 .etp_name(enterprise.getEtp_name())
+                .etp_name(enterprise.getEtp_name())
                 .build();
 
         return dto;

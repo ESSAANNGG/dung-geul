@@ -24,40 +24,58 @@ import java.util.function.Function;
 @Log4j2
 public class ConsultServiceImpl implements ConsultService {
     private final ConsultRepository consultRepository;
+    private Consult consult;
 
     @Override
     public Long register(ConsultDTO consultDTO) {
         Consult consult = dtoToEntity(consultDTO);
         consultRepository.save(consult);
-        return consult.getCno_num();
+        return consult.getCno();
     }
 
     @Override
-    public PageResultDTO<ConsultDTO, Consult> getList(PageRequestDTO pageRequestDTO) {
-        Pageable pageable = pageRequestDTO.getPageable(Sort.by("num").descending());
-        BooleanBuilder booleanBuilder = getSearch(pageRequestDTO);
-        Page<Consult> result = consultRepository.findAll(booleanBuilder, pageable);
+    public PageResultDTO<ConsultDTO, Consult> getList(PageRequestDTO requestDTO) {
 
-        Function<Consult, ConsultDTO> fn = (entity -> entityToDto(entity));
+    log.info("getList 실행 상담부분");
+    Pageable pageable = requestDTO.getPageable(Sort.by("cno"));
+    Page<Consult> result = consultRepository.findAll(pageable);
+    Function<Consult, ConsultDTO> fn = (entity -> entityToDto(entity));
 
-        return new PageResultDTO<>(result, fn);
+    return  new PageResultDTO<>(result,fn);
+
+//    PageRequestDTO pageRequestDTO = new PageRequestDTO(page1);
+//    Pageable pageable = pageRequestDTO.getPageable(Sort.by("cno_num"));
+//    Function<Object[], ConsultDTO> fn = (entity -> entityToDto(Consult));
+//
+//    Page<Consult> result;
+//
+//    if (type.equals("CONSULT")){
+//        result = consultRepository.findAll(pageable);
+//    }
+//        Pageable pageable = pageRequestDTO.getPageable(Sort.by("cno_num").descending());
+//        BooleanBuilder booleanBuilder = getSearch(pageRequestDTO);
+//        Page<Consult> result = consultRepository.findAll(booleanBuilder, pageable);
+//
+//        Function<Consult, ConsultDTO> fn = (entity-> entityToDto(entity));
+//
+//        return new PageResultDTO<>(result, fn);
     }
 
     @Override
-    public ConsultDTO read(Long cno_num) {
+    public ConsultDTO read(Long cno) {
 
-        Optional<Consult> result = consultRepository.findById(cno_num);
+        Optional<Consult> result = consultRepository.findById(cno);
         return result.isPresent()? entityToDto(result.get()) : null;
     }
 
     @Override
-    public void remove(Long cno_num) {
-        consultRepository.deleteById(cno_num);
+    public void remove(Long cno) {
+        consultRepository.deleteById(cno);
     }
 
     @Override
     public void modify(ConsultDTO consultDTO) {
-        Optional<Consult> result = consultRepository.findById(consultDTO.getCno_num());
+        Optional<Consult> result = consultRepository.findById(consultDTO.getCno());
 
         if(result.isPresent()){
             Consult consult = result.get();
@@ -78,12 +96,12 @@ public class ConsultServiceImpl implements ConsultService {
 
         String keyword = pageRequestDTO.getKeyword();
 
-        BooleanExpression expression = qConsult.cno_num.gt(0L);
+        BooleanExpression expression = qConsult.cno.gt(0L);
 
         booleanBuilder.and(expression);
 
         if (type == null || type.trim().length() == 0) {
-
+            return booleanBuilder;
         }
 //        BooleanBuilder conditionBuilder = new BooleanBuilder();
 //

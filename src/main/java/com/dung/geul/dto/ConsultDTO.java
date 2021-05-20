@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 public class ConsultDTO {
-    private Long cno_num;
+    private Long cno;
     private String Consult_field;
     private String Consult_detail_field;
 //    private String user_id;

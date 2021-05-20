@@ -35,7 +35,7 @@ public class EmployServiceImpl implements EmployService {
 
     @Override
 //    public PageResultDTO<EmployDTO, Employ> getList(PageRequestDTO requestDTO) {
-        public PageResultDTO<EmployDTO, Object[]> getList(PageRequestDTO requestDTO) {
+    public PageResultDTO<EmployDTO, Object[]> getList(PageRequestDTO requestDTO) {
 
         Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());
 
@@ -43,7 +43,7 @@ public class EmployServiceImpl implements EmployService {
 
 //        Page<Employ> result = employRepository.findAll(booleanBuilder, pageable);
 
-        Function<Object[], EmployDTO> fn = (en -> List((Employ)en[0],(Enterprise)en[1]));
+        Function<Object[], EmployDTO> fn = (en -> List((Employ) en[0], (Enterprise) en[1]));
 
         Page<Object[]> result = employRepository.getEmployWithEnterprise(requestDTO.getPageable(Sort.by("num").descending()));
 

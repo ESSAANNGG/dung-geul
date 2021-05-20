@@ -1,22 +1,48 @@
-//package com.dung.geul.service;
-//
-//import com.dung.geul.dto.ConsultDTO;
-//import org.junit.jupiter.api.Test;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.context.SpringBootTest;
-//
-//@SpringBootTest
-//public class ConsultServiceTest {
-//    @Autowired
-//    private ConsultService consultService;
-//
-//    @Test
-//    public void testRegister(){
-//        ConsultDTO consultDTO = ConsultDTO.builder()
-//                .Consult_field("진로1234")
-//                .Consult_detail_field("상담1234")
-//                .user_id("123")
-//                .build();
-//        Long cno_num = consultService.register(consultDTO);
-//    }
-//}
+package com.dung.geul.service;
+
+import com.dung.geul.dto.ConsultDTO;
+import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.entity.Consult;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class ConsultServiceTest {
+    @Autowired
+    private ConsultService consultService;
+
+    @Test
+    public void testRegister(){
+        ConsultDTO consultDTO = ConsultDTO.builder()
+                .Consult_field("진로12324")
+                .Consult_detail_field("상담1234")
+                .build();
+        Long cno = consultService.register(consultDTO);
+    }
+
+    @Test
+    public void testList() {
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder().page(1).size(10).build();
+
+        PageResultDTO<ConsultDTO,Consult> resultDTO = consultService.getList(pageRequestDTO);
+        for (ConsultDTO consultDTO : resultDTO.getDtoList()) {
+            System.out.println(consultDTO);
+        }
+    }
+
+    @Test
+    public void testGet(){
+        Long cno = 3L;
+        ConsultDTO consultDTO = consultService.read(cno);
+        System.out.println(consultDTO);
+    }
+
+    @Test
+    public void testdelete(){
+        Long cno = 3L;
+
+        consultService.remove(cno);
+    }
+}

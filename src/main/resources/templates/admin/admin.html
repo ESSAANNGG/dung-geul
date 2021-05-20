@@ -581,13 +581,14 @@
                         <div class="sub_menu_title">
                             <h3>상담등록</h3>
                         </div>
+                        <form th:action="@{/counseling/register}" th:method="POST">
                         <div class="search">
                             <ul>
                                 <li>상담 종류</li>
                                 <li>
                                     <select name="consult_type">
-                                        <option value="">상담 종류</option>
-                                        <option value="진로 상담">진로 상담</option>
+                                        <option value="선택">상담 종류</option>
+                                        <option value="진로상담">진로 상담</option>
                                         <option value="취업상담">취업 상담</option>
                                         <option value="창업상담">창업 상담</option>
                                     </select>
@@ -595,13 +596,15 @@
                             </ul>
                             <ul>
                                 <li>상담 프로그램명</li>
-                                <li> <input type="text"></li>
+                                <li> <input type="text" name="res/conReg" th:value="${detail}"></li>
                             </ul>
                             <div class="search_button">
                                 <button onclick="submit(this)">
                                     <h3>등록</h3>
                                 </button>
                             </div>
+                        </form>
+
                         </div>
                     </div>
                     <div id="main6_counsult_search">
