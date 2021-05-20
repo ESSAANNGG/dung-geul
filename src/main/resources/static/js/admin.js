@@ -19,6 +19,7 @@ window.onload = function () {
         menu = "main1";
     }
 
+
     menubox_li[menu_index].style.backgroundColor = "#30384b";                   //좌측메뉴바 색
     main[menu_index].style.visibility="visible";                                //메뉴
     $('.'+menu).eq(select_detail_menu).css("display","block");                  //해당메뉴의 몇번쨰 상세메뉴를 보여줄것인지(수정해야함)
@@ -31,6 +32,7 @@ window.onload = function () {
 function MenuOff() {
     for (i = 0; i < menuLength; i++) {
         menu = ("main" + String(i + 1));
+
         $('.' + menu).css("display", "none");
     }
 }
@@ -121,9 +123,10 @@ $('.search_date_button').click(function(){
 
     let searchIndex=$('.search').index($(this).parents('.search'));
     //해당버튼이 어느메뉴의 버튼들인지 ex)처음으로 검색이 나오는메뉴는 회원관리>회원관리니까 회원관리의 검색을 클릭시 0출력
+    //어쩌피 redirect되는데 굳이 필요한가 생각중/ 허나 같은 페이지에 datetype이 두개 이상 나온다면 필요
     searchIndex=searchIndex*2;
     //클래스 참조를 위해 *2
-    
+
     date_range[searchIndex].value = dateVar.toISOString().substring(0, 10);
     date_range[(searchIndex+1)].value = now.toISOString().substring(0, 10);
     date_range[searchIndex].style.backgroundColor="#ffffff";
@@ -154,7 +157,7 @@ function search_color(a){
 let check;
 function checkAll(checkI) {
     let checkName=(checkI.name);                                      //체크한 부모체크박스의 이름을 가져옴 ex)2_1_checkH
-    check=(checkName.substr(0,9));                        //부모체크박스의 h를 떼어 자식name으로 변경
+    check=(checkName.substr(0,9));                        //부모체크박스의 name중 h를 떼어 자식name으로 변경
     if($('input[name='+checkName+']').is(':checked')==true){          //자식 checkBox에 check적용
         $('input[name='+check+']').prop("checked",true);
     }
