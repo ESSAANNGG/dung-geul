@@ -1,0 +1,215 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+
+
+#program-main-wrap {
+    padding: 80px 0 80px;
+}
+.program-L {
+    background: #fff;
+    border-radius: 8px;
+    margin-left: 300px;
+}
+table.type07 {
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    margin: 30px 10px;
+    width: 900px;
+}
+table.type07 thead {
+    background: #f9f7f7;
+    border-top: 2px solid #000;
+}
+table.type07 thead th {
+    padding: 16px;
+    font-weight: 900;
+    vertical-align: top;
+    font-size: 16px;
+    color: #000;
+    width: 180px;
+}
+table.type07 tbody th {
+    font-weight: bold;
+    vertical-align: top;
+    background: #fff;
+    height: 48px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+table.type07 > tbody > tr > th,
+table.type07 > tbody > tr > td {
+    padding: 5px 5px;
+    vertical-align: middle;
+    margin-right: 8px;
+    font-size: 13px;
+}
+.a-1 {
+    text-align: center !important;
+}
+table.type07 td {
+    font-size: 15px;
+    vertical-align: top;
+    font-weight: 500;
+    border-right: 1px solid #ccc;
+    border-width: 0 0 1px 0;
+    border-bottom: 1px solid #ccc;
+}
+#coun-list p {
+    text-align: center;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.on {
+    width: 20px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    position: relative;
+    color: #ccc;
+}
+.on-a {
+    width: 20px;
+    padding: 8px;
+    border: 1px solid #4aa96c;
+    background-color: #4aa96c;
+    color: #fff;
+    font-size: 12px;
+    position: relative;
+}
+.on-a:hover {
+    border: 1px solid #ccc;
+    color: #4aa96c;
+    background-color: #9fe6a0;
+}
+.on-b {
+    width: 15px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    position: relative;
+    color: #f55c47;
+    margin-right: 10px;
+}
+td p {
+    padding: 7px;
+    font-size: 13px;
+}
+#coun-list  {
+    font-size: 13px;
+    color: #ccc;
+    margin-left: 12px;
+    float: left;
+}
+#countrol {
+    font-size: 15px;
+    color: #1e3c72;
+    border: 1px slid #f0f0f0;
+    border-radius: 1px;
+    float: right;
+    padding: 8px;
+
+}
+.pnext {
+    font-size: 18px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    font-weight: 900;
+    padding: 5px;
+    text-align: center;
+    margin-left: 10px;
+}
+#pre-a {
+    position: relative;
+    float: left;
+}
+#next-a {
+    float: right;
+}
+.tab-list {
+    position: relative;
+    margin-bottom: 40px;
+    width: 970px;
+    margin: 30px 0 5px 237px;
+}
+.tab-list ul li.curr {
+    position: relative;
+    border: 3px solid #1e3c72;
+    border-bottom: 0;
+    border-left: 3px solid #1e3c72;
+}
+.tab-list ul {
+    height: 48px;
+    margin-left: 40px;
+}
+.tab-list ul li {
+    float: left;
+    height: 100%;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    text-align: center;
+    font-size: 14px;
+    padding: 8px;
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.tab-list.letter-1 ul li span {
+    letter-spacing: -1px;
+}
+.tab-list ul li.curr span {
+    position: relative;
+    color: #1e3c72;
+    font-weight: 700;
+}
+.tab-list ul li span {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    line-height: 1.3;
+    vertical-align: middle;
+    text-align: center;
+}
+#main {
+    margin-top: 20px;
+    background: #fff;
+    border-bottom: solid 5px #1f3786d5;
+    border-top: solid 5px #f2f5f3;
+    border-bottom-width: 35px;
+    border-top-width: 35px;
+    z-index: -2;
+}

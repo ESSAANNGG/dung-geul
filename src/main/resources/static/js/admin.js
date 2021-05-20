@@ -19,6 +19,7 @@ window.onload = function () {
         menu = "main1";
     }
 
+
     menubox_li[menu_index].style.backgroundColor = "#30384b";                   //좌측메뉴바 색
     main[menu_index].style.visibility="visible";                                //메뉴
     $('.'+menu).eq(select_detail_menu).css("display","block");                  //해당메뉴의 몇번쨰 상세메뉴를 보여줄것인지(수정해야함)
@@ -31,6 +32,7 @@ window.onload = function () {
 function MenuOff() {
     for (i = 0; i < menuLength; i++) {
         menu = ("main" + String(i + 1));
+
         $('.' + menu).css("display", "none");
     }
 }
@@ -54,6 +56,8 @@ $('.menubox_li').click(function(){
         case 3: parameter="STAFF";
             break;
         case 4: parameter="STAFF";
+            break;
+        case 5: parameter="STAFF";
             break;
     }
     //세션 스토리지에 css를 저장
@@ -92,11 +96,68 @@ function submit_param(){  //메뉴클릭,가이드메뉴 선택시
 }
 
 
+
+//모든 메뉴 검색부분의 날짜선택
+let date_range=document.getElementsByClassName('search_date');
+let dateVar;
+$('.search_date_button').click(function(){
+    let now=new Date();
+    let week=new Date();
+    let month=new Date();
+    let enter=new Date(1);  //파라미터를 한개만 전송하면 1970년도로 자동설정
+    week.setDate(now.getDate()-7);
+    month.setMonth(now.getMonth()-1);
+
+    let date_select=$(this).text();
+
+    switch (date_select) {
+        case '오늘': dateVar=now;
+            break;
+        case '이번주': dateVar=week;
+            break;
+        case '이번달': dateVar=month;
+            break;
+        case '전체': dateVar=enter;
+            break;
+    }
+
+    let searchIndex=$('.search').index($(this).parents('.search'));
+    //해당버튼이 어느메뉴의 버튼들인지 ex)처음으로 검색이 나오는메뉴는 회원관리>회원관리니까 회원관리의 검색을 클릭시 0출력
+    //어쩌피 redirect되는데 굳이 필요한가 생각중/ 허나 같은 페이지에 datetype이 두개 이상 나온다면 필요
+    searchIndex=searchIndex*2;
+    //클래스 참조를 위해 *2
+
+    date_range[searchIndex].value = dateVar.toISOString().substring(0, 10);
+    date_range[(searchIndex+1)].value = now.toISOString().substring(0, 10);
+    date_range[searchIndex].style.backgroundColor="#ffffff";
+    date_range[(searchIndex+1)].style.backgroundColor="#ffffff";
+})
+
+//검색 값이 들어갔을시 css
+$('.search select').change(function(){    //검색창의 select에 값을 넣을시
+    search_color(this);
+});
+$('.search input').keyup(function (){     //검색창의 input에 값을 넣을시
+    search_color(this);
+})
+$('.search input').change(function (){    //검색창의 input에 값을 넣을시
+    search_color(this);
+})
+
+function search_color(a){
+    if(a.value!=""){
+        a.style.backgroundColor="#ffffff";
+    }
+    else{
+        a.style.backgroundColor="#c2c9db";
+    }
+}
+
 //전체 게시판 각 리스트별로 체크,해제
 let check;
 function checkAll(checkI) {
     let checkName=(checkI.name);                                      //체크한 부모체크박스의 이름을 가져옴 ex)2_1_checkH
-    check=(checkName.substr(0,9));                                //부모체크박스의 h를 떼어 자식name으로 변경
+    check=(checkName.substr(0,9));                        //부모체크박스의 name중 h를 떼어 자식name으로 변경
     if($('input[name='+checkName+']').is(':checked')==true){          //자식 checkBox에 check적용
         $('input[name='+check+']').prop("checked",true);
     }

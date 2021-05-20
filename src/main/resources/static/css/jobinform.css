@@ -53,14 +53,13 @@ table {
 }
 /* sidemenu */
 #main {
-    margin-top:40px;
-    background: #eee;
-    border-top: solid 5px #1f3786d5;
+    margin-top: 20px;
+    background: #fff;
+    border-bottom: solid 5px #1f3786d5;
+    border-top: solid 5px #f2f5f3;
+    border-bottom-width: 35px;
     border-top-width: 35px;
-    border-bottom: solid 5px #c1cac5;
-    border-bottom-width: 10px;
-    padding: 0px;
-    z-index: 999;
+    z-index: -2;
 }
 body {
     background: #fff;

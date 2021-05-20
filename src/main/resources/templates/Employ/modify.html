@@ -49,23 +49,21 @@
             </div>
             <div class="employ_register" id="employ_register1">
                 <button onclick="abcd()"></button>
-                <div class="content" id="modifyC">
+                <div class="content">
                     <input name="em_num" id="em_num" title="em_num" th:value="${dto.num}"/>
                     <input  name="em_id" id="em_id" title="em_id" th:value="${etp.getEtp_id()}" />
                     <div class="register_title_wrap">
                         <div class="register_title">
                             제목
                         </div>
-                        <input type="text" name="em_title" id="em_title" class="register_title_input"
-                               th:value="${dto.title}" maxlength="15" />
+                        <input type="text" name="em_title" id="em_title" class="register_title_input" maxlength="15" />
                     </div>
 
                     <div class="register_cont_wrap">
                         <div class="register_cont">
                             내용
                         </div>
-                        <textarea name="em_content" id="em_content" class="register_cont_input"
-                                  th:text="${dto.content}" maxlength="499"></textarea>
+                        <textarea name="em_content" id="em_content" class="register_cont_input" maxlength="499"></textarea>
                     </div>
 
                     <div class="register_ot_wrap">
@@ -136,7 +134,7 @@
 
 
             <div class="employ_register" id="employ_register2">
-                <div class="content" id="modifyC">
+                <div class="content">
                     <div class="register_TO_wrap">
                         <div class="register_TO">
                             모집인원
@@ -164,7 +162,7 @@
                             학력
                         </div>
                         <div class="register_education_input">
-                            <input type="checkbox" id="education" name="education" value="무관" checked="checked"
+                            <input type="checkbox" id="education" name="education" value="학력무관" checked="checked"
                                    onclick="eduFunc()">무관
                             <select id="em_education" name="register_education_val" class="register_education_val"
                                     disabled="disabled" onchange="selectValChange(this.value)">
@@ -202,17 +200,17 @@
                         </div>
                     </div>
 
-                    <div class="register_addApply_wrap">
-                        <div class="register_addApply">
+                    <div class="register_apply_wrap">
+                        <div class="register_apply">
                             지원방법
                         </div>
-                        <div class="register_addApply_input">
-                            <input type="checkbox" name="고용형태" id="add1" checked value="온라인지원">온라인지원
-                            <input type="checkbox" name="고용형태" id="add2" value="홈페이지접수">홈페이지접수
-                            <input type="checkbox" name="고용형태" id="add3" value="방문">방문
-                            <input type="checkbox" name="고용형태" id="add4" value="전화">전화
-                            <input type="checkbox" name="고용형태" id="add5" value="FAX">FAX
-                            <input type="checkbox" name="고용형태" id="add6" value="문자">문자
+                        <div class="register_apply_input">
+                            <input type="checkbox" name="지원방법" id="add1" checked value="온라인지원">온라인지원
+                            <input type="checkbox" name="지원방법" id="add2" value="홈페이지접수">홈페이지접수
+                            <input type="checkbox" name="지원방법" id="add3" value="방문">방문
+                            <input type="checkbox" name="지원방법" id="add4" value="전화">전화
+                            <input type="checkbox" name="지원방법" id="add5" value="FAX">FAX
+                            <input type="checkbox" name="지원방법" id="add6" value="문자">문자
                         </div>
                     </div>
 
@@ -273,5 +271,36 @@
     });
 
 </script>
+<script th:inline="javascript">
+    let ep;
+    $(document).ready(function() {
+        $('#em_title').val([[${dto.title}]]);
+        $('#em_content').val([[${dto.content}]]);
+        $('#em_ot').val([[${dto.ot}]]);
+        $("input[name='고용형태'][value=" + [[${dto.ep}]] + "]").prop("checked",true);
+        $('#em_start_date').val([[${dto.start_date}]]);
+        $('#em_end_date').val([[${dto.end_date}]]);
+        $("input[name='career'][value=" + [[${dto.career}]] + "]").prop("checked",true);
+        $('#em_career').val([[${dto.career}]]);
 
+        alert([[${dto.title}]]);
+        alert([[${dto.education}]]);
+
+        if([[${dto.education}]]=="무관"){
+            $('#education').prop("checked",true);
+            alert([[${dto.education}]]);
+        }
+            else{
+            $('#education').prop("checked",false);
+            alert([[${dto.education}]]);
+        }
+
+        $('#em_education').val([[${dto.ot}]]);
+        $('#em_salary').val([[${dto.salary}]]);
+
+        // alert([[${dto.apply}]]);
+        // $("input[name='지원방법'][value=" + [[${dto.apply}]] + "]").prop("checked",true);
+
+    });
+</script>
 </html>
