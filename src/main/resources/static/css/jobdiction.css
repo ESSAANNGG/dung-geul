@@ -117,10 +117,11 @@ input, button, select {
     height: 350px;
     border: 1px solid #b3b3b3;
     box-shadow: 3px 3px 5px #ccc;
-    /* position: absolute; */
+    /* position: fixed; */
     display: block;
-    float: left;
-    margin-right: 50px;
+    float: right;
+    margin-top: -350px;
+    margin-right: 60px;
 }
 #label {
     color: rgb(39, 39, 39);
@@ -138,7 +139,9 @@ input, button, select {
     font-size: 18px;
     font-weight: 700;
     text-align: center;
-    margin: -60px 60px 30px 5px;
+    display: flex;
+    margin-left: 525px;
+    margin-top: -60px;
 }
 /* .on-a {
     border-bottom: 1px solid #ccc;
@@ -223,4 +226,5 @@ input[type=text] {
     border-radius: 5px;
     line-height: 32px;
     padding: 12px;
+    padding-top: 30px;
 }
