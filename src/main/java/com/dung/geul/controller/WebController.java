@@ -13,7 +13,7 @@ public class WebController {
 
         try {
             if (member.getName().equals("admin")) {
-                return "/admin/admin_userManage";
+                return "/admin/admin_dashboard";
             }
             return "main/index";
         } catch (Exception e){

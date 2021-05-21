@@ -77,4 +77,14 @@ public class AllowController {
     public void eme(){
 
     }
+
+    @GetMapping("/admin_dashboard")
+    public void emf(){
+
+    }
+
+    @GetMapping("/admin_board")
+    public void emg(){
+
+    }
 }

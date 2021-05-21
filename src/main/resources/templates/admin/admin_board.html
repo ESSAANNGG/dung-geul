@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <title>admin</title>
+
+  <!--차트 src-->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <!--데이터에 라벨 붙이는 기능-->
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <!--highchart로 생성한 그래프를 jpg,png등으로 다운받을 수 있음-->
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <!--외부 사용자들이 데이터를 다운로드할 수 있게-->
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+
+<body>
+
+
+
+<div id="shadow_box">
+  <!--modal창 open시 css효과를 주기위한 div-->
+  <div th:replace="admin/layout :: header"/>
+  <!--    <div id="admin_header">-->
+  <!--        <h5><a th:href="@{/}">YJE</a></h5>-->
+  <!--    </div>-->
+  <div id="wrap">
+    <div th:replace="admin/layout :: menubox"/>
+
+    <div id="main_wrap">
+      <div id="menu_guide">
+        <ul class="guide">게시판관리 |
+          <!--메뉴4-->
+          <select class="guide_select">
+            <option>미구현</option>
+            <option>미구현</option>
+          </select>
+        </ul>
+      </div>
+      <div id="menu_title">
+        <h3>게시판관리</h3>
+      </div>
+
+      <div class="main">
+        <!--게시판관리-->
+        <div class="main4">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+
+<script src="/js/admin.js"></script>
+<script src="/js/admin-userManage.js"></script>
+<script src="/js/admin-listAjax.js"></script>
+<script src="/js/admin-counsult.js"></script>
+
+</html>
