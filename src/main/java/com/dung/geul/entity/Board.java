@@ -32,7 +32,7 @@ public class Board implements Serializable {
     @Column(length = 1500, nullable = false)
     private String content; // 내용
 
-    private String board_file; //첨부파일
+//    private String board_file; //첨부파일
 
 
     @ManyToOne(fetch = FetchType.LAZY)
