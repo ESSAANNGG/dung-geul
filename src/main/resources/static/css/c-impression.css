@@ -33,6 +33,22 @@ body {
 a {
     text-decoration: none;
 }
+#main {
+    margin-top: 20px;
+    background: #fff;
+    border-bottom: solid 5px #1f3786d5;
+    border-top: solid 5px #f2f5f3;
+    border-bottom-width: 35px;
+    border-top-width: 35px;
+    z-index: -2;
+}
+.menu2 {
+    width: 210px;
+    margin-right: 50px;
+}
+#program-main-wrap {
+    padding: 50px 0 50px;
+}
 .plus-Btn {
     font-size: 23px;
     color: black;
@@ -144,8 +160,7 @@ a {
     height: 100px;
     background: url(http://tlab.co.id/images/logo.png) no-repeat center center;
 }
-/* .impression {
-    /* display: none; */
-/* width: 1100px;
-margin: auto;
-} */
+.impression {
+    margin: auto;
+    width: 75%;
+}
