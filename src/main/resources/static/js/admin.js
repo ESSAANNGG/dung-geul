@@ -1,6 +1,5 @@
 let menubox_li=document.getElementsByClassName("menubox_li");
 let menuLength=menubox_li.length;
-let menu;
 let parameter;
 let select_detail_menu;
 window.onload = function () {
@@ -8,8 +7,8 @@ window.onload = function () {
     //세션값을 가져옴
     detail_menu = (sessionStorage.getItem("detail_menu"));
     select_detail_menu = (sessionStorage.getItem("select_detail_menu"));
-    parameter = (sessionStorage.getItem("parameter"));          //메뉴나 가이드메뉴를 바꿔 파라미터를 받고 새로고침하고나면 파라미터가 주소창엔 있지만 변수는 초기화됨
-                                                                    // 그래서 ex)main2의 승인,거절,삭제등의 버튼을 누르고 주소를
+    parameter = (sessionStorage.getItem("parameter"));
+
     menu_index = (sessionStorage.getItem("menu_index"));
 
     $('.guide_select option:eq(' +select_detail_menu + ')').attr("selected","selected");  //해당 메뉴의 선택한 상세메뉴(가이드)대로 상세메뉴 선택값 변경
@@ -38,13 +37,12 @@ let menu_index;
 let detail_menu;
 $(menubox_li).click(function(){
     menu_index=$(this).index();                               //클래스 순번 받아오기
-    menu=("main"+String((menu_index+1)));                     //상세메뉴클래스를참조하기 위해 변수를 만든다 ex)main1,main2
 
     //주소 파라미터 넘기기
     switch(menu_index){
         case 0: menu_index="dashboard";
             break;
-        case 1: menu_index="userManage";
+        case 1: menu_index="userManage?type=UNIV&page1=1&page2=1";
             break;
         case 2: menu_index="employ";
             break;
@@ -88,14 +86,14 @@ $('.guide_select').change(function(){
 
 function submit_param(){  //메뉴클릭,가이드메뉴 선택시
     window.sessionStorage.setItem('parameter',parameter); //새로고침해도 파라미터가 남아있게
-    // location.href="/admin/admin?type=" + parameter + "&page1=1&page2=1";
-    // if(parameter!=undefined){
-    //     location.href="/admin/admin_"+menu_index;
-    // }
-    // else if(parameter==undefined){
-    //     location.href="/admin/admin_"+menu_index + "?type=" + parameter + "&page1=1&page2=1"
-    // }
-    location.href="/admin/admin_"+menu_index + "?type=UNIV"  + "&page1=1&page2=1"
+
+    alert(parameter);
+    if(parameter!=undefined){
+        location.href="/admin/admin_"+menu_index;
+    }
+    else if(parameter==undefined){
+        location.href="/admin/admin_"+menu_index + "?type=" + parameter + "&page1=1&page2=1"
+    }
 
 }
 
