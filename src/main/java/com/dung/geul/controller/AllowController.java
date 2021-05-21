@@ -30,7 +30,7 @@ public class AllowController {
 
 
     // 전체 회원 인증 리스트 페이지
-    @GetMapping("/admin")
+    @GetMapping("/admin_userManage")
     public void getList(@RequestParam("type") String type ,@RequestParam("page1") int page1, @RequestParam("page2") int page2, Model model){
         //파라미터로 page, size 를 전달하면 자동으로 pageRequestDTO 객체로 수집된다
 
@@ -66,5 +66,15 @@ public class AllowController {
     public EnterpriseDTO read(@RequestParam("user_id") String user_id){
 
         return memberService.getEnterprise(user_id);
+    }
+
+    @GetMapping("/admin_employ")
+    public void em(){
+
+    }
+
+    @GetMapping("/admin_consult")
+    public void eme(){
+
     }
 }

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <title>admin</title>
+
+  <!--차트 src-->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <!--데이터에 라벨 붙이는 기능-->
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <!--highchart로 생성한 그래프를 jpg,png등으로 다운받을 수 있음-->
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <!--외부 사용자들이 데이터를 다운로드할 수 있게-->
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+
+<body>
+
+<!--모달효과 줄것들은 따로 뺴놓습니다-->
+<div id="main2_detail">
+  <!-- 회원 관리 > 상세 정보 -->
+  <div class="detailBox" id="detail_student">
+    <div class="d_role"><i class="fas fa-user-graduate"></i></div>
+    <div class="d_tagN">이름</div>
+    <input type="text" class="d_cont" value="이름" readonly>
+    <div class="d_tagN">아이디</div>
+    <input type="text" class="d_cont" value="아이디" readonly>
+    <div class="d_tagN">비밀번호</div>
+    <input type="text" class="d_cont" value="비밀번호">
+    <div class="d_tagN">전화번호</div>
+    <input type="text" class="d_cont" value="전화번호" readonly>
+    <div class="d_tagN">주소</div>
+    <input type="text" class="d_cont" value="주소" readonly>
+    <div class="d_tagN">이메일</div>
+    <input type="text" class="d_cont" value="이메일" readonly>
+    <div class="d_tagN">가입일</div>
+    <input type="text" class="d_cont" value="회원가입일" readonly>
+    <div class="d_tagN">소속/반</div>
+    <input type="text" class="d_cont" value="계열/반" readonly>
+    <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+  </div>
+  <!-- 교직원상세정보 -->
+  <div class="detailBox" id="detail_staff">
+    <div class="d_role"><i class="fas fa-user-tie"></i></div>
+    <div class="d_tagN">이름</div>
+    <input type="text" class="d_cont" value="이름" readonly>
+    <div class="d_tagN">아이디</div>
+    <input type="text" class="d_cont" value="아이디" readonly>
+    <div class="d_tagN">비밀번호</div>
+    <input type="text" class="d_cont" value="비밀번호">
+    <div class="d_tagN">전화번호</div>
+    <input type="text" class="d_cont" value="전화번호" readonly>
+    <div class="d_tagN">주소</div>
+    <input type="text" class="d_cont" value="주소" readonly>
+    <div class="d_tagN">이메일</div>
+    <input type="text" class="d_cont" value="이메일" readonly>
+    <div class="d_tagN">가입일</div>
+    <input type="text" class="d_cont" value="회원가입일" readonly>
+    <div class="d_tagN">소속/반</div>
+    <input type="text" class="d_cont" value="계열/반" readonly>
+    <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+  </div>
+  <!-- 상담사상세정보 -->
+  <div class="detailBox" id="detail_counselor">
+    <div class="d_role"><i class="fas fa-hands-helping"></i></div>
+    <div class="d_tagN">이름</div>
+    <input type="text" class="d_cont" value="이름" readonly>
+    <div class="d_tagN">아이디</div>
+    <input type="text" class="d_cont" value="아이디" readonly>
+    <div class="d_tagN">비밀번호</div>
+    <input type="text" class="d_cont" value="비밀번호">
+    <div class="d_tagN">전화번호</div>
+    <input type="text" class="d_cont" value="전화번호" readonly>
+    <div class="d_tagN">주소</div>
+    <input type="text" class="d_cont" value="주소" readonly>
+    <div class="d_tagN">이메일</div>
+    <input type="text" class="d_cont" value="이메일" readonly>
+    <div class="d_tagN">가입일</div>
+    <input type="text" class="d_cont" value="회원가입일" readonly>
+    <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+  </div>
+
+  <!-- 기업상세정보 -->
+  <div class="detailBox" id="detail_enterprise">
+    <div class="d_role"><i class="fas fa-building"></i></div>
+    <div class="d_tagN">기업명</div>
+    <input type="text" class="d_cont" value="기업명">
+    <div class="d_tagN">아이디</div>
+    <input type="text" class="d_cont" value="아이디" readonly>
+    <div class="d_tagN">비밀번호</div>
+    <input type="text" class="d_cont" value="비밀번호">
+    <div class="d_tagN">사업자번호</div>
+    <input type="text" class="d_cont" value="사업자번호" readonly>
+    <div class="d_tagN">대표자명</div>
+    <input type="text" class="d_cont" value="대표자명">
+    <div class="d_tagN">대표번호</div>
+    <input type="text" class="d_cont" value="대표번호">
+    <div class="d_tagN">팩스</div>
+    <input type="text" class="d_cont" value="팩스">
+    <div class="d_tagN">홈페이지</div>
+    <input type="text" class="d_cont" value="홈페이지">
+    <div class="d_tagN">주요사업내용</div>
+    <input type="text" class="d_cont" value="주요사업내용">
+    <div class="d_tagN">우편번호</div>
+    <input type="text" class="d_cont" value="우편번호">
+    <div class="d_tagN">상세주소</div>
+    <input type="text" class="d_cont" value="상세주소">
+    <div class="d_tagN">설립년도</div>
+    <input type="text" class="d_cont" value="설립년도">
+    <div class="d_tagN">직원 수</div>
+    <input type="text" class="d_cont" value="직원 수">
+    <div class="d_tagN">업종</div>
+    <input type="text" class="d_cont" value="업종">
+    <div class="d_tagN">기업형태</div>
+    <input type="text" class="d_cont" value="기업형태">
+    <div class="d_tagN">가입일</div>
+    <input type="text" class="d_cont" value="가입일" readonly>
+    <div class="d_tagN">담당자 번호</div>
+    <input type="text" class="d_cont" value="담당자 번호">
+    <div class="d_tagN">담당자 이메일</div>
+    <input type="text" class="d_cont" value="담당자 이메일">
+    <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+  </div>
+</div>
+
+<!--modal end-->
+
+<div id="shadow_box">
+  <!--modal창 open시 css효과를 주기위한 div-->
+  <div th:replace="admin/layout :: header"/>
+  <!--    <div id="admin_header">-->
+  <!--        <h5><a th:href="@{/}">YJE</a></h5>-->
+  <!--    </div>-->
+  <div id="wrap">
+    <div th:replace="admin/layout :: menubox"/>
+
+    <div id="main_wrap">
+      <div id="menu_guide">
+        <ul class="guide">회원관리 |
+          <!--메뉴2-->
+          <select class="guide_select">
+            <option>회원관리</option>
+            <option>기업관리</option>
+            <option>가입현황</option>
+            <!--<option>통계</option>-->
+          </select>
+        </ul>
+      </div>
+      <div id="menu_title">
+        <h3>회원관리</h3>
+      </div>
+
+      <div class="main">
+        <!-- 회원 관리 -->
+        <div class="main2" id="main2_user">
+          <!-- 회원 관리 > 회원 관리 -->
+          <div id="main2_search">
+            <!-- 회원관리 > 회원 관리 > 검색 -->
+            <div class="sub_menu_title">
+              <h3>회원검색</h3>
+            </div>
+            <div class="search">
+              <ul>
+                <li>회원권한</li>
+                <li>
+                  <select name="role">
+                    <option value="">회원 권한</option>
+                    <option value="학생">학생</option>
+                    <option value="교수">교직원</option>
+                    <option value="상담사">상담사</option>
+                  </select>
+                </li>
+              </ul>
+              <ul>
+                <li>이름</li>
+                <li> <input type="text"></li>
+              </ul>
+              <ul>
+                <li>아이디</li>
+                <li><input type="text"></li>
+              </ul>
+              <ul>
+                <li>가입/요청 일자</li>
+                <li>
+                  <input type="date" class="search_date"> &nbsp;~&nbsp; <input type="date"
+                                                                               class="search_date">
+                  <button class="search_date_button">오늘</button>
+                  <button class="search_date_button">이번주</button>
+                  <button class="search_date_button">이번달</button>
+                  <button class="search_date_button">전체</button>
+                </li>
+              </ul>
+              <div class="search_button">
+                <button>
+                  <h3>검색</h3>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="main2_list">
+            <!-- 회원관리 > 회원 관리 > 회원 리스트 -->
+            <div class="sub_menu_title">
+              <h3>회원리스트</h3>
+            </div>
+            <div class="list">
+              <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="2_1_checkH"
+                                                               onclick="checkAll(this)"></span>
+                <span class="number">번호</span>
+                <span class="name">이름</span>
+                <span class="username">아이디</span>
+                <span class="phone">연락처</span>
+                <span class="email">이메일</span>
+                <span class="joindate">가입일</span>
+                <span class="role">권한</span>
+              </div>
+              <div class="list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
+                <span class="check"><input type="checkbox" name="2_1_check"></span>
+                <span class="number">[[${i.count}]]</span>
+                <span class="name">[[${item.user_name}]]</span>
+                <span class="username">[[${item.user_id}]]</span>
+                <span class="phone">[[${item.user_ph}]]</span>
+                <span class="email">[[${item.user_email}]]</span>
+                <span class="joindate">[[${item.user_regdate}]]</span>
+                <span class="role">[[${item.user_type}]]</span>
+              </div>
+              <div class="list_button">
+                <button class="parameter_request">삭제</button>
+              </div>
+            </div>
+          </div>
+          <div id="main2_perList">
+            <!-- 회원관리 > 회원 관리 > 회원 가입 인증 -->
+            <div class="sub_menu_title">
+              <h3>회원가입승인</h3>
+            </div>
+            <div class="list">
+              <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="2_2_checkH"
+                                                               onclick="checkAll(this)"></span>
+                <span class="number">번호</span>
+                <span class="name">이름</span>
+                <span class="username">아이디</span>
+                <span class="phone">연락처</span>
+                <span class="email">이메일</span>
+                <span class="joindate">요청일</span>
+                <span class="role">권한</span>
+              </div>
+              <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
+                <span class="check"><input type="checkbox" name="2_2_check"></span>
+                <span class="number">[[${i.count}]]</span>
+                <span class="name">[[${item.user_name}]]</span>
+                <span class="username">[[${item.user_id}]]</span>
+                <span class="phone">[[${item.user_ph}]]</span>
+                <span class="email">[[${item.user_email}]]</span>
+                <span class="joindate">[[${item.user_regdate}]]</span>
+                <span class="role">[[${item.user_type}]]</span>
+              </div>
+              <div class="list_button">
+                <button class="parameter_request">승인</button>
+                <button class="parameter_request">거절</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main2" id="main2_corp">
+          <!-- 회원관리 > 기업 관리 -->
+          <div id="main2_corp_search">
+            <!-- 회원관리 > 기업 관리 > 검색 -->
+            <div class="sub_menu_title">
+              <h3>기업검색</h3>
+            </div>
+            <div class="search">
+              <ul>
+                <li>기업명</li>
+                <li> <input type="text"></li>
+              </ul>
+              <ul>
+                <li>아이디</li>
+                <li><input type="text"></li>
+              </ul>
+              <ul>
+                <li>기업형태</li>
+                <li>
+                  <select name="shape">
+                    <option value="">기업 형태</option>
+                    <option value="대기업">대기업</option>
+                    <option value="중견기업">중견기업</option>
+                    <option value="중소기업">중소기업</option>
+                  </select>
+                </li>
+              </ul>
+              <ul>
+                <li>가입/요청 일자</li>
+                <li>
+                  <input type="date" class="search_date"> &nbsp;~&nbsp; <input type="date"
+                                                                               class="search_date">
+                  <button class="search_date_button">오늘</button>
+                  <button class="search_date_button">이번주</button>
+                  <button class="search_date_button">이번달</button>
+                  <button class="search_date_button">전체</button>
+                </li>
+              </ul>
+              <div class="search_button">
+                <button>
+                  <h3>검색</h3>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="main2_corp_list">
+            <!-- 회원관리 > 기업 관리 > 기업 리스트 -->
+            <div class="sub_menu_title">
+              <h3>기업리스트</h3>
+            </div>
+            <div class="list">
+              <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="2_3_checkH"
+                                                               onclick="checkAll(this)"></span>
+                <span class="number">번호</span>
+                <span class="name">기업명</span>
+                <span class="username">아이디</span>
+                <span class="phone">대표번호</span>
+                <span class="email">이메일</span>
+                <span class="joindate">가입일</span>
+                <span class="shape">기업형태</span>
+              </div>
+              <div class="list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
+                <span class="check"><input type="checkbox" name="2_3_check"></span>
+                <span class="number">[[${i.count}]]</span>
+                <span class="name">[[${item.user_name}]]</span>
+                <span class="username">[[${item.user_id}]]</span>
+                <span class="phone">[[${item.user_ph}]]</span>
+                <span class="email">[[${item.user_email}]]</span>
+                <span class="joindate">[[${item.user_regdate}]]</span>
+                <span class="role">[[${item.user_type}]]</span>
+              </div>
+            </div>
+            <div class="list_button">
+              <button class="parameter_request">삭제</button>
+            </div>
+          </div>
+          <div id="main2_corp_perList">
+            <!-- 회원관리 > 기업 관리 > 기업 가입 승인 -->
+            <div class="sub_menu_title">
+              <h3>기업가입승인</h3>
+            </div>
+            <div class="list" id="e_per_list">
+              <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="2_4_checkH"
+                                                               onclick="checkAll(this)"></span>
+                <span class="number">번호</span>
+                <span class="name">기업명</span>
+                <span class="username">아이디</span>
+                <span class="phone">대표번호</span>
+                <span class="email">이메일</span>
+                <span class="joindate">가입일</span>
+                <span class="shape">기업형태</span>
+              </div>
+              <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
+                <span class="check"><input type="checkbox" name="2_4_check"></span>
+                <span class="number">[[${i.count}]]</span>
+                <span class="name">[[${item.user_name}]]</span>
+                <span class="username">[[${item.user_id}]]</span>
+                <span class="phone">[[${item.user_ph}]]</span>
+                <span class="email">[[${item.user_email}]]</span>
+                <span class="joindate">[[${item.user_regdate}]]</span>
+                <span class="shape"><select name="2_3_shape" class="shapeSelect">
+                                            <option value="">기업형태</option>
+                                            <option value="대기업">대기업</option>
+                                            <option value="중견기업">중견기업</option>
+                                            <option value="중소기업">중소기업</option>
+                                        </select></span>
+              </div>
+              <div class="list_button">
+                <button class="parameter_request">승인</button>
+                <button class="parameter_request">거절</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main2">
+          <!-- 회원 관리 > 가입 현황-->
+          <div class="sub_menu_title">
+            <h3>가입통계</h3>
+          </div>
+          <!--회원 관리 > 회원 가입 통계-->
+          <figure class="highcharts-figure">
+            <div id="container"></div>
+            <p class="highcharts-description">
+              햄버거는 핫크리스피햄버거
+            </p>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+
+<script src="/js/admin.js"></script>
+<script src="/js/admin-userManage.js"></script>
+<script src="/js/admin-listAjax.js"></script>
+<script src="/js/admin-counsult.js"></script>
+
+</html>

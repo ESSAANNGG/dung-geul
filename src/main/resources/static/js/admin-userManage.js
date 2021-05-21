@@ -47,54 +47,6 @@ $('#shadow_box').click(function(e){
 })
 
 
-
-// let datea=[];
-// let ran;
-// $(document).ready(function(){
-//     for (i = 0; i < 12; i++) {
-//         ran = Math.floor(Math.random() * 100) + 1;
-//         datea.push(ran);
-//     }
-//
-//     Highcharts.chart('container', {
-//         chart: {
-//             type: 'line'
-//         },
-//         title: {
-//             text: ''
-//         },
-//         subtitle: {
-//             text: ''
-//         },
-//         xAxis: {
-//             categories: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-//         },
-//         yAxis: {
-//             title: {
-//                 text: '가입자 수(명)'
-//             }
-//         },
-//         plotOptions: {
-//             line: {
-//                 dataLabels: {
-//                     enabled: true
-//                 },
-//                 enableMouseTracking: false
-//             }
-//         },
-//         series: [{
-//             name: '2021년',
-//             data: datea
-//         }, {
-//             name: '2020년',
-//             data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-//         }, {
-//             name: '2019년',
-//             data: [10,20,30,40,50,60,70,80,90,100,11,16]
-//         }
-//         ]
-//     });
-// })
 let datea=[];
 let ran;
 $(document).ready(function() {

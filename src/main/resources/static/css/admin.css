@@ -165,9 +165,9 @@ a{
 
 
 
-.main{
-    visibility: hidden;
-}
+/*.main{*/
+/*    visibility: hidden;*/
+/*}*/
 
 @media screen and (max-height:937px){
     .main{
@@ -187,7 +187,6 @@ a{
     font-size:18px;
 }
 #menu_guide ul{
-    display:none;
     margin:0px;
     padding:0px;
 }

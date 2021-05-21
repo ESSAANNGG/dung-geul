@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <title>admin</title>
+
+  <!--차트 src-->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <!--데이터에 라벨 붙이는 기능-->
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <!--highchart로 생성한 그래프를 jpg,png등으로 다운받을 수 있음-->
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <!--외부 사용자들이 데이터를 다운로드할 수 있게-->
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+
+<body>
+
+<!--모달효과 줄것들은 따로 뺴놓습니다-->
+<div id="main2_detail">
+  <!-- 회원 관리 > 상세 정보 -->
+  <div class="detailBox" id="detail_student">
+    <div class="d_role"><i class="fas fa-user-graduate"></i></div>
+    <div class="d_tagN">이름</div>
+    <input type="text" class="d_cont" value="이름" readonly>
+    <div class="d_tagN">아이디</div>
+    <input type="text" class="d_cont" value="아이디" readonly>
+    <div class="d_tagN">비밀번호</div>
+    <input type="text" class="d_cont" value="비밀번호">
+    <div class="d_tagN">전화번호</div>
+    <input type="text" class="d_cont" value="전화번호" readonly>
+    <div class="d_tagN">주소</div>
+    <input type="text" class="d_cont" value="주소" readonly>
+    <div class="d_tagN">이메일</div>
+    <input type="text" class="d_cont" value="이메일" readonly>
+    <div class="d_tagN">가입일</div>
+    <input type="text" class="d_cont" value="회원가입일" readonly>
+    <div class="d_tagN">소속/반</div>
+    <input type="text" class="d_cont" value="계열/반" readonly>
+    <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+  </div>
+  <!-- 교직원상세정보 -->
+  <div class="detailBox" id="detail_staff">
+    <div class="d_role"><i class="fas fa-user-tie"></i></div>
+    <div class="d_tagN">이름</div>
+    <input type="text" class="d_cont" value="이름" readonly>
+    <div class="d_tagN">아이디</div>
+    <input type="text" class="d_cont" value="아이디" readonly>
+    <div class="d_tagN">비밀번호</div>
+    <input type="text" class="d_cont" value="비밀번호">
+    <div class="d_tagN">전화번호</div>
+    <input type="text" class="d_cont" value="전화번호" readonly>
+    <div class="d_tagN">주소</div>
+    <input type="text" class="d_cont" value="주소" readonly>
+    <div class="d_tagN">이메일</div>
+    <input type="text" class="d_cont" value="이메일" readonly>
+    <div class="d_tagN">가입일</div>
+    <input type="text" class="d_cont" value="회원가입일" readonly>
+    <div class="d_tagN">소속/반</div>
+    <input type="text" class="d_cont" value="계열/반" readonly>
+    <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+  </div>
+  <!-- 상담사상세정보 -->
+  <div class="detailBox" id="detail_counselor">
+    <div class="d_role"><i class="fas fa-hands-helping"></i></div>
+    <div class="d_tagN">이름</div>
+    <input type="text" class="d_cont" value="이름" readonly>
+    <div class="d_tagN">아이디</div>
+    <input type="text" class="d_cont" value="아이디" readonly>
+    <div class="d_tagN">비밀번호</div>
+    <input type="text" class="d_cont" value="비밀번호">
+    <div class="d_tagN">전화번호</div>
+    <input type="text" class="d_cont" value="전화번호" readonly>
+    <div class="d_tagN">주소</div>
+    <input type="text" class="d_cont" value="주소" readonly>
+    <div class="d_tagN">이메일</div>
+    <input type="text" class="d_cont" value="이메일" readonly>
+    <div class="d_tagN">가입일</div>
+    <input type="text" class="d_cont" value="회원가입일" readonly>
+    <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+  </div>
+
+  <!-- 기업상세정보 -->
+  <div class="detailBox" id="detail_enterprise">
+    <div class="d_role"><i class="fas fa-building"></i></div>
+    <div class="d_tagN">기업명</div>
+    <input type="text" class="d_cont" value="기업명">
+    <div class="d_tagN">아이디</div>
+    <input type="text" class="d_cont" value="아이디" readonly>
+    <div class="d_tagN">비밀번호</div>
+    <input type="text" class="d_cont" value="비밀번호">
+    <div class="d_tagN">사업자번호</div>
+    <input type="text" class="d_cont" value="사업자번호" readonly>
+    <div class="d_tagN">대표자명</div>
+    <input type="text" class="d_cont" value="대표자명">
+    <div class="d_tagN">대표번호</div>
+    <input type="text" class="d_cont" value="대표번호">
+    <div class="d_tagN">팩스</div>
+    <input type="text" class="d_cont" value="팩스">
+    <div class="d_tagN">홈페이지</div>
+    <input type="text" class="d_cont" value="홈페이지">
+    <div class="d_tagN">주요사업내용</div>
+    <input type="text" class="d_cont" value="주요사업내용">
+    <div class="d_tagN">우편번호</div>
+    <input type="text" class="d_cont" value="우편번호">
+    <div class="d_tagN">상세주소</div>
+    <input type="text" class="d_cont" value="상세주소">
+    <div class="d_tagN">설립년도</div>
+    <input type="text" class="d_cont" value="설립년도">
+    <div class="d_tagN">직원 수</div>
+    <input type="text" class="d_cont" value="직원 수">
+    <div class="d_tagN">업종</div>
+    <input type="text" class="d_cont" value="업종">
+    <div class="d_tagN">기업형태</div>
+    <input type="text" class="d_cont" value="기업형태">
+    <div class="d_tagN">가입일</div>
+    <input type="text" class="d_cont" value="가입일" readonly>
+    <div class="d_tagN">담당자 번호</div>
+    <input type="text" class="d_cont" value="담당자 번호">
+    <div class="d_tagN">담당자 이메일</div>
+    <input type="text" class="d_cont" value="담당자 이메일">
+    <button class="d_button" name="d_button">수정</button><button class="d_button">삭제</button>
+  </div>
+</div>
+
+<!--modal end-->
+
+<div id="shadow_box">
+  <!--modal창 open시 css효과를 주기위한 div-->
+  <div th:replace="admin/layout :: header"/>
+  <!--    <div id="admin_header">-->
+  <!--        <h5><a th:href="@{/}">YJE</a></h5>-->
+  <!--    </div>-->
+  <div id="wrap">
+    <div th:replace="admin/layout :: menubox"/>
+
+    <div id="main_wrap">
+      <div id="menu_guide">
+        <ul class="guide">상담관리 |
+          <!--메뉴5-->
+          <select class="guide_select">
+            <option>상담관리</option>
+            <option>상담사</option>
+          </select>
+        </ul>
+      </div>
+      <div id="menu_title">
+        <h3>상담관리</h3>
+      </div>
+
+      <div class="main">
+        <!--상담관리-->
+        <div class="main6" id="main6_counsult">
+          <!--상담관리 > 상담관리-->
+          <div id="main6_counsult_register">
+            <div class="sub_menu_title">
+              <h3>상담등록</h3>
+            </div>
+            <div class="search">
+              <ul>
+                <li>상담 종류</li>
+                <li>
+                  <select name="consult_type">
+                    <option value="">상담 종류</option>
+                    <option value="진로 상담">진로 상담</option>
+                    <option value="취업상담">취업 상담</option>
+                    <option value="창업상담">창업 상담</option>
+                  </select>
+                </li>
+              </ul>
+              <ul>
+                <li>상담 프로그램명</li>
+                <li> <input type="text"></li>
+              </ul>
+              <div class="search_button">
+                <button onclick="submit(this)">
+                  <h3>등록</h3>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="main6_counsult_search">
+            <div class="sub_menu_title">
+              <h3>상담목록 검색</h3>
+            </div>
+            <div class="search">
+              <ul>
+                <li>상담 종류</li>
+                <li>
+                  <select name="consult_type">
+                    <option value="">상담 종류</option>
+                    <option value="진로 상담">진로 상담</option>
+                    <option value="취업상담">취업 상담</option>
+                    <option value="창업상담">창업 상담</option>
+                  </select>
+                </li>
+              </ul>
+              <ul>
+                <li>상담 프로그램명</li>
+                <li> <input type="text"></li>
+              </ul>
+              <ul>
+                <li>담당 상담사</li>
+                <li> <input type="text"></li>
+              </ul>
+              <div class="search_button">
+                <button>
+                  <h3>검색</h3>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="main6_counsult_list">
+            <div class="sub_menu_title">
+              <h3>상담리스트</h3>
+            </div>
+            <div class="list">
+              <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="6_1_checkH"
+                                                               onclick="checkAll(this)"></span>
+                <span class="number">목록번호</span>
+                <span class="name">상담 프로그램명</span>
+                <span class="content">상세내용</span>
+                <span class="shape">상담종류</span>
+                <span class="regdate">등록일</span>
+                <span class="moddate">수정일</span>
+                <span class="preference">신청건수</span>
+              </div>
+              <div class="list_body" onclick="detail(this)">
+                <span class="check"><input type="checkbox" name="6_1_check"></span>
+                <span class="number">1</span>
+                <span class="name">상담 프로그램명</span>
+                <span class="content">상세내용</span>
+                <span class="shape">상담종류</span>
+                <span class="regdate">등록일</span>
+                <span class="moddate">수정일</span>
+                <span class="preference">신청건수</span>
+              </div>
+            </div>
+            <div class="list_button">
+              <button class="parameter_request">삭제</button>
+            </div>
+          </div>
+        </div>
+        <div class="main6" id="main6_counselor">
+          <!--상담관리 > 상담사-->
+          <div id="main6_counselor_list">
+            <!--상담관리 > 상담사 > 상담사리스트-->
+            <div class="sub_menu_title">
+              <h3>상담사리스트</h3>
+            </div>
+            <div class="list">
+              <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="6_2_checkH"
+                                                               onclick="checkAll(this)"></span>
+                <span class="number">번호</span>
+                <span class="name">이름</span>
+                <span class="username">아이디</span>
+                <span class="phone">연락처</span>
+                <span class="email">이메일</span>
+                <span class="joindate">가입일</span>
+                <span class="role">권한</span>
+              </div>
+              <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
+                <span class="check"><input type="checkbox" name="6_2_check"></span>
+                <span class="number">[[${i.count}]]</span>
+                <span class="name">[[${item.user_name}]]</span>
+                <span class="username">[[${item.user_id}]]</span>
+                <span class="phone">[[${item.user_ph}]]</span>
+                <span class="email">[[${item.user_email}]]</span>
+                <span class="joindate">[[${item.user_regdate}]]</span>
+                <span class="role">[[${item.user_type}]]</span>
+              </div>
+            </div>
+            <div class="list_button">
+              <button class="parameter_request">삭제</button>
+            </div>
+          </div>
+          <div id="main6_counselorDetail">
+            <!--상담관리 > 상담사 > 상담사 상세정보-->
+            <div class="sub_menu_title">
+              <h3>상담사 상세정보</h3>
+            </div>
+            <div class="list">
+              <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="6_2_checkH"
+                                                               onclick="checkAll(this)"></span>
+                <span class="employ_number">목록번호</span>
+                <span class="employ_title">제목</span>
+                <span class="name">기업명</span>
+                <span class="shape">기업형태</span>
+                <span class="ot">직종구분</span>
+                <span class="startDate">시작일</span>
+                <span class="deadline">마감일</span>
+              </div>
+              <div class="list_body" onclick="detail(this)">
+                <span class="check"><input type="checkbox" name="6_2_check"></span>
+                <span class="employ_number">1</span>
+                <span class="employ_title">ㄴㅇㅇㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㄴㅁㅇㄴㅁㅇ</span>
+                <span class="name">우경정보기술</span>
+                <span class="shape">대기업</span>
+                <span class="ot">미용·숙박·여행·오락·스포츠 관련직</span>
+                <span class="startDate">2020/09/04</span>
+                <span class="deadline">2021/09/04</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+
+<script src="/js/admin.js"></script>
+<script src="/js/admin-userManage.js"></script>
+<script src="/js/admin-listAjax.js"></script>
+<script src="/js/admin-counsult.js"></script>
+
+</html>
