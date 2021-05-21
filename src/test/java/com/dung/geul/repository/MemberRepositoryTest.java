@@ -64,9 +64,9 @@ public class MemberRepositoryTest {
                     .user_email("123")
                     .user_emailDomain("naver.com")
                     .user_addr("userAddress")
-                    .user_dept("컴퓨터정보계열")
-                    .user_class("WD-A")
-                    .user_type("STUDENT")
+//                    .user_dept("컴퓨터정보계열")
+//                    .user_class("WD-A")
+                    .user_type("COUNSELOR")
                     .user_allow(0)
                     .build();
 

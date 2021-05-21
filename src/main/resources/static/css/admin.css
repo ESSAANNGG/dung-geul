@@ -62,8 +62,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     right:15px;
     zoom:1.15;
 }
-
-
 input[type="checkbox"] {
     display:inline-block;
     height: 18px;
@@ -86,7 +84,10 @@ input[type="checkbox"]:checked:before {
     /*-webkit-margin-start: -12px;       start==left, end==right, before==top, after==bottom*/
     /*-webkit-margin-before:-50px;        top이 안되어서 그냥 relative*/
 }
-
+a{
+    text-decoration:none;
+    color:#5978b9;
+}
 
 
 

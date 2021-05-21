@@ -57,7 +57,7 @@ $('.menubox_li').click(function(){
             break;
         case 4: parameter="STAFF";
             break;
-        case 5: parameter="CONSULT";
+        case 5: parameter="COUNSELOR";
             break;
     }
     //세션 스토리지에 css를 저장
@@ -75,12 +75,15 @@ $('.menubox_li').click(function(){
 $('.guide_select').change(function(){
     select_detail_menu=document.getElementsByClassName('guide_select')[menu_index].selectedIndex;   //상세메뉴중 뭐를 클릭했는지 가져오기
 
+    //회원관리 메뉴
     if("회원관리"==this.value){
         parameter="UNIV";
     }
     else if("기업관리"==this.value){
         parameter="ENTERPRISE";
     }
+    //상담관리 메뉴
+    // else if("상담사")
 
     //세션 스토리지에 css를 저장
     window.sessionStorage.setItem('select_detail_menu',select_detail_menu);
