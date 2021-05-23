@@ -4,21 +4,13 @@ import com.dung.geul.dto.AllowEtpDTO;
 import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
-import com.dung.geul.entity.Enterprise;
-import com.dung.geul.entity.Member;
-import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.view.RedirectView;
-
-import java.util.List;
 
 
 @RequestMapping("/admin")
@@ -54,8 +46,6 @@ public class AllowController {
         model.addAttribute("allowList", allowPageResult.getDtoList());
         model.addAttribute("allowPageList", allowPageResult.getPageList());
         model.addAttribute("notAllowPageList",notAllowPageResult.getPageList() );
-
-
         System.out.println(notAllowPageResult);
         System.out.println(allowPageResult);
 
@@ -70,11 +60,6 @@ public class AllowController {
 
     @GetMapping("/admin_employ")
     public void em(){
-
-    }
-
-    @GetMapping("/admin_consult")
-    public void eme(){
 
     }
 

@@ -232,20 +232,21 @@
                 <span class="number">목록번호</span>
                 <span class="name">상담 프로그램명</span>
                 <span class="content">상세내용</span>
-                <span class="shape">상담종류</span>
-                <span class="regdate">등록일</span>
-                <span class="moddate">수정일</span>
-                <span class="preference">신청건수</span>
+<!--                <span class="shape">상담종류</span>-->
+<!--                <span class="regdate">등록일</span>-->
+<!--                <span class="moddate">수정일</span>-->
+<!--                <span class="preference">신청건수</span>-->
               </div>
-              <div class="list_body" onclick="detail(this)">
+
+              <div class="list_body" th:each=" consult : ${consultlist}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_1_check"></span>
-                <span class="number">1</span>
-                <span class="name">상담 프로그램명</span>
-                <span class="content">상세내용</span>
-                <span class="shape">상담종류</span>
-                <span class="regdate">등록일</span>
-                <span class="moddate">수정일</span>
-                <span class="preference">신청건수</span>
+                <span class="number">[[${consult.cno}]]</span>
+                <span class="name">[[${consult.Consult_field}]]</span>
+                <span class="content">[[${consult.Consult_field}]]</span>
+<!--                <span class="shape">상담종류</span>-->
+<!--                <span class="regdate">등록일</span>-->
+<!--                <span class="moddate">수정일</span>-->
+<!--                <span class="preference">신청건수</span>-->
               </div>
             </div>
             <div class="list_button">
@@ -272,7 +273,7 @@
                 <span class="joindate">가입일</span>
                 <span class="role">권한</span>
               </div>
-              <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
+              <div class="list_body" th:each="item, i : ${AllowList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_2_check"></span>
                 <span class="number">[[${i.count}]]</span>
                 <span class="name">[[${item.user_name}]]</span>
