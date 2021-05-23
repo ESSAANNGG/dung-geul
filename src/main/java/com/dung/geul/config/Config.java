@@ -1,4 +1,4 @@
-package com.dung.geul.security;
+package com.dung.geul.config;
 
 
 import org.springframework.context.annotation.Bean;

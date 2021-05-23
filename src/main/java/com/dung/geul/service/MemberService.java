@@ -4,15 +4,30 @@ import com.dung.geul.dto.AllowEtpDTO;
 import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.dto.IntroduceDTO;
 import com.dung.geul.dto.MemberDTO;
+import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Introduce;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.function.Function;
 
 public interface MemberService {
+
+    default Function<Object[], AllowEtpDTO> getFunction(){
+        Function<Object[], AllowEtpDTO> fn = (en -> AllowEntityToDTO((Member) en[0], (Enterprise) en[1]));
+        return fn;
+    }
+
+    default Pageable getPageable(int page){
+        PageRequestDTO pageRequestDTO = new PageRequestDTO(page);
+        Pageable pageable = pageRequestDTO.getPageable(Sort.by("regDate"));
+        return pageable;
+    }
 
     // 교내회원 회원가입을 위해 dto -> entity
     default Member MemberDtoToEntity(MemberDTO memberDTO, String pw){
@@ -108,7 +123,11 @@ public interface MemberService {
         }
 
         allowDTO.setUser_email(m.getUser_email());
+        allowDTO.setUser_emailDomain(m.getUser_emailDomain());
+
         allowDTO.setUser_ph(m.getUser_ph());
+        allowDTO.setUser_ph2(m.getUser_ph2());
+        allowDTO.setUser_ph3(m.getUser_ph3());
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm");
         System.out.println("m.getRegDate");
@@ -128,7 +147,6 @@ public interface MemberService {
 
         allowDTO.setUser_type(user_type);
         allowDTO.setUser_regdate(RegDateString);
-
 
         return allowDTO;
     }

@@ -43,11 +43,7 @@ public class ApplicationController {
 
         Member member = memberRepository.findById(authMemberDTO.getUser_id()).get();
 
-        System.out.println("member : " + member.toString());
-
         Optional<CV> cv = cvRepository.findByUser_id(member);
-
-        System.out.println("cv : " + cv.toString());
 
         model.addAttribute("loginUser", authMemberDTO);
 

@@ -22,7 +22,6 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.dung.geul.entity.QIntroduce.introduce;
 
 @Log4j2
 public class SearchEmployRepositoryImpl extends QuerydslRepositorySupport implements SearchEmployRepository {

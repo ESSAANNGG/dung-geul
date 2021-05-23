@@ -1,6 +1,7 @@
 package com.dung.geul.dto;
 
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -11,6 +12,7 @@ import java.util.stream.IntStream;
 
 // 페이지 결과 DTO : 목록 데이터 페이지 처리
 @Data
+@ToString
 public class PageResultDTO<DTO, EN> {
 
     //DTO 리스트
@@ -43,6 +45,14 @@ public class PageResultDTO<DTO, EN> {
 
         makePageList(result.getPageable());
 
+    }
+
+    public PageResultDTO(Page<DTO> result){
+        dtoList = result.getContent();
+
+        totalPage = result.getTotalPages();
+
+        makePageList(result.getPageable());
     }
 
     private void makePageList(Pageable pageable) {

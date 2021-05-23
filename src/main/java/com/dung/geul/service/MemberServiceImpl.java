@@ -2,19 +2,23 @@ package com.dung.geul.service;
 
 
 import com.dung.geul.dto.*;
-import com.dung.geul.entity.Enterprise;
-import com.dung.geul.entity.Member;
-import com.dung.geul.entity.MemberRole;
-import com.dung.geul.entity.Introduce;
-
+import com.dung.geul.entity.*;
+import com.dung.geul.handler.ErrorHttpResponse;
+import com.dung.geul.handler.SuccessHttpResponse;
 import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.IntroduceRepository;
 import com.dung.geul.repository.MemberRepository;
 
+import com.dung.geul.repository.MemberRepositorySupport;
+import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.QueryFactory;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,17 +26,25 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.security.SecureRandom;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import com.dung.geul.entity.Introduce;
+
 @Service
+@Log4j2
 public class MemberServiceImpl implements MemberService {
 
     @Autowired
     private MemberRepository memberRepository;
+
+    @Autowired
+    private MemberRepositorySupport memberRepositorySupport;
 
     @Autowired
     private EnterpriseRepository enterpriseRepository;
@@ -45,6 +57,8 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     private MailService mailService;
+
+    private QueryFactory queryFactory;
 
 
     // 회원가입 일반회원
@@ -455,47 +469,96 @@ public class MemberServiceImpl implements MemberService {
     }
 
 
-    // 인증 전 회원 목록 가져오기
-    public PageResultDTO<AllowEtpDTO, Object[]> getUserList(int page1, String type, int allow) {
+//    // 회원 목록 가져오기 (검색 X)
+//    public PageResultDTO<AllowEtpDTO, Object[]> getUserList(PageRequestDTO pageRequestDTO, SearchDTO searchDTO, int allow) {
+//
+//        System.out.println("getList 실행");
+//
+//        Function<Object[], AllowEtpDTO> fn = getFunction();
+//
+//        Pageable pageable = pageRequestDTO.getPageable(Sort.by("regDate") );
+//
+//        BooleanBuilder builder = findByAllowUser(searchDTO, allow);
+//
+//        Page<Object[]> result;
+//
+//        // 전체 회원 조회
+//        if(searchDTO.getType()== null) result = memberRepository.findByAllowUsers(pageable, allow);
+//
+//        // 교내회원 전체 조회
+//        else if(searchDTO.getType().equals("UNIV")) result = memberRepository.findByAllowUsersNotEnterprise(pageable, allow);
+//
+//        // 회원 type별 조회
+//        else result = memberRepository.findByAllowUsers(pageable, searchDTO.getType().toUpperCase(), allow);
+//
+//        return new PageResultDTO<>(result, fn);
+//
+//    }
 
-        System.out.println("getList 실행");
+    // 동적 쿼리 만들기
+    public BooleanBuilder findByAllowUser(SearchDTO dto, int allow){
 
-        PageRequestDTO pageRequestDTO = new PageRequestDTO(page1);
+        log.info("findByAllowUser실행");
+        log.info("SearchDTO : " + dto);
 
-        Pageable pageable = pageRequestDTO.getPageable(Sort.by("regDate"));
+        String id = dto.getId();
+        String name = dto.getName();
+        LocalDateTime startDate = dto.getStartDate();
+        LocalDateTime endDate = dto.getEndDate();
+        String type = dto.getType();
 
-        Function<Object[], AllowEtpDTO> fn = (en -> AllowEntityToDTO((Member) en[0], (Enterprise) en[1]));
+        QMember qMember = QMember.member;
 
-        Page<Object[]> result;
-        if(type.equals("USER") || type== null){     // 전체 회원 조회
+        // allow 조건
+        BooleanBuilder builder = new BooleanBuilder();
+        BooleanExpression epAllow = qMember.user_allow.eq(allow);   // where user_allow = :allow 조건 추가
+        builder.and(epAllow);
 
-            if(allow == 0) {    // 미인증 목록
-                result = memberRepository.findByAllowUsers(pageable, 0);
-            } else {            // 인증 목록
-                result = memberRepository.findByAllowUsers(pageable, 1);
-            }
+        // type 조건
+        BooleanExpression epType;
+        if(type.equals("UNIV")){
+            epType = qMember.user_type.notIn("ENTERPRISE"); // user_type not in ('ENTERPRISE")
+        } else {
+            epType = qMember.user_type.eq(type);  // user_type = :type
+        }
+        builder.and(epType);
 
-        } else if(type.equals("UNIV")){ // 교내회원 전체 조회
-
-            if(allow == 0){
-                result = memberRepository.findByAllowUsersNotEnterprise(pageable, 0);
-            } else {
-                result = memberRepository.findByAllowUsersNotEnterprise(pageable, 1);
-            }
-
-        } else {    // 회원 type별 조회
-
-            if(allow == 0){     // 미인증 목록
-                result = memberRepository.findByAllowUsers(pageable, type.toUpperCase(), 0);
-            } else {            // 인증 목록
-                result = memberRepository.findByAllowUsers(pageable, type.toUpperCase(), 1);
-            }
-
+        if(name == null && id == null && (startDate == null || endDate == null) ){
+            return builder;
         }
 
+        if(name != null){
+            BooleanExpression epName = qMember.user_name.contains(name);                // name 조건
+            builder.and(epName);
+        }
+        if(id != null){
+            BooleanExpression epId = qMember.user_id.contains(id);                      // id 조건
+            builder.and(epId);
+        }
+        if(startDate != null && endDate != null){
+            BooleanExpression epDate = qMember.regDate.between(startDate, endDate);     // regdate 조건
+            builder.and(epDate);
+        }
 
-        return new PageResultDTO<>(result, fn);
+        builder.getValue().toString();
 
+        return builder;
     }
+
+    public PageResultDTO<AllowEtpDTO, Object> getPageResultDTO(BooleanBuilder builder, Pageable pageable){
+
+        log.info("getPageResultDTO실행");
+
+        Page<AllowEtpDTO> result = memberRepositorySupport.getUser(builder, pageable);
+
+        log.info("page<> result : " + result.getContent());
+
+        Function<Object[], AllowEtpDTO> fn = getFunction();
+
+        log.info("function : " + getFunction().toString());
+
+        return new PageResultDTO<>(result);
+    }
+
 
 }

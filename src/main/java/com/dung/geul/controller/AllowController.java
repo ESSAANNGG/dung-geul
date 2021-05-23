@@ -1,14 +1,15 @@
 package com.dung.geul.controller;
 
-import com.dung.geul.dto.AllowEtpDTO;
-import com.dung.geul.dto.EnterpriseDTO;
-import com.dung.geul.dto.PageRequestDTO;
-import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.MemberServiceImpl;
+import com.querydsl.core.BooleanBuilder;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -18,11 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Locale;
 
 
 @RequestMapping("/admin")
 @Controller
+@Log4j2
 public class AllowController {
 
     @Autowired
@@ -31,38 +35,43 @@ public class AllowController {
 
     // 전체 회원 인증 리스트 페이지
     @GetMapping("/admin_userManage")
-    public void getList(@RequestParam("type") String type ,@RequestParam("page1") int page1, @RequestParam("page2") int page2, Model model){
-        //파라미터로 page, size 를 전달하면 자동으로 pageRequestDTO 객체로 수집된다
+    public void getList(Model model,
+                        @RequestParam(value = "page1", required = false, defaultValue = "1") int page1,
+                        @RequestParam(value = "page2", required = false, defaultValue = "1") int page2,
+                        SearchDTO searchDTO
+    ){
 
         // type : USER / ENTERPRISE / STUDENT / STAFF / COUNSELOR / UNIV
         System.out.println("page1 : " + page1 +"\n" +
                 "page2 : " + page2);
         System.out.println("list 컨트롤러 실행");
 
-        System.out.println("type : " + type );
-
-        if(type==null || type.equals("")){
-            type = "USER";
-        }
-
         // allow = 0, page1 : 미인증 목록
         // allow = 1, page2 : 인증 목록
-        PageResultDTO<AllowEtpDTO, Object[]> notAllowPageResult = memberService.getUserList(page1, type, 0);
-        PageResultDTO<AllowEtpDTO, Object[]> allowPageResult = memberService.getUserList(page2, type, 1);
 
-        model.addAttribute("notAllowList", notAllowPageResult.getDtoList());
-        model.addAttribute("allowList", allowPageResult.getDtoList());
-        model.addAttribute("allowPageList", allowPageResult.getPageList());
-        model.addAttribute("notAllowPageList",notAllowPageResult.getPageList() );
+        PageRequestDTO NotAllowPageDTO = new PageRequestDTO(page1);
+        PageRequestDTO AllowPageDTO = new PageRequestDTO(page2);
 
+        BooleanBuilder NotAllowBuilder = memberService.findByAllowUser(searchDTO, 0);
+        BooleanBuilder AllowBuilder = memberService.findByAllowUser(searchDTO, 1);
 
-        System.out.println(notAllowPageResult);
-        System.out.println(allowPageResult);
+        log.info("booleanBuilder - notAllowBuilder : " + NotAllowBuilder.getValue());
+        log.info("booleanBuilder - allowBuilder : " + AllowBuilder.getValue());
 
+        Sort sort = Sort.by("user_regdate");
+
+        PageResultDTO notAllowDto = memberService.getPageResultDTO(NotAllowBuilder, NotAllowPageDTO.getPageable(sort));
+        PageResultDTO allowDto = memberService.getPageResultDTO(AllowBuilder, AllowPageDTO.getPageable(sort));
+
+        model.addAttribute("notAllowList", notAllowDto.getDtoList());
+        model.addAttribute("allowList", allowDto.getDtoList());
+
+        log.info("notAllowList : " + notAllowDto.getDtoList());
+        log.info("allowList : " + allowDto.getDtoList());
     }
 
 
-        @GetMapping("/member/read")
+    @GetMapping("/member/read")
     public EnterpriseDTO read(@RequestParam("user_id") String user_id){
 
         return memberService.getEnterprise(user_id);
