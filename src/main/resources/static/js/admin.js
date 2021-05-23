@@ -1,18 +1,24 @@
 let menubox_li=document.getElementsByClassName("menubox_li");
 let menuLength=menubox_li.length;
-let parameter;
-let select_detail_menu;
+let parameter;           //주소값
+let menu_name;           //userManage,consult등 이 문자형 변수를 이용해 각menu.js파일의 함수를 호출
+let select_detail_menu;  //몇번쨰 상세메뉴인지 저장된 값(회원관리 > 회원관리 == 0)
 window.onload = function () {
 
     //세션값을 가져옴
-    detail_menu = (sessionStorage.getItem("detail_menu"));
-    select_detail_menu = (sessionStorage.getItem("select_detail_menu"));
-    parameter = (sessionStorage.getItem("parameter"));
+    select_detail_menu = (sessionStorage.getItem("select_detail_menu"));             //몇번쨰 상세메뉴인지 저장된 값(회원관리 > 회원관리 == 0)
+    menu_index = (sessionStorage.getItem("menu_index"));                             //몇번쨰 메뉴인지 저장된 값(dashboard == 0)
+    menu_name = (sessionStorage.getItem("menu_name"));                               //userManage,consult등 이 문자형 변수를 이용해 각menu.js파일의 함수를 호출
+    parameter = (sessionStorage.getItem("parameter"));                               //현재 주소를 저장
 
-    menu_index = (sessionStorage.getItem("menu_index"));
-
+    if(menu_index==undefined){
+        menu_index==0;                                                                   //초기화면은 첫번쨰 메뉴선택
+        menu_name=="dashboard";
+        parameter="/admin/admin_dashboard";
+    }
+    $(menubox_li).eq(menu_index).css("backgroundColor","#30384b");                        //선택한 메뉴의 색상 변경
     $('.guide_select option:eq(' +select_detail_menu + ')').attr("selected","selected");  //해당 메뉴의 선택한 상세메뉴(가이드)대로 상세메뉴 선택값 변경
-    MenuOff(); //전체 상세메뉴 닫기
+    MenuOff(); //전체 상세메뉴 닫기 + 선택 상세메뉴 열기
 
 }
 
@@ -34,67 +40,51 @@ function MenuOff() {
 
 //메뉴 클릭시
 let menu_index;
-let detail_menu;
 $(menubox_li).click(function(){
-    menu_index=$(this).index();                               //클래스 순번 받아오기
-
+    menu_index=$(this).index();    //몇번째 menu인지 받아오기
     //주소 파라미터 넘기기
     switch(menu_index){
-        case 0: menu_index="dashboard";
+        case 0: menu_name="dashboard";
             break;
-        case 1: menu_index="userManage?type=UNIV&page1=1&page2=1";
+        case 1: menu_name="userManage";
             break;
-        case 2: menu_index="employ";
+        case 2: menu_name="employ";
             break;
-        case 3: menu_index="board";
+        case 3: menu_name="board";
             break;
-        case 4: menu_index="consult";
+        case 4: menu_name="consult";
             break;
     }
     //세션 스토리지에 css를 저장
+    window.sessionStorage.setItem('menu_name', menu_name);
     window.sessionStorage.setItem('menu_index', menu_index);
-    window.sessionStorage.setItem('menu',menu);
-    window.sessionStorage.setItem('detail_menu',detail_menu);
     window.sessionStorage.setItem('select_detail_menu',Number(0)); //상세메뉴가 아닌 좌측메뉴클릭을 했을시엔 첫번째 상세메뉴를 보여줌
 
-    //파라미터 바꿔서 새로고침하는 함수 호출
-    submit_param();
+    //각 메뉴에 맞는 파라미터를 가져오기 위해 menu_name을 이용해 각menu.js파일에 존재하는 함수를 호출, 각 파라미터를 받아옴
+    //if (menu_name==userManage) == {userManage?type=UNIV&page1=1&page2=1}
+    window[menu_name]();
 
+    //파라미터를 받아온 후 새로고침하는 함수 호출
+    submit_param();
 });
 
+let guide_val; //어느 상세메뉴를 골랐는지 메뉴이름 그대로 저장
 //menu_guide 변경할시 상세 메뉴 변경
 $('.guide_select').change(function(){
     select_detail_menu=document.getElementsByClassName('guide_select')[0].selectedIndex;   //상세메뉴중 뭐를 클릭했는지 가져오기
+    window.sessionStorage.setItem('select_detail_menu',select_detail_menu);                          //세션 스토리지에 css를 저장 , 이를 이용해 새로고침후에 각 상세메뉴를 보여줌(display=block)
 
-    //회원관리 메뉴
-    if("회원관리"==this.value){
-        parameter="UNIV";
-    }
-    else if("기업관리"==this.value){
-        parameter="ENTERPRISE";
-    }
-    //상담관리 메뉴
-    // else if("상담사")
-
-    //세션 스토리지에 css를 저장
-    window.sessionStorage.setItem('select_detail_menu',select_detail_menu);
+    //각 메뉴의 js파일의 함수호출
+    guide_val=$('.guide_select').val();
+    window[String(menu_name)+"_guide"]();
 
     //파라미터 바꿔서 새로고침하는 함수 호출
     submit_param();
 })
 
-
-function submit_param(){  //메뉴클릭,가이드메뉴 선택시
-    window.sessionStorage.setItem('parameter',parameter); //새로고침해도 파라미터가 남아있게
-
-    alert(parameter);
-    if(parameter!=undefined){
-        location.href="/admin/admin_"+menu_index;
-    }
-    else if(parameter==undefined){
-        location.href="/admin/admin_"+menu_index + "?type=" + parameter + "&page1=1&page2=1"
-    }
-
+function submit_param(){  //메뉴클릭,가이드메뉴 선택시 파라미터를 받은 후, 새로고침
+        window.sessionStorage.setItem('parameter',parameter);
+        location.href=parameter;
 }
 
 
@@ -167,3 +157,44 @@ function checkAll(checkI) {
         $('input[name=' + check + ']').prop("checked", false);
     }
 }
+
+//ajax로 데이터전송(리스트부분)
+let dataList=[];    //AJAX로 전달할값을 담아넣는 배열
+let List;           //어느메뉴를 선택하였는지
+let ListNum;        //선택한 메뉴의 리스트중 몇번째 리스트인지 인덱스값 가져옴
+let ListId;         //선택한 리스트가 어느 상세메뉴에 있는지 id를 가져옴 (ex:main2_perlist / main2_list)
+let check_name;     //선택한 리스트메뉴에 있는 check들의 name 값
+let checkLength;    //체크된 체크박스들의 수(이만큼 반복을 하여서 체크를 하나하나 처리하면서 없애나감)
+let checked;        //체크된 체크박스들의 인덱스
+let p;              //승인,거절,삭제 중 무엇인지 html으로부터 받아옴
+
+$('.data_list').click(function(){
+
+    List = $(this).parents('.list');                                          //해당하는 리스트를 가져옴
+    ListNum = $('.list').index(List);                                         //해당하는 리스트의 인덱스num
+    ListId = $(List).parent("div").parent("div").attr('id');                  //선택한 리스트가 어느상세메뉴에 있는지 가져옴(회원관리,기업관리)
+    check_name = $(List).find('input[type=checkbox]').eq(1).attr('name');     //해당리스트의 checkname을 가져옴
+    checkLength = $('input[name=' + check_name + ']:checked').length;         //체크 수만큼 반복
+    dataList = [];                                                            //배열이 계속 쌓이는걸 방지 (초기화) , 체크한 목록을 가져와 List에 담음
+
+    p = $(this).text();  //승인/거절/삭제인지 구분
+    switch (p) {
+        case '승인' :
+            p = "ok";
+            break;
+        case '거절' :
+        case '삭제' :
+            p = "no";
+            break;
+    }
+
+    for (j = 0; j < checkLength; j++) {
+        checked = ($('input[name=' + check_name + ']').index($('input[name=' + check_name + ']:checked')));             //전체 체크중 체크된것들의 인덱스를 가져옴
+        ($('input[name=' + check_name + ']').eq(checked)).prop("checked", false);                                       //해당하는 인덱스의 체크 해제 < 이걸 해야 바로 위 문장의 인덱스가 1씩 늘어나서 다음 체크된 것들에 대해 수행할 수 있음
+        window[String(menu_name)+"_list"]();                                                                            //data를 담는 함수 호출
+    }
+
+    if(dataList.length!=0){                          //넘어온 값이 없을 시 수행하지 않음
+        window[String(menu_name)+"_list_send"]();    //list를 담았고 data보내는 함수 호출
+    }
+})
