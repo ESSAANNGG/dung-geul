@@ -507,12 +507,6 @@ public class MemberServiceImpl implements MemberService {
         String name = dto.getName();
         LocalDateTime startDate = null;
         LocalDateTime endDate = null;
-        if(dto.getStartDate() != null && dto.getEndDate() != null){
-            startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
-            endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
-        }
-
-
         String type = dto.getType();
 
         QMember qMember = QMember.member;
@@ -544,6 +538,10 @@ public class MemberServiceImpl implements MemberService {
             builder.and(epId);
         }
         if(startDate != null && endDate != null){
+
+            startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
+            endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
+
             BooleanExpression epDate = qMember.regDate.between(startDate, endDate);     // regdate 조건
             builder.and(epDate);
         }
