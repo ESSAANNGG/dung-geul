@@ -82,11 +82,6 @@ public class AllowController {
 
     }
 
-    @GetMapping("/admin_consult")
-    public void eme(){
-
-    }
-
     @GetMapping("/admin_dashboard")
     public void emf(){
 
