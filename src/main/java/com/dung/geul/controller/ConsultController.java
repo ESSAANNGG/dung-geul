@@ -28,6 +28,10 @@ public class ConsultController {
     MemberService memberService;
 
 
+    @GetMapping("/counseling/intro")
+    public void intro(){
+    }
+
     @GetMapping("/counseling/counseling")
     public void coun(PageRequestDTO pageRequestDTO,Model model){
         log.info("상담 등록끌어오기");
