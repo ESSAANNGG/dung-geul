@@ -26,6 +26,10 @@ public class ConsultController {
     MemberService memberService;
 
 
+    @GetMapping("/counseling/intro")
+    public void intro(){
+    }
+
     @GetMapping("/counseling/counseling")
     public void coun(){
     }
