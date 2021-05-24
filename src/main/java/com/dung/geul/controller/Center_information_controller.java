@@ -132,50 +132,50 @@ public class Center_information_controller {
 
 
 
-        // 파일 업로드
-        try {
-            String origFilename = files.getOriginalFilename();
-            String filename = new MD5Generator(origFilename).toString();
-
-            /* 실행되는 위치의 'files' 폴더에 파일이 저장됩니다. */
-            String savePath = System.getProperty("user.dir") + "\\files";
-
-            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
-            if (!new File(savePath).exists()) {
-                try{
-                    new File(savePath).mkdir();
-                }
-                catch(Exception e){
-                    e.getStackTrace();
-                }
-            }
-
-            String filePath = savePath + "\\" + filename;
-            files.transferTo(new File(filePath));
-
-            FileDto fileDto = new FileDto();
-            fileDto.setOrigFilename(origFilename);
-            fileDto.setFilename(filename);
-            fileDto.setFilePath(filePath);
-
-            System.out.println("파일 정보 ==========================================");
-            System.out.println(fileDto);
-            System.out.println(origFilename);
-            System.out.println(filename);
-            System.out.println(filePath);
-            System.out.println("파일 정보 ==========================================");
-
-// fileId 주는 부분 오류 수정할 것 ( fileDto에서 id가 null 이 뜸)
-            Long fileId = fileService.saveFile(fileDto);
-        System.out.println("fileId : " + fileId);
-            BoardDto.setFileId(fileId);
-            boardService.savePost(BoardDto);
-        System.out.println("BoardDto :" + BoardDto);
-
-        } catch(Exception e) {
-            System.out.println("(174번 라인) 오류 =================================");
-            e.printStackTrace();
-        }
+//        // 파일 업로드
+//        try {
+//            String origFilename = files.getOriginalFilename();
+//            String filename = new MD5Generator(origFilename).toString();
+//
+//            /* 실행되는 위치의 'files' 폴더에 파일이 저장됩니다. */
+//            String savePath = System.getProperty("user.dir") + "\\files";
+//
+//            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
+//            if (!new File(savePath).exists()) {
+//                try{
+//                    new File(savePath).mkdir();
+//                }
+//                catch(Exception e){
+//                    e.getStackTrace();
+//                }
+//            }
+//
+//            String filePath = savePath + "\\" + filename;
+//            files.transferTo(new File(filePath));
+//
+//            FileDto fileDto = new FileDto();
+//            fileDto.setOrigFilename(origFilename);
+//            fileDto.setFilename(filename);
+//            fileDto.setFilePath(filePath);
+//
+//            System.out.println("파일 정보 ==========================================");
+//            System.out.println(fileDto);
+//            System.out.println(origFilename);
+//            System.out.println(filename);
+//            System.out.println(filePath);
+//            System.out.println("파일 정보 ==========================================");
+//
+//// fileId 주는 부분 오류 수정할 것 ( fileDto에서 id가 null 이 뜸)
+//            Long fileId = fileService.saveFile(fileDto);
+//        System.out.println("fileId : " + fileId);
+//            BoardDto.setFileId(fileId);
+//            boardService.savePost(BoardDto);
+//        System.out.println("BoardDto :" + BoardDto);
+//
+//        } catch(Exception e) {
+//            System.out.println("(174번 라인) 오류 =================================");
+//            e.printStackTrace();
+//        }
 
         return "redirect:/center-information/notice_board";
     }

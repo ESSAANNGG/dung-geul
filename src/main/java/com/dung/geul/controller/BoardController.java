@@ -83,7 +83,7 @@ public class BoardController {
 
         } catch(Exception e) {
             System.out.println("======================================");
-            System.out.println("오류 발생");
+            System.out.println("파일 업로드 오류 발생");
             System.out.println("======================================");
 
             e.printStackTrace();

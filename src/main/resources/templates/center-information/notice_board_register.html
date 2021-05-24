@@ -77,7 +77,7 @@
 
                             <div class="content">
                                 <!-- form 제목, 내용 -->
-                                <form class="sform" id="frm1" th:action="@{/center-information/notice_board_register}"
+                                <form class="sform" th:action="@{/center-information/notice_board_register}"
                                     th:method="post" enctype="multipart/form-data">
                                     <div class="register_title_wrap">
                                         <label>제목</label>
@@ -91,6 +91,7 @@
                                             placeholder="내용을 입력하세요"></input>
                                     </div>
 
+
                                     <div class="form-group row">
                                         <label for="inputFile" class="col-sm-2 col-form-label">
                                             <strong>첨부파일</strong>
@@ -98,22 +99,23 @@
                                         <div class="col-sm-10">
                                             <div class="custom-file" id="inputFile">
                                                 <input name="file" type="file" class="custom-file-input"
-                                                    id="customFile">
+                                                       id="customFile">
                                                 <label class="custom-file-label" for="customFile">파일을 선택해 주세요.</label>
                                             </div>
                                         </div>
                                     </div>
 
 
-
-                                    <div class="submit_btn">
-                                        <button type="submit">등록</button>
+                                    <div>
+                                        <button class="submit_btn" type="submit">등록</button>
                                         <!-- <input type="submit" role="button" value="등록"> -->
                                     </div>
-
                                 </form>
 
+
+
                                 <!-- form 첨부파일 -->
+                                <br>
                                 <form class="sform" id="frm2" action="/post" method="post"
                                     enctype="multipart/form-data">
                                     <div class="form-group row">
@@ -132,18 +134,9 @@
                                     <input type="submit" role="button" value="등록">
                                 </form>
 
-                                <!--                            &lt;!&ndash; form 2개 전송 버튼 &ndash;&gt;-->
-                                <!--                            <div class="row">-->
-                                <!--                                <div class="col-auto mr-auto"></div>-->
-                                <!--                                <div class="col-auto">-->
-                                <!--                                    &lt;!&ndash; onclick="submit_form()"  &ndash;&gt;-->
-                                <!--                                    <input id="btn_submit" class="btn btn-primary" type="submit" role="button" value="서브밋">-->
-                                <!--                                </div>-->
-                                <!--                            </div>-->
-
                             </div>
                             <!-- End Content -->
-
+                        </div>
                         </div>
                     </div>
             </section>
@@ -161,32 +154,59 @@
 
     <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- 폼 2개 동시 처리-->
-    <!--    <script>-->
-    <!--        // function submit_form() {-->
-    <!--        //     var data = $('#frm1, #frm2').serialize();-->
-    <!--        //     alert(data + "실행");-->
-    <!--        // }-->
-
-    <!--        $(function(){-->
-    <!--            $("#btn_submit").click(function(){-->
-    <!--                alert("클릭!")-->
-    <!--                $.post("경로", $("#sform").serialzie(), function(data){-->
-
-    <!--                });-->
-    <!--            });-->
-    <!--        });-->
-    <!--    </script>-->
-
     <!-- 파일 처리 -->
-    <!-- <script>
+   <script>
+
+       // var fileDate = $('#customFile');
+
+       $('.submit_btn').click(function () {
+
+           // alert("버튼 클릭!")
+           // // if($("#customFile") != null) {
+           //     $.ajax({
+           //         url: '/center-information/post',
+           //         enctype : multipart/form-data,
+           //         processData: false,
+           //         contentType: false,
+           //         type: 'POST',
+           //         dataType: 'json'
+           //     });
+           //     alert("파일 post요청 완료!")
+           // // } else {
+           // //     alert("파일이 없습니다.")
+           // // }
+           // $.post('/center-information/post')
+           $.ajax({
+               url:'/post',
+               type: 'POST',
+               enctype: 'multipart/form-data',
+               // processData : false,
+               // contentType : "application/json; charset=8",
+               // cache: false,
+               // dataType: 'json',
+
+               success: function () {
+                   // success process
+                   alert("파일 업로드 성공!");
+               },
+
+               error: function () {
+                   // error process
+                   alert("파일 업로드 실패");
+               }
+
+           });  // end $.ajax
+
+       });
+
+
         $(".custom-file-input").on("change", function () {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
-    </script> -->
+    </script>
 
-    <!-- <script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
