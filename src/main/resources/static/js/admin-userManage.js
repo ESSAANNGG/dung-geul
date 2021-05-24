@@ -1,6 +1,18 @@
-//유저관리 전용 js파일
+//회원관리 전용 js파일
 
+function userManage(){
+    parameter="/admin/admin_userManage?type=UNIV&page1=1&page2=1";
+}
 
+function userManage_guide(){
+    switch (guide_val) {
+        case "회원관리" : parameter="/admin/admin_userManage?type=UNIV&page1=1&page2=1";
+            break;
+        case "기업관리" : parameter="/admin/admin_userManage?type=ENTERPRISE&page1=1&page2=1";
+            break;
+        case "가입현황" : parameter="/admin/admin_userManage?type=UNIV&page1=1&page2=1";
+    }
+}
 
 // 회원 상세정보
 let non_detail=0;       //.list_body안에 있는 체크박스나 select(기업형태)를 클릭했을시 상세정보를 띄우지 않게하기위한 참조변수
@@ -20,7 +32,6 @@ function detail(users) {
         setTimeout("detail_on(users_roll)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
     }
 }
-
 function detail_on(users_roll){
     switch (users_roll) {
         case '학생': detail_per="detail_student";
@@ -36,7 +47,6 @@ function detail_on(users_roll){
     $('#wrap,#admin_header').css("opacity","0.4");
     detail_state=1;
 }
-
 //상세정보를 닫음
 $('#shadow_box').click(function(e){
     if(detail_state==1) {
@@ -46,6 +56,46 @@ $('#shadow_box').click(function(e){
     }
 })
 
+//삭제,승인,거절시 ajax로 데이터 전달
+
+//회원관리에 필요한 변수
+let userid; //userid값을 하나하나 담음
+let userShape; //기업형태
+let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
+
+    function userManage_list() {
+
+        userid = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .username').text();                        //아이디값을 읽어옴
+
+        if (ListId == "main2_user") {
+            dataList.push(userid);
+        } else if (ListId == "main2_corp") {
+            alertShape = 0;
+            userShape = $('.shapeSelect:eq(' + checked + ')').val();                                            //기업형태를 읽어옴
+            if (userShape == "") {                                                                              //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
+                if (alertShape == 0 && p == "ok") {
+                    alert("기업형태를 선택해주세요");                                                               //알림을 띄워주지않았다면 띄워주고 띄워줬다면 더 띄우지 않음
+                    alertShape = 1;
+                }
+            } else {                                                                                            //기업형태를 선택하였다면 리스트에 추가
+                dataList.push("{user_Id:" + userid + ", shape:" + userShape + "}");                             //전달할 배열에 값 삽입
+            }
+        }
+}
+
+function userManage_list_send(){
+
+        $.ajax({
+            url: "/allow/member/read?result=" + p,
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(dataList),
+        })
+
+    alert(dataList) //디버깅용
+    submit_param();
+}
 
 let datea=[];
 let ran;

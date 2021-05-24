@@ -1,3 +1,18 @@
+//상담관리 전용 js파일
+
+function consult(){
+    parameter="/admin/admin_consult";
+}
+
+function consult_guide(){
+    switch (guide_val) {
+        case "상담관리" : parameter="/admin/admin_consult";
+            break;
+        case "상담사" : parameter="/admin/admin_consult";
+            break;
+    }
+}
+
 function submit(a){
     let counsult_type;
     let counsult_name;

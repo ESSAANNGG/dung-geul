@@ -1,7 +1,11 @@
 package com.dung.geul.repository;
 
+import com.dung.geul.dto.AllowEtpDTO;
+import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
+import com.querydsl.core.BooleanBuilder;
+import com.querydsl.jpa.JPQLQuery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
