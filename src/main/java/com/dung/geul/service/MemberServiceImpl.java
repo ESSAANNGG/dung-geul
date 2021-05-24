@@ -28,6 +28,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -503,8 +505,8 @@ public class MemberServiceImpl implements MemberService {
 
         String id = dto.getId();
         String name = dto.getName();
-        LocalDateTime startDate = dto.getStartDate();
-        LocalDateTime endDate = dto.getEndDate();
+        LocalDateTime startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
+        LocalDateTime endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
         String type = dto.getType();
 
         QMember qMember = QMember.member;
@@ -540,7 +542,7 @@ public class MemberServiceImpl implements MemberService {
             builder.and(epDate);
         }
 
-        builder.getValue().toString();
+        log.info("builder.getValue() : " + builder.getValue().toString());
 
         return builder;
     }
@@ -552,8 +554,6 @@ public class MemberServiceImpl implements MemberService {
         Page<AllowEtpDTO> result = memberRepositorySupport.getUser(builder, pageable);
 
         log.info("page<> result : " + result.getContent());
-
-        Function<Object[], AllowEtpDTO> fn = getFunction();
 
         log.info("function : " + getFunction().toString());
 
