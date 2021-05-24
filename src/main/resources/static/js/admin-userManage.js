@@ -97,8 +97,6 @@ function userManage_list_send(){
     submit_param();
 }
 
-
-
 let datea=[];
 let ran;
 $(document).ready(function() {

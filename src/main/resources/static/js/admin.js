@@ -198,3 +198,8 @@ $('.data_list').click(function(){
         window[String(menu_name)+"_list_send"]();    //list를 담았고 data보내는 함수 호출
     }
 })
+
+//검색을 위한 파라미터값 변경
+$('.data_search').click(function(){
+    submit_param();
+})
