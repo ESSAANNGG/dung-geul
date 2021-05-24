@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConsultRestController {
 
-    @Autowired
-    ConsultService consultService;
-
-    //상담등록
-    @PostMapping("/rest/conReg")
-    public void register(@RequestBody ConsultDTO consultDTO){
-        consultService.register(consultDTO);
-        log.info(consultDTO);
-    }
+//    @Autowired
+//    ConsultService consultService;
+//
+//    //상담등록
+//    @PostMapping("/rest/conReg")
+//    public void register(@RequestBody ConsultDTO consultDTO){
+//        consultService.register(consultDTO);
+//        log.info(consultDTO);
+//    }
 
 
 }

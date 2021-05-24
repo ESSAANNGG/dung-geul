@@ -163,6 +163,7 @@
         <!--상담관리-->
         <div class="main5" id="main5_counsult">
           <!--상담관리 > 상담관리-->
+          <form action="/admin/admin_consult" method="post">
           <div id="main5_counsult_register">
             <div class="sub_menu_title">
               <h3>상담등록</h3>
@@ -171,7 +172,7 @@
               <ul>
                 <li>상담 종류</li>
                 <li>
-                  <select name="consult_type">
+                  <select name="consult_field">
                     <option value="">상담 종류</option>
                     <option value="진로 상담">진로 상담</option>
                     <option value="취업상담">취업 상담</option>
@@ -181,7 +182,7 @@
               </ul>
               <ul>
                 <li>상담 프로그램명</li>
-                <li> <input type="text"></li>
+                <li><input type="text" name="consult_detail_field"  class="register_title_input" maxlength="15" /></li>
               </ul>
               <div class="search_button">
                 <button onclick="submit(this)">
@@ -190,6 +191,7 @@
               </div>
             </div>
           </div>
+          </form>
           <div id="main5_counsult_search">
             <div class="sub_menu_title">
               <h3>상담목록 검색</h3>
@@ -198,7 +200,7 @@
               <ul>
                 <li>상담 종류</li>
                 <li>
-                  <select name="consult_type">
+                  <select name="consult_ㄹ">
                     <option value="">상담 종류</option>
                     <option value="진로 상담">진로 상담</option>
                     <option value="취업상담">취업 상담</option>
@@ -242,7 +244,7 @@
                 <span class="check"><input type="checkbox" name="6_1_check"></span>
                 <span class="number">[[${consult.cno}]]</span>
                 <span class="name">[[${consult.Consult_field}]]</span>
-                <span class="content">[[${consult.Consult_field}]]</span>
+                <span class="content">[[${consult.Consult_detail_field}]]</span>
 <!--                <span class="shape">상담종류</span>-->
 <!--                <span class="regdate">등록일</span>-->
 <!--                <span class="moddate">수정일</span>-->
