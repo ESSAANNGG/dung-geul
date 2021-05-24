@@ -82,9 +82,15 @@ $('.guide_select').change(function(){
     submit_param();
 })
 
+let search_parameter; //parameter+search될시 사용하는 파라미터를 이용할 시에 search를 연속할 시 여러번 눌러짐 그래서 search할 시 사용되는 parameter는 따로 저장
 function submit_param(){  //메뉴클릭,가이드메뉴 선택시 파라미터를 받은 후, 새로고침
         window.sessionStorage.setItem('parameter',parameter);
-        location.href=parameter;
+        if(search_parameter==undefined) {
+            location.href = parameter;
+        }
+        else{
+            location.href = parameter+search_parameter;
+        }
 }
 
 
@@ -200,6 +206,14 @@ $('.data_list').click(function(){
 })
 
 //검색을 위한 파라미터값 변경
+let select_search;        //검색하는 검색창의 위치가 어디인지
+let search_data_length;   //검색할 수 있는 data 입력칸이 몇개가있는지
 $('.data_search').click(function(){
+    select_search = $(this).parent("div").parent("div");                //해당 search 클래스를 저장
+    search_data_length=$(select_search).find(".search_data").length;    //검색할 수 있는 data 입력칸이 몇개가있는지
+
+    for (i=0; i<search_data_length; i++) {                              //input칸들의 값들을 확인
+        window[String(menu_name) + "_search"](i);
+    }
     submit_param();
 })
