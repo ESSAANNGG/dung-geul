@@ -14,6 +14,6 @@ public class SearchDTO {
     private String type;
     private String name;
     private String id;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private String startDate;
+    private String endDate;
 }
