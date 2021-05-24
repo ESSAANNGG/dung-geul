@@ -2,6 +2,8 @@ package com.dung.geul.controller;
 
 import com.dung.geul.dto.ConsultDTO;
 import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.entity.Consult;
 import com.dung.geul.service.ConsultService;
 import com.dung.geul.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -27,21 +29,22 @@ public class ConsultController {
 
 
     @GetMapping("/counseling/counseling")
-    public void coun(){
+    public void coun(PageRequestDTO pageRequestDTO,Model model){
+        log.info("상담 등록끌어오기");
+
+        PageResultDTO<ConsultDTO, Consult> list = consultService.getList(pageRequestDTO);
+        model.addAttribute("list",list.getDtoList());
+
     }
 
     @GetMapping("/counseling/studentcoun")
     public void stu(){
     }
 
-    @GetMapping("/counseling/list")
-    public void list(PageRequestDTO pageRequestDTO, Model model){
-        log.info("list---------"+ pageRequestDTO);
-        model.addAttribute("result",consultService.getList(pageRequestDTO));
-    }
+//    @GetMapping("/counseling/list")
+//    public void list(PageRequestDTO pageRequestDTO, Model model){
+//        log.info("list---------"+ pageRequestDTO);
+//        model.addAttribute("result",consultService.getList(pageRequestDTO));
+//    }
 
-    @GetMapping("/counseling/register")
-    public void reg(Model model){
-        model.addAttribute("detail", consultService);
-    }
 }

@@ -48,23 +48,7 @@
                 <div class="coun-box">
                     <div class="clear-coun">
                         <div class="label">
-<!--                            <li class="data" id="consult_field" name="consult_field" th:value="${dto.consult_field}"></li>-->
                         </div>
-
-<!--                        <div id="base_wrap">-->
-<!--                            <li class="category"><h5></h5></li>-->
-<!--                            <li class="data" id="em_ot" th:text="${dto.ot}"></li>-->
-<!--                            <li class="category"><h5>고용형태</h5></li>-->
-<!--                            <li class="data" id="em_ep" th:text="${dto.ep}"></li>-->
-<!--                            <li class="category"><h5>경력</h5></li>-->
-<!--                            <li class="data" id="em_career" th:text="${dto.career}"></li>-->
-<!--                            <li class="category"><h5>학력</h5></li>-->
-<!--                            <li class="data" id="em_education" th:text="${dto.education}"></li>-->
-<!--                            <li class="category"><h5>근무지역</h5></li>-->
-<!--                            <li class="data" id="em_area" th:text="${dto.area}"></li>-->
-<!--                            <li class="category"><h5>급여</h5></li>-->
-<!--                            <li class="data" id="em_salary" th:text="${dto.salary}"></li>-->
-<!--                        </div>-->
                         <div class="label">상담 분야</div>
                         <div class="coun-inline">
                             <form id="counsearch_k" name="counsearch_k" method="post" action="#">
@@ -75,11 +59,11 @@
                                     <option value="3">창업 상담</option>
                                 </select>
                                 <select name="employ-field" class="select-field1">
-                                    <option value>취업 세부 분야</option>
+                                    <option value>세부분야</option>
 <!--                                    <option value="t" th:selected="${pageRequestDTO.type =='c'}"></option>-->
-                                    <option value>취업 세부 분야 내용 1</option>
-                                    <option value>취업 세부 분야 내용 2</option>
-                                    <option value>취업 세부 분야 내용 3</option>
+                                    <option th:each=" consult : ${list}">[[${consult.Consult_detail_field}]]</option>
+<!--                                    <option value>취업 세부 분야 내용 2</option>-->
+<!--                                    <option value>취업 세부 분야 내용 3</option>-->
                                 </select>
                             </form>
                         </div>
