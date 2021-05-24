@@ -505,8 +505,14 @@ public class MemberServiceImpl implements MemberService {
 
         String id = dto.getId();
         String name = dto.getName();
-        LocalDateTime startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
-        LocalDateTime endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
+        LocalDateTime startDate = null;
+        LocalDateTime endDate = null;
+        if(dto.getStartDate() != null && dto.getEndDate() != null){
+            startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
+            endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
+        }
+
+
         String type = dto.getType();
 
         QMember qMember = QMember.member;
