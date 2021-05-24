@@ -2,6 +2,7 @@ package com.dung.geul.controller;
 
 import com.dung.geul.dto.ConsultDTO;
 import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.ConsultService;
 import com.dung.geul.service.MemberService;
 import lombok.RequiredArgsConstructor;

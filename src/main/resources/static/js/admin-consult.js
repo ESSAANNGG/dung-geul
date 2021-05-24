@@ -13,22 +13,30 @@ function consult_guide(){
     }
 }
 
-function submit(a){
-    let counsult_type;
-    let counsult_name;
+let counsult_type;
+let counsult_name;
+function consult_register(i){
+    register_val=$(select_register).find(".register_data").eq(i).val();           //각 input들의 data를 받아옴(for문 돌리는중)
 
-    counsult_type=$(a).parent("div").parent("div").find("select").val();
-    counsult_name=$(a).parent("div").parent("div").find("input[type=text]").val();
-    alert(counsult_type);
-    alert(counsult_name);
-    let counsult_register;
-    counsult_register="{type:" + counsult_type + ", name:" + counsult_name + "}";
-    alert(counsult_register);
-    $.ajax({
-        url: "/rest/conReg",
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        data: JSON.stringify(counsult_register)
-    })
+    if(register_val!="") {
+        switch (i) {
+            case 0:
+                consult_type = register_val;
+                break;
+            case 1:
+                consult_name = register_val;
+                break;
+        }
+    }
+
+    function consult_register_submit() {
+        register_list="{type:" + counsult_type + ", name:" + counsult_name + "}";
+        $.ajax({
+            url: "/rest/conReg",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(register_list)
+        })
+    }
 }
