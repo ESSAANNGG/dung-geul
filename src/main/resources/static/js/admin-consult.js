@@ -16,7 +16,6 @@ function consult_guide(){
 let counsult_type;
 let counsult_name;
 function consult_register(i){
-    register_val=$(select_register).find(".register_data").eq(i).val();           //각 input들의 data를 받아옴(for문 돌리는중)
 
     if(register_val!="") {
         switch (i) {

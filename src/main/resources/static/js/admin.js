@@ -208,11 +208,13 @@ $('.list_submit').click(function(){
 //검색을 위한 파라미터값 변경
 let select_search;        //검색하는 검색창의 위치가 어디인지
 let search_data_length;   //검색할 수 있는 data 입력칸이 몇개가있는지
+let search_val;           //각 input칸의 data
 $('.search_submit').click(function(){
     select_search = $(this).parent("div").parent("div");                //해당 search 클래스를 저장
     search_data_length=$(select_search).find(".search_data").length;    //검색할 수 있는 data 입력칸이 몇개가있는지
 
     for (i=0; i<search_data_length; i++) {                              //input칸들의 값들을 확인
+        search_val=$(select_search).find(".search_data").eq(i).val();   //각 input들의 data를 받아옴(for문 돌리는중)
         window[String(menu_name) + "_search"](i);
     }
     submit_param();
@@ -221,13 +223,17 @@ $('.search_submit').click(function(){
 //ajax로 데이터전송(등록부분)
 let select_register;        //등록창의 위치가 어디인지
 let register_data_length;   //등록할때 사용하는 data 입력칸이 몇개가있는지
+let register_val;           //각 input칸의 data
 let register_list;          //전송하는 데이터를 담는 변수
 $('.register_submit').click(function(){
-    select_register = $(this).parent("div").parent("div");                //해당 search 클래스를 저장
+    select_register = $(this).parent("div").parent("div");                      //해당 search 클래스를 저장
     register_data_length = $(select_register).find(".register_data").length;    //검색할 수 있는 data 입력칸이 몇개가있는지
-    for (i=0; i<register_data_length; i++) {                              //input칸들의 값들을 확인
-        window[String(menu_name) + "_register"](i);                       //data를 리스트에 담음
+
+    for (i=0; i<register_data_length; i++) {                                    //input칸들의 값들을 확인
+        register_val=$(select_register).find(".register_data").eq(i).val();     //각 input들의 data를 받아옴(for문 돌리는중)
+        window[String(menu_name) + "_register"](i);                             //data를 리스트에 담음
     }
-    window[String(menu_name) + "_register_submit"](i);                    //data를 전송
+
+    window[String(menu_name) + "_register_submit"](i);                          //data를 전송
     submit_param();
 })
