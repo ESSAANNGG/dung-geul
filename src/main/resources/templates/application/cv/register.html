@@ -186,13 +186,13 @@
                     <div class="container1" style="display:none;">
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">졸업년도 <span>*</span> </label>
-                        <input class="common_input" name="academicBackground[][highschool-edc_date]" type="text"
+                        <input class="common_input" name="academicBackground[][highschool_edc_date]" type="text"
                                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="4" autocomplete="off" />
                       </div>
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                         <!-- <input class="common_input" name="edc_graduated" autocomplete="off" /> -->
-                        <select class="common_select schoolSelected1" name="academicBackground[][highschool-edc_graduated]">
+                        <select class="common_select schoolSelected1" name="academicBackground[][highschool_edc_graduated]">
                           <option class="gray" value="">졸업상태</option>
 
                           <option value="졸업">졸업</option>
@@ -211,15 +211,15 @@
                     <div class="container2" style="display:none;">
                       <div class="common_div width-200">
                         <label class="absolute-label" for="">입학년월 <span>*</span> </label>
-                        <input class="date_input" name="academicBackground[][college-edc_date-start]" type="month" autocomplete="off" />
+                        <input class="date_input" name="academicBackground[][college_edc_date_start]" type="month" autocomplete="off" />
                       </div>
                       <div class="common_div width-200">
                         <label class="absolute-label" for="">졸업년월 <span>*</span></label>
-                        <input class="common_input" name="academicBackground[][college-edc_date-end]" type="month" autocomplete="off" />
+                        <input class="common_input" name="academicBackground[][college_edc_date_end]" type="month" autocomplete="off" />
                       </div>
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>
-                        <select class="common_select schoolSelected1" name="academicBackground[][college-edc_graduated]">
+                        <select class="common_select schoolSelected1" name="academicBackground[][college_edc_graduated]">
                           <option class="gray" value="">졸업상태</option>
 
                           <option value="졸업">졸업</option>
@@ -241,16 +241,16 @@
                     <div class="container2-1" style="display:none;">
                       <div class="common_div width-300" style="width:409px;">
                         <label class="absolute-label" for="">전공 <span>*</span></label>
-                        <input class="common_input" name="academicBackground[][college-edc_dept]" autocomplete="off" />
+                        <input class="common_input" name="academicBackground[][college_edc_dept]" autocomplete="off" />
                       </div>
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">학점 <span>*</span></label>
-                        <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="academicBackground[][college-edc_gpa]"
+                        <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="academicBackground[][college_edc_gpa]"
                                autocomplete="off" />
                       </div>
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">총점 <span>*</span></label>
-                        <select class="common_select schoolSelected1" name="academicBackground[][college-edc_ps]">
+                        <select class="common_select schoolSelected1" name="academicBackground[][college_edc_ps]">
                           <option class="gray" value="">총점</option>
 
                           <option value="4.5">4.5</option>
@@ -269,15 +269,15 @@
                     <div class="container3" style="display:none;">
                       <div class="common_div width-200">
                         <label class="absolute-label" for="">입학년월 <span>*</span> </label>
-                        <input class="date_input" name="academicBackground[][university-edc_date-start]" type="month" autocomplete="off" />
+                        <input class="date_input" name="academicBackground[][university_edc_date_start]" type="month" autocomplete="off" />
                       </div>
                       <div class="common_div width-200">
                         <label class="absolute-label" for="">졸업년월 <span>*</span></label>
-                        <input class="common_input" name="academicBackground[][university-edc_date-end]" type="month" autocomplete="off" />
+                        <input class="common_input" name="academicBackground[][university_edc_date_end]" type="month" autocomplete="off" />
                       </div>
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>
-                        <select class="common_select schoolSelected1" name="academicBackground[][university-edc_graduated]">
+                        <select class="common_select schoolSelected1" name="academicBackground[][university_edc_graduated]">
                           <option class="gray" value="">졸업상태</option>
 
                           <option value="졸업">졸업</option>
@@ -299,17 +299,17 @@
                     <div class="container3-1" style="display:none;">
                       <div class="common_div width-300" style="width: 409px">
                         <label class="absolute-label" for="">전공 <span>*</span></label>
-                        <input class="common_input" name="academicBackground[][university-edc_dept]" autocomplete="off" />
+                        <input class="common_input" name="academicBackground[][university_edc_dept]" autocomplete="off" />
                       </div>
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">학점 <span>*</span></label>
                         <input class="common_input" type="text"
                                onKeyup="score()" maxlength="3"
-                               name="academicBackground[][university-edc_gpa]" autocomplete="off" />
+                               name="academicBackground[][university_edc_gpa]" autocomplete="off" />
                       </div>
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">총점 <span>*</span></label>
-                        <select  class="common_select schoolSelected1" name="academicBackground[][university-edc_ps]">
+                        <select  class="common_select schoolSelected1" name="academicBackground[][university_edc_ps]">
                           <option class="gray" value="">총점</option>
 
                           <option value="4.5">4.5</option>
@@ -328,7 +328,7 @@
                     <div class="container4" style="display:none;">
                       <div class="common_div width-104">
                         <label class="absolute-label" for="">학위 <span>*</span></label>
-                        <select  class="common_select schoolSelected1" name="academicBackground[][graduate-edc_graduated]">
+                        <select  class="common_select schoolSelected1" name="academicBackground[][graduate_edc_degree]">
                           <option class="gray" value="">학위</option>
 
                           <option value="석사">석사</option>
@@ -340,15 +340,15 @@
                       </div>
                       <div class="common_div width-200">
                         <label class="absolute-label" for="">입학년월 <span>*</span> </label>
-                        <input class="common_input" name="academicBackground[][graduate-edc_date-start]" type="month" autocomplete="off" />
+                        <input class="common_input" name="academicBackground[][graduate_edc_date_start]" type="month" autocomplete="off" />
                       </div>
                       <div class="common_div width-200">
                         <label class="absolute-label" for="">졸업년월 <span>*</span></label>
-                        <input class="common_input" name="academicBackground[][graduate-edc_date-end]" type="month" autocomplete="off" />
+                        <input class="common_input" name="academicBackground[][graduate_edc_date_end]" type="month" autocomplete="off" />
                       </div>
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">졸업상태 <span>*</span></label>
-                        <select  class="common_select schoolSelected1" name="academicBackground[][graduate-edc_graduated]">
+                        <select  class="common_select schoolSelected1" name="academicBackground[][graduate_edc_graduated]">
                           <option class="gray" value="">졸업상태</option>
 
                           <option value="졸업">졸업</option>
@@ -369,16 +369,16 @@
                     <div class="container4-1" style="display: none">
                       <div class="common_div width-300" style="width: 374px">
                         <label class="absolute-label" for="">전공 <span>*</span></label>
-                        <input class="common_input" name="academicBackground[][graduate-edc_dept]" autocomplete="off" />
+                        <input class="common_input" name="academicBackground[][graduate_edc_dept]" autocomplete="off" />
                       </div>
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">학점 <span>*</span></label>
-                        <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="academicBackground[][graduate-edc_gpa]"
+                        <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="academicBackground[][graduate_edc_gpa]"
                                autocomplete="off" />
                       </div>
                       <div class="common_div width-140">
                         <label class="absolute-label" for="">총점 <span>*</span></label>
-                        <select  class="common_select schoolSelected1" name="academicBackground[][graduate-edc_ps]">
+                        <select  class="common_select schoolSelected1" name="academicBackground[][graduate_edc_ps]">
                           <option class="gray" value="">총점</option>
 
                           <option value="4.5">4.5</option>
@@ -394,7 +394,7 @@
                       <br />
                       <div class="common_div width-full">
                         <label class="absolute-label" for="">논문 url<span>*</span></label>
-                        <input type="url" name="academicBackground[][graduate-edc_paper]" class="common_input" autocomplete="off" />
+                        <input type="url" name="academicBackground[][graduate_edc_paper]" class="common_input" autocomplete="off" />
                       </div>
                     </div>
                   </div>

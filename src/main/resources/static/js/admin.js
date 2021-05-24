@@ -82,9 +82,15 @@ $('.guide_select').change(function(){
     submit_param();
 })
 
+let search_parameter; //parameter+search될시 사용하는 파라미터를 이용할 시에 search를 연속할 시 여러번 눌러짐 그래서 search할 시 사용되는 parameter는 따로 저장
 function submit_param(){  //메뉴클릭,가이드메뉴 선택시 파라미터를 받은 후, 새로고침
         window.sessionStorage.setItem('parameter',parameter);
-        location.href=parameter;
+        if(search_parameter==undefined) {
+            location.href = parameter;
+        }
+        else{
+            location.href = parameter+search_parameter;
+        }
 }
 
 
@@ -168,7 +174,7 @@ let checkLength;    //체크된 체크박스들의 수(이만큼 반복을 하�
 let checked;        //체크된 체크박스들의 인덱스
 let p;              //승인,거절,삭제 중 무엇인지 html으로부터 받아옴
 
-$('.data_list').click(function(){
+$('.list_submit').click(function(){
 
     List = $(this).parents('.list');                                          //해당하는 리스트를 가져옴
     ListNum = $('.list').index(List);                                         //해당하는 리스트의 인덱스num
@@ -200,6 +206,34 @@ $('.data_list').click(function(){
 })
 
 //검색을 위한 파라미터값 변경
-$('.data_search').click(function(){
+let select_search;        //검색하는 검색창의 위치가 어디인지
+let search_data_length;   //검색할 수 있는 data 입력칸이 몇개가있는지
+let search_val;           //각 input칸의 data
+$('.search_submit').click(function(){
+    select_search = $(this).parent("div").parent("div");                //해당 search 클래스를 저장
+    search_data_length=$(select_search).find(".search_data").length;    //검색할 수 있는 data 입력칸이 몇개가있는지
+
+    for (i=0; i<search_data_length; i++) {                              //input칸들의 값들을 확인
+        search_val=$(select_search).find(".search_data").eq(i).val();   //각 input들의 data를 받아옴(for문 돌리는중)
+        window[String(menu_name) + "_search"](i);
+    }
+    submit_param();
+})
+
+//ajax로 데이터전송(등록부분)
+let select_register;        //등록창의 위치가 어디인지
+let register_data_length;   //등록할때 사용하는 data 입력칸이 몇개가있는지
+let register_val;           //각 input칸의 data
+let register_list;          //전송하는 데이터를 담는 변수
+$('.register_submit').click(function(){
+    select_register = $(this).parent("div").parent("div");                      //해당 search 클래스를 저장
+    register_data_length = $(select_register).find(".register_data").length;    //검색할 수 있는 data 입력칸이 몇개가있는지
+
+    for (i=0; i<register_data_length; i++) {                                    //input칸들의 값들을 확인
+        register_val=$(select_register).find(".register_data").eq(i).val();     //각 input들의 data를 받아옴(for문 돌리는중)
+        window[String(menu_name) + "_register"](i);                             //data를 리스트에 담음
+    }
+
+    window[String(menu_name) + "_register_submit"](i);                          //data를 전송
     submit_param();
 })

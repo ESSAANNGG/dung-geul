@@ -1,0 +1,79 @@
+/* read 페이지 */
+
+.align_center {
+  text-align: center;
+}
+.form {
+  width: 1250px;
+}
+
+.info-general > div {
+  display: inline-block;
+}
+
+.info-detail > * {
+  display: inline-block;
+}
+
+.label {
+  color: #ada9a9;
+}
+
+.info-container > div {
+  margin: 20px 0;
+}
+
+.info-detail > .label {
+  margin: 10px 10px;
+}
+
+.name {
+  font-size: 20px;
+}
+
+.china,
+.sex,
+.age {
+  color: #646262;
+}
+
+table,
+th,
+td {
+  border: 1px solid rgba(68, 68, 68, 0.144);
+}
+
+thead {
+  text-align: center;
+}
+
+thead > tr > td {
+  border-top: 2px solid rgba(88, 73, 73, 0.651);
+  height: 55px;
+  line-height: 55px;
+  background-color: #f7f7f7;
+}
+
+tbody > tr > td {
+  padding: 8px 12px 8px 12px;
+  height: 57px;
+  font-size: 14px;
+}
+
+.read_resign {
+  border: 1px solid rgb(95, 94, 94);
+  line-height: 62px;
+  border-radius: 40px;
+  margin: 0px 20px;
+  padding: 5px;
+  color: #706e6e;
+}
+
+.vertical_60 {
+  line-height: 60px;
+}
+
+.vertical_td {
+  font-size: 16px;
+  background-color: #f7f7f7;
+}

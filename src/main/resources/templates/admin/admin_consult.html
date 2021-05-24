@@ -163,6 +163,7 @@
         <!--상담관리-->
         <div class="main5" id="main5_counsult">
           <!--상담관리 > 상담관리-->
+          <form action="/admin/admin_consult" method="post">
           <div id="main5_counsult_register">
             <div class="sub_menu_title">
               <h3>상담등록</h3>
@@ -171,7 +172,7 @@
               <ul>
                 <li>상담 종류</li>
                 <li>
-                  <select name="consult_type">
+                  <select class="register_data" name="consult_field">
                     <option value="">상담 종류</option>
                     <option value="진로 상담">진로 상담</option>
                     <option value="취업상담">취업 상담</option>
@@ -181,15 +182,16 @@
               </ul>
               <ul>
                 <li>상담 프로그램명</li>
-                <li> <input type="text"></li>
+                <li><input type="text" name="consult_detail_field"  class="register_data" maxlength="15" /></li>
               </ul>
               <div class="search_button">
-                <button onclick="submit(this)">
+                <button class="register_submit">
                   <h3>등록</h3>
                 </button>
               </div>
             </div>
           </div>
+          </form>
           <div id="main5_counsult_search">
             <div class="sub_menu_title">
               <h3>상담목록 검색</h3>
@@ -198,7 +200,7 @@
               <ul>
                 <li>상담 종류</li>
                 <li>
-                  <select name="consult_type">
+                  <select name="consult_ㄹ">
                     <option value="">상담 종류</option>
                     <option value="진로 상담">진로 상담</option>
                     <option value="취업상담">취업 상담</option>
@@ -215,7 +217,7 @@
                 <li> <input type="text"></li>
               </ul>
               <div class="search_button">
-                <button class="data_search">
+                <button class="search_submit">
                   <h3>검색</h3>
                 </button>
               </div>
@@ -232,24 +234,25 @@
                 <span class="number">목록번호</span>
                 <span class="name">상담 프로그램명</span>
                 <span class="content">상세내용</span>
-                <span class="shape">상담종류</span>
-                <span class="regdate">등록일</span>
-                <span class="moddate">수정일</span>
-                <span class="preference">신청건수</span>
+<!--                <span class="shape">상담종류</span>-->
+<!--                <span class="regdate">등록일</span>-->
+<!--                <span class="moddate">수정일</span>-->
+<!--                <span class="preference">신청건수</span>-->
               </div>
-              <div class="list_body" onclick="detail(this)">
+
+              <div class="list_body" th:each=" consult : ${consultlist}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_1_check"></span>
-                <span class="number">1</span>
-                <span class="name">상담 프로그램명</span>
-                <span class="content">상세내용</span>
-                <span class="shape">상담종류</span>
-                <span class="regdate">등록일</span>
-                <span class="moddate">수정일</span>
-                <span class="preference">신청건수</span>
+                <span class="number">[[${consult.cno}]]</span>
+                <span class="name">[[${consult.Consult_field}]]</span>
+                <span class="content">[[${consult.Consult_detail_field}]]</span>
+<!--                <span class="shape">상담종류</span>-->
+<!--                <span class="regdate">등록일</span>-->
+<!--                <span class="moddate">수정일</span>-->
+<!--                <span class="preference">신청건수</span>-->
               </div>
             </div>
             <div class="list_button">
-              <button class="data_list">삭제</button>
+              <button class="list_submit">삭제</button>
             </div>
           </div>
         </div>
@@ -272,7 +275,7 @@
                 <span class="joindate">가입일</span>
                 <span class="role">권한</span>
               </div>
-              <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
+              <div class="list_body" th:each="item, i : ${AllowList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_2_check"></span>
                 <span class="number">[[${i.count}]]</span>
                 <span class="name">[[${item.user_name}]]</span>
@@ -284,7 +287,7 @@
               </div>
             </div>
             <div class="list_button">
-              <button class="data_list">삭제</button>
+              <button class="list_submit">삭제</button>
             </div>
           </div>
           <div id="main5_counselorDetail">

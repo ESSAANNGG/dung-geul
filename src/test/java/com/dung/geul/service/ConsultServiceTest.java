@@ -15,11 +15,13 @@ public class ConsultServiceTest {
 
     @Test
     public void testRegister(){
-        ConsultDTO consultDTO = ConsultDTO.builder()
-                .Consult_field("진로12324")
-                .Consult_detail_field("상담1234")
-                .build();
-        Long cno = consultService.register(consultDTO);
+        for(int i =0; i<10; i++) {
+            ConsultDTO consultDTO = ConsultDTO.builder()
+                    .Consult_field("진로" + i)
+                    .Consult_detail_field("상담1234" + i)
+                    .build();
+            Long cno = consultService.register(consultDTO);
+        }
     }
 
     @Test

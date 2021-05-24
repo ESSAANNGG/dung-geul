@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="/css/cvreset.css" />
+  <link rel="stylesheet" href="/css/common.css" />
+  <link rel="stylesheet" href="/css/cv_register.css" />
+  <link rel="stylesheet" href="/css/cv_read.css">
+  <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
+  <script src="jquery-3.6.0.min.js"></script>
+  </script>
+  <title>이력서</title>
+  <style>
+    textarea {
+      padding: 0px 30px;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+<div>
+  <div id="nav">
+    <div id="menu">
+      <a href="/">
+        <p>취업정보센터</p>
+      </a>
+      <a href="/application/cv/before">
+        <p style="float:right; font-size:15px; color:#a4acc7;">이력서 관리</p>
+      </a>
+    </div>
+  </div>
+  <div id="content">
+    <div id="cv">
+
+      <div id="form">
+        <!-- 이력서 양식부분 -->
+        <form id="cvForm" method="POST" autocomplete="off">
+          <section class="form" id="PERSONAL_INFORMATION">
+            <h2 style="margin-bottom: 50px; font-size:30px;">${loginUser.getUser_name()}님의 이력서</h2>
+
+            <p class="legend">인적사항</p>
+            <div class="info">
+              <div class="container">
+                <div class="info-container">
+                  <div class="info-general">
+                    <div class="item name">서지현</div>
+                    <div class="item china">序池鉉</div>
+                    <div class="item sex">남</div>
+                    <div class="item age">27세</div>
+                  </div>
+                  <div class="info-detail">
+                    <label class="label">생년월일</label>
+                    <div class="item year">1997년4월26일</div>
+                    <br />
+                    <label class="label" style="width:64px;">휴대폰</label>
+                    <div class="item ph">010-2613-2423</div>
+                    <br />
+                    <label class="label" style="width:64px;">Email</label>
+                    <div class="item email">ccc@naver.com</div>
+                    <br />
+                    <label class="label" style="width:64px;">주소</label>
+                    <div class="item addr">대구광역시 달서구 새동네로</div>
+                    <br />
+                    <label class="label" style="width:64px;">지원경로</label>
+                    <div class="item path">지원경로입니다.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+          <section class="form" id="경력사항">
+            <p class="legend">경력사항</p>
+            <div class="info">
+              <table class="test1">
+                <thead class="read_carrer">
+                <tr>
+                  <td class="width-224">근무기간</td>
+                  <td class="width-224">회사명</td>
+                  <td class="width-200">직위</td>
+                  <td class="width-300">담당업무</td>
+                  <td class="width-104">연봉</td>
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center"> 2016.05.24 ~ 2016.04.26</td>
+                    <td rowspan="2" class="align_center carrerName">회사명</td>
+                    <td class="align_center">선임연구원</td>
+                    <td class="align_center">담당업무입니다.</td>
+                    <td class="align_center">5000 만원</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><span class="read_resign">퇴사사유</span>퇴사사유입니다.</td>
+                  </tr>
+                </div>
+                </tbody>
+              </table>
+              <table class="carrer2">
+                <thead class="read_carrer">
+                <tr>
+                  <td class="width-224">근무기간</td>
+                  <td class="width-224 ">회사명</td>
+                  <td class="width-200">직위</td>
+                  <td class="width-300">담당업무</td>
+                  <td class="width-104">연봉</td>
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center"> 2016.05.24 ~ 2016.04.26</td>
+                    <td rowspan="2" class="align_center carrerName2"></td>
+                    <td class="align_center">선임연구원</td>
+                    <td class="align_center">담당업무입니다.</td>
+                    <td class="align_center">5000 만원</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><span class="read_resign">퇴사사유</span>퇴사사유입니다.</td>
+                  </tr>
+                </div>
+                </tbody>
+              </table>
+              <table class="carrer3">
+                <thead class="read_carrer">
+                <tr>
+                  <td class="width-224">근무기간</td>
+                  <td class="width-224 ">회사명</td>
+                  <td class="width-200">직위</td>
+                  <td class="width-300">담당업무</td>
+                  <td class="width-104">연봉</td>
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center"> 2016.05.24 ~ 2016.04.26</td>
+                    <td rowspan="2" class="align_center carrerName3"></td>
+                    <td class="align_center">선임연구원</td>
+                    <td class="align_center">담당업무입니다.</td>
+                    <td class="align_center">5000 만원</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><span class="read_resign">퇴사사유</span>퇴사사유입니다.</td>
+                  </tr>
+                </div>
+                </tbody>
+              </table>
+              <table class="carrer4">
+                <thead class="read_carrer">
+                <tr>
+                  <td class="width-224">근무기간</td>
+                  <td class="width-224 ">회사명</td>
+                  <td class="width-200">직위</td>
+                  <td class="width-300">담당업무</td>
+                  <td class="width-104">연봉</td>
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center"> 2016.05.24 ~ 2016.04.26</td>
+                    <td rowspan="2" class="align_center carrerName4"></td>
+                    <td class="align_center">선임연구원</td>
+                    <td class="align_center">담당업무입니다.</td>
+                    <td class="align_center">5000 만원</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><span class="read_resign">퇴사사유</span>퇴사사유입니다.</td>
+                  </tr>
+                </div>
+                </tbody>
+              </table>
+              <table class="carrer5">
+                <thead class="read_carrer">
+                <tr>
+                  <td class="width-224">근무기간</td>
+                  <td class="width-224 ">회사명</td>
+                  <td class="width-200">직위</td>
+                  <td class="width-300">담당업무</td>
+                  <td class="width-104">연봉</td>
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center"> 2016.05.24 ~ 2016.04.26</td>
+                    <td rowspan="2" class="align_center carrerName5"></td>
+                    <td class="align_center">선임연구원</td>
+                    <td class="align_center">담당업무입니다.</td>
+                    <td class="align_center">5000 만원</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><span class="read_resign">퇴사사유</span>퇴사사유입니다.</td>
+                  </tr>
+                </div>
+                </tbody>
+              </table>
+            </div>
+
+          </section>
+
+
+          <section class="form" id="학력사항">
+            <p class="legend">학력사항</p>
+            <div id="items" class="form-group school-test items">
+              <div class="info">
+                <table>
+                  <thead class="read_carrer">
+                  <tr>
+                    <td class="width-200">재학기간</td>
+                    <td class="width-224">학교명</td>
+                    <td class="width-104">졸업상태</td>
+                    <td class="width-300">전공</td>
+                    <td class="width-104">학위</td>
+                    <td class="width-104">학점</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"> ~ </td>
+                      <td rowspan="2" class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4"><span class="read_resign">논문url</span></td>
+                    </tr>
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="school2">
+                  <thead class="read_carrer">
+                  <tr>
+                    <td class="width-200">재학기간</td>
+                    <td class="width-224">학교명</td>
+                    <td class="width-104">졸업상태</td>
+                    <td class="width-300">전공</td>
+                    <td class="width-104">학위</td>
+                    <td class="width-104">학점</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"> ~ </td>
+                      <td rowspan="2" class="align_center schoolName2"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4"><span class="read_resign">논문url</span></td>
+                    </tr>
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="school3">
+                  <thead class="read_carrer">
+                  <tr>
+                    <td class="width-200">재학기간</td>
+                    <td class="width-224">학교명</td>
+                    <td class="width-104">졸업상태</td>
+                    <td class="width-300">전공</td>
+                    <td class="width-104">학위</td>
+                    <td class="width-104">학점</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"> ~ </td>
+                      <td rowspan="2" class="align_center schoolName3"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4"><span class="read_resign">논문url</span></td>
+                    </tr>
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="school4">
+                  <thead class="read_carrer">
+                  <tr>
+                    <td class="width-200">재학기간</td>
+                    <td class="width-224">학교명</td>
+                    <td class="width-104">졸업상태</td>
+                    <td class="width-300">전공</td>
+                    <td class="width-104">학위</td>
+                    <td class="width-104">학점</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"> ~ </td>
+                      <td rowspan="2" class="align_center schoolName4"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4"><span class="read_resign">논문url</span></td>
+                    </tr>
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="school5">
+                  <thead class="read_carrer">
+                  <tr>
+                    <td class="width-200">재학기간</td>
+                    <td class="width-224">학교명</td>
+                    <td class="width-104">졸업상태</td>
+                    <td class="width-300">전공</td>
+                    <td class="width-104">학위</td>
+                    <td class="width-104">학점</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"> ~ </td>
+                      <td rowspan="2" class="align_center schoolName5"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4"><span class="read_resign">논문url</span></td>
+                    </tr>
+                  </div>
+                  </tbody>
+
+                </table>
+
+              </div>
+            </div>
+          </section>
+
+
+          </section>
+
+          <section class="form" id="취미/특기">
+            <p class="legend">취미•특기</p>
+            <div class="info">
+              <table>
+                <tr>
+                  <td class="width-104 align_center vertical_60 vertical_td" style="height: 30px;">취미</td>
+                  <td class="width-408">123123123</td>
+                </tr>
+                <tr>
+                  <td class="align_center vertical_60 vertical_td">특기</td>
+                  <td>123123123123</td>
+                </tr>
+              </table>
+            </div>
+          </section>
+
+
+
+
+          <section class="form" id="수상경력">
+            <p class="legend">수상경력</p>
+            <div class="info">
+              <table>
+                <thead class="read_award">
+                <tr>
+                  <td class="width-200">수상명</td>
+                  <td class="width-250">수여기관</td>
+                  <td class="width-140">수상연도</td>
+                  <td class="width-full">수상내용</td>
+
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center"></td>
+                    <td class="align_center">123</td>
+                    <td class="align_center">12323</td>
+                    <td class="align_center"></td>
+
+                  </tr>
+
+                </div>
+                </tbody>
+
+              </table>
+              <table class="award2">
+                <thead class="read_award">
+                <tr>
+                  <td class="width-200">수상명</td>
+                  <td class="width-250">수여기관</td>
+                  <td class="width-140">수상연도</td>
+                  <td class="width-full">수상내용</td>
+
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center awardName2"></td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+
+                  </tr>
+
+                </div>
+                </tbody>
+
+              </table>
+              <table class="award3">
+                <thead class="read_award">
+                <tr>
+                  <td class="width-200">수상명</td>
+                  <td class="width-250">수여기관</td>
+                  <td class="width-140">수상연도</td>
+                  <td class="width-full">수상내용</td>
+
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center awardName3"></td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+
+                  </tr>
+
+                </div>
+                </tbody>
+
+              </table>
+              <table class="award4">
+                <thead class="read_award">
+                <tr>
+                  <td class="width-200">수상명</td>
+                  <td class="width-250">수여기관</td>
+                  <td class="width-140">수상연도</td>
+                  <td class="width-full">수상내용</td>
+
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center awardName4"></td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+
+                  </tr>
+
+                </div>
+                </tbody>
+
+              </table>
+              <table class="award5">
+                <thead class="read_award">
+                <tr>
+                  <td class="width-200">수상명</td>
+                  <td class="width-250">수여기관</td>
+                  <td class="width-140">수상연도</td>
+                  <td class="width-full">수상내용</td>
+
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center awardName5"></td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+                    <td class="align_center"></td>
+
+                  </tr>
+
+                </div>
+                </tbody>
+
+              </table>
+            </div>
+          </section>
+
+
+          <section class="form" id="우대사항/병역">
+            <p class="legend">우대사항•병역</p>
+            <div class="info">
+              <table>
+                <tr>
+                  <td class="width-104 align_center vertical_60 vertical_td">보훈대상</td>
+                  <td class="width-408">대상</td>
+                </tr>
+                <tr>
+                  <td class="align_center vertical_60 vertical_td">장애</td>
+                  <td>대상 <span style="color: #a4acc7;">l</span> 5급</td>
+
+                </tr>
+                <tr>
+                  <td class="align_center vertical_60 vertical_td">병역</td>
+                  <td>미필</td>
+                </tr>
+              </table>
+            </div>
+          </section>
+
+
+
+
+          <section class="form" id="가족사항">
+            <p class="legend">가족사항</p>
+            <div class="item_family">
+              <div class="info">
+                <table>
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200">가족관계</td>
+                    <td class="width-250">이름</td>
+                    <td class="width-140">나이</td>
+                    <td class="width-250">생년월일</td>
+                    <td class="width-250">지역</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center">1</td>
+                      <td class="align_center">123</td>
+                      <td class="align_center">12323</td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="family2">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200">가족관계</td>
+                    <td class="width-250 ">이름</td>
+                    <td class="width-140">나이</td>
+                    <td class="width-250">생년월일</td>
+                    <td class="width-250">지역</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"></td>
+                      <td class="align_center familyName2"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="family3">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200">가족관계</td>
+                    <td class="width-250 ">이름</td>
+                    <td class="width-140">나이</td>
+                    <td class="width-250">생년월일</td>
+                    <td class="width-250">지역</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"></td>
+                      <td class="align_center familyName3"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="family4">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200">가족관계</td>
+                    <td class="width-250 ">이름</td>
+                    <td class="width-140">나이</td>
+                    <td class="width-250">생년월일</td>
+                    <td class="width-250">지역</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"></td>
+                      <td class="align_center familyName4"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="family5">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200">가족관계</td>
+                    <td class="width-250 ">이름</td>
+                    <td class="width-140">나이</td>
+                    <td class="width-250">생년월일</td>
+                    <td class="width-250">지역</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"></td>
+                      <td class="align_center familyName5"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+          </section>
+
+
+          <section class="form" id="자격증">
+
+            <p class="legend">자격증</p>
+
+            <div class="item_lic">
+              <div class="info">
+                <table>
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200">자격증 명</td>
+                    <td class="width-250">취득일</td>
+                    <td class="width-140">만료일</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="certificate2">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200 ">자격증 명</td>
+                    <td class="width-250">취득일</td>
+                    <td class="width-140">만료일</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center certificateName2"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="certificate3">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200 ">자격증 명</td>
+                    <td class="width-250">취득일</td>
+                    <td class="width-140">만료일</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center certificateName3"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="certificate4">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200 ">자격증 명</td>
+                    <td class="width-250">취득일</td>
+                    <td class="width-140">만료일</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center certificateName4"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="certificate5">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200 ">자격증 명</td>
+                    <td class="width-250">취득일</td>
+                    <td class="width-140">만료일</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center certificateName5"></td>
+                      <td class="align_center"></td>
+                      <td class="align_center"></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+          </section>
+
+
+
+
+          <section class="form" id="어학">
+
+            <p class="legend">어학</p>
+
+            <div class="item_fl">
+              <div class="info">
+                <table>
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-250">외국어명</td>
+                    <td class="width-104">회화능력</td>
+                    <td class="width-104">독해능력</td>
+                    <td class="width-104">작문능력</td>
+                    <td class="width-250">시험종류</td>
+                    <td class="width-140">점수</td>
+                    <td class="width-140">급수</td>
+                    <td class="width-140">취득일</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center"></td>
+                      <td class="align_center"></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="language2">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-250">외국어명</td>
+                    <td class="width-104">회화능력</td>
+                    <td class="width-104">독해능력</td>
+                    <td class="width-104">작문능력</td>
+                    <td class="width-250">시험종류</td>
+                    <td class="width-140">점수</td>
+                    <td class="width-140">급수</td>
+                    <td class="width-140">취득일</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center languageName2"></td>
+                      <td class="align_center"></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="language3">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-250">외국어명</td>
+                    <td class="width-104">회화능력</td>
+                    <td class="width-104">독해능력</td>
+                    <td class="width-104">작문능력</td>
+                    <td class="width-250">시험종류</td>
+                    <td class="width-140">점수</td>
+                    <td class="width-140">급수</td>
+                    <td class="width-140">취득일</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center languageName3"></td>
+                      <td class="align_center"></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="language4">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-250">외국어명</td>
+                    <td class="width-104">회화능력</td>
+                    <td class="width-104">독해능력</td>
+                    <td class="width-104">작문능력</td>
+                    <td class="width-250">시험종류</td>
+                    <td class="width-140">점수</td>
+                    <td class="width-140">급수</td>
+                    <td class="width-140">취득일</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center languageName4"></td>
+                      <td class="align_center"></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+                <table class="language5">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-250">외국어명</td>
+                    <td class="width-104">회화능력</td>
+                    <td class="width-104">독해능력</td>
+                    <td class="width-104">작문능력</td>
+                    <td class="width-250">시험종류</td>
+                    <td class="width-140">점수</td>
+                    <td class="width-140">급수</td>
+                    <td class="width-140">취득일</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center languageName5"></td>
+                      <td class="align_center"></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+
+            <div>
+          </section>
+
+
+
+
+
+          <section class="form" id="희망조건">
+            <p class="legend">희망조건</p>
+            <div class="info">
+              <table>
+                <tr>
+                  <td class="width-104 align_center vertical_60 vertical_td">응시부문</td>
+                  <td class="width-408">응시부문입니다.</td>
+                </tr>
+                <tr>
+                  <td class="align_center vertical_60 vertical_td">희망연봉</td>
+                  <td>희망연봉 입니다.</td>
+
+                </tr>
+              </table>
+            </div>
+          </section>
+
+        </form>
+      </div>
+
+
+
+      <!-- form end -->
+      <!-- 오른쪽 메뉴부분 -->
+      <!--    <div id="aside">
+        <h2 id="addcv">추가항목</h2>
+        <ul id="addlist">
+          <li style="padding-top:25px;">
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-graduation-cap"></i>
+            <span>학력</span>
+            <button type="button" id="btn1">
+              <i style="font-size:25px; " id="schoolPlus" class="fas fa-plus-circle"></i>
+            </button>
+
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fab fa-dribbble"></i>
+            <span>취미•특기</span>
+            <button type="button" id="btn2"><i id="hobbyPlus" style="font-size:25px;"
+                class="fas fa-plus-circle"></i></button>
+
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-medal"></i>
+            <span>수상경력</span>
+            <button type="button" id="btn3"><i id="awardPlus" style="font-size:25px; "
+                class="fas fa-plus-circle"></i></button>
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="far fa-handshake"></i>
+            <span>우대사항•병역</span>
+            <button type="button" id="btn4"><i id="milPlus" style="font-size:25px; "
+                class="fas fa-plus-circle"></i></button>
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-users"></i>
+            <span>가족사항</span>
+            <button type="button" id="btn5"><i id="familPlus" style="font-size:25px;"
+                class="fas fa-plus-circle"></i></button>
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-address-card"></i>
+            <span>자격증</span>
+            <button type="button" id="btn6"><i id="certificatePlus" style="font-size:25px;"
+                class="fas fa-plus-circle"></i></button>
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-language"></i>
+            <span>어학</span>
+            <button type="button" id="btn7"><i id="languagePlus" style="font-size:25px;"
+                class="fas fa-plus-circle"></i></button>
+          </li>
+        </ul>
+
+        <button id="submit" class="cvSubmit" type="button" form="cvForm">저장하기</button>
+      </div>
+-->
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js">
+</script>
+<script src="/js/cv_read.js"></script>
+
+
+</body>
+
+</html>
