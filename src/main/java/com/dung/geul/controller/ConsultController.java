@@ -45,6 +45,13 @@ public class ConsultController {
     public void stu(){
     }
 
+    @GetMapping("/mypage/consult/counselling_reject")
+    public void nope(){
+    }
+
+    @GetMapping("/mypage/consult/counselling_request")
+    public void request(){
+    }
 //    @GetMapping("/counseling/list")
 //    public void list(PageRequestDTO pageRequestDTO, Model model){
 //        log.info("list---------"+ pageRequestDTO);
