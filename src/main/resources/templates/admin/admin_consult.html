@@ -134,21 +134,14 @@
   </div>
 </div>
 
-<!--modal end-->
-
 <div id="shadow_box">
-  <!--modal창 open시 css효과를 주기위한 div-->
   <div th:replace="admin/layout :: header"/>
-  <!--    <div id="admin_header">-->
-  <!--        <h5><a th:href="@{/}">YJE</a></h5>-->
-  <!--    </div>-->
   <div id="wrap">
     <div th:replace="admin/layout :: menubox"/>
 
     <div id="main_wrap">
       <div id="menu_guide">
         <ul class="guide">상담관리 |
-          <!--메뉴5-->
           <select class="guide_select">
             <option>상담관리</option>
             <option>상담사</option>
@@ -161,10 +154,10 @@
 
       <div class="main">
         <!--상담관리-->
-        <div class="main5" id="main5_counsult">
+        <div class="main6" id="main6_counsult">
           <!--상담관리 > 상담관리-->
           <form action="/admin/admin_consult" method="post">
-          <div id="main5_counsult_register">
+          <div id="main6_counsult_register">
             <div class="sub_menu_title">
               <h3>상담등록</h3>
             </div>
@@ -192,7 +185,7 @@
             </div>
           </div>
           </form>
-          <div id="main5_counsult_search">
+          <div id="main6_counsult_search">
             <div class="sub_menu_title">
               <h3>상담목록 검색</h3>
             </div>
@@ -223,7 +216,7 @@
               </div>
             </div>
           </div>
-          <div id="main5_counsult_list">
+          <div id="main6_counsult_list">
             <div class="sub_menu_title">
               <h3>상담리스트</h3>
             </div>
@@ -234,10 +227,10 @@
                 <span class="number">목록번호</span>
                 <span class="name">상담 프로그램명</span>
                 <span class="content">상세내용</span>
-<!--                <span class="shape">상담종류</span>-->
-<!--                <span class="regdate">등록일</span>-->
-<!--                <span class="moddate">수정일</span>-->
-<!--                <span class="preference">신청건수</span>-->
+                <span class="shape">상담종류</span>
+                <span class="regdate">등록일</span>
+                <span class="moddate">수정일</span>
+                <span class="preference">신청건수</span>
               </div>
 
               <div class="list_body" th:each=" consult : ${consultlist}" onclick="detail(this)">
@@ -245,10 +238,10 @@
                 <span class="number">[[${consult.cno}]]</span>
                 <span class="name">[[${consult.Consult_field}]]</span>
                 <span class="content">[[${consult.Consult_detail_field}]]</span>
-<!--                <span class="shape">상담종류</span>-->
-<!--                <span class="regdate">등록일</span>-->
-<!--                <span class="moddate">수정일</span>-->
-<!--                <span class="preference">신청건수</span>-->
+                <span class="shape">상담종류</span>
+                <span class="regdate">등록일</span>
+                <span class="moddate">수정일</span>
+                <span class="preference">신청건수</span>
               </div>
             </div>
             <div class="list_button">
@@ -256,9 +249,9 @@
             </div>
           </div>
         </div>
-        <div class="main5" id="main5_counselor">
+        <div class="main6" id="main6_counselor">
           <!--상담관리 > 상담사-->
-          <div id="main5_counselor_list">
+          <div id="main6_counselor_list">
             <!--상담관리 > 상담사 > 상담사리스트-->
             <div class="sub_menu_title">
               <h3>상담사리스트</h3>
@@ -273,9 +266,9 @@
                 <span class="phone">연락처</span>
                 <span class="email">이메일</span>
                 <span class="joindate">가입일</span>
-                <span class="role">권한</span>
+                <span class="shape">담당학생</span>
               </div>
-              <div class="list_body" th:each="item, i : ${AllowList}" onclick="detail(this)">
+              <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_2_check"></span>
                 <span class="number">[[${i.count}]]</span>
                 <span class="name">[[${item.user_name}]]</span>
@@ -283,39 +276,35 @@
                 <span class="phone">[[${item.user_ph}]]</span>
                 <span class="email">[[${item.user_email}]]</span>
                 <span class="joindate">[[${item.user_regdate}]]</span>
-                <span class="role">[[${item.user_type}]]</span>
+                <span class="shape">담당학생</span>
               </div>
             </div>
             <div class="list_button">
               <button class="list_submit">삭제</button>
             </div>
           </div>
-          <div id="main5_counselorDetail">
-            <!--상담관리 > 상담사 > 상담사 상세정보-->
+          <div id="main6_counselorCharge">
+            <!--상담관리 > 상담사 > 담당 학생-->
             <div class="sub_menu_title">
-              <h3>상담사 상세정보</h3>
+              <h3>담당학생</h3>
             </div>
             <div class="list">
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="6_2_checkH"
                                                                onclick="checkAll(this)"></span>
-                <span class="employ_number">목록번호</span>
-                <span class="employ_title">제목</span>
-                <span class="name">기업명</span>
-                <span class="shape">기업형태</span>
-                <span class="ot">직종구분</span>
-                <span class="startDate">시작일</span>
-                <span class="deadline">마감일</span>
+                <span class="student_number">학번</span>
+                <span class="name">이름</span>
+                <span class="name">상담 프로그램명</span>
+                <span class="state">상태</span>
+                <span class="shape">보고서</span>
               </div>
               <div class="list_body" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_2_check"></span>
-                <span class="employ_number">1</span>
-                <span class="employ_title">ㄴㅇㅇㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㄴㅁㅇㄴㅁㅇ</span>
-                <span class="name">우경정보기술</span>
-                <span class="shape">대기업</span>
-                <span class="ot">미용·숙박·여행·오락·스포츠 관련직</span>
-                <span class="startDate">2020/09/04</span>
-                <span class="deadline">2021/09/04</span>
+                <span class="student_number">학번</span>
+                <span class="name">이름</span>
+                <span class="name">상담 프로그램명</span>
+                <span class="state">상태</span>
+                <span class="shape">보고서</span>
               </div>
             </div>
           </div>
@@ -326,13 +315,12 @@
 </div>
 </body>
 
-
 <script src="/js/admin.js"></script>
 <script src="/js/admin-dashboard.js"></script>
 <script src="/js/admin-userManage.js"></script>
 <script src="/js/admin-employ.js"></script>
+<script src="/js/admin-application.js"></script>
 <script src="/js/admin-board.js"></script>
 <script src="/js/admin-consult.js"></script>
-<script src="/js/admin-listAjax.js"></script>
 
 </html>

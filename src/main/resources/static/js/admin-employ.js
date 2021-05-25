@@ -8,7 +8,8 @@ function employ_guide(){
     switch (guide_val) {
         case "공고조회" : parameter="/admin/admin_employ";
             break;
-        case "공고관리" : parameter="/admin/admin_employ1";
+        case "공고등록" : parameter="/admin/admin_employ";
+                         window.open("/Employ/list");
             break;
         case "미구현" : parameter="/admin/admin_employ";
     }

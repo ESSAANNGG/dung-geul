@@ -50,9 +50,11 @@ $(menubox_li).click(function(){
             break;
         case 2: menu_name="employ";
             break;
-        case 3: menu_name="board";
+        case 3: menu_name="application";
             break;
-        case 4: menu_name="consult";
+        case 4: menu_name="board";
+            break;
+        case 5: menu_name="consult";
             break;
     }
     //세션 스토리지에 css를 저장
@@ -131,7 +133,7 @@ $('.search_date_button').click(function(){
     date_range[(searchIndex+1)].style.backgroundColor="#ffffff";
 })
 
-//검색 값이 들어갔을시 css
+//검색 값이 들어갔을시 css변경
 $('.search select').change(function(){    //검색창의 select에 값을 넣을시
     search_color(this);
 });
@@ -142,12 +144,12 @@ $('.search input').change(function (){    //검색창의 input에 값을 넣을�
     search_color(this);
 })
 
-function search_color(a){
-    if(a.value!=""){
-        a.style.backgroundColor="#ffffff";
+function search_color(t){
+    if(t.value!=""){
+        t.style.backgroundColor="#ffffff";
     }
     else{
-        a.style.backgroundColor="#c2c9db";
+        t.style.backgroundColor="#c2c9db";
     }
 }
 

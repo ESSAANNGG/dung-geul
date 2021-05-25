@@ -91,4 +91,9 @@ public class AllowController {
     public void emg(){
 
     }
+
+    @GetMapping("/admin_application")
+    public void application(){
+
+    }
 }

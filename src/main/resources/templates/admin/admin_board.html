@@ -30,18 +30,14 @@
 
 
 <div id="shadow_box">
-  <!--modal창 open시 css효과를 주기위한 div-->
   <div th:replace="admin/layout :: header"/>
-  <!--    <div id="admin_header">-->
-  <!--        <h5><a th:href="@{/}">YJE</a></h5>-->
-  <!--    </div>-->
+
   <div id="wrap">
     <div th:replace="admin/layout :: menubox"/>
 
     <div id="main_wrap">
       <div id="menu_guide">
         <ul class="guide">게시판관리 |
-          <!--메뉴4-->
           <select class="guide_select">
             <option>미구현</option>
             <option>미구현</option>
@@ -54,7 +50,7 @@
 
       <div class="main">
         <!--게시판관리-->
-        <div class="main4">
+        <div class="main5">
 
         </div>
       </div>
@@ -63,13 +59,12 @@
 </div>
 </body>
 
-
 <script src="/js/admin.js"></script>
 <script src="/js/admin-dashboard.js"></script>
 <script src="/js/admin-userManage.js"></script>
 <script src="/js/admin-employ.js"></script>
+<script src="/js/admin-application.js"></script>
 <script src="/js/admin-board.js"></script>
 <script src="/js/admin-consult.js"></script>
-<script src="/js/admin-listAjax.js"></script>
 
 </html>
