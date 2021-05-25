@@ -1,10 +1,8 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.EmployDTO;
 import com.dung.geul.dto.IntroduceDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
-import com.dung.geul.entity.Employ;
 import com.dung.geul.entity.Introduce;
 import com.dung.geul.entity.Member;
 
@@ -59,6 +57,8 @@ public interface IntroduceService {
                 .content(introduce.getContent())
                 .start_date(introduce.getRegDate())
                 .end_date(introduce.getEnd_date())
+                .regDate(introduce.getRegDate())
+                .modDate(introduce.getModDate())
                 .user_id(member.getUser_id())
                 .user_name(member.getUser_name())
                 .build();

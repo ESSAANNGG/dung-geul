@@ -163,7 +163,7 @@
                   <li class="post_title" th:text="${dto.title}"></li><i class="far fa-bookmark"></i>
                 </ul>
                 <ul class="post_corp_name_wrap"><i class="fas fa-map-marker-alt"></i>
-                  <li class="post_corp_name" th:text="${dto.user_name}">작성자</li>
+                  <li class="post_corp_name" th:text="${dto?.etp_name}">작성자</li>
                 </ul>
                 <ul class="post_cont" th:text="${dto.content}"></ul>
                 <ul>

@@ -21,9 +21,11 @@ public class IntroduceDTO {
 
     private LocalDateTime end_date;
 
+    private LocalDateTime regDate, modDate;
 
 
     private String user_id;
 
     private String user_name;
+
 }

@@ -192,21 +192,7 @@ public interface MemberService {
         return dto;
     }
 
-    default IntroduceDTO introduceToDTO(Introduce e, Member m){
-
-        IntroduceDTO dto = IntroduceDTO.builder()
-                .num(e.getNum())
-                .title(e.getTitle())
-                .content(e.getContent())
-                .start_date(e.getStart_date())
-                .end_date(e.getEnd_date())
-                .user_id(m.getUser_id())
-                .build();
-
-        return dto;
-    }
 
     EnterpriseDTO getEnterprise(String user_id);
 
-    IntroduceDTO getIntroduce(String user_id);
  }

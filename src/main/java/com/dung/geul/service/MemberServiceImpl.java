@@ -375,19 +375,6 @@ public class MemberServiceImpl implements MemberService {
         return enterpriseDTO;
     }
 
-    @Override
-    public IntroduceDTO getIntroduce(String user_id) {
-        Object Introduce = memberRepository.findByUser_idEtpJoinMember(user_id);
-
-        Object[] result = (Object[]) Introduce;
-        System.out.println("Introduce : " + Arrays.toString(result));
-
-        IntroduceDTO introduceDTO = introduceToDTO((Introduce) result[1], (Member) result[0] );
-        System.out.println(introduceDTO.toString());
-
-        return introduceDTO;
-    }
-
 
     // 이름과 이메일이 일치하면 아이디값을 반환해주는 메소드
     public String confirmNameAndEmail(MemberDTO memberDTO) {
