@@ -1,9 +1,6 @@
 package com.dung.geul.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,11 +11,18 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Consulting  implements Serializable {    // 상담 테이블
+@ToString(exclude = {"member" , "consult"})
+public class Consulting  extends BaseEntity {    // 상담 테이블
 
     @Id
-    @Column(name = "consult_num")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long consult_num;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Consult consult;
 
     /*@Id
     @ManyToOne(fetch = FetchType.LAZY)
