@@ -4,6 +4,7 @@ import com.dung.geul.dto.*;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
+import com.dung.geul.service.EmployService;
 import com.dung.geul.service.MemberServiceImpl;
 import com.querydsl.core.BooleanBuilder;
 import lombok.extern.log4j.Log4j;
@@ -32,6 +33,8 @@ public class AllowController {
     @Autowired
     private MemberServiceImpl memberService;
 
+    @Autowired
+    private EmployService service;
 
     // 전체 회원 인증 리스트 페이지
     @GetMapping("/admin_userManage")
@@ -77,8 +80,11 @@ public class AllowController {
         return memberService.getEnterprise(user_id);
     }
 
+
     @GetMapping("/admin_employ")
-    public void em(){
+        public void list(PageRequestDTO pageRequestDTO, Model model) {
+
+            model.addAttribute("result", service.getList(pageRequestDTO));
 
     }
 

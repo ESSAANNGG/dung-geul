@@ -153,7 +153,6 @@
             <option>회원관리</option>
             <option>기업관리</option>
             <option>가입현황</option>
-            <!--<option>통계</option>-->
           </select>
         </ul>
       </div>
@@ -329,9 +328,8 @@
                                     <span class="check"><input type="checkbox" name="2_3_checkH"
                                                                onclick="checkAll(this)"></span>
                 <span class="number">번호</span>
-                <span class="name">기업명</span>
+                <span class="corp_name">기업명</span>
                 <span class="username">아이디</span>
-                <span class="phone">대표번호</span>
                 <span class="email">이메일</span>
                 <span class="joindate">가입일</span>
                 <span class="shape">기업형태</span>
@@ -339,9 +337,8 @@
               <div class="list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="2_3_check"></span>
                 <span class="number">[[${i.count}]]</span>
-                <span class="name">[[${item.user_name}]]</span>
+                <span class="corp_name">[[${item.user_name}]]</span>
                 <span class="username">[[${item.user_id}]]</span>
-                <span class="phone">[[${item.user_ph}]]</span>
                 <span class="email">[[${item.user_email}]]</span>
                 <span class="joindate">[[${item.user_regdate}]]</span>
                 <span class="role">[[${item.user_type}]]</span>
@@ -361,9 +358,8 @@
                                     <span class="check"><input type="checkbox" name="2_4_checkH"
                                                                onclick="checkAll(this)"></span>
                 <span class="number">번호</span>
-                <span class="name">기업명</span>
+                <span class="corp_name">기업명</span>
                 <span class="username">아이디</span>
-                <span class="phone">대표번호</span>
                 <span class="email">이메일</span>
                 <span class="joindate">가입일</span>
                 <span class="shape">기업형태</span>
@@ -371,9 +367,8 @@
               <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="2_4_check"></span>
                 <span class="number">[[${i.count}]]</span>
-                <span class="name">[[${item.user_name}]]</span>
+                <span class="corp_name">[[${item.user_name}]]</span>
                 <span class="username">[[${item.user_id}]]</span>
-                <span class="phone">[[${item.user_ph}]]</span>
                 <span class="email">[[${item.user_email}]]</span>
                 <span class="joindate">[[${item.user_regdate}]]</span>
                 <span class="shape"><select name="2_3_shape" class="shapeSelect">
