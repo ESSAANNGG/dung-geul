@@ -4,6 +4,7 @@ import com.dung.geul.dto.ConsultDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Consult;
+import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.ConsultService;
 import com.dung.geul.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ConsultController {
 
     private final ConsultService consultService;
-
     @Autowired
     MemberService memberService;
 
@@ -43,14 +43,6 @@ public class ConsultController {
 
     @GetMapping("/counseling/studentcoun")
     public void stu(){
-    }
-
-    @GetMapping("/mypage/consult/counselling_reject")
-    public void nope(){
-    }
-
-    @GetMapping("/mypage/consult/counselling_request")
-    public void request(){
     }
 //    @GetMapping("/counseling/list")
 //    public void list(PageRequestDTO pageRequestDTO, Model model){

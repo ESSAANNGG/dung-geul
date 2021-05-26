@@ -1,9 +1,7 @@
 package com.dung.geul.controller;
 
 import com.dung.geul.dto.EnterpriseDTO;
-import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
-import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -88,6 +85,17 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         System.out.println("controller - enterpriseDTO : " + enterpriseDTO.toString());
 
     }
+//    @GetMapping({"/consult/counselling_reject", "/consult/counselling_request"})
+//    public void conMypageRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
+//        Member member = memberService.getMember(authMemberDTO.getUser_id());
+//
+//        model.addAttribute("con",member);
+//    }
+
+    //
+//    @GetMapping("/mypage/consult/counselling_request")
+//    public void request(){
+//    }
 
     @GetMapping("/member/modifyPw")
     public void ModifyMemberPw(String user_id, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){

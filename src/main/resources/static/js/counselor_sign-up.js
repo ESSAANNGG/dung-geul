@@ -1,6 +1,7 @@
 let signUp = {
   init: function () {
-    $("#submit").on("click", () => {
+    $("#submit").on("click", event => {
+      event.preventDefault();
       alert("saveStudent 실행");
       this.saveCounselor();
     });
@@ -27,22 +28,28 @@ let signUp = {
     alert(JSON.stringify(userData));
 
     $.ajax({
-      type: "POST",
-      url: "/sigUp/counselor",
+      type: 'post',
+      url: '/sigUp/counselor',
       data: JSON.stringify(userData),
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-    })
-      .done(function (response) {
-        alert("회원가입이 완료되었습니다");
+      contentType: 'application/json; charset=utf-8',
+      dataType: 'json',
+      success: function (response) {
+        if (response == 1) {
+          alert('회원가입 되었습니다. 상담 활동은 승인 시 가능합니다. 승인 진행상황은 마이페이지에서 확인 가능합니다');
 
-        location.href = "/";
-      })
-      .fail(function (err) {
-        alert("회원가입을 실패하였습니다.");
-        console.log(JSON.stringify(err));
-      });
+          location.href = '/login';
+        } else {
+          alert('회원가입 실패했습니다');
+
+          location.href = '/';
+        }
+      },
+      error: function (error) {
+        alert('내부 오류, 회원가입 실패');
+        console.log(error);
+        location.href = '/';
+      },
+    });
   },
 };
-
 signUp.init();
