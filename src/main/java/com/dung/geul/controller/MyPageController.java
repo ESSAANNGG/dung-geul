@@ -25,7 +25,7 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
     // 매핑 기본 주소 : /mypage/
 
     @GetMapping("/before/read")
-    public String mypageBeforeRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+    public String mypageBeforeRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
         if(authMemberDTO.getUser_id().equals("admin")){
             return "redirect:/admin/admin";
         }
@@ -33,6 +33,8 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
             return "redirect:/mypage/etp/read";
         }
         else if (authMemberDTO.getUser_type().equals("COUNSELOR")) {
+//            Member member = memberService.getMember(authMemberDTO.getUser_id());
+//            model.addAttribute("logincon",member);
             return "redirect:/mypage/consult/read";
         }
         else {
@@ -109,6 +111,10 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     }
 
+    @GetMapping({"/consult/counselling_reject", "/consult/counselling_request"})
+    public void okey(){
+
+    }
 
 
 

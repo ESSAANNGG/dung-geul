@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">s
   <ad>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +11,7 @@
     <nav class="nav-primary hidden-xs">
       <ul class="nav">
         <!-- 사이드메뉴 첫번째 -->
-        <li id="one" class="active">
+        <li id="one">
           <a href="/mypage/member/read" th:if="${loginUser}" class="active">
             <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i>
             <span>회원 정보</span>
@@ -20,7 +20,7 @@
 
         <!-- 두번째 -->
         <li id="two">
-          <a href="#layout">
+          <a href="#layout" class="active">
             <i class="fa fa-columns icon"><b class="bg-warning"></b> </i>
             <span class="pull-right">
               <i class="fa fa-angle-down text"></i
