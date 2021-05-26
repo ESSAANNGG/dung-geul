@@ -39,8 +39,8 @@
       <div id="menu_guide">
         <ul class="guide">게시판관리 |
           <select class="guide_select">
-            <option>미구현</option>
-            <option>미구현</option>
+            <option>공지사항</option>
+            <option>기업정보</option>
           </select>
         </ul>
       </div>
@@ -49,9 +49,158 @@
       </div>
 
       <div class="main">
-        <!--게시판관리-->
-        <div class="main5">
-
+      <!--게시판관리-->
+        <div class="main5" id="main5_notice">
+        <!--공지사항게시판-->
+          <div id="main5_notice_search">
+            <div class="sub_menu_title">
+              <h3>공지사항 검색</h3>
+            </div>
+            <div class="search">
+              <ul>
+                <li>회원권한</li>
+                <li>
+                  <select name="role" class="search_data">
+                    <option value="UNIV">전체</option>
+                    <option value="STUDENT">학생</option>
+                    <option value="STAFF">교직원</option>
+                    <option value="COUNSELOR">상담사</option>
+                  </select>
+                </li>
+              </ul>
+              <ul>
+                <li>이름</li>
+                <li> <input type="text" class="search_data"></li>
+              </ul>
+              <ul>
+                <li>아이디</li>
+                <li><input type="text" class="search_data"></li>
+              </ul>
+              <ul>
+                <li>가입/요청 일자</li>
+                <li>
+                  <input type="date" class="search_date search_data"> &nbsp;~&nbsp; <input type="date"
+                                                                                           class="search_date search_data">
+                  <button class="search_date_button">오늘</button>
+                  <button class="search_date_button">이번주</button>
+                  <button class="search_date_button">이번달</button>
+                  <button class="search_date_button">전체</button>
+                </li>
+              </ul>
+              <div class="search_button">
+                <button class="search_submit">
+                  <h3>검색</h3>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="main5_notice_list">
+            <div class="sub_menu_title">
+              <h3>공지사항 리스트</h3>
+            </div>
+            <div class="list">
+              <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="5_1_checkH"
+                                                               onclick="checkAll(this)"></span>
+                <span class="number">번호</span>
+                <span class="name">이름</span>
+                <span class="username">아이디</span>
+                <span class="phone">연락처</span>
+                <span class="email">이메일</span>
+                <span class="joindate">가입일</span>
+                <span class="role">권한</span>
+              </div>
+              <div class="list_body" onclick="detail(this)">
+                <span class="check"><input type="checkbox" name="5_1_check"></span>
+                <span class="number"></span>
+                <span class="name"></span>
+                <span class="username"></span>
+                <span class="phone"></span>
+                <span class="email"></span>
+                <span class="joindate"></span>
+                <span class="role"></span>
+              </div>
+              <div class="list_button">
+                <button class="list_submit">삭제</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main5" id="main5_corpInformation">
+         <!--기업정보게시판-->
+          <div id="main5_corpInformation_search">
+            <div class="sub_menu_title">
+              <h3>기업정보 검색</h3>
+            </div>
+            <div class="search">
+              <ul>
+                <li>회원권한</li>
+                <li>
+                  <select name="role" class="search_data">
+                    <option value="UNIV">전체</option>
+                    <option value="STUDENT">학생</option>
+                    <option value="STAFF">교직원</option>
+                    <option value="COUNSELOR">상담사</option>
+                  </select>
+                </li>
+              </ul>
+              <ul>
+                <li>이름</li>
+                <li> <input type="text" class="search_data"></li>
+              </ul>
+              <ul>
+                <li>아이디</li>
+                <li><input type="text" class="search_data"></li>
+              </ul>
+              <ul>
+                <li>가입/요청 일자</li>
+                <li>
+                  <input type="date" class="search_date search_data"> &nbsp;~&nbsp; <input type="date"
+                                                                                           class="search_date search_data">
+                  <button class="search_date_button">오늘</button>
+                  <button class="search_date_button">이번주</button>
+                  <button class="search_date_button">이번달</button>
+                  <button class="search_date_button">전체</button>
+                </li>
+              </ul>
+              <div class="search_button">
+                <button class="search_submit">
+                  <h3>검색</h3>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="main5_corpInformation_list">
+            <div class="sub_menu_title">
+              <h3>기업정보 리스트</h3>
+            </div>
+            <div class="list">
+              <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="6_2_checkH"
+                                                               onclick="checkAll(this)"></span>
+                <span class="number">번호</span>
+                <span class="name">이름</span>
+                <span class="username">아이디</span>
+                <span class="phone">연락처</span>
+                <span class="email">이메일</span>
+                <span class="joindate">가입일</span>
+                <span class="role">권한</span>
+              </div>
+              <div class="list_body" onclick="detail(this)">
+                <span class="check"><input type="checkbox" name="6_2_check"></span>
+                <span class="number"></span>
+                <span class="name"></span>
+                <span class="username"></span>
+                <span class="phone"></span>
+                <span class="email"></span>
+                <span class="joindate"></span>
+                <span class="role"></span>
+              </div>
+              <div class="list_button">
+                <button class="list_submit">삭제</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

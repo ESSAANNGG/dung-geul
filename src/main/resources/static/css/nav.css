@@ -77,7 +77,7 @@ navbar li{
 .nav .dep1 > li.login,
 .nav .dep1 > li.join {
   color: #666666;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   width: 100px;
 }
@@ -106,6 +106,7 @@ navbar li{
 .nav .dep1 > li > a {
   display: block;
   padding: 30px 0;
+  height:80px
 }
 
 .nav .dep1 > li:hover > a {

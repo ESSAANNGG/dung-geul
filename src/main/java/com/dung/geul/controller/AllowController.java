@@ -34,7 +34,7 @@ public class AllowController {
     private MemberServiceImpl memberService;
 
     @Autowired
-    private EmployService service;
+    private EmployService employservice;
 
     // 전체 회원 인증 리스트 페이지
     @GetMapping("/admin_userManage")
@@ -84,7 +84,7 @@ public class AllowController {
     @GetMapping("/admin_employ")
         public void list(PageRequestDTO pageRequestDTO, Model model) {
 
-            model.addAttribute("result", service.getList(pageRequestDTO));
+            model.addAttribute("result", employservice.getList(pageRequestDTO));
 
     }
 
