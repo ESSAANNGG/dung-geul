@@ -69,7 +69,6 @@ $('#shadow_box').click(function(e){
 
 //삭제,승인,거절시 ajax로 데이터 전달
 
-//회원관리에 필요한 변수
 let userid; //userid값을 하나하나 담음
 let userShape; //기업형태
 let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
