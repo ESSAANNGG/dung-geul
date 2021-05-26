@@ -12,6 +12,7 @@ import com.dung.geul.service.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,9 +37,15 @@ public class IntroduceController {
 
     //자기소개서리스트
     @GetMapping("/list")
-    public void list(PageRequestDTO pageRequestDTO, Model model) {
+    public void list(PageRequestDTO pageRequestDTO, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO) {
 
-        model.addAttribute("result", service.getList(pageRequestDTO));
+        PageResultDTO pageResultDTO = service.getList(pageRequestDTO, authMemberDTO.getUser_id());
+
+        model.addAttribute("result", pageResultDTO);
+
+        System.out.println(pageResultDTO.toString());
+
+
     }
 
     //자기소개서등록이동

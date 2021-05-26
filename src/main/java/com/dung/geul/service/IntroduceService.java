@@ -1,16 +1,21 @@
 package com.dung.geul.service;
 
+import com.dung.geul.dto.AllowEtpDTO;
 import com.dung.geul.dto.IntroduceDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Introduce;
 import com.dung.geul.entity.Member;
+
+import java.util.function.Function;
 
 public interface IntroduceService {
 
      Long register(IntroduceDTO introduceDTO);
 
-    PageResultDTO<IntroduceDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
+     //자소서 리스트 서비스
+    PageResultDTO<IntroduceDTO, Object[]> getList(PageRequestDTO pageRequestDTO, String user_id);
 
     IntroduceDTO read(Long num);
 
@@ -64,7 +69,14 @@ public interface IntroduceService {
                 .build();
 
         return introduceDTO;
-    };
+    }
+
+    //자소서 서비스 함수
+    default Function<Object[], IntroduceDTO> getFunction(){
+        Function<Object[], IntroduceDTO> fn = (en -> entityToDTO((Introduce) en[0], (Member) en[1]));
+        return fn;
+    }
+
 
 
 }
