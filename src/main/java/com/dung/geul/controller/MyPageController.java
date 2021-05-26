@@ -31,9 +31,14 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         }
         if(authMemberDTO.getUser_type().equals("ENTERPRISE")){
             return "redirect:/mypage/etp/read";
-        } else {
+        }
+        else if (authMemberDTO.getUser_type().equals("COUNSELOR")) {
+            return "redirect:/mypage/consult/read";
+        }
+        else {
             return "redirect:/mypage/member/read";
         }
+
     }
 
     @GetMapping("/before/modify")
@@ -85,17 +90,14 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         System.out.println("controller - enterpriseDTO : " + enterpriseDTO.toString());
 
     }
-//    @GetMapping({"/consult/counselling_reject", "/consult/counselling_request"})
-//    public void conMypageRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
-//        Member member = memberService.getMember(authMemberDTO.getUser_id());
-//
-//        model.addAttribute("con",member);
-//    }
+    @GetMapping({"/consult/read"})
+    public void conMypageRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
+
+        model.addAttribute("memberDTO",member);
+    }
 
     //
-//    @GetMapping("/mypage/consult/counselling_request")
-//    public void request(){
-//    }
 
     @GetMapping("/member/modifyPw")
     public void ModifyMemberPw(String user_id, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
