@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="/css/employ_register.css" />
-    <link rel="stylesheet" href="/css/menu-common1.css" />
-    <link rel="stylesheet" href="/css/frame.css" />
+    <link rel="stylesheet" href="../../static/css/introduce_register.css" />
+    <link rel="stylesheet" href="../../static/css/menu-common2.css" />
+    <link rel="stylesheet" href="../../static/css/frame.css" />
 
 
     <!--jquery에서 제공하는 최신 버전의 jQuery url-->
@@ -24,69 +24,98 @@
 
 <body>
 
-<div style="display: none">id : [[${memberDTO.getUser_id()}]]</div>
-<!--네비 div-->
-<div th:replace="layout/layout :: nav" />
-<!-- Main -->
-<section id="main">
-    <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <div class="sidebar">
-                    <div class="menu2">
-                        <div id="bar">
-                            <h2>자기소개서</h2>
-                            <ul id="menu_bar">
-                                <li id="menu_con1">
-                                    <h4>자기소개서 작성</h4>
-                                    <ul id="sb_detail">
-                                        <li><a th:href="@{/Introduce/list}">자기소개서 리스트</a></li>
-                                        <li><a th:href="@{/Introduce/register}">자소개서 작성</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div> <!-- bar -->
-                    </div> <!-- menu -->
+    <div style="display: none">id : [[${memberDTO.getUser_id()}]]</div>
+    <!--네비 div-->
+    <div th:replace="layout/layout :: nav" />
+    <!-- Main -->
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="sidebar">
+                        <div class="menu2">
+                            <div id="bar">
+                                <h2>자기소개서</h2>
+                                <ul id="menu_bar">
+                                    <li id="menu_con1">
+                                        <h4>자기소개서 작성</h4>
+                                        <ul id="sb_detail">
+                                            <li><a th:href="@{/Introduce/list}">자기소개서 목록</a></li>
+                                            <li><a th:href="@{/Introduce/register}">자기소개서 작성</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div> <!-- bar -->
+                        </div> <!-- menu -->
+                    </div>
                 </div>
-            </div>
 
-            <div class="employ_register" id="employ_register1">
-                <div class="content">
+                <div class="employ_register" id="employ_register1">
+                    <div class="content">
 
-                    <input name="em_id" id="member_id" title="em_id" th:value="${{memberDTO.getUser_id()}}" />
+                        <input name="em_id" id="member_id" title="em_id" th:value="${{memberDTO.getUser_id()}}"
+                            style="display: none;" />
 
-                    <div class="register_title_wrap">
-                        <div class="register_title">
+                        <div class="register_title_wrap">
+                            <!--  <div class="register_title">
                             제목
+                        </div> -->
+                            <input type="text" name="em_title" id="Intro_title" class="register_title_input"
+                                placeholder="자기소개서 제목을 입력해주세요 (최대 20자)" maxlength="20" />
                         </div>
-                        <input type="text" name="em_title" id="Intro_title" class="register_title_input"
-                               placeholder="공고목록에서 보여질 제목입니다." maxlength="15" />
-                    </div>
+                        <div class="introduceContWrap">
+                            <div class="register_cont_wrap">
+                                <div class="register_cont">
+                                    성장과정
+                                </div>
+                                <textarea name="em_content[]" id="first_cont" class="register_cont_input"
+                                     maxlength="499">
+                                </textarea>
+                            </div>
+                            <div class="register_cont_wrap">
+                                <div class="register_cont">
+                                    성격의 장단점
+                                </div>
+                                <textarea name="em_content[]" id="second_cont" class="register_cont_input"
+                                    maxlength="499">
+                                </textarea>
+                            </div>
+                            <div class="register_cont_wrap">
+                                <div class="register_cont">
+                                    전공 및 경력사항
+                                </div>
+                                <textarea name="em_content[]" id="third_cont"class="register_cont_input" 
+                                    maxlength="499">
+                                </textarea>
+                            </div>
+                            <div class="register_cont_wrap">
+                                <div class="register_cont">
+                                    지원 동기 및 입사 후 포부
+                                </div>
+                                <textarea name="em_content[]" id="forth_cont" class="register_cont_input" 
+                                    maxlength="499">
+                                </textarea>
+                            </div>
+                            <div class="base_button_wrap">
+                                <button id="IntroReg" class="base_button">작성완료</button>
+                            </div>
+                        </div>
 
-                    <div class="register_cont_wrap">
-                        <div class="register_cont">
-                            내용
-                        </div>
-                        <textarea name="em_content" id="Intro_content" class="register_cont_input"
-                                  placeholder="추가적인 사항을 기입해주세요." maxlength="499"></textarea>
+
                     </div>
                 </div>
-            </div>
 
 
-                    <div class="base_button_wrap">
-                        <button class="base_button" onclick="pageMov(2_1)">기본정보 입력으로 이동</button>
-                        <button id="IntroReg" class="base_button">자기소개서 등록하기</button>
-                    </div>
-                </div>
+
             </div>
         </div>
-    </div>
+        </div>
+        </div>
 
-</section>
+    </section>
 
-<!--footer -->
-<footer th:replace="layout/layout :: footer" />
+    <!--footer -->
+    <footer th:replace="layout/layout :: footer" />
 
 
 </body>
@@ -105,7 +134,6 @@
     $("#em_file").change(function () {
         readURL(this);
     });
-
 </script>
 
 </html>

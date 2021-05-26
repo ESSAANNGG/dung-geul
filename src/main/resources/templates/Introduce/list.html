@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
-  <script th:async src="/js/Employ.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
   <!-- select 태그 부트스트랩 -->
@@ -22,8 +21,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
-  <link rel="stylesheet" href="/css/employ.css" />
-  <link rel="stylesheet" href="/css/menu-common1.css" />
+  <link rel="stylesheet" href="/css/introduce.css" />
+  <link rel="stylesheet" href="/css/menu-common2.css" />
   <link rel="stylesheet" href="/css/frame.css" />
 
 
@@ -48,8 +47,8 @@
                   <li id="menu_con1">
                     <h4>자기소개서 목록</h4>
                     <ul id="sb_detail">
-                      <li><a th:href="@{/Introduce/list}">자소서 리스트</a></li>
-                      <li><a th:href="@{/Introduce/register}">자소서등록</a></li>
+                      <li><a th:href="@{/Introduce/list}">자기소개서 목록</a></li>
+                      <li><a th:href="@{/Introduce/register}">자기소개서 등록</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -58,60 +57,25 @@
           </div>
         </div>
         <div class="employList">
-          <div class="employListHead">
-
-
-       <!--     <form th:action="@{/Introduce/list}" method="get" id="searchForm">
-
-            <input type="hidden" name="page" value="1">
-            <div id="search">
-
-              <input type="text" class="search form-control" id="s_title" value="제목" maxlength="15" name="keywords" th:value="${pageRequestDTO.keyword}">&lt;!&ndash;제목&ndash;&gt;
-
-              <input type="text" class="search" name="keywords" id="s_corp" value="기업명" maxlength="20" th:value="${pageRequestDTO.keyword}">&lt;!&ndash;기업명&ndash;&gt;
-
-
-            </div>
-          </div>
-
-            &lt;!&ndash; 자소서 검색 조건   &ndash;&gt;
-          <div class="input-group">
-            <div id="dummy">
-              <input type="checkbox" name="type" id="dummy_title" value="t" th:checked="${pageRequestDTO.type == 't'}">
-              <input type="checkbox" name="type" id="dummy_corp" value="w" th:checked="${pageRequestDTO.type == 'w'}">
-            </div>
-            <div class="input-group-append" id="button-addon4">
-              <button class="btn btn-outline-secondary btn-search" type="button">Search</button>
-              <button class="btn btn-outline-secondary btn-clear" type="button">Clear</button>
-            </div>
-          </div>
-        </form>-->
-
           <div class="employListPost">
             <li th:each="dto: ${result.dtoList}">
               <a th:href="@{/Introduce/read(num = ${dto.num}, page = ${result.page},
               type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
-                <ul class="post_title_wrap">
-                  <li class="post_title" th:text="${dto.title}"></li><i class="far fa-bookmark"></i>
+                 <ul>
+                  <li class="post_end_date" th:text="'작성일'+' '+ ${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}">작성일</li>
                 </ul>
-                <ul class="post_corp_name_wrap"><i class="fas fa-map-marker-alt"></i>
-                  <li class="post_corp_name" th:text="${dto?.user_id}">작성자</li>
+                <ul class="post_corp_name_wrap"><i class="fas fa-envelope-open-text"></i>
+                  <li class="post_corp_name" th:text="${dto?.title}">제목</li>
                 </ul>
-                <ul class="post_cont" th:text="${dto.content}"></ul>
-                <ul>
-
-                  <!--                  <li class="post_start_date"><i class="far fa-clock"></i>8시간 전</li>-->
-                  <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}"><i class="far fa-clock"></i></li>
-                </ul>
+                
               </a>
-              <script type="text/javascript">
+         <!--      <script type="text/javascript">
                 post_cont_sub_func();
-              </script>
+              </script> -->
 
             </li>
 
           </div>
-
           <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
             <li class="page-item" th:if="${result.prev}">
               <a class="page-link" th:href="@{/Introduce/list(page=${result.start -1 },
@@ -132,7 +96,6 @@
             </li>
           </ul>
         </div>
-      </div>
     </div>
 
 

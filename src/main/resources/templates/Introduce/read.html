@@ -1,61 +1,100 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
 
-    <script  th:async src="http://code.jquery.com/jquery-latest.min.js"></script>   <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
-    <script  th:async src="/js/Introduce.js"></script>
+    <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
+    <script th:async src="../../static/js/Introduce.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
 
-    <link rel="stylesheet" href="/css/menu-common1.css" />
-    <link rel="stylesheet" href="/css/employ_read.css"/>
-    <link rel="stylesheet" href="/css/frame.css" />
+    <link rel="stylesheet" href="../../static/css/menu-common2.css" />
 
-
+    <link rel="stylesheet" href="../../static/css/frame.css" />
+    <link rel="stylesheet" href="../../static/css/introduce_read.css" />
 
     <title>영진전문대 자기소개서</title>
-</head>
-<body>
-<input id="Intro_num" name="Intro_num" th:value="${dto.num}"/>
+  </head>
+  <body>
+    <input id="Intro_num" name="Intro_num" th:value="${dto.num}" style="display: none" />
 
-<div th:replace="layout/layout :: nav" />
+    <div th:replace="layout/layout :: nav" />
 
-<section id="shadow_box">
-    <section id="main">
+    <section id="shadow_box">
+      <section id="main">
         <div id="wrap">
-            <div id="head_wrap">
-                <span><a th:href="@{/Introduce/list}">다른 공고 보러가기</a></span>
-                <h2>[[${dto.user_id}]]</h2>
-                <h1 id="em_title" th:text="${dto.title}"></h1>
+          <div id="head_wrap">
+            <h1 id="em_title" th:text="${dto.title}">11</h1>
+          </div>
+
+          <div class="base_wrap">
+            <li class="category">
+              <h5>성장과정</h5>
+            </li>
+            <li class="data" id="em_ot" th:text="${dto.content}">
+              
+            </li>
+
+            <li />
+          </div>
+          <div class="base_wrap">
+            <li class="category">
+              <h5>성장과정</h5>
+            </li>
+            <li class="data" id="em_ot" th:text="${dto.content2}">
+              
+            </li>
+
+            <li />
+          </div>
+          <div class="base_wrap">
+            <li class="category">
+              <h5>성장과정</h5>
+            </li>
+            <li class="data" id="em_ot" th:text="${dto.content3}">
+             
+            </li>
+
+            <li />
+          </div>
+          <div class="base_wrap">
+            <li class="category">
+              <h5>성장과정</h5>
+            </li>
+            <li class="data" id="em_ot" th:text="${dto.content4}">
+              
+            </li>
+
+            <li />
+          </div>
+
+          <div class="col-md-12">
+            <div class="submit_btn">
+              <a th:href="@{/Introduce/modify(num = ${dto.num})}">
+                <button type="button">수정하기</button>
+              </a>
+              <button class="boxed-btn3" id="IntroRemove" name="IntroRemove" type="submit">
+                삭제
+              </button>
             </div>
-
-
-            <div id="base_wrap">
-                <li class="category"><h5>내용</h5></li>
-                <li class="data" id="em_ot" th:text="${dto.content}"></li>
-            </div>
-
-                <div class="col-md-12">
-                    <div class="submit_btn">
-                        <a th:href="@{/Introduce/modify(num = ${dto.num})}">
-                            <button type="button">수정하기</button>
-                        </a>
-                        <button class="boxed-btn3" id="IntroRemove" name="IntroRemove" type="submit">삭제</button>
-                    </div>
-                </div>
+          </div>
         </div>
+      </section>
     </section>
-</section>
-<!-- footer -->
+    <!-- footer -->
 
-<footer th:replace="layout/layout :: footer" />
-
-
-</body>
+    <footer th:replace="layout/layout :: footer" />
+  </body>
 </html>
