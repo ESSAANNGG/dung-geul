@@ -30,17 +30,28 @@ function detail(users) {
     } else if (non_detail == 0) {
         users_roll=$(users).children('span.role').text();                 //role을 읽어옴
         setTimeout("detail_on(users_roll)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+
+        users_id=$(users).children('span.username').text();
+        alert(users_id);//id를 읽어 해당 유저의상세정보를 검색하기위해 id를 전달
+        $.ajax({
+            url: "",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify('id: '+users_id),
+        })
+
     }
 }
 function detail_on(users_roll){
     switch (users_roll) {
-        case '학생': detail_per="detail_student";
+        case 'STUDENT': detail_per="detail_student";
             break;
-        case '교직원': detail_per="detail_staff";
+        case 'STAFF': detail_per="detail_staff";
             break;
-        case '상담사': detail_per="detail_counselor";
+        case 'COUNSELOR': detail_per="detail_counselor";
             break;
-        case '기업': case '' : detail_per="detail_enterprise";
+        case '' : detail_per="detail_enterprise";
             break;
     }
     $('#'+detail_per).css({"visibility":"visible","opacity":"1"});
