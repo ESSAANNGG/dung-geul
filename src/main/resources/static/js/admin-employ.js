@@ -34,3 +34,6 @@ function employ_list_send(){
     alert(dataList) //디버깅용
     submit_param();
 }
+
+function employ_search(i) {
+}
