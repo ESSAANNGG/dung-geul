@@ -40,7 +40,7 @@ public class IntroduceTest {
 
         IntroduceDTO introduceDTO = IntroduceDTO.builder()
             .title("Test.")
-            .content("Test...")
+//            .content("Test...")
             .user_id("student1")
                 .build();
 
