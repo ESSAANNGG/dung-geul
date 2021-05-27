@@ -4,7 +4,7 @@ $(document).ready(function () {
     let data = {
       user_id: $('#member_id').val(),
       title: $('#Intro_title').val(),
-      content: $('#first_cont').val(),
+      content1: $('#first_cont').val(),
       content2: $('#second_cont').val(),
       content3: $('#third_cont').val(),
       content4: $('#forth_cont').val(),

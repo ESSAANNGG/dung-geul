@@ -67,33 +67,29 @@
                                 <div class="register_cont">
                                     성장과정
                                 </div>
-                                <textarea  type="text" id="first_cont" class="register_cont_input"s
-                                     maxlength="499" th:value="${dto.content1}">
-                                </textarea>
+                                <textarea type="text" id="first_cont" class="register_cont_input"s
+                                     maxlength="499" th:text="${dto.content1}"></textarea>
                             </div>
                             <div class="register_cont_wrap">
                                 <div class="register_cont">
                                     성격의 장단점
                                 </div>
-                                <textarea  id="second_cont" class="register_cont_input"
-                                    maxlength="499" th:value="${dto.content2}">
-                                </textarea>
+                                <textarea id="second_cont" class="register_cont_input"
+                                    maxlength="499" th:text="${dto.content2}"></textarea>
                             </div>
                             <div class="register_cont_wrap">
                                 <div class="register_cont">
                                     전공 및 경력사항
                                 </div>
                                 <textarea id="third_cont"class="register_cont_input"
-                                    maxlength="499" th:value="${dto.content3}">
-                                </textarea>
+                                    maxlength="499" th:text="${dto.content3}"></textarea>
                             </div>
                             <div class="register_cont_wrap">
                                 <div class="register_cont">
                                     지원 동기 및 입사 후 포부
                                 </div>
-                                <textarea  id="forth_cont" class="register_cont_input"
-                                    maxlength="499" th:value="${dto.content4}">
-                                </textarea>
+                                <textarea id="forth_cont" class="register_cont_input"
+                                    maxlength="499" th:text="${dto.content4}"></textarea>
                             </div>
                             <div class="base_button_wrap">
                                 <button id="IntroSave" name="IntroSave" type="submit" class="base_button">수정하기</button>
