@@ -15,7 +15,7 @@ function employ_guide(){
     }
 }
 
-    let employ_num; //공고번호
+let employ_num; //공고번호
 function employ_list(){
     employ_num = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .number').text();                        //아이디값을 읽어옴
     dataList.push(employ_num);
