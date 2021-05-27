@@ -9,6 +9,7 @@ import com.dung.geul.service.ConsultService;
 import com.dung.geul.service.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,15 +22,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/admin")
 @Log4j2
 @RequiredArgsConstructor
-public class adminconsultController {
+public class AdminconsultController {
     private final ConsultService consultService;
 //    private final ConsultDTO consultDTO;
+
+    @Autowired
+    private MemberServiceImpl memberService;
 
         @GetMapping("/admin_consult")
         public void list (PageRequestDTO pageRequestDTO, Model model) {
 
             PageResultDTO<ConsultDTO, Consult> getlist = consultService.getList(pageRequestDTO);
+
+            model.addAttribute("counselorList", memberService.findByType("COUNSELOR"));
             model.addAttribute("consultlist", getlist.getDtoList());
+
+            log.info("counselorList : " + memberService.findByType("COUNSELOR"));
 
         }
         @PostMapping("/admin_consult")

@@ -391,19 +391,6 @@ public class MemberServiceImpl implements MemberService {
         return enterpriseDTO;
     }
 
-    @Override
-    public IntroduceDTO getIntroduce(String user_id) {
-        Object Introduce = memberRepository.findByUser_idEtpJoinMember(user_id);
-
-        Object[] result = (Object[]) Introduce;
-        System.out.println("Introduce : " + Arrays.toString(result));
-
-        IntroduceDTO introduceDTO = introduceToDTO((Introduce) result[1], (Member) result[0] );
-        System.out.println(introduceDTO.toString());
-
-        return introduceDTO;
-    }
-
 
     // 이름과 이메일이 일치하면 아이디값을 반환해주는 메소드
     public String confirmNameAndEmail(MemberDTO memberDTO) {
@@ -486,33 +473,6 @@ public class MemberServiceImpl implements MemberService {
         return sb.toString();
     }
 
-
-//    // 회원 목록 가져오기 (검색 X)
-//    public PageResultDTO<AllowEtpDTO, Object[]> getUserList(PageRequestDTO pageRequestDTO, SearchDTO searchDTO, int allow) {
-//
-//        System.out.println("getList 실행");
-//
-//        Function<Object[], AllowEtpDTO> fn = getFunction();
-//
-//        Pageable pageable = pageRequestDTO.getPageable(Sort.by("regDate") );
-//
-//        BooleanBuilder builder = findByAllowUser(searchDTO, allow);
-//
-//        Page<Object[]> result;
-//
-//        // 전체 회원 조회
-//        if(searchDTO.getType()== null) result = memberRepository.findByAllowUsers(pageable, allow);
-//
-//        // 교내회원 전체 조회
-//        else if(searchDTO.getType().equals("UNIV")) result = memberRepository.findByAllowUsersNotEnterprise(pageable, allow);
-//
-//        // 회원 type별 조회
-//        else result = memberRepository.findByAllowUsers(pageable, searchDTO.getType().toUpperCase(), allow);
-//
-//        return new PageResultDTO<>(result, fn);
-//
-//    }
-
     // 동적 쿼리 만들기
     public BooleanBuilder findByAllowUser(SearchDTO dto, int allow){
 
@@ -562,6 +522,11 @@ public class MemberServiceImpl implements MemberService {
             BooleanExpression epId = qMember.user_id.contains(id);                      // id 조건
             builder.and(epId);
         }
+
+        // date
+        startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
+        endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
+
         if(startDate != null && endDate != null){
             BooleanExpression epDate = qMember.regDate.between(startDate, endDate);     // regdate 조건
             builder.and(epDate);
@@ -583,6 +548,10 @@ public class MemberServiceImpl implements MemberService {
         log.info("function : " + getFunction().toString());
 
         return new PageResultDTO<>(result);
+    }
+
+    public List<Member> findByType(String type){
+        return memberRepository.findByUser_type(type);
     }
 
 
