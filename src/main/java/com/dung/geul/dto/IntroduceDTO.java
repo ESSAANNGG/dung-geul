@@ -15,15 +15,23 @@ public class IntroduceDTO {
 
     private String title;
 
-    private String content;
+    private String content1;
+
+    private String content2;
+
+    private String content3;
+
+    private String content4;
 
     private LocalDateTime start_date;
 
     private LocalDateTime end_date;
 
+    private LocalDateTime regDate, modDate;
 
 
     private String user_id;
 
     private String user_name;
+
 }

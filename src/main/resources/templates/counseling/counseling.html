@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/css/frame.css" />
     <script src="/js/jquery-3.5.1.min.js"></script>
     <script src="https://kit.fontawesome.com/4f031e5608.js" crossorigin="anonymous"></script>
+    <script th:async src="/js/consult.js"></script>
+
     <title>직업정보 조회</title>
 </head>
 <body>
@@ -48,38 +50,22 @@
                 <div class="coun-box">
                     <div class="clear-coun">
                         <div class="label">
-<!--                            <li class="data" id="consult_field" name="consult_field" th:value="${dto.consult_field}"></li>-->
                         </div>
-
-<!--                        <div id="base_wrap">-->
-<!--                            <li class="category"><h5></h5></li>-->
-<!--                            <li class="data" id="em_ot" th:text="${dto.ot}"></li>-->
-<!--                            <li class="category"><h5>고용형태</h5></li>-->
-<!--                            <li class="data" id="em_ep" th:text="${dto.ep}"></li>-->
-<!--                            <li class="category"><h5>경력</h5></li>-->
-<!--                            <li class="data" id="em_career" th:text="${dto.career}"></li>-->
-<!--                            <li class="category"><h5>학력</h5></li>-->
-<!--                            <li class="data" id="em_education" th:text="${dto.education}"></li>-->
-<!--                            <li class="category"><h5>근무지역</h5></li>-->
-<!--                            <li class="data" id="em_area" th:text="${dto.area}"></li>-->
-<!--                            <li class="category"><h5>급여</h5></li>-->
-<!--                            <li class="data" id="em_salary" th:text="${dto.salary}"></li>-->
-<!--                        </div>-->
                         <div class="label">상담 분야</div>
                         <div class="coun-inline">
                             <form id="counsearch_k" name="counsearch_k" method="post" action="#">
                                 <select name="select-field" class="select-field1">
-                                    <option value>상담 분야</option>
-                                    <option value="1">진로 상담</option>
-                                    <option value="2">취업 상담</option>
-                                    <option value="3">창업 상담</option>
+                                    <option value="">상담 분야</option>
+                                    <option value="진로상담">진로 상담</option>
+                                    <option value="취업상담">취업 상담</option>
+                                    <option value="창업상담">창업 상담</option>
                                 </select>
                                 <select name="employ-field" class="select-field1">
-                                    <option value>취업 세부 분야</option>
+                                    <option value>세부분야</option>
 <!--                                    <option value="t" th:selected="${pageRequestDTO.type =='c'}"></option>-->
-                                    <option value>취업 세부 분야 내용 1</option>
-                                    <option value>취업 세부 분야 내용 2</option>
-                                    <option value>취업 세부 분야 내용 3</option>
+                                    <option th:each=" consult : ${list}">[[${consult.Consult_detail_field}]]</option>
+<!--                                    <option value>취업 세부 분야 내용 2</option>-->
+<!--                                    <option value>취업 세부 분야 내용 3</option>-->
                                 </select>
                             </form>
                         </div>
@@ -92,20 +78,20 @@
                         <form id="counsearch_c" name="counsearch_c" method="post" action="#">
                             <input type='date' name='couns-date'/>
                             <select name="couns-time" class="select-field1">
-                                <option value>상담 시간</option>
-                                <option value>09:00~10:00</option>
-                                <option value>10:00~11:00</option>
-                                <option value>11:00~12:00</option>
-                                <option value>12:00~13:00</option>
-                                <option value>13:00~14:00</option>
-                                <option value>15:00~16:00</option>
-                                <option value>16:00~17:00</option>
-                                <option value>17:00~18:00</option>
+                                <option value="">상담 시간</option>
+                                <option value="09:00~10:00">09:00~10:00</option>
+                                <option value="10:00~11:00">10:00~11:00</option>
+                                <option value="11:00~12:00">11:00~12:00</option>
+                                <option value="12:00~13:00">12:00~13:00</option>
+                                <option value="13:00~14:00">13:00~14:00</option>
+                                <option value="15:00~16:00">15:00~16:00</option>
+                                <option value="16:00~17:00">16:00~17:00</option>
+                                <option value="17:00~18:00">17:00~18:00</option>
                             </select>
                         </form>
                     </div> <!-- coun-inline -->
                 </div>  <!-- coun-box -->
-                <button type="submit" class="btn-d">신청</button>
+                <button type="submit" class="btn-d" onclick="consult_apply()">신청</button>
             </div>
             <!-- coun-box-body -->
         </div>

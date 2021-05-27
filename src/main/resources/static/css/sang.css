@@ -53,13 +53,13 @@ table {
 }
 /* sidemenu */
 #main {
-    margin-top: 20px;
-    background: #fff;
-    border-bottom: solid 5px #1f3786d5;
-    border-top: solid 5px #f2f5f3;
-    border-bottom-width: 35px;
+    margin-top:40px;
+    background: #eee;
+    border-top: solid 5px #1f3786d5;
     border-top-width: 35px;
-    z-index: -2;
+    border-bottom-width: 10px;
+    padding: 0px;
+    z-index: 999;
 }
 body {
     background: #fff;
@@ -72,54 +72,57 @@ body {
     transition: all 0.5s;
 }
 #sang-con {
-    width: 1000px;
-    margin: 0 30px;
+    /* width: 1000px; */
+    /* margin: 0 30px; */
     background: #fff;
     border-radius: 8px;
-    margin-left: 300px;
+    /* margin-left: 300px; */
 }
 .select-field, .sang-name {
-    width: 200px;
+    width: 20%;
     padding: 15px;
     font-size: 15px;
-    background-clip: padding-box;
-    box-shadow: none;
+    /* background-clip: padding-box; */
+    /* box-shadow: none; */
     border: 1px solid #ccc;
     padding-right: 5px;
     margin-left: 10px;
-    text-align: center;
+    margin-top: 0.7%;
+    justify-content: center;
 }
 #month {
-    width: 130px;
-    padding: 15px;
+    width: 20%;
+    padding: 9px;
     border: 1px solid #ccc;
+    margin-left: 2.7%;
 }
 .sang-name {
     border: 1px solid #ccc;
 }
 #btn-s {
-    width: 60px;
+    width: 9%;
+    height: 75%;
     background: #fff;
     padding: 15px;
     font-size: 13px;
     font-weight: 800;
     border: 1px solid #ccc;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     margin-left: 15px;
 }
 #selectAll-wrap {
     width: 600px;
-    margin-left: 780px;
+    margin-left: 925px;
 }
 .btn-q {
-    width: 60px;
-    background: #1e3c72;
+    width: 17%;
+    background: #fff;
     padding: 15px;
     font-size: 13px;
     font-weight: 800;
     border: 1px solid #ccc;
-    border-radius: 15px;
-    color: #fff;
+    /* border-radius: 15px; */
+    color: rgb(114, 114, 114);
 }
 .btn-q:hover {
     box-shadow: 2px 2px 5px #ccc;
@@ -130,40 +133,48 @@ table.type07 {
     line-height: 1.5;
     border: 1px solid #ccc;
     margin: 30px 10px;
+    width: 1200px;
+    height: 700px;
 }
 table.type07 thead {
-    border-right: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    background: #1e3c72;
+    background: #f9f7f7;
+    border-top: 2px solid #000;
 }
 table.type07 thead th {
     padding: 16px;
     font-weight: 900;
     vertical-align: top;
     font-size: 16px;
-    color: #fff;
-    width: 10px;
+    color: #000;
+    width: 180px;
+    text-align: center;
 }
 table.type07 tbody th {
-    width: 125px;
-    padding: 20px;
     font-weight: bold;
     vertical-align: top;
     background: #fff;
+    height: 48px;
     border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+table.type07 > tbody > tr > th,
+table.type07 > tbody > tr > td {
+    padding: 5px 5px;
+    vertical-align: middle;
+    margin-right: 8px;
+    font-size: 18px;
+    text-align: center;
+}
+.a-1 {
+    text-align: center !important;
 }
 table.type07 td {
-    width: 300px;
-    padding: 28px;
     font-size: 15px;
     vertical-align: top;
     font-weight: 500;
     border-right: 1px solid #ccc;
-}
-#sang-k {
-    width: 1200px;
-    margin: 0 auto;
-    margin-right: 50px;
+    border-width: 0 0 1px 0;
+    border-bottom: 1px solid #ccc;
 }
 /* list-area */
 #list-area {
@@ -292,7 +303,7 @@ table.type07 td {
     cursor: pointer;
     background-color: #2a5298;
     color: #fff;
-    font-size: 14px;
+    font-size: 17px;
 }
 .window-content .coun-delete {
     padding: 8px;

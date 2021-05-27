@@ -83,8 +83,8 @@ public class MemberRepositoryTest {
     public void insertCounselor(){
 
         Member member = Member.builder()
-                .user_id("counselor1")
-                .user_pw("1111")
+                .user_id("con1")
+                .user_pw("123")
                 .user_name("상담사1")
                 .user_ph("01011112222")
                 .user_email("counselor@email")

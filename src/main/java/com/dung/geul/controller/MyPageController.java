@@ -1,9 +1,7 @@
 package com.dung.geul.controller;
 
 import com.dung.geul.dto.EnterpriseDTO;
-import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
-import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,15 +25,22 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
     // 매핑 기본 주소 : /mypage/
 
     @GetMapping("/before/read")
-    public String mypageBeforeRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+    public String mypageBeforeRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
         if(authMemberDTO.getUser_id().equals("admin")){
             return "redirect:/admin/admin";
         }
         if(authMemberDTO.getUser_type().equals("ENTERPRISE")){
             return "redirect:/mypage/etp/read";
-        } else {
+        }
+        else if (authMemberDTO.getUser_type().equals("COUNSELOR")) {
+//            Member member = memberService.getMember(authMemberDTO.getUser_id());
+//            model.addAttribute("logincon",member);
+            return "redirect:/mypage/consult/read";
+        }
+        else {
             return "redirect:/mypage/member/read";
         }
+
     }
 
     @GetMapping("/before/modify")
@@ -88,6 +92,14 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         System.out.println("controller - enterpriseDTO : " + enterpriseDTO.toString());
 
     }
+    @GetMapping({"/consult/read"})
+    public void conMypageRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
+
+        model.addAttribute("memberDTO",member);
+    }
+
+    //
 
     @GetMapping("/member/modifyPw")
     public void ModifyMemberPw(String user_id, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
@@ -99,6 +111,10 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     }
 
+    @GetMapping({"/consult/counselling_reject", "/consult/counselling_request"})
+    public void okey(){
+
+    }
 
 
 

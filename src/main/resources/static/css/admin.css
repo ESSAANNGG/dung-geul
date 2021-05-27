@@ -267,6 +267,7 @@ a{
     position:relative;
     width:300px;
     height:42px;
+    margin-right:20px;
     border:1px solid #c2c9db;
     background-color: #c2c9db;/*값이 들어가면 색이 #ffffff로 바뀜*/
     font-size:15px;
@@ -362,31 +363,35 @@ span:nth-of-type(1){
     z-index:1;
 }
 .number{
-    width:90px;
+    width:100px;
 }
 .name{
-    width:350px;
+    width:140px;
 }
 .username{
-    width:300px;
+    width:380px;
 }
 .phone{
     width:180px;
 }
 .email{
-    width:320px;
+    width:430px;
 }
 .joindate{
     width:140px;
 }
 .role{
-    width:130px;
+    width:140px;
+}
+.corp_name{
+    width:320px;
 }
 .shape{
-    width:130px;
+    width:140px;
     z-index:1;
     padding:0px;
 }
+
 .shape select{
     text-align-last: center;
     width:120px;
@@ -401,20 +406,17 @@ span:nth-of-type(1){
     background:url("/img/down-arrow.png") no-repeat 87% 50%/11px auto;
 }
 /*채용공고메뉴*/
-.employ_number{
-    width:90px;
-}
 .employ_title{
-    width:350px;
+    width:400px;
 }
 .ot{
     width:270px;
 }
 .startDate{
-    width:160px;
+    width:140px;
 }
 .deadline{
-    width:160px;
+    width:140px;
 }
 /*상담관리메뉴*/
 .content{
@@ -429,6 +431,11 @@ span:nth-of-type(1){
 .preference{/*신청건수*/
     width:140px;
 }
+/*상담메뉴*/
+.title{
+    width:330px;
+}
+
 .list_button button{
     width:90px;
     height:40px;

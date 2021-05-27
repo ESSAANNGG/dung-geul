@@ -1,0 +1,367 @@
+* {
+  box-sizing: border-box;
+}
+li {
+  list-style-type: none;
+}
+button,
+a {
+  cursor: pointer;
+}
+
+body {
+  margin: 0 auto;
+  background-color: #f4f4f4;
+}
+h1 {
+  margin: 0px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #222222;
+}
+h2 {
+  /*제목 -> 기업명*/
+  margin: 0px;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #222222;
+}
+h3 {
+  /*카테고리별 제목*/
+  display: inline-block;
+  width: 600px;
+  margin: 0px;
+  color: #222222;
+}
+h4 {
+  /*기업정보 -> 기업명*/
+  display: flex;
+  margin: 0px 0px 15px 0px;
+  color: #444444;
+  font-size: 18px;
+  font-weight: 400;
+}
+h5 {
+  /*콘텐츠들*/
+  margin: 0px;
+  color: #444444;
+  font-size: 14px;
+  font-weight: 400;
+}
+h6 {
+  /*지원방법의 date font*/
+  margin: 0px;
+  color: #444444;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+button:focus {
+  outline: none;
+}
+
+/*전체를 감싸는 div*/
+#wrap {
+  width: 1000px;
+  margin: 10px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border: 1px solid #e5e6eb;
+}
+/*각 카테고리 헤드들(카테고리 명)*/
+.head {
+  display: inline-block;
+  width: 918px;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+/*각 카테고리 박스들*/
+.box {
+  display: flex;
+  width: 918px;
+  border: 1px solid #e5e6eb;
+  border-top: 1px solid #222222;
+}
+
+/*제목*/
+#head_wrap {
+  position: relative;
+  width: 918px;
+  height: 70px;
+  border-bottom: 3px solid rgb(192, 188, 188);
+}
+#head_wrap > span {
+  position: absolute;
+  right: 10px;
+  top: -10px;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 0px 2px;
+  border: 1px solid #e5e6eb;
+  border-radius: 20px 20px 20px 20px;
+}
+
+#nav {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100px;
+  height: 50px;
+  margin: 15px 0;
+}
+#nav button {
+  width: 90px;
+  height: 60px;
+  margin: -3px;
+  background-color: #e5e6eb;
+  border: 0px;
+}
+/*기본정보*/
+.base_wrap {
+  width: 918px;
+  padding: 25px 0 25px 0;
+  border-top: 1px solid #e5e6eb;
+}
+
+.base_wrap li {
+  color: #444444;
+  font-size: 14px;
+  font-weight: 400;
+}
+.base_wrap li:nth-child(-n + 5) {
+  margin: 0px;
+}
+.base_wrap li.category {
+  font-size: 16px;
+}
+.base_wrap li.data {
+  width: inherit;
+}
+
+/*버튼(온라인지원)*/
+#button_wrap {
+  width: 918px;
+  margin: 10px 0px;
+  text-align: center;
+}
+#button_wrap button {
+  width: 150px;
+  height: 50px;
+  margin: 15px 10px;
+  border: 1px solid #66aaff;
+  background-color: #66aaff;
+}
+
+#button_wrap h1 {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+#button_wrap > button:hover {
+  box-shadow: 0px 50px 0 0 rgba(0, 0, 0, 0.15) inset, 0px -50px 0 0 rgba(0, 0, 0, 0.15) inset;
+  transition-duration: 0.3s;
+}
+
+/*이미지*/
+#image_wrap {
+  width: 918px;
+  margin-bottom: 40px;
+  padding: 30px 15px;
+  border-top: 1px solid #e5e6eb;
+  text-align: center;
+}
+
+/*지원정보*/
+#receipt_wrap {
+  margin-bottom: 40px;
+  width: 918px;
+}
+/*[지원정보]제목을 제외한 기업정보 박스*/
+#receipt_box {
+  display: flex;
+  padding: 10px 0 10px 0;
+}
+#receipt_date {
+  width: 250px;
+  padding: 20px 0 20px 0;
+  text-align: center;
+  border-right: 1px solid #e5e6eb;
+}
+#receipt_date h1 {
+  color: #66aaff;
+}
+
+#receipt_cont {
+  width: 700px;
+  padding: 20px;
+}
+#receipt_cont h5 {
+  height: 30px;
+}
+
+/*기업정보*/
+#corp_wrap {
+  width: 918px;
+  margin-bottom: 40px;
+}
+/*[기업정보]제목을 제외한 기업정보 박스*/
+#corp_box {
+}
+/*기업로고*/
+#corp_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 240px;
+}
+/*기업정보내용*/
+#corp_cont {
+  width: 700px;
+  padding: 20px;
+}
+#corp_cont span {
+  display: inline-block;
+}
+/*기업정보 각 데이터들*/
+#corp_wrap li {
+  display: inline-block;
+  width: 300px;
+  height: 30px;
+}
+/*홈페이지와 기업주소는 내용이 길어 따로 지정*/
+#corp_wrap li:nth-child(n + 8):nth-child(-n + 9) {
+  width: 600px;
+}
+.right_text {
+  /*다른공고보러가기*/
+  display: inline-block;
+  float: right;
+  width: 200px;
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+/*지원자 통계*/
+#stats_wrap {
+  width: 918px;
+  margin-bottom: 40px;
+}
+#stats_box {
+  height: 200px; /*임시용*/
+}
+
+/*온라인 지원*/
+#shadow_box {
+  display: block;
+  background-color: black;
+}
+
+#apply_submit {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  display: none;
+  margin: auto;
+  padding: 30px 20px;
+  width: 500px;
+  height: 700px; /*높이는 트랜지션으로*/
+  background-color: #ffffff;
+  box-shadow: 0px 0px 2px 5px rgba(234, 234, 234, 0.01);
+  z-index: 5;
+}
+
+#apply_submit h1 {
+  font-size: 19px;
+}
+#apply_head {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #e5e6eb;
+}
+#apply_head h1 {
+  display: inline-block;
+  width: 300px;
+}
+#apply_head i {
+  font-size: 23px;
+  color: #6d6d6d;
+  float: right;
+  cursor: pointer;
+}
+
+#apply_title {
+  padding: 10px 0;
+  height: 80px;
+  border-bottom: 1px solid #e5e6eb;
+}
+#apply_title h3 {
+  font-size: 13px;
+  height: 20px;
+}
+#apply_title h2 {
+  color: #4876ef;
+  font-size: 24px;
+  font-weight: 700;
+}
+#apply_cont {
+  padding: 20px 0;
+}
+.apply_li {
+  position: relative;
+  height: 80px;
+  margin: 0px 10px 100px 10px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px #e3e3e4 inset;
+}
+.apply_li:nth-child(n + 2):nth-child(-n + 3) {
+  margin-bottom: 70px;
+}
+
+.apply_li h1 {
+  height: 40px;
+  padding: 10px;
+}
+
+.apply_li_select {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #e3e3e4;
+  border-radius: 10px;
+  box-shadow: 0 2px 14px 0 rgb(0 0 0 / 10%);
+}
+.apply_li select {
+  height: 70px;
+}
+
+#apply_button button {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 30px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #f8f9fa;
+}
+
+.category h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #afaaaa;
+}
+
+.data {
+  width: 1000px;
+  word-break: break-all;
+}
+
+

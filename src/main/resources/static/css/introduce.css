@@ -1,0 +1,211 @@
+/* @import "reset.css";
+@import "common.css";  */
+* {
+  box-sizing: content-box;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 64em;
+}
+
+.employList {
+  display: block;
+  /* width: 850px; */
+  margin-left: 50px;
+  background-color: #ffffff;
+  color: #768395;
+  box-shadow: 0 0 1px 1px #e2e2e2;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.employListHead {
+  position: relative;
+  width: 850px;
+  height: 60px;
+}
+
+/*검색*/
+#search {
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  font-size: 0px;
+}
+
+#search input:nth-child(1) {
+  display: inline-block;
+}
+
+#search select:nth-child(n + 6):nth-child(-n + 7) {
+  width: 50%;
+}
+
+.search {
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  margin: 0px;
+  font-size: 13px;
+  border: none;
+  background-color: #ffffff;
+}
+
+.search:focus {
+  outline: none;
+  border: solid 2px rgb(49, 69, 134);
+}
+
+/*리스트 첫줄은 위부분에도 테두리 적용*/
+/* .employListPost > li:first-child {
+  border-top: 1px solid #c0c0c4;
+} */
+/*채용공고 각 리스트*/
+.employListPost > li {
+  height: 120px;
+  padding: 20px 30px;
+  /* box-shadow:0px 4px 1px 0px #C0C0C4; */
+  border-bottom: 1px solid #e2e2e6;
+
+  transition: background 0.5s ease-out;
+}
+
+.employListPost > li:hover {
+  background-color: #2063af0e;
+  border-bottom: 2px solid #2062af;
+}
+
+/*각 리스트에서의 콘텐츠들(제목/내용/...)*/
+.employListPost > li > a > ul {
+  margin: 0px;
+}
+
+/*각리스트의 제목*/
+.post_title {
+  color: #2062af;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/*스크랩 아이콘*/
+.employListPost > li > a > ul.post_title_wrap > i {
+  float: right;
+  line-height: 30px;
+  color: #1e1c2c;
+  font-size: 20px;
+  font-weight: 400;
+  z-index: 5;
+}
+
+.employListPost > li > a > ul.post_title_wrap > i:hover {
+  color: #2062af;
+}
+
+/*각 리스트의 기업명*/
+.post_corp_name {
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/*기업명 아이콘*/
+.employListPost > li > a > ul.post_corp_name_wrap > i {
+  margin-right: 5px;
+  line-height: 30px;
+  color: #1a508b;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/*각리스트의 본문내용*/
+.post_cont {
+  height: 40px;
+  line-height: 20px;
+  padding-right: 30px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/*등록/마감일 감싸주는 li*/
+.employListPost > li > a > ul > li {
+  display: inline-block;
+}
+
+/*등록일*/
+.employListPost > li > a > ul > li.post_start_date {
+  width: 100px;
+  height: 21px;
+  line-height: 21px;
+  text-align: center;
+  border-radius: 50px 50px 50px 50px;
+  background-color: #e8eaee;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/*등록일 아이콘*/
+.employListPost > li > a > ul > li.post_start_date > i {
+  margin-right: 5px;
+}
+
+/*마감일*/
+.employListPost > li > a > ul > li.post_end_date {
+  /* width: 100px; */
+  height: 21px;
+  line-height: 21px;
+  text-align: center;
+  border-radius: 50px 50px 50px 50px;
+  /* background-color: #e8eaee; */
+  font-size: 14px;
+  font-weight: 500;
+  color: #888888;
+}
+
+.employListPost > li > a > ul > li.post_end_date > i {
+  margin-right: 5px;
+}
+
+/*페이지네이션*/
+.pagination {
+  display: flex;
+  width: 850px;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+/*검색해시태그*/
+#tag {
+  position: fixed;
+  top: 200px;
+  left: 1500px;
+  /* width:300px; */
+  margin-right: 50px;
+  padding: 10px 30px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0px 0px 2px 1px #e8eaee;
+  background-color: #ffffff;
+}
+
+.tags:hover {
+  text-shadow: -1px -1px 1px;
+  color: #4759ff !important;
+  /*제이쿼리로 색을 주니 이 컬러가 덮어씌워져서 우선순위를 높임*/
+  /* transition-property: color;
+    transition-duration: 1s; */
+}
+
+#tag h2 {
+  display: inline-block;
+  font-weight: bolder;
+  font-size: 15px;
+  /* color:#575757; */
+}
+
+#dummy {
+  /*display:none;*/
+  position: fixed;
+  left: 200px;
+}

@@ -48,6 +48,7 @@ public class EmployController {
     //채용등록이동
     @GetMapping("/register")
     public void register(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
+
         EnterpriseDTO enterpriseDTO = memberService.getEnterprise(authMemberDTO.getUser_id());
 
         model.addAttribute("etp", enterpriseDTO);

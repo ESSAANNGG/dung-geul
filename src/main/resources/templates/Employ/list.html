@@ -32,36 +32,36 @@
 
 <body>
 
-  <!--nav 상담-->
-  <div th:replace="layout/layout :: nav" />
+<!--nav 상담-->
+<div th:replace="layout/layout :: nav" />
 
-  <!-- Main -->
-  <section id="main">
-    <div class="container">
-      <div class="row">
-        <div class="col-3">
-          <div class="sidebar">
-            <div class="menu2">
-              <div id="bar">
-                <h2>채용</h2>
-                <ul id="menu_bar">
-                  <li id="menu_con1">
-                    <h4>채용정보</h4>
-                    <ul id="sb_detail">
-                      <li><a th:href="@{/Employ/list}">채용정보</a></li>
-                      <li><a th:href="@{/Employ/register}">채용등록</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div> <!-- bar -->
-            </div> <!-- menu -->
-          </div>
+<!-- Main -->
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class="sidebar">
+          <div class="menu2">
+            <div id="bar">
+              <h2>채용</h2>
+              <ul id="menu_bar">
+                <li id="menu_con1">
+                  <h4>채용정보</h4>
+                  <ul id="sb_detail">
+                    <li><a th:href="@{/Employ/list}">채용정보</a></li>
+                    <li><a th:href="@{/Employ/register}">채용등록</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div> <!-- bar -->
+          </div> <!-- menu -->
         </div>
-        <div class="employList">
-          <div class="employListHead">
+      </div>
+      <div class="employList">
+        <div class="employListHead">
 
 
-            <form th:action="@{/Employ/list}" method="get" id="searchForm">
+          <form th:action="@{/Employ/list}" method="get" id="searchForm">
 
             <input type="hidden" name="page" value="1">
             <div id="search">
@@ -120,109 +120,109 @@
               <select name="gugun" class="search" id="s_detailArea"  onchange="searchVal('area')"></select>
 
             </div>
+        </div>
+
+
+        <div class="input-group">
+          <!--
+          <input type="hidden" name="page" value="1">
+          <div class="input-group-prepend">
+              <select class="custom-select" name="type">
+                <option th:selected="${pageRequestDTO?.type}">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>
+                <option value="t" th:selected="${pageRequestDTO.type == 't'}">제목</option>
+                <option value="c" th:selected="${pageRequestDTO.type == 'c'}">내용</option>
+                <option value="n" th:selected="${pageRequestDTO.type == 'n'}">이름</option>
+                <option value="tc" th:selected="${pageRequestDTO.type == 'tc'}">제목 + 내용</option>
+                <option value="tcn" th:selected="${pageRequestDTO.type == 'tcn'}">제목 + 내용 + 이름</option>
+              </select>
           </div>
 
-
-          <div class="input-group">
-            <!--
-            <input type="hidden" name="page" value="1">
-            <div class="input-group-prepend">
-                <select class="custom-select" name="type">
-                  <option th:selected="${pageRequestDTO?.type}">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>
-                  <option value="t" th:selected="${pageRequestDTO.type == 't'}">제목</option>
-                  <option value="c" th:selected="${pageRequestDTO.type == 'c'}">내용</option>
-                  <option value="n" th:selected="${pageRequestDTO.type == 'n'}">이름</option>
-                  <option value="tc" th:selected="${pageRequestDTO.type == 'tc'}">제목 + 내용</option>
-                  <option value="tcn" th:selected="${pageRequestDTO.type == 'tcn'}">제목 + 내용 + 이름</option>
-                </select>
-            </div>
-          
-            <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}" />-->
-            <div id="dummy">
-              <input type="checkbox" name="type" id="dummy_title" value="t" th:checked="${pageRequestDTO.type == 't'}">
-              <input type="checkbox" name="type" id="dummy_corp" value="w" th:checked="${pageRequestDTO.type == 'w'}">
-              <input type="checkbox" name="type" id="dummy_ot" value="ot" th:checked="${pageRequestDTO.type == 'ot'}" >
-              <input type="checkbox" name="type" id="dummy_ep"  value="ep" th:checked="${pageRequestDTO.type == 'ep'}">
-              <input type="checkbox" name="type" id="dummy_shape" value="shape" th:checked="${pageRequestDTO.type == 'shape'}">
-              <input type="checkbox" name="type" id="dummy_area"  value="sido" th:checked="${pageRequestDTO.type == 'sido'}">
-              <input type="checkbox" name="type" id="dummy_detailArea"  value="gugun" th:checked="${pageRequestDTO.type == 'gugun'}" >
-            </div>
-
-            <div class="input-group-append" id="button-addon4">
-              <button class="btn btn-outline-secondary btn-search" type="button">Search</button>
-              <button class="btn btn-outline-secondary btn-clear" type="button">Clear</button>
-            </div>
+          <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}" />-->
+          <div id="dummy">
+            <input type="checkbox" name="type" id="dummy_title" value="t" th:checked="${pageRequestDTO.type == 't'}">
+            <input type="checkbox" name="type" id="dummy_corp" value="w" th:checked="${pageRequestDTO.type == 'w'}">
+            <input type="checkbox" name="type" id="dummy_ot" value="ot" th:checked="${pageRequestDTO.type == 'ot'}" >
+            <input type="checkbox" name="type" id="dummy_ep"  value="ep" th:checked="${pageRequestDTO.type == 'ep'}">
+            <input type="checkbox" name="type" id="dummy_shape" value="shape" th:checked="${pageRequestDTO.type == 'shape'}">
+            <input type="checkbox" name="type" id="dummy_area"  value="sido" th:checked="${pageRequestDTO.type == 'sido'}">
+            <input type="checkbox" name="type" id="dummy_detailArea"  value="gugun" th:checked="${pageRequestDTO.type == 'gugun'}" >
           </div>
-        </form> 
 
-          <div class="employListPost">
-            <li th:each="dto: ${result.dtoList}">
-              <a th:href="@{/Employ/read(num = ${dto.num}, page = ${result.page},
+          <div class="input-group-append" id="button-addon4">
+            <button class="btn btn-outline-secondary btn-search" type="button">Search</button>
+            <button class="btn btn-outline-secondary btn-clear" type="button">Clear</button>
+          </div>
+        </div>
+        </form>
+
+        <div class="employListPost">
+          <li th:each="dto: ${result.dtoList}">
+            <a th:href="@{/Employ/read(num = ${dto.num}, page = ${result.page},
               type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
-                <ul class="post_title_wrap">
-                  <li class="post_title" th:text="${dto.title}"></li><i class="far fa-bookmark"></i>
-                </ul>
-                <ul class="post_corp_name_wrap"><i class="fas fa-map-marker-alt"></i>
-                  <li class="post_corp_name" th:text="${dto.user_name}">작성자</li>
-                </ul>
-                <ul class="post_cont" th:text="${dto.content}"></ul>
-                <ul>
+              <ul class="post_title_wrap">
+                <li class="post_title" th:text="${dto.title}"></li><i class="far fa-bookmark"></i>
+              </ul>
+              <ul class="post_corp_name_wrap"><i class="fas fa-map-marker-alt"></i>
+                <li class="post_corp_name" th:text="${dto?.etp_name}">작성자</li>
+              </ul>
+              <ul class="post_cont" th:text="${dto.content}"></ul>
+              <ul>
 
-<!--                  <li class="post_start_date"><i class="far fa-clock"></i>8시간 전</li>-->
-                  <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}"><i class="far fa-clock"></i></li>
-                </ul>
-              </a>
-              <script type="text/javascript">
-                post_cont_sub_func();
-              </script>
+                <!--                  <li class="post_start_date"><i class="far fa-clock"></i>8시간 전</li>-->
+                <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}"><i class="far fa-clock"></i></li>
+              </ul>
+            </a>
+            <script type="text/javascript">
+              post_cont_sub_func();
+            </script>
 
-            </li>
+          </li>
 
-          </div>
+        </div>
 
-          <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
-            <li class="page-item" th:if="${result.prev}">
-              <a class="page-link" th:href="@{/Employ/list(page=${result.start -1 },
+        <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
+          <li class="page-item" th:if="${result.prev}">
+            <a class="page-link" th:href="@{/Employ/list(page=${result.start -1 },
                type=${pageReuqestDTO?.type},
                keyword = ${pageRequestDTO.keyword} )}" tabindex="-1">Previous</a>
-            </li>
-            <li th:class="'page-item ' + ${result.page == page?'active':''}" th:each="page:${result.pageList}">
-              <a class="page-link" th:href="@{/Employ/list(page=${page},
+          </li>
+          <li th:class="'page-item ' + ${result.page == page?'active':''}" th:each="page:${result.pageList}">
+            <a class="page-link" th:href="@{/Employ/list(page=${page},
                type=${pageReuqestDTO?.type},
                keyword = ${pageRequestDTO.keyword}
             )}" th:text="${page}"></a>
-            </li>
-            <li class="page-item" th:if="${result.next}">
-              <a class="page-link" th:href="@{/Employ/list(page=${result.end +1 },
+          </li>
+          <li class="page-item" th:if="${result.next}">
+            <a class="page-link" th:href="@{/Employ/list(page=${result.end +1 },
               type=${pageReuqestDTO?.type},
               keyword = ${pageRequestDTO.keyword}
             )}">Next</a>
-            </li>
-          </ul>
-        </div>
+          </li>
+        </ul>
       </div>
-
-
-
-
-
     </div>
 
-    <div id="tag">
-      <li><h2><a class="tags" id="h_title" onclick="h_tag_js(1)">#제목</a></h2></li>
-      <li><h2><a class="tags" id="h_corp" onclick="h_tag_js(2)" >#기업</a></h2></li>
-      <li><h2><a class="tags" id="h_ot" onclick="h_tag_js(3)">#직종</a></h2></li>
-      <li><h2><a class="tags" id="h_ep" onclick="h_tag_js(4)">#고용구분</a></h2></li>
-      <li><h2><a class="tags" id="h_shape" onclick="h_tag_js(5)">#기업구분</a></h2></li>        
-      <li><h2><a class="tags" id="h_area" onclick="h_tag_js(6)">#근무지역</a></h2></li>
-    </div>
 
-  </section>
+
+
+
   </div>
 
+  <div id="tag">
+    <li><h2><a class="tags" id="h_title" onclick="h_tag_js(1)">#제목</a></h2></li>
+    <li><h2><a class="tags" id="h_corp" onclick="h_tag_js(2)" >#기업</a></h2></li>
+    <li><h2><a class="tags" id="h_ot" onclick="h_tag_js(3)">#직종</a></h2></li>
+    <li><h2><a class="tags" id="h_ep" onclick="h_tag_js(4)">#고용구분</a></h2></li>
+    <li><h2><a class="tags" id="h_shape" onclick="h_tag_js(5)">#기업구분</a></h2></li>
+    <li><h2><a class="tags" id="h_area" onclick="h_tag_js(6)">#근무지역</a></h2></li>
+  </div>
 
-  <!-- footer -->
-  <footer th:replace="layout/layout :: footer" />
+</section>
+</div>
+
+
+<!-- footer -->
+<footer th:replace="layout/layout :: footer" />
 
 
 

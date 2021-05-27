@@ -1,11 +1,8 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.EmployDTO;
 import com.dung.geul.dto.IntroduceDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
-import com.dung.geul.entity.Employ;
-import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Introduce;
 import com.dung.geul.entity.Member;
 import com.dung.geul.repository.IntroduceRepository;
@@ -38,20 +35,20 @@ public class IntroduceServiceImpl implements IntroduceService {
 
     }
 
+
+    //자소서 Impl
     @Override
-    public PageResultDTO<IntroduceDTO, Object[]> getList(PageRequestDTO pageRequestDTO) {
+    public PageResultDTO<IntroduceDTO, Object[]> getList(PageRequestDTO pageRequestDTO, String user_id) {
 
+        Page<Object[]> result = introduceRepository.getIntroduce(pageRequestDTO.getPageable(Sort.by("num").descending()), user_id);
+        Function<Object[], IntroduceDTO> fn = getFunction();
 
-        Function<Object[], IntroduceDTO> fn = (en -> List((Introduce)en[0], (Member) en[1] ));
-        Page<Object[]> result = introduceRepository.Introsearchpage(
-                pageRequestDTO.getType(),
-                pageRequestDTO.getKeywords(),
-                pageRequestDTO.getPageable(Sort.by("num").descending()) );
+        return new PageResultDTO<>(result, fn);
 
-        return new PageResultDTO<>(result , fn);
 
     }
 
+    //자소서 Impl
     @Override
     public IntroduceDTO read(Long num) {
         log.info("num :" +num);
@@ -63,12 +60,14 @@ public class IntroduceServiceImpl implements IntroduceService {
         return entityToDTO((Introduce) arr[0], (Member) arr[1]);
     }
 
+
     @Override
     public void modify(IntroduceDTO introduceDTO) {
 
         Introduce introduce = dtoToEntity(introduceDTO);
 
         introduceRepository.save(introduce);
+
 
     }
 

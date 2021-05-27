@@ -52,14 +52,12 @@ public class SearchIntroRepositoryImpl extends QuerydslRepositorySupport impleme
             BooleanBuilder conditionBuilder = new BooleanBuilder();
 
             for(String t:typeArr) {
-                System.out.println("ABCD");
-                System.out.println(t);
                 switch (t) {
                     case "t" :
                         conditionBuilder.and(introduce.title.contains(keywords[0])  );
                         break;
                     case "c" :
-                        conditionBuilder.and(introduce.content.contains(keywords[0])  );
+                        conditionBuilder.and(introduce.content1.contains(keywords[1])  );
                         break;
                 }
             }

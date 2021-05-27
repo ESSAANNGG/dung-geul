@@ -35,6 +35,20 @@ public class MemberRestController {
 
     }
 
+    @PostMapping("/sigUp/counselor")
+    public int joinCon(@RequestBody MemberDTO memberDTO) {
+
+        System.out.println("ApiMemberController : joinCon() 실행");
+        System.out.println("MemberDTO : " + memberDTO);
+
+        int response = memberService.joinCon(memberDTO);
+
+        System.out.println("restcontroller - result : " + response);
+
+        return response;
+
+    }
+
     // 기업회원가입
     @PostMapping("/sigUp/enterprise")
     public int joinEnterprise(@RequestBody EnterpriseDTO enterPriseDTO) {

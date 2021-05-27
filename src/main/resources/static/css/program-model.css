@@ -9,7 +9,8 @@
     height: 100%;
     top: 0; left: 0;
      display: none;
-    z-index: 1; background-color: rgba(167, 167, 167, 0.397);
+    z-index: 99;
+    background-color: rgba(167, 167, 167, 0.397);
 }
 .window-content{
     width: 55%;
@@ -22,7 +23,7 @@
     transform: translate(-50%, -50%);
      display: none;
     /* border-radius: 10px; */
-    box-shadow: 5px 5px 10px rgb(44 44 44 / 46%);
+    box-shadow: 5px 5px 10px rgb(44 44 44/46%);
 }
 .coun-sin h3 {
     font-size: 35px;

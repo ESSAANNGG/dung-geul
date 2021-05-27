@@ -8124,3 +8124,13 @@ Date.now =
     });
     jQuery.fn.extend({ slimscroll: jQuery.fn.slimScroll });
 })(jQuery);
+
+function selectAll(){
+        if($('input[name="animal"]').is(':checked')==true){          //자식 checkBox에 check적용
+            $('input[class="check"]').prop("checked",true);
+        }
+        else if($('input[name="animal"]').is(':checked')==false) {
+            $('input[class="check"]').prop("checked",false);
+        }
+
+}
