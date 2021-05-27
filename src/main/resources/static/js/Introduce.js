@@ -48,7 +48,10 @@ $(document).ready(function () {
     let data = {
       num: $('#Intro_num').val(),
       title: $('#Intro_title').val(),
-      content: $('#Intro_content').val(),
+      content1 : $('#first_cont').val(),
+      content2 : $('#second_cont').val(),
+      content3 : $('#third_cont').val(),
+      content4 : $('#forth_cont').val(),
       user_id: $('#member_id').val(),
     };
 

@@ -13,17 +13,16 @@
 
     <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
-    <script th:async src="../../static/js/Introduce.js"></script>
+    <script th:async src="/js/Introduce.js"></script>
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="../../static/css/menu-common2.css" />
-
-    <link rel="stylesheet" href="../../static/css/frame.css" />
-    <link rel="stylesheet" href="../../static/css/introduce_read.css" />
+    <link rel="stylesheet" href="/css/menu-common2.css" />
+    <link rel="stylesheet" href="/css/frame.css" />
+    <link rel="stylesheet" href="/css/introduce_read.css" />
 
     <title>영진전문대 자기소개서</title>
   </head>
@@ -43,7 +42,7 @@
             <li class="category">
               <h5>성장과정</h5>
             </li>
-            <li class="data" id="em_ot" th:text="${dto.content}">
+            <li class="data" id="em_ot" th:text="${dto.content1}">
               
             </li>
 
@@ -51,7 +50,7 @@
           </div>
           <div class="base_wrap">
             <li class="category">
-              <h5>성장과정</h5>
+              <h5>성격의 장단점</h5>
             </li>
             <li class="data" id="em_ot" th:text="${dto.content2}">
               
@@ -61,7 +60,7 @@
           </div>
           <div class="base_wrap">
             <li class="category">
-              <h5>성장과정</h5>
+              <h5>전공 및 경력사항</h5>
             </li>
             <li class="data" id="em_ot" th:text="${dto.content3}">
              

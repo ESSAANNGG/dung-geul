@@ -48,6 +48,7 @@ public class IntroduceServiceImpl implements IntroduceService {
 
     }
 
+    //자소서 Impl
     @Override
     public IntroduceDTO read(Long num) {
         log.info("num :" +num);
@@ -59,12 +60,14 @@ public class IntroduceServiceImpl implements IntroduceService {
         return entityToDTO((Introduce) arr[0], (Member) arr[1]);
     }
 
+
     @Override
     public void modify(IntroduceDTO introduceDTO) {
 
         Introduce introduce = dtoToEntity(introduceDTO);
 
         introduceRepository.save(introduce);
+
 
     }
 
