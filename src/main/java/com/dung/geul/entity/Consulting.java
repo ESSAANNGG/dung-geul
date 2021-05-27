@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -18,10 +19,10 @@ public class Consulting  extends BaseEntity {    // 상담 테이블
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long consult_num;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Member member;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Consult consult;
 
     /*@Id
@@ -30,13 +31,15 @@ public class Consulting  extends BaseEntity {    // 상담 테이블
     private Member user_id;   */                    // 아이디
 
 
-    @Temporal(TemporalType.DATE)
-    private Date consult_date;                  // 상담 일자
+    @Column
+    private String consult_date;                  // 상담 일자
 
-    @Column(length = 1)
+//    @Column
+//    private LocalDateTime time;
+    @Column(length = 1, nullable = true)
     private int consult_approve;             // 승인 여부
 
-    @Column(length = 1, nullable = false)
+    @Column(length = 1, nullable = true)
     private String consult_complete;            // 완료 여부
 
 }

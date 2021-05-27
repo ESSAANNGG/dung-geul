@@ -24,10 +24,10 @@ public class Consult extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long cno;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50)
     private String Consult_field;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50)
     private String Consult_detail_field;
 
     public void updatefiled(String consult_field) {
