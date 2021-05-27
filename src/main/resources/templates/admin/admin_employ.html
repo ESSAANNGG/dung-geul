@@ -62,17 +62,17 @@
             </div>
             <div class="search">
               <ul>
-                <li>기업명</li>
-                <li> <input type="text"></li>
+                <li>공고제목</li>
+                <li> <input type="text" class="search_data"></li>
               </ul>
               <ul>
-                <li>공고제목</li>
-                <li> <input type="text"></li>
+                <li>기업명</li>
+                <li> <input type="text" class="search_data"></li>
               </ul>
               <ul>
                 <li>기업형태</li>
                 <li>
-                  <select name="shape">
+                  <select name="shape" class="search_data">
                     <option value="">기업 형태</option>
                     <option value="대기업">대기업</option>
                     <option value="중견기업">중견기업</option>
@@ -81,10 +81,17 @@
                 </li>
               </ul>
               <ul>
+                <li>근무지역</li>
+                <li>
+                  <select name="sido" class="search_data"></select>
+                  <select name="gugun" class="search_data"></select>
+                </li>
+              </ul>
+              <ul>
                 <li>기간</li>
                 <li>
-                  <input type="date" class="search_date"> &nbsp;~&nbsp; <input type="date"
-                                                                               class="search_date">
+                  <input type="date" class="search_date search_data"> &nbsp;~&nbsp; <input type="date"
+                                                                               class="search_date search_data">
                   <button class="search_date_button">오늘</button>
                   <button class="search_date_button">이번주</button>
                   <button class="search_date_button">이번달</button>
@@ -141,7 +148,6 @@
     </div>
   </div>
 </div>
-<!--<input type="checkbox" name="type" value="t" th:checked="${pageRequestDTO.type=='t'}"/>-->
 </body>
 
 <script src="/js/admin.js"></script>

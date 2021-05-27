@@ -513,6 +513,9 @@ public class MemberServiceImpl implements MemberService {
         if(dto.getStartDate() != null && dto.getEndDate() != null){
             startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
             endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
+            System.out.println("------------------------------------------");
+            System.out.println(startDate);
+            System.out.println(endDate);
         }
 
 

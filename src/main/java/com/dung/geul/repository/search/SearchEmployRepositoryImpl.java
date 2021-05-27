@@ -17,8 +17,13 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,6 +79,9 @@ public class SearchEmployRepositoryImpl extends QuerydslRepositorySupport implem
 
         booleanBuilder.and(expression);
 
+        QEmploy qemploy = QEmploy.employ;
+
+
         if(type != null) {
 
             String[] typeArr = type.split(",");
@@ -85,7 +93,7 @@ public class SearchEmployRepositoryImpl extends QuerydslRepositorySupport implem
                 System.out.println(t);
                 switch (t) {
                     case "t" :
-                        conditionBuilder.and(employ.title.contains(keywords[0])  );
+                        conditionBuilder.and(employ.title.contains(keywords[0]));
                         break;
                     case "w" :
                         conditionBuilder.and(enterprise.etp_name.contains(keywords[1]));
@@ -104,6 +112,12 @@ public class SearchEmployRepositoryImpl extends QuerydslRepositorySupport implem
                         break;
                     case "gugun" :
                         conditionBuilder.and(employ.area.contains(keywords[6]));
+                        break;
+                    case "date" :
+                        LocalDateTime startDate = LocalDate.parse(keywords[7], DateTimeFormatter.ISO_DATE).atStartOfDay();
+                        LocalDateTime endDate = LocalDateTime.of(LocalDate.parse(keywords[8], DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
+
+                        conditionBuilder.and(qemploy.end_date.between(startDate, endDate));
                         break;
                 }
             }
