@@ -146,7 +146,7 @@
                 <span class="content">상세내용</span>
                 <span class="regdate">등록일</span>
                 <span class="moddate">수정일</span>
-                <span class="preference">신청건수</span>
+<!--                <span class="preference">신청건수</span>-->
               </div>
 
               <div class="list_body" th:each=" consult : ${consultlist}" onclick="detail(this)">
@@ -154,9 +154,7 @@
                 <span class="number">[[${consult.cno}]]</span>
                 <span class="title">[[${consult.Consult_field}]]</span>
                 <span class="content">[[${consult.Consult_detail_field}]]</span>
-                <span class="regdate">등록일</span>
-                <span class="moddate">수정일</span>
-                <span class="preference">신청건수</span>
+<!--                <span class="preference">신청건수</span>-->
               </div>
             </div>
             <div class="list_button">
@@ -180,8 +178,8 @@
                 <span class="username">아이디</span>
                 <span class="phone">연락처</span>
                 <span class="email">이메일</span>
-                <span class="joindate">가입일</span>
-                <span class="role">권한</span>
+<!--                <span class="joindate">가입일</span>-->
+                <span class="role">권한</span>2ㅈㅊ
               </div>
               <div class="list_body" th:each="con,i : ${counselorList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_2_check"></span>
@@ -189,8 +187,7 @@
                 <span class="name">[[${con.getUser_name()}]]</span>
                 <span class="username">[[${con.getUser_id()}]]</span>
                 <span class="phone">[[${con.getUser_ph()}]]-[[${con.getUser_ph2()}]]-[[${con.getUser_ph3()}]]</span>
-                <span class="email">[[${con.getUser_email()}]]</span>
-                <span class="joindate">[[${con.user_regdate}]]</span>
+                <span class="email">[[${con.getUser_email()}]]@[[${con.getUser_emailDomain()}]]</span>
                 <span class="role">[[${con.getUser_type()}]]</span>
 
               </div>

@@ -16,7 +16,6 @@ public class ConsultDTO {
     private Long cno;
     private String Consult_field;
     private String Consult_detail_field;
-//    private String user_id;
-//    private LocalDateTime regDate;
-//    private LocalDateTime modData;
+    private LocalDateTime consult_regDate;
+    private LocalDateTime consult_modData;
 }

@@ -15,8 +15,8 @@ import java.util.List;
 @Getter
 @ToString
 @AttributeOverrides({
-        @AttributeOverride(name = "regDate", column = @Column(name = "regdate")),
-        @AttributeOverride(name = "modDate", column = @Column(name = "modDate"))
+        @AttributeOverride(name = "regDate", column = @Column(name = "consult_regdate")),
+        @AttributeOverride(name = "modDate", column = @Column(name = "consult_modDate"))
 })
 public class Consult extends BaseEntity {
 
@@ -24,10 +24,10 @@ public class Consult extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long cno;
 
-    @Column(length = 50)
+    @Column(length = 50, nullable = false)
     private String Consult_field;
 
-    @Column(length = 50)
+    @Column(length = 50, nullable = false)
     private String Consult_detail_field;
 
     public void updatefiled(String consult_field) {

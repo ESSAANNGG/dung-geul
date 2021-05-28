@@ -21,8 +21,8 @@ public interface ConsultService {
     default Consult dtoToEntity(ConsultDTO consultDTO){
         Consult consult = Consult.builder()
                 .cno(consultDTO.getCno())
-                .Consult_detail_field(consultDTO.getConsult_detail_field())
                 .Consult_field(consultDTO.getConsult_field())
+                .Consult_detail_field(consultDTO.getConsult_detail_field())
                 .build();
         return consult;
     }

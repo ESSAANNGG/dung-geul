@@ -3,9 +3,6 @@ package com.dung.geul.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Builder
@@ -15,16 +12,15 @@ import java.util.Date;
 @ToString(exclude = {"member" , "consult"})
 public class Consulting  extends BaseEntity {    // 상담 테이블
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long consult_num;
-
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Consult consult;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long consult_num;
     /*@Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "consult_user_id" ,foreignKey = @ForeignKey(name="consult_user_id_pfk"))

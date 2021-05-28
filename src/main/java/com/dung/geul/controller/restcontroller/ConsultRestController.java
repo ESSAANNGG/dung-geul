@@ -23,9 +23,9 @@ public class ConsultRestController {
     @PostMapping("/rest/conapply")
     public ResponseEntity<Long> register(@RequestBody ConsultingDTO consultingDTO){
         log.info("-----------------신청-----------------------");
+        log.info(consultingDTO);
         Long consult_num = consultingService.register(consultingDTO);
         log.info(consultingDTO);
-
         return new ResponseEntity<>(consult_num, HttpStatus.OK);
     }
 
