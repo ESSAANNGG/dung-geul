@@ -181,17 +181,18 @@
                 <span class="phone">연락처</span>
                 <span class="email">이메일</span>
                 <span class="joindate">가입일</span>
-                <span class="shape">담당학생</span>
+                <span class="role">권한</span>
               </div>
-              <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
+              <div class="list_body" th:each="con,i : ${counselorList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_2_check"></span>
                 <span class="number">[[${i.count}]]</span>
-                <span class="name">[[${item.user_name}]]</span>
-                <span class="username">[[${item.user_id}]]</span>
-                <span class="phone">[[${item.user_ph}]]</span>
-                <span class="email">[[${item.user_email}]]</span>
-                <span class="joindate">[[${item.user_regdate}]]</span>
-                <span class="shape">담당학생</span>
+                <span class="name">[[${con.getUser_name()}]]</span>
+                <span class="username">[[${con.getUser_id()}]]</span>
+                <span class="phone">[[${con.getUser_ph()}]]-[[${con.getUser_ph2()}]]-[[${con.getUser_ph3()}]]</span>
+                <span class="email">[[${con.getUser_email()}]]</span>
+                <span class="joindate">[[${con.user_regdate}]]</span>
+                <span class="role">[[${con.getUser_type()}]]</span>
+
               </div>
             </div>
             <div class="list_button">
