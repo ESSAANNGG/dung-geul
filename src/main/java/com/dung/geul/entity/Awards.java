@@ -1,35 +1,37 @@
 package com.dung.geul.entity;
 
+
+import com.dung.geul.dto.AwardsDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Family {
+@Builder
+public class Awards{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long fam_num;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name="family_member_fk"))
+    @JoinColumn(foreignKey = @ForeignKey(name="awards_member_fk"))
     private Member member;
 
-    private String fam_relation;
+    private String awards_des;      // 수상명
 
-    private String fam_name;
+    private String awards_agency;   // 수여기관
 
-    private int fam_age;
+    private String awards_date;     // 수상년도
 
-    private LocalDate fam_birth;
+    private String award_contents;  // 수여내용
 
-    private String fam_living;
+
+
 }

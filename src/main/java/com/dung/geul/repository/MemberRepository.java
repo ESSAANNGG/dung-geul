@@ -44,5 +44,5 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     Object findByUser_idEtpJoinMember(@Param("user_id") String user_id);
 
     @Query("select m from Member m where m.user_type = :user_type and m.user_allow = 1")
-    List<Member> findByUser_type(@Param("user_type") String user_type);
+    Member[] findByUser_type(@Param("user_type") String user_type);
 }
