@@ -45,7 +45,7 @@ public class CV  implements Serializable{
 
     private String cv_disability_degree;
 
-    private String militaryServiceClassification;
+    private String cv_military_now;
 
     // 희망 조건
     private String sec_of_exam;             // 응시부문
@@ -57,24 +57,6 @@ public class CV  implements Serializable{
 
     private String cv_specialty;             // 특기
 
-    @OneToMany(mappedBy = "member")
-    private List<Awards> awardsList = new ArrayList<>();
 
-    public int getAge(){
-
-        int currentYear = LocalDate.now().getYear();
-        int currentDay = LocalDate.now().getDayOfYear();
-
-        System.out.println("year : " + currentYear  + " day : " + currentDay);
-
-        System.out.println("birth : " + birth);
-
-        int age = currentYear - this.birth.getYear();
-
-        // 생일이 지났는지 안지났는지
-        if(currentDay < birth.getDayOfYear()) age--;
-
-        return age;
-    }
 
 }
