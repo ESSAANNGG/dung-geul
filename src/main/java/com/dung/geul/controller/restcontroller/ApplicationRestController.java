@@ -3,10 +3,7 @@ package com.dung.geul.controller.restcontroller;
 import com.dung.geul.dto.CvPageDTO;
 import com.dung.geul.service.CvServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
@@ -18,7 +15,7 @@ public class ApplicationRestController {
 
     // 이력서 관련
     @PostMapping("/cv/register")
-    public RedirectView cvRegister(CvPageDTO cvPageDTO){
+    public RedirectView cvRegister(@RequestBody CvPageDTO cvPageDTO){
 
         System.out.println("ApplicationApiController : cvRegister() 실행");
         System.out.println("cvPageDTO : " + cvPageDTO);

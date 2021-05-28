@@ -40,6 +40,7 @@ public class AdminconsultController {
             log.info("counselorList : " + memberService.findByType("COUNSELOR"));
 
         }
+
         @PostMapping("/admin_consult")
         public String reg (ConsultDTO consultDTO, RedirectAttributes redirectAttributes){
 
