@@ -37,13 +37,13 @@ public class IntroduceTest {
 
     @Test
     public void testReigster() {
-
-        IntroduceDTO introduceDTO = IntroduceDTO.builder()
-            .title("Test.")
-            .content("Test...")
-            .user_id("student1")
-                .build();
-
-        Long num = introduceService.register(introduceDTO);
+//
+//        IntroduceDTO introduceDTO = IntroduceDTO.builder()
+//            .title("Test.")
+//            .content("Test...")
+//            .user_id("student1")
+//                .build();
+//
+//        Long num = introduceService.register(introduceDTO);
     }
 }

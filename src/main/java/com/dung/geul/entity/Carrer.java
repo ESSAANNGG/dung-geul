@@ -17,16 +17,16 @@ import java.time.LocalDate;
         @AttributeOverride(name = "regDate", column = @Column(name = "cr_regdate")),
         @AttributeOverride(name = "modDate", column = @Column(name = "cr_modDate"))
 })
+@Entity
 public class Carrer extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String cr_id; // 경력 번호
+    private Long cr_id; // 경력 번호
 
-    @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "member_user_id_fk"))
-    private Member user_id;
+    @JoinColumn(foreignKey = @ForeignKey(name = "member_member_fk"))
+    private Member member;
 
     private String cr_etp_name;  // 회사 명
 

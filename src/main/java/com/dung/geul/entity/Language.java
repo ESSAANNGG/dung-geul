@@ -18,13 +18,17 @@ import java.time.LocalDate;
         @AttributeOverride(name = "regDate", column = @Column(name = "fl_regdate")),
         @AttributeOverride(name = "modDate", column = @Column(name = "fl_modDate"))
 })
-public class ForeignLanguage extends BaseEntity implements Serializable {
+@Entity
+public class Language extends BaseEntity implements Serializable {
 
     @Id
     private Long fl_num;
 
     @ManyToOne
-    private Member user_id;
+    @JoinColumn(foreignKey = @ForeignKey(name="fl_member_fk"))
+    private Member member;
+
+    private String fl_language; // 언어
 
     private String fl_name; // test명
 
@@ -34,12 +38,9 @@ public class ForeignLanguage extends BaseEntity implements Serializable {
 
     private String fl_writing;  // 작문 (상,중,하)
 
-    @Column(length = 4, nullable = false)
     private int fl_score; //점수
 
-    @Column(length = 20 , nullable = false)
     private String fl_rank; //급수  // 이건 엑셀파일에 없긴한데
 
-    @Column(nullable = false)
     private LocalDate fl_date; //취득일
 }
