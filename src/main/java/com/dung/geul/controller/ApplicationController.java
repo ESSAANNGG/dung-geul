@@ -75,7 +75,7 @@ public class ApplicationController {
         CV cv = cvRepository.findByUser_id(member).get();
 
         model.addAttribute("cv", cv);
-        model.addAttribute("age", cv.getAge());  // 추후 수정
+//        model.addAttribute("age", cv.getAge());  // 추후 수정
 
         return "application/cv/read";
     }
@@ -87,7 +87,7 @@ public class ApplicationController {
 
         model.addAttribute("cv", cv);
 
-        model.addAttribute("age", cv.getAge()); // 24는 임시값 >> 추후 나이계산해서 수정하기
+       // model.addAttribute("age", cv.getAge()); // 24는 임시값 >> 추후 나이계산해서 수정하기
 
         return "application/cv/modify";
     }
