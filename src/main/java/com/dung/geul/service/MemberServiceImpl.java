@@ -550,7 +550,7 @@ public class MemberServiceImpl implements MemberService {
         return new PageResultDTO<>(result);
     }
 
-    public List<Member> findByType(String type){
+    public Member[] findByType(String type){
         return memberRepository.findByUser_type(type);
     }
 
