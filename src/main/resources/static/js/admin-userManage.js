@@ -14,37 +14,21 @@ function userManage_guide(){
     }
 }
 
-// 회원 상세정보
-let non_detail=0;       //.list_body안에 있는 체크박스나 select(기업형태)를 클릭했을시 상세정보를 띄우지 않게하기위한 참조변수
-let detail_state=0;     //상세정보페이지가 켜져있는지 꺼져있는지 확인하기 위한 참조변수;
+
+
 let detail_per;         //어떤 권한의 사용자인지 확인하는 변수 0=학생 1=교직원 2=상담사 3=기업
-$('.list_body :checkbox, select[class=shapeSelect]').click(function(){
-    non_detail=1;
-})
-//체크박스나 select를 클릭하였다면 상세정보를 띄우지않는다.
-//non_detail=0이면 상세정보를 띄워줌
-function detail(users) {
-    if (non_detail == 1) {
-        non_detail = 0;
-        return;
-    } else if (non_detail == 0) {
-        users_roll=$(users).children('span.role').text();                 //role을 읽어옴
-        setTimeout("detail_on(users_roll)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+function detail_on_userManage(id,roll){
+    detail_state=1;
+    alert(id);//id를 읽어 해당 유저의상세정보를 검색하기위해 id를 전달
+    $.ajax({
+        url: "",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify('id: '+id),
+    })
 
-        users_id=$(users).children('span.username').text();
-        alert(users_id);//id를 읽어 해당 유저의상세정보를 검색하기위해 id를 전달
-        $.ajax({
-            url: "",
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            data: JSON.stringify('id: '+users_id),
-        })
-
-    }
-}
-function detail_on(users_roll){
-    switch (users_roll) {
+    switch (roll) {
         case 'STUDENT': detail_per="detail_student";
             break;
         case 'STAFF': detail_per="detail_staff";
@@ -56,16 +40,8 @@ function detail_on(users_roll){
     }
     $('#'+detail_per).css({"visibility":"visible","opacity":"1"});
     $('#wrap,#admin_header').css("opacity","0.4");
-    detail_state=1;
 }
-//상세정보를 닫음
-$('#shadow_box').click(function(e){
-    if(detail_state==1) {
-        $('.detailBox').css({"visibility": "hidden", "opacity": "0"});
-        $('#wrap,#admin_header').css("opacity", "1");
-        detail_state = 0;
-    }
-})
+
 
 //삭제,승인,거절시 ajax로 데이터 전달
 
