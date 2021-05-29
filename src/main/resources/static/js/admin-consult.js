@@ -39,3 +39,19 @@ function consult_register(i){
         })
     }
 }
+
+
+function detail_on_consult(num){
+    detail_state=1;
+    alert(num);//id를 읽어 해당 상담목록 전달
+    $.ajax({
+        url: "",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify('num: '+num),
+    })
+
+    $('#detail_consult').css({"visibility":"visible","opacity":"1"});
+    $('#wrap,#admin_header').css("opacity","0.4");
+}
