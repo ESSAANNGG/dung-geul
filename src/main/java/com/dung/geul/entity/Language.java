@@ -22,6 +22,7 @@ import java.time.LocalDate;
 public class Language extends BaseEntity implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long fl_num;
 
     @ManyToOne
