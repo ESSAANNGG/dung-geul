@@ -176,9 +176,9 @@
                 <span class="content">[[${consult.Consult_detail_field}]]</span>
 <!--                <span class="preference">신청건수</span>-->
               </div>
-            </div>
-            <div class="list_button">
-              <button class="list_submit">삭제</button>
+              <div class="list_button">
+                <button class="list_submit">삭제</button>
+              </div>
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@
                 <span class="phone">연락처</span>
                 <span class="email">이메일</span>
 <!--                <span class="joindate">가입일</span>-->
-                <span class="role">권한</span>2ㅈㅊ
+                <span class="role">권한</span>2
               </div>
               <div class="list_body" th:each="con,i : ${counselorList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_2_check"></span>
@@ -211,9 +211,9 @@
                 <span class="role">[[${con.getUser_type()}]]</span>
 
               </div>
-            </div>
-            <div class="list_button">
-              <button class="list_submit">삭제</button>
+              <div class="list_button">
+                <button class="list_submit">삭제</button>
+              </div>
             </div>
           </div>
           <div id="main6_counselorCharge">
