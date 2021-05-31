@@ -10,6 +10,8 @@ function consult_guide(){
             break;
         case "상담사" : parameter="/admin/admin_consult";
             break;
+        case "상담등록" : parameter="/admin/admin_consultReg";
+            break;
     }
 }
 
