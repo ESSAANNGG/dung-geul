@@ -11,8 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.security.cert.Certificate;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
 @Service
 @Log4j2
@@ -64,46 +66,158 @@ public class CvServiceImpl implements CVService{
 
 //         수상경력 등록
         List<AwardsDTO> awardsList = cvPageDTO.getAwards();
-        for(AwardsDTO dto : awardsList) {
-            Awards awards = dtoToEntity(dto, member);
-            awardsRepository.save(awards);
+        if(awardsList != null){
+            for(AwardsDTO dto : awardsList) {
+                Awards awards = dtoToEntity(dto, member);
+                awardsRepository.save(awards);
+            }
         }
 
         // 경력 등록
         List<CareerDTO> careerList = cvPageDTO.getCareer();
-        for(CareerDTO dto : careerList) {
-            Carrer carrer = dtoToEntity(dto, member);
-            carrerRepository.save(carrer);
+        if(careerList != null){
+            for(CareerDTO dto : careerList) {
+                Carrer carrer = dtoToEntity(dto, member);
+                carrerRepository.save(carrer);
+            }
         }
+
 
         //학력 등록
         List<EducationDTO> educationList = cvPageDTO.getEducation();
-        for(EducationDTO dto : educationList){
-            Education education = dtoToEntity(dto, member);
-            educationRepository.save(education);
-        }
+        if(educationList!=null){
+            for(EducationDTO dto : educationList){
+                Education education = dtoToEntity(dto, member);
+                educationRepository.save(education);
+            }        }
+
 
         // 가족사항 등록
         List<FamilyDTO> familyList = cvPageDTO.getFamily();
-        for(FamilyDTO dto : familyList) {
-            Family family = dtoToEntity(dto, member);
-            familyRepository.save(family);
+        if(familyList!=null){
+            for(FamilyDTO dto : familyList) {
+                Family family = dtoToEntity(dto, member);
+                familyRepository.save(family);
+            }
         }
+
 
         List<CertificateDTO> certificateList = cvPageDTO.getCertificate();
-        for(CertificateDTO dto : certificateList){
-            License license = dtoToEntity(dto, member);
-            licenseRepository.save(license);
+        if(certificateList!=null){
+            for(CertificateDTO dto : certificateList){
+                License license = dtoToEntity(dto, member);
+                licenseRepository.save(license);
+            }
         }
 
+
         List<LanguageDTO> languageList = cvPageDTO.getLanguage();
-        for(LanguageDTO dto : languageList) {
-            Language language = dtoToEntity(dto, member);
-            languageRepository.save(language);
+        if(languageList!=null){
+            for(LanguageDTO dto : languageList) {
+                Language language = dtoToEntity(dto, member);
+                languageRepository.save(language);
+            }
         }
+
 
         log.info("이력서 등록 완료 ! ");
 
+    }
+
+    public CvPageDTO getCvPageDto(String user_id){
+
+        Member member = memberRepository.findById(user_id).get();
+
+        CV cv = cvRepository.findByUser_id(member).get();
+
+        List<Education> educationList = educationRepository.findByMember(member);
+        List<EducationDTO> educationDTOList = new ArrayList<>();
+        if(educationList != null) {
+            for (Education education : educationList) {
+                EducationDTO dto = EntityToDto(education);
+                log.info("dto : " + dto);
+                educationDTOList.add(dto);
+            }
+        }
+
+
+        List<Awards> awardsList = awardsRepository.findByMember(member);
+        List<AwardsDTO> awardsDTOList = new ArrayList<>();
+        if(awardsList != null){
+            for (Awards awards : awardsList) {
+                AwardsDTO dto = EntityToDto(awards);
+                log.info("dto : " + dto);
+                awardsDTOList.add(dto);
+            }
+        }
+
+        List<Carrer> carrerList = carrerRepository.findByMember(member);
+        List<CareerDTO> careerDTOList = new ArrayList<>();
+        if(carrerList != null){
+            for(Carrer c : carrerList){
+                CareerDTO dto = EntityToDto(c);
+                careerDTOList.add(dto);
+            }
+        }
+
+        List<Family> familyList = familyRepository.findByMember(member);
+        List<FamilyDTO> familyDTOList = new ArrayList<>();
+        if(familyList!=null){
+            for(Family f : familyList){
+                FamilyDTO dto = EntityToDto(f);
+                log.info("dto : " + dto);
+                familyDTOList.add(dto);
+            }
+        }
+
+
+        List<Language> languageList = languageRepository.findByMember(member);
+        List<LanguageDTO> languageDTOList = new ArrayList<>();
+        if(languageList != null){
+            for(Language l : languageList){
+                LanguageDTO dto = EntityToDto(l);
+                log.info("dto : " + dto);
+                languageDTOList.add(dto);
+            }
+        }
+
+
+        List<License> licenseList = licenseRepository.findByMember(member);
+        List<CertificateDTO> licenseDTOList = new ArrayList<>();
+        if(licenseList != null) {
+            for(License l : licenseList){
+                CertificateDTO dto = EntityToDto(l);
+                log.info("dto : " + dto);
+                licenseDTOList.add(dto);
+            }
+        }
+
+
+        CvPageDTO pageDTO = CvPageDTO.builder()
+                .cv_id(cv.getCv_id())
+                .user_id(cv.getUser_id().getUser_id())
+                .user_name(cv.getUser_name())
+                .user_hp(cv.getUser_hp())
+                .user_email(cv.getUser_email())
+                .cv_verteran(cv.getCv_verteran())
+                .cv_disability(cv.getCv_disability())
+                .cv_military(cv.getCv_military())
+                .cv_disability_degree(cv.getCv_disability_degree())
+                .militaryServiceClassification(cv.getCv_military_now())
+                .sec_of_exam(cv.getSec_of_exam())
+                .Desired_salary(cv.getDesired_salary())
+                .cv_hobby(cv.getCv_hobby())
+                .cv_specialty(cv.getCv_specialty())
+                .awards(awardsDTOList)
+                .career(careerDTOList)
+                .education(educationDTOList)
+                .family(familyDTOList)
+                .certificate(licenseDTOList)
+                .language(languageDTOList)
+                .birth(cv.getBirth())
+                .build();
+
+        return pageDTO;
     }
 
 
@@ -126,4 +240,6 @@ public class CvServiceImpl implements CVService{
         cvRepository.deleteById(cv_id);
 
     }
+
+
 }

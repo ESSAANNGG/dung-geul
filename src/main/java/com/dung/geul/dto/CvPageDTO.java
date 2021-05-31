@@ -2,6 +2,7 @@ package com.dung.geul.dto;
 
 import com.dung.geul.entity.Member;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.tomcat.jni.Local;
@@ -14,6 +15,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class CvPageDTO {
 
     private long cv_id;
