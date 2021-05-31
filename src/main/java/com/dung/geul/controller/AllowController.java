@@ -102,4 +102,8 @@ public class AllowController {
     public void application(){
 
     }
+    @GetMapping("/admin_consultReg")
+    public void applicationd(){
+
+    }
 }

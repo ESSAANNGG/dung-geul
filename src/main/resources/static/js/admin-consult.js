@@ -10,8 +10,35 @@ function consult_guide(){
             break;
         case "상담사" : parameter="/admin/admin_consult";
             break;
+        case "상담등록" : parameter="/admin/admin_consultReg";
+            break;
     }
 }
+
+let consult_num;
+function consult_list() {
+    consult_num = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .number').text();                        //목록번호를 읽어옴
+    dataList.push(consult_num);
+}
+
+function consult_list_send(){
+
+    // $.ajax({
+    //     url: "",
+    //     type: "POST",
+    //     contentType: "application/json; charset=utf-8",
+    //     dataType: "json",
+    //     data: JSON.stringify(dataList),
+    // })
+    
+
+    alert(dataList) //디버깅용
+    submit_param();
+}
+
+
+
+
 
 let counsult_type;
 let counsult_name;
