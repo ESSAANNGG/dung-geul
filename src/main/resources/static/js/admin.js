@@ -238,3 +238,44 @@ $('.register_submit').click(function(){
     window[String(menu_name) + "_register_submit"](i);                          //data를 전송
     submit_param();
 })
+
+
+
+
+
+//모달창
+// 모달창
+let non_detail=0;       //.list_body안에 있는 체크박스나 select(기업형태)를 클릭했을시 상세정보를 띄우지 않게하기위한 참조변수
+let detail_state=0;     //상세정보페이지가 켜져있는지 꺼져있는지 확인하기 위한 참조변수;
+$('.list_body :checkbox, select[class=shapeSelect]').click(function(){
+    non_detail=1;
+})
+//체크박스나 select를 클릭하였다면 상세정보를 띄우지않는다.
+//non_detail=0이면 상세정보를 띄워줌
+function detail(t) {
+    if (non_detail == 1) {
+        non_detail = 0;
+        return;
+    } else if (non_detail == 0) {
+        switch (menu_name){
+            case "userManage": //회원관리메뉴에서의 모달창
+                users_roll=$(t).children('span.role').text();                 //role을 읽어옴
+                users_id=$(t).children('span.username').text();
+                setTimeout("window['detail_on_'+menu_name](users_id,users_roll)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+                break;
+
+            case "consult": //상담관리메뉴에서의 모달창
+                num=$(t).children('span.number').text();                 //번호를 읽어옴
+                setTimeout("window['detail_on_'+menu_name](num)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+                break;
+        }
+    }
+}
+//상세정보를 닫음
+$('#shadow_box').click(function(e){
+    if(detail_state==1) {
+        $('.detailBox').css({"visibility": "hidden", "opacity": "0"});
+        $('#wrap,#admin_header').css("opacity", "1");
+        detail_state = 0;
+    }
+})

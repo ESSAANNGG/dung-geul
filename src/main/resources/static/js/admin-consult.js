@@ -13,6 +13,31 @@ function consult_guide(){
     }
 }
 
+let consult_num;
+function consult_list() {
+    consult_num = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .number').text();                        //목록번호를 읽어옴
+    dataList.push(consult_num);
+}
+
+function consult_list_send(){
+
+    // $.ajax({
+    //     url: "",
+    //     type: "POST",
+    //     contentType: "application/json; charset=utf-8",
+    //     dataType: "json",
+    //     data: JSON.stringify(dataList),
+    // })
+    
+
+    alert(dataList) //디버깅용
+    submit_param();
+}
+
+
+
+
+
 let counsult_type;
 let counsult_name;
 function consult_register(i){
@@ -38,4 +63,20 @@ function consult_register(i){
             data: JSON.stringify(register_list)
         })
     }
+}
+
+
+function detail_on_consult(num){
+    detail_state=1;
+    alert(num);//id를 읽어 해당 상담목록 전달
+    $.ajax({
+        url: "",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify('num: '+num),
+    })
+
+    $('#detail_consult').css({"visibility":"visible","opacity":"1"});
+    $('#wrap,#admin_header').css("opacity","0.4");
 }

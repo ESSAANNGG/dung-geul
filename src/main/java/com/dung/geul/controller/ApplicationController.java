@@ -63,7 +63,7 @@ public class ApplicationController {
 
         model.addAttribute("loginUser", member);
 
-        return "application/cv/register";
+        return "/application/cv/register";
 
     }
 
@@ -87,7 +87,7 @@ public class ApplicationController {
 
         model.addAttribute("cv", cv);
 
-       // model.addAttribute("age", cv.getAge()); // 24는 임시값 >> 추후 나이계산해서 수정하기
+//        model.addAttribute("age", cv.getAge()); // 24는 임시값 >> 추후 나이계산해서 수정하기
 
         return "application/cv/modify";
     }

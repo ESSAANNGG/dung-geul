@@ -24,9 +24,9 @@ public class Education {
 
     private String edc_school;              // 학교명
 
-    private LocalDate edc_date_start;       // 입학년도
+    private String edc_date_start;       // 입학년도
 
-    private LocalDate edc_date_end;         // 졸업 년도
+    private String edc_date_end;         // 졸업 년도
 
     private String edc_graduated;           // 졸업구분
 
@@ -36,10 +36,10 @@ public class Education {
 
     private double edc_ps;         //만점
 
-    public void modEdc_date_start(LocalDate edc_date_start){
+    public void modEdc_date_start(String edc_date_start){
         this.edc_date_start = edc_date_start;
     }
-    public void modEdc_date_end(LocalDate edc_date_end){
+    public void modEdc_date_end(String edc_date_end){
         this.edc_date_end = edc_date_end;
     }
     public void modEdc_graduated(String edc_graduated){

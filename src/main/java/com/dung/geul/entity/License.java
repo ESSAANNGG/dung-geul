@@ -16,6 +16,7 @@ import java.time.LocalDate;
 public class License implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long lic_num; //자격증 등록번호
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -24,9 +25,6 @@ public class License implements Serializable {
 
     @Column(length = 50, nullable = false)
     private String lic_name; // 자격증 이름
-
-    @Column(length = 4, nullable = false)
-    private LocalDate lic_acquisition_date; // 취득일
 
     // 유효기간
     private LocalDate lic_date;   // 유효일

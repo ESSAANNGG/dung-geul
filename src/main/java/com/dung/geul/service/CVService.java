@@ -13,8 +13,12 @@ import java.util.List;
 public interface CVService {
 
     default LocalDate dateFormat(String stringDate){
-        LocalDate localDate = LocalDate.parse(stringDate, DateTimeFormatter.ISO_DATE);
-        return localDate;
+
+        if(stringDate != null){
+            LocalDate localDate = LocalDate.parse(stringDate, DateTimeFormatter.ISO_DATE);
+            return localDate;
+        } else return null;
+
     }
 
     default CV CvDtoToEntity(CvPageDTO dto, Member member){
@@ -69,8 +73,8 @@ public interface CVService {
         Education education = Education.builder()
                 .schoolType(type)
                 .edc_school(dto.getEdc_school())
-                .edc_date_start(dateFormat(dto.getDateStart()))
-                .edc_date_end(dateFormat(dto.getDateEnd()))
+                .edc_date_start(dto.getDateStart())
+                .edc_date_end(dto.getDateEnd())
                 .edc_graduated(dto.getGraduated())
                 .edc_dept(dto.getDept())
                 .edc_gpa(dto.getGpa())
