@@ -1,33 +1,29 @@
 package com.dung.geul.controller.restcontroller;
 
-import com.dung.geul.dto.ConsultingDTO;
+import com.dung.geul.dto.ConsultDTO;
 import com.dung.geul.service.ConsultService;
-import com.dung.geul.service.ConsultingService;
+import com.dung.geul.service.ConsultServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Log4j2
 @RestController
+@RequestMapping("/admin")
 public class ConsultRestController {
 
     @Autowired
-    ConsultingService consultingService;
+    ConsultService consultService;
 
-    //상담신청
-    @PostMapping("/rest/conapply")
-    public ResponseEntity<Long> register(@RequestBody ConsultingDTO consultingDTO){
-        log.info("-----------------신청-----------------------");
-        log.info(consultingDTO);
-        Long consult_num = consultingService.register(consultingDTO);
-        log.info(consultingDTO);
-        return new ResponseEntity<>(consult_num, HttpStatus.OK);
+    @PostMapping("/admin_consult_Regda")
+    public ResponseEntity<Long> reg (ConsultDTO consultDTO){
+
+        log.info("dto" + consultDTO);
+        Long cno = consultService.register(consultDTO);
+        return new ResponseEntity<>(cno, HttpStatus.OK);
     }
-
-
 }

@@ -21,7 +21,7 @@ import java.util.List;
 public class Consult extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cno;
 
     @Column(length = 50, nullable = false)

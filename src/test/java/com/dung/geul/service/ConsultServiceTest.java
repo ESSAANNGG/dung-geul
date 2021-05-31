@@ -43,7 +43,7 @@ public class ConsultServiceTest {
 
     @Test
     public void testdelete(){
-        Long cno = 3L;
+        Long cno = 1L;
 
         consultService.remove(cno);
     }
