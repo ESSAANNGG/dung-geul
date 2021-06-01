@@ -131,7 +131,8 @@ h1 {
     font-size: 75%;
     font-weight: 700;
     width: 75px;
-    /* float: left; */
+    position: relative;
+    margin-top: -13px;
 }
 
 .coun-box>div>div {

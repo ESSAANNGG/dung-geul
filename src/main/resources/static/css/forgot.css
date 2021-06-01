@@ -1,12 +1,62 @@
-body, h2, p, span, input, fieldset, legend, html {
-    margin: 0; padding: 0;
-    line-height: 1.25;
-    font-size: 13px;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 div {
     display: block;
 }
-
+#main {
+    margin-top: 20px;
+    background: #eee;
+    border-bottom: solid 5px #1f3786d5;
+    border-top: solid 5px #f2f5f3;
+    border-bottom-width: 35px;
+    border-top-width: 35px;
+    padding: 0px;
+    z-index: -2;
+}
+.menu2 {
+    width: 210px;
+}
 #content {
     position: relative;
     width: 100%;
@@ -65,26 +115,12 @@ h2 {
     font-weight: bold;
 }
 
-ul {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
 
 ul.frm-list li span {
     width: 70px;
     display: inline-block;
     font-size: 14px;
     font-weight: 500;
-}
-
-li {
-    list-style: none;
-    display: list-item;
 }
 
 a {
