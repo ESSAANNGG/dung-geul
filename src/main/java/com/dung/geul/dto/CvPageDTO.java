@@ -18,6 +18,8 @@ import java.util.List;
 @Builder
 public class CvPageDTO {
 
+    //TODO ... 지원경로 없음
+
     private long cv_id;
 
     private String user_id;
@@ -26,6 +28,8 @@ public class CvPageDTO {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birth;
+
+    private String addr;
 
     private String user_hp;
 
@@ -78,6 +82,4 @@ public class CvPageDTO {
 
         return age;
     }
-
-
 }

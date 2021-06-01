@@ -36,6 +36,7 @@ public interface CVService {
                 .birth(dto.getBirth())
                 .user_hp(dto.getUser_hp())
                 .user_email(dto.getUser_email())
+                .addr(dto.getAddr())
                 // 우대사항/병역
                 .cv_verteran(dto.getCv_verteran())
                 .cv_disability(dto.getCv_disability())

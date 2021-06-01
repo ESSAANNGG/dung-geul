@@ -28,11 +28,15 @@ public class CV  implements Serializable{
     // 기본정보
     private String user_name;
 
+    private String name_china;
+
     private LocalDate birth;
 
     private String user_hp;
 
     private String user_email;
+
+    private String addr;
 
     // 우대사항 / 병력
     private int cv_verteran;

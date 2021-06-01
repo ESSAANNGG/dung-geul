@@ -48,79 +48,89 @@ public class CvServiceImpl implements CVService{
     @Transactional
     public void register(CvPageDTO cvPageDTO){
 
-        Member member = memberRepository.findById(cvPageDTO.getUser_id()).get();
+        try {
 
-        log.info("이력서 주인 : " + member.toString());
+            Member member = memberRepository.findById(cvPageDTO.getUser_id()).get();
 
-        Optional<CV> cvOpt = cvRepository.findByUser_id(member);
+            log.info("이력서 주인 : " + member);
 
-        log.info("이력서 : " + cvOpt.toString());
+            Optional<CV> cvOpt = cvRepository.findByUser_id(member);
 
-        if(!cvOpt.isEmpty()){ return; }
+            log.info("이력서 : " + cvOpt.toString());
 
-        CV cv = CvDtoToEntity(cvPageDTO, member);
+            if (!cvOpt.isEmpty()) {
+                return;
+            }
 
-        log.info("이력서 엔티티 : " + cv.toString());
+            CV cv = CvDtoToEntity(cvPageDTO, member);
 
-        cvRepository.save(cv);
+            log.info("이력서 엔티티 : " + cv.toString());
+
+            cvRepository.save(cv);
 
 //         수상경력 등록
-        List<AwardsDTO> awardsList = cvPageDTO.getAwards();
-        if(awardsList != null){
-            for(AwardsDTO dto : awardsList) {
-                Awards awards = dtoToEntity(dto, member);
-                awardsRepository.save(awards);
+            List<AwardsDTO> awardsList = cvPageDTO.getAwards();
+            if (awardsList != null) {
+                for (AwardsDTO dto : awardsList) {
+                    Awards awards = dtoToEntity(dto, member);
+                    awardsRepository.save(awards);
+                }
             }
-        }
 
-        // 경력 등록
-        List<CareerDTO> careerList = cvPageDTO.getCareer();
-        if(careerList != null){
-            for(CareerDTO dto : careerList) {
-                Carrer carrer = dtoToEntity(dto, member);
-                carrerRepository.save(carrer);
+            // 경력 등록
+            List<CareerDTO> careerList = cvPageDTO.getCareer();
+            if (careerList != null) {
+                for (CareerDTO dto : careerList) {
+                    Carrer carrer = dtoToEntity(dto, member);
+                    carrerRepository.save(carrer);
+                }
             }
-        }
 
 
-        //학력 등록
-        List<EducationDTO> educationList = cvPageDTO.getEducation();
-        if(educationList!=null){
-            for(EducationDTO dto : educationList){
-                Education education = dtoToEntity(dto, member);
-                educationRepository.save(education);
-            }        }
-
-
-        // 가족사항 등록
-        List<FamilyDTO> familyList = cvPageDTO.getFamily();
-        if(familyList!=null){
-            for(FamilyDTO dto : familyList) {
-                Family family = dtoToEntity(dto, member);
-                familyRepository.save(family);
+            //학력 등록
+            List<EducationDTO> educationList = cvPageDTO.getEducation();
+            if (educationList != null) {
+                for (EducationDTO dto : educationList) {
+                    Education education = dtoToEntity(dto, member);
+                    educationRepository.save(education);
+                }
             }
-        }
 
 
-        List<CertificateDTO> certificateList = cvPageDTO.getCertificate();
-        if(certificateList!=null){
-            for(CertificateDTO dto : certificateList){
-                License license = dtoToEntity(dto, member);
-                licenseRepository.save(license);
+            // 가족사항 등록
+            List<FamilyDTO> familyList = cvPageDTO.getFamily();
+            if (familyList != null) {
+                for (FamilyDTO dto : familyList) {
+                    Family family = dtoToEntity(dto, member);
+                    familyRepository.save(family);
+                }
             }
-        }
 
 
-        List<LanguageDTO> languageList = cvPageDTO.getLanguage();
-        if(languageList!=null){
-            for(LanguageDTO dto : languageList) {
-                Language language = dtoToEntity(dto, member);
-                languageRepository.save(language);
+            List<CertificateDTO> certificateList = cvPageDTO.getCertificate();
+            if (certificateList != null) {
+                for (CertificateDTO dto : certificateList) {
+                    License license = dtoToEntity(dto, member);
+                    licenseRepository.save(license);
+                }
             }
+
+
+            List<LanguageDTO> languageList = cvPageDTO.getLanguage();
+            if (languageList != null) {
+                for (LanguageDTO dto : languageList) {
+                    Language language = dtoToEntity(dto, member);
+                    languageRepository.save(language);
+                }
+            }
+            log.info("이력서 등록 완료 ! ");
+            return;
+
+        } catch (Exception e){
+
+            log.info("error 발생 : " + e);
+            return;
         }
-
-
-        log.info("이력서 등록 완료 ! ");
 
     }
 
@@ -199,6 +209,7 @@ public class CvServiceImpl implements CVService{
                 .user_name(cv.getUser_name())
                 .user_hp(cv.getUser_hp())
                 .user_email(cv.getUser_email())
+                .addr(cv.getAddr())
                 .cv_verteran(cv.getCv_verteran())
                 .cv_disability(cv.getCv_disability())
                 .cv_military(cv.getCv_military())

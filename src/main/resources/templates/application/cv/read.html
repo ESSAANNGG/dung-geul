@@ -41,30 +41,30 @@
         <!-- 이력서 양식부분 -->
         <form id="cvForm" method="POST" autocomplete="off">
           <section class="form" id="PERSONAL_INFORMATION">
-            <h2 style="margin-bottom: 50px; font-size:30px;">${loginUser.getUser_name()}님의 이력서</h2>
+            <h2 style="margin-bottom: 50px; font-size:30px;">[[${cv.getUser_name()}]]님의 이력서</h2>
 
             <p class="legend">인적사항</p>
             <div class="info">
               <div class="container">
                 <div class="info-container">
                   <div class="info-general">
-                    <div class="item name">서지현</div>
-                    <div class="item china">序池鉉</div>
+                    <div class="item name">[[${cv.getUser_name}]]</div>
+                    <div class="item china">[[${cv.getUser_name}]]</div>
                     <div class="item sex">남</div>
-                    <div class="item age">27세</div>
+                    <div class="item age">[[${cv.getAge()}]]세</div>
                   </div>
                   <div class="info-detail">
                     <label class="label">생년월일</label>
-                    <div class="item year">1997년4월26일</div>
+                    <div class="item year">[[${cv.getBirth()}]]</div>
                     <br />
                     <label class="label" style="width:64px;">휴대폰</label>
-                    <div class="item ph">010-2613-2423</div>
+                    <div class="item ph">[[${cv.getUser_hp()}]]</div>
                     <br />
                     <label class="label" style="width:64px;">Email</label>
-                    <div class="item email">ccc@naver.com</div>
+                    <div class="item email">[[${cv.getUser_email()}]]</div>
                     <br />
                     <label class="label" style="width:64px;">주소</label>
-                    <div class="item addr">대구광역시 달서구 새동네로</div>
+                    <div class="item addr">[[${(cv.getAddr()}]]세</div>
                     <br />
                     <label class="label" style="width:64px;">지원경로</label>
                     <div class="item path">지원경로입니다.</div>
@@ -89,10 +89,10 @@
                   <td class="width-104">연봉</td>
                 </tr>
                 </thead>
-                <tbody class="read_carrer-body">
-                <div class="carrer_item">
+                <tbody class="read_carrer-body" th:if="${cv.getCareer().isEmpty()}">
+                <div class="carrer_item" th:each="item, i : ${cv.getCareer()}">
                   <tr>
-                    <td rowspan="2" class="align_center"> 2016.05.24 ~ 2016.04.26</td>
+                    <td rowspan="2" class="align_center"> [[${item.cr_employment}]] ~ 2016.04.26</td>
                     <td rowspan="2" class="align_center carrerName">회사명</td>
                     <td class="align_center">선임연구원</td>
                     <td class="align_center">담당업무입니다.</td>

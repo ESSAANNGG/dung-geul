@@ -77,7 +77,6 @@ public class ApplicationController {
 
     }
 
-
     @GetMapping("/cv/read")
     public void read(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
@@ -86,6 +85,7 @@ public class ApplicationController {
         model.addAttribute("cv", cv);
 
         log.info("cvPage DTO : " + cv.toString());
+
     }
 
     @GetMapping("/cv/modify")
@@ -94,8 +94,6 @@ public class ApplicationController {
         CV cv = cvRepository.getOne(cv_id);
 
         model.addAttribute("cv", cv);
-
-//        model.addAttribute("age", cv.getAge()); // 24는 임시값 >> 추후 나이계산해서 수정하기
 
         return "application/cv/modify";
     }
