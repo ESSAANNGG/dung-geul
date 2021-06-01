@@ -5,42 +5,47 @@ import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Consult;
 import com.dung.geul.entity.QConsult;
-import com.dung.geul.entity.QEmploy;
 import com.dung.geul.repository.ConsultRepository;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.function.Function;
 
 @Service
-@RequiredArgsConstructor
 @Log4j2
 public class ConsultServiceImpl implements ConsultService {
-    private final ConsultRepository consultRepository;
-    private Consult consult;
+    @Autowired
+    private ConsultRepository consultRepository;
 
-    @Override
-    public Long register(ConsultDTO consultDTO) {
-        Consult consult = dtoToEntity(consultDTO);
-        consultRepository.save(consult);
-        return consult.getCno();
+    @Transactional
+    public void register(ConsultDTO consultDTO) {
+        try {
+            log.info("-----------등록실행---------------");
+            log.info(consultDTO);
+            Consult consult = dtoToEntity(consultDTO);
+            log.info(consultDTO);
+            consultRepository.save(consult);
+
+        } catch (Exception e){
+            log.info("error" + e);
+            return;
+        }
     }
-
     @Override
     public PageResultDTO<ConsultDTO, Consult> getList(PageRequestDTO requestDTO) {
-
     log.info("getList 실행 상담부분");
     Pageable pageable = requestDTO.getPageable(Sort.by("cno"));
     Page<Consult> result = consultRepository.findAll(pageable);
     Function<Consult, ConsultDTO> fn = (entity -> entityToDto(entity));
-
     return  new PageResultDTO<>(result,fn);
 
 //    PageRequestDTO pageRequestDTO = new PageRequestDTO(page1);

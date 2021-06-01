@@ -15,14 +15,14 @@ public class ApplicationRestController {
 
     // 이력서 관련
     @PostMapping("/cv/register")
-    public RedirectView cvRegister(@RequestBody CvPageDTO cvPageDTO){
+    public CvPageDTO cvRegister(@RequestBody CvPageDTO cvPageDTO){
 
         System.out.println("ApplicationApiController : cvRegister() 실행");
         System.out.println("cvPageDTO : " + cvPageDTO);
 
         cvServiceImpl.register(cvPageDTO);
 
-        return new RedirectView("/application/cv/read");
+        return  cvPageDTO;
     }
 
     @PostMapping("/cv/modify")

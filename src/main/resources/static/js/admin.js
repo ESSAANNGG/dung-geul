@@ -234,7 +234,6 @@ $('.register_submit').click(function(){
         register_val=$(select_register).find(".register_data").eq(i).val();     //각 input들의 data를 받아옴(for문 돌리는중)
         window[String(menu_name) + "_register"](i);                             //data를 리스트에 담음
     }
-
     window[String(menu_name) + "_register_submit"](i);                          //data를 전송
     submit_param();
 })

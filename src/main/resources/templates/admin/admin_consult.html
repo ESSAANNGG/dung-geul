@@ -82,6 +82,7 @@
           <select class="guide_select">
             <option>상담관리</option>
             <option>상담사</option>
+            <option>상담등록</option>
           </select>
         </ul>
       </div>
@@ -93,35 +94,6 @@
         <!--상담관리-->
         <div class="main6" id="main6_counsult">
           <!--상담관리 > 상담관리-->
-          <form action="/admin/admin_consult" method="post">
-          <div id="main6_counsult_register">
-            <div class="sub_menu_title">
-              <h3>상담등록</h3>
-            </div>
-            <div class="search register">
-              <ul>
-                <li>상담 종류</li>
-                <li>
-                  <select class="register_data" name="consult_field">
-                    <option value="">상담 종류</option>
-                    <option value="진로 상담">진로 상담</option>
-                    <option value="취업상담">취업 상담</option>
-                    <option value="창업상담">창업 상담</option>
-                  </select>
-                </li>
-              </ul>
-              <ul>
-                <li>상담 프로그램명</li>
-                <li><input type="text" name="consult_detail_field"  class="register_data" maxlength="15" /></li>
-              </ul>
-              <div class="search_button">
-                <button class="register_submit">
-                  <h3>등록</h3>
-                </button>
-              </div>
-            </div>
-          </div>
-          </form>
           <div id="main6_counsult_search">
             <div class="sub_menu_title">
               <h3>상담목록 검색</h3>
@@ -174,7 +146,8 @@
                 <span class="number">[[${consult.cno}]]</span>
                 <span class="title">[[${consult.Consult_field}]]</span>
                 <span class="content">[[${consult.Consult_detail_field}]]</span>
-<!--                <span class="preference">신청건수</span>-->
+                <span class="regdate">[[${#temporals.format(consult.consult_regdate, 'YYYY-MM-dd ')}]]</span>
+                <span class="moddate">[[${#temporals.format(consult.consult_moddate, 'YYYY-MM-dd ')}]]</span>
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>
@@ -241,6 +214,38 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="main6" id="main6_register">
+          <!--상담관리 > 상담등록-->
+          <form action="/admin/admin_consult" method="post">
+            <div id="main6_counsult_register">
+              <div class="sub_menu_title">
+                <h3>상담등록</h3>
+              </div>
+              <div class="search register">
+                <ul>
+                  <li>상담 종류</li>
+                  <li>
+                    <select class="register_data" name="consult_field">
+                      <option value="">상담 종류</option>
+                      <option value="진로 상담">진로 상담</option>
+                      <option value="취업상담">취업 상담</option>
+                      <option value="창업상담">창업 상담</option>
+                    </select>
+                  </li>
+                </ul>
+                <ul>
+                  <li>상담 프로그램명</li>
+                  <li><input type="text" name="consult_detail_field"  class="register_data" maxlength="15" /></li>
+                </ul>
+                <div class="search_button">
+                  <button class="register_submit">
+                    <h3>등록</h3>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

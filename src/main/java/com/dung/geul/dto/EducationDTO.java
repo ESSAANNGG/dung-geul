@@ -39,7 +39,7 @@ public class EducationDTO {
     private double graduate_edc_ps;
 
     public String getDateStart() {
-        if(schoolType.equals("전문대학교")){
+        if(schoolType.equals("전문대")){
             return college_edc_date_start;
         } else if(schoolType.equals("대학교")){
             return university_edc_date_start;
@@ -51,7 +51,7 @@ public class EducationDTO {
     public String getDateEnd() {
         if(schoolType.equals("고등학교")){
             return highschool_edc_date;
-        } else if(schoolType.equals("전문대학교")){
+        } else if(schoolType.equals("전문대")){
             return college_edc_date_end;
         } else if(schoolType.equals("대학교")){
             return university_edc_date_end;
@@ -63,7 +63,7 @@ public class EducationDTO {
     public String getGraduated() {
         if(schoolType.equals("고등학교")){
             return highschool_edc_graduated;
-        } else if(schoolType.equals("전문대학교")){
+        } else if(schoolType.equals("전문대")){
             return college_edc_graduated;
         } else if(schoolType.equals("대학교")){
             return university_edc_graduated;
@@ -73,7 +73,7 @@ public class EducationDTO {
     }
 
     public String getDept() {
-        if(schoolType.equals("전문대학교")){
+        if(schoolType.equals("전문대")){
             return college_edc_dept;
         } else if(schoolType.equals("대학교")){
             return university_edc_dept;
@@ -83,7 +83,7 @@ public class EducationDTO {
     }
 
     public double getGpa() {
-        if(schoolType.equals("전문대학교")){
+        if(schoolType.equals("전문대")){
             return college_edc_gpa;
         } else if(schoolType.equals("대학교")){
             return university_edc_gpa;
@@ -95,7 +95,7 @@ public class EducationDTO {
     public double getPs() {
         if(schoolType.equals("고등학교")){
             return college_edc_ps;
-        } else if(schoolType.equals("전문대학교")){
+        } else if(schoolType.equals("전문대")){
             return college_edc_ps;
         } else if(schoolType.equals("대학교")){
             return university_edc_ps;

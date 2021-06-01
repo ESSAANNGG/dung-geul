@@ -20,6 +20,10 @@ public class Education {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long edc_ID;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ed_user_id" ,foreignKey = @ForeignKey(name="ed_user_id_fk"))
+    private Member member;
+
     private String schoolType;              //  학교 구분
 
     private String edc_school;              // 학교명

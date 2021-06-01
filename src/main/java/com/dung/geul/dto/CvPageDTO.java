@@ -2,6 +2,7 @@ package com.dung.geul.dto;
 
 import com.dung.geul.entity.Member;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.tomcat.jni.Local;
@@ -14,7 +15,10 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class CvPageDTO {
+
+    //TODO ... 지원경로 없음
 
     private long cv_id;
 
@@ -24,6 +28,8 @@ public class CvPageDTO {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birth;
+
+    private String addr;
 
     private String user_hp;
 
@@ -76,6 +82,4 @@ public class CvPageDTO {
 
         return age;
     }
-
-
 }

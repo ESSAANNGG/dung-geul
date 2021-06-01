@@ -5,6 +5,7 @@ import com.dung.geul.dto.ConsultDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Consult;
+import org.springframework.http.ResponseEntity;
 
 public interface ConsultService {
 
@@ -16,7 +17,7 @@ public interface ConsultService {
 
     void modify(ConsultDTO consultDTO);
 
-    Long register(ConsultDTO consultDTO);
+//    Long register(ConsultDTO consultDTO);
 
     default Consult dtoToEntity(ConsultDTO consultDTO){
         Consult consult = Consult.builder()
@@ -32,6 +33,8 @@ public interface ConsultService {
                 .cno(consult.getCno())
                 .Consult_field(consult.getConsult_field())
                 .Consult_detail_field(consult.getConsult_detail_field())
+                .consult_regdate(consult.getRegDate())
+                .consult_moddate(consult.getModDate())
                 .build();
         return consultDTO;
     }

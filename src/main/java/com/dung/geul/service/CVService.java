@@ -36,6 +36,7 @@ public interface CVService {
                 .birth(dto.getBirth())
                 .user_hp(dto.getUser_hp())
                 .user_email(dto.getUser_email())
+                .addr(dto.getAddr())
                 // 우대사항/병역
                 .cv_verteran(dto.getCv_verteran())
                 .cv_disability(dto.getCv_disability())
@@ -71,6 +72,7 @@ public interface CVService {
         String type = dto.getSchoolType();
 
         Education education = Education.builder()
+                .member(member)
                 .schoolType(type)
                 .edc_school(dto.getEdc_school())
                 .edc_date_start(dto.getDateStart())
@@ -101,6 +103,7 @@ public interface CVService {
     default Language dtoToEntity(LanguageDTO dto, Member member){
 
         Language language = Language.builder()
+                .member(member)
                 .fl_language(dto.getFl_language())
                 .fl_name(dto.getFl_name())
                 .fl_conversation(dto.getFl_conversation())
@@ -140,6 +143,110 @@ public interface CVService {
                 .build();
 
         return carrer;
+    }
+
+    // entity to dto
+
+    default AwardsDTO EntityToDto(Awards entity){
+
+        AwardsDTO awardsDTO = AwardsDTO.builder()
+                .awards_agency(entity.getAwards_agency())
+                .awards_date(entity.getAwards_date())
+                .awards_des(entity.getAwards_des())
+                .award_contents(entity.getAward_contents())
+                .build();
+
+        return awardsDTO;
+    }
+
+    default EducationDTO EntityToDto(Education entity){
+
+         EducationDTO dto = EducationDTO.builder()
+                 .schoolType(entity.getSchoolType())
+                 .edc_school(entity.getEdc_school())
+                .build();
+
+         String type = dto.getSchoolType();
+
+         if(type.equals("고등학교")){
+             dto.setHighschool_edc_date(entity.getEdc_dept());
+             dto.setHighschool_edc_graduated(entity.getEdc_graduated());
+         } else if(type.equals("전문대")){
+             dto.setCollege_edc_date_start(entity.getEdc_date_start());
+             dto.setCollege_edc_date_end(entity.getEdc_date_end());
+             dto.setCollege_edc_graduated(entity.getEdc_graduated());
+             dto.setCollege_edc_dept(entity.getEdc_dept());
+             dto.setCollege_edc_gpa(entity.getEdc_gpa());
+             dto.setCollege_edc_ps(entity.getEdc_ps());
+         } else if (type.equals("대학교")){
+             dto.setUniversity_edc_date_start(entity.getEdc_date_start());
+             dto.setUniversity_edc_date_end(entity.getEdc_date_end());
+             dto.setUniversity_edc_dept(entity.getEdc_dept());
+             dto.setUniversity_edc_graduated(entity.getEdc_graduated());
+             dto.setUniversity_edc_gpa(entity.getEdc_gpa());
+             dto.setUniversity_edc_ps(entity.getEdc_ps());
+         } else {
+             dto.setGraduate_edc_date_start(entity.getEdc_date_start());
+             dto.setGraduate_edc_date_end(entity.getEdc_date_end());
+             dto.setGraduate_edc_dept(entity.getEdc_dept());
+             dto.setGraduate_edc_graduated(entity.getEdc_graduated());
+             dto.setGraduate_edc_gpa(entity.getEdc_gpa());
+             dto.setGraduate_edc_ps(entity.getEdc_ps());
+         }
+
+        return dto;
+    }
+
+    default CareerDTO EntityToDto(Carrer entity){
+        CareerDTO dto = CareerDTO.builder()
+                .cr_etp_name(entity.getCr_etp_name())
+                .cr_employment(entity.getCr_employment())
+                .cr_resignation(entity.getCr_resignation())
+                .cr_position(entity.getCr_position())
+                .reason_resign(entity.getReason_resign())
+                .salary(entity.getSalary())
+                .cr_task(entity.getCr_task())
+                .build();
+
+        return dto;
+    }
+
+    default FamilyDTO EntityToDto(Family entity){
+        FamilyDTO dto = FamilyDTO.builder()
+                .fam_num(entity.getFam_num())
+                .fam_relation(entity.getFam_relation())
+                .fam_name(entity.getFam_name())
+                .fam_age(entity.getFam_age())
+                .fam_birth(entity.getFam_birth())
+                .fam_living(entity.getFam_living())
+                .build();
+
+        return dto;
+    }
+
+    default LanguageDTO EntityToDto(Language entity){
+        LanguageDTO dto = LanguageDTO.builder()
+                .fl_language(entity.getFl_language())
+                .fl_conversation(entity.getFl_conversation())
+                .fl_reading(entity.getFl_reading())
+                .fl_writing(entity.getFl_writing())
+                .fl_name(entity.getFl_name())
+                .fl_score(entity.getFl_score())
+                .fl_rank(entity.getFl_rank())
+                .fl_date(entity.getFl_date())
+                .build();
+
+        return dto;
+    }
+
+    default CertificateDTO EntityToDto(License entity){
+        CertificateDTO dto = CertificateDTO.builder()
+                .lic_name(entity.getLic_name())
+                .lic_date(entity.getLic_date())
+                .lic_due_date(entity.getLic_due_date())
+                .build();
+
+        return dto;
     }
 
 
