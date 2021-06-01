@@ -5,6 +5,8 @@ import com.dung.geul.dto.ConsultDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Consult;
+import com.dung.geul.entity.Member;
+import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.ConsultService;
 import com.dung.geul.service.ConsultServiceImpl;
 import com.dung.geul.service.MemberServiceImpl;
@@ -26,8 +28,9 @@ import java.util.List;
 @Log4j2
 @RequiredArgsConstructor
 public class AdminconsultController {
-    private final ConsultService consultService;
-    private final ConsultServiceImpl consultServiceimpl;
+    @Autowired
+    private ConsultService consultService;
+
     @Autowired
     private MemberServiceImpl memberService;
 
@@ -45,9 +48,14 @@ public class AdminconsultController {
 
 
         @GetMapping("/admin_consult_Reg")
-        public void reg(Model modle){
-            log.info("안알랴줌");
+        public String reg(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+            Member member = memberService.getMember(authMemberDTO.getUser_id());
 
+            model.addAttribute("user",member);
+
+            log.info("ddddd");
+
+        return "/admin/admin_consult_Reg";
         }
 
 

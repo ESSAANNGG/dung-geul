@@ -17,13 +17,14 @@ import java.util.List;
 public class ConsultRestController {
 
     @Autowired
-    ConsultService consultService;
+    ConsultServiceImpl consultService;
 
-    @PostMapping("/admin_consult_Regda")
-    public ResponseEntity<Long> reg (ConsultDTO consultDTO){
+    @PostMapping("/admin_consult_Reg")
+    public ConsultDTO reg (ConsultDTO consultDTO){
+        System.out.println("Controller : consultRegister() 실행");
+        System.out.println("consultDTO : " + consultDTO);
 
-        log.info("dto" + consultDTO);
-        Long cno = consultService.register(consultDTO);
-        return new ResponseEntity<>(cno, HttpStatus.OK);
+        consultService.register(consultDTO);
+        return consultDTO;
     }
 }

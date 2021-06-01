@@ -17,7 +17,7 @@ public interface ConsultService {
 
     void modify(ConsultDTO consultDTO);
 
-    Long register(ConsultDTO consultDTO);
+//    Long register(ConsultDTO consultDTO);
 
     default Consult dtoToEntity(ConsultDTO consultDTO){
         Consult consult = Consult.builder()

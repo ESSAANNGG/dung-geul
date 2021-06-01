@@ -10,11 +10,12 @@ import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -23,14 +24,15 @@ import java.util.function.Function;
 @RequiredArgsConstructor
 @Log4j2
 public class ConsultServiceImpl implements ConsultService {
-    private final ConsultRepository consultRepository;
+    @Autowired
+    private ConsultRepository consultRepository;
 
-    @Override
-    public Long register(ConsultDTO consultDTO) {
+    @Transactional
+    public void register(ConsultDTO consultDTO) {
         log.info("-----------등록실행---------------");
+        log.info(consultDTO);
         Consult consult = dtoToEntity(consultDTO);
         consultRepository.save(consult);
-        return consult.getCno();
     }
 
     @Override

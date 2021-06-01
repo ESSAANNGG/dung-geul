@@ -9,14 +9,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@ToString(exclude = {"member" , "consult"})
+//@ToString(exclude = {"member" , "consult"})
 public class Consulting  extends BaseEntity {    // 상담 테이블
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Member member;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Consult consult;
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    private Member member;
+//
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    private Consult consult;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
