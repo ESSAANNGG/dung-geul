@@ -32,11 +32,10 @@ public class ConsultServiceImpl implements ConsultService {
             log.info("-----------등록실행---------------");
             log.info(consultDTO);
             Consult consult = dtoToEntity(consultDTO);
-            log.info(consultDTO);
             consultRepository.save(consult);
 
         } catch (Exception e){
-            log.info("error" + e);
+            log.info("error12213123123" + e);
             return;
         }
     }
@@ -85,8 +84,8 @@ public class ConsultServiceImpl implements ConsultService {
         if(result.isPresent()){
             Consult consult = result.get();
 
-            consult.updatefiled(consultDTO.getConsult_field());
-            consult.updatedetail(consultDTO.getConsult_detail_field());
+            consult.updatefiled(consultDTO.getType());
+            consult.updatedetail(consultDTO.getName());
 
             consultRepository.save(consult);
         }

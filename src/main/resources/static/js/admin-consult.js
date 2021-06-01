@@ -53,15 +53,16 @@ function consult_register(i) {
                 consult_detail_field = register_val;
                 break;
         }
-        alert(consult_detail_field);
     }
 }
 
 function consult_register_submit() {
-    alert(consult_detail_field);
 
-    register_list="{type:" + consult_field + ", name:" + consult_detail_field + "}";
-
+    register_list={
+        type : consult_field,
+        name : consult_detail_field
+    };
+    alert(JSON.stringify(register_list));
     $.ajax({
         url: "/admin/admin_consult_Reg",
         type: "POST",
@@ -75,11 +76,12 @@ function consult_register_submit() {
             alert('실패');
         }
     })
+    alert("등록되었습니다");
     //상담관리메뉴는 상담등록만 따로빼놨음
     //나중에 합찬다면 이 밑의 세 문장,consult_guide의 주소값,html파일 삭제만 하면됨
 
-    // parameter="/admin/admin_consult_Reg";
-    select_detail_menu=document.getElementsByClassName('guide_select')[0].selectedIndex;   //상세메뉴중 뭐를 클릭했는지 가져오기
+    parameter="/admin/admin_consult";
+    select_detail_menu=0;   //상세메뉴중 뭐를 클릭했는지 가져오기
     window.sessionStorage.setItem('select_detail_menu',select_detail_menu);
 }
 

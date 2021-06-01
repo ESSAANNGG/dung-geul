@@ -19,8 +19,9 @@ import java.time.LocalDateTime;
 })
 public class ConsultDTO{
     private Long cno;
-    private String Consult_field;
-    private String Consult_detail_field;
     private LocalDateTime consult_regdate;
     private LocalDateTime consult_moddate;
+
+    private String type;
+    private String name;
 }

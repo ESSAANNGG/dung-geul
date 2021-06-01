@@ -58,5 +58,10 @@ public class AdminconsultController {
         return "/admin/admin_consult_Reg";
         }
 
+        @PostMapping("/register")
+        public void register(ConsultDTO dto) {
+            log.info("dto : " + dto.toString());
+        }
+
 
 }
