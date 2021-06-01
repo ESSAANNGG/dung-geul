@@ -49,9 +49,9 @@ public class AdminconsultController {
 
         @GetMapping("/admin_consult_Reg")
         public String reg(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
-            Member member = memberService.getMember(authMemberDTO.getUser_id());
+//            Member member = memberService.getMember(authMemberDTO.getUser_id());
 
-            model.addAttribute("user",member);
+//            model.addAttribute("user",member);
 
             log.info("ddddd");
 

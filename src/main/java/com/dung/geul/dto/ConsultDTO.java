@@ -9,16 +9,15 @@ import javax.persistence.Column;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@EqualsAndHashCode(callSuper = true)
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-@ToString
 @AttributeOverrides({
         @AttributeOverride(name = "regDate", column = @Column(name = "consult_regdate")),
         @AttributeOverride(name = "modDate", column = @Column(name = "consult_modDate"))
 })
-public class ConsultDTO extends BaseEntity {
+public class ConsultDTO{
     private Long cno;
     private String Consult_field;
     private String Consult_detail_field;

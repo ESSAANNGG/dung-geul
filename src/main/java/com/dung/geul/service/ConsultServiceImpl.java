@@ -21,7 +21,6 @@ import java.util.Optional;
 import java.util.function.Function;
 
 @Service
-@RequiredArgsConstructor
 @Log4j2
 public class ConsultServiceImpl implements ConsultService {
     @Autowired
@@ -29,12 +28,18 @@ public class ConsultServiceImpl implements ConsultService {
 
     @Transactional
     public void register(ConsultDTO consultDTO) {
-        log.info("-----------등록실행---------------");
-        log.info(consultDTO);
-        Consult consult = dtoToEntity(consultDTO);
-        consultRepository.save(consult);
-    }
+        try {
+            log.info("-----------등록실행---------------");
+            log.info(consultDTO);
+            Consult consult = dtoToEntity(consultDTO);
+            log.info(consultDTO);
+            consultRepository.save(consult);
 
+        } catch (Exception e){
+            log.info("error" + e);
+            return;
+        }
+    }
     @Override
     public PageResultDTO<ConsultDTO, Consult> getList(PageRequestDTO requestDTO) {
     log.info("getList 실행 상담부분");
