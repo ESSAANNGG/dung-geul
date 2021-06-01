@@ -10,7 +10,7 @@ function consult_guide(){
             break;
         case "상담사" : parameter="/admin/admin_consult";
             break;
-        case "상담등록" : parameter="/admin/admin_consultReg";
+        case "상담등록" : parameter="/admin/admin_consult_Reg";
             break;
     }
 }
@@ -58,15 +58,16 @@ function consult_register(i){
     function consult_register_submit() {
         register_list="{type:" + counsult_type + ", name:" + counsult_name + "}";
         $.ajax({
-            url: "/rest/conReg",
+            url: "/admin/admin_consult_Regda",
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: JSON.stringify(register_list)
+        }).done(function (){
+            location.href = "/admin/admin_consult";
         })
     }
 }
-
 
 function detail_on_consult(num){
     detail_state=1;

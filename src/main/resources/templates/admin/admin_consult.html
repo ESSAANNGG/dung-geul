@@ -146,7 +146,8 @@
                 <span class="number">[[${consult.cno}]]</span>
                 <span class="title">[[${consult.Consult_field}]]</span>
                 <span class="content">[[${consult.Consult_detail_field}]]</span>
-<!--                <span class="preference">신청건수</span>-->
+                <span class="regdate">[[${#temporals.format(consult.consult_regdate, 'YYYY-MM-dd ')}]]</span>
+                <span class="moddate">[[${#temporals.format(consult.consult_moddate, 'YYYY-MM-dd ')}]]</span>
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>
