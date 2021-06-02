@@ -22,13 +22,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="../../static/css/certificate_register.css" />
-    <link rel="stylesheet" href="../../static/css/menu-common2.css" />
-    <link rel="stylesheet" href="../../static/css/frame.css" />
-    <link rel="stylesheet" href="../../static/css/footer.css" />
-    <link rel="stylesheet" href="../../static/css/nav.css" />
-    <script defer src="../../static/js/nav.js"></script>
-    <script defer src="../../static/js/certificate.js"></script>
+    <link rel="stylesheet" href="/css/certificate_register.css" />
+    <link rel="stylesheet" href="/css/menu-common2.css" />
+    <link rel="stylesheet" href="/css/frame.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <script defer src="/js/nav.js"></script>
+    <script defer src="/certificate.js"></script>
 
 
 
@@ -38,76 +38,8 @@
 <body>
 
 
-    <!-- <div th:replace="layout/layout :: nav" /> -->
-    <navbar th:fragment="nav">
+     <div th:replace="layout/layout :: nav" />
 
-        <!--  상단 nav css, js  -->
-
-        <div class="nav">
-            <ul class="dep1">
-                <li class="logo">
-                    <a href="/">영진전문대학교</a>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                    <a href="#">진로설계</a>
-                    <ul class="dep2" onmouseover="nav_on()">
-                        <li><a href="/career-planning/simli_test">진로심리검사</a></li>
-                        <li><a href="/job-information/job-information">직업정보</a></li>
-                        <li><a href="/job-information/job-dictionary">직업사전</a></li>
-                    </ul>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                    <a href="#">직무역량강화</a>
-                    <ul class="dep2" onmouseover="nav_on()">
-                        <li><a href="/upgrade/upgrade">지원프로그램</a></li>
-                        <li><a href="#">자격증 관리</a></li>
-                        <li><a href="#">수료증 관리</a></li>
-                    </ul>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                    <a href="#">구직역량강화</a>
-                    <ul class="dep2" onmouseover="nav_on()">
-                        <li><a href="/application/cv/before">이력서 관리</a></li>
-                        <li><a th:href="@{/Introduce/list}">자소서 관리</a></li>
-                    </ul>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                    <a href="#">구직서비스</a>
-                    <ul class="dep2" onmouseover="nav_on()">
-                        <li><a th:href="@{/Employ/list}"> 채용정보</a></li>
-                        <li><a th:href="@{/Employ/register}"> 채용등록</a></li>
-                    </ul>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                    <a href="#">상담</a>
-                    <ul class="dep2" onmouseover="nav_on()">
-                        <li><a href="/counseling/counseling">상담내용</a></li>
-                        <li><a href="/counseling/counseling">상담신청</a></li>
-                        <li><a href="/counseling/studentcoun">상담내역</a></li>
-                    </ul>
-                </li>
-                <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
-                    <a href="#">센터정보</a>
-                    <ul class="dep2" onmouseover="nav_on()">
-                        <li><a href="/center-information/center_introduction">센터소개</a></li>
-                        <li><a href="/center-information/main_business">주요업무내용</a></li>
-                        <li><a href="/center-information/notice_board">공지사항</a></li>
-                    </ul>
-                </li>
-                <li class="login">
-                    <a sec:authorize="!isAuthenticated()" href="/login">로그인</a>
-                    <a sec:authorize="isAuthenticated()" href="/logout">로그아웃</a>
-                </li>
-                <li class="join">
-                    <a sec:authorize="!isAuthenticated()" href="/sign-up">회원가입</a>
-                    <a sec:authorize="isAuthenticated()" href="/mypage/before/read">마이페이지</a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav2">
-            <!--nav2 클래스는 dep2의 배경색만을 위한 클래스-->
-        </div>
-    </navbar>
 
     <!-- Main -->
     <section id="main">
@@ -180,30 +112,8 @@
 
 
     <!-- footer -->
-    <!-- <footer th:replace="layout/layout :: footer" /> -->
-    <footer th:fragment="footer">
-        <link rel="stylesheet" th:href="@{/css/footer.css}" />
+     <footer th:replace="layout/layout :: footer" />
 
-        <div class="footer">
-            <ul class="footer_1">
-                <li class="footer_1_c">개인정보처리방침</li>
-                <li class="footer_1_c">이메일무단수집거부</li>
-                <li class="footer_1_c">저작권보호방침</li>
-                <li class="footer_1_c">입찰정보</li>
-                <li class="footer_1_c">예산공고</li>
-            </ul>
-            <ul class="footer_2">
-                <li class="footer_2_c">전화번호 : 053-819-1000</li>
-                <li class="footer_2_c">전화번호 : 053-770-2233</li>
-                <li class="footer_2_c">전화번호 : 053-819-1114</li>
-            </ul>
-            <ul class="footer_3">
-                <li class="footer_3_c">
-                    COPYRIGHT (C) DAEGU HAANY UNIVERSITY.ALL RIGHTS RESERVED.
-                </li>
-            </ul>
-        </div>
-    </footer>
 
 
 
