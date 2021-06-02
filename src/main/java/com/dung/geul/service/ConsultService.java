@@ -17,13 +17,13 @@ public interface ConsultService {
 
     void modify(ConsultDTO consultDTO);
 
-    Long register(ConsultDTO consultDTO);
+//    Long register(ConsultDTO consultDTO);
 
     default Consult dtoToEntity(ConsultDTO consultDTO){
         Consult consult = Consult.builder()
                 .cno(consultDTO.getCno())
-                .Consult_field(consultDTO.getConsult_field())
-                .Consult_detail_field(consultDTO.getConsult_detail_field())
+                .Consult_field(consultDTO.getType())
+                .Consult_detail_field(consultDTO.getName())
                 .build();
         return consult;
     }
@@ -31,8 +31,10 @@ public interface ConsultService {
     default ConsultDTO entityToDto(Consult consult){
         ConsultDTO consultDTO = ConsultDTO.builder()
                 .cno(consult.getCno())
-                .Consult_field(consult.getConsult_field())
-                .Consult_detail_field(consult.getConsult_detail_field())
+                .type(consult.getConsult_field())
+                .name(consult.getConsult_detail_field())
+//                .Consult_field(consult.getConsult_field())
+//                .Consult_detail_field(consult.getConsult_detail_field())
                 .consult_regdate(consult.getRegDate())
                 .consult_moddate(consult.getModDate())
                 .build();

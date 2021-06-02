@@ -70,7 +70,7 @@ let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
 }
 
 function userManage_list_send(){
-
+alert(dataList);
         $.ajax({
             url: "/allow/member/read?result=" + p,
             type: "POST",

@@ -216,7 +216,7 @@
         </div>
         <div class="main6" id="main6_register">
           <!--상담관리 > 상담등록-->
-          <form action="/admin/admin_consult_Regda" method="POST">
+          <form >
             <div id="main6_counsult_register">
               <div class="sub_menu_title">
                 <h3>상담등록</h3>
@@ -225,7 +225,7 @@
                 <ul>
                   <li>상담 종류</li>
                   <li>
-                    <select class="register_data" name="consult_field">
+                    <select class="register_data" name="type">
                       <option value="">상담 종류</option>
                       <option value="진로 상담">진로 상담</option>
                       <option value="취업상담">취업 상담</option>
@@ -235,10 +235,10 @@
                 </ul>
                 <ul>
                   <li>상담 프로그램명</li>
-                  <li><input type="text" name="consult_detail_field"  class="register_data" maxlength="15" /></li>
+                  <li><input type="text" name="name"  class="register_data" maxlength="15" /></li>
                 </ul>
                 <div class="search_button">
-                  <button class="register_submit" th:method="POST">
+                  <button class="register_submit" type="button">
                     <h3>등록</h3>
                   </button>
                 </div>

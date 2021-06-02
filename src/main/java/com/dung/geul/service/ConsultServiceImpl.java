@@ -10,29 +10,35 @@ import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.function.Function;
 
 @Service
-@RequiredArgsConstructor
 @Log4j2
 public class ConsultServiceImpl implements ConsultService {
-    private final ConsultRepository consultRepository;
+    @Autowired
+    private ConsultRepository consultRepository;
 
-    @Override
-    public Long register(ConsultDTO consultDTO) {
-        log.info("-----------등록실행---------------");
-        Consult consult = dtoToEntity(consultDTO);
-        consultRepository.save(consult);
-        return consult.getCno();
+    @Transactional
+    public void register(ConsultDTO consultDTO) {
+        try {
+            log.info("-----------등록실행---------------");
+            log.info(consultDTO);
+            Consult consult = dtoToEntity(consultDTO);
+            consultRepository.save(consult);
+
+        } catch (Exception e){
+            log.info("error12213123123" + e);
+            return;
+        }
     }
-
     @Override
     public PageResultDTO<ConsultDTO, Consult> getList(PageRequestDTO requestDTO) {
     log.info("getList 실행 상담부분");
@@ -78,8 +84,8 @@ public class ConsultServiceImpl implements ConsultService {
         if(result.isPresent()){
             Consult consult = result.get();
 
-            consult.updatefiled(consultDTO.getConsult_field());
-            consult.updatedetail(consultDTO.getConsult_detail_field());
+            consult.updatefiled(consultDTO.getType());
+            consult.updatedetail(consultDTO.getName());
 
             consultRepository.save(consult);
         }
