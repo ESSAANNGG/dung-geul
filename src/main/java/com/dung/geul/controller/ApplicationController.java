@@ -85,6 +85,7 @@ public class ApplicationController {
         model.addAttribute("cv", cv);
 
         log.info("cvPage DTO : " + cv.toString());
+        log.info("cv.getAddr() : " + cv.getAddr());
 
     }
 

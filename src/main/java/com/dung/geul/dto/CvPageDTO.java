@@ -71,10 +71,6 @@ public class CvPageDTO {
         int currentYear = LocalDate.now().getYear();
         int currentDay = LocalDate.now().getDayOfYear();
 
-        System.out.print("year : " + currentYear  + " day : " + currentDay);
-
-        System.out.println("birth : " + birth);
-
         int age = currentYear - this.birth.getYear();
 
         // 생일이 지났는지 안지났는지

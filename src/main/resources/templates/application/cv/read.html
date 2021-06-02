@@ -64,7 +64,7 @@
                     <div class="item email">[[${cv.getUser_email()}]]</div>
                     <br />
                     <label class="label" style="width:64px;">주소</label>
-                    <div class="item addr">[[${(cv.getAddr()}]]세</div>
+                    <div class="item addr">[[${cv.getAddr()}]]세</div>
                     <br />
                     <label class="label" style="width:64px;">지원경로</label>
                     <div class="item path">지원경로입니다.</div>
@@ -89,131 +89,32 @@
                   <td class="width-104">연봉</td>
                 </tr>
                 </thead>
-                <tbody class="read_carrer-body" th:if="${cv.getCareer().isEmpty()}">
+                <tbody class="read_carrer-body" th:if="${!cv.getCareer().isEmpty()}">
                 <div class="carrer_item" th:each="item, i : ${cv.getCareer()}">
                   <tr>
-                    <td rowspan="2" class="align_center"> [[${item.cr_employment}]] ~ 2016.04.26</td>
-                    <td rowspan="2" class="align_center carrerName">회사명</td>
-                    <td class="align_center">선임연구원</td>
-                    <td class="align_center">담당업무입니다.</td>
-                    <td class="align_center">5000 만원</td>
+                    <td rowspan="2" class="align_center"> [[${item.getCr_employment()}]] ~ [[${item.getCr_resignation()}]]</td>
+                    <td rowspan="2" class="align_center carrerName">[[${item.getCr_etp_name()}]]</td>
+                    <td class="align_center">[[${item.getCr_position()}]]</td>
+                    <td class="align_center">[[${item.getCr_task()}]]</td>
+                    <td class="align_center">[[${item.getSalary()}]] 만원</td>
                   </tr>
                   <tr>
-                    <td colspan="3"><span class="read_resign">퇴사사유</span>퇴사사유입니다.</td>
+                    <td colspan="3"><span class="read_resign">퇴사사유</span>[[${item.getReason_resign()}]]</td>
                   </tr>
                 </div>
                 </tbody>
               </table>
-              <table class="carrer2">
-                <thead class="read_carrer">
-                <tr>
-                  <td class="width-224">근무기간</td>
-                  <td class="width-224 ">회사명</td>
-                  <td class="width-200">직위</td>
-                  <td class="width-300">담당업무</td>
-                  <td class="width-104">연봉</td>
-                </tr>
-                </thead>
-                <tbody class="read_carrer-body">
-                <div class="carrer_item">
-                  <tr>
-                    <td rowspan="2" class="align_center"> 2016.05.24 ~ 2016.04.26</td>
-                    <td rowspan="2" class="align_center carrerName2"></td>
-                    <td class="align_center">선임연구원</td>
-                    <td class="align_center">담당업무입니다.</td>
-                    <td class="align_center">5000 만원</td>
-                  </tr>
-                  <tr>
-                    <td colspan="3"><span class="read_resign">퇴사사유</span>퇴사사유입니다.</td>
-                  </tr>
-                </div>
-                </tbody>
-              </table>
-              <table class="carrer3">
-                <thead class="read_carrer">
-                <tr>
-                  <td class="width-224">근무기간</td>
-                  <td class="width-224 ">회사명</td>
-                  <td class="width-200">직위</td>
-                  <td class="width-300">담당업무</td>
-                  <td class="width-104">연봉</td>
-                </tr>
-                </thead>
-                <tbody class="read_carrer-body">
-                <div class="carrer_item">
-                  <tr>
-                    <td rowspan="2" class="align_center"> 2016.05.24 ~ 2016.04.26</td>
-                    <td rowspan="2" class="align_center carrerName3"></td>
-                    <td class="align_center">선임연구원</td>
-                    <td class="align_center">담당업무입니다.</td>
-                    <td class="align_center">5000 만원</td>
-                  </tr>
-                  <tr>
-                    <td colspan="3"><span class="read_resign">퇴사사유</span>퇴사사유입니다.</td>
-                  </tr>
-                </div>
-                </tbody>
-              </table>
-              <table class="carrer4">
-                <thead class="read_carrer">
-                <tr>
-                  <td class="width-224">근무기간</td>
-                  <td class="width-224 ">회사명</td>
-                  <td class="width-200">직위</td>
-                  <td class="width-300">담당업무</td>
-                  <td class="width-104">연봉</td>
-                </tr>
-                </thead>
-                <tbody class="read_carrer-body">
-                <div class="carrer_item">
-                  <tr>
-                    <td rowspan="2" class="align_center"> 2016.05.24 ~ 2016.04.26</td>
-                    <td rowspan="2" class="align_center carrerName4"></td>
-                    <td class="align_center">선임연구원</td>
-                    <td class="align_center">담당업무입니다.</td>
-                    <td class="align_center">5000 만원</td>
-                  </tr>
-                  <tr>
-                    <td colspan="3"><span class="read_resign">퇴사사유</span>퇴사사유입니다.</td>
-                  </tr>
-                </div>
-                </tbody>
-              </table>
-              <table class="carrer5">
-                <thead class="read_carrer">
-                <tr>
-                  <td class="width-224">근무기간</td>
-                  <td class="width-224 ">회사명</td>
-                  <td class="width-200">직위</td>
-                  <td class="width-300">담당업무</td>
-                  <td class="width-104">연봉</td>
-                </tr>
-                </thead>
-                <tbody class="read_carrer-body">
-                <div class="carrer_item">
-                  <tr>
-                    <td rowspan="2" class="align_center"> 2016.05.24 ~ 2016.04.26</td>
-                    <td rowspan="2" class="align_center carrerName5"></td>
-                    <td class="align_center">선임연구원</td>
-                    <td class="align_center">담당업무입니다.</td>
-                    <td class="align_center">5000 만원</td>
-                  </tr>
-                  <tr>
-                    <td colspan="3"><span class="read_resign">퇴사사유</span>퇴사사유입니다.</td>
-                  </tr>
-                </div>
-                </tbody>
-              </table>
+
             </div>
 
           </section>
 
 
-          <section class="form" id="학력사항">
+          <section class="form" id="학력사항" th:if="${!cv.getEducation().isEmpty()}">
             <p class="legend">학력사항</p>
-            <div id="items" class="form-group school-test items">
+            <div id="items" class="form-group school-test items" >
               <div class="info">
-                <table>
+                <table th:each="item : ${cv.getEducation()}">
                   <thead class="read_carrer">
                   <tr>
                     <td class="width-200">재학기간</td>
@@ -228,137 +129,19 @@
                   <tbody class="read_carrer-body">
                   <div class="carrer_item">
                     <tr>
-                      <td rowspan="2" class="align_center"> ~ </td>
-                      <td rowspan="2" class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
+                      <td rowspan="2" class="align_center" > [[${item.getDateStart()}]] ~ [[${item.getDateEnd()}]] </td>
+                      <td rowspan="2" class="align_center">[[${item.getEdc_school()}]]</td>
+                      <td class="align_center">[[${item.getGraduated()}]]</td>
+                      <td class="align_center" >[[${item.getDept()}]]</td>
+                      <td class="align_center">[[${item.getGpa()}]]</td>
+                      <td class="align_center">[[${item.getPs()}]]</td>
                     </tr>
                     <tr>
                       <td colspan="4"><span class="read_resign">논문url</span></td>
                     </tr>
                   </div>
                   </tbody>
-
                 </table>
-                <table class="school2">
-                  <thead class="read_carrer">
-                  <tr>
-                    <td class="width-200">재학기간</td>
-                    <td class="width-224">학교명</td>
-                    <td class="width-104">졸업상태</td>
-                    <td class="width-300">전공</td>
-                    <td class="width-104">학위</td>
-                    <td class="width-104">학점</td>
-
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center"> ~ </td>
-                      <td rowspan="2" class="align_center schoolName2"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                    </tr>
-                    <tr>
-                      <td colspan="4"><span class="read_resign">논문url</span></td>
-                    </tr>
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="school3">
-                  <thead class="read_carrer">
-                  <tr>
-                    <td class="width-200">재학기간</td>
-                    <td class="width-224">학교명</td>
-                    <td class="width-104">졸업상태</td>
-                    <td class="width-300">전공</td>
-                    <td class="width-104">학위</td>
-                    <td class="width-104">학점</td>
-
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center"> ~ </td>
-                      <td rowspan="2" class="align_center schoolName3"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                    </tr>
-                    <tr>
-                      <td colspan="4"><span class="read_resign">논문url</span></td>
-                    </tr>
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="school4">
-                  <thead class="read_carrer">
-                  <tr>
-                    <td class="width-200">재학기간</td>
-                    <td class="width-224">학교명</td>
-                    <td class="width-104">졸업상태</td>
-                    <td class="width-300">전공</td>
-                    <td class="width-104">학위</td>
-                    <td class="width-104">학점</td>
-
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center"> ~ </td>
-                      <td rowspan="2" class="align_center schoolName4"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                    </tr>
-                    <tr>
-                      <td colspan="4"><span class="read_resign">논문url</span></td>
-                    </tr>
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="school5">
-                  <thead class="read_carrer">
-                  <tr>
-                    <td class="width-200">재학기간</td>
-                    <td class="width-224">학교명</td>
-                    <td class="width-104">졸업상태</td>
-                    <td class="width-300">전공</td>
-                    <td class="width-104">학위</td>
-                    <td class="width-104">학점</td>
-
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center"> ~ </td>
-                      <td rowspan="2" class="align_center schoolName5"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                    </tr>
-                    <tr>
-                      <td colspan="4"><span class="read_resign">논문url</span></td>
-                    </tr>
-                  </div>
-                  </tbody>
-
-                </table>
-
               </div>
             </div>
           </section>
@@ -372,23 +155,20 @@
               <table>
                 <tr>
                   <td class="width-104 align_center vertical_60 vertical_td" style="height: 30px;">취미</td>
-                  <td class="width-408">123123123</td>
+                  <td class="width-408">[[${cv.getCv_hobby()}]]</td>
                 </tr>
                 <tr>
                   <td class="align_center vertical_60 vertical_td">특기</td>
-                  <td>123123123123</td>
+                  <td>[[${cv.getCv_specialty()}]]</td>
                 </tr>
               </table>
             </div>
           </section>
 
-
-
-
-          <section class="form" id="수상경력">
+          <section class="form" id="수상경력" th:if="${!cv.getAwards().isEmpty()}">
             <p class="legend">수상경력</p>
             <div class="info">
-              <table>
+              <table th:each="item : ${cv.getAwards()}">
                 <thead class="read_award">
                 <tr>
                   <td class="width-200">수상명</td>
@@ -401,10 +181,10 @@
                 <tbody class="read_carrer-body">
                 <div class="carrer_item">
                   <tr>
-                    <td rowspan="2" class="align_center"></td>
-                    <td class="align_center">123</td>
-                    <td class="align_center">12323</td>
-                    <td class="align_center"></td>
+                    <td rowspan="2" class="align_center">[[${item.getAwards_des()}]]</td>
+                    <td class="align_center">[[${item.getAwards_agency()}]]</td>
+                    <td class="align_center">[[${item.getAwards_date}]]</td>
+                    <td class="align_center">[[${item.getAward_contents}]]</td>
 
                   </tr>
 
@@ -412,102 +192,7 @@
                 </tbody>
 
               </table>
-              <table class="award2">
-                <thead class="read_award">
-                <tr>
-                  <td class="width-200">수상명</td>
-                  <td class="width-250">수여기관</td>
-                  <td class="width-140">수상연도</td>
-                  <td class="width-full">수상내용</td>
 
-                </tr>
-                </thead>
-                <tbody class="read_carrer-body">
-                <div class="carrer_item">
-                  <tr>
-                    <td rowspan="2" class="align_center awardName2"></td>
-                    <td class="align_center"></td>
-                    <td class="align_center"></td>
-                    <td class="align_center"></td>
-
-                  </tr>
-
-                </div>
-                </tbody>
-
-              </table>
-              <table class="award3">
-                <thead class="read_award">
-                <tr>
-                  <td class="width-200">수상명</td>
-                  <td class="width-250">수여기관</td>
-                  <td class="width-140">수상연도</td>
-                  <td class="width-full">수상내용</td>
-
-                </tr>
-                </thead>
-                <tbody class="read_carrer-body">
-                <div class="carrer_item">
-                  <tr>
-                    <td rowspan="2" class="align_center awardName3"></td>
-                    <td class="align_center"></td>
-                    <td class="align_center"></td>
-                    <td class="align_center"></td>
-
-                  </tr>
-
-                </div>
-                </tbody>
-
-              </table>
-              <table class="award4">
-                <thead class="read_award">
-                <tr>
-                  <td class="width-200">수상명</td>
-                  <td class="width-250">수여기관</td>
-                  <td class="width-140">수상연도</td>
-                  <td class="width-full">수상내용</td>
-
-                </tr>
-                </thead>
-                <tbody class="read_carrer-body">
-                <div class="carrer_item">
-                  <tr>
-                    <td rowspan="2" class="align_center awardName4"></td>
-                    <td class="align_center"></td>
-                    <td class="align_center"></td>
-                    <td class="align_center"></td>
-
-                  </tr>
-
-                </div>
-                </tbody>
-
-              </table>
-              <table class="award5">
-                <thead class="read_award">
-                <tr>
-                  <td class="width-200">수상명</td>
-                  <td class="width-250">수여기관</td>
-                  <td class="width-140">수상연도</td>
-                  <td class="width-full">수상내용</td>
-
-                </tr>
-                </thead>
-                <tbody class="read_carrer-body">
-                <div class="carrer_item">
-                  <tr>
-                    <td rowspan="2" class="align_center awardName5"></td>
-                    <td class="align_center"></td>
-                    <td class="align_center"></td>
-                    <td class="align_center"></td>
-
-                  </tr>
-
-                </div>
-                </tbody>
-
-              </table>
             </div>
           </section>
 
@@ -518,16 +203,20 @@
               <table>
                 <tr>
                   <td class="width-104 align_center vertical_60 vertical_td">보훈대상</td>
-                  <td class="width-408">대상</td>
+                  <td class="width-408" th:text="${cv.getCv_verteran() == 0 ? '비대상' : '대상'} "></td>
                 </tr>
                 <tr>
                   <td class="align_center vertical_60 vertical_td">장애</td>
-                  <td>대상 <span style="color: #a4acc7;">l</span> 5급</td>
+                  <td>
+                    <span th:text="${cv.getCv_disability()} == 0 ? '비대상' : '대상' "> </span>
+                    <span style="color: #a4acc7;">l</span>
+                    <span th:text="${cv.getCv_disability_degree()}"></span>
+                  </td>
 
                 </tr>
                 <tr>
                   <td class="align_center vertical_60 vertical_td">병역</td>
-                  <td>미필</td>
+                  <td th:if="${cv.getCv_military() == 0}">해당사항 없음</td>
                 </tr>
               </table>
             </div>
@@ -536,11 +225,11 @@
 
 
 
-          <section class="form" id="가족사항">
+          <section class="form" id="가족사항" th:if="${!cv.getFamily().isEmpty()}">
             <p class="legend">가족사항</p>
             <div class="item_family">
               <div class="info">
-                <table>
+                <table th:each="item : ${cv.getFamily()}">
                   <thead class="read_award">
                   <tr>
                     <td class="width-200">가족관계</td>
@@ -553,130 +242,29 @@
                   <tbody class="read_carrer-body">
                   <div class="carrer_item">
                     <tr>
-                      <td rowspan="2" class="align_center">1</td>
-                      <td class="align_center">123</td>
-                      <td class="align_center">12323</td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
+                      <td rowspan="2" class="align_center">[[${item.getFam_relation()}]]</td>
+                      <td class="align_center">[[${item.getFam_name()}]]</td>
+                      <td class="align_center">[[${item.getFam_age()}]]</td>
+                      <td class="align_center">[[${item.getFam_birth()}]]</td>
+                      <td class="align_center">[[${item.getFam_living()}]]</td>
 
                     </tr>
 
                   </div>
                   </tbody>
-
                 </table>
-                <table class="family2">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-200">가족관계</td>
-                    <td class="width-250 ">이름</td>
-                    <td class="width-140">나이</td>
-                    <td class="width-250">생년월일</td>
-                    <td class="width-250">지역</td>
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center"></td>
-                      <td class="align_center familyName2"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
 
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="family3">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-200">가족관계</td>
-                    <td class="width-250 ">이름</td>
-                    <td class="width-140">나이</td>
-                    <td class="width-250">생년월일</td>
-                    <td class="width-250">지역</td>
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center"></td>
-                      <td class="align_center familyName3"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="family4">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-200">가족관계</td>
-                    <td class="width-250 ">이름</td>
-                    <td class="width-140">나이</td>
-                    <td class="width-250">생년월일</td>
-                    <td class="width-250">지역</td>
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center"></td>
-                      <td class="align_center familyName4"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="family5">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-200">가족관계</td>
-                    <td class="width-250 ">이름</td>
-                    <td class="width-140">나이</td>
-                    <td class="width-250">생년월일</td>
-                    <td class="width-250">지역</td>
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center"></td>
-                      <td class="align_center familyName5"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
               </div>
             </div>
           </section>
 
 
-          <section class="form" id="자격증">
-
+          <section class="form" id="자격증" th:if="${cv.getCertificate().isEmpty()}">
             <p class="legend">자격증</p>
 
             <div class="item_lic">
               <div class="info">
-                <table>
+                <table th:each="item : ${cv.getFamily()}">
                   <thead class="read_award">
                   <tr>
                     <td class="width-200">자격증 명</td>
@@ -687,114 +275,27 @@
                   <tbody class="read_carrer-body">
                   <div class="carrer_item">
                     <tr>
-                      <td rowspan="2" class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-
+                      <td rowspan="2" class="align_center">[[ ${item.getLic_name()} ]]</td>
+                      <td class="align_center">[[ ${item.getLic_date()} ]]</td>
+                      <td class="align_center">[[ ${item.getLic_due_date()} ]]</td>
                     </tr>
 
                   </div>
                   </tbody>
 
                 </table>
-                <table class="certificate2">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-200 ">자격증 명</td>
-                    <td class="width-250">취득일</td>
-                    <td class="width-140">만료일</td>
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center certificateName2"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
 
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="certificate3">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-200 ">자격증 명</td>
-                    <td class="width-250">취득일</td>
-                    <td class="width-140">만료일</td>
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center certificateName3"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="certificate4">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-200 ">자격증 명</td>
-                    <td class="width-250">취득일</td>
-                    <td class="width-140">만료일</td>
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center certificateName4"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="certificate5">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-200 ">자격증 명</td>
-                    <td class="width-250">취득일</td>
-                    <td class="width-140">만료일</td>
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center certificateName5"></td>
-                      <td class="align_center"></td>
-                      <td class="align_center"></td>
-
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
               </div>
             </div>
           </section>
 
-
-
-
-          <section class="form" id="어학">
+          <section class="form" id="어학" th:if="${!cv.getLanguage().isEmpty()}">
 
             <p class="legend">어학</p>
 
             <div class="item_fl">
               <div class="info">
-                <table>
+                <table th:each="item : ${cv.getLanguage()}">
                   <thead class="read_award">
                   <tr>
                     <td class="width-250">외국어명</td>
@@ -811,153 +312,20 @@
                   <tbody class="read_carrer-body">
                   <div class="carrer_item">
                     <tr>
-                      <td rowspan="2" class="align_center"></td>
-                      <td class="align_center"></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-
+                      <td rowspan="2" class="align_center">[[${item.getFl_language()}]]</td>
+                      <td class="align_center">[[${item.getFl_conversation()}]]</td>
+                      <td>[[${item.getFl_reading()}]]</td>
+                      <td>[[${item.getFl_writing()}]]</td>
+                      <td>[[${item.getFl_name()}]]</td>
+                      <td>[[${item.getFl_score()}]]</td>
+                      <td>[[${item.getFl_rank()}]]</td>
+                      <td>[[${item.getFl_date()}]]</td>
                     </tr>
-
                   </div>
                   </tbody>
-
-                </table>
-                <table class="language2">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-250">외국어명</td>
-                    <td class="width-104">회화능력</td>
-                    <td class="width-104">독해능력</td>
-                    <td class="width-104">작문능력</td>
-                    <td class="width-250">시험종류</td>
-                    <td class="width-140">점수</td>
-                    <td class="width-140">급수</td>
-                    <td class="width-140">취득일</td>
-
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center languageName2"></td>
-                      <td class="align_center"></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="language3">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-250">외국어명</td>
-                    <td class="width-104">회화능력</td>
-                    <td class="width-104">독해능력</td>
-                    <td class="width-104">작문능력</td>
-                    <td class="width-250">시험종류</td>
-                    <td class="width-140">점수</td>
-                    <td class="width-140">급수</td>
-                    <td class="width-140">취득일</td>
-
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center languageName3"></td>
-                      <td class="align_center"></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="language4">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-250">외국어명</td>
-                    <td class="width-104">회화능력</td>
-                    <td class="width-104">독해능력</td>
-                    <td class="width-104">작문능력</td>
-                    <td class="width-250">시험종류</td>
-                    <td class="width-140">점수</td>
-                    <td class="width-140">급수</td>
-                    <td class="width-140">취득일</td>
-
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center languageName4"></td>
-                      <td class="align_center"></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-
-                    </tr>
-
-                  </div>
-                  </tbody>
-
-                </table>
-                <table class="language5">
-                  <thead class="read_award">
-                  <tr>
-                    <td class="width-250">외국어명</td>
-                    <td class="width-104">회화능력</td>
-                    <td class="width-104">독해능력</td>
-                    <td class="width-104">작문능력</td>
-                    <td class="width-250">시험종류</td>
-                    <td class="width-140">점수</td>
-                    <td class="width-140">급수</td>
-                    <td class="width-140">취득일</td>
-
-                  </tr>
-                  </thead>
-                  <tbody class="read_carrer-body">
-                  <div class="carrer_item">
-                    <tr>
-                      <td rowspan="2" class="align_center languageName5"></td>
-                      <td class="align_center"></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-
-                    </tr>
-
-                  </div>
-                  </tbody>
-
                 </table>
               </div>
             </div>
-
-            <div>
           </section>
 
 
@@ -970,11 +338,11 @@
               <table>
                 <tr>
                   <td class="width-104 align_center vertical_60 vertical_td">응시부문</td>
-                  <td class="width-408">응시부문입니다.</td>
+                  <td class="width-408">[[${cv.getSec_of_exam()}]]</td>
                 </tr>
                 <tr>
                   <td class="align_center vertical_60 vertical_td">희망연봉</td>
-                  <td>희망연봉 입니다.</td>
+                  <td>[[ ${cv.getDesired_salary() == '' ? '회사내규에 따름' : cv.getDesired_salary()} ]]</td>
 
                 </tr>
               </table>
