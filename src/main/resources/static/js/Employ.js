@@ -122,22 +122,28 @@ function h_tag_js(tag_num) {
     switch (tag_num){
         case 1:
             search[0].style.display="inline-block"; //#제목
+            $("#head_tag h4").text("제목");
             break;
         case 2:
             search[1].style.display="inline-block"; //#기업
+            $("#head_tag h4").text("기업");
             break;
         case 3:
             search[2].style.display="inline-block"; //#직종
+            $("#head_tag h4").text("직종");
             break;
         case 4:
             search[3].style.display="inline-block"; //#고용구분
+            $("#head_tag h4").text("고용구분");
             break;
         case 5:
             search[4].style.display="inline-block"; //#기업구분
+            $("#head_tag h4").text("기업구분");
             break;
         case 6:
             search[5].style.display="inline-block"; //#근무지역
             search[6].style.display="inline-block"; //#근무지역
+            $("#head_tag h4").text("근무지역");
             break;
     }
 }

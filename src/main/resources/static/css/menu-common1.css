@@ -833,7 +833,7 @@ header > p {
   }
 
   .row > * {
-    padding: 50px 0 0 50px;
+    padding: 50px 0 0 0;
   }
 
   .row.gtr-uniform {
@@ -1076,7 +1076,7 @@ header > p {
   }
 
   .row > * {
-    padding: 40px 0 0 40px;
+    padding: 40px 0 0 0;
   }
 
   .row.gtr-uniform {
@@ -1322,7 +1322,7 @@ header > p {
   }
 
   .row > * {
-    padding: 50px 0 0 50px;
+    padding: 50px 0 0 0;
   }
 
   .row.gtr-uniform {
@@ -1565,7 +1565,7 @@ header > p {
   }
 
   .row > * {
-    padding: 20px 0 0 20px;
+    padding: 20px 0 0 0;
   }
 
   .row.gtr-uniform {
@@ -1808,7 +1808,7 @@ header > p {
   }
 
   .row > * {
-    padding: 15px 0 0 15px;
+    padding: 15px 0 0 0;
   }
 
   .row.gtr-uniform {

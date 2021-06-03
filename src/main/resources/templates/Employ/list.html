@@ -28,6 +28,7 @@
 
 
 
+
 </head>
 
 <body>
@@ -57,7 +58,11 @@
           </div> <!-- menu -->
         </div>
       </div>
+
       <div class="employList">
+        <div id="head_tag">
+          <h4>제목</h4>
+        </div>
         <div class="employListHead">
 
 
@@ -68,9 +73,9 @@
 
               <input type="text" class="search form-control" id="s_title" value="제목" maxlength="15" name="keywords" th:value="${pageRequestDTO.keyword}"><!--제목-->
 
-              <input type="text" class="search" name="keywords" id="s_corp" value="기업명" maxlength="20" th:value="${pageRequestDTO.keyword}"><!--기업명-->
+              <input type="text" class="search form-control" name="keywords" id="s_corp" value="기업명" maxlength="20" th:value="${pageRequestDTO.keyword}"><!--기업명-->
 
-              <select name="keywords" class="search" id="s_ot" onclick="searchVal('ot')"><!--직종-->
+              <select name="keywords" class="search form-control" id="s_ot" onclick="searchVal('ot')"><!--직종-->
                 <option >직종</option>
                 <option value="경영·회계·사무 관련직">경영·회계·사무 관련직</option>
                 <option value="금융·보험 관련직" >금융·보험 관련직</option>
@@ -94,7 +99,7 @@
               </select>
 
 
-              <select name="keywords" class="search" id="s_ep"  onchange="searchVal('ep')"><!--고용구분-->
+              <select name="keywords" class="search form-control" id="s_ep"  onchange="searchVal('ep')"><!--고용구분-->
                 <option >고용구분</option>
                 <option>정규직</option>
                 <option>계약직</option>
@@ -105,39 +110,26 @@
                 <option>해외취업</option>
               </select>
 
-              <select name="keywords" class="search" id="s_shape" onchange="searchVal('shape')"><!--기업형태-->
+              <select name="keywords" class="search form-control" id="s_shape" onchange="searchVal('shape')"><!--기업형태-->
                 <option >기업구분</option>
                 <option>대기업</option>
                 <option>중견기업</option>
                 <option>중소기업</option>
               </select>
 
-              <input type="hidden" name="keywords" id="sido_keywords" value="" />
+              <input type="hidden" name="keywords " id="sido_keywords" value="" />
               <input type="hidden" name="keywords" id="gugun_keywords" value="" />
 
 
-              <select name="sido" class="search" id="s_area" onchange="searchVal('area')"></select><!--근무지역-->
-              <select name="gugun" class="search" id="s_detailArea"  onchange="searchVal('area')"></select>
+              <select name="sido" class="search form-control" id="s_area" onchange="searchVal('area')"></select><!--근무지역-->
+              <select name="gugun" class="search form-control" id="s_detailArea"  onchange="searchVal('area')"></select>
 
             </div>
+          </form>
         </div>
 
 
         <div class="input-group">
-          <!--
-          <input type="hidden" name="page" value="1">
-          <div class="input-group-prepend">
-              <select class="custom-select" name="type">
-                <option th:selected="${pageRequestDTO?.type}">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>
-                <option value="t" th:selected="${pageRequestDTO.type == 't'}">제목</option>
-                <option value="c" th:selected="${pageRequestDTO.type == 'c'}">내용</option>
-                <option value="n" th:selected="${pageRequestDTO.type == 'n'}">이름</option>
-                <option value="tc" th:selected="${pageRequestDTO.type == 'tc'}">제목 + 내용</option>
-                <option value="tcn" th:selected="${pageRequestDTO.type == 'tcn'}">제목 + 내용 + 이름</option>
-              </select>
-          </div>
-
-          <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}" />-->
           <div id="dummy">
             <input type="checkbox" name="type" id="dummy_title" value="t" th:checked="${pageRequestDTO.type == 't'}">
             <input type="checkbox" name="type" id="dummy_corp" value="w" th:checked="${pageRequestDTO.type == 'w'}">
@@ -146,11 +138,6 @@
             <input type="checkbox" name="type" id="dummy_shape" value="shape" th:checked="${pageRequestDTO.type == 'shape'}">
             <input type="checkbox" name="type" id="dummy_area"  value="sido" th:checked="${pageRequestDTO.type == 'sido'}">
             <input type="checkbox" name="type" id="dummy_detailArea"  value="gugun" th:checked="${pageRequestDTO.type == 'gugun'}" >
-          </div>
-
-          <div class="input-group-append" id="button-addon4">
-            <button class="btn btn-outline-secondary btn-search" type="button">Search</button>
-            <button class="btn btn-outline-secondary btn-clear" type="button">Clear</button>
           </div>
         </div>
         </form>
@@ -209,6 +196,7 @@
   </div>
 
   <div id="tag">
+    <button class="btn btn-outline-secondary btn-search" type="button">Search</button>
     <li><h2><a class="tags" id="h_title" onclick="h_tag_js(1)">#제목</a></h2></li>
     <li><h2><a class="tags" id="h_corp" onclick="h_tag_js(2)" >#기업</a></h2></li>
     <li><h2><a class="tags" id="h_ot" onclick="h_tag_js(3)">#직종</a></h2></li>

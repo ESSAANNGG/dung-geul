@@ -1,4 +1,4 @@
-`   let menubox_li=document.getElementsByClassName("menubox_li");
+let menubox_li=document.getElementsByClassName("menubox_li");
 let menuLength=menubox_li.length;
 let parameter;           //주소값
 let menu_name;           //userManage,consult등 이 문자형 변수를 이용해 각menu.js파일의 함수를 호출
