@@ -17,10 +17,10 @@
 
 <!--네비 div-->
 <header id="header">
-<div th:replace="layout/layout :: nav"/>
+    <div th:replace="layout/layout :: nav"/>
 </header>
 <div id="main"></div>
-    <!-- side -->
+<!-- side -->
 <div id="job-main-wrap" class="d_width">
     <div class="menu2" style="margin-left: 80px; margin-top: 70px;">
         <div id="bar">
@@ -97,52 +97,8 @@
                         <button onclick="job_search1()" class="btn-d">검색</button>
                     </div> <!-- label-con form-inline -->
                 </div>  <!-- search-box -->
-                <div class="bx1_wh" style="float: left;">
-                    <div class="search-plz">
-                        <h2 class="jobInfo">직업 정보를 검색해 주세요.</h2>
-                        <!-- 조건별 검색 페이지 이동 -->
-                        <a href="javascript:goPage()"></a>
-                    </div>
 
-                    <!-- 직업 정보 검색 JS -->
-                    <script>
-
-                        function job_search1() {	// 조건별 검색
-                            // 평균 연봉
-                            var target1 = document.getElementById("searchType1");
-                            // alert('선택된 옵션 text 값=' + target.options[target.selectedIndex].text);     // 옵션 text 값
-                            // alert('선택된 옵션 value 값=' + target.options[target.selectedIndex].value);     // 옵션 value 값
-
-                            // 직업 전망
-                            var target2 = document.getElementById("searchType2");
-                            // alert('선택된 옵션 text 값=' + target.options[target.selectedIndex].text);     // 옵션 text 값
-                            // alert('선택된 옵션 value 값=' + target.options[target.selectedIndex].value);     // 옵션 value 값
-
-                            // h2(jobInfo)를 선택받은 값과 합쳐서 링크로 만들어서 바꿔주기
-                            var st1 = document.getElementById("searchType1").options[target1.selectedIndex].value;
-                            var st2 = document.getElementById("searchType2").options[target2.selectedIndex].value;
-
-                            var link = "https://www.work.go.kr/consltJobCarpa/srch/jobInfoSrch/srchJobInfo.do?pageIndex=1&pageUnit=10&pageSize=10&cond=cond&searchType1=" + st1 + "&searchType2=" + st2;
-                            // alert("st1 = " + st1 + "st2 = " + st2)
-                            // alert(link);
-
-                            // var x = document.getElementsByClassName("jobInfo")[0];
-                            // x.innerHTML = ;
-
-                            goPage(link);
-
-                        }
-
-                        function goPage(param) {	// 페이지 이동 함수
-                            location.href=param;
-                        }
-
-                    </script>
-                    <!-- 페이지 이동 코드 끝 -->
-
-
-
-                </div>  <!-- bx1_wh -->
+               
 
             </div>
             <!-- search-box-body -->

@@ -23,9 +23,7 @@ public class WebController {
 
     }
 
-    @GetMapping("/job-information/job-information")
-    public void jobInfo(){
-    }
+
 
 //    @GetMapping("/counseling/counseling")
 //    public void coun(){
@@ -34,9 +32,7 @@ public class WebController {
 //    @GetMapping("/counseling/studentcoun")
 //    public void stu(){
 //    }
-    @GetMapping("/job-information/job-dictionary")
-    public void dict(){
-    }
+
     @GetMapping("/upgrade/upgrade")
     public void cprogram(){
     }
