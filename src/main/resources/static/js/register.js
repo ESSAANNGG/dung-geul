@@ -22,15 +22,15 @@ let register = {
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
       success: function (result) {
-       alert( `${result.getUser_id()}님 이력서 등록이 완료되었습니다.`);
+       alert( "이력서 등록이 완료되었습니다.");
        location.href = "/application/cv/read";
       },
-      // error: function (error) {
-      //   alert('실패, 이력서를 다시 작성해주세요');
-      //   console.log(error);
-      //   alert(error);
-      //   location.href = '#';
-      // },
+      error: function (error) {
+        alert('실패, 이력서를 다시 작성해주세요');
+        console.log(error);
+        alert(error);
+        location.href = '#';
+      },
     });
   }, // save() end
 };

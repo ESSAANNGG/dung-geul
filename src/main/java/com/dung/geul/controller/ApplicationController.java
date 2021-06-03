@@ -77,7 +77,7 @@ public class ApplicationController {
 
     }
 
-    @GetMapping("/cv/read")
+    @GetMapping({"/cv/read", "/cv/modify"})
     public void read(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
         CvPageDTO cv = cvService.getCvPageDto(authMemberDTO.getUser_id());
@@ -85,18 +85,9 @@ public class ApplicationController {
         model.addAttribute("cv", cv);
 
         log.info("cvPage DTO : " + cv.toString());
-        log.info("cv.getAddr() : " + cv.getAddr());
+        log.info("cv.getAddr() : " + cv.getAge());
+        cv.getEducation().get(1).getDateEnd();
 
-    }
-
-    @GetMapping("/cv/modify")
-    public String modify(Model model, Long cv_id){
-
-        CV cv = cvRepository.getOne(cv_id);
-
-        model.addAttribute("cv", cv);
-
-        return "application/cv/modify";
     }
 
 

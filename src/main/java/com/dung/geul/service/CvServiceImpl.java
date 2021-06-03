@@ -8,13 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.security.cert.Certificate;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 
 @Service
 @Log4j2
@@ -46,7 +42,7 @@ public class CvServiceImpl implements CVService{
 
     // 이력서 등록
     @Transactional
-    public void register(CvPageDTO cvPageDTO){
+    public int register(CvPageDTO cvPageDTO){
 
         try {
 
@@ -59,7 +55,7 @@ public class CvServiceImpl implements CVService{
             log.info("이력서 : " + cvOpt.toString());
 
             if (!cvOpt.isEmpty()) {
-                return;
+                throw new Exception();
             }
 
             CV cv = CvDtoToEntity(cvPageDTO, member);
@@ -123,13 +119,15 @@ public class CvServiceImpl implements CVService{
                     languageRepository.save(language);
                 }
             }
+
             log.info("이력서 등록 완료 ! ");
-            return;
+
+            return 1;
 
         } catch (Exception e){
 
             log.info("error 발생 : " + e);
-            return;
+            return 0;
         }
 
     }
@@ -236,19 +234,36 @@ public class CvServiceImpl implements CVService{
 
         CV cv = cvRepository.getOne(cvPageDTO.getCv_id());
 
-        if(cv != null){
-            // 수정할 사항들
+        // TODO .. 이력서 수정 만들기
+
+        if(cvPageDTO != null){
+
+            modifyEntity(cvPageDTO, cv);
 
             cvRepository.save(cv);
         }
 
     }
 
-    public void delete(Long cv_id){
+    public void delete(String user_id) {
 
-        System.out.println("cv_id : " + cv_id);
+        try{
+            Optional<Member> member = memberRepository.findById(user_id);
 
-        cvRepository.deleteById(cv_id);
+            System.out.println("user_id : " + member.get().getUser_id());
+
+            Optional<CV> cv = cvRepository.findByUser_id(member.get());
+
+            System.out.println("cv_id : " + cv.get().getCv_id());
+
+            cvRepository.delete(cv.get());
+
+            log.info("이력서 삭제 성공: " + cv.get());
+
+        }catch (Exception e){
+            System.out.println("Cvservice - delete error : " + e);
+            return;
+        }
 
     }
 

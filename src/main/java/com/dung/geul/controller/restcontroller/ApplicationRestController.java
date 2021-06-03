@@ -1,10 +1,15 @@
 package com.dung.geul.controller.restcontroller;
 
 import com.dung.geul.dto.CvPageDTO;
+import com.dung.geul.entity.CV;
+import com.dung.geul.repository.CvRepository;
 import com.dung.geul.service.CvServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/application")
@@ -15,14 +20,14 @@ public class ApplicationRestController {
 
     // 이력서 관련
     @PostMapping("/cv/register")
-    public CvPageDTO cvRegister(@RequestBody CvPageDTO cvPageDTO){
+    public int cvRegister(@RequestBody CvPageDTO cvPageDTO){
 
         System.out.println("ApplicationApiController : cvRegister() 실행");
         System.out.println("cvPageDTO : " + cvPageDTO);
 
-        cvServiceImpl.register(cvPageDTO);
+        int result = cvServiceImpl.register(cvPageDTO);
 
-        return  cvPageDTO;
+        return  result;
     }
 
     @PostMapping("/cv/modify")
@@ -37,12 +42,13 @@ public class ApplicationRestController {
     }
 
     @GetMapping("/cv/delete")
-    public RedirectView cvDelete(Long cv_id){
+    public RedirectView cvDelete(String user_id){
 
-        System.out.println("ApplicationApiController : cvRegister() 실행");
-        System.out.println("enterPriseDTO : " + cv_id);
+        System.out.println("CvDelete : cv 삭제 실행");
 
-        cvServiceImpl.delete(cv_id);
+        System.out.println("user_id : " + user_id);
+
+        cvServiceImpl.delete(user_id);
 
         return new RedirectView("/application/cv/before");
     }

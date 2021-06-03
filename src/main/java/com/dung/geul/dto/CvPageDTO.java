@@ -26,6 +26,8 @@ public class CvPageDTO {
 
     private String user_name;
 
+    private String name_china;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birth;
 

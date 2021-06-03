@@ -33,6 +33,7 @@ public interface CVService {
                 // 기본정보
                 .user_id(member)
                 .user_name(dto.getUser_name())
+                .name_china(dto.getName_china())
                 .birth(dto.getBirth())
                 .user_hp(dto.getUser_hp())
                 .user_email(dto.getUser_email())
@@ -54,7 +55,8 @@ public interface CVService {
         return cv;
     }
 
-    default Awards dtoToEntity(AwardsDTO dto, Member member){
+
+        default Awards dtoToEntity(AwardsDTO dto, Member member){
 
         Awards awards = Awards.builder()
                 .member(member)
@@ -169,6 +171,7 @@ public interface CVService {
          String type = dto.getSchoolType();
 
          if(type.equals("고등학교")){
+             dto.setHighschool_edc_date(entity.getEdc_date_end());
              dto.setHighschool_edc_date(entity.getEdc_dept());
              dto.setHighschool_edc_graduated(entity.getEdc_graduated());
          } else if(type.equals("전문대")){
@@ -247,6 +250,29 @@ public interface CVService {
                 .build();
 
         return dto;
+    }
+
+//     TODO .. 엔티티 수정하는거 만들기
+
+    default CV modifyEntity(CvPageDTO cvPageDTO, CV cv){
+
+        cv.setUser_name(cvPageDTO.getUser_name());
+        cv.setName_china(cvPageDTO.getName_china());
+        cv.setBirth(cvPageDTO.getBirth());
+        cv.setUser_hp(cvPageDTO.getUser_hp());
+        cv.setUser_email(cvPageDTO.getUser_email());
+        cv.setAddr(cvPageDTO.getAddr());
+        cv.setCv_verteran(cvPageDTO.getCv_verteran());
+        cv.setCv_disability(cvPageDTO.getCv_disability());
+        cv.setCv_military(cv.getCv_military());
+        cv.setCv_disability_degree(cvPageDTO.getCv_disability_degree());
+        cv.setCv_military_now(cvPageDTO.getMilitaryServiceClassification());
+        cv.setSec_of_exam(cvPageDTO.getSec_of_exam());
+        cv.setDesired_salary(cvPageDTO.getDesired_salary());
+        cv.setCv_hobby(cvPageDTO.getCv_hobby());
+        cv.setCv_specialty(cvPageDTO.getCv_specialty());
+
+        return cv;
     }
 
 
