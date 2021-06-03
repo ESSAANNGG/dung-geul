@@ -51,8 +51,10 @@
                     </div>
                 </div>
             </div> <!-- list-area -->
-            <div id="success-on">
-                <table class="type07">
+            <div id="success-on" class="refuse-on" STYLE="DISPLAY: flex;">
+                <table class="type07" STYLE="width: 1100px;
+    height: 700px;
+    MARGIN-LEFT: 38PX;">
                     <thead>
                     <tr>
                         <th scope="cols">순번</th>
@@ -152,8 +154,11 @@
                 </table>
             </div>
             <!-- 거절된 목록 -->
-            <div id="refuse-on">
-                <table class="type07">
+            <div class="none" style="display: none">
+            <div class="refuse-on" id="refuse-on"  STYLE="DISPLAY: flex;">
+                <table class="type07" STYLE="width: 1100px;
+    height: 700px;
+    MARGIN-LEFT: 38PX;">
                     <thead>
                     <tr>
                         <th scope="cols">순번</th>
@@ -248,7 +253,8 @@
                     </tbody>
                 </table>
             </div>
-            <div id="selectAll-wrap">
+            </div>
+            <div id="selectAll-wrap" style="margin-left: 1123px;">
                 <button class="btn-q" style="width: 110px;"><input type="checkbox" name="animal" value="selectall" onclick='selectAll(this)'>전체 선택</button>
                 <button class="btn-q" id="delete" style="padding: 16px; width: 110px;">상담 취소</button>
             </div>
