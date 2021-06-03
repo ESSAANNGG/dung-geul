@@ -23,10 +23,10 @@ $(document).ready(function(){
     $("#success").click(function() {
         $('.allcheck').checked
         $("#success-on").show();
-        $("#refuse-on").hide();
+        $(".none").hide();
     })
     $("#refuse").click(function() {
-        $("#refuse-on").show();
+        $(".none").show();
         $("#success-on").hide();
     })
     $(".me-ok").click(function(){

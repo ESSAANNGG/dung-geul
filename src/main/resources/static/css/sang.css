@@ -209,7 +209,7 @@ table.type07 td {
     color: #ccc;
 }
 #refuse-on {
-    display: none;
+    display: flex;
 }
 /* modal */
 .btn-r {
