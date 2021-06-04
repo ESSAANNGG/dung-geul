@@ -45,7 +45,7 @@ h4{
     background-color: #ffffff;
     color:#768395;
     box-shadow: 0 0 1px 1px #e2e2e2;
-    border-radius: 8px 8px 8px 8px;
+    border-radius: 0px 0px 8px 8px;
 }
 
 .employListHead{
@@ -96,12 +96,9 @@ h4{
 }
 
 .form-control:nth-child(8){
-    border-radius:4px 0px 0px 4px !important;
-
     background: url("/img/down-arrow.png") no-repeat 94% 50%/13px auto;
 }
 .form-control:nth-child(9){
-    border-radius:0px 4px 4px 0px !important;
     background: url("/img/down-arrow.png") no-repeat 94% 50%/13px auto;
 }
 

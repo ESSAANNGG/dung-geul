@@ -64,13 +64,16 @@ let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
                     alertShape = 1;
                 }
             } else {                                                                                            //기업형태를 선택하였다면 리스트에 추가
-                dataList.push("{user_Id:" + userid + ", shape:" + userShape + "}");                             //전달할 배열에 값 삽입
+                let obj=new Object();
+                obj.user_id=userid;
+                obj.shape=userShape;
+                dataList.push(obj);                             //전달할 배열에 값 삽입
             }
         }
 }
 
 function userManage_list_send(){
-alert(dataList);
+
         $.ajax({
             url: "/allow/member/read?result=" + p,
             type: "POST",
@@ -79,8 +82,8 @@ alert(dataList);
             data: JSON.stringify(dataList),
         })
 
-    alert(dataList) //디버깅용
-    submit_param();
+    alert(JSON.stringify(dataList)); //디버깅
+    // submit_param();
 }
 
 function userManage_search(i){

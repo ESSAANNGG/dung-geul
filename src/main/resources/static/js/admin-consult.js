@@ -31,8 +31,6 @@ function consult_list_send(){
     //     data: JSON.stringify(dataList),
     // })
 
-
-    alert(dataList) //디버깅용
     submit_param();
 }
 
@@ -88,7 +86,7 @@ function consult_register_submit() {
 
 function detail_on_consult(num){
     detail_state=1;
-    alert(num);//id를 읽어 해당 상담목록 전달
+
     $.ajax({
         url: "",
         type: "POST",
