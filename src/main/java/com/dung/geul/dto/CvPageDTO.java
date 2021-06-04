@@ -55,6 +55,8 @@ public class CvPageDTO {
 
     private String cv_specialty;             // 특기
 
+    
+
     private List<CareerDTO> career;         // 경력
 
     private List<EducationDTO> education;   // 학력

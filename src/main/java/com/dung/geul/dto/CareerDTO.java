@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class CareerDTO {
+    private Long id;
     private String cr_etp_name; // 회사명
     private LocalDate cr_employment;   // 입사일
     private LocalDate cr_resignation;  // 퇴사일

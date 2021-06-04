@@ -5,6 +5,7 @@ import com.dung.geul.entity.*;
 import com.dung.geul.repository.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -239,9 +240,55 @@ public class CvServiceImpl implements CVService{
         if(cvPageDTO != null){
 
             modifyEntity(cvPageDTO, cv);
-
             cvRepository.save(cv);
+
+            List<EducationDTO> educationDTOList = cvPageDTO.getEducation();
+            List<CareerDTO> careerDTOList = cvPageDTO.getCareer();
+            List<AwardsDTO> awardsDTOList = cvPageDTO.getAwards();
+            List<FamilyDTO> familyDTOList = cvPageDTO.getFamily();
+            List<CertificateDTO> certificateDTOList = cvPageDTO.getCertificate();
+            List<LanguageDTO> languageDTOList = cvPageDTO.getLanguage();
+
+            for(EducationDTO dto : educationDTOList){
+                Education entity = educationRepository.getOne(dto.getId());
+                entity = modifyEntity(dto, entity);
+                educationRepository.save(entity);
+            }
+
+            for(CareerDTO dto : careerDTOList){
+                Carrer entity = carrerRepository.getOne(dto.getId());
+                entity = modifyEntity(dto, entity);
+                carrerRepository.save(entity);
+            }
+
+            for(AwardsDTO dto : awardsDTOList){
+                Awards entity = awardsRepository.getOne(dto.getId());
+                entity = modifyEntity(dto, entity);
+                awardsRepository.save(entity);
+            }
+
+            for(FamilyDTO dto : familyDTOList){
+                Family entity = familyRepository.getOne(dto.getId());
+                entity = modifyEntity(dto, entity);
+                familyRepository.save(entity);
+            }
+
+            for(CertificateDTO dto : certificateDTOList){
+                License entity = licenseRepository.getOne(dto.getId());
+                entity = modifyEntity(dto, entity);
+                licenseRepository.save(entity);
+            }
+
+            for(LanguageDTO dto : languageDTOList){
+                Language entity = languageRepository.getOne(dto.getId());
+                entity = modifyEntity(dto, entity);
+                languageRepository.save(entity);
+            }
+
+            log.info("수정 완료");
         }
+
+        return;
 
     }
 

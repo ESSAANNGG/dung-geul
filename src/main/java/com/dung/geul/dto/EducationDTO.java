@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class EducationDTO {
 
+    private Long id;
+
     private String schoolType;
     private String edc_school;
 

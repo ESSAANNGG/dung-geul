@@ -152,6 +152,7 @@ public interface CVService {
     default AwardsDTO EntityToDto(Awards entity){
 
         AwardsDTO awardsDTO = AwardsDTO.builder()
+                .id(entity.getId())
                 .awards_agency(entity.getAwards_agency())
                 .awards_date(entity.getAwards_date())
                 .awards_des(entity.getAwards_des())
@@ -164,6 +165,7 @@ public interface CVService {
     default EducationDTO EntityToDto(Education entity){
 
          EducationDTO dto = EducationDTO.builder()
+                 .id(entity.getEdc_ID())
                  .schoolType(entity.getSchoolType())
                  .edc_school(entity.getEdc_school())
                 .build();
@@ -202,6 +204,7 @@ public interface CVService {
 
     default CareerDTO EntityToDto(Carrer entity){
         CareerDTO dto = CareerDTO.builder()
+                .id(entity.getCr_id())
                 .cr_etp_name(entity.getCr_etp_name())
                 .cr_employment(entity.getCr_employment())
                 .cr_resignation(entity.getCr_resignation())
@@ -216,6 +219,7 @@ public interface CVService {
 
     default FamilyDTO EntityToDto(Family entity){
         FamilyDTO dto = FamilyDTO.builder()
+                .id(entity.getFam_num())
                 .fam_num(entity.getFam_num())
                 .fam_relation(entity.getFam_relation())
                 .fam_name(entity.getFam_name())
@@ -275,5 +279,79 @@ public interface CVService {
         return cv;
     }
 
+    default Awards modifyEntity(AwardsDTO dto, Awards entity){
 
+        entity.setAwards_agency(dto.getAwards_agency());
+        entity.setAward_contents(dto.getAward_contents());
+        entity.setAwards_date(dto.getAwards_date());
+        entity.setAwards_des(dto.getAwards_des());
+
+        return entity;
+
+    }
+
+    default Carrer modifyEntity(CareerDTO dto, Carrer entity){
+
+        entity.setCr_etp_name(dto.getCr_etp_name());
+        entity.setCr_task(dto.getCr_task());
+        entity.setCr_position(dto.getCr_position());
+        entity.setCr_employment(dto.getCr_employment());
+        entity.setCr_resignation(dto.getCr_resignation());
+        entity.setSalary(dto.getSalary());
+
+        return entity;
+
+    }
+
+    default Education modifyEntity(EducationDTO dto, Education entity){
+
+        entity.setSchoolType(dto.getSchoolType());
+        entity.setEdc_school(dto.getEdc_school());
+        entity.setEdc_date_start(dto.getDateStart());
+        entity.setEdc_date_end(dto.getDateEnd());
+        entity.setEdc_graduated(dto.getGraduated());
+        entity.setEdc_dept(dto.getDept());
+        entity.setEdc_gpa(dto.getGpa());
+        entity.modEdc_ps(dto.getPs());
+
+        return entity;
+
+    }
+
+    default Family modifyEntity(FamilyDTO dto, Family entity){
+
+        entity.setFam_relation(dto.getFam_relation());
+        entity.setFam_name(dto.getFam_name());
+        entity.setFam_age(dto.getFam_age());
+        entity.setFam_birth(dto.getFam_birth());
+        entity.setFam_living(dto.getFam_living());
+
+        return entity;
+
+    }
+
+    default Language modifyEntity(LanguageDTO dto, Language entity){
+
+        entity.setFl_language(dto.getFl_language());
+        entity.setFl_name(dto.getFl_name());
+        entity.setFl_conversation(dto.getFl_conversation());
+        entity.setFl_reading(dto.getFl_reading());
+        entity.setFl_writing(dto.getFl_writing());
+        entity.setFl_score(dto.getFl_score());
+        entity.setFl_rank(dto.getFl_rank());
+        entity.setFl_date(dto.getFl_date());
+
+        return entity;
+
+    }
+
+    default License modifyEntity(CertificateDTO dto, License entity){
+
+        entity.setLic_name(dto.getLic_name());
+        entity.setLic_date(dto.getLic_date());
+        entity.setLic_due_date(dto.getLic_due_date());
+
+        return entity;
+
+    }
 }

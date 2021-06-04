@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @Builder
 public class LanguageDTO {
 
+    private Long id;
     private String fl_language;         //언어
     private String fl_conversation;     // 회화
     private String fl_reading;          // 읽기

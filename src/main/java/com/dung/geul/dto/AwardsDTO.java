@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AwardsDTO {
 
+    private Long id;
     private String awards_des;      // 수상명
     private String awards_agency;   // 수여기관
     private String awards_date;     // 수상년도

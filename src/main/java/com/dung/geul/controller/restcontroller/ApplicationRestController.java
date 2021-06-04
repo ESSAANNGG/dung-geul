@@ -31,7 +31,7 @@ public class ApplicationRestController {
     }
 
     @PostMapping("/cv/modify")
-    public RedirectView cvModify(CvPageDTO cvPageDTO){
+    public RedirectView cvModify(@RequestBody CvPageDTO cvPageDTO){
 
         System.out.println("ApplicationApiController : cvModify() 실행");
         System.out.println("cvPageDTO : " + cvPageDTO);

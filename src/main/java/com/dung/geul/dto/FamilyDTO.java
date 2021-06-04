@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @Builder
 public class FamilyDTO {
 
+    private Long id;
     private Long fam_num;
     private String fam_relation;
     private String fam_name;
