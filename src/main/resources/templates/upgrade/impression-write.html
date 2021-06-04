@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/write-on.css">
+    <link rel="stylesheet" href="/css/reset.css">
+</head>
+<body>
+<div class="on-write-wrap">
+    <div class="form_box">
+        <h3>지원프로그램 후기 등록</h3>
+        <div class="input-box">
+            <input class="input_field" type="text" placeholder="제목을 입력해 주세요." >
+        </div>
+        <div class="write-file">
+            <label id="on" class="on">
+                사진 추가
+                <input type="file" aria-label="이미지" accept="image/jpeg, .txt" required
+                       onchange="javascript:document.getElementById('file_route').value=this.value"/>
+            </label>
+            <input class="on" style="width: 200px;" type="text" readonly="readonly" tilte="File Route" id="file_route">
+            <div class="cont-write-f" style="display: none;">
+                <div class="item-file">
+                    <span class="ico_file">파일</span>
+                    <span class="txt_file">
+                            <span class="txt_file_name">파일 이름</span>
+                            <span class="txt_extension">.jpg</span>
+                        </span>
+                </div>
+            </div>
+        </div>
+        <textarea class="textarea_field" placeholder="내용을 입력해 주세요." ></textarea>
+        <input type="submit">
+<!--        만드는 중-->
+    </div>
+</div>
+</body>
+</html>

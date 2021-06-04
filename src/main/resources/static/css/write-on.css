@@ -1,0 +1,189 @@
+.on-write-wrap {
+    position: relative;
+    width: 1150px;
+}
+.form_box h3 {
+    font-weight: 700;
+    margin-bottom: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.form_box {
+    background-color: #ffffff;
+    margin: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 40px;
+    width: 725px;
+}
+.input_field {
+    border-radius: 4px;
+    font-size: 14px;
+    width: 725px;
+    height: 24px;
+    margin-right: 10px;
+    border: none;
+    font-size: 20px;
+    line-height: 24px;
+    vertical-align: middle;
+}
+.input-box {
+    display: flex;
+    width: 737px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #d2d2d2;
+    position: relative;
+    left: -1.12%;
+}
+.textarea_field {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 25px 0;
+    font-size: 12px;
+    width: 725px;
+    height: 450px;
+    resize:none;
+    position: relative;
+    left: -1.12%;
+}
+.write_button {
+    background-color: #475d9f;
+    border: 1px solid #323f6b;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 18px;
+}
+.write-file {
+    margin-top: 25px;
+    outline: none;
+    position: relative;
+    background-color: #fcfcfc;
+    box-sizing: border-box;
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid #f4f4f4;
+    left: -1.2%;
+    padding: 10px;
+}
+.on {
+    position:relative;
+    cursor:pointer;
+    display:inline-block;
+    vertical-align:middle;
+    overflow:hidden;
+    width:70px;
+    height:30px;
+    background:#ffff;
+    border: 1px solid #ddd;
+    color:#000;
+    text-align:center;
+    font-size: 12px;
+    line-height: 30px;
+    border-radius: 4px;
+}
+.on input {
+    position:absolute;
+    width:0;
+    height:0;
+    overflow:hidden;
+}
+#on:hover {
+    background-color: #ccc;
+    color: #fff;
+}.on-write-wrap {
+     position: relative;
+     width: 1150px;
+ }
+.form_box h3 {
+    font-weight: 700;
+    margin-bottom: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.form_box {
+    background-color: #ffffff;
+    margin: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 40px;
+    width: 725px;
+}
+.input_field {
+    border-radius: 4px;
+    font-size: 14px;
+    width: 725px;
+    height: 24px;
+    margin-right: 10px;
+    border: none;
+    font-size: 20px;
+    line-height: 24px;
+    vertical-align: middle;
+}
+.input-box {
+    display: flex;
+    width: 737px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #d2d2d2;
+    position: relative;
+    left: -1.12%;
+}
+.textarea_field {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 25px 0;
+    font-size: 12px;
+    width: 725px;
+    height: 450px;
+    resize:none;
+    position: relative;
+    left: -1.12%;
+}
+.write_button {
+    background-color: #475d9f;
+    border: 1px solid #323f6b;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 18px;
+}
+.write-file {
+    margin-top: 25px;
+    outline: none;
+    position: relative;
+    background-color: #fcfcfc;
+    box-sizing: border-box;
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid #f4f4f4;
+    left: -1.2%;
+    padding: 10px;
+}
+.on {
+    position:relative;
+    cursor:pointer;
+    display:inline-block;
+    vertical-align:middle;
+    overflow:hidden;
+    width:70px;
+    height:30px;
+    background:#ffff;
+    border: 1px solid #ddd;
+    color:#000;
+    text-align:center;
+    font-size: 12px;
+    line-height: 30px;
+    border-radius: 4px;
+}
+.on input {
+    position:absolute;
+    width:0;
+    height:0;
+    overflow:hidden;
+}
+#on:hover {
+    background-color: #ccc;
+    color: #fff;
+}
