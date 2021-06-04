@@ -82,8 +82,7 @@ function userManage_list_send(){
             data: JSON.stringify(dataList),
         })
 
-    alert(JSON.stringify(dataList)); //디버깅
-    // submit_param();
+    submit_param();
 }
 
 function userManage_search(i){

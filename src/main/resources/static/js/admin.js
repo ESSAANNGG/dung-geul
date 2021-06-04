@@ -201,8 +201,9 @@ $('.list_submit').click(function(){
         window[String(menu_name)+"_list"]();                                                                            //data를 담는 함수 호출
     }
 
-    if(dataList.length!=0){                          //넘어온 값이 없을 시 수행하지 않음
-        window[String(menu_name)+"_list_send"]();    //list를 담았고 data보내는 함수 호출
+    if(dataList.length!=0){                                 //넘어온 값이 없을 시 수행하지 않음
+        alert(JSON.stringify(dataList)+"선택된 값들입니다");   //디버깅
+        window[String(menu_name)+"_list_send"]();           //list를 담았고 data보내는 함수 호출
     }
 })
 
