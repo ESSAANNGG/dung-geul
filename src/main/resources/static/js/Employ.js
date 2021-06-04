@@ -175,7 +175,7 @@ function searchVal(sel){
                 $("#dummy_title").prop("checked",false);
             }
             else{
-                $("#h_title").css("color","#4759ff");
+                $("#h_title").css("color","#3498db");
             }
             break;
         case 'corp':
@@ -188,7 +188,7 @@ function searchVal(sel){
                 $("#dummy_corp").prop("checked",false)
             }
             else{
-                $("#h_corp").css("color","#4759ff");
+                $("#h_corp").css("color","#3498db");
             }
             break;
         case 'ot':
@@ -196,7 +196,7 @@ function searchVal(sel){
             $("#h_ot").text("#"+val);
             if(val!="직종") {
                 $("#dummy_ot").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                $("#h_ot").css("color","#4759ff");
+                $("#h_ot").css("color","#3498db");
             }
             else if(val=="직종"){
                 $("#dummy_ot").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
@@ -209,7 +209,7 @@ function searchVal(sel){
             $("#h_ep").text("#"+val);
             if(val!="고용구분") {
                 $("#dummy_ep").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                $("#h_ep").css("color","#4759ff");
+                $("#h_ep").css("color","#3498db");
             }
             else if(val=="고용구분"){
                 $("#dummy_ep").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
@@ -221,7 +221,7 @@ function searchVal(sel){
             $("#h_shape").text("#"+val);
             if(val!="기업구분") {
                 $("#dummy_shape").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                $("#h_shape").css("color","#4759ff");
+                $("#h_shape").css("color","#3498db");
             }
             else if(val=="기업구분"){
                 $("#dummy_shape").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
@@ -234,7 +234,7 @@ function searchVal(sel){
 
                 if(val!="시/도 선택 ") {
                     $("#dummy_area").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                    $("#h_area").css("color","#4759ff");
+                    $("#h_area").css("color","#3498db");
                 }
                 else if(val=="시/도 선택 "){
                     $("#dummy_area").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함

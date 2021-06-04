@@ -229,7 +229,7 @@ h4{
 }
 .tags:hover{
     text-shadow:-1px -1px 1px ;
-    color:#4759ff !important;  /*제이쿼리로 색을 주니 이 컬러가 덮어씌워져서 우선순위를 높임*/
+    color:#3498db !important;  /*제이쿼리로 색을 주니 이 컬러가 덮어씌워져서 우선순위를 높임*/
     /* transition-property: color;
     transition-duration: 1s; */
 }
@@ -239,6 +239,12 @@ h4{
     font-weight:bolder;
     font-size:15px;
     /* color:#575757; */
+}
+.btn{
+    border:none;
+    background-color: #3498db;
+    color:white;
+    width:100%;
 }
 
 #dummy{
