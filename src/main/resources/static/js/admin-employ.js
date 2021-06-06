@@ -18,24 +18,22 @@ function employ_guide(){
 let employ_num; //공고번호
 function employ_list(){
     employ_num = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .number').text();                        //아이디값을 읽어옴
+    $.ajax({
+        url: '/rest/' + employ_num ,
+        method: 'delete'
+    })
     dataList.push(employ_num);
 }
 
 function employ_list_send(){
-    //
+
     // $.ajax({
-    //     url: '/rest/' + num ,
+    //     url: '/rest/' + employ_num ,
     //     type: "POST",
     //     contentType: "application/json; charset=utf-8",
     //     dataType: "json",
     //     data: JSON.stringify(dataList),
     // })
-
-    // $.ajax({
-    //     url: '/rest/' + num ,
-    //     method: 'delete'
-    // })
-
     alert(dataList) //디버깅용
     submit_param();
 }
