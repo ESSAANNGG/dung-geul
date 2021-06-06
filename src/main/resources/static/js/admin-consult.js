@@ -17,15 +17,21 @@ function consult_guide(){
 
 let consult_num;
 function consult_list() {
-    consult_num = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .number').text();                        //목록번호를 읽어옴
+    consult_num = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .number').text();//목록번호를 읽어옴
+
+    $.ajax({
+        url: '/admin/remove/' + consult_num ,
+        method: 'delete'
+    })
     dataList.push(consult_num);
+
 }
 
 function consult_list_send(){
-
+    //
     // $.ajax({
-    //     url: "",
-    //     type: "POST",
+    //     url: "/admin/remove",
+    //     type: "delete",
     //     contentType: "application/json; charset=utf-8",
     //     dataType: "json",
     //     data: JSON.stringify(dataList),
