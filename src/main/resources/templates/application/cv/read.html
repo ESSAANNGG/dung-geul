@@ -117,6 +117,7 @@
                 <table th:each="item : ${cv.getEducation()}">
                   <thead class="read_carrer">
                   <tr>
+                    <td class="width-200">학교구분</td>
                     <td class="width-200">재학기간</td>
                     <td class="width-224">학교명</td>
                     <td class="width-104">졸업상태</td>
@@ -129,6 +130,7 @@
                   <tbody class="read_carrer-body">
                   <div class="carrer_item">
                     <tr>
+                      <td rowspan="2" class="align_center">[[${item.getSchoolType()}]]</td>
                       <td rowspan="2" class="align_center" > [[${item.getDateStart()}]] ~ [[${item.getDateEnd()}]] </td>
                       <td rowspan="2" class="align_center">[[${item.getEdc_school()}]]</td>
                       <td class="align_center">[[${item.getGraduated()}]]</td>
