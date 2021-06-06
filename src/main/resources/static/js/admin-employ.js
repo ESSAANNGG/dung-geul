@@ -27,13 +27,6 @@ function employ_list(){
 
 function employ_list_send(){
 
-    // $.ajax({
-    //     url: '/rest/' + employ_num ,
-    //     type: "POST",
-    //     contentType: "application/json; charset=utf-8",
-    //     dataType: "json",
-    //     data: JSON.stringify(dataList),
-    // })
     alert(dataList) //디버깅용
     submit_param();
 }
