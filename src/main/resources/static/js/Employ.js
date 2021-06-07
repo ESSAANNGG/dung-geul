@@ -168,28 +168,28 @@ function h_tag_js(tag_num) {
     switch (tag_num){
         case 1:
             search[0].style.display="inline-block"; //#제목
-            $("#head_tag h4").text("제목");
+            $("#head_tag h2").text("제목");
             break;
         case 2:
             search[1].style.display="inline-block"; //#기업
-            $("#head_tag h4").text("기업");
+            $("#head_tag h2").text("기업");
             break;
         case 3:
             search[2].style.display="inline-block"; //#직종
-            $("#head_tag h4").text("직종");
+            $("#head_tag h2").text("직종");
             break;
         case 4:
             search[3].style.display="inline-block"; //#고용구분
-            $("#head_tag h4").text("고용구분");
+            $("#head_tag h2").text("고용구분");
             break;
         case 5:
             search[4].style.display="inline-block"; //#기업구분
-            $("#head_tag h4").text("기업구분");
+            $("#head_tag h2").text("기업구분");
             break;
         case 6:
             search[5].style.display="inline-block"; //#근무지역
             search[6].style.display="inline-block"; //#근무지역
-            $("#head_tag h4").text("근무지역");
+            $("#head_tag h2").text("근무지역");
             break;
     }
 }
@@ -312,23 +312,6 @@ function post_cont_sub_func(){
     }
 
     cont_func_index=cont_func_index+1; //리스트가 있는 만큼 함수를 적용하기 위해 본문의 for문이 실행될때마다 클래스참조값+1
-}
-
-
-
-//공고등록 > 페이지 이동하는 함수
-p1=document.getElementById('employ_register1');
-p2=document.getElementById('employ_register2');
-p3=document.getElementById('employ_register3');
-function pageMov(i){
-    window.scrollTo(0,0);
-    let pageVar=String(i);
-    let nowP=pageVar.charAt(0);
-    let nextP=pageVar.charAt(1);
-
-    //jquery 선택자에 변수넣는법
-    $('#employ_register'+nowP).hide();
-    $('#employ_register'+nextP).show();
 }
 
 

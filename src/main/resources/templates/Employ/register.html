@@ -50,31 +50,27 @@
                 </div>
             </div>
 
-            <div class="employ_register" id="employ_register1">
+            <div class="employ_register">
                 <div class="content">
                     <input type="hidden" name="em_id" id="em_id" title="em_id" th:value="${etp.getEtp_id()}" />
-<!--                    <input type="hidden" name="em_id" id="em_id" title="em_id" th:value="${etp.getUser_id()}" />-->
-<!--                    <div class="register_step_head">-->
-<!--                        기본정보를 입력해주세요-->
-<!--                    </div>-->
-                    <div class="register_title_wrap">
-                        <div class="register_title">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             제목
                         </div>
                         <input type="text" name="em_title" id="em_title" class="register_title_input"
                                placeholder="공고목록에서 보여질 제목입니다." maxlength="15" />
                     </div>
 
-                    <div class="register_cont_wrap">
-                        <div class="register_cont">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             내용
                         </div>
                         <textarea name="em_content" id="em_content" class="register_cont_input"
                                   placeholder="추가적인 사항을 기입해주세요." maxlength="499"></textarea>
                     </div>
 
-                    <div class="register_ot_wrap">
-                        <div class="register_ot">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             직종
                         </div>
                         <div class="register_ot_val_wrap">
@@ -102,8 +98,8 @@
                             </select>
                         </div>
                     </div>
-                    <div class="register_ep_wrap">
-                        <div class="register_ep">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             고용 형태
                         </div>
                         <div id="em_ep" class="register_ep_val">
@@ -117,33 +113,15 @@
                         </div>
                     </div>
 
-                    <div class="register_date_wrap">
-                        <div class="register_start_date">
-                            시작일
+                    <div class="register_wrap">
+                        <div class="register_tag">
+                            기간
                         </div>
-                        <input type="datetime-local" name="em_start_date" id="em_start_date">
-                        ~&nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="register_end_date">
-                            마감일
-                        </div>
-
-                        <input type="datetime-local" name="em_end_date" id="em_end_date">
-
+                        <input type="datetime-local" name="em_start_date" id="em_start_date"> ~ <input type="datetime-local" name="em_end_date" id="em_end_date">
                     </div>
 
-                    <div class="base_button_wrap">
-                        <button class="base_button" onclick="pageMov(1_2)">상세정보 입력으로 이동</button>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <div class="employ_register" id="employ_register2">
-                <div class="content">
-                    <div class="register_TO_wrap">
-                        <div class="register_TO">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             모집인원
                         </div>
                         <div class="register_TO_input">
@@ -153,8 +131,8 @@
                         </div>
                     </div>
 
-                    <div class="register_career_wrap">
-                        <div class="register_career">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             경력
                         </div>
                         <div class="register_career_input">
@@ -164,8 +142,8 @@
                         </div>
                     </div>
 
-                    <div class="register_education_wrap">
-                        <div class="register_education">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             학력
                         </div>
                         <div class="register_education_input">
@@ -187,8 +165,8 @@
                         </div>
                     </div>
 
-                    <div class="register_location_wrap">
-                        <div class="register_location">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             근무지역
                         </div>
                         <div class="register_location_input" id="em_area">
@@ -196,8 +174,8 @@
                         </div>
                     </div>
 
-                    <div class="register_salary_wrap">
-                        <div class="register_salary">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             급여
                         </div>
                         <div class="register_salary_input">
@@ -207,8 +185,8 @@
                         </div>
                     </div>
 
-                    <div class="register_addApply_wrap">
-                        <div class="register_addApply">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             지원방법
                         </div>
                         <div class="register_addApply_input">
@@ -221,8 +199,8 @@
                         </div>
                     </div>
 
-                    <div class="register_file_wrap">
-                        <div class="register_file">
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             첨부파일
                         </div>
                         <div class="register_file_input">
@@ -243,14 +221,12 @@
                             </ul>
                         </div>
                     </div>
-
-
                     <div class="base_button_wrap">
-                        <button class="base_button" onclick="pageMov(2_1)">기본정보 입력으로 이동</button>
                         <button id="emReg" class="base_button">채용공고 등록하기</button>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
