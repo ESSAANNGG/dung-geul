@@ -87,13 +87,59 @@ $(document).ready(function () {
         })
     });
 
-
-    let searchForm = $("#searchForm");
-
+    let search_val;
+    let keywords=[];
+    let parameter="http://localhost:8080/Employ/list?page=1";
     $('.btn-search').click(function(e){
-
-        searchForm.submit();
+        for(j=0; j<9; j++){
+            keywords[j]="&keywords="
+        }
+            for (i=0; i<7; i++) {
+                search_val=$(".search").eq(i).val();
+                // alert(search_val);
+                search_valF(i);
+            }
+        location.href = search_parameter;
     });
+    function search_valF(i){
+        if(search_val==""||search_val=="시/도 선택"||search_val=="구/군 선택"||search_val=="직종"||search_val=="고용구분"||search_val=="기업구분"){
+            switch (i){
+                case 0: search_parameter=parameter+"&keywords=";
+                    break;
+                case 1: search_parameter+="&keywords=";
+                    break;
+                case 2: search_parameter+="&keywords=";
+                    break;
+                case 3: search_parameter+="&keywords=";
+                    break;
+                case 4: search_parameter+="&keywords=";
+                    break;
+                case 5: search_parameter+="&keywords=&sido=";
+                    break;
+                case 6: search_parameter+="&keywords=&keywords=";
+                    break;
+            }
+        }
+        else{
+            switch (i){
+                case 0: search_parameter=parameter+keywords[0]+search_val+"&type=t";
+                    break;
+                case 1: search_parameter+=keywords[1]+search_val+"&type=w";
+                    break;
+                case 2: search_parameter+=keywords[2]+search_val+"&type=ot";
+                    break;
+                case 3: search_parameter+=keywords[3]+search_val+"&type=ep";
+                    break;
+                case 4: search_parameter+=keywords[4]+search_val+"&type=shape";
+                    break;
+                case 5: search_parameter+=keywords[5]+search_val+"&type=sido";
+                    break;
+                case 6: search_parameter+=keywords[6]+search_val+"&type=gugun&keywords=&keywords=";
+                    break;
+            }
+        }
+
+    }
 
     $('.btn-clear').click(function(e){
 
