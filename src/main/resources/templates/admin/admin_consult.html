@@ -124,7 +124,6 @@
         <!--상담관리-->
         <div class="main6" id="main6_counsult">
           <!--상담관리 > 상담관리-->
-          <form action="/admin/admin_consult" method="get" id="searchForm">
           <div id="main6_counsult_search">
             <div class="sub_menu_title">
               <h3>상담목록 검색</h3>
@@ -135,9 +134,9 @@
                 <li>
                   <select class="consult-select" name="type">
                     <option value="t" th:selected="${pageRequestDTO.type == null}">상담 종류</option>
-                    <option value="j" th:selected="${pageRequestDTO.type == 'j'}">진로 상담</option>
-                    <option value="c" th:selected="${pageRequestDTO.type == 'c'}">취업 상담</option>
-                    <option value="ch" th:selected="${pageRequestDTO.type == 'ch'}">창업 상담</option>
+                    <option value="j" th:selected="${pageRequestDTO.type == 't'}">진로 상담</option>
+                    <option value="c" th:selected="${pageRequestDTO.type == 't'}">취업 상담</option>
+                    <option value="ch" th:selected="${pageRequestDTO.type == 't'}">창업 상담</option>
                   </select>
                 </li>
               </ul>
@@ -156,7 +155,6 @@
               </div>
             </div>
           </div>
-          </form>
           <div id="main6_counsult_list">
             <div class="sub_menu_title">
               <h3>상담리스트</h3>

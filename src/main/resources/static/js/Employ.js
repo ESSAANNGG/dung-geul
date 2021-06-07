@@ -89,7 +89,7 @@ $(document).ready(function () {
 
     let search_val;
     let keywords=[];
-    let parameter="http://localhost:8080/Employ/list?page=1";
+    let parameter="/Employ/list?page=1";
     $('.btn-search').click(function(e){
         for(j=0; j<9; j++){
             keywords[j]="&keywords="
@@ -321,7 +321,6 @@ $(document).ready(function(){
     $("#em_people").on("keyup", function() {
         if(isNaN($(this).val())){
             let error = document.getElementsByClassName("register_TO_error")[0].style.display="inline-block"; //jquery로 안한 이유는 인라인블록을 안하니 망가져서
-            // $('.register_TO_error').show();
             $('.register_TO_error').fadeOut(3000);
         }
         $(this).val($(this).val().replace(/[^0-9]/g,""));
@@ -330,7 +329,6 @@ $(document).ready(function(){
     $("#em_salary").on("keyup", function() {
         if(isNaN($(this).val())){
             let error = document.getElementsByClassName("register_salary_error")[0].style.display="inline-block"; //jquery로 안한 이유는 인라인블록을 안하니 망가져서
-            // $('.register_TO_error').show();
             $('.register_salary_error').fadeOut(3000);
         }
         $(this).val($(this).val().replace(/[^0-9]/g,""));
@@ -342,13 +340,13 @@ let ed;
 //학력 input 제어
 function eduFunc(){
 
-
     if($("#education").is(":checked")){
-        $('.register_education_val').prop('disabled', 'true');
+        $('#em_education').prop('disabled', 'true');
         ed = $('#education').val();
+        alert(ed);
     }
     else{
-        $('.register_education_val').removeAttr("disabled");
+        $('#em_education').removeAttr("disabled");
         ed = $('#em_education').val(); //select값 변경없이 체크 해제후 바로 사용할때 필요
     }
 }
@@ -360,28 +358,28 @@ function selectValChange(){
 
 
 //공고등록 > 첨부파일등록
-let f="addSub";
-let length;
-function Apply(f){
-    var wrap = document.getElementsByClassName('register_file_wrap');
-    var wrapH=wrap[0].offsetHeight;
-    length=$('.register_file_ul').children().length;
-    if(f=='add'){
-        if(length>4){
-            alert("첨부파일은 최대5개까지 가능합니다")
-            return;
-        }
-        wrap[0].style.height=wrapH+40+'px';                    /* 아이디와 함수로 전해줄 인덱스값 length를 이용해 만들어 구분*/
-        $('.register_file_ul').append('<li><input type="text" id="fileName' + (length+1) + '" placeholder="추가로 기재할 이력서 양식 등 기타 첨부파일을 올려주세요" readonly><input type="file" onchange="fileChange(this.value,'+ (length+1) +')"></li>' );
-    }
-    else{
-        if(length==1){
-            return;
-        }
-        wrap[0].style.height=wrapH+(-40)+'px';
-        $('.register_file_ul').children().last().remove();
-    }
-};
+// let f="addSub";
+// let length;
+// function Apply(f){
+//     var wrap = document.getElementsByClassName('register_file_wrap');
+//     var wrapH=wrap[0].offsetHeight;
+//     length=$('.register_file_ul').children().length;
+//     if(f=='add'){
+//         if(length>4){
+//             alert("첨부파일은 최대5개까지 가능합니다")
+//             return;
+//         }
+//         wrap[0].style.height=wrapH+40+'px';                    /* 아이디와 함수로 전해줄 인덱스값 length를 이용해 만들어 구분*/
+//         $('.register_file_ul').append('<li><input type="text" id="fileName' + (length+1) + '" placeholder="추가로 기재할 이력서 양식 등 기타 첨부파일을 올려주세요" readonly><input type="file" onchange="fileChange(this.value,'+ (length+1) +')"></li>' );
+//     }
+//     else{
+//         if(length==1){
+//             return;
+//         }
+//         wrap[0].style.height=wrapH+(-40)+'px';
+//         $('.register_file_ul').children().last().remove();
+//     }
+// };
 
 //공고등록 > 첨부파일 값을 inputText 로 이동
 function fileChange(value,b){
