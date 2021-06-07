@@ -1,18 +1,23 @@
 /*employ regist.html*/
 .content {
-    margin: 40px auto 0 auto;
+    margin: 0 auto;
     max-width: 100%;
     width: 64em;
 }
-
+#main{
+    width:1920px;
+}
 .employ_register{
-    display: none;
+    display: block;
+    position:relative;
     width:850px;
     margin-left:50px;
+    padding:30px;
     background-color: #ffffff;
-    color:#768395;
+    color:#2e2e2e;
     box-shadow: 0 0 1px 1px #e2e2e2;
-    border-radius: 8px 8px 8px 8px;
+
+
 }
 .employ_register:nth-of-type(2){
     display:block;
@@ -52,38 +57,24 @@
 
 
 /*공고등록 제목*/
-.register_title_wrap{
-    display: flex;
-    justify-content: center;
-    height:70px;
-    padding:20px;
+.register_wrap{
+    display:block;
+    /*padding:10px;*/
     margin: 0 auto;
-    color:#768395;
-    font-weight:900;
     font-size:16px;
 }
-.register_title{
-    display:inline-block;
-    width:100px;
+.register_tag{
+    display:block;
+    width:100%;
+    float:left;
 }
 .register_title_input{
-    display:inline-block;
     width:600px;
     height:40px;
     padding:0px 15px;
     font-size:15px;
 }
-/*공고등록 내용*/
-.register_cont_wrap{
-    display: flex;
-    justify-content: center;
-    height:200px;
-    padding:20px;
-    margin: 0 auto 40px auto;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
-}
+
 .register_cont{
     display:inline-block;
     width:100px;
@@ -103,16 +94,7 @@
 
 /*공고등록 구분*/
 /*직종*/
-.register_ot_wrap{
-    display: flex;
-    justify-content: center;
-    height:70px;
-    padding:15px 20px 5px 20px;
-    margin: 0 auto;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
-}
+
 .register_ot{
     display:inline-block;
     width:100px;
@@ -128,16 +110,7 @@
     font-size:14px;
 }
 /*고용형태*/
-.register_ep_wrap{
-    display: flex;
-    justify-content: center;
-    height:50px;
-    margin: 0 auto;
-    padding-top:5px;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
-}
+
 .register_ep{
     display:inline-block;
     width:100px;
@@ -162,14 +135,7 @@
 
 
 /*공고등록 기간*/
-.register_date_wrap{
-    display: flex;
-    justify-content: center;
-    height:70px;
-    margin: 0 auto;
-    color:#768395;
-    font-weight:600;
-}
+
 .register_start_date{
     display:inline-block;
     width:70px;
@@ -216,16 +182,7 @@
 
 /*상세정보*/
 /*모집인원*/
-.register_TO_wrap{
-    display: flex;
-    justify-content: center;
-    height:60px;
-    padding-top: 20px;
-    margin: 0 auto;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
-}
+
 .register_TO{
     width:100px;
     font-size:16px;
@@ -255,16 +212,6 @@
     color:blue;
 }
 /*경력*/
-.register_career_wrap{
-    display: flex;
-    justify-content: center;
-    height:50px;
-    padding:10px 0 10px 0;
-    margin: 0 auto;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
-}
 .register_career{
     width:100px;
     font-size:16px;
@@ -276,16 +223,6 @@
     font-weight: 500;
 }
 /*학력*/
-.register_education_wrap{
-    display: flex;
-    justify-content: center;
-    height:70px;
-    padding-top :5px;
-    margin: 0 auto;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
-}
 .register_education{
     width:100px;
     font-size:16px;
@@ -312,15 +249,6 @@
     font-weight: 500;
 }
 /*근무지역*/
-.register_location_wrap{
-    display: flex;
-    justify-content: center;
-    height:60px;
-    margin: 0 auto;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
-}
 .register_location{
     width:100px;
     font-size:16px;
@@ -336,16 +264,6 @@
     font-size:13px;
     font-weight: 500;
     padding-left:10px;
-}
-
-.register_salary_wrap {
-    display: flex;
-    justify-content: center;
-    height:50px;
-    margin: 0 auto;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
 }
 .register_salary{
     width:100px;
@@ -382,38 +300,20 @@
 
 
 /*지원방법*/
-.register_apply_wrap{
-    display: flex;
-    justify-content: center;
-    height:50px;
-    margin: 0 auto;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
-}
-.register_apply{
+.register_addApply{
     width:100px;
     font-size:16px;
 }
-.register_apply_input{
+.register_addApply_input{
     width:600px;
     height:40px;
     font-size:13px;
     font-weight: 500;
 }
-.register_apply_input input{
+.register_addApply_input input{
     margin-right:5px;
 }
 /*첨부파일*/
-.register_file_wrap{
-    display: flex;
-    justify-content: center;
-    height:110px;
-    margin: 0 auto;
-    color:#768395;
-    font-weight:900;
-    font-size:16px;
-}
 .register_file{
     width:100px;
     font-size:16px;
@@ -447,7 +347,6 @@
     width:600px;
     height:50px;
     font-size:19px;
-    color:#868686;
 }
 
 
