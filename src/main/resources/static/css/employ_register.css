@@ -141,15 +141,15 @@ select{
 /*    font-size:13px;*/
 /*    font-weight: 500;*/
 /*}*/
-.register_file_input input[type="file"]{
-    width:85px;
-    height:30px;
-    border:0px;
-    padding-left:10px;
-    margin-bottom:5px;
-    font-size:13px;
-    font-weight: 500;
-}
+/*.register_file_input input[type="file"]{*/
+/*    width:85px;*/
+/*    height:30px;*/
+/*    border:0px;*/
+/*    padding-left:10px;*/
+/*    margin-bottom:5px;*/
+/*    font-size:13px;*/
+/*    font-weight: 500;*/
+/*}*/
 /*.register_file_btn{*/
 /*    position:relative;*/
 /*    top:-35px;*/
@@ -157,6 +157,16 @@ select{
 /*    height:50px;*/
 /*    font-size:19px;*/
 /*}*/
+input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0,0,0,0); border: 0; }
+
+
 
 
 /*진행상황*/
