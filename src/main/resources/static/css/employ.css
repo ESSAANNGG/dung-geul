@@ -28,7 +28,9 @@ h4{
     max-width: 100%;
     width: 64em;
   }
-
+#main{
+    width:1920px;
+}
 #head_tag{
     position: absolute;
     top:-40px;
