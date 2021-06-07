@@ -113,13 +113,13 @@ public class ConsultServiceImpl implements ConsultService {
         }
         BooleanBuilder conditionBuilder = new BooleanBuilder();
 
-        if(type.contains("j")){
+        if(type.contains("t")){
             conditionBuilder.or(qConsult.Consult_field.contains(keyword));
         }
-        if (type.contains("c")){
+        if (type.contains("t")){
             conditionBuilder.or(qConsult.Consult_field.contains(keyword));
         }
-        if (type.contains("ch")){
+        if (type.contains("t")){
             conditionBuilder.or(qConsult.Consult_field.contains(keyword));
         }
         if(type.contains("c")){
