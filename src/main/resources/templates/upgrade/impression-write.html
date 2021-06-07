@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,29 @@
     <link rel="stylesheet" href="/css/reset.css">
 </head>
 <body>
+<header id="header">
+
+
+    <!--네비 div-->
+    <div th:replace="layout/layout :: nav"/>
+</header>
+<div id="main"></div>
+<!-- side -->
+<div id="sang-main-wrap" class="d_width">
+    <div class="menu2">
+        <div id="bar">
+            <h2>상담</h2>
+            <ul id="menu_bar">
+                <li id="menu_con1"><h4>상담 정보</h4>
+                    <ul id="sb_detail">
+                        <li><a href="/counseling/intro">상담 내용</a></li>
+                        <li><a href="/counseling/counseling">상담 신청</a></li>
+                        <li><a href="/counseling/studentcoun">상담 내역</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> <!-- bar -->
+    </div>
 <div class="on-write-wrap">
     <div class="form_box">
         <h3>지원프로그램 후기 등록</h3>
@@ -56,5 +79,6 @@
         <!-- 제출 버튼 -->
     </div>
 </div>
+    <footer th:replace="layout/layout :: footer"/>
 </body>
 </html>

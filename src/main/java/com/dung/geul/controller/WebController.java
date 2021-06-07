@@ -37,7 +37,7 @@ public class WebController {
     public void cprogram(){
     }
     @GetMapping("/upgrade/c-inpression")
-    public void cimpression(){
+    public void cinpression(){
     }
 
 }
