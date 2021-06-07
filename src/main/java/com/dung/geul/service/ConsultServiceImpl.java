@@ -42,9 +42,13 @@ public class ConsultServiceImpl implements ConsultService {
     @Override
     public PageResultDTO<ConsultDTO, Consult> getList(PageRequestDTO requestDTO) {
     log.info("getList 실행 상담부분");
-    Pageable pageable = requestDTO.getPageable(Sort.by("cno"));
-    Page<Consult> result = consultRepository.findAll(pageable);
+    Pageable pageable = requestDTO.getPageable(Sort.by("cno").descending());
+//    Page<Consult> result = consultRepository.findAll(pageable);
+    BooleanBuilder booleanBuilder = getSearch(requestDTO);
+    Page<Consult> result = consultRepository.findAll(booleanBuilder,pageable);
+
     Function<Consult, ConsultDTO> fn = (entity -> entityToDto(entity));
+
     return  new PageResultDTO<>(result,fn);
 
 //    PageRequestDTO pageRequestDTO = new PageRequestDTO(page1);
@@ -107,11 +111,22 @@ public class ConsultServiceImpl implements ConsultService {
         if (type == null || type.trim().length() == 0) {
             return booleanBuilder;
         }
-//        BooleanBuilder conditionBuilder = new BooleanBuilder();
-//
-//        if (type.contains("c")){
-//            conditionBuilder.or(q)
-//        }
+        BooleanBuilder conditionBuilder = new BooleanBuilder();
+
+        if(type.contains("j")){
+            conditionBuilder.or(qConsult.Consult_field.contains(keyword));
+        }
+        if (type.contains("c")){
+            conditionBuilder.or(qConsult.Consult_field.contains(keyword));
+        }
+        if (type.contains("ch")){
+            conditionBuilder.or(qConsult.Consult_field.contains(keyword));
+        }
+        if(type.contains("c")){
+            conditionBuilder.or(qConsult.Consult_detail_field.contains(keyword));          // 내용
+        }
+
+        booleanBuilder.and(conditionBuilder);
         return booleanBuilder;
     }
 }

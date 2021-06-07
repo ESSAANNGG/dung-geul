@@ -37,6 +37,7 @@ public class AdminconsultController {
         @GetMapping("/admin_consult")
         public void list (PageRequestDTO pageRequestDTO, Model model) {
 
+            log.info("리스트" + pageRequestDTO);
             PageResultDTO<ConsultDTO, Consult> getlist = consultService.getList(pageRequestDTO);
 
             model.addAttribute("counselorList", memberService.findByType("COUNSELOR"));
