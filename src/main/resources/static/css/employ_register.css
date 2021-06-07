@@ -20,20 +20,15 @@
 
 /*공고등록*/
 .employ_register input{
-    border-radius: 3px 3px 3px 3px;
+    /*border-radius: 3px 3px 3px 3px;*/
     border:1px solid #768395;
-}
-.employ_register textarea{
-    border-radius: 3px 3px 3px 3px;
-    border:1px solid #768395;
-    resize: none;
 }
 .employ_register select{
-    border-radius: 3px 3px 3px 3px;
+    /*border-radius: 3px 3px 3px 3px;*/
     border:1px solid #768395;
 }
 .employ_register button{
-    border-radius: 3px 3px 3px 3px;
+    /*border-radius: 3px 3px 3px 3px;*/
     border:1px solid #768395;
 }
 
@@ -73,12 +68,14 @@ select{
     width:600px;
     height:40px;
     padding:0px 15px;
-    margin-bottom:20px;
+    margin-bottom:30px;
     font-size:13px;
+    background-color: #ffffff;
 }
 .radio{
     padding:0px;
     height:30px !important;
+    vertical-align: top;
 }
 .date{
     display:inline-block;
@@ -104,22 +101,6 @@ select{
     text-align: center;
     font-size:10px;
     color:blue;
-}
-
-
-/*다음단계로 넘어가는 버튼*/
-.base_button_wrap{
-    display:flex;
-    justify-content: center;
-    height:100px;
-}
-.base_button{
-    width:200px;
-    height:50px;
-    margin:0 10px;
-    background-color:#48505c;
-    font-size:16px;
-    color:#ffffff;
 }
 
 /*첨부파일*/
@@ -164,9 +145,44 @@ input[type="file"] {
     padding: 0;
     margin: -1px;
     overflow: hidden;
-    clip:rect(0,0,0,0); border: 0; }
+    clip:rect(0,0,0,0); border: 0;
+}
+label {
+    display: inline-block;
+    text-align: center;
+    width:100px;
+    height:40px;
+    padding: 6.5px !important;
+    line-height: normal;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #000000;
+    color: #ffffff;
+    background-color: #000000;
+}
 
+.filebox input[type="file"] {  /* 파일 필드 숨기기 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0,0,0,0);
+    border: 0;
+}
 
-
-
-/*진행상황*/
+/*다음단계로 넘어가는 버튼*/
+.base_button_wrap{
+    display:flex;
+    justify-content: center;
+    height:100px;
+}
+.base_button{
+    width:200px;
+    height:50px;
+    margin:0 10px;
+    background-color:#3498db;
+    font-size:16px;
+    color:#ffffff;
+}
