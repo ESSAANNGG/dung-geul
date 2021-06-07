@@ -50,7 +50,7 @@
                   <div class="info-general">
                     <div class="item name">[[${cv.getUser_name}]]</div>
                     <div class="item china">[[${cv.getUser_name}]]</div>
-                    <div class="item sex">남</div>
+                    <!-- <div class="item sex">남</div> -->
                     <div class="item age">[[${cv.getAge()}]]세</div>
                   </div>
                   <div class="info-detail">
@@ -263,12 +263,12 @@
           </section>
 
 
-          <section class="form" id="자격증" th:if="${cv.getCertificate().isEmpty()}">
+          <section class="form" id="자격증" th:if="${!cv.getCertificate().isEmpty()}">
             <p class="legend">자격증</p>
 
             <div class="item_lic">
               <div class="info">
-                <table th:each="item : ${cv.getFamily()}">
+                <table th:each="item : ${cv.getCertificate()}">
                   <thead class="read_award">
                   <tr>
                     <td class="width-200">자격증 명</td>
