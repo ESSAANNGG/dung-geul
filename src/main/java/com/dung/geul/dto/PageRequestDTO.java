@@ -14,7 +14,8 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @Data
-public class PageRequestDTO {
+public class
+PageRequestDTO {
     private int page;
     private int size;
     private String type;    // 검색 처리를 위한 조건
