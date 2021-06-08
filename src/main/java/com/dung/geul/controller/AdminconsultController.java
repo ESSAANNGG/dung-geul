@@ -56,7 +56,7 @@ public class AdminconsultController {
 
             log.info("ddddd");
 
-        return "/admin/admin_consult_Reg";
+        return "admin/admin_consult_Reg";
         }
 
 

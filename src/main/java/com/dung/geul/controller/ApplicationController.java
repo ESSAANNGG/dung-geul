@@ -58,7 +58,7 @@ public class ApplicationController {
         model.addAttribute("loginUser", authMemberDTO);
 
         if(!cv.isEmpty()){
-            result = "redirect:/application/cv/read";
+            result = "redirect:application/cv/read";
         }
 
         System.out.println("result : " + result);
@@ -73,7 +73,7 @@ public class ApplicationController {
 
         model.addAttribute("loginUser", member);
 
-        return "/application/cv/register";
+        return "application/cv/register";
 
     }
 
