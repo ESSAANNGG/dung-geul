@@ -453,11 +453,3 @@ function apply_close(){
 }
 
 
-
-//수정페이지
-//깂 받아와서 기본값으로 넣기
-function abcd() {
-    alert(document.querySelector('#em_title').value);
-    alert($('#em_ot').val());
-};
-

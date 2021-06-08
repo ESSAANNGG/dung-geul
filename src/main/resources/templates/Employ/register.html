@@ -50,9 +50,10 @@
                 </div>
             </div>
 
+            <input type="hidden" name="em_id" id="em_id" title="em_id" th:value="${etp.getEtp_id()}" />
+
             <div class="employ_register">
                 <div class="content">
-                    <input type="hidden" name="em_id" id="em_id" title="em_id" th:value="${etp.getEtp_id()}" />
                     <div class="register_wrap">
                         <div class="register_tag">
                             제목
@@ -110,24 +111,6 @@
                             <input type="radio" name="고용형태" id="ep6" value="병역특례">병역특례
                             <input type="radio" name="고용형태" id="ep7" value="해외취업">해외취업
                         </div>
-
-                    </div>
-
-                    <div class="register_wrap">
-                        <div class="register_tag">
-                            기간
-                        </div>
-                        <input type="datetime-local" name="em_start_date" id="em_start_date" class="date">  &nbsp; ~ &nbsp;
-                        <input type="datetime-local" name="em_end_date" id="em_end_date" class="date">
-                    </div>
-
-                    <div class="register_wrap">
-                        <div class="register_tag">
-                            모집인원
-                        </div>
-                        <input type="text" maxlength="4" id="em_people" class="register_input small" />
-                        <h3>명</h3>
-                        <div class="register_TO_error error">숫자만 입력해주세요.</div>
                     </div>
 
                     <div class="register_wrap">
@@ -166,6 +149,15 @@
 
                     <div class="register_wrap">
                         <div class="register_tag">
+                            모집인원
+                        </div>
+                        <input type="text" maxlength="4" id="em_people" class="register_input small" />
+                        <h3>명</h3>
+                        <div class="register_TO_error error">숫자만 입력해주세요.</div>
+                    </div>
+
+                    <div class="register_wrap">
+                        <div class="register_tag">
                             근무지역
                         </div>
                         <select name="sido" id="em_sido" class="register_input small"></select>
@@ -186,7 +178,7 @@
                             지원방법
                         </div>
                         <div class="register_input radio">
-                            <input type="checkbox" name="고용형태" id="add1" checked value="온라인지원">온라인지원
+                            <input type="checkbox" name="고용형태" id="add1" value="온라인지원">온라인지원
                             <input type="checkbox" name="고용형태" id="add2" value="홈페이지접수">홈페이지접수
                             <input type="checkbox" name="고용형태" id="add3" value="방문">방문
                             <input type="checkbox" name="고용형태" id="add4" value="전화">전화
@@ -201,7 +193,15 @@
                         </div>
                         <input type="text" id="fileName1" class="register_input small" placeholder="본문에 보여질 이미지파일을 올려주세요" readonly>
                         <input id="em_file" type="file" onchange="fileChange(this.value,1)" multiple>
-                        <label for="em_file">업로드</label>
+                        <label for="em_file"><img src="/img/folder.png" style="vertical-align: middle; cursor: pointer;"></label>
+                    </div>
+
+                    <div class="register_wrap">
+                        <div class="register_tag">
+                            기간
+                        </div>
+                        <input type="datetime-local" name="em_start_date" id="em_start_date" class="date">  &nbsp; ~ &nbsp;
+                        <input type="datetime-local" name="em_end_date" id="em_end_date" class="date">
                     </div>
 <!--                    <div class="register_wrap">-->
 <!--                        <div class="register_tag">-->
