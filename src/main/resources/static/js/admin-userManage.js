@@ -56,7 +56,6 @@ let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
         if (ListId == "main2_user") {
             dataList.push(userid);
         } else if (ListId == "main2_corp") {
-            alertShape = 0;
             userShape = $('.shapeSelect:eq(' + checked + ')').val();                                            //기업형태를 읽어옴
             if (userShape == "") {                                                                              //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
                 if (alertShape == 0 && p == "ok") {

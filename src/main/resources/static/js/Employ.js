@@ -343,6 +343,7 @@ function eduFunc(){
     if($("#education").is(":checked")){
         $('#em_education').prop('disabled', 'true');
         ed = $('#education').val();
+        alert(ed);
     }
     else{
         $('#em_education').removeAttr("disabled");

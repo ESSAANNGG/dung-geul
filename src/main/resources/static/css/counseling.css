@@ -44,10 +44,10 @@ table {
 
 /* sidemenu */
 #main {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     background: #eee;
     border-bottom: solid 5px #1f3786d5;
-    border-top: solid 5px #f2f5f3;
+    /*border-top: solid 5px #f2f5f3;*/
     border-bottom-width: 35px;
     border-top-width: 35px;
     padding: 0px;

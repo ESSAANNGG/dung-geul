@@ -184,6 +184,7 @@ $('.list_submit').click(function(){
     checkLength = $('input[name=' + check_name + ']:checked').length;         //체크 수만큼 반복
     dataList = [];                                                            //배열이 계속 쌓이는걸 방지 (초기화) , 체크한 목록을 가져와 List에 담음
 
+    //유저관리를 위한 부분 공용으로 혹시 쓸수 있나 해서 공용js에 임시로 둠
     p = $(this).text();  //승인/거절/삭제인지 구분
     switch (p) {
         case '승인' :
@@ -194,6 +195,8 @@ $('.list_submit').click(function(){
             p = "no";
             break;
     }
+    alertShape = 0;
+    //유저관리를 위한 부분
 
     for (j = 0; j < checkLength; j++) {
         checked = ($('input[name=' + check_name + ']').index($('input[name=' + check_name + ']:checked')));             //전체 체크중 체크된것들의 인덱스를 가져옴
