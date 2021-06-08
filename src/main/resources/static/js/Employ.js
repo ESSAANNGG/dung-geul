@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     //채용 글등록
     $('#emReg').on('click', function () {
         let ap = '';
@@ -343,7 +342,6 @@ function eduFunc(){
     if($("#education").is(":checked")){
         $('#em_education').prop('disabled', 'true');
         ed = $('#education').val();
-        alert(ed);
     }
     else{
         $('#em_education').removeAttr("disabled");
