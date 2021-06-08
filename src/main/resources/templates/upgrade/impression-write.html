@@ -19,20 +19,24 @@
 </header>
 <div id="main"></div>
 <!-- side -->
-<div class="on-write-wrap">
-    <div class="menu2">
-        <div id="bar">
-            <h2>상담</h2>
-            <ul id="menu_bar">
-                <li id="menu_con1"><h4>상담 정보</h4>
-                    <ul id="sb_detail">
-                        <li><a href="/upgrade/c-inpression">지원프로그램 신청</a></li>
-                        <li><a href="/upgrade/upgrade">지원프로그램 후기</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div> <!-- bar -->
-    </div>
+<div class="no-dap">
+<div class="menu2">
+    <div id="bar">
+        <h2>상담</h2>
+        <ul id="menu_bar">
+            <li id="menu_con1"><h4>상담 정보</h4>
+                <ul id="sb_detail">
+                    <li><a href="/upgrade/c-inpression">지원프로그램 신청</a></li>
+                    <li><a href="/upgrade/upgrade">지원프로그램 후기</a></li>
+                    <li><a href="/upgrade/impression-write">지원프로그램 후기</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div> <!-- bar -->
+</div>
+<div class="on-write-wrap" style="
+    margin-top: 80px;
+    margin-bottom: 80px;">
     <div class="form_box">
         <h3>지원프로그램 후기 등록</h3>
         <div class="input-box">
@@ -57,6 +61,9 @@
             </div>
             <!-- cont-write-f -->
             <div class="space-1">
+                <label class="day-tit" style="margin-left: 8px; margin-right: 5px;">
+                    참여 과정
+                </label>
                 <select class="space-2">
                     <option>참여한 과정을 선택해 주세요.</option>
                     <option>면접 튜터링</option>
@@ -66,7 +73,7 @@
                 </select>
             </div>
             <div class="space-1">
-                <lable class="day-tit">
+                <lable class="day-tit" style="margin-left: 4px; margin-right: 5px;">
                     참여일
                 </lable>
                 <input class="space-2" type="date">
@@ -78,6 +85,7 @@
         <input type="submit" class="submit-b">
         <!-- 제출 버튼 -->
     </div>
+</div>
 </div>
     <footer th:replace="layout/layout :: footer"/>
 
