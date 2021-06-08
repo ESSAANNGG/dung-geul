@@ -56,7 +56,7 @@ public class Enterprise implements Serializable{
         @Column(length = 4, nullable = false)
         private int etp_member; // 직원 수
 
-        @Column(length = 10, nullable = false)
+        @Column(length = 10, nullable = false)//length20으로
         private String etp_sector; // 업종
 
 
@@ -88,6 +88,4 @@ public class Enterprise implements Serializable{
                 this.etp_home = etp_home;
                 this.etp_year = etp_year;
         }
-
-
 }

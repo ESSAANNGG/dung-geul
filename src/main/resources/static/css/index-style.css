@@ -30,6 +30,11 @@ main {
   z-index: -100;
 }
 
+@media screen and (max-width: 1370px) {
+  main {
+    width: 1370px;
+  }
+}
 .background {
   z-index: -99;
   background-image: url("/img/mainback2.jpg");
@@ -353,8 +358,14 @@ h5 {
   margin-right: 50px;
   float: left;
 }
+.container{
+  width:1200px !important;
+  margin:0 auto !important;
+  height:100% !important;
+}
+
 .main-tit {
-  width: 1200px;
+  width:1200px;
   background-color: #ccc;
   height: 100%;
 }
