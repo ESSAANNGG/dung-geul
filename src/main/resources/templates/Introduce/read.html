@@ -31,9 +31,28 @@
 
     <div th:replace="layout/layout :: nav" />
 
-    <section id="shadow_box">
       <section id="main">
-        <div id="wrap">
+        <div class="container">
+          <div class="row">
+          <div class="col-3">
+            <div class="sidebar">
+              <div class="menu2">
+                <div id="bar">
+                  <h2>자기소개서</h2>
+                  <ul id="menu_bar">
+                    <li id="menu_con1">
+                      <h4>자기소개서 목록</h4>
+                      <ul id="sb_detail">
+                        <li><a th:href="@{/Introduce/list}">자기소개서 목록</a></li>
+                        <li><a th:href="@{/Introduce/register}">자기소개서 등록</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div> <!-- bar -->
+              </div> <!-- menu -->
+            </div>
+          </div>
+            <div class="col-9 col-12-medium imp-medium">
           <div id="head_wrap">
             <h1 id="em_title" th:text="${dto.title}">11</h1>
           </div>
@@ -90,8 +109,9 @@
             </div>
           </div>
         </div>
+          </div>
+        </div>
       </section>
-    </section>
     <!-- footer -->
 
     <footer th:replace="layout/layout :: footer" />

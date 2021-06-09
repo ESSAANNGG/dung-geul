@@ -448,8 +448,8 @@ header > p {
 }
 
 .row > .col-3 {
-  width: 200px;
-  height: 400px;
+  /*width: 200px;*/
+  /*height: 400px;*/
 }
 
 .row > .off-3 {

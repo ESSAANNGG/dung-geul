@@ -13,49 +13,6 @@ body {
   margin: 0 auto;
   background-color: #f4f4f4;
 }
-h1 {
-  margin: 0px;
-  font-size: 26px;
-  font-weight: 700;
-  color: #222222;
-}
-h2 {
-  /*제목 -> 기업명*/
-  margin: 0px;
-  margin-bottom: 8px;
-  font-size: 18px;
-  font-weight: 400;
-  color: #222222;
-}
-h3 {
-  /*카테고리별 제목*/
-  display: inline-block;
-  width: 600px;
-  margin: 0px;
-  color: #222222;
-}
-h4 {
-  /*기업정보 -> 기업명*/
-  display: flex;
-  margin: 0px 0px 15px 0px;
-  color: #444444;
-  font-size: 18px;
-  font-weight: 400;
-}
-h5 {
-  /*콘텐츠들*/
-  margin: 0px;
-  color: #444444;
-  font-size: 14px;
-  font-weight: 400;
-}
-h6 {
-  /*지원방법의 date font*/
-  margin: 0px;
-  color: #444444;
-  font-size: 14px;
-  font-weight: 400;
-}
 
 button:focus {
   outline: none;

@@ -3,12 +3,12 @@ function selectAll()  {
     alert(check);
 
         if(check==false){
-            $(".allcheck").prop("checked","true");
+            $(".allcheck").prop("checked",true);
 
             check=true;
         }
         else{
-            $(".allcheck").prop("checked","false");
+            $(".allcheck").prop("checked",false);
             check=false;
         }
 }

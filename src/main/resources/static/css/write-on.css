@@ -47,15 +47,15 @@ body {
     background: #fff;
     margin: 0 auto;
 }
-#main {
-    /*margin-top: 20px;*/
-    background: #fff;
-    border-bottom: solid 5px #1f3786d5;
-    /*border-top: solid 5px #f2f5f3;*/
-    border-bottom-width: 35px;
-    border-top-width: 35px;
-    z-index: -2;
-}
+/*#main {*/
+/*    !*margin-top: 20px;*!*/
+/*    background: #fff;*/
+/*    border-bottom: solid 5px #1f3786d5;*/
+/*    !*border-top: solid 5px #f2f5f3;*!*/
+/*    border-bottom-width: 35px;*/
+/*    border-top-width: 35px;*/
+/*    z-index: -2;*/
+/*}*/
 .d_width {
     position: relative;
     width: 1400px;
@@ -107,12 +107,12 @@ body {
 }
 .form_box {
     background-color: #ffffff;
-    margin: 10px;
-    margin-left: 220px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    padding: 40px;
-    width: 1000px;
+    /*margin: 10px;*/
+    /*margin-left: 220px;*/
+    /*border-radius: 4px;*/
+    /*border: 1px solid #ddd;*/
+    /*padding: 40px;*/
+    /*width: 900px;*/
 }
 .input_field {
     border-radius: 4px;
