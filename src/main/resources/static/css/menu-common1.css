@@ -376,8 +376,11 @@ header > p {
 .container {
   margin: 0 auto;
   max-width: 100%;
-  width: 64em;
+  width: 1350px;
   border-radius: 15px 50px 500px 5px;
+}
+.container{
+  padding:0px !important;
 }
 
 @media screen and (max-width: 1680px) {
@@ -454,7 +457,9 @@ header > p {
 .row > .imp {
   order: -1;
 }
-
+.row{
+  margin:0px;
+}
 .row > .col-1 {
   width: 8.33333%;
 }
@@ -472,8 +477,8 @@ header > p {
 }
 
 .row > .col-3 {
-  width: 200px;
-  height: 400px;
+  /*width: 200px;*/
+  /*height: 400px;*/
 }
 
 .row > .off-3 {
@@ -604,8 +609,8 @@ header > p {
 }
 
 .row {
-  margin-top: -50px;
-  margin-left: -50px;
+  /*margin-top: -50px;*/
+  /*margin-left: -50px;*/
 }
 
 /* .row > * {
@@ -2715,7 +2720,7 @@ table thead {
   /*border-bottom: solid 5px #c1cac5;*/
   border-top-width: 35px;
   border-bottom-width: 10px;
-  padding: 6em 0 6em 0;
+  padding: 4em 0;
   z-index: -2;
 }
 

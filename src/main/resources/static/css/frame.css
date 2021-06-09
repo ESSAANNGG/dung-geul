@@ -120,3 +120,21 @@ li {
 }
 
 /* footer end */
+
+#main{
+    width:1920px;
+    background: #f4f4f4;
+    border-top: solid 5px #1f3786d5;
+    border-top-width: 35px;
+    border-top-style: solid;
+    border-top-color: rgba(31, 55, 134, 0.835);
+    /* border-bottom: solid 5px #c1cac5; */
+    border-bottom-width: 10px;
+    border-top-width: 35px;
+    border-bottom-width: 10px;
+    padding: 4em 0;
+    z-index: -2;
+}
+#job-main-wrap{
+    background-color: #f4f4f4   ;
+}
