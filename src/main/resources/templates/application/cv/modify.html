@@ -92,17 +92,17 @@
               <div class="info">
                 <div class="common_div width-280" style="padding:0px;">
                   <input class="user_employment" name="user_employment"
-                    th:attr="checked=${cv.getCareer().isEmpty()? 'true' : 'false'}" id="id1" type="radio"
+                    th:attr="checked=${cv.getCareer()} == null? 'true' : 'false'}" id="id1" type="radio"
                     value="0"><label style="cursor: pointer" class="carrer_label" for="id1">신입</label><br />
                 </div>
                 <div class="common_div width-280" style="padding:0px;">
                   <input class="user_employment" name="user_employment"
-                    th:attr="checked=${cv.getCareer().isEmpty()? 'false' : 'true'}" id="id2" type="radio"
+                    th:attr="checked=${cv.getCareer()} != null? 'true' : 'false'}" id="id2" type="radio"
                     value="1"><label style="cursor: pointer" class="carrer_label" for="id2">경력</label><br />
                 </div>
                 <br />
               </div>
-              <div id="carrerField" disabled style="display: none;" th:if="${!cv.getCareer().isEmpty()}">
+              <div id="carrerField" disabled style="display: none;" th:if="${cv.getCareer()} != null">
                 <div class="item_career" th:each="item, i : ${cv.getCareer()}">
                   <div class="info">
                     <div class="common_div width-350">
@@ -162,7 +162,7 @@
             </section>
 
 
-            <div id="schoolFieldset_main" style="display:none;" disabled th:if="${!cv.getEducation().isEmpty()}">
+            <div id="schoolFieldset_main" style="display:none;" disabled th:if="${cv.getEducation()} != null">
               <section class="form" id="학력사항">
                 </legend>
                 <p class="legend">학력사항</p>
@@ -460,7 +460,7 @@
             </div>
 
 
-            <div id="awardFieldset_main" style="display:none;" disabled th:if="${!cv.getAwards().isEmpty()}">
+            <div id="awardFieldset_main" style="display:none;" disabled th:if="${cv.getAwards()} != null">
               <section class="form" id="경력사항">
                 <p class="legend">수상경력</p>
                 <div class="item_award">
@@ -583,7 +583,7 @@
             </div>
 
 
-            <div id="famFieldset_main" style="display:none;" disabled th:if="${!cv.getFamily().isEmpty()}">
+            <div id="famFieldset_main" style="display:none;" disabled th:if="${cv.getFamily()} != null">
               <section class="form" id="가족사항">
                 <p class="legend">가족사항</p>
                 <div class="item_family" th:each="item : ${cv.getFamily()}">
@@ -648,7 +648,7 @@
             </div>
 
             <!-- <fieldset id="" style="display:none;" disabled> -->
-            <div id="licFieldset_main" style="display:none;" disabled th:if="${!cv.getCertificate().isEmpty()}">
+            <div id="licFieldset_main" style="display:none;" disabled th:if="${cv.getCertificate()} != null">
               <section class="form" id="자격증">
 
                 <p class="legend">자격증</p>
@@ -688,7 +688,7 @@
               </section>
             </div>
 
-            <div id="flFieldset_main" style="display:none;" disabled th:if="${!cv.getLanguage().isEmpty()}">
+            <div id="flFieldset_main" style="display:none;" disabled th:if="${cv.getLanguage()} != null">
 
               <section class="form" id="어학">
 
@@ -804,8 +804,7 @@
                 <div id="sallay_div" class="common_div width-200">
                   <label id="desire" class="absolute-label" for="">희망 연봉 <span>*</span></label>
                   <input id="desired_salary" class="money_input" value="" type="number" name="Desired_salary"
-                    autocomplete="off" th:value="${cv.getDesired_salary() == null || ${cv.getDesired_salary() == "" ? "
-                    회사내규에 따름" : cv.getDesired_salary()}" />
+                    autocomplete="off" th:if="${cv.getDesired_salary() != null}" th:value="${cv.getDesired_salary() == "" ? "회사내규에 따름" : cv.getDesired_salary()} " />
                   <span style="font-size: 12px">만원이상</span>
                 </div>
                 <button type="button" id="decisionInterview">
@@ -891,11 +890,7 @@
   <script src="/js/cv.js"></script>
 
   <script th:inline="javascript">
-    if ([
-        [$ {
-          cv.getEducation().isEmpty()
-        }] == "false"
-      ]) {
+    if (${cv.getEducation()} != null) {
       document.querySelector("#btn1").click();
     }
 
@@ -911,11 +906,7 @@
       document.querySelector("#btn2").click();
     }
 
-    if ([
-        [$ {
-          cv.getAwards().isEmpty()
-        }]
-      ] == "false") {
+    if (${cv.getAwards()} != null) {
       document.querySelector("#btn3").click();
     }
 
@@ -935,27 +926,15 @@
       document.querySelector("#btn4").click();
     }
 
-    if ([
-        [$ {
-          cv.getFamily().isEmpty()
-        }]
-      ] == "false") {
+    if (${cv.getFamily()} != null) {
       document.querySelector("#btn5").click();
     }
 
-    if ([
-        [$ {
-          cv.getCertificate().isEmpty()
-        }]
-      ] == "false") {
+    if (${cv.getCertificate()} != null) {
       document.querySelector("#btn6").click();
     }
 
-    if ([
-        [$ {
-          cv.getLanguage().isEmpty()
-        }]
-      ] == "false") {
+    if (${cv.getLanguage()} != null) {
       document.querySelector("#btn7").click();
     }
 
