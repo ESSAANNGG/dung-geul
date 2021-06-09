@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="/css/employ.css" />
   <link rel="stylesheet" href="/css/menu-common1.css" />
   <link rel="stylesheet" href="/css/frame.css" />
+  <link rel="stylesheet" href="/css/pagenation.css" />
 
 
 
@@ -60,10 +61,6 @@
           <h2>제목</h2>
         </div>
         <div class="employListHead">
-
-
-          <form th:action="@{/Employ/list}" method="get" id="searchForm">
-
             <input type="hidden" name="page" value="1">
             <div id="search">
 
@@ -121,22 +118,21 @@
               <select name="gugun" class="search form-control" id="s_detailArea"  onchange="searchVal('area')"></select>
 
             </div>
-          </form>
         </div>
 
 
-        <div class="input-group">
-          <div id="dummy">
-            <input type="checkbox" name="type" id="dummy_title" value="t" th:checked="${pageRequestDTO.type == 't'}">
-            <input type="checkbox" name="type" id="dummy_corp" value="w" th:checked="${pageRequestDTO.type == 'w'}">
-            <input type="checkbox" name="type" id="dummy_ot" value="ot" th:checked="${pageRequestDTO.type == 'ot'}" >
-            <input type="checkbox" name="type" id="dummy_ep"  value="ep" th:checked="${pageRequestDTO.type == 'ep'}">
-            <input type="checkbox" name="type" id="dummy_shape" value="shape" th:checked="${pageRequestDTO.type == 'shape'}">
-            <input type="checkbox" name="type" id="dummy_area"  value="sido" th:checked="${pageRequestDTO.type == 'sido'}">
-            <input type="checkbox" name="type" id="dummy_detailArea"  value="gugun" th:checked="${pageRequestDTO.type == 'gugun'}" >
-          </div>
-        </div>
-        </form>
+<!--        <div class="input-group">-->
+<!--          <div id="dummy">-->
+<!--            <input type="checkbox" name="type" id="dummy_title" value="t" th:checked="${pageRequestDTO.type == 't'}">-->
+<!--            <input type="checkbox" name="type" id="dummy_corp" value="w" th:checked="${pageRequestDTO.type == 'w'}">-->
+<!--            <input type="checkbox" name="type" id="dummy_ot" value="ot" th:checked="${pageRequestDTO.type == 'ot'}" >-->
+<!--            <input type="checkbox" name="type" id="dummy_ep"  value="ep" th:checked="${pageRequestDTO.type == 'ep'}">-->
+<!--            <input type="checkbox" name="type" id="dummy_shape" value="shape" th:checked="${pageRequestDTO.type == 'shape'}">-->
+<!--            <input type="checkbox" name="type" id="dummy_area"  value="sido" th:checked="${pageRequestDTO.type == 'sido'}">-->
+<!--            <input type="checkbox" name="type" id="dummy_detailArea"  value="gugun" th:checked="${pageRequestDTO.type == 'gugun'}" >-->
+<!--          </div>-->
+<!--        </div>-->
+
 
         <div class="employListPost">
           <li th:each="dto: ${result.dtoList}">
@@ -158,9 +154,7 @@
             <script type="text/javascript">
               post_cont_sub_func();
             </script>
-
           </li>
-
         </div>
 
         <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
