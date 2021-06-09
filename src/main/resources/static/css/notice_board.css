@@ -68,4 +68,34 @@
 
 #board_footer{
     display:flex;
+    width:100%;
+}
+#searchForm{
+    display:inline-block;
+    width:100%;
+}
+.search_cont{
+    display:inline-block;
+    width:100px;
+    height:35px;
+    line-height: initial;
+    background-color: #ffffff;
+    color:black;
+    border-radius: 4px;
+    border:1px solid #ccc;
+    font-size:14px;
+    font-weight:300;
+    padding:0px;
+    text-align: center;
+    text-align-last: center;
+}
+.form-control{
+    width:200px;
+}
+#board_footer button{
+    background-color: rgb(79, 101, 145);
+    color:#ffffff;
+}
+.write-btn{
+    float:right;
 }
