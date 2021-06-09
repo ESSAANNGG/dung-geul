@@ -67,6 +67,7 @@ let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
                 obj.user_id=userid;
                 obj.shape=userShape;
                 dataList.push(obj);                             //전달할 배열에 값 삽입
+
             }
         }
 }

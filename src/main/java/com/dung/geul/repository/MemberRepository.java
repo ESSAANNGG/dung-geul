@@ -40,7 +40,7 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     String findByUser_emailAndUser_name(@Param("user_email") String user_email, @Param("user_name") String user_name);
 
     //
-    @Query(value = "select m, e from Member m left outer join Enterprise e on e.user_id = m where m.user_id = :user_id")
+    @Query(value = "select m, e from Member m , Enterprise e where e.user_id = m and m.user_id = :user_id")
     Object findByUser_idEtpJoinMember(@Param("user_id") String user_id);
 
     @Query("select m from Member m where m.user_type = :user_type and m.user_allow = 1")

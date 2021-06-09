@@ -380,6 +380,9 @@ public class MemberServiceImpl implements MemberService {
     //mypage read Enterprise
     public EnterpriseDTO getEnterprise(String user_id) {
 
+
+        log.info("user-id : " + user_id);
+
         Object enterprise = memberRepository.findByUser_idEtpJoinMember(user_id);
 
         Object[] result = (Object[]) enterprise;
@@ -411,7 +414,7 @@ public class MemberServiceImpl implements MemberService {
 
             Member member = memberOpt.get();
 
-            String DBemail = member.getUser_email();
+            String DBemail = member.getUser_email() + "@" + member.getUser_emailDomain();
 
             if (!DBemail.equals(memberForgotPwDTO.getUser_email())) {
                 result = 0;

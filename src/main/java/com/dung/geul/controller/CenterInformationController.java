@@ -29,7 +29,7 @@ import java.util.List;
 @RequestMapping("/center-information")
 @RequiredArgsConstructor    // 페이지 목록 처리
 @Log4j2
-public class Center_information_controller {
+public class CenterInformationController {
 
     @GetMapping("/center_introduction")   // 센터 소개
     public String center_introduction(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
