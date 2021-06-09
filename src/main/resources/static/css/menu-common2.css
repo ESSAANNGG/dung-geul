@@ -2679,7 +2679,6 @@ table thead {
 #mainWrap {
   z-index: -10000;
   position: absolute;
-  top: 140px;
   width: 100%;
 }
 #main {

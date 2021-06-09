@@ -11,79 +11,81 @@
 
     <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
+    <link rel="stylesheet" href="/css/notice_board.css" />
+    <link rel="stylesheet" href="/css/pagenation.css" />
 
     <!--  검색 이벤트 처리를 위한 jQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- 목록 데이터 페이지 처리, 등록 버튼 CSS 디자인 : 차후 css파일에 수정 要-->
-    <style>
-    
-        /* 목록 데이터 페이지 처리 */
-        .page-ul-div {
-            text-align: center;
-        }
+<!--    <style>-->
+<!--    -->
+<!--        /* 목록 데이터 페이지 처리 */-->
+<!--        .page-ul-div {-->
+<!--            text-align: center;-->
+<!--        }-->
 
-        .page-ul {
-            display: block;
-            list-style: none;
-            margin: 5px;
-            padding: 5px;
+<!--        .page-ul {-->
+<!--            display: block;-->
+<!--            list-style: none;-->
+<!--            margin: 5px;-->
+<!--            padding: 5px;-->
 
-        }
+<!--        }-->
 
-        /* [글쓰기] 버튼 */
-        .write-btn {
-            color: #fff;
-            background-color: #1a508b;
+<!--        /* [글쓰기] 버튼 */-->
+<!--        .write-btn {-->
+<!--            color: #fff;-->
+<!--            background-color: #1a508b;-->
 
-            font-size: 15px;
-            text-align: right;
+<!--            font-size: 15px;-->
+<!--            text-align: right;-->
 
-        }
+<!--        }-->
 
-        /* [이전], [페이지] ,[다음] 버튼 */
-        .page-li {
-            margin: 5px;
-            padding: 5px;
-            border-radius: 5px;
-            float: left;
+<!--        /* [이전], [페이지] ,[다음] 버튼 */-->
+<!--        .page-li {-->
+<!--            margin: 5px;-->
+<!--            padding: 5px;-->
+<!--            border-radius: 5px;-->
+<!--            float: left;-->
 
-            background-color: #6b7770;
-        }
+<!--            background-color: #6b7770;-->
+<!--        }-->
 
-        /* [이전], [다음] 버튼 hover */
-        .page-li:hover {
-            background-color: #1a508b;
-        }
+<!--        /* [이전], [다음] 버튼 hover */-->
+<!--        .page-li:hover {-->
+<!--            background-color: #1a508b;-->
+<!--        }-->
 
-        /* 검색 처리 */
-        .input-group {
-            padding: 10px;
-        }
+<!--        /* 검색 처리 */-->
+<!--        .input-group {-->
+<!--            padding: 10px;-->
+<!--        }-->
 
-        /* 검색조건 선택창 */
-        .custom-select {
-            border-radius: 0;
-            width: 50%;
-            height: 35px;
-            line-height: 20px;
-        }
+<!--        /* 검색조건 선택창 */-->
+<!--        .custom-select {-->
+<!--            border-radius: 0;-->
+<!--            width: 50%;-->
+<!--            height: 35px;-->
+<!--            line-height: 20px;-->
+<!--        }-->
 
-        /* 검색 조건 입력창 */
-        .form-control {
-            border-radius: 5px;
-            width: 50%;
-            height: 35px;
-            margin-top: 10px;
-        }
+<!--        /* 검색 조건 입력창 */-->
+<!--        .form-control {-->
+<!--            border-radius: 5px;-->
+<!--            width: 50%;-->
+<!--            height: 35px;-->
+<!--            margin-top: 10px;-->
+<!--        }-->
 
-        /* 버튼 */
-        .btn-search, .btn-clear {
-            font-size: 15px;
-        }
-        
+<!--        /* 버튼 */-->
+<!--        .btn-search, .btn-clear {-->
+<!--            font-size: 15px;-->
+<!--        }-->
+<!--        -->
 
-    </style>
+<!--    </style>-->
 
 
 </head>
@@ -114,18 +116,6 @@
                                                 <li><a href="#" th:href="@{/center-information/notice_board}">공지사항</a></li>
                                             </ul>
                                         </li>
-                                        <!-- <li id="menu_con2"><h4>직업 정보</h4>
-                                            <ul id="sb_detail">
-                                                <li><a href="#">직업 정보 조회</a></li>
-                                                <li><a href="#">직업 사전</a></li>
-                                            </ul>
-                                        </li>
-                                        <li id="menu_con3"><h4>상담 정보</h4>
-                                            <ul id="sb_detail">
-                                                <li><a href="#">상담 신청</a></li>
-                                                <li><a href="#">상담 내역</a></li>
-                                            </ul>
-                                        </li> -->
                                     </ul>
                                 </div> <!-- bar -->
                             </div> <!-- menu -->
@@ -136,32 +126,11 @@
                      <div class="col-9 col-12-medium imp-medium">
 
                         <!-- Board table -->
-                        <div class="container">
-                            <h2>공지사항</h2>
+                            <div id="board_title">
+                                <h2>공지사항</h2>
+                                <h3>취업정보센터에서 공지하는 장소입니다</h3>
+                            </div>
                             <!--   <div>게시글 수: <span th:text="${#lists.size(boards)}"></span></div>-->
-
-                        <!-- 검색 조건 -->
-                            <form action="/center-information/notice_board" method="get" id="searchForm">
-                                <div class="input-group">
-                                    <input type="hidden" name="page" value = "1">
-                                    <span class="input-group-prepend">
-                                        <select class="custom-select" name="type">
-                                            <option value="t" th:selected="${pageRequestDTO.type =='t'}" >제목</option>
-                                            <option value="c" th:selected="${pageRequestDTO.type =='c'}"  >내용</option>
-                                            <option value="tc"  th:selected="${pageRequestDTO.type =='tc'}" >제목 + 내용</option>
-                                        </select>
-                                    </span>
-
-                                    <span>
-                                        <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}">
-                                
-                                        <button class="btn-search" type="button">검색</button>
-                                        <button class="btn-clear" type="button">초기화</button>
-                                    </span>
-                                    
-                                </div>
-                            </form>
-                        <!-- end 검색 조건 -->
 
                             <!-- 게시판 테이블 -->
                             <table>
@@ -206,7 +175,6 @@
                             </div>
                             <!-- 목록 데이터 페이지 처리 끝-->
 
-                        </div>
                         <!-- End Board table -->
 
                         <!--
@@ -221,6 +189,28 @@
                             </button>
                         </div>
 
+                         <!-- 검색 조건 -->
+                         <form action="/center-information/notice_board" method="get" id="searchForm">
+                             <div class="input-group">
+                                 <input type="hidden" name="page" value = "1">
+                                 <span class="input-group-prepend">
+                                        <select class="custom-select" name="type">
+                                            <option value="t" th:selected="${pageRequestDTO.type =='t'}" >제목</option>
+                                            <option value="c" th:selected="${pageRequestDTO.type =='c'}"  >내용</option>
+                                            <option value="tc"  th:selected="${pageRequestDTO.type =='tc'}" >제목 + 내용</option>
+                                        </select>
+                                    </span>
+
+                                 <span>
+                                        <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}">
+
+                                        <button class="btn-search" type="button">검색</button>
+                                        <button class="btn-clear" type="button">초기화</button>
+                                    </span>
+
+                             </div>
+                         </form>
+                         <!-- end 검색 조건 -->
 
                     </div>
                     <!-- End Content -->
