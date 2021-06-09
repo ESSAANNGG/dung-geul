@@ -34,6 +34,9 @@ public class Consult extends BaseEntity {
         this.Consult_field = consult_field;
     }
 
+    @OneToMany(mappedBy = "consult", cascade = CascadeType.ALL)
+    private List<Consulting> consultings = new ArrayList<>();
+
     public void updatedetail(String consult_detail_field) {
         this.Consult_detail_field= consult_detail_field;
     }

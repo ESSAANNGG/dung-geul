@@ -124,6 +124,7 @@
         <!--상담관리-->
         <div class="main6" id="main6_counsult">
           <!--상담관리 > 상담관리-->
+          <form action="/admin/admin_consult" method="get" id="searchForm">
           <div id="main6_counsult_search">
             <div class="sub_menu_title">
               <h3>상담목록 검색</h3>
@@ -133,10 +134,10 @@
                 <li>상담 종류</li>
                 <li>
                   <select class="consult-select" name="type">
-                    <option value="t" th:selected="${pageRequestDTO.type == null}">상담 종류</option>
-                    <option value="j" th:selected="${pageRequestDTO.type == 't'}">진로 상담</option>
-                    <option value="c" th:selected="${pageRequestDTO.type == 't'}">취업 상담</option>
-                    <option value="ch" th:selected="${pageRequestDTO.type == 't'}">창업 상담</option>
+                    <option value="" th:selected="${pageRequestDTO.type == null}">상담 종류</option>
+                    <option value="t" th:selected="${pageRequestDTO.type == 'r'}">진로 상담</option>
+                    <option value="t" th:selected="${pageRequestDTO.type == 'up'}">취업 상담</option>
+                    <option value="t" th:selected="${pageRequestDTO.type == 'ch'}">창업 상담</option>
                   </select>
                 </li>
               </ul>
@@ -144,10 +145,10 @@
                 <li>상담 프로그램명</li>
                 <li> <input name="keyword" th:value="${pageRequestDTO.keyword}"></li>
               </ul>
-              <ul>
-                <li>담당 상담사</li>
-                <li> <input type="text"></li>
-              </ul>
+<!--              <ul>-->
+<!--                <li>담당 상담사</li>-->
+<!--                <li> <input type="text"></li>-->
+<!--              </ul>-->
               <div class="search_button">
                 <button class="search_submit">
                   <h3>검색</h3>
@@ -155,6 +156,7 @@
               </div>
             </div>
           </div>
+          </form>
           <div id="main6_counsult_list">
             <div class="sub_menu_title">
               <h3>상담리스트</h3>

@@ -22,7 +22,7 @@
 //        Consulting consulting = Consulting.builder()
 //                .member(member)
 //                .consult(Consult.builder().cno(cno).build())
-//                .consult_approve("0")
+//                .consult_approve(1)
 //                .consult_complete("1")
 //                .build();
 //        consultingRepository.save(consulting);

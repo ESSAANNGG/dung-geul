@@ -13,14 +13,22 @@ import javax.persistence.*;
 public class Consulting {    // 상담 테이블
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Member member;
+    @JoinColumn(name = "con_user_id" ,foreignKey = @ForeignKey(name="con_user_id_fk"))
+    private Member user_id;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "cno", foreignKey = @ForeignKey(name="consult_cno"))
     private Consult consult;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long consult_num;
+
+    @Column
+    private String Consult_field;
+
+    @Column
+    private String Consult_detail_field;
 
     @Column
     private String consult_date;                  // 상담 일자
@@ -32,6 +40,6 @@ public class Consulting {    // 상담 테이블
     private int consult_approve;             // 승인 여부
 
     @Column(length = 1)
-    private String consult_complete;            // 완료 여부
+    private int consult_complete;            // 완료 여부
 
 }

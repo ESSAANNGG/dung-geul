@@ -112,19 +112,19 @@ public class ConsultServiceImpl implements ConsultService {
             return booleanBuilder;
         }
         BooleanBuilder conditionBuilder = new BooleanBuilder();
-
+//
         if(type.contains("t")){
             conditionBuilder.or(qConsult.Consult_field.contains(keyword));
         }
-        if (type.contains("t")){
-            conditionBuilder.or(qConsult.Consult_field.contains(keyword));
+        if (keyword.contains("k")){
+            conditionBuilder.or(qConsult.Consult_detail_field.contains(keyword));
         }
-        if (type.contains("t")){
-            conditionBuilder.or(qConsult.Consult_field.contains(keyword));
-        }
-        if(type.contains("c")){
-            conditionBuilder.or(qConsult.Consult_detail_field.contains(keyword));          // 내용
-        }
+//        if (type.contains("ch")){
+//            conditionBuilder.or(qConsult.Consult_field.contains(keyword));
+//        }
+//        if(type.contains("n")){
+//            conditionBuilder.or(qConsult.Consult_detail_field.contains(keyword));          // 내용
+//        }
 
         booleanBuilder.and(conditionBuilder);
         return booleanBuilder;

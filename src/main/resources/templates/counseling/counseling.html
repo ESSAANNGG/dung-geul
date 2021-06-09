@@ -65,11 +65,10 @@
 
                 <div class="coun-box">
                     <div class="clear-coun">
-                        <div class="label">
-                        </div>
+                        <div class="inline">
                         <div class="label">상담 분야</div>
                         <div class="coun-inline">
-                            <form id="counsearch_k" name="counsearch_k" method="post" action="#">
+                            <form id="counsearch_k" name="counsearch_k" method="post" action="/counseling/counseling">
                                 <select name="select-field" class="select-field1">
                                     <option value="">상담 분야</option>
                                     <option value="진로상담">진로 상담</option>
@@ -78,21 +77,20 @@
                                 </select>
                                 <select name="employ-field" class="select-field1">
                                     <option value>세부분야</option>
-<!--                                    <option value="t" th:selected="${pageRequestDTO.type =='c'}"></option>-->
-                                    <option th:each=" consult : ${list}">[[${consult.Consult_detail_field}]]</option>
-<!--                                    <option value>취업 세부 분야 내용 2</option>-->
-<!--                                    <option value>취업 세부 분야 내용 3</option>-->
+                                    <option th:each=" consult : ${list}">[[${consult.name}]]</option>
                                 </select>
                             </form>
                         </div>
+                        </div>
                         <!-- label-con form-inline --><!-- clear-search -->
-                    <br />
+                    <br/>
+                        <div class="inline">
                     <div class="label1">상담 일자</div>
 
                     <div class="coun-inline" style="
                     position: relative;
                     margin-top: -13px;">
-                        <form id="counsearch_c" name="counsearch_c" method="post" action="#">
+                        <form id="counsearch_c" name="counsearch_c" method="post" action="/counseling/counseling">
                             <input type='date' name='couns-date'/>
                             <select name="couns-time" class="select-field1">
                                 <option value="">상담 시간</option>
@@ -107,6 +105,7 @@
                             </select>
                         </form>
                     </div> <!-- coun-inline -->
+                    </div>
                 </div>  <!-- coun-box -->
                 <button type="submit" class="btn-d" onclick="consult_apply()">신청</button>
             </div>

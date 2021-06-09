@@ -113,26 +113,31 @@ h1 {
     padding: 30px;
     width: 100%;
 }
+.clear-coun{
+    display:block;
+}
 .coun-box .label {
     color: #000;
-    line-height: 40px;
+    margin:0px;
     margin-right: 20px;
-    display: inline;
+    display: inline-block;
     padding: .2em .6em .3em;
     font-size: 75%;
     font-weight: 700;
     text-align: center;
     white-space: nowrap;
+
 }
 .coun-box .label1 {
     color: #000;
-    line-height: 40px;
     padding-left: .6em;
     font-size: 75%;
     font-weight: 700;
     width: 75px;
     position: relative;
+    margin:0px;
     margin-top: -13px;
+    display: inline-block;
 }
 
 .coun-box>div>div {
@@ -140,9 +145,14 @@ h1 {
     vertical-align: middle;
 }
 .coun-inline {
-    display: inline;
+    display: inline-block;
     flex-flow: row wrap;
     align-items: center;
+}
+.inline{
+   display:inline-block;
+    width:800px;
+    margin:20px 0;
 }
 input[type=text] {
     min-height: 30px;
