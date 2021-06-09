@@ -80,7 +80,7 @@
     height:35px;
     line-height: initial;
     background-color: #ffffff;
-    color:black;
+    color:#6b7770;
     border-radius: 4px;
     border:1px solid #ccc;
     font-size:14px;
@@ -95,9 +95,9 @@
 .form-control{
     width:200px;
 }
-#board_footer button{
-    background-color: rgb(79, 101, 145);
-    color:#ffffff;
+.col-9 button{
+    background-color: rgb(79, 101, 145) !important;
+    color:#ffffff !important;
 }
 .write-btn{
     float:right;
@@ -106,4 +106,28 @@ select{
     appearance: none;
     background:url("/img/down-arrow.png") no-repeat 94% 50%/11px auto;
     padding-left:5px;
+}
+textarea{
+    width:100%;
+}
+
+.register_input{
+    height:35px;
+    background-color: #ffffff;
+    color:#6b7770;
+    border-radius: 4px !important;
+    border:1px solid #ccc !important;
+    font-size:14px;
+    font-weight:300;
+    padding:1em;
+}
+.submit_btn{
+    margin:35px 0px;
+}
+.register_input:focus{
+    outline: none;
+}
+.register label{
+    margin:0px;
+    margin-top:20px;
 }

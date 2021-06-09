@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
+    <link rel="stylesheet" href="/css/notice_board.css" />
 
     <!-- 채용공고 등록 게시판 CSS 디자인 -->
     <link rel="stylesheet" href="/src/main/resources/static/css/notice_board.css" th:href="@{/css/notice_board.css}">
@@ -123,32 +124,28 @@
 
                     <!-- Content -->
                     <div class="col-9 col-12-medium imp-medium">
-                            <div class="register_head">
-                                <div class="register_head_txt">
-                                    공지사항 게시판
-                                </div>
-                            </div>
-
-                            <div class="content">
+                        <div id="board_title">
+                            <h2>공지사항 등록</h2>
+<!--                            <h3>학생들과 소통하는 공간입니다</h3>-->
+                        </div>
 
                                 <form th:action="@{/center-information/notice_board_register}" th:method="post">
 
-                                    <div class="register_title_wrap">
+                                    <div class="register">
                                         <label>제목</label>
-                                        <input type="text" class="register_title_input"name="title" placeholder="제목을 입력하세요">
+                                        <input type="text" class="register_input" name="title" placeholder="제목을 입력하세요">
                                     </div>
 
-                                    <div class="register_cont_wrap">
+                                    <div class="register">
                                         <label>내용</label>
-                                        <input type="text" class="register_cont_input" rows="5" name="content" placeholder="내용을 입력하세요"></input>
+                                        <textarea class="register_input" name="content" placeholder="내용을 입력하세요"></textarea>
                                     </div>
 
                                     <div class="submit_btn">
-                                        <button type="submit">등록</button>
+                                        <button type="submit" class="search_cont">등록</button>
                                     </div>
                                 </form>
 
-                            </div>
                     </div>
                     <!-- End Content -->
 
