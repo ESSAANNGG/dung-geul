@@ -351,9 +351,7 @@ header > p {
 
 .container {
   margin: 0 auto;
-  max-width: 100%;
-  width: 64em;
-  border-radius: 15px 50px 500px 5px;
+  width: 1350px;
 }
 
 @media screen and (max-width: 1680px) {

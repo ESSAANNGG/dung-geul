@@ -16,10 +16,8 @@
 <body>
 
 <!--네비 div-->
-<header id="header">
-    <div th:replace="layout/layout :: nav"/>
-</header>
-<div id="main">
+<div th:replace="layout/layout :: nav"/>
+<section id="main">
 <!-- side -->
 <div class="menu2" style="margin-left: 80px; margin-top: 70px;">
     <div id="bar">
@@ -47,7 +45,7 @@
         </ul>
     </div> <!-- bar -->
 </div> <!-- menu -->
-<div id="job-main-wrap">
+<!--<div id="job-main-wrap">-->
     <div id="content">
         <div id="job-wrap">
             <h1 style="margin-left:10%">직업 정보 조회</h1>
@@ -156,10 +154,10 @@
         <!-- content -->
     </div>
     <!-- job-wrap -->
-</div>
+<!--</div>-->
 </div>
 <!-- job-main-wrap -->
-
+</section>
 <!--footer -->
 <footer th:replace="layout/layout :: footer"/>
 

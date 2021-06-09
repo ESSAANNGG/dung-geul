@@ -352,11 +352,11 @@ header > p {
 
 /* Container */
 
-.container {
-  margin: 0 auto;
-  max-width: 100%;
-  width: 64em;
-}
+/*.container {*/
+/*  margin: 0 auto;*/
+/*  max-width: 100%;*/
+/*  width: 64em;*/
+/*}*/
 
 @media screen and (max-width: 1680px) {
   .container {
