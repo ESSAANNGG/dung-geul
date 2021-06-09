@@ -89,6 +89,9 @@
     text-align: center;
     text-align-last: center;
 }
+.search_cont:focus{
+    outline:1px solid #3498db;
+}
 .form-control{
     width:200px;
 }
@@ -98,4 +101,9 @@
 }
 .write-btn{
     float:right;
+}
+select{
+    appearance: none;
+    background:url("/img/down-arrow.png") no-repeat 94% 50%/11px auto;
+    padding-left:5px;
 }
