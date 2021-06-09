@@ -1,10 +1,10 @@
 function consult_apply() {
     type=$("select[name=select-field]").val();
-        d_type=$("select[name=employ-field]").val();
+        name=$("select[name=employ-field]").val();
         consult_date=$("input[name=couns-date]").val();
         consult_time=$("select[name=couns-time]").val()
-alert(type+d_type+consult_date+consult_time);
-    if(type==""||d_type==""||consult_date==""||consult_time==""){
+alert(type+name+consult_date+consult_time);
+    if(type==""||name==""||consult_date==""||consult_time==""){
         alert("값을 제대로 선택해주세요");
     }
     else{
@@ -17,7 +17,7 @@ alert(type+d_type+consult_date+consult_time);
 
         let data = {
             type:$("select[name=select-field]").val(),
-            d_type:$("select[name=employ-field]").val(),
+            name:$("select[name=employ-field]").val(),
             consult_date:$("input[name=couns-date]").val(),
             consult_time:consult_time1
         }
@@ -28,10 +28,10 @@ alert(type+d_type+consult_date+consult_time);
         alert(data);
 
         $.ajax({
-            url: "/rest/conapply",
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
+            url: '/counseling/counseling',
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
             data: JSON.stringify(data),
         })
     }

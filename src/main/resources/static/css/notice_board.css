@@ -2,7 +2,7 @@
 .col-9{
     font-family: 'Noto Sans KR', sans-serif;
     font-weight:300;
-    font-size:15px;
+    font-size:14px;
 }
 .col-9 h1{
     font-weight:700;
@@ -24,9 +24,78 @@
 #board_title{
     font-size:13px;
     height:100px;
-    border-bottom:1px solid #6b7770;
+    border-bottom:1px solid #cccdcc;
 }
 #board_title h2{
     font-size:15px;
     color:black;
+}
+
+.t_line{
+    height:50px;
+    border-bottom : 0.5px solid #cccdcc;
+    line-height:50px;
+    text-weight:700;
+}
+.t_line span{
+    text-align: center;
+}
+.t_line h4{
+    display:inline-block;
+}
+.number h4{
+    width:10%;
+}
+.title h4{
+    width:40%;
+}
+.writer h4{
+    width:25%;
+}
+.date h4 {
+    width:20%;
+}
+.t_head h4{
+    font-weight:400;
+}
+.t_body a{
+    color: #6b7770;
+    text-decoration: none;
+}
+.t_body:hover{
+    background-color: #f9fafc;
+}
+
+#board_footer{
+    display:flex;
+    width:100%;
+}
+#searchForm{
+    display:inline-block;
+    width:100%;
+}
+.search_cont{
+    display:inline-block;
+    width:100px;
+    height:35px;
+    line-height: initial;
+    background-color: #ffffff;
+    color:black;
+    border-radius: 4px;
+    border:1px solid #ccc;
+    font-size:14px;
+    font-weight:300;
+    padding:0px;
+    text-align: center;
+    text-align-last: center;
+}
+.form-control{
+    width:200px;
+}
+#board_footer button{
+    background-color: rgb(79, 101, 145);
+    color:#ffffff;
+}
+.write-btn{
+    float:right;
 }

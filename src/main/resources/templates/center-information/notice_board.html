@@ -9,10 +9,14 @@
             content="width=device-width, initial-scale=1, user-scalable=no"
     />
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
     <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
     <link rel="stylesheet" href="/css/notice_board.css" />
     <link rel="stylesheet" href="/css/pagenation.css" />
+
 
     <!--  검색 이벤트 처리를 위한 jQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -133,83 +137,67 @@
                             <!--   <div>게시글 수: <span th:text="${#lists.size(boards)}"></span></div>-->
 
                             <!-- 게시판 테이블 -->
-                            <table>
-                                <thead>
-                                <th scope="col">글번호</th>
-                                <th scope="col">제목</th>
-                                <th scope="col">작성자</th>
-                                <th scope="col">작성일</th>
-                                </thead>
-
-                                <tdoby>
-                                    <tr th:each="dto : ${result.dtoList}">
-                                        <th scope="row">
-                                            <a th:href="@{/center-information/notice_board_read(num = ${dto.num}, page= ${result.page})}">
-                                                [[${dto.num}]]
-                                            </a>
-                                            </th>
-                                        <td>[[${dto.title}]]</td>
-                                        <td>관리자[[${dto.b}]]</td>
-                                        <td>YYYY-DD-MM</td>
-                                    </tr>
-                                </tdoby>
-                            </table>
+                         <div class="table">
+                             <div class="t_head t_line">
+                                 <span class="number"><h4>번호</h4></span>
+                                 <span class="title"><h4>제목</h4></span>
+                                 <span class="writer"><h4>작성자</h4></span>
+                                 <span class="date"><h4>작성일</h4></span>
+                             </div>
+                             <div class="t_body t_line" th:each="dto : ${result.dtoList}">
+                                 <a th:href="@{/center-information/notice_board_read(num = ${dto.num}, page= ${result.page})}">
+                                 <span class="number"><h4>
+                                     [[${dto.num}]]
+                                 </h4></span>
+                                 <span class="title"><h4>[[${dto.title}]]</h4></span>
+                                 <span class="writer"><h4>관리자[[${dto.b}]]</h4></span>
+                                 <span class="date"><h4>YYYY-DD-MM</h4></span>
+                                 </a>
+                             </div>
+                         </div>
 
                             <!-- 목록 데이터 페이지 처리 -->
-                            <div class="list-data-page">
-                                <ul class="page-ul">
-                                    <li class="page-li " th:if="${result.prev}">
+                                <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
+                                    <li class="page-ltem " th:if="${result.prev}">
                                         <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.start -1})}" tabindex="-1">이전</a>
                                     </li>
 
-                                    <li th:class=" 'page-li ' + ${result.page == page?'active':''} " th:each= "page: ${result.pageList}">
+                                    <li th:class=" 'page-ltem ' + ${result.page == page?'active':''} " th:each= "page: ${result.pageList}">
                                         <a class="page-link" th:href="@{/center-information/notice_board(page= ${page})}">
                                             [[${page}]]
                                         </a>
                                     </li>
 
-                                    <li class="page-li" th:if="${result.next}">
+                                    <li class="page-ltem" th:if="${result.next}">
                                         <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.end + 1})}">다음</a>
                                     </li>
                                 </ul>
-                            </div>
-                            <!-- 목록 데이터 페이지 처리 끝-->
 
+                            <!-- 목록 데이터 페이지 처리 끝-->
                         <!-- End Board table -->
 
-                        <!--
-                         <등록 버튼>
-                             관리자만이 공지사항을 작성할 수 있음, 일단 막아놈-
-                             발표 후 a태그에 다음 코드 추가할 것(글 작성 페이지) : th:href="@{/center-information/notice_board_form} "
-                         -->
-                        <div class="write-btn-div">
-                            <button type="button" class="write-btn"
-                            onclick="location.href='/center-information/notice_board_register'">
-                                글쓰기
-                            </button>
-                        </div>
+                         <div id="board_footer">
 
-                         <!-- 검색 조건 -->
-                         <form action="/center-information/notice_board" method="get" id="searchForm">
-                             <div class="input-group">
-                                 <input type="hidden" name="page" value = "1">
-                                 <span class="input-group-prepend">
-                                        <select class="custom-select" name="type">
-                                            <option value="t" th:selected="${pageRequestDTO.type =='t'}" >제목</option>
-                                            <option value="c" th:selected="${pageRequestDTO.type =='c'}"  >내용</option>
-                                            <option value="tc"  th:selected="${pageRequestDTO.type =='tc'}" >제목 + 내용</option>
-                                        </select>
-                                    </span>
+                             <!-- 검색 조건 -->
+                             <form action="/center-information/notice_board" method="get" id="searchForm">
+<!--                                <input type="hidden" name="page" value = "1">-->
+                                 <select name="type" id="type_s" class="search_cont">
+                                     <option value="t" th:selected="${pageRequestDTO.type =='t'}" >제목</option>
+                                     <option value="c" th:selected="${pageRequestDTO.type =='c'}"  >내용</option>
+                                     <option value="tc"  th:selected="${pageRequestDTO.type =='tc'}" >제목 + 내용</option>
+                                 </select>
+                                     <input class="form-control search_cont" name="keyword" th:value="${pageRequestDTO.keyword}">
+                                     <button class="btn-search search_cont" type="button">검색</button>
+<!--                                     <button class="btn-clear" type="button">초기화</button>-->
+                             </form>
 
-                                 <span>
-                                        <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}">
-
-                                        <button class="btn-search" type="button">검색</button>
-                                        <button class="btn-clear" type="button">초기화</button>
-                                    </span>
-
+                             <div class="write-btn-div">
+                                 <button type="button" class="search_cont"
+                                         onclick="location.href='/center-information/notice_board_register'">
+                                     글쓰기
+                                 </button>
                              </div>
-                         </form>
+                         </div>
                          <!-- end 검색 조건 -->
 
                     </div>

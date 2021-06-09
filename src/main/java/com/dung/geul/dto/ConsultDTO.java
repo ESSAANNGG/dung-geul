@@ -21,7 +21,6 @@ public class ConsultDTO{
     private Long cno;
     private LocalDateTime consult_regdate;
     private LocalDateTime consult_moddate;
-
     private String type;
     private String name;
 }

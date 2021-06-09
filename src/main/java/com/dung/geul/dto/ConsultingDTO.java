@@ -18,11 +18,15 @@ public class ConsultingDTO {
 
     private Long cno;
 
+    private String type;
+
+    private String name;
+
     private String user_id;
 
     private String user_name;
 
     private String consult_date;
 
-//    private LocalDateTime a;
+    private String consult_time;
 }

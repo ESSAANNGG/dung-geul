@@ -17,10 +17,10 @@ public class ConsultServiceTest {
 //    public void testRegister(){
 //        for(int i =0; i<10; i++) {
 //            ConsultDTO consultDTO = ConsultDTO.builder()
-//                    .Consult_field("진로" + i)
-//                    .Consult_detail_field("상담1234" + i)
+//                    .type("진로" + i)
+//                    .name("상담1234" + i)
 //                    .build();
-//            Long cno = consultService.register(consultDTO);
+//            Long cno = consultServiceImpl.register(consultDTO);
 //        }
 //    }
 
