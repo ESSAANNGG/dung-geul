@@ -139,69 +139,6 @@ public class CvServiceImpl implements CVService{
 
         CV cv = cvRepository.findByUser_id(member).get();
 
-        List<Education> educationList = educationRepository.findByMember(member);
-        List<EducationDTO> educationDTOList = new ArrayList<>();
-        if(educationList != null) {
-            for (Education education : educationList) {
-                EducationDTO dto = EntityToDto(education);
-                log.info("dto : " + dto);
-                educationDTOList.add(dto);
-            }
-        }
-
-
-        List<Awards> awardsList = awardsRepository.findByMember(member);
-        List<AwardsDTO> awardsDTOList = new ArrayList<>();
-        if(awardsList != null){
-            for (Awards awards : awardsList) {
-                AwardsDTO dto = EntityToDto(awards);
-                log.info("dto : " + dto);
-                awardsDTOList.add(dto);
-            }
-        }
-
-        List<Carrer> carrerList = carrerRepository.findByMember(member);
-        List<CareerDTO> careerDTOList = new ArrayList<>();
-        if(carrerList != null){
-            for(Carrer c : carrerList){
-                CareerDTO dto = EntityToDto(c);
-                careerDTOList.add(dto);
-            }
-        }
-
-        List<Family> familyList = familyRepository.findByMember(member);
-        List<FamilyDTO> familyDTOList = new ArrayList<>();
-        if(familyList!=null){
-            for(Family f : familyList){
-                FamilyDTO dto = EntityToDto(f);
-                log.info("dto : " + dto);
-                familyDTOList.add(dto);
-            }
-        }
-
-
-        List<Language> languageList = languageRepository.findByMember(member);
-        List<LanguageDTO> languageDTOList = new ArrayList<>();
-        if(languageList != null){
-            for(Language l : languageList){
-                LanguageDTO dto = EntityToDto(l);
-                log.info("dto : " + dto);
-                languageDTOList.add(dto);
-            }
-        }
-
-
-        List<License> licenseList = licenseRepository.findByMember(member);
-        List<CertificateDTO> licenseDTOList = new ArrayList<>();
-        if(licenseList != null) {
-            for(License l : licenseList){
-                CertificateDTO dto = EntityToDto(l);
-                log.info("dto : " + dto);
-                licenseDTOList.add(dto);
-            }
-        }
-
-
         CvPageDTO pageDTO = CvPageDTO.builder()
                 .cv_id(cv.getCv_id())
                 .user_id(cv.getUser_id().getUser_id())
@@ -218,14 +155,80 @@ public class CvServiceImpl implements CVService{
                 .Desired_salary(cv.getDesired_salary())
                 .cv_hobby(cv.getCv_hobby())
                 .cv_specialty(cv.getCv_specialty())
-                .awards(awardsDTOList)
-                .career(careerDTOList)
-                .education(educationDTOList)
-                .family(familyDTOList)
-                .certificate(licenseDTOList)
-                .language(languageDTOList)
                 .birth(cv.getBirth())
                 .build();
+
+        List<Education> educationList = educationRepository.findByMember(member);
+
+        log.info("학력 : " + educationList.toString());
+        log.info("학력 사이즈 : " + educationList.size());
+        log.info("학력 empty: " + educationList.isEmpty());
+        if (educationList.size() > 1) {
+            List<EducationDTO> educationDTOList = new ArrayList<>();
+            for (Education education : educationList) {
+                EducationDTO dto = EntityToDto(education);
+                log.info("dto : " + dto);
+                educationDTOList.add(dto);
+            }
+            pageDTO.setEducation(educationDTOList);
+        }
+
+        List<Awards> awardsList = awardsRepository.findByMember(member);
+        if (awardsList.size() > 1) {
+            List<AwardsDTO> awardsDTOList = new ArrayList<>();
+            for (Awards awards : awardsList) {
+                AwardsDTO dto = EntityToDto(awards);
+                log.info("dto : " + dto);
+                awardsDTOList.add(dto);
+            }
+            pageDTO.setAwards(awardsDTOList);
+        }
+
+        List<Carrer> carrerList = carrerRepository.findByMember(member);
+        if(carrerList.size() > 1){
+            List<CareerDTO> careerDTOList = new ArrayList<>();
+                for(Carrer c : carrerList) {
+                    CareerDTO dto = EntityToDto(c);
+                    careerDTOList.add(dto);
+                }
+            pageDTO.setCareer(careerDTOList);
+        }
+
+        List<Family> familyList = familyRepository.findByMember(member);
+        if(familyList.size() > 1){
+            List<FamilyDTO> familyDTOList = new ArrayList<>();
+                for(Family f : familyList){
+                    FamilyDTO dto = EntityToDto(f);
+                    log.info("dto : " + dto);
+                    familyDTOList.add(dto);
+                }
+            pageDTO.setFamily(familyDTOList);
+        }
+
+
+
+        List<Language> languageList = languageRepository.findByMember(member);
+        if(languageList.size() > 1){
+            List<LanguageDTO> languageDTOList = new ArrayList<>();
+                for(Language l : languageList){
+                    LanguageDTO dto = EntityToDto(l);
+                    log.info("dto : " + dto);
+                    languageDTOList.add(dto);
+                }
+            pageDTO.setLanguage(languageDTOList);
+        }
+
+        List<License> licenseList = licenseRepository.findByMember(member);
+
+        if(licenseList.size() > 1){
+            List<CertificateDTO> licenseDTOList = new ArrayList<>();
+                for(License l : licenseList){
+                    CertificateDTO dto = EntityToDto(l);
+                    log.info("dto : " + dto);
+                    licenseDTOList.add(dto);
+                }
+            pageDTO.setCertificate(licenseDTOList);
+        }
 
         return pageDTO;
     }

@@ -89,7 +89,7 @@
                   <td class="width-104">연봉</td>
                 </tr>
                 </thead>
-                <tbody class="read_carrer-body" th:if="${!cv.getCareer().isEmpty()}">
+                <tbody class="read_carrer-body" th:if="${cv.getCareer()} != null">
                 <div class="carrer_item" th:each="item, i : ${cv.getCareer()}">
                   <tr>
                     <td rowspan="2" class="align_center"> [[${item.getCr_employment()}]] ~ [[${item.getCr_resignation()}]]</td>
@@ -110,7 +110,7 @@
           </section>
 
 
-          <section class="form" id="학력사항" th:if="${!cv.getEducation().isEmpty()}">
+          <section class="form" id="학력사항" th:if="${cv.getEducation()} != null">
             <p class="legend">학력사항</p>
             <div id="items" class="form-group school-test items" >
               <div class="info">
@@ -167,7 +167,7 @@
             </div>
           </section>
 
-          <section class="form" id="수상경력" th:if="${!cv.getAwards().isEmpty()}">
+          <section class="form" id="수상경력" th:if="${cv.getAwards()} != null">
             <p class="legend">수상경력</p>
             <div class="info">
               <table th:each="item : ${cv.getAwards()}">
@@ -229,7 +229,7 @@
 
 
 
-          <section class="form" id="가족사항" th:if="${!cv.getFamily().isEmpty()}">
+          <section class="form" id="가족사항" th:if="${cv.getFamily()} != null">
             <p class="legend">가족사항</p>
             <div class="item_family">
               <div class="info">
@@ -263,7 +263,7 @@
           </section>
 
 
-          <section class="form" id="자격증" th:if="${!cv.getCertificate().isEmpty()}">
+          <section class="form" id="자격증" th:if="${cv.getCertificate()} != null">
             <p class="legend">자격증</p>
 
             <div class="item_lic">
@@ -293,7 +293,7 @@
             </div>
           </section>
 
-          <section class="form" id="어학" th:if="${!cv.getLanguage().isEmpty()}">
+          <section class="form" id="어학" th:if="${cv.getLanguage()} != null">
 
             <p class="legend">어학</p>
 
@@ -346,8 +346,7 @@
                 </tr>
                 <tr>
                   <td class="align_center vertical_60 vertical_td">희망연봉</td>
-                  <td>[[ ${cv.getDesired_salary() == null || ${cv.getDesired_salary() == "" ? "회사내규에 따름" : cv.getDesired_salary()} ]]</td>
-
+                  <td th:if="${cv.getDesired_salary() != null}">[[ ${cv.getDesired_salary() == "" ? "회사내규에 따름" : cv.getDesired_salary()} ]]</td>
                 </tr>
               </table>
             </div>

@@ -86,7 +86,8 @@ public class ApplicationController {
 
         log.info("cvPage DTO : " + cv.toString());
         log.info("cv.getAddr() : " + cv.getAge());
-        cv.getEducation().get(1).getDateEnd();
+        log.info("cv.getDesired_salary() : " + cv.getDesired_salary());
+
 
     }
 
