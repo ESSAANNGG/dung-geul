@@ -5,6 +5,7 @@ import com.dung.geul.entity.CV;
 import com.dung.geul.repository.CvRepository;
 import com.dung.geul.service.CvServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
@@ -42,7 +43,7 @@ public class ApplicationRestController {
     }
 
     @GetMapping("/cv/delete")
-    public RedirectView cvDelete(String user_id){
+    public RedirectView cvDelete(@Param("user_id") String user_id){
 
         System.out.println("CvDelete : cv 삭제 실행");
 

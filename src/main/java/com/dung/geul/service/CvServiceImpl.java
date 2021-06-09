@@ -296,20 +296,69 @@ public class CvServiceImpl implements CVService{
 
     }
 
+    @Transactional
     public void delete(String user_id) {
 
         try{
             Optional<Member> member = memberRepository.findById(user_id);
 
-            System.out.println("user_id : " + member.get().getUser_id());
+            Member m = member.get();
 
-            Optional<CV> cv = cvRepository.findByUser_id(member.get());
-
-            System.out.println("cv_id : " + cv.get().getCv_id());
+            Optional<CV> cv = cvRepository.findByUser_id(m);
 
             cvRepository.delete(cv.get());
 
             log.info("이력서 삭제 성공: " + cv.get());
+
+            List<Education> education = educationRepository.findByMember(m);
+            List<Awards> awards = awardsRepository.findByMember(m);
+            List<Family> family = familyRepository.findByMember(m);
+            List<License> license = licenseRepository.findByMember(m);
+            List<Language> language = languageRepository.findByMember(m);
+            List<Carrer> carrer = carrerRepository.findByMember(m);
+
+            if(!education.isEmpty()){
+                for(Education e : education){
+                    educationRepository.delete(e);
+                    log.info("학력 삭제 성공: " + e);
+                }
+
+            }
+
+            if(!awards.isEmpty()){
+                for(Awards e : awards){
+                    awardsRepository.delete(e);
+                    log.info("수상내역 삭제 성공: " + e);
+                }
+            }
+
+            if(!family.isEmpty()){
+                for(Family e : family){
+                    familyRepository.delete(e);
+                    log.info("가족사항 삭제 성공: " + e);
+                }
+            }
+
+            if(!license.isEmpty()){
+                for(License e : license){
+                    licenseRepository.delete(e);
+                    log.info("자격증 삭제 성공: " + e);
+                }
+            }
+
+            if(!language.isEmpty()){
+                for(Language e : language){
+                    languageRepository.delete(e);
+                    log.info("어학능력 삭제 성공: " + e);
+                }
+            }
+
+            if(!carrer.isEmpty()){
+                for(Carrer e : carrer){
+                    carrerRepository.delete(e);
+                    log.info("경력 삭제 성공: " + e);
+                }
+            }
 
         }catch (Exception e){
             System.out.println("Cvservice - delete error : " + e);

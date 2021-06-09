@@ -358,6 +358,11 @@
               <a  href="/application/cv/modify"
                       >이력서 수정하기</a>
             </button>
+
+            <button type="button" id="delteBtn" class="cvSubmit">
+              <a  th:href="@{/application/cv/delete(user_id=${loginUser.getUser_id()})}" th:methods="post"
+              >이력서 삭제하기</a>
+            </button>
           </section>
 
         </div>
