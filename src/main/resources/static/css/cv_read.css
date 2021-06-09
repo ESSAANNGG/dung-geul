@@ -77,3 +77,22 @@ tbody > tr > td {
   font-size: 16px;
   background-color: #f7f7f7;
 }
+
+#button_section {
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+}
+
+#modify_button {
+  width: 240px;
+  height: 60px;
+  padding: 20px;
+}
+
+.cvSubmit {
+  padding: 1px 6px 1px 6px;
+  width: 240px;
+  height: 60px;
+  background-color: #3399ffe5;
+}

@@ -110,8 +110,8 @@ navbar li{
 }
 
 .nav .dep1 > li:hover > a {
-  color: green;
+  color: #3498db !important;
 }
 .nav .dep2 > li:hover > a {
-  color: green;
+  color: #3498db !important;
 }

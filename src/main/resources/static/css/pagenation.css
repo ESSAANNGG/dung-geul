@@ -1,0 +1,12 @@
+.active .page-link{
+    background-color: #3498db !important;
+    color:#ffffff !important;
+}
+.page-link{
+    width: 33px;
+    height: 33px;
+    font-size: 13px;
+    font-weight:900;
+    color:#3498db !important;
+    /*border-radius: initial !important   ;*/
+}
