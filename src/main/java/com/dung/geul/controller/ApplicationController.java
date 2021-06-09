@@ -86,6 +86,7 @@ public class ApplicationController {
         model.addAttribute("loginUser", authMemberDTO);
 
         log.info("cvPage DTO : " + cv.toString());
+        log.info("cv.getUser_age() : " + cv.getUser_age());
         log.info("cv.getDesired_salary() : " + cv.getDesired_salary());
 
 

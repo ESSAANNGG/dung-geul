@@ -156,6 +156,7 @@ public class CvServiceImpl implements CVService{
                 .cv_hobby(cv.getCv_hobby())
                 .cv_specialty(cv.getCv_specialty())
                 .birth(cv.getBirth())
+                .user_age(cv.getUser_age())
                 .build();
 
         List<Education> educationList = educationRepository.findByMember(member);
