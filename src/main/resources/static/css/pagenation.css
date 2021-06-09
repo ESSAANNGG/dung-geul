@@ -3,10 +3,19 @@
     color:#ffffff !important;
 }
 .page-link{
-    width: 33px;
-    height: 33px;
     font-size: 13px;
     font-weight:900;
     color:#3498db !important;
     /*border-radius: initial !important   ;*/
+}
+.pagination{
+    display:flex;
+    justify-content: center;
+}
+.search_group{
+    display:flex;
+    width:600px;
+}
+.write-btn-div{
+    float:right
 }
