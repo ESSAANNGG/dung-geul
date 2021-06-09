@@ -35,6 +35,7 @@ public interface CVService {
                 .user_name(dto.getUser_name())
                 .name_china(dto.getName_china())
                 .birth(dto.getBirth())
+                .user_age(dto.getUser_age())
                 .user_hp(dto.getUser_hp())
                 .user_email(dto.getUser_email())
                 .addr(dto.getAddr())

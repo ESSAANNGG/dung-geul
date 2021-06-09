@@ -76,7 +76,7 @@
 
 
 
-          <section class="form" id="경력사항">
+          <section class="form" id="경력사항" th:if="${cv.getCareer()} != null">
             <p class="legend">경력사항</p>
             <div class="info">
               <table class="test1">
@@ -89,7 +89,7 @@
                   <td class="width-104">연봉</td>
                 </tr>
                 </thead>
-                <tbody class="read_carrer-body" th:if="${cv.getCareer()} != null">
+                <tbody class="read_carrer-body" >
                 <div class="carrer_item" th:each="item, i : ${cv.getCareer()}">
                   <tr>
                     <td rowspan="2" class="align_center"> [[${item.getCr_employment()}]] ~ [[${item.getCr_resignation()}]]</td>
@@ -347,6 +347,7 @@
                 <tr>
                   <td class="align_center vertical_60 vertical_td">희망연봉</td>
                   <td th:if="${cv.getDesired_salary() != null}">[[ ${cv.getDesired_salary() == "" ? "회사내규에 따름" : cv.getDesired_salary()} ]]</td>
+                  <td th:if="${cv.getDesired_salary() == null}"></td>
                 </tr>
               </table>
             </div>

@@ -83,9 +83,9 @@ public class ApplicationController {
         CvPageDTO cv = cvService.getCvPageDto(authMemberDTO.getUser_id());
 
         model.addAttribute("cv", cv);
+        model.addAttribute("loginUser", authMemberDTO);
 
         log.info("cvPage DTO : " + cv.toString());
-        log.info("cv.getAddr() : " + cv.getAge());
         log.info("cv.getDesired_salary() : " + cv.getDesired_salary());
 
 

@@ -18,6 +18,8 @@ public class MemberRepositoryTest {
     @Autowired
     private BCryptPasswordEncoder encoder;
 
+    private CVRepositoryTest cvRepositoryTest;
+
     @Test
     public void memberRoleRead(){
         Member member = Member.builder()

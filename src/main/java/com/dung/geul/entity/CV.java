@@ -29,6 +29,8 @@ public class CV  implements Serializable{
 
     private LocalDate birth;
 
+    private int user_age;
+
     private String user_hp;
 
     private String user_email;

@@ -56,7 +56,7 @@
                 </div>
                 <div class="common_div width-140">
                   <label class="absolute-label" for="">연령 <span>*</span> </label>
-                  <input class="common_input" type="text" name="user_age" id="age" th:value="[[${cv.getAge()}]]세"
+                  <input class="common_input" type="text" name="user_age" id="age" th:value="${cv.getUser_age()}세"
                     required />
                 </div>
                 <div class="common_div width-300">
@@ -92,12 +92,12 @@
               <div class="info">
                 <div class="common_div width-280" style="padding:0px;">
                   <input class="user_employment" name="user_employment"
-                    th:attr="checked=${cv.getCareer()} == null? 'true' : 'false'}" id="id1" type="radio"
+                    th:attr="checked=${cv.getCareer() == null ? 'true' : 'false'}" id="id1" type="radio"
                     value="0"><label style="cursor: pointer" class="carrer_label" for="id1">신입</label><br />
                 </div>
                 <div class="common_div width-280" style="padding:0px;">
                   <input class="user_employment" name="user_employment"
-                    th:attr="checked=${cv.getCareer()} != null? 'true' : 'false'}" id="id2" type="radio"
+                    th:attr="checked=${cv.getCareer() != null ? 'true' : 'false'}" id="id2" type="radio"
                     value="1"><label style="cursor: pointer" class="carrer_label" for="id2">경력</label><br />
                 </div>
                 <br />
@@ -804,7 +804,7 @@
                 <div id="sallay_div" class="common_div width-200">
                   <label id="desire" class="absolute-label" for="">희망 연봉 <span>*</span></label>
                   <input id="desired_salary" class="money_input" value="" type="number" name="Desired_salary"
-                    autocomplete="off" th:if="${cv.getDesired_salary() != null}" th:value="${cv.getDesired_salary() == "" ? "회사내규에 따름" : cv.getDesired_salary()} " />
+                    autocomplete="off" th:value="${cv.getDesired_salary() == '' ? '회사내규에 따름' : cv.getDesired_salary()} " />
                   <span style="font-size: 12px">만원이상</span>
                 </div>
                 <button type="button" id="decisionInterview">
