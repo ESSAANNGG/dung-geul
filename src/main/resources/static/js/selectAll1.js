@@ -1,10 +1,16 @@
-function selectAll(selectAll)  {
-    const checkboxes
-        = document.querySelectorAll('input[type="checkbox"]');
+check=false;
+function selectAll()  {
+    alert(check);
 
-    checkboxes.forEach((checkbox) => {
-        checkbox.checked = selectAll.checked
-    })
+        if(check==false){
+            $(".allcheck").prop("checked","true");
+
+            check=true;
+        }
+        else{
+            $(".allcheck").prop("checked","false");
+            check=false;
+        }
 }
 
 $(document).ready(function(){

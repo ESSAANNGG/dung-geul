@@ -72,7 +72,7 @@ body {
     transition: all 0.5s;
 }
 #sang-con {
-    /* width: 1000px; */
+     width: 1000px;
     /* margin: 0 30px; */
     background: #fff;
     border-radius: 8px;
@@ -112,10 +112,11 @@ body {
 }
 #selectAll-wrap {
     width: 600px;
-    margin-left: 925px;
+    /*margin-left: 925px;*/
 }
 .btn-q {
     width: 17%;
+    height:45px;
     background: #fff;
     padding: 15px;
     font-size: 13px;

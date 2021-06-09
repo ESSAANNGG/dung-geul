@@ -496,9 +496,9 @@ header > p {
 }
 
 .row > .col-9 {
-  padding:0px;
-  margin-left:50px;
-  width: 75%;
+  /*padding:0px;*/
+  /*margin-left:50px;*/
+  width: 1000px !important;
 }
 
 .row > .off-9 {

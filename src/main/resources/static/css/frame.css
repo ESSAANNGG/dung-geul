@@ -161,6 +161,7 @@ li {
     border-bottom-width: 10px;
     padding: 4em 0;
     z-index: -2;
+    min-height:675px;
 }
 #job-main-wrap{
     background-color: #f4f4f4   ;
@@ -176,4 +177,14 @@ li {
 .row{
     width:1350px;
     margin:0px  !important;
+}
+
+.col-9{
+    margin:0px !important;
+    margin-left:50px !important;
+    background-color: #ffffff;
+    padding:50px;
+}
+.col-3{
+
 }
