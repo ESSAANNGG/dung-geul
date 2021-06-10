@@ -24,7 +24,7 @@ public class License implements Serializable {
     @JoinColumn(foreignKey = @ForeignKey(name="lic_user_id_fk"))
     private Member member;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50, nullable = true)
     private String lic_name; // 자격증 이름
 
     // 유효기간

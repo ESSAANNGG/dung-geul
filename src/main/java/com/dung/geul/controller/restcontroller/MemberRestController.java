@@ -74,10 +74,18 @@ public class MemberRestController {
         System.out.println("memberRestController의 findId() 실행");
         System.out.println("memberDTO = " + memberDTO);
 
-        String id = memberService.confirmNameAndEmail(memberDTO);    //return 성공 = user_id / 실패 = null
+        String email = memberDTO.getUser_email();
+
+        String[] emails = email.split("@");
+
+        String name = memberDTO.getUser_name();
+
+        log.info("emails" + emails[0] + emails[1]);
+
+        String id = memberService.confirmNameAndEmail(name, emails[0], emails[1]);    //return 성공 = user_id / 실패 = null
 
         // 아이디와 이메일이 일치하는 DB값 없으면 0 반환
-        if (id.equals(null)) {
+        if (id == null) {
             id = "0";
         }
 

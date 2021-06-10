@@ -396,9 +396,9 @@ public class MemberServiceImpl implements MemberService {
 
 
     // 이름과 이메일이 일치하면 아이디값을 반환해주는 메소드
-    public String confirmNameAndEmail(MemberDTO memberDTO) {
+    public String confirmNameAndEmail(String name, String email, String emailDomain) {
 
-        String id = memberRepository.findByUser_emailAndUser_name(memberDTO.getUser_email(), memberDTO.getUser_name());
+        String id = memberRepository.findByUser_emailAndUser_name(email, emailDomain, name);
 
         return id;
     }

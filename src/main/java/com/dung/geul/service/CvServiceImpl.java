@@ -67,7 +67,7 @@ public class CvServiceImpl implements CVService{
 
 //         수상경력 등록
             List<AwardsDTO> awardsList = cvPageDTO.getAwards();
-            if (awardsList != null) {
+            if (awardsList.size() > 0) {
                 for (AwardsDTO dto : awardsList) {
                     Awards awards = dtoToEntity(dto, member);
                     awardsRepository.save(awards);
@@ -76,7 +76,7 @@ public class CvServiceImpl implements CVService{
 
             // 경력 등록
             List<CareerDTO> careerList = cvPageDTO.getCareer();
-            if (careerList != null) {
+            if (careerList.size() > 0) {
                 for (CareerDTO dto : careerList) {
                     Carrer carrer = dtoToEntity(dto, member);
                     carrerRepository.save(carrer);
@@ -86,7 +86,7 @@ public class CvServiceImpl implements CVService{
 
             //학력 등록
             List<EducationDTO> educationList = cvPageDTO.getEducation();
-            if (educationList != null) {
+            if (educationList.size() > 0) {
                 for (EducationDTO dto : educationList) {
                     Education education = dtoToEntity(dto, member);
                     educationRepository.save(education);
@@ -96,7 +96,7 @@ public class CvServiceImpl implements CVService{
 
             // 가족사항 등록
             List<FamilyDTO> familyList = cvPageDTO.getFamily();
-            if (familyList != null) {
+            if (familyList.size() > 0) {
                 for (FamilyDTO dto : familyList) {
                     Family family = dtoToEntity(dto, member);
                     familyRepository.save(family);
@@ -105,16 +105,17 @@ public class CvServiceImpl implements CVService{
 
 
             List<CertificateDTO> certificateList = cvPageDTO.getCertificate();
-            if (certificateList != null) {
+            if (certificateList.size() > 0) {
                 for (CertificateDTO dto : certificateList) {
-                    License license = dtoToEntity(dto, member);
-                    licenseRepository.save(license);
+                        License license = dtoToEntity(dto, member);
+                        licenseRepository.save(license);
+
                 }
             }
 
 
             List<LanguageDTO> languageList = cvPageDTO.getLanguage();
-            if (languageList != null) {
+            if (languageList.size() > 0) {
                 for (LanguageDTO dto : languageList) {
                     Language language = dtoToEntity(dto, member);
                     languageRepository.save(language);
@@ -164,9 +165,10 @@ public class CvServiceImpl implements CVService{
         log.info("학력 : " + educationList.toString());
         log.info("학력 사이즈 : " + educationList.size());
         log.info("학력 empty: " + educationList.isEmpty());
-        if (educationList.size() > 1) {
+        if (educationList.size() > 0) {
             List<EducationDTO> educationDTOList = new ArrayList<>();
             for (Education education : educationList) {
+                if(education.getSchoolType() == "" || education.getSchoolType() == null){continue;}
                 EducationDTO dto = EntityToDto(education);
                 log.info("dto : " + dto);
                 educationDTOList.add(dto);
@@ -175,9 +177,10 @@ public class CvServiceImpl implements CVService{
         }
 
         List<Awards> awardsList = awardsRepository.findByMember(member);
-        if (awardsList.size() > 1) {
+        if (awardsList.size() > 0) {
             List<AwardsDTO> awardsDTOList = new ArrayList<>();
             for (Awards awards : awardsList) {
+                if(awards.getAwards_des() == "" || awards.getAwards_des() == null){continue;}
                 AwardsDTO dto = EntityToDto(awards);
                 log.info("dto : " + dto);
                 awardsDTOList.add(dto);
@@ -186,9 +189,10 @@ public class CvServiceImpl implements CVService{
         }
 
         List<Carrer> carrerList = carrerRepository.findByMember(member);
-        if(carrerList.size() > 1){
+        if(carrerList.size() > 0){
             List<CareerDTO> careerDTOList = new ArrayList<>();
                 for(Carrer c : carrerList) {
+                    if(c.getCr_etp_name() == "" || c.getCr_etp_name() == null){continue;}
                     CareerDTO dto = EntityToDto(c);
                     careerDTOList.add(dto);
                 }
@@ -196,9 +200,10 @@ public class CvServiceImpl implements CVService{
         }
 
         List<Family> familyList = familyRepository.findByMember(member);
-        if(familyList.size() > 1){
+        if(familyList.size() > 0){
             List<FamilyDTO> familyDTOList = new ArrayList<>();
                 for(Family f : familyList){
+                    if(f.getFam_relation() == "" || f.getFam_relation() == null){continue;}
                     FamilyDTO dto = EntityToDto(f);
                     log.info("dto : " + dto);
                     familyDTOList.add(dto);
@@ -209,9 +214,10 @@ public class CvServiceImpl implements CVService{
 
 
         List<Language> languageList = languageRepository.findByMember(member);
-        if(languageList.size() > 1){
+        if(languageList.size() > 0){
             List<LanguageDTO> languageDTOList = new ArrayList<>();
                 for(Language l : languageList){
+                    if(l.getFl_name() == "" || l.getFl_name() == null){continue;}
                     LanguageDTO dto = EntityToDto(l);
                     log.info("dto : " + dto);
                     languageDTOList.add(dto);
@@ -221,9 +227,11 @@ public class CvServiceImpl implements CVService{
 
         List<License> licenseList = licenseRepository.findByMember(member);
 
-        if(licenseList.size() > 1){
+        if(licenseList.size() > 0){
             List<CertificateDTO> licenseDTOList = new ArrayList<>();
                 for(License l : licenseList){
+                    if(l.getLic_name() == "" || l.getLic_name() == null){continue;}
+
                     CertificateDTO dto = EntityToDto(l);
                     log.info("dto : " + dto);
                     licenseDTOList.add(dto);
