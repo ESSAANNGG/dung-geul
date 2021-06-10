@@ -35,4 +35,4 @@ let modify = {
   }, // save() end
 };
 
-register.init();
+modify.init();

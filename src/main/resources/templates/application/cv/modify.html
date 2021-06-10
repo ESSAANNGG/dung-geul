@@ -102,7 +102,7 @@
                 </div>
                 <br />
               </div>
-              <div id="carrerField" disabled style="display: none;" th:if="${cv.getCareer()} != null">
+              <div id="carrerField" disabled style="display: none;">
                 <div class="item_career" th:each="item, i : ${cv.getCareer()}">
                   <div class="info">
                     <div class="common_div width-350">
@@ -162,7 +162,7 @@
             </section>
 
 
-            <div id="schoolFieldset_main" style="display:none;" disabled th:if="${cv.getEducation()} != null">
+            <div id="schoolFieldset_main" style="display:none;" disabled>
               <section class="form" id="학력사항">
                 </legend>
                 <p class="legend">학력사항</p>
@@ -172,9 +172,7 @@
                       <label class="absolute-label" for="">학교구분 <span>*</span></label>
                       <span class="custom-dropdown big">
                         <select id="test01" class="common_select schoolSelected1" name="education[][schoolType]">
-                          <option class="gray" value="">
-                            <p>학교구분</p>
-                          </option>
+                          <option class="gray">[[${item.getSchoolType()}]]</option>
 
                           <option value="고등학교">고등학교</option>
 
@@ -583,15 +581,15 @@
             </div>
 
 
-            <div id="famFieldset_main" style="display:none;" disabled th:if="${cv.getFamily()} != null">
+            <div id="famFieldset_main" style="display:none;">
               <section class="form" id="가족사항">
                 <p class="legend">가족사항</p>
                 <div class="item_family" th:each="item : ${cv.getFamily()}">
                   <div class="info">
                     <div class="common_div ">
                       <label class="absolute-label" for="">가족관계 <span>*</span></label>
-                      <select id="fam_relation" class="common_select" name="family[][fam_relation]">
-                        <option class="gray" value="">가족관계</option>
+                      <select id="famrelation" class="common_select" name="family[][fam_relation]">
+                        <option class="gray" >[[${item.getFam_relation()}]]</option>
 
                         <option value="부부">부부</option>
 
@@ -700,7 +698,7 @@
                     <div class="common_div width-180">
                       <label class="absolute-label" for="">외국어명 <span>*</span></label>
                       <select id="fl_lang" class="common_select" name="language[][fl_language]">
-                        <option value="">-외국어 선택-</option>
+                        <option >[[${item.getFl_language()}]]</option>
                         <option value="영어">영어</option>
                         <option value="일본어">일본어</option>
                         <option value="중국어">중국어</option>
@@ -725,7 +723,7 @@
                     <div class="common_div width-104">
                       <label class="absolute-label" for="">회화능력 <span>*</span></label>
                       <select id="fl_conversation" class="common_select" name="language[][fl_conversation]">
-                        <option value="">선택</option>
+                        <option >[[${item.getFl_conversation()}]]</option>
                         <option value="상">상</option>
                         <option value="중">중</option>
                         <option value="하">하</option>
@@ -735,7 +733,7 @@
                     <div class="common_div width-104">
                       <label class="absolute-label" for="">독해능력 <span>*</span></label>
                       <select id="fl_reading" class="common_select" name="language[][fl_reading]">
-                        <option value="">선택</option>
+                        <option >[[${item.getFl_reading()}]]</option>
                         <option value="상">상</option>
                         <option value="중">중</option>
                         <option value="하">하</option>
@@ -745,7 +743,7 @@
                     <div class="common_div width-104">
                       <label class="absolute-label" for="">작문능력 <span>*</span></label>
                       <select id="fl_writing" class="common_select" name="language[][fl_writing]">
-                        <option value="">선택</option>
+                        <option >[[${item.getFl_writing()}]]</option>
                         <option value="상">상</option>
                         <option value="중">중</option>
                         <option value="하">하</option>
@@ -804,7 +802,7 @@
                 <div id="sallay_div" class="common_div width-200">
                   <label id="desire" class="absolute-label" for="">희망 연봉 <span>*</span></label>
                   <input id="desired_salary" class="money_input" value="" type="number" name="Desired_salary"
-                    autocomplete="off" th:value="${cv.getDesired_salary() == '' ? '회사내규에 따름' : cv.getDesired_salary()} " />
+                    autocomplete="off" th:value="${cv.getDesired_salary()} == '' ? '회사내규에 따름' : ${cv.getDesired_salary()} " />
                   <span style="font-size: 12px">만원이상</span>
                 </div>
                 <button type="button" id="decisionInterview">
@@ -889,147 +887,122 @@
   </script>
   <script src="/js/cv.js"></script>
 
-  <script th:inline="javascript">
-    if (${cv.getEducation()} != null) {
-      document.querySelector("#btn1").click();
-    }
+  <script type="text/javascript" th:inline="javascript">
 
-    if ([
-        [$ {
-          cv.getCv_hobby()
-        }]
-      ] || [
-        [$ {
-          cv.getCv_specialty()
-        }]
-      ]) {
-      document.querySelector("#btn2").click();
-    }
+    
+    [# th:if="${cv.getEducation()}"]
+    document.querySelector("#btn1").click();
+    [/]
 
-    if (${cv.getAwards()} != null) {
-      document.querySelector("#btn3").click();
-    }
+    [# th:if="${cv.getCv_hobby()}"]
+    document.querySelector("#btn2").click();
+    [/]
 
-    if ([
-        [$ {
-          cv.getCv_verteran()
-        }]
-      ] != 0 || [
-        [$ {
-          cv.getCv_disability()
-        }]
-      ] != 0 || [
-        [$ {
-          cv.getCv_military()
-        }]
-      ] != 0) {
-      document.querySelector("#btn4").click();
-    }
+    // [# th:if="${cv.getCv_specialty()}"]
+    // document.querySelector("#btn2").click();
+    // [/]
 
-    if (${cv.getFamily()} != null) {
-      document.querySelector("#btn5").click();
-    }
+    [# th:if="${cv.getAwards()}"]
+    document.querySelector("#btn3").click();
+    [/]
 
-    if (${cv.getCertificate()} != null) {
-      document.querySelector("#btn6").click();
-    }
+    [# th:if="${cv.getCv_verteran()} !='0'"]
+    document.querySelector("#btn4").click();
+    document.querySelector('#verteran_div').classList.replace('common_div', 'common_div_blue');
+    [/]
 
-    if (${cv.getLanguage()} != null) {
-      document.querySelector("#btn7").click();
-    }
+    [# th:if="${cv.getCv_disability()} !='0'"]
+    document.querySelector("#btn4").click();
+    document.querySelector('#disability_div').classList.replace('common_div', 'common_div_blue');
+    document.querySelector('#info-extra').style = 'display:block';
+    document.querySelector('#disability-value').style = 'display:block';
+    [/]
 
-    // 스쿨타입
-    $('#test01').val([
-      [$ {
-        item.getSchoolType()
-      }]
-    ]).prop("selected", true);
+    [# th:if="${cv.getCv_military()} !='0'"]
+    document.querySelector("#btn4").click();
+    document.querySelector('#military_div').classList.replace('common_div', 'common_div_blue');
+    document.querySelector('#info-extra').style = 'display:block';
+    document.querySelector('#military-value').style = 'display:block';
+    [/]
 
-    // 졸업상태
-    $('#highSchoolGradu').val([
-      [$ {
-        item.getGraduated()
-      }]
-    ]).prop("selected", true);
+    [# th:if="${cv.getFamily()}"]
+    document.querySelector("#btn5").click();
+    [/]
 
-    $('#collegeGradu').val([
-      [$ {
-        item.getGraduated()
-      }]
-    ]).prop("selected", true);
+    [# th:if="${cv.getCertificate()}"]
+    document.querySelector("#btn6").click();
+    [/]
 
-    $('#univerGradu').val([
-      [$ {
-        item.getGraduated()
-      }]
-    ]).prop("selected", true);
+    [# th:if="${cv.getLanguage()}"]
+    document.querySelector("#btn7").click();
+    [/]
 
-    $('#graduateGradu').val([
-      [$ {
-        item.getGraduated()
-      }]
-    ]).prop("selected", true);
 
-    // 총점
-    $('#collegePs').val([
-      [$ {
-        item.getPs()
-      }]
-    ]).prop("selected", true);
-    $('#univerPs').val([
-      [$ {
-        item.getPs()
-      }]
-    ]).prop("selected", true);
-    $('#graduPs').val([
-      [$ {
-        item.getPs()
-      }]
-    ]).prop("selected", true);
+    //버튼조작
 
-    // 장애등급
-    $('#disability_degree').val([
-      [$ {
-        cv.getCv_disability_degree()
-      }]
-    ]).prop("selected", true);
+    //경력사항
 
-    //병역
-    $('#verteran').val([
-      [$ {
-        cv.getCv_verteran()
-      }]
-    ]).prop("selected", true);
+    [# th:if="${cv.getCareer()}"]
+    $('#carrerField').attr('style', 'display:block;');
+    $('#carrerButtonBox').attr('style', 'display:block;');
+    [/]
 
-    //가족관계
-    $('#fam_relation').val([
-      [$ {
-        item.getFam_relation()
-      }]
-    ]).prop("selected", true);
 
-    //외국어
-    $('#fl_lang').val([
-      [$ {
-        item.getFl_language()
-      }]
-    ]).prop("selected", true);
-    $('#fl_conversation').val([
-      [$ {
-        item.getFl_conversation()
-      }]
-    ]).prop("selected", true);
-    $('#fl_reading').val([
-      [$ {
-        item.getFl_reading()
-      }]
-    ]).prop("selected", true);
-    $('#fl_writing').val([
-      [$ {
-        item.getFl_writing()
-      }]
-    ]).prop("selected", true);
+
+    //우대사항 셀렉트 부분
+
+    /*<![CDATA[*/
+     var degree = /*[[ ${cv.getCv_disability_degree()} ]]*/;
+    /*]]*/
+
+    $('#disability_degree').val(degree).prop("selected", true);
+
+    /*<![CDATA[*/
+     var verteran = /*[[ ${cv.getCv_verteran()} ]]*/;
+    /*]]*/
+
+    [# th:if="verteran == 1"]
+       $('#verteran').val("미필").prop("selected", true);
+    [/]
+    [# th:if="verteran == 2"]
+       $('#verteran').val("공익").prop("selected", true);
+    [/]
+
+   
+
   </script>
+
+  <script>
+  let test13 = document.querySelector('#test01').value;
+  let high = document.querySelectorAll('.container1');
+  let college = document.querySelectorAll('.container2');
+  let college2 = document.querySelectorAll('.container2-1');
+  let university = document.querySelectorAll('.container3');
+  let university2 = document.querySelectorAll('.container3-1');
+  let graduate = document.querySelectorAll('.container4');
+  let graduate2 = document.querySelectorAll('.container4-1');
+
+    switch(test13) {
+      case '고등학교' :
+      high[0].style = 'display:inline-block'
+      break;
+      case '전문대' :
+      college[0].style = 'display:inline-block';
+      college2[0].style = 'display:inline-block';
+      break;
+      case '대학교' :
+      university[0].style = 'display:inline-block';
+      university2[0].style = 'display:inline-block';
+      break;
+      case '대학원' :
+      graduate[0].style = 'display:inline-block';
+      graduate2[0].style = 'display:inline-block';
+      break;
+    }
+    
+  </script>
+
+
 
 
 </body>
