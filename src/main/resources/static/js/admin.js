@@ -183,7 +183,9 @@ $('.list_submit').click(function(){
     check_name = $(List).find('input[type=checkbox]').eq(1).attr('name');     //해당리스트의 checkname을 가져옴
     checkLength = $('input[name=' + check_name + ']:checked').length;         //체크 수만큼 반복
     dataList = [];                                                            //배열이 계속 쌓이는걸 방지 (초기화) , 체크한 목록을 가져와 List에 담음
-
+    alert(ListId+"das"+ListNum);
+    // alert($(List).attr("class"));
+    // alert($(List).parent("div").attr('id'));
     //유저관리를 위한 부분 공용으로 혹시 쓸수 있나 해서 공용js에 임시로 둠
     p = $(this).text();  //승인/거절/삭제인지 구분
     switch (p) {
