@@ -136,21 +136,26 @@ public class MemberServiceImpl implements MemberService {
 
     //기업 인증     1: 승인 성공,   2: 거절 성공,   -1 : 오류
     @Transactional
-    public ResponseEntity authEnterprise(EnterpriseDTO[] etpDTO) {
-        System.out.println("memberServiceImpl - authEnterprise : " + etpDTO.toString());
+    public ResponseEntity authEnterprise(List<AllowEtpIdShapeDTO> dtoList, String result) {
+        System.out.println("memberServiceImpl - authEnterprise : " + dtoList.toString());
 
         try {
             Member member;
             Enterprise enterprise;
-            for (int i = 0; i < etpDTO.length; i++) {
-                member = memberRepository.findById(etpDTO[i].getUser_id()).get();
+            for (AllowEtpIdShapeDTO dto : dtoList) {
+                member = memberRepository.findById(dto.getUser_id()).get();
 
                 enterprise = enterpriseRepository.findByUser_id(member);
 
-                if(member == null || enterprise == null) throw new Exception(etpDTO[i].getUser_id() + "는 존재하지 않는 회원입니다.");
+                if(member == null || enterprise == null) throw new Exception(dto.getUser_id() + "는 존재하지 않는 회원입니다.");
 
-                enterprise.modifyEtp_shape(etpDTO[i].getEtp_shape());          // 기업 형태 저장
-                member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
+                if(result.equals("no")){
+                    member.modUser_allow(2);
+                } else if(result.equals("ok")){
+                    member.modUser_allow(1);
+                    enterprise.modifyEtp_shape(dto.getShape());         // 기업 형태 저장
+                    member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
+                }
 
                 memberRepository.save(member);
                 enterpriseRepository.save(enterprise);
@@ -396,9 +401,9 @@ public class MemberServiceImpl implements MemberService {
 
 
     // 이름과 이메일이 일치하면 아이디값을 반환해주는 메소드
-    public String confirmNameAndEmail(MemberDTO memberDTO) {
+    public String confirmNameAndEmail(String name, String email, String emailDomain) {
 
-        String id = memberRepository.findByUser_emailAndUser_name(memberDTO.getUser_email(), memberDTO.getUser_name());
+        String id = memberRepository.findByUser_emailAndUser_name(email, emailDomain, name);
 
         return id;
     }

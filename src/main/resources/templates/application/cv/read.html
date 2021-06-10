@@ -79,7 +79,7 @@
           <section class="form" id="경력사항" th:if="${cv.getCareer()} != null">
             <p class="legend">경력사항</p>
             <div class="info">
-              <table class="test1">
+              <table class="test1" th:each="item, i : ${cv.getCareer()}">
                 <thead class="read_carrer">
                 <tr>
                   <td class="width-224">근무기간</td>
@@ -90,7 +90,7 @@
                 </tr>
                 </thead>
                 <tbody class="read_carrer-body" >
-                <div class="carrer_item" th:each="item, i : ${cv.getCareer()}">
+                <div class="carrer_item">
                   <tr>
                     <td rowspan="2" class="align_center"> [[${item.getCr_employment()}]] ~ [[${item.getCr_resignation()}]]</td>
                     <td rowspan="2" class="align_center carrerName">[[${item.getCr_etp_name()}]]</td>
@@ -205,12 +205,14 @@
               <table>
                 <tr>
                   <td class="width-104 align_center vertical_60 vertical_td">보훈대상</td>
-                  <td class="width-408" th:text="${cv.getCv_verteran() == 0 ? '비대상' : '대상'} "></td>
+                  <td class="width-408" th:if="${cv.getCv_verteran()} == 0 ">비대상</td>
+                  <td class="width-408" th:if="${cv.getCv_verteran()} == 1">대상</td>
                 </tr>
                 <tr>
                   <td class="align_center vertical_60 vertical_td">장애</td>
                   <td>
-                    <span th:text="${cv.getCv_disability()} == 0 ? '비대상' : '대상' "> </span>
+                    <span th:if="${cv.getCv_disability()} == 0 ">비대상 </span>
+                    <span th:if="${cv.getCv_disability()} == 1 ">대상 </span>
                     <span style="color: #a4acc7;">l</span>
                     <span th:text="${cv.getCv_disability_degree()}"></span>
                   </td>

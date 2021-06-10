@@ -36,8 +36,8 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     Optional<Member> findByUser_email(@Param("user_email") String user_email);
 
     // 이메일과 이름을 받아서 DB에 값이 있는지 확인
-    @Query("select m.user_id from Member m where m.user_email = :user_email and m.user_name = :user_name")
-    String findByUser_emailAndUser_name(@Param("user_email") String user_email, @Param("user_name") String user_name);
+    @Query("select m.user_id from Member m where m.user_email = :user_email and m.user_emailDomain = :user_emailDomain and m.user_name = :user_name")
+    String findByUser_emailAndUser_name(@Param("user_email") String user_email, @Param("user_emailDomain") String user_emailDomain, @Param("user_name") String user_name);
 
     //
     @Query(value = "select m, e from Member m , Enterprise e where e.user_id = m and m.user_id = :user_id")

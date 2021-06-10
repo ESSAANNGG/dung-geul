@@ -36,11 +36,11 @@ main {
   }
 }
 .background {
-  z-index: -99;
   background-image: url("/img/mainback2.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  /*object-fit: cover;*/
   z-index: -4;
 }
 
@@ -50,7 +50,7 @@ main {
   margin: auto;
   padding-top: 30px;
   width: 446px;
-  height: 360px;
+  height: 300px;
   z-index: -1;
   position: relative;
   opacity: 0.8;

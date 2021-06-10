@@ -67,20 +67,34 @@ let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
                 obj.user_id=userid;
                 obj.shape=userShape;
                 dataList.push(obj);                             //전달할 배열에 값 삽입
-
+                alert(obj);
             }
         }
+
+        alert(dataList);
 }
 
 function userManage_list_send(){
 
-        $.ajax({
-            url: "/allow/member/read?result=" + p,
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            data: JSON.stringify(dataList),
-        })
+        if(ListId == "main2_user") {
+            $.ajax({
+                url: "/allow/member/read?result=" + p,
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(dataList),
+            })
+        }
+        else if(ListId == "main2_corp"){
+            $.ajax({
+                url: "/allow/etp/read?result=" + p,
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(dataList),
+
+            })
+        }
 
     submit_param();
 }

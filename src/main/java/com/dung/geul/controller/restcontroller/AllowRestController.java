@@ -1,9 +1,6 @@
 package com.dung.geul.controller.restcontroller;
 
-import com.dung.geul.dto.EnterpriseDTO;
-import com.dung.geul.dto.MemberDTO;
-import com.dung.geul.dto.PageRequestDTO;
-import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.repository.EnterpriseRepository;
@@ -29,12 +26,11 @@ public class AllowRestController {   // 권한 관리 컨트롤러
 
     // 기업 인증 승인
     @PostMapping("/etp/read")
-    public ResponseEntity etpAuth(@RequestBody EnterpriseDTO[] etpDTO){
-        System.out.println("controller 실행 user_id : " + etpDTO.toString());
+    public ResponseEntity etpAuth(@RequestBody List<AllowEtpIdShapeDTO> dtoList, @RequestParam("result") String result){
 
-        System.out.println(memberService.authEnterprise(etpDTO));
+        System.out.println("controller 실행 user_id : " + dtoList.toString());
 
-        return memberService.authEnterprise(etpDTO);
+        return memberService.authEnterprise(dtoList, result);
     }
 
     // 교내 회원 승인
