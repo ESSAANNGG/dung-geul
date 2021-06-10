@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
+    <link rel="stylesheet" href="/css/notice_board.css" />
 
     <!-- 채용공고 등록 게시판 CSS 디자인 -->
     <link rel="stylesheet" href="/src/main/resources/static/css/notice_board.css" th:href="@{/css/notice_board.css}">
@@ -43,117 +44,37 @@
                                                 <li><a href="#" th:href="@{/center-information/notice_board}">공지사항</a></li>
                                             </ul>
                                         </li>
-                                        <!-- <li id="menu_con2"><h4>직업 정보</h4>
-                                            <ul id="sb_detail">
-                                                <li><a href="#">직업 정보 조회</a></li>
-                                                <li><a href="#">직업 사전</a></li>
-                                            </ul>
-                                        </li>
-                                        <li id="menu_con3"><h4>상담 정보</h4>
-                                            <ul id="sb_detail">
-                                                <li><a href="#">상담 신청</a></li>
-                                                <li><a href="#">상담 내역</a></li>
-                                            </ul>
-                                        </li> -->
                                     </ul>
                                 </div> <!-- bar -->
                             </div> <!-- menu -->
                         </div>
                     </div>
 
-
-                    <!-- Content -->
-                    <!-- 本 컨텐츠(디자인 수정 전) -->
-                    <!-- <div class="notice_board_content">
-                        <th:block th:fragment="content">
-                            <h1>공지사항 게시글 등록</h1>
-                            <div class="register-content">
-                                <form th:action="@{/center-information/notice_board_register}" th:method="post">
-                                    <div class="form-group">
-                                        <label>제목</label>
-                                        <input type="text" class="form-control" name="title" placeholder="제목을 입력하세요">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>내용</label>
-                                        <textarea class="form-control" rows="5" name="content" placeholder="내용을 입력하세요"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>작성자</label>
-                                        <input type="text" class="form-control" name="b" placeholder="작성자">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">등록</button>
-                                </form>
-                            </div>
-                        </th:block>
-                    </div> -->
-                    <!-- End Content -->
-
-                    <!-- <div class="notice_board_content">
-                        <th:block th:fragment="content">
-                            <div class="register_head">
-                                <div class="register_head_txt">
-                                    공지사항 게시판
-                                </div>
-                            </div>
-
-                            <div class="content">
-                                <div class="register_step_head">
-                                    글 등록
-                                </div>
-
-                                <form th:action="@{/center-information/notice_board_register}" th:method="post">
-
-                                    <div class="register_title_wrap">
-                                        <label>제목</label>
-                                        <input type="text" class="register_title_input"name="title" placeholder="제목을 입력하세요">
-                                    </div>
-
-                                    <div class="register_cont_wrap">
-                                        <label>내용</label>
-                                        <input type="text" class="register_cont_input" rows="5" name="content" placeholder="내용을 입력하세요"></input>
-                                    </div>
-
-                                    <button type="submit" class="base_button" >등록</button>
-                                </form>
-
-                            </div>
-                        </th:block>
-                    </div>  -->
-
-
                     <!-- Content -->
                     <div class="col-9 col-12-medium imp-medium">
-                            <div class="register_head">
-                                <div class="register_head_txt">
-                                    공지사항 게시판
-                                </div>
+                        <div id="board_title">
+                            <h2>공지사항 등록</h2>
+<!--                            <h3>학생들과 소통하는 공간입니다</h3>-->
+                        </div>
+
+                        <form th:action="@{/center-information/notice_board_register}" th:method="post">
+
+                            <div class="register">
+                                <label>제목</label>
+                                <input type="text" class="register_input" name="title" placeholder="제목을 입력하세요">
                             </div>
 
-                            <div class="content">
-
-                                <form th:action="@{/center-information/notice_board_register}" th:method="post">
-
-                                    <div class="register_title_wrap">
-                                        <label>제목</label>
-                                        <input type="text" class="register_title_input"name="title" placeholder="제목을 입력하세요">
-                                    </div>
-
-                                    <div class="register_cont_wrap">
-                                        <label>내용</label>
-                                        <input type="text" class="register_cont_input" rows="5" name="content" placeholder="내용을 입력하세요"></input>
-                                    </div>
-
-                                    <div class="submit_btn">
-                                        <button type="submit">등록</button>
-                                    </div>
-                                </form>
-
+                            <div class="register">
+                                <label>내용</label>
+                                <textarea class="register_input" name="content" placeholder="내용을 입력하세요"></textarea>
                             </div>
+
+                            <div class="submit_btn">
+                                <button type="submit" class="search_cont">등록</button>
+                            </div>
+                        </form>
                     </div>
                     <!-- End Content -->
-
-
-
                 </div>
             </div>
         </section>
