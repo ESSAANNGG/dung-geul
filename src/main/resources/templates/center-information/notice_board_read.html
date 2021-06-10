@@ -48,18 +48,6 @@
                                                 <li><a href="#" th:href="@{/center-information/notice_board}">공지사항</a></li>
                                             </ul>
                                         </li>
-                                        <!-- <li id="menu_con2"><h4>직업 정보</h4>
-                                            <ul id="sb_detail">
-                                                <li><a href="#">직업 정보 조회</a></li>
-                                                <li><a href="#">직업 사전</a></li>
-                                            </ul>
-                                        </li>
-                                        <li id="menu_con3"><h4>상담 정보</h4>
-                                            <ul id="sb_detail">
-                                                <li><a href="#">상담 신청</a></li>
-                                                <li><a href="#">상담 내역</a></li>
-                                            </ul>
-                                        </li> -->
                                     </ul>
                                 </div> <!-- bar -->
                             </div> <!-- menu -->
@@ -71,29 +59,20 @@
 
                         <div id="board_title">
                             <h2>공지사항</h2>
-                            <h3>학생들과 소통해주세요</h3>
+                            <h3>글번호_[[${dto.num}]]</h3>
+                            <h3><span style="font-size:16px">[[${dto.title}]]</span><span style="float:right">작성자 : 관리자[[${dto.b}]]</span></h3>
                         </div>
 
-                        <div class="read_num">
-                            <label>글번호 : [[${dto.num}]]</label>
-                            <!-- <input type="text" class="form-control" name="num" th:value="${dto.num}" readonly > -->
-                            <!-- <p>[[${dto.num}]]</p> -->
+
+
+                        <div class="content">
+                            [[${dto.content}]]
                         </div>
 
-                        <div>
-                            <label>제목</label>
-                            <input type="text" class="search_cont" name="title" th:value="${dto.title}" readonly >
-                        </div>
-
-                        <div>
-                            <label>내용</label>
-                            <textarea class="search_cont" rows="5" name="content" readonly> [[${dto.content}]]</textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label >작성자 : 관리자[[${dto.b}]]</label>
-                            <input type="hidden" class="form-control" name="b" th:value="${dto.b}" readonly>
-                        </div>
+<!--                        <div class="form-group">-->
+<!--                            <label >작성자 : 관리자[[${dto.b}]]</label>-->
+<!--                            <input type="hidden" class="form-control" name="b" th:value="${dto.b}" readonly>-->
+<!--                        </div>-->
 
                         <!-- 날짜 -->
                         <!-- <div class="form-group">
@@ -107,11 +86,11 @@
 
                         <div class="submit_btn">
                             <a th:href="@{/center-information/notice_board_modify(num = ${dto.num}, page=${requestDTO.page})}">
-                                <button type="button" class="btn btn-primary">수정</button>
+                                <button type="button" class="btn btn-primary search_cont">수정</button>
                             </a>
 
                             <a th:href="@{/center-information/notice_board(page=${requestDTO.page})}">
-                                <button type="button" class="btn btn-info">뒤로</button>
+                                <button type="button" class="btn btn-info search_cont">뒤로</button>
                             </a>   
                         </div>
 
