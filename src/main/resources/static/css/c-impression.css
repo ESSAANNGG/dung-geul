@@ -164,3 +164,12 @@ a {
     margin: auto;
     width: 75%;
 }
+.prac {
+    font-size: 14px;
+    font-weight: 700;
+}
+.prac-1 {
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+}
