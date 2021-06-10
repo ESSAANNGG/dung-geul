@@ -70,26 +70,26 @@
                     <div id="label" class="on-a">키워드 검색</div>
 
                     <div class="label-con form-inline">
-                        <form id="jobsearch_k" name="jobsearch_k" method="get"
-                              >
+                        <!-- 직업 검색 form -->
+                        <form id="jobsearch_k" name="jobsearch_k" method="post" th:action="@{/jobSerchK}">
                             <input type="hidden" name="type" value="k">
-                            <input type="text" id="searchCode" name="searchCode" value=""
-                                   maxlength="100" class="form-control" placeholder="찾고 싶은 직업명을 입력하세요.">
+                            <input type="text" id="searchCode" name="searchCode"
+                                   maxlength="30" class="form-control" placeholder="찾고 싶은 직업명을 입력하세요.">
                             <div class="a-list">
-                                <a href="#">가</a>
-                                <a href="#">나</a>
-                                <a href="#">다</a>
-                                <a href="#">라</a>
-                                <a href="#">마</a>
-                                <a href="#">바</a>
-                                <a href="#">사</a>
-                                <a href="#">아</a>
-                                <a href="#">자</a>
-                                <a href="#">차</a>
-                                <a href="#">카</a>
-                                <a href="#">타</a>
-                                <a href="#">파</a>
-                                <a href="#">하</a>
+<!--                                <a href="#">가</a>-->
+<!--                                <a href="#">나</a>-->
+<!--                                <a href="#">다</a>-->
+<!--                                <a href="#">라</a>-->
+<!--                                <a href="#">마</a>-->
+<!--                                <a href="#">바</a>-->
+<!--                                <a href="#">사</a>-->
+<!--                                <a href="#">아</a>-->
+<!--                                <a href="#">자</a>-->
+<!--                                <a href="#">차</a>-->
+<!--                                <a href="#">카</a>-->
+<!--                                <a href="#">타</a>-->
+<!--                                <a href="#">파</a>-->
+<!--                                <a href="#">하</a>-->
                             </div>
                             <button type="submit" class="btn-d">검색</button>
                         </form>
