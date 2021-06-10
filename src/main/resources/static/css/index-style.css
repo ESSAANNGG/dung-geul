@@ -36,11 +36,11 @@ main {
   }
 }
 .background {
-  z-index: -99;
-  background-image: url("/img/mainback2.jpg");
+  background-image: url("/img/mainback3.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  /*object-fit: cover;*/
   z-index: -4;
 }
 

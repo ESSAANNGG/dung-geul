@@ -19,7 +19,7 @@ function nav_off() {
   /*setTimeout(function() {
         nav[0].style.backgroundColor="transparent"; 
     }, 1000);             오류있음 이유모르겠*/
-  nav[0].style.backgroundColor = "#ffffff"; /*transparent = 투명한*/
+  nav[0].style.backgroundColor = "initial"; /*transparent = 투명한*/
   nav2[0].style.height = "0px";
   for (var i = 0; i < dep2.length; i++) {
     dep2[i].style.height = "0px";
