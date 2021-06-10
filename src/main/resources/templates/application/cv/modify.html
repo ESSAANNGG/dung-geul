@@ -176,7 +176,7 @@
 
                           <option value="고등학교">고등학교</option>
 
-                          <option value="전문대">대학(2,3년)</option>
+                          <option value="전문대">전문대(2,3년)</option>
 
                           <option value="대학교">대학교(4년)</option>
 
@@ -958,17 +958,11 @@
     $('#disability_degree').val(degree).prop("selected", true);
 
     /*<![CDATA[*/
-     var verteran = /*[[ ${cv.getCv_verteran()} ]]*/;
+     var verteran = /*[[ ${cv.getCv_militaryServiceClassification()} ]]*/;
     /*]]*/
+    
 
-    [# th:if="verteran == 1"]
-       $('#verteran').val("미필").prop("selected", true);
-    [/]
-    [# th:if="verteran == 2"]
-       $('#verteran').val("공익").prop("selected", true);
-    [/]
-
-   
+    $('#verteran').val(verteran).prop("selected", true);
 
   </script>
 
