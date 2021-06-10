@@ -1,6 +1,12 @@
 body {
     font-family: 'Nanum Gothic', sans-serif;
 }
+.main-wrap {
+    margin-top: 3.7%;
+    width: 100%;
+    height: 1700px;
+    background: #fdfaf6;
+}
 .all-wrap {
     width: 1000px;
     /* left: 30%; */
@@ -8,6 +14,7 @@ body {
     justify-content: center;
     margin: 0 auto;
     font-size: 20px;
+    top: 28%;
 }
 .onload {
     float: left;
@@ -23,15 +30,14 @@ body {
 }
 .onload img {
     object-fit: fill;
-    width: 20x;
+    width: 20px;
     height: 20px;
     position: relative;
-    top: 3px;
-    left: 10px;
+    left: 2px;
 }
 .slide-wrap {
     position: absolute;
-    top: 40%;
+    top: 45%;
 }
 .slide-wrap img {
     width: 100%;
@@ -46,21 +52,21 @@ body {
 }
 /* 슬라이드 */
 .swiper-container{
-    width: 100%; height: 57%; padding: 60px;
+    width: 100%; height: 87%; padding: 80px; left: 3%;
 }
 .swiper-container .swiper-wrapper .swiper-slide{
-    width: 100%; text-align: center; font-size: 18px; overflow: hidden;
+    width: 100%; text-align: center; font-size: 25px; overflow: hidden;
 }
 .swiper-container .swiper-wrapper .swiper-slide .slide-top{
-    position: relative; width: 350px; height: 350px;
+    position: relative; width: 400px; height: 400px;
 }
 .swiper-container .swiper-wrapper .swiper-slide .slide-top img{
-    width: 350px; height: 350px;
+    width: 400px; height: 400px;
 }
 .swiper-container .swiper-wrapper .swiper-slide .slide-bottom{
-    position: absolute; width: 350px; height: 70px; line-height: 100%;
+    position: absolute; width: 365px; height: 90px; line-height: 100%;
     background-color: rgba(92, 92, 92, 0.5); transition: 1s; overflow: hidden;
-    bottom: -70px;
+    bottom: -100px;
 }
 .swiper-container .swiper-wrapper .swiper-slide:hover .slide-bottom{
     bottom: 0; cursor: pointer;
