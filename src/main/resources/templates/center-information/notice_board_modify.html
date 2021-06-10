@@ -60,6 +60,7 @@
                         <div class="col-9 col-12-medium imp-medium">
                             <div id="board_title">
                                 <h2>공지사항 수정</h2>
+                                <h3>글번호_[[${dto.num}]]</h3>
                             </div>
 
                                 <form action="/center-information/notice_board_modify" method="post">
@@ -69,7 +70,7 @@
                                     <input type="hidden" name="type" th:value="${requestDTO.type}">
                                     <input type="hidden" name="keyword" th:value="${requestDTO.keyword}"> -->
 
-                                    <div class="register">
+                                    <div class="register" style="display:none">
                                         <label>글번호 : [[${dto.num}]]</label>
                                         <input type="hidden" class="form-control" name="num" th:value="${dto.num}" readonly >
                                     </div>
