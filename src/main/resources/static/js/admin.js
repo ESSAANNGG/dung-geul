@@ -183,7 +183,7 @@ $('.list_submit').click(function(){
     check_name = $(List).find('input[type=checkbox]').eq(1).attr('name');     //해당리스트의 checkname을 가져옴
     checkLength = $('input[name=' + check_name + ']:checked').length;         //체크 수만큼 반복
     dataList = [];                                                            //배열이 계속 쌓이는걸 방지 (초기화) , 체크한 목록을 가져와 List에 담음
-    alert(ListId+"das"+ListNum);
+    // alert(ListId+"das"+ListNum);
     // alert($(List).attr("class"));
     // alert($(List).parent("div").attr('id'));
     //유저관리를 위한 부분 공용으로 혹시 쓸수 있나 해서 공용js에 임시로 둠
@@ -205,8 +205,8 @@ $('.list_submit').click(function(){
         ($('input[name=' + check_name + ']').eq(checked)).prop("checked", false);                                       //해당하는 인덱스의 체크 해제 < 이걸 해야 바로 위 문장의 인덱스가 1씩 늘어나서 다음 체크된 것들에 대해 수행할 수 있음
         window[String(menu_name)+"_list"]();                                                                            //data를 담는 함수 호출
     }
-
     if(dataList.length!=0){                                 //넘어온 값이 없을 시 수행하지 않음
+
         alert(JSON.stringify(dataList)+"선택된 값들입니다");   //디버깅
         window[String(menu_name)+"_list_send"]();           //list를 담았고 data보내는 함수 호출
     }

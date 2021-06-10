@@ -50,12 +50,11 @@ let userShape; //기업형태
 let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
 
     function userManage_list() {
-
         userid = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .username').text();                        //아이디값을 읽어옴
 
-        if (ListId == "main2_user") {
+        if (ListId == "main2_user" || ListNum==2) {                                                             //일반회원이거나 기업형태가 필요없는 기업리스트의 삭제는 바로 값을 담음
             dataList.push(userid);
-        } else if (ListId == "main2_corp") {
+        } else if (ListId == "main2_corp" && ListNum!=2) {                                                      //기업회원중 기업인증할때만 shape가 필요 LISTNUM 2는 기업회원 리스트 3은 기업회원 인증리스트
             userShape = $('.shapeSelect:eq(' + checked + ')').val();                                            //기업형태를 읽어옴
             if (userShape == "") {                                                                              //기업형태를 선택하지 않았다면 알림,리스트에 추가하지않음
                 if (alertShape == 0 && p == "ok") {
@@ -87,7 +86,7 @@ function userManage_list_send(){
         }
         else if(ListId == "main2_corp"){
             $.ajax({
-                url: "/allow/etp/read?result=" + p,
+                url: "/allow/etp/delete?result=" + p,
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -95,7 +94,7 @@ function userManage_list_send(){
 
             })
         }
-
+    alert(dataList);
     submit_param();
 }
 
