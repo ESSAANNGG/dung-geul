@@ -271,23 +271,23 @@
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="2_1_checkH"
                                                                onclick="checkAll(this)"></span>
-                <span class="number">번호</span>
-                <span class="name">이름</span>
-                <span class="username">아이디</span>
-                <span class="phone">연락처</span>
-                <span class="email">이메일</span>
-                <span class="joindate">가입일</span>
-                <span class="role">권한</span>
+                <span class="number s100" >번호</span>
+                <span class="name s140">이름</span>
+                <span class="username s380">아이디</span>
+                <span class="phone s180">연락처</span>
+                <span class="email s430">이메일</span>
+                <span class="joindate s140">가입일</span>
+                <span class="role s140">권한</span>
               </div>
               <div class="list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="2_1_check"></span>
-                <span class="number">[[${i.count}]]</span>
-                <span class="name">[[${item.user_name}]]</span>
-                <span class="username">[[${item.user_id}]]</span>
-                <span class="phone">[[${item.user_ph}]]-[[${item.user_ph2}]]-[[${item.user_ph3}]]</span>
-                <span class="email">[[${item.user_email}]]@[[${item.user_emailDomain}]]</span>
-                <span class="joindate">[[${item.user_regdate}]]</span>
-                <span class="role">[[${item.user_type}]]</span>
+                <span class="number s100">[[${i.count}]]</span>
+                <span class="name s140">[[${item.user_name}]]</span>
+                <span class="username s380">[[${item.user_id}]]</span>
+                <span class="phone s180">[[${item.user_ph}]]-[[${item.user_ph2}]]-[[${item.user_ph3}]]</span>
+                <span class="email s430">[[${item.user_email}]]@[[${item.user_emailDomain}]]</span>
+                <span class="joindate s140">[[${item.user_regdate}]]</span>
+                <span class="role s140">[[${item.user_type}]]</span>
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>
@@ -396,7 +396,7 @@
                 <span class="username">[[${item.user_id}]]</span>
                 <span class="email">[[${item.user_email}]]</span>
                 <span class="joindate">[[${item.user_regdate}]]</span>
-                <span class="role">[[${item.user_type}]]</span>
+                <span class="role">[[${item.user_shape}]]</span>
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>

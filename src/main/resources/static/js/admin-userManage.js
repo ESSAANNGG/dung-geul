@@ -19,7 +19,7 @@ function userManage_guide(){
 let detail_per;         //어떤 권한의 사용자인지 확인하는 변수 0=학생 1=교직원 2=상담사 3=기업
 function detail_on_userManage(id,roll){
     detail_state=1;
-    alert(id);//id를 읽어 해당 유저의상세정보를 검색하기위해 id를 전달
+
     $.ajax({
         url: "",
         type: "POST",
@@ -66,11 +66,8 @@ let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
                 obj.user_id=userid;
                 obj.shape=userShape;
                 dataList.push(obj);                             //전달할 배열에 값 삽입
-                alert(obj);
             }
         }
-
-        alert(dataList);
 }
 
 function userManage_list_send(){
@@ -102,7 +99,6 @@ function userManage_list_send(){
                 data: JSON.stringify(dataList),
             })
         }
-    alert(dataList);
     submit_param();
 }
 
