@@ -81,7 +81,7 @@
                 </div>
                 <div class="common_div width-410">
                   <label class="absolute-label" for="">지원경로</label>
-                  <input class="common_input" type="text" name="supportPath" id="" autocomplete="off" />
+                  <input class="common_input" type="text" th:value="${cv.getSupportPath()}" name="supportPath" id="" autocomplete="off" />
                 </div>
               </div>
             </section>
@@ -206,7 +206,7 @@
                           <!-- <input class="common_input" name="edc_graduated" autocomplete="off" /> -->
                           <select id="highSchoolGradu" class="common_select schoolSelected1"
                             name="education[][highschool_edc_graduated]">
-                            <option class="gray" value="">졸업상태</option>
+                            <option class="gray" >[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -236,7 +236,7 @@
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="collegeGradu" class="common_select schoolSelected1"
                             name="education[][college_edc_graduated]">
-                            <option class="gray" value="">졸업상태</option>
+                            <option class="gray" >[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -299,7 +299,7 @@
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="univerGradu" class="common_select schoolSelected1"
                             name="education[][university_edc_graduated]">
-                            <option class="gray" value="">졸업상태</option>
+                            <option class="gray" >[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -374,7 +374,7 @@
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="graduateGradu" class="common_select schoolSelected1"
                             name="education[][graduate_edc_graduated]">
-                            <option class="gray" value="">졸업상태</option>
+                            <option class="gray" >[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -661,7 +661,7 @@
                 <div class="item_lic" th:each="item : ${cv.getCertificate()}">
                   <div class="info">
                     <input type="hidden" name="certificate[][lic_num]" th:value="${item.getLic_num()}">
-                    <div class="common_div width-450">
+                    <div class="common_div width-430">
                       <label class="absolute-label" for="">자격증 명 </label>
                       <input class="common_input" type="text" th:value="${item.getLic_name()}"
                         name="certificate[][lic_name]" />
