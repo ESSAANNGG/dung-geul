@@ -53,7 +53,7 @@ public class CvPageDTO {
 
     private String sec_of_exam;             // 응시부문
 
-    private String Desired_salary;          // 희망 연봉
+    private String desired_salary;          // 희망 연봉
 
     private String cv_hobby;                 // 취미
 

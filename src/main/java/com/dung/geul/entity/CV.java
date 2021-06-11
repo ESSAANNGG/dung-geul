@@ -53,7 +53,7 @@ public class CV  implements Serializable{
     // 희망 조건
     private String sec_of_exam;             // 응시부문
 
-    private String Desired_salary;          // 희망 연봉
+    private String desired_salary;          // 희망 연봉
 
     // 취미 특기
     private String cv_hobby;                 // 취미
@@ -116,7 +116,7 @@ public class CV  implements Serializable{
     }
 
     public void setDesired_salary(String desired_salary) {
-        Desired_salary = desired_salary;
+        this.desired_salary = desired_salary;
     }
 
     public void setCv_hobby(String cv_hobby) {
