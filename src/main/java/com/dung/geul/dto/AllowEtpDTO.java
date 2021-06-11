@@ -32,6 +32,8 @@ public class AllowEtpDTO {
 
     private String user_type;
 
+    private String user_shape;
+
     public AllowEtpDTO(String user_id){
         this.user_id = user_id;
     }

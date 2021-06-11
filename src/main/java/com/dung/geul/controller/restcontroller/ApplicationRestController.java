@@ -6,6 +6,7 @@ import com.dung.geul.repository.CvRepository;
 import com.dung.geul.service.CvServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
@@ -32,14 +33,12 @@ public class ApplicationRestController {
     }
 
     @PostMapping("/cv/modify")
-    public RedirectView cvModify(@RequestBody CvPageDTO cvPageDTO){
+    public ResponseEntity cvModify(@RequestBody CvPageDTO cvPageDTO){
 
         System.out.println("ApplicationApiController : cvModify() 실행");
         System.out.println("cvPageDTO : " + cvPageDTO);
 
-        cvServiceImpl.modify(cvPageDTO);
-
-        return new RedirectView("/application/cv/read");
+        return cvServiceImpl.modify(cvPageDTO);
     }
 
     @GetMapping("/cv/delete")

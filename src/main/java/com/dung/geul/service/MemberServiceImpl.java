@@ -531,11 +531,11 @@ public class MemberServiceImpl implements MemberService {
             builder.and(epId);
         }
 
-        // date
-        startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
-        endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
+        if(dto.getStartDate() != null && dto.getEndDate() != null){
+            // date
+            startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
+            endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
 
-        if(startDate != null && endDate != null){
             BooleanExpression epDate = qMember.regDate.between(startDate, endDate);     // regdate 조건
             builder.and(epDate);
         }

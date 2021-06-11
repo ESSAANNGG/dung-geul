@@ -33,6 +33,14 @@ public class AllowRestController {   // 권한 관리 컨트롤러
         return memberService.authEnterprise(dtoList, result);
     }
 
+    @PostMapping("/etp/delete")
+    public ResponseEntity etpDelete(@RequestBody List<String> userIds, @RequestParam("result") String result){
+
+        System.out.println("controller 실행 user_id : " + userIds.toString());
+
+        return memberService.authMember(userIds, result);
+    }
+
     // 교내 회원 승인
     @PostMapping("/member/read")
     public ResponseEntity memberAuth(@RequestBody List<String> userIds, @RequestParam("result") String result){

@@ -6,6 +6,8 @@ import com.dung.geul.repository.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.Repository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +17,7 @@ import java.util.Optional;
 
 @Service
 @Log4j2
-public class CvServiceImpl implements CVService{
+public class CvServiceImpl implements CVService {
 
     @Autowired
     private CvRepository cvRepository;
@@ -43,7 +45,7 @@ public class CvServiceImpl implements CVService{
 
     // 이력서 등록
     @Transactional
-    public int register(CvPageDTO cvPageDTO){
+    public int register(CvPageDTO cvPageDTO) {
 
         try {
 
@@ -107,8 +109,8 @@ public class CvServiceImpl implements CVService{
             List<CertificateDTO> certificateList = cvPageDTO.getCertificate();
             if (certificateList.size() > 0) {
                 for (CertificateDTO dto : certificateList) {
-                        License license = dtoToEntity(dto, member);
-                        licenseRepository.save(license);
+                    License license = dtoToEntity(dto, member);
+                    licenseRepository.save(license);
 
                 }
             }
@@ -126,7 +128,7 @@ public class CvServiceImpl implements CVService{
 
             return 1;
 
-        } catch (Exception e){
+        } catch (Exception e) {
 
             log.info("error 발생 : " + e);
             return 0;
@@ -134,7 +136,7 @@ public class CvServiceImpl implements CVService{
 
     }
 
-    public CvPageDTO getCvPageDto(String user_id){
+    public CvPageDTO getCvPageDto(String user_id) {
 
         Member member = memberRepository.findById(user_id).get();
 
@@ -168,7 +170,9 @@ public class CvServiceImpl implements CVService{
         if (educationList.size() > 0) {
             List<EducationDTO> educationDTOList = new ArrayList<>();
             for (Education education : educationList) {
-                if(education.getSchoolType() == "" || education.getSchoolType() == null){continue;}
+                if (education.getSchoolType() == "" || education.getSchoolType() == null) {
+                    continue;
+                }
                 EducationDTO dto = EntityToDto(education);
                 log.info("dto : " + dto);
                 educationDTOList.add(dto);
@@ -180,7 +184,9 @@ public class CvServiceImpl implements CVService{
         if (awardsList.size() > 0) {
             List<AwardsDTO> awardsDTOList = new ArrayList<>();
             for (Awards awards : awardsList) {
-                if(awards.getAwards_des() == "" || awards.getAwards_des() == null){continue;}
+                if (awards.getAwards_des() == "" || awards.getAwards_des() == null) {
+                    continue;
+                }
                 AwardsDTO dto = EntityToDto(awards);
                 log.info("dto : " + dto);
                 awardsDTOList.add(dto);
@@ -189,53 +195,60 @@ public class CvServiceImpl implements CVService{
         }
 
         List<Carrer> carrerList = carrerRepository.findByMember(member);
-        if(carrerList.size() > 0){
+        if (carrerList.size() > 0) {
             List<CareerDTO> careerDTOList = new ArrayList<>();
-                for(Carrer c : carrerList) {
-                    if(c.getCr_etp_name() == "" || c.getCr_etp_name() == null){continue;}
-                    CareerDTO dto = EntityToDto(c);
-                    careerDTOList.add(dto);
+            for (Carrer c : carrerList) {
+                if (c.getCr_etp_name() == "" || c.getCr_etp_name() == null) {
+                    continue;
                 }
+                CareerDTO dto = EntityToDto(c);
+                careerDTOList.add(dto);
+            }
             pageDTO.setCareer(careerDTOList);
         }
 
         List<Family> familyList = familyRepository.findByMember(member);
-        if(familyList.size() > 0){
+        if (familyList.size() > 0) {
             List<FamilyDTO> familyDTOList = new ArrayList<>();
-                for(Family f : familyList){
-                    if(f.getFam_relation() == "" || f.getFam_relation() == null){continue;}
-                    FamilyDTO dto = EntityToDto(f);
-                    log.info("dto : " + dto);
-                    familyDTOList.add(dto);
+            for (Family f : familyList) {
+                if (f.getFam_relation() == "" || f.getFam_relation() == null) {
+                    continue;
                 }
+                FamilyDTO dto = EntityToDto(f);
+                log.info("dto : " + dto);
+                familyDTOList.add(dto);
+            }
             pageDTO.setFamily(familyDTOList);
         }
 
 
-
         List<Language> languageList = languageRepository.findByMember(member);
-        if(languageList.size() > 0){
+        if (languageList.size() > 0) {
             List<LanguageDTO> languageDTOList = new ArrayList<>();
-                for(Language l : languageList){
-                    if(l.getFl_name() == "" || l.getFl_name() == null){continue;}
-                    LanguageDTO dto = EntityToDto(l);
-                    log.info("dto : " + dto);
-                    languageDTOList.add(dto);
+            for (Language l : languageList) {
+                if (l.getFl_name() == "" || l.getFl_name() == null) {
+                    continue;
                 }
+                LanguageDTO dto = EntityToDto(l);
+                log.info("dto : " + dto);
+                languageDTOList.add(dto);
+            }
             pageDTO.setLanguage(languageDTOList);
         }
 
         List<License> licenseList = licenseRepository.findByMember(member);
 
-        if(licenseList.size() > 0){
+        if (licenseList.size() > 0) {
             List<CertificateDTO> licenseDTOList = new ArrayList<>();
-                for(License l : licenseList){
-                    if(l.getLic_name() == "" || l.getLic_name() == null){continue;}
-
-                    CertificateDTO dto = EntityToDto(l);
-                    log.info("dto : " + dto);
-                    licenseDTOList.add(dto);
+            for (License l : licenseList) {
+                if (l.getLic_name() == "" || l.getLic_name() == null) {
+                    continue;
                 }
+
+                CertificateDTO dto = EntityToDto(l);
+                log.info("dto : " + dto);
+                licenseDTOList.add(dto);
+            }
             pageDTO.setCertificate(licenseDTOList);
         }
 
@@ -243,69 +256,73 @@ public class CvServiceImpl implements CVService{
     }
 
 
-    public void modify(CvPageDTO cvPageDTO){
+    public ResponseEntity modify(CvPageDTO cvPageDTO) {
 
-        CV cv = cvRepository.getOne(cvPageDTO.getCv_id());
+        try {
+            CV cv = cvRepository.getOne(cvPageDTO.getCv_id());
 
-        // TODO .. 이력서 수정 만들기
+            if (cvPageDTO != null) {
 
-        if(cvPageDTO != null){
+                modifyEntity(cvPageDTO, cv);
+                cvRepository.save(cv);
 
-            modifyEntity(cvPageDTO, cv);
-            cvRepository.save(cv);
+                List<EducationDTO> educationDTOList = cvPageDTO.getEducation();
+                List<CareerDTO> careerDTOList = cvPageDTO.getCareer();
+                List<AwardsDTO> awardsDTOList = cvPageDTO.getAwards();
+                List<FamilyDTO> familyDTOList = cvPageDTO.getFamily();
+                List<CertificateDTO> certificateDTOList = cvPageDTO.getCertificate();
+                List<LanguageDTO> languageDTOList = cvPageDTO.getLanguage();
 
-            List<EducationDTO> educationDTOList = cvPageDTO.getEducation();
-            List<CareerDTO> careerDTOList = cvPageDTO.getCareer();
-            List<AwardsDTO> awardsDTOList = cvPageDTO.getAwards();
-            List<FamilyDTO> familyDTOList = cvPageDTO.getFamily();
-            List<CertificateDTO> certificateDTOList = cvPageDTO.getCertificate();
-            List<LanguageDTO> languageDTOList = cvPageDTO.getLanguage();
+                for (EducationDTO dto : educationDTOList) {
+                    Education entity = educationRepository.getOne(dto.getId());
+                    entity = modifyEntity(dto, entity);
+                    educationRepository.save(entity);
+                }
 
-            for(EducationDTO dto : educationDTOList){
-                Education entity = educationRepository.getOne(dto.getId());
-                entity = modifyEntity(dto, entity);
-                educationRepository.save(entity);
+                for (CareerDTO dto : careerDTOList) {
+                    Carrer entity = carrerRepository.getOne(dto.getId());
+                    entity = modifyEntity(dto, entity);
+                    carrerRepository.save(entity);
+                }
+
+                for (AwardsDTO dto : awardsDTOList) {
+                    Awards entity = awardsRepository.getOne(dto.getId());
+                    entity = modifyEntity(dto, entity);
+                    awardsRepository.save(entity);
+                }
+
+                for (FamilyDTO dto : familyDTOList) {
+                    Family entity = familyRepository.getOne(dto.getId());
+                    entity = modifyEntity(dto, entity);
+                    familyRepository.save(entity);
+                }
+
+                for (CertificateDTO dto : certificateDTOList) {
+                    License entity = licenseRepository.getOne(dto.getId());
+                    entity = modifyEntity(dto, entity);
+                    licenseRepository.save(entity);
+                }
+
+                for (LanguageDTO dto : languageDTOList) {
+                    Language entity = languageRepository.getOne(dto.getId());
+                    entity = modifyEntity(dto, entity);
+                    languageRepository.save(entity);
+                }
+
+                log.info("수정 완료");
+                return new ResponseEntity(HttpStatus.OK);
             }
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 
-            for(CareerDTO dto : careerDTOList){
-                Carrer entity = carrerRepository.getOne(dto.getId());
-                entity = modifyEntity(dto, entity);
-                carrerRepository.save(entity);
-            }
-
-            for(AwardsDTO dto : awardsDTOList){
-                Awards entity = awardsRepository.getOne(dto.getId());
-                entity = modifyEntity(dto, entity);
-                awardsRepository.save(entity);
-            }
-
-            for(FamilyDTO dto : familyDTOList){
-                Family entity = familyRepository.getOne(dto.getId());
-                entity = modifyEntity(dto, entity);
-                familyRepository.save(entity);
-            }
-
-            for(CertificateDTO dto : certificateDTOList){
-                License entity = licenseRepository.getOne(dto.getId());
-                entity = modifyEntity(dto, entity);
-                licenseRepository.save(entity);
-            }
-
-            for(LanguageDTO dto : languageDTOList){
-                Language entity = languageRepository.getOne(dto.getId());
-                entity = modifyEntity(dto, entity);
-                languageRepository.save(entity);
-            }
-
-            log.info("수정 완료");
+        } catch (Exception e) {
+            log.info("error : " + e);
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-        return;
 
     }
 
     @Transactional
-    public void delete(String user_id) {
+    public ResponseEntity delete(String user_id) {
 
         try{
             Optional<Member> member = memberRepository.findById(user_id);
@@ -368,9 +385,12 @@ public class CvServiceImpl implements CVService{
                 }
             }
 
+            return new ResponseEntity(HttpStatus.OK);
+
         }catch (Exception e){
             System.out.println("Cvservice - delete error : " + e);
-            return;
+
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
