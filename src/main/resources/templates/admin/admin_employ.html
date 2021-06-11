@@ -113,23 +113,23 @@
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="3_1_checkH"
                                                                onclick="checkAll(this)"></span>
-                <span class="number">공고번호</span>
-                <span class="employ_title">제목</span>
-                <span class="corp_name">기업명</span>
-                <span class="shape">기업형태</span>
-                <span class="ot">직종구분</span>
-                <span class="startDate">시작일</span>
-                <span class="deadline">마감일</span>
+                <span class="number s100">공고번호</span>
+                <span class="employ_title s400">제목</span>
+                <span class="corp_name s320">기업명</span>
+                <span class="shape s140">기업형태</span>
+                <span class="ot s270">직종구분</span>
+                <span class="startDate s140">시작일</span>
+                <span class="deadline s140">마감일</span>
               </div>
               <div class="list_body" th:each="dto: ${result.dtoList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="3_1_check"></span>
-                <span class="number">[[${dto.num}]]</span>
-                <span class="employ_title">[[${dto.title}]]</span>
-                <span class="corp_name">[[${dto?.etp_name}]]</span>
-                <span class="shape">대기업</span>
-                <span class="ot">[[${dto.ot}]]</span>
-                <span class="startDate">[[${#temporals.format(dto.start_date, 'YYYY-MM-dd ')}]]</span>
-                <span class="deadline">[[${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}]]</span>
+                <span class="number s100">[[${dto.num}]]</span>
+                <span class="employ_title s400">[[${dto.title}]]</span>
+                <span class="corp_name s320">[[${dto?.etp_name}]]</span>
+                <span class="shape s140">대기업</span>
+                <span class="ot s270">[[${dto.ot}]]</span>
+                <span class="startDate s140">[[${#temporals.format(dto.start_date, 'YYYY-MM-dd ')}]]</span>
+                <span class="deadline s140">[[${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}]]</span>
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>

@@ -371,15 +371,34 @@ span:nth-of-type(1){
 .s180{
     width:180px;
 }
+.s200{
+    width:200px;
+}
+.s270{
+    width:270px;
+}
+.s320{
+    width:320px;
+}
 .s380{
     width:380px;
+}
+.s400{
+    width:400px;
 }
 .s430{
     width:430px;
 }
+.s610{
+    width:610px;
+}
+.shape{
+    z-index:1;
+    padding:0px;
+}
 .shape select{
     text-align-last: center;
-    width:120px;
+    width:140px;
     height:40px;
     line-height:35px;
 
@@ -391,70 +410,65 @@ span:nth-of-type(1){
     background:url("/img/down-arrow.png") no-repeat 87% 50%/11px auto;
 }
 
-.number{
-    width:100px;
-}
-.name{
-    width:140px;
-}
-.username{
-    width:380px;
-}
-.phone{
-    width:180px;
-}
-.email{
-    width:430px;
-}
-.joindate{
-    width:140px;
-}
-.role{
-    width:140px;
-}
-.corp_name{
-    width:320px;
-}
-.shape{
-    width:140px;
-    z-index:1;
-    padding:0px;
-}
+/*.number{*/
+/*    width:100px;*/
+/*}*/
+/*.name{*/
+/*    width:140px;*/
+/*}*/
+/*.username{*/
+/*    width:380px;*/
+/*}*/
+/*.phone{*/
+/*    width:180px;*/
+/*}*/
+/*.email{*/
+/*    width:430px;*/
+/*}*/
+/*.joindate{*/
+/*    width:140px;*/
+/*}*/
+/*.role{*/
+/*    width:140px;*/
+/*}*/
+/*.corp_name{*/
+/*    width:320px;*/
+/*}*/
 
-/*채용공고메뉴*/
-.employ_title{
-    width:400px;
-}
-.ot{
-    width:270px;
-}
-.startDate{
-    width:140px;
-}
-.deadline{
-    width:140px;
-}
+/*!*채용공고메뉴*!*/
+/*.employ_title{*/
+/*    width:400px;*/
+/*}*/
+/*.ot{*/
+/*    width:270px;*/
+/*}*/
+/*.startDate{*/
+/*    width:140px;*/
+/*}*/
+/*.deadline{*/
+/*    width:140px;*/
+/*}*/
 /*상담관리메뉴*/
-.content{
-    width:520px;
-}
-.regdate{
-    width:140px;
-}
-.moddate{
-    width:140px;
-}
-.preference{/*신청건수*/
-    width:140px;
-}
-/*상담메뉴*/
-.title{
-    width:330px;
-}
-/*게시판*/
-.link{
-    width:140px;
-}
+/*.content{*/
+/*    width:520px;*/
+/*}*/
+/*.regdate{*/
+/*    width:140px;*/
+/*}*/
+/*.moddate{*/
+/*    width:140px;*/
+/*}*/
+/*.preference{!*신청건수*!*/
+/*    width:140px;*/
+/*}*/
+/*!*상담메뉴*!*/
+/*.title{*/
+/*    width:330px;*/
+/*}*/
+/*!*게시판*!*/
+/*.link{*/
+/*    width:140px;*/
+/*}*/
 .list_button button{
     width:90px;
     height:40px;

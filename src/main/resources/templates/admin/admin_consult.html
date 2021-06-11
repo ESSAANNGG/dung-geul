@@ -165,21 +165,21 @@
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="6_1_checkH"
                                                                onclick="checkAll(this)"></span>
-                <span class="number">목록번호</span>
-                <span class="title">상담종류</span>
-                <span class="content">상담제목</span>
-                <span class="regdate">등록일</span>
-                <span class="moddate">수정일</span>
+                <span class="number s100">목록번호</span>
+                <span class="type s140">상담종류</span>
+                <span class="title s400">상담제목</span>
+                <span class="regdate s140">등록일</span>
+                <span class="moddate s140">수정일</span>
 <!--                <span class="preference">신청건수</span>-->
               </div>
 
               <div class="list_body" th:each=" consult : ${consultlist}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_1_check"></span>
-                <span class="number">[[${consult.cno}]]</span>
-                <span class="title">[[${consult.type}]]</span>
-                <span class="content">[[${consult.name}]]</span>
-                <span class="regdate">[[${#temporals.format(consult.consult_regdate, 'YYYY-MM-dd ')}]]</span>
-                <span class="moddate">[[${#temporals.format(consult.consult_moddate, 'YYYY-MM-dd ')}]]</span>
+                <span class="number s100">[[${consult.cno}]]</span>
+                <span class="type s140">[[${consult.type}]]</span>
+                <span class="title s400">[[${consult.name}]]</span>
+                <span class="regdate s140">[[${#temporals.format(consult.consult_regdate, 'YYYY-MM-dd ')}]]</span>
+                <span class="moddate s140">[[${#temporals.format(consult.consult_moddate, 'YYYY-MM-dd ')}]]</span>
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>
