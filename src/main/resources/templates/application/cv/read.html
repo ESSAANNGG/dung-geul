@@ -221,8 +221,7 @@
                 <tr>
                   <td class="align_center vertical_60 vertical_td">병역</td>
                   <td th:if="${cv.getCv_military() == 0}">해당사항 없음</td>
-                  <td th:if="${cv.getCv_military() == 1}">미필</td>
-                  <td th:if="${cv.getCv_military() == 2}">공익</td>
+                  <td th:if="${cv.getCv_military() == 1}" th:text="${cv.getMilitaryServiceClassification()}"></td>
                 </tr>
               </table>
             </div>
@@ -349,7 +348,7 @@
                 <tr>
                   <td class="align_center vertical_60 vertical_td">희망연봉</td>
                   <td th:if="${cv.getDesired_salary() != null}">[[ ${cv.getDesired_salary() == "" ? "회사내규에 따름" : cv.getDesired_salary()} ]]</td>
-                  <td th:if="${cv.getDesired_salary() == null}"></td>
+                  <td th:if="${cv.getDesired_salary() == null}">회사내규에 따름</td>
                 </tr>
               </table>
             </div>
