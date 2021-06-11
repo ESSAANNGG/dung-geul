@@ -113,7 +113,7 @@ public class CVRepositoryTest {
                     .cv_military(0)
                     //희망조건
                     .sec_of_exam("개발직")
-                    .Desired_salary("3000")
+                    .desired_salary("3000")
                     //취미 특기
                     .cv_hobby("독서")
                     .cv_specialty("등산")

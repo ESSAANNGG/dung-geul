@@ -46,7 +46,7 @@ public interface CVService {
                 .cv_military(dto.getCv_military())
                 //희망조건
                 .sec_of_exam(dto.getSec_of_exam())
-                .Desired_salary(dto.getDesired_salary())
+                .desired_salary(dto.getDesired_salary())
                 //취미 특기
                 .cv_hobby(dto.getCv_hobby())
                 .cv_specialty(dto.getCv_specialty())

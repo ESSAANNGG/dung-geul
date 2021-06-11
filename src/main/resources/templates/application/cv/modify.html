@@ -81,7 +81,7 @@
                 </div>
                 <div class="common_div width-410">
                   <label class="absolute-label" for="">지원경로</label>
-                  <input class="common_input" type="text" name="supportPath" id="" autocomplete="off" />
+                  <input class="common_input" type="text" th:value="${cv.getSupportPath()}" name="supportPath" id="" autocomplete="off" />
                 </div>
               </div>
             </section>
@@ -206,7 +206,7 @@
                           <!-- <input class="common_input" name="edc_graduated" autocomplete="off" /> -->
                           <select id="highSchoolGradu" class="common_select schoolSelected1"
                             name="education[][highschool_edc_graduated]">
-                            <option class="gray" value="">졸업상태</option>
+                            <option class="gray" >[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -236,7 +236,7 @@
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="collegeGradu" class="common_select schoolSelected1"
                             name="education[][college_edc_graduated]">
-                            <option class="gray" value="">졸업상태</option>
+                            <option class="gray" >[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -299,7 +299,7 @@
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="univerGradu" class="common_select schoolSelected1"
                             name="education[][university_edc_graduated]">
-                            <option class="gray" value="">졸업상태</option>
+                            <option class="gray" >[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -374,7 +374,7 @@
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="graduateGradu" class="common_select schoolSelected1"
                             name="education[][graduate_edc_graduated]">
-                            <option class="gray" value="">졸업상태</option>
+                            <option class="gray" >[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -464,8 +464,6 @@
             <div id="awardFieldset_main" style="display:none;" disabled th:if="${cv.getAwards()} != null">
               <section class="form" id="경력사항">
                 <p class="legend">수상경력</p>
-                <div class="item_award" th:each="item : ${cv.getAwards()}">
-                  <div class="info" >
                 <div class="item_award">
                   <div class="info" th:each="item : ${cv.getAwards()}">
                     <input type="hidden" name="awards[][id]" th:value="${item.getId()}">
@@ -527,7 +525,7 @@
                     <label class="absolute-middleLabel" for="">장애</label>
                     <div class="preferentialTreatment2">
                       <input type="checkbox" style="zoom:1.5;" name="cv_disability" value='1' id="cv_disability"
-                        onClick="checkBoth()" th:attr="checked=${cv.getCv_military() == 1 ? 'true' : 'false'}" />
+                        onClick="checkBoth()" th:attr="checked=${cv.getCv_disability() == 1 ? 'true' : 'false'}" />
                       <input type="hidden" name="cv_disability" value='0' id="cv_disability_hidden" />
                     </div>
                   </div>
@@ -535,7 +533,7 @@
                     <label class="absolute-middleLabel" for="">병역</label>
                     <div class="preferentialTreatment2">
                       <input type="checkbox" style="zoom:1.5;" name="cv_military" value='1' id="cv_military"
-                        onClick="checkBoth()" th:attr="checked=${cv.getCv_verteran() == 1 ? 'true' : 'false'}" />
+                        onClick="checkBoth()" th:attr="checked=${cv.getCv_military() == 0 ? 'false' : 'true'}" />
                       <input type="hidden" name="cv_military" value='0' id="cv_military_hidden" />
                     </div>
                   </div>
@@ -547,9 +545,7 @@
                       <span class="custom-dropdown big">
                         <select id="disability_degree" style="width:50%; height: 100%; margin-left:10px;" class=""
                           name="cv_disability_degree">
-                          <option class="gray" value="">
-                            <p>장애등급</p>
-                          </option>
+                          <option class="gray">[[${cv.getCv_disability_degree()}]]</option>
 
                           <option value="1급">1급</option>
                           <option value="2급">2급</option>
@@ -570,9 +566,7 @@
                       <span class="custom-dropdown big">
                         <select id="verteran" style="width:50%; height: 100%; margin-left:10px;" class=""
                           name="militaryServiceClassification">
-                          <option class="gray" value="">
-                            <p>병역</p>
-                          </option>
+                          <option class="gray">[[${cv.getMilitaryServiceClassification()}]]</option>
 
                           <option value="군필">군필</option>
                           <option value="미필">미필</option>
@@ -661,7 +655,7 @@
                 <div class="item_lic" th:each="item : ${cv.getCertificate()}">
                   <div class="info">
                     <input type="hidden" name="certificate[][lic_num]" th:value="${item.getLic_num()}">
-                    <div class="common_div width-450">
+                    <div class="common_div width-430">
                       <label class="absolute-label" for="">자격증 명 </label>
                       <input class="common_input" type="text" th:value="${item.getLic_name()}"
                         name="certificate[][lic_name]" />

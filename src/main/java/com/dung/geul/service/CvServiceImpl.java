@@ -158,7 +158,7 @@ public class CvServiceImpl implements CVService {
                 .cv_disability_degree(cv.getCv_disability_degree())
                 .militaryServiceClassification(cv.getCv_military_now())
                 .sec_of_exam(cv.getSec_of_exam())
-                .Desired_salary(cv.getDesired_salary())
+                .desired_salary(cv.getDesired_salary())
                 .cv_hobby(cv.getCv_hobby())
                 .cv_specialty(cv.getCv_specialty())
                 .birth(cv.getBirth())
