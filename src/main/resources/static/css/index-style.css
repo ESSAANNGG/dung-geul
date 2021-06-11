@@ -4,6 +4,7 @@
 body {
   position: relative;
   z-index: -99;
+  background: #eeeeeeb4;
 }
 
 /* navbar */
