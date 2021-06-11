@@ -10,7 +10,7 @@ import java.net.URL;
 @RestController
 public class jobDictionaryRestController {
 
-    @PostMapping("/job-information/job-dictionary")
+    @PostMapping("/jobSerchK")
     public String jobSerchKeyword(String searchCode) {   // 클라이언트로 부터 받아온 키워드를 워크넷api 서버에 직업사전 검색 요청
         System.out.println("'jobSerchK' GETMAPPING 요청 =====================================");
         System.out.println("클라이언트 측으로 부터 입력 받은 키워드 : " + searchCode);
