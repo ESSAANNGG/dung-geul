@@ -16,36 +16,99 @@
 </head>
 
 <body>
-
     <script>
-        function jobSerchK() { // 직업사전 검색 함수
+        function jobSerchK() { // 직업사전 키워드 검색 함수
             var qData = $("#searchCode").serialize(); // 클라이언트가 입력한 키워드를 담은 변수
+
+            if($("#rtnPrsList") != null) { // 파싱한 결과 값을 담는 요소를 초기화 한다.
+                $("#rtnPrsList").empty();
+            
+            }
 
             $.ajax({
                 type: 'post',
-                url: "/jobSerchK", // jobDictionaryRestController
-                data: qData, // 클라이언트가 입력한 키워드
-                dataType: 'xml',
+                url: "/jobSerchK",  // jobDictionaryRestController
+                data: qData,        // 클라이언트가 입력한 키워드
+                success: function (xml) {
+                    // alert("SUCCESS");
+                    // alert(xml)
+
+                    // $(xml).find('dJobsList').each(function () {  // xml parsing (total)
+                    //     var total = $(this).find("total").text();
+                    //     console.log("total : " + total);
+
+                    //     var totalStr = "";
+                    //     totalStr = totalStr + "<p>검색 조건에 대한 결과는 총" + total + "건 입니다.</p>";
+                    //     $("#rtnPrsTotal").append(totalStr);
+                    // })
+
+                    $(xml).find('dJobList').each(function () {  // xml parsing
+                        var dJobNm = $(this).find("dJobNm").text();
+
+                        var str = "";
+                        console.log(dJobNm);
+
+                        str = str + ("<li><span>" + dJobNm + "</li></span>");
+
+                        $("#rtnPrsList").append(str);   // 파싱한 결과값을 추가한다.
+
+                    })  
+                },
                 error: function (request, error) {
-                    alert('에로');
+                    alert('오류발생!');
+
                     // 에로 발생 원인을 알려준다.
-                    alert("CODE : " + request.status + "\n" +
+                    console.log("CODE : " + request.status + "\n" +
                         "MESSAGE : " + request.responseText + "\n" +
                         "EERROR : " + error);
                     console.log(xml)
                 },
-                success: function (xml) {
-                    alert("석세스");
-                    alert(xml)
-                    console.log(xml)
-                    $(xml).find('dJobList').each(function () {
-                        var dJobNm = $(this).find("dJobNm").text();
-                        console.log(dJobNm);
-                    })
-                },
+
             }) // end ajax
 
-        }
+        }// end jobSerchCon()
+
+
+        function jobSercCon() { // 직업사전 조건 검색 함수
+            var eduLevel = $("#eduLevel").serialize(); // 클라이언트가 입력한 키워드를 담은 변수 (교육 수준)
+            var skillYear = $("#skillYear").serialize(); // 클라이언트가 입력한 키워드를 담은 변수 (숙련 기간)
+
+            if($("#rtnPrsList") != null) { // 파싱한 결과 값을 담는 요소를 초기화 한다.
+                $("#rtnPrsList").empty();
+            }
+
+            $.ajax({
+                type: 'post',
+                url: "/jobSearchCon",  // jobDictionaryRestController
+                data: {eduLevel:eduLevel, skillYear:skillYear},
+
+                success: function (xml) {
+                    $(xml).find('dJobList').each(function () {  // xml parsing
+                        var dJobNm = $(this).find("dJobNm").text();
+
+                        var str = "";
+                        console.log(dJobNm);
+
+                        str = str + ("<li><span>" + dJobNm + "</li></span>");
+
+                        $("#rtnPrsList").append(str);   // 파싱한 결과값을 추가한다.
+
+                    })
+                },
+                error: function (request, error) {
+                    alert('오류발생!');
+
+                    // 에로 발생 원인을 알려준다.
+                    console.log("CODE : " + request.status + "\n" +
+                        "MESSAGE : " + request.responseText + "\n" +
+                        "EERROR : " + error);
+                    console.log(xml)
+                }
+
+            }) // end ajax
+
+        }// end jobSerchK()
+
     </script>
 
     <!--네비 div-->
@@ -100,39 +163,21 @@
                         <div class="search-box-body" style="width: 800px; margin: auto; margin: 20px;">
                             <div class="clear-search">
                                 <div id="label" class="on-a">키워드 검색</div>
-
+                                <!-- 직업 검색 form -->
                                 <div class="label-con form-inline">
-                                    <!-- 직업 검색 form -->
-                                    <!-- <form id="jobsearch_k" name="jobsearch_k" method="post" th:action="@{/jobSerchK}"> -->
                                     <input type="hidden" name="type" value="k">
                                     <input type="text" id="searchCode" name="searchCode" maxlength="30"
                                         class="form-control" placeholder="찾고 싶은 직업명을 입력하세요.">
                                     <div class="a-list">
-                                        <!--                                <a href="#">가</a>-->
-                                        <!--                                <a href="#">나</a>-->
-                                        <!--                                <a href="#">다</a>-->
-                                        <!--                                <a href="#">라</a>-->
-                                        <!--                                <a href="#">마</a>-->
-                                        <!--                                <a href="#">바</a>-->
-                                        <!--                                <a href="#">사</a>-->
-                                        <!--                                <a href="#">아</a>-->
-                                        <!--                                <a href="#">자</a>-->
-                                        <!--                                <a href="#">차</a>-->
-                                        <!--                                <a href="#">카</a>-->
-                                        <!--                                <a href="#">타</a>-->
-                                        <!--                                <a href="#">파</a>-->
-                                        <!--                                <a href="#">하</a>-->
                                     </div>
                                     <button type="submit" class="btn-d" onclick="jobSerchK()">검색</button>
-                                    <!-- </form> -->
                                 </div>
-                                <!-- label-con form-inline -->
-                            </div> <!-- clear-search -->
-                            <br />
+                                <!-- 직업 검색 form -->
+                            </div>
+                            <br/>
                             <div id="label1" class="on-a">조건 검색</div>
-
                             <div class="label-con form-outline">
-                                <select name="searchType1" id="searchType1" title="교육 수준 선택" class="form-control">
+                                <select name="eduLevel" id="eduLevel" title="교육 수준 선택" class="form-control">
                                     <option value>교육 수준을 클릭하세요.</option>
                                     <option value="1">6년 이하(초졸 이하)</option>
                                     <option value="2">6년 초과~9년 이하(중졸 정도)</option>
@@ -141,7 +186,7 @@
                                     <option value="5">14년 초과~16년 이하(대졸 정도)</option>
                                     <option value="6">16년 초과(대학원 이상)</option>
                                 </select>
-                                <select name="searchType2" id="searchType2" title="숙련 기간 선택" class="form-control">
+                                <select name="skillYear" id="skillYear" title="숙련 기간 선택" class="form-control">
                                     <option value>숙련 기간을 선택하세요.</option>
                                     <option value="1">약간의 시범 정도</option>
                                     <option value="2">시범 후 30일 이하</option>
@@ -153,52 +198,33 @@
                                     <option value="8">4년 초과~10년 이하</option>
                                     <option value="9">10년 초과</option>
                                 </select>
-                                <button class="btn-k">검색</button>
+                                <button class="btn-k" onclick="jobSercCon()">검색</button>
                             </div> <!-- label-con form-out -->
                         </div>
                         <!-- search-box-body -->
                     </div>
                     <!-- content -->
                 </div>
-
-                <div class="srchlist">
-                    <p class="count mtp20 mbp20">검색 조건에 대한 결과는 총 <span class="point-orange">115건</span> 입니다.</p>
-                    <div class="bg_gr">
-                        <ul class="d2 clearfix bu text-sm">
-                            <li>
-                                <span>3D지도개발자</span>
-                                </a>
-                            </li>
-                            <li>
-                                <span>가상훈련디바이스개발자</span>
-                                </a>
-                            </li>
-                            <li>
-                                <span>가상훈련콘텐츠개발자</span>
-                                </a>
-                            </li>
-                            <li>
-                                <span>건물용연료전지스택개발자</span>
-                                </a>
-                            </li>
-                            <li>
-                                <span>건물용연료전지시스템통합개발자</span>
-                                </a>
-                            </li>
-                            <li>
-                                <span>건물용연료전지연료변환기개발자</span>
-                                </a>
-                            </li>
-                            <li>
-                                <span>건물용연료전지제어시스템개발자</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-
                 <!-- job-wrap -->
+
+
+                    <!-- 키워드 검색 결과값을 보여주는 컨테이너 -->
+                    <div class="srchlist">
+                        <p class="count mtp20 mbp20">
+                            <span class="point-orange" id="rtnPrsTotal">
+                                <!--  -->
+                            </span>
+                        </p>
+    
+                        <div class="bg_gr">
+                            <ul class="d2 clearfix bu text-sm" id="rtnPrsList">
+                                <!-- 여기에 ajax에서 파싱한 결과 값들을 추가한다. -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end 키워드 검색 결과값을 보여주는 컨테이너 -->
+
+
             </div>
             <!-- job-main-wrap -->
         </div>
