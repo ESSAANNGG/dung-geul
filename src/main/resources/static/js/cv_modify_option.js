@@ -179,7 +179,7 @@ $(document).ready(function () {
   let test = 0;
   let caNumber;
 
-  $('.delete').hide();
+  // $('.delete').hide();
   //when the Add Field button is clicked
   $('#add').click(function (e) {
     l++;
@@ -201,7 +201,10 @@ $(document).ready(function () {
   });
   $('body').on('click', '.delete', function (e) {
     $('.items').last().remove();
-    l--;
+    if (l > 0) {
+      l--;
+    }
+
     i--;
     if (i == 0) {
       $('.delete').hide();
@@ -237,7 +240,7 @@ $(document).ready(function () {
   let award_test = 0;
   let caNumber;
 
-  $('#delete_award').hide();
+  
   //when the Add Field button is clicked
   $('#add_award').click(function (e) {
     award_name++;
@@ -257,12 +260,7 @@ $(document).ready(function () {
     $('.item_award').last().remove();
     award_name--;
     award_number--;
-    if (award_number == 0) {
-      $('#delete_award').hide();
-    }
-    if (0 <= award_number < 4) {
-      $('#add_award').show();
-    }
+   
 
     award_test++;
 
@@ -281,7 +279,7 @@ $(document).ready(function () {
   let family_test = 0;
   let caNumber;
 
-  $('#delete_family').hide();
+ 
   //when the Add Field button is clicked
   $('#add_family').click(function (e) {
     family_name++;
@@ -301,12 +299,7 @@ $(document).ready(function () {
     $('.item_family').last().remove();
     family_name--;
     family_number--;
-    if (family_number == 0) {
-      $('#delete_family').hide();
-    }
-    if (0 <= family_number < 4) {
-      $('#add_family').show();
-    }
+    
 
     family_test++;
 
@@ -325,7 +318,7 @@ $(document).ready(function () {
   let carrer_test = 0;
   let caNumber;
 
-  $('#delete_carrer').hide();
+ 
   //when the Add Field button is clicked
   $('#add_carrer').click(function (e) {
     carrer_name++;
@@ -347,12 +340,7 @@ $(document).ready(function () {
     console.log(1);
     carrer_name--;
     carrer_number--;
-    if (carrer_number == 0) {
-      $('#delete_carrer').hide();
-    }
-    if (0 <= carrer_number < 4) {
-      $('#add_carrer').show();
-    }
+   
 
     carrer_test++;
 
@@ -372,7 +360,7 @@ $(document).ready(function () {
   let lic_test = 0;
   let caNumber;
 
-  $('#delete_lic').hide();
+  
   //when the Add Field button is clicked
   $('#add_lic').click(function (e) {
     lic_name++;
@@ -394,12 +382,7 @@ $(document).ready(function () {
     console.log(1);
     lic_name--;
     lic_number--;
-    if (lic_number == 0) {
-      $('#delete_lic').hide();
-    }
-    if (0 <= lic_number < 4) {
-      $('#add_lic').show();
-    }
+    
 
     lic_test++;
 
@@ -417,7 +400,7 @@ $(document).ready(function () {
   let fl_test = 0;
   let caNumber;
 
-  $('#delete_fl').hide();
+  
   //when the Add Field button is clicked
   $('#add_fl').click(function (e) {
     fl_name++;
@@ -439,12 +422,7 @@ $(document).ready(function () {
     console.log(1);
     fl_name--;
     fl_number--;
-    if (fl_number == 0) {
-      $('#delete_fl').hide();
-    }
-    if (0 <= fl_number < 4) {
-      $('#add_fl').show();
-    }
+    
 
     fl_test++;
 

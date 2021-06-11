@@ -461,8 +461,8 @@
             <div id="awardFieldset_main" style="display:none;" disabled th:if="${cv.getAwards()} != null">
               <section class="form" id="경력사항">
                 <p class="legend">수상경력</p>
-                <div class="item_award">
-                  <div class="info" th:each="item : ${cv.getAwards()}">
+                <div class="item_award" th:each="item : ${cv.getAwards()}">
+                  <div class="info" >
                     <div class=" common_div width-350">
                       <label class="absolute-label" for="">수상명 <span>*</span></label>
                       <input class="common_input" th:value="${item.getAwards_des()}" name="awards[][awards_des]" />
