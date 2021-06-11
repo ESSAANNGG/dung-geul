@@ -91,6 +91,7 @@
 }
 .search_cont:focus{
     outline: none;
+    border:1px solid #ccc !important;
     /*outline:1px solid #3498db;*/
     box-shadow: 0 0 0 1px #3498db;
 }
@@ -111,6 +112,8 @@ select{
 }
 textarea{
     width:100%;
+    height:400px !important;
+    overflow:visible;
     resize: none;
 }
 
