@@ -4,7 +4,7 @@ body {
 .main-wrap {
     margin-top: 3.7%;
     width: 100%;
-    height: 2100px;
+    height: 1220px;
     background: #fff;
 }
 .all-wrap {
@@ -39,17 +39,25 @@ body {
 }
 .photo-wrap {
     position: relative;
-    top: 55%;
+    top: 30%;
     display: flex;
     width: 1330px;
     margin: auto;
     /* left: 15%; */
 }
-.map {
+#map {
     width: 500px;
-    height: 438px;
-    background: #000;
+    height: 380px;
     margin-right: 11px;
+    position: relative;
+    top: 54px;
+}
+.middle {
+    border-bottom: 2px solid #ddd;
+    position: relative;
+    width: 45%;
+    top: 18%;
+    margin: auto;
 }
 .slide-wrap img {
     width: 100%;
@@ -65,40 +73,40 @@ body {
     font-family: 'Nanum Gothic', sans-serif;
 }
 /* 슬라이드 */
-.swiper-container{
-    width: 100%; height: 82%; padding: 90px; left: 3%; top: 7%;
-}
-.swiper-container .swiper-wrapper .swiper-slide{
-    width: 100%; text-align: center; font-size: 25px; overflow: hidden;
-}
-.swiper-container .swiper-wrapper .swiper-slide .slide-top{
-    position: relative; width: 500px; height: 500px;
-}
-.swiper-container .swiper-wrapper .swiper-slide .slide-top img{
-    width: 500px; height: 500px;
-}
-.swiper-container .swiper-wrapper .swiper-slide .slide-bottom{
-    position: absolute; width: 100%; height: 353px; line-height: 100%;
-    background-image: url('/img/slid.png'); transition: 2s;
-    bottom: -400px;
-}
-.swiper-container .swiper-wrapper .swiper-slide:hover .slide-bottom{
-    bottom: 0; cursor: pointer;
-}
-.slide-bottom p {
-    color: #fff;
-    font-family: 'Nanum Gothic', sans-serif;
-    position: relative;
-    margin-top: 38px;
-    font-weight: 900;
-}
-.swiper-button-next {
-    color: #fff;
-    background-color: rgba(49, 49, 49, 0.24);
-    padding: 25px;
-}
-.swiper-button-prev {
-    color: #fff;
-    background-color: rgba(49, 49, 49, 0.24);
-    padding: 25px;
-}
+/*.swiper-container{*/
+/*    width: 100%; height: 82%; padding: 90px; left: 3%; top: 7%;*/
+/*}*/
+/*.swiper-container .swiper-wrapper .swiper-slide{*/
+/*    width: 100%; text-align: center; font-size: 25px; overflow: hidden;*/
+/*}*/
+/*.swiper-container .swiper-wrapper .swiper-slide .slide-top{*/
+/*    position: relative; width: 500px; height: 500px;*/
+/*}*/
+/*.swiper-container .swiper-wrapper .swiper-slide .slide-top img{*/
+/*    width: 500px; height: 500px;*/
+/*}*/
+/*.swiper-container .swiper-wrapper .swiper-slide .slide-bottom{*/
+/*    position: absolute; width: 100%; height: 353px; line-height: 100%;*/
+/*    background-image: url('/img/slid.png'); transition: 2s;*/
+/*    bottom: -400px;*/
+/*}*/
+/*.swiper-container .swiper-wrapper .swiper-slide:hover .slide-bottom{*/
+/*    bottom: 0; cursor: pointer;*/
+/*}*/
+/*.slide-bottom p {*/
+/*    color: #fff;*/
+/*    font-family: 'Nanum Gothic', sans-serif;*/
+/*    position: relative;*/
+/*    margin-top: 38px;*/
+/*    font-weight: 900;*/
+/*}*/
+/*.swiper-button-next {*/
+/*    color: #fff;*/
+/*    background-color: rgba(49, 49, 49, 0.24);*/
+/*    padding: 25px;*/
+/*}*/
+/*.swiper-button-prev {*/
+/*    color: #fff;*/
+/*    background-color: rgba(49, 49, 49, 0.24);*/
+/*    padding: 25px;*/
+/*}*/

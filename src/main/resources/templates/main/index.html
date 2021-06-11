@@ -155,7 +155,10 @@
             font-size: 25px;
             font-weight: 900;
 
-                ">공지사항 <img src="/img/blue-icon.svg" alt></h3>
+                ">공지사항 <img src="/img/blue-icon.png" alt>
+      <a href=""></a>
+<!--        공지사항 url-->
+      </h3>
 
       <ul>
         <li class="tent">Lorem, ipsum dolor. Lorefsdgdsgdafsfam,.</li>
@@ -174,7 +177,11 @@
       <h3 style="
             font-size: 25px;
             font-weight: 900;
-        ">교내채용 <img src="/img/green-icon.svg" alt></h3>
+        ">교내채용 <img src="/img/green-icon.png" alt>
+        <a href=""></a>
+        <!--        교내채용 url-->
+      </h3>
+      </h3>
       <ul>
         <li class="tent">Lorem, ipsum dolor. Lorefsdgdsgdafsfam,.</li>
         <li class="tent">Lorem, ipsum dolor. Lorefsdgdsgdafsfam,.</li>
@@ -194,7 +201,11 @@
               style="
             font-size: 25px;
             font-weight: 900;
-        ">지원프로그램 <img src="/img/blue-icon.svg" alt></h3>
+        ">지원프로그램 <img src="/img/yello-icon.png" alt>
+        <a href=""></a>
+        <!--        지원프로그램 url-->
+      </h3>
+      </h3>
 
       <ul>
         <li class="tent">Lorem, ipsum dolor. Lorefsdgdsgdafsfam,.</li>
@@ -207,102 +218,46 @@
     </div>
     <!-- pro-onload -->
   </div>
-  <!-- all-wrap -->
-  <div class="slide-wrap" style="width: 100%; height: 600px;">
-    <div style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.192); position: absolute;">
-      <h1 class="y-tit">백호 마일리지 활동</h1>
-      <!-- slide 내용 -->
-      <div class="container" style="
-                height: 650px;
-                position: relative;
-                right: 3%;">
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="slide-top">
-                <img src="img/temp_1604542427864100.png" alt="500x500">
-              </div>
-              <div class="slide-bottom">
-                <p>영진종합작품전</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="slide-top">
-                <img src="img/temp_1617092156676100.png" alt="500x500">
-              </div>
-              <div class="slide-bottom">
-                <p>영진종합작품전</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="slide-top">
-                <img src="img/temp_1617584497274100.png" alt="500x500">
-              </div>
-              <div class="slide-bottom">
-                <p>영진종합작품전</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="slide-top">
-                <img src="http://placehold.it/200x200/fff" alt="200x200">
-              </div>
-              <div class="slide-bottom">
-                <p>content</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="slide-top">
-                <img src="http://placehold.it/200/ffff" alt="200x200">
-              </div>
-              <div class="slide-bottom">
-                <p>content</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="slide-top">
-                <img src="http://placehold.it/200/fff" alt="200x200">
-              </div>
-              <div class="slide-bottom">
-                <p>content</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="slide-top">
-                <img src="http://placehold.it/200/fff" alt="200x200">
-              </div>
-              <div class="slide-bottom">
-                <p>content</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="slide-top">
-                <img src="http://placehold.it/500/fff" alt="200x200">
-              </div>
-              <div class="slide-bottom">
-                <p>content</p>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </div> <!-- container -->
-    </div>
-    <img src="/img/isreal.png" alt>
-  </div>
+  <div class="middle"></div>
   <div class="photo-wrap">
-    <div class="map">
-    </div>
+    <h3 style="
+position: absolute;
+    color: #333;
+    font-size: 1.8rem;
+    background: #fff;
+    font-weight: 900;
+    text-align: center;
+">찾아오시는 길 ></h3>
+    <div id="map"></div>
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6bedd5138f8242cf46657c82fbad435">
+    </script>
+    <script>
+      var container = document.getElementById('map');
+      var options = {
+        center: new kakao.maps.LatLng(35.8962829149084, 128.621804325442),
+        level: 3
+      };
+
+      var map = new kakao.maps.Map(container, options);
+    </script>
     <div class="impression">
-      <img src="/img/impression.png">
+<a href="/upgrade/c-inpression"><img src="/img/impression.png"></a>
     </div>
     <div class="chi" style="
     display: grid;
     padding-bottom: 10px;
     margin-left: 11px;
 ">
-      <img src="/img/chi1.png" style="padding-bottom: 10px;">
-      <img src="/img/chang1.png">
+     <a href="
+            http://www.newsnjob.com/news/articleList.html?sc_section_
+            code=S1N1&view_type=sm">
+       <img src="/img/chi1.png" style="padding-bottom: 10px;">
+     </a>
+  <a href="http://www.newsnjob.com/news/articleList.html?sc_section
+            _code=S1N2&view_type=sm">
+    <img src="/img/chang1.png">
+  </a>
     </div>
   </div>
 </div>  <!--main-wrap-->
