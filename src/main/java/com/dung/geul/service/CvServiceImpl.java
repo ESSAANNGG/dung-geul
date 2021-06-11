@@ -142,6 +142,8 @@ public class CvServiceImpl implements CVService {
 
         CV cv = cvRepository.findByUser_id(member).get();
 
+        log.info("cv id : " + cv.getCv_id());
+
         CvPageDTO pageDTO = CvPageDTO.builder()
                 .cv_id(cv.getCv_id())
                 .user_id(cv.getUser_id().getUser_id())
@@ -149,6 +151,7 @@ public class CvServiceImpl implements CVService {
                 .user_hp(cv.getUser_hp())
                 .user_email(cv.getUser_email())
                 .addr(cv.getAddr())
+                .supportPath(cv.getSupportPath())
                 .cv_verteran(cv.getCv_verteran())
                 .cv_disability(cv.getCv_disability())
                 .cv_military(cv.getCv_military())
@@ -256,14 +259,18 @@ public class CvServiceImpl implements CVService {
     }
 
 
-    public ResponseEntity modify(CvPageDTO cvPageDTO) {
+    public int modify(CvPageDTO cvPageDTO) {
 
+        log.info("modify 시작 dto : " +cvPageDTO);
         try {
-            CV cv = cvRepository.getOne(cvPageDTO.getCv_id());
 
-            if (cvPageDTO != null) {
+            Optional<CV> cvOpt = cvRepository.findById(cvPageDTO.getCv_id());
 
-                modifyEntity(cvPageDTO, cv);
+            if (!cvOpt.isEmpty()) {
+
+                CV cv = cvOpt.get();
+
+                cv = modifyEntity(cvPageDTO, cv);
                 cvRepository.save(cv);
 
                 List<EducationDTO> educationDTOList = cvPageDTO.getEducation();
@@ -298,25 +305,28 @@ public class CvServiceImpl implements CVService {
                 }
 
                 for (CertificateDTO dto : certificateDTOList) {
-                    License entity = licenseRepository.getOne(dto.getId());
+                    License entity = licenseRepository.getOne(dto.getLic_num());
                     entity = modifyEntity(dto, entity);
                     licenseRepository.save(entity);
                 }
 
                 for (LanguageDTO dto : languageDTOList) {
-                    Language entity = languageRepository.getOne(dto.getId());
+                    Language entity = languageRepository.getOne(dto.getFl_id());
                     entity = modifyEntity(dto, entity);
                     languageRepository.save(entity);
                 }
 
                 log.info("수정 완료");
-                return new ResponseEntity(HttpStatus.OK);
+                return 1;
             }
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            else{
+                return 0;
+            }
+
 
         } catch (Exception e) {
             log.info("error : " + e);
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            return 0;
         }
 
     }

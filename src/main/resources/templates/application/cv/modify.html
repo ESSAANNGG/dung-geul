@@ -42,6 +42,7 @@
           <!-- 이력서 양식부분 -->
           <form id="cvForm" method="POST" autocomplete="off">
             <input type="hidden" name="user_id" th:value="${loginUser.getUser_id()}">
+            <input type="hidden" name="cv_id" th:value="${cv.getCv_id()}">
             <section class="form" id="PERSONAL_INFORMATION">
               <p class="legend">인적사항</p>
               <div class="info">
@@ -56,7 +57,7 @@
                 </div>
                 <div class="common_div width-140">
                   <label class="absolute-label" for="">연령 <span>*</span> </label>
-                  <input class="common_input" type="text" name="user_age" id="age" th:value="${cv.getUser_age()} + 세"
+                  <input class="common_input" type="text" name="user_age" id="age" th:value="${cv.getUser_age()}"
                     required />
                 </div>
                 <div class="common_div width-300">
@@ -104,6 +105,7 @@
               </div>
               <div id="carrerField" disabled style="display: none;">
                 <div class="item_career" th:each="item, i : ${cv.getCareer()}">
+                  <input type="hidden" name="career[][id]" th:value="${item.getId()}">
                   <div class="info">
                     <div class="common_div width-350">
                       <label class="absolute-label" for="">회사명 <span>*</span></label>
@@ -168,6 +170,7 @@
                 <p class="legend">학력사항</p>
                 <div id="items" class="form-group school-test items" th:each="item : ${cv.getEducation()}">
                   <div class="info">
+                    <input type="hidden" name="education[][id]" th:value="${item.getId()}">
                     <div class="common_div width-140">
                       <label class="absolute-label" for="">학교구분 <span>*</span></label>
                       <span class="custom-dropdown big">
@@ -463,6 +466,7 @@
                 <p class="legend">수상경력</p>
                 <div class="item_award">
                   <div class="info" th:each="item : ${cv.getAwards()}">
+                    <input type="hidden" name="awards[][id]" th:value="${item.getId()}">
                     <div class=" common_div width-350">
                       <label class="absolute-label" for="">수상명 <span>*</span></label>
                       <input class="common_input" th:value="${item.getAwards_des()}" name="awards[][awards_des]" />
@@ -586,6 +590,7 @@
                 <p class="legend">가족사항</p>
                 <div class="item_family" th:each="item : ${cv.getFamily()}">
                   <div class="info">
+                    <input type="hidden" name="family[][id]" th:value="${item.getId()}">
                     <div class="common_div ">
                       <label class="absolute-label" for="">가족관계 <span>*</span></label>
                       <select id="famrelation" class="common_select" name="family[][fam_relation]">
@@ -653,7 +658,7 @@
 
                 <div class="item_lic" th:each="item : ${cv.getCertificate()}">
                   <div class="info">
-
+                    <input type="hidden" name="certificate[][lic_num]" th:value="${item.getLic_num()}">
                     <div class="common_div width-450">
                       <label class="absolute-label" for="">자격증 명 </label>
                       <input class="common_input" type="text" th:value="${item.getLic_name()}"
@@ -694,7 +699,7 @@
 
                 <div class="item_fl" th:each="item : ${cv.getLanguage()}">
                   <div class="info">
-
+                    <input type="hidden" name="language[][fl_id]" th:value="${item.getFl_id()}">
                     <div class="common_div width-180">
                       <label class="absolute-label" for="">외국어명 <span>*</span></label>
                       <select id="fl_lang" class="common_select" name="language[][fl_language]">
@@ -952,11 +957,15 @@
     //우대사항 셀렉트 부분
 
     /*<![CDATA[*/
-     var degree = /*[[ ${cv.getCv_disability_degree()} ]]*/;
+     var degree = `/*[[ ${cv.getCv_disability_degree()} ]]*/`;
     /*]]*/
 
     $('#disability_degree').val(degree).prop("selected", true);
-    
+
+    /*<![CDATA[*/
+     var verteran = `/*[[ ${cv.getMilitaryServiceClassification()} ]]*/`;
+    /*]]*/
+
 
   </script>
 
@@ -988,7 +997,7 @@
          graduate2[i].style = 'display:inline-block';
       }
       console.log(i);
-      
+
       // switch (schoolType[i].value) {
       //   case '고등학교':
       //     high[i].style = 'display:inline-block'
@@ -1001,7 +1010,7 @@
       //     university[i].style = 'display:inline-block';
       //     university2[i].style = 'display:inline-block';
       //     break;
-          
+
       //   case '대학원':
       //     graduate[i].style = 'display:inline-block';
       //     graduate2[i].style = 'display:inline-block';

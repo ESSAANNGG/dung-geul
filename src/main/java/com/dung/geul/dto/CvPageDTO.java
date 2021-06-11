@@ -39,6 +39,8 @@ public class CvPageDTO {
 
     private String user_email;
 
+    private String supportPath;     // 지원경로
+
     private int cv_verteran;
 
     private int cv_disability;

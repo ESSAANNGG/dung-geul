@@ -39,6 +39,7 @@ public interface CVService {
                 .user_hp(dto.getUser_hp())
                 .user_email(dto.getUser_email())
                 .addr(dto.getAddr())
+                .supportPath(dto.getSupportPath())
                 // 우대사항/병역
                 .cv_verteran(dto.getCv_verteran())
                 .cv_disability(dto.getCv_disability())
@@ -175,7 +176,7 @@ public interface CVService {
 
          if(type.equals("고등학교")){
              dto.setHighschool_edc_date(entity.getEdc_date_end());
-             dto.setHighschool_edc_date(entity.getEdc_dept());
+             dto.setGraduate_edc_dept(entity.getEdc_dept());
              dto.setHighschool_edc_graduated(entity.getEdc_graduated());
          } else if(type.equals("전문대")){
              dto.setCollege_edc_date_start(entity.getEdc_date_start());
@@ -234,6 +235,7 @@ public interface CVService {
 
     default LanguageDTO EntityToDto(Language entity){
         LanguageDTO dto = LanguageDTO.builder()
+                .fl_id(entity.getFl_num())
                 .fl_language(entity.getFl_language())
                 .fl_conversation(entity.getFl_conversation())
                 .fl_reading(entity.getFl_reading())
@@ -249,6 +251,7 @@ public interface CVService {
 
     default CertificateDTO EntityToDto(License entity){
         CertificateDTO dto = CertificateDTO.builder()
+                .lic_num(entity.getLic_num())
                 .lic_name(entity.getLic_name())
                 .lic_date(entity.getLic_date())
                 .lic_due_date(entity.getLic_due_date())
@@ -267,6 +270,7 @@ public interface CVService {
         cv.setUser_hp(cvPageDTO.getUser_hp());
         cv.setUser_email(cvPageDTO.getUser_email());
         cv.setAddr(cvPageDTO.getAddr());
+        cv.setSupportPath(cvPageDTO.getSupportPath());
         cv.setCv_verteran(cvPageDTO.getCv_verteran());
         cv.setCv_disability(cvPageDTO.getCv_disability());
         cv.setCv_military(cv.getCv_military());
@@ -299,6 +303,7 @@ public interface CVService {
         entity.setCr_employment(dto.getCr_employment());
         entity.setCr_resignation(dto.getCr_resignation());
         entity.setSalary(dto.getSalary());
+        entity.setReason_resign(dto.getReason_resign());
 
         return entity;
 

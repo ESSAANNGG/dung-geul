@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class CertificateDTO {
-    private Long id;
+    private Long lic_num;
     private String lic_name;
     private LocalDate lic_date;         // 취득일
     private LocalDate lic_due_date;     // 만료일

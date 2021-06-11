@@ -33,7 +33,7 @@ public class ApplicationRestController {
     }
 
     @PostMapping("/cv/modify")
-    public ResponseEntity cvModify(@RequestBody CvPageDTO cvPageDTO){
+    public int cvModify(@RequestBody CvPageDTO cvPageDTO){
 
         System.out.println("ApplicationApiController : cvModify() 실행");
         System.out.println("cvPageDTO : " + cvPageDTO);

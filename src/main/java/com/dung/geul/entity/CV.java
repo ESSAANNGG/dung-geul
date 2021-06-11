@@ -37,6 +37,8 @@ public class CV  implements Serializable{
 
     private String addr;
 
+    private String supportPath;
+
     // 우대사항 / 병력
     private int cv_verteran;
 
@@ -83,6 +85,10 @@ public class CV  implements Serializable{
 
     public void setAddr(String addr) {
         this.addr = addr;
+    }
+
+    public void setSupportPath(String supportPath) {
+        this.supportPath = supportPath;
     }
 
     public void setCv_verteran(int cv_verteran) {

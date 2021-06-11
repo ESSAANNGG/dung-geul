@@ -11,7 +11,7 @@ let modify = {
     let data = $('form#cvForm').serializeObject();
 
     // 값 확인
-    https: alert('userdate 전송 ! ' + JSON.stringify(data));
+    alert('userdate 전송 ! ' + JSON.stringify(data));
     console.log(JSON.stringify(data));
 
     // 데이터 전송 ajax
@@ -22,11 +22,15 @@ let modify = {
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
       success: function (result) {
-        alert('이력서 수정이 완료되었습니다.');
-        location.href = '/application/cv/read';
+        if(result == 1){
+          alert('이력서 수정이 완료되었습니다.');
+          location.href = '/application/cv/read';
+        }else{
+          alert('이력서 수정을 실패했습니다. 다시 작성해주세요.');
+        }
       },
       error: function (error) {
-        alert('실패, 이력서를 다시 작성해주세요');
+        alert('오류 발생, 이력서를 다시 작성해주세요');
         console.log(error);
         alert(error);
         location.href = '#';
