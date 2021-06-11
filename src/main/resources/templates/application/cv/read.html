@@ -355,13 +355,13 @@
           </section>
 
           <section id="button_section" class="form" style="text-align: center;">
-            <button type="button" id="submit" class="cvSubmit">
-              <a  href="/application/cv/modify"
+            <button type="button" id="submit" class="cvSubmit" >
+              <a style="width: inherit; height: inherit;" href="/application/cv/modify"
                       >이력서 수정하기</a>
             </button>
 
-            <button type="button" id="delteBtn" class="cvSubmit">
-              <a  th:href="@{/application/cv/delete(user_id=${loginUser.getUser_id()})}" th:methods="post"
+            <button type="button" id="delteBtn" class="cvSubmit" >
+              <a style="width: inherit; height: inherit;" th:href="@{/application/cv/delete(user_id=${loginUser.getUser_id()})}" th:methods="post"
               >이력서 삭제하기</a>
             </button>
           </section>
