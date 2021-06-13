@@ -311,6 +311,10 @@ public interface CVService {
 
     default Education modifyEntity(EducationDTO dto, Education entity){
 
+        if(dto.getId() == null){
+
+        }
+
         entity.setSchoolType(dto.getSchoolType());
         entity.setEdc_school(dto.getEdc_school());
         entity.setEdc_date_start(dto.getDateStart());

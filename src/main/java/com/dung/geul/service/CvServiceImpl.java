@@ -270,6 +270,8 @@ public class CvServiceImpl implements CVService {
 
                 CV cv = cvOpt.get();
 
+                Member member = cv.getUser_id();
+
                 cv = modifyEntity(cvPageDTO, cv);
                 cvRepository.save(cv);
 
@@ -282,36 +284,54 @@ public class CvServiceImpl implements CVService {
 
                 for (EducationDTO dto : educationDTOList) {
                     Education entity = educationRepository.getOne(dto.getId());
+                    if(entity == null){
+                        entity = dtoToEntity(dto, member);
+                    }
                     entity = modifyEntity(dto, entity);
                     educationRepository.save(entity);
                 }
 
                 for (CareerDTO dto : careerDTOList) {
                     Carrer entity = carrerRepository.getOne(dto.getId());
+                    if(entity == null){
+                        entity = dtoToEntity(dto, member);
+                    }
                     entity = modifyEntity(dto, entity);
                     carrerRepository.save(entity);
                 }
 
                 for (AwardsDTO dto : awardsDTOList) {
                     Awards entity = awardsRepository.getOne(dto.getId());
+                    if(entity == null){
+                        entity = dtoToEntity(dto, member);
+                    }
                     entity = modifyEntity(dto, entity);
                     awardsRepository.save(entity);
                 }
 
                 for (FamilyDTO dto : familyDTOList) {
                     Family entity = familyRepository.getOne(dto.getId());
+                    if(entity == null){
+                        entity = dtoToEntity(dto, member);
+                    }
                     entity = modifyEntity(dto, entity);
                     familyRepository.save(entity);
                 }
 
                 for (CertificateDTO dto : certificateDTOList) {
                     License entity = licenseRepository.getOne(dto.getLic_num());
+                    if(entity == null){
+                        entity = dtoToEntity(dto, member);
+                    }
                     entity = modifyEntity(dto, entity);
                     licenseRepository.save(entity);
                 }
 
                 for (LanguageDTO dto : languageDTOList) {
                     Language entity = languageRepository.getOne(dto.getFl_id());
+                    if(entity == null){
+                        entity = dtoToEntity(dto, member);
+                    }
                     entity = modifyEntity(dto, entity);
                     languageRepository.save(entity);
                 }
