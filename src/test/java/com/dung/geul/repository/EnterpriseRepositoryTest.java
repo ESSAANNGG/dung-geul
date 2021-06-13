@@ -48,8 +48,8 @@ public class EnterpriseRepositoryTest {
                     .user_postcode("45645")
                     .user_addr("대구시 북구 복현동 424-1")
                     .user_addr_details("초코쿠키2 203호")
-                    .user_email("etpmember" + i)
-                    .user_emailDomain("naver.com")
+                    .user_email("etp" + i)
+                    .user_emailDomain("gmail.com")
                     .build();
 
             m.addMemberRole(MemberRole.USER);

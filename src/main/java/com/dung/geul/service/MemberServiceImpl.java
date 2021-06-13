@@ -489,6 +489,7 @@ public class MemberServiceImpl implements MemberService {
 
         String id = dto.getId();
         String name = dto.getName();
+        String shape = dto.getShape();
         LocalDateTime startDate = null;
         LocalDateTime endDate = null;
         if(dto.getStartDate() != null && dto.getEndDate() != null){
@@ -503,6 +504,7 @@ public class MemberServiceImpl implements MemberService {
         String type = dto.getType();
 
         QMember qMember = QMember.member;
+        QEnterprise qEtp = QEnterprise.enterprise;
 
         // allow 조건
         BooleanBuilder builder = new BooleanBuilder();
@@ -540,6 +542,11 @@ public class MemberServiceImpl implements MemberService {
             builder.and(epDate);
         }
 
+        if(shape != null){
+            BooleanExpression epShape = qEtp.etp_shape.eq(shape);
+            builder.and(epShape);
+        }
+
         log.info("builder.getValue() : " + builder.getValue().toString());
 
         return builder;
@@ -561,7 +568,6 @@ public class MemberServiceImpl implements MemberService {
     public Member[] findByType(String type){
         return memberRepository.findByUser_type(type);
     }
-
 
 
 }

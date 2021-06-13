@@ -32,7 +32,7 @@ public class AllowEtpDTO {
 
     private String user_type;
 
-    private String user_shape;
+    private String etp_shape;
 
     public AllowEtpDTO(String user_id){
         this.user_id = user_id;
@@ -49,7 +49,9 @@ public class AllowEtpDTO {
                        String user_ph,
                        String user_ph2,
                        String user_ph3,
-                       String user_type){
+                       String user_type,
+                        String etp_shape
+    ){
 
         this.user_id = user_id;
         this.user_name = user_name;
@@ -62,6 +64,7 @@ public class AllowEtpDTO {
         this.user_type = user_type;
         this.etp_name = etp_name;
         this.etp_num = etp_num;
+        this.etp_shape = etp_shape;
     }
 
 

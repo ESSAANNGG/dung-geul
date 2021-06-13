@@ -47,7 +47,9 @@ public class MemberRepositorySupport extends QuerydslRepositorySupport {
                                 member.user_ph,
                                 member.user_ph2,
                                 member.user_ph3,
-                                member.user_type)
+                                member.user_type,
+                                 enterprise.etp_shape
+                         )
                 )
                 .from(member)
                 .leftJoin(enterprise).on(enterprise.user_id.eq(member))

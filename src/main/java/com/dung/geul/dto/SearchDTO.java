@@ -16,4 +16,5 @@ public class SearchDTO {
     private String id;
     private String startDate;
     private String endDate;
+    private String shape;
 }
