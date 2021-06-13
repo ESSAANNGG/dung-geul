@@ -286,6 +286,11 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .width-408 {
   width: 408px;
 }
+
+.width-430 {
+  width: 430px;
+}
+
 .width-450 {
   width: 450px;
 }

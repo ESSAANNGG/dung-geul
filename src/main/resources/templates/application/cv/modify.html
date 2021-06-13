@@ -9,6 +9,18 @@
   <link rel="stylesheet" href="/css/cvreset.css" />
   <link rel="stylesheet" href="/css/common.css" />
   <link rel="stylesheet" href="/css/cv_register.css" />
+  <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/css/s1_style.css" />
+    <link rel="stylesheet" href="/css/content.css" />
   <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
   <script src="/js/jquery-3.6.0.min.js"></script>
   <script src="/js/jquery-serialize-object.js"></script>
@@ -655,6 +667,151 @@
                 <div class="item_lic" th:each="item : ${cv.getCertificate()}">
                   <div class="info">
                     <input type="hidden" name="certificate[][lic_num]" th:value="${item.getLic_num()}">
+                    <!-- body overlay -->
+                    <div class="body-blackout"></div>
+
+                    <!-- Modals Triggers -->
+                    
+
+                    <!-- Modals -->
+                    <div class="popup-modal shadow" data-popup-modal="one">
+                      <i class="fa fa-window-close popup-modal__close"></i>
+                      <h1 class="font-weight-bold">자격증 불러오기</h1>
+                      <div>
+                        <div class="layer_manage_wrap" style="margin-top: 20px">
+                          <div class="resume_data">
+                            <div>
+                              <div class="title_wrap" style="margin: 10px 0 3px 0">
+                                <!-- COUNT --><strong class="attach_count">총 <span>2</span>건</strong>
+                              </div>
+                              <div class="table_scroll">
+                                <table class="manage_list_table">
+                                  <caption>
+                                    자격증 리스트
+                                  </caption>
+                                  <colgroup>
+                                    <col width="58" />
+                                    <col width="140" />
+                                    <col />
+                                    <col width="140" />
+                                  </colgroup>
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">
+                                        <span class="inpChk">
+                                          <input type="checkbox" name="import_all_check"
+                                            id="import_all_check_1623578366378" />
+                                          <label class="lbl hide" for="import_all_check_1623578366378">전체선택</label>
+                                        </span>
+                                      </th>
+                                      <th scope="col">취득일</th>
+                                      <th scope="col">자격증명</th>
+                                      <th scope="col">만료일</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <!-- LIST -->
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161003_1623578366378" /><label class="lbl hide"
+                                            for="import_2161003_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.08</td>
+                                      <td>컴퓨터그래픽스운용기능사</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bottom_btn_wrap">
+                            <button type="button" class="btn_confirm">불러오기</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="common_div width-430">
                       <label class="absolute-label" for="">자격증 명 </label>
                       <input class="common_input" type="text" th:value="${item.getLic_name()}"
@@ -670,6 +827,7 @@
                       <input class="common_input" type="date" th:value="${item.getLic_due_date()}"
                         name="certificate[][lic_due_date]" />
                     </div>
+                    <button type="button" class="btn btn-sm btn-primary popup-trigger" style="margin-left:10px; vertical-align: top;">자격증 불러오기</button>
                   </div>
                 </div>
                 <div class="line_lic"></div>
@@ -887,6 +1045,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js">
   </script>
   <script src="/js/cv_modify_option.js"></script>
+  <script src="/js/s1_index.js"></script>
 
   <script type="text/javascript" th:inline="javascript">
 

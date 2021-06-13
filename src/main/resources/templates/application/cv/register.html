@@ -9,160 +9,166 @@
   <link rel="stylesheet" href="/css/cvreset.css" />
   <link rel="stylesheet" href="/css/common.css" />
   <link rel="stylesheet" href="/css/cv_register.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/css/s1_style.css" />
+  <link rel="stylesheet" href="/css/content.css" />
   <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
   <script src="/js/jquery-3.6.0.min.js"></script>
   <script src="/js/jquery-serialize-object.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js">
+  </script>
   <title>이력서</title>
   <style>
-    textarea{
+    textarea {
       padding: 0px 30px;
-      padding-top:20px;
+      padding-top: 20px;
     }
   </style>
 </head>
 
 <body>
-<div>
-  <div id="nav">
-    <div id="menu">
-      <a href="/">
-        <p>취업정보센터</p>
-      </a>
-      <a href="/application/cv/before">
-        <p style="float:right; font-size:15px; color:#a4acc7;">이력서 관리</p>
-      </a>
+  <div>
+    <div id="nav">
+      <div id="menu">
+        <a href="/">
+          <p>취업정보센터</p>
+        </a>
+        <a href="/application/cv/before">
+          <p style="float:right; font-size:15px; color:#a4acc7;">이력서 관리</p>
+        </a>
+      </div>
     </div>
-  </div>
-  <div id="content">
-    <div id="cv">
+    <div id="content">
+      <div id="cv">
 
-      <div id="form">
-        <!-- 이력서 양식부분 -->
-        <form id="cvForm" method="POST" autocomplete="off">
-          <input type="hidden" name="user_id" th:value="${loginUser.getUser_id()}">
-          <section class="form" id="PERSONAL_INFORMATION">
-            <p class="legend">인적사항</p>
-            <div class="info">
-              <div class="common_div width-200">
-                <label class="absolute-label" for="">이름 <span>*</span></label>
-                <input class="common_input" name="user_name" id="user_name" th:value="${loginUser.getUser_name()}"
-                       required />
+        <div id="form">
+          <!-- 이력서 양식부분 -->
+          <form id="cvForm" method="POST" autocomplete="off">
+            <input type="hidden" name="user_id" th:value="${loginUser.getUser_id()}">
+            <section class="form" id="PERSONAL_INFORMATION">
+              <p class="legend">인적사항</p>
+              <div class="info">
+                <div class="common_div width-200">
+                  <label class="absolute-label" for="">이름 <span>*</span></label>
+                  <input class="common_input" name="user_name" id="user_name" th:value="${loginUser.getUser_name()}"
+                    required />
+                </div>
+                <div class="common_div width-200">
+                  <label class="absolute-label" for="">한문 이름 </label>
+                  <input class="common_input" type="text" name="name_china" id="name_china" autocomplete="off"
+                    required />
+                </div>
+                <div class="common_div width-140">
+                  <label class="absolute-label" for="">연령 <span>*</span> </label>
+                  <input class="common_input" type="text" name="user_age" id="age" required />
+                </div>
+                <div class="common_div width-300">
+                  <label class="absolute-label" for="">이메일 <span>*</span></label>
+                  <input class="common_input" name="user_email" id="user_email"
+                    th:value="${loginUser.getUser_email()}+ '@' +${loginUser.getUser_emailDomain()}" required />
+                </div>
+                <div class="common_div width-200">
+                  <label class="absolute-label" for="">생년월일 <span>*</span></label>
+                  <input class="common_input date" type="date" name="birth" id="birth" autocomplete="off" required />
+                </div>
+                <div class="common_div width-200">
+                  <label class="absolute-label" for="">전화번호 <span>*</span></label>
+                  <input class="common_input" type="text" name="user_hp"
+                    th:value="${loginUser.getUser_ph()}+ '-' + ${loginUser.getUser_ph2()} + '-' + ${loginUser.getUser_ph3()}"
+                    id="user_hp" required />
+                </div>
+                <div class="common_div width-450">
+                  <label class="absolute-label" for="">주소 <span>*</span></label>
+                  <input class="common_input" type="text" name="addr" th:value="${loginUser.getUser_addr()}" />
+                </div>
+                <div class="common_div width-410">
+                  <label class="absolute-label" for="">지원경로</label>
+                  <input class="common_input" type="text" name="supportPath" id="" autocomplete="off" />
+                </div>
               </div>
-              <div class="common_div width-200">
-                <label class="absolute-label" for="">한문 이름 </label>
-                <input class="common_input" type="text" name="name_china" id="name_china" autocomplete="off"
-                       required />
-              </div>
-              <div class="common_div width-140">
-                <label class="absolute-label" for="">연령 <span>*</span> </label>
-                <input class="common_input" type="text" name="user_age" id="age" required/>
-              </div>
-              <div class="common_div width-300">
-                <label class="absolute-label" for="">이메일 <span>*</span></label>
-                <input class="common_input" name="user_email" id="user_email"
-                       th:value="${loginUser.getUser_email()}+ '@' +${loginUser.getUser_emailDomain()}" required />
-              </div>
-              <div class="common_div width-200">
-                <label class="absolute-label" for="">생년월일 <span>*</span></label>
-                <input class="common_input date" type="date" name="birth" id="birth" autocomplete="off" required />
-              </div>
-              <div class="common_div width-200">
-                <label class="absolute-label" for="">전화번호 <span>*</span></label>
-                <input class="common_input" type="text" name="user_hp"
-                       th:value="${loginUser.getUser_ph()}+ '-' + ${loginUser.getUser_ph2()} + '-' + ${loginUser.getUser_ph3()}"
-                       id="user_hp" required />
-              </div>
-              <div class="common_div width-450">
-                <label class="absolute-label" for="">주소 <span>*</span></label>
-                <input class="common_input" type="text" name="addr" th:value="${loginUser.getUser_addr()}" />
-              </div>
-              <div class="common_div width-410">
-                <label class="absolute-label" for="">지원경로</label>
-                <input class="common_input" type="text" name="supportPath" id="" autocomplete="off" />
-              </div>
-            </div>
-          </section>
-
+            </section>
 
 
-          <section class="form" id="경력사항">
-            <p class="legend">경력사항</p>
-            <div class="info">
-              <div class="common_div width-280" style="padding:0px;">
-                <input class="user_employment" name="user_employment" id="id1" type="radio" value="0"><label
-                      style="cursor: pointer" class="carrer_label" for="id1">신입</label><br />
-              </div>
-              <div class="common_div width-280" style="padding:0px;">
-                <input class="user_employment" name="user_employment" id="id2" type="radio" value="1"><label
-                      style="cursor: pointer" class="carrer_label" for="id2">경력</label><br />
-              </div>
-              <br />
-            </div>
-            <div id="carrerField" disabled style="display: none;">
-              <div class="item_career">
-                <div class="info">
-                  <div class="common_div width-350">
-                    <label class="absolute-label" for="">회사명 <span>*</span></label>
-                    <input class="common_input" name="career[][cr_etp_name]" />
-                  </div>
 
-                  <div class="common_div width-200">
-                    <label class="absolute-label" for="">입사일자 </label>
-                    <input class="common_input" type="date" name="career[][cr_employment]" />
-                  </div>
-                  <div class="common_div width-200">
-                    <label class="absolute-label" for="">퇴사일자 </label>
-                    <input class="common_input" type="date" name="career[][cr_resignation]" />
-                  </div>
-                  <br />
-                  <div class="common_div width-200">
-                    <label class="absolute-label" for="">직위 </label>
-                    <input class="common_input" type="text" name="career[][cr_position]" />
-                  </div>
-                  <div class="common_div width-300">
-                    <label class="absolute-label" for="">퇴사사유 </label>
-                    <input class="common_input" type="text" name="career[][reason_resign]" />
-                  </div>
-                  <div class="common_div width-200">
-                    <label  class="absolute-label" for="">연봉 <span>*</span></label>
-                    <input  class="money_input2" value="" type="number" name="career[][salary]"
-                           autocomplete="off" />
-                    <span style="font-size: 12px">만원</span>
-                  </div>
-                  <div class="common_div width-full awardContents_div ">
-                    <label class="absolute-label" >담당업무 </label>
-                    <textarea class="cr_task" name="career[][cr_task]" focus="test12()" cols="30" rows="10"></textarea>
+            <section class="form" id="경력사항">
+              <p class="legend">경력사항</p>
+              <div class="info">
+                <div class="common_div width-280" style="padding:0px;">
+                  <input class="user_employment" name="user_employment" id="id1" type="radio" value="0"><label
+                    style="cursor: pointer" class="carrer_label" for="id1">신입</label><br />
+                </div>
+                <div class="common_div width-280" style="padding:0px;">
+                  <input class="user_employment" name="user_employment" id="id2" type="radio" value="1"><label
+                    style="cursor: pointer" class="carrer_label" for="id2">경력</label><br />
+                </div>
+                <br />
+              </div>
+              <div id="carrerField" disabled style="display: none;">
+                <div class="item_career">
+                  <div class="info">
+                    <div class="common_div width-350">
+                      <label class="absolute-label" for="">회사명 <span>*</span></label>
+                      <input class="common_input" name="career[][cr_etp_name]" />
+                    </div>
+
+                    <div class="common_div width-200">
+                      <label class="absolute-label" for="">입사일자 </label>
+                      <input class="common_input" type="date" name="career[][cr_employment]" />
+                    </div>
+                    <div class="common_div width-200">
+                      <label class="absolute-label" for="">퇴사일자 </label>
+                      <input class="common_input" type="date" name="career[][cr_resignation]" />
+                    </div>
+                    <br />
+                    <div class="common_div width-200">
+                      <label class="absolute-label" for="">직위 </label>
+                      <input class="common_input" type="text" name="career[][cr_position]" />
+                    </div>
+                    <div class="common_div width-300">
+                      <label class="absolute-label" for="">퇴사사유 </label>
+                      <input class="common_input" type="text" name="career[][reason_resign]" />
+                    </div>
+                    <div class="common_div width-200">
+                      <label class="absolute-label" for="">연봉 <span>*</span></label>
+                      <input class="money_input2" value="" type="number" name="career[][salary]" autocomplete="off" />
+                      <span style="font-size: 12px">만원</span>
+                    </div>
+                    <div class="common_div width-full awardContents_div ">
+                      <label class="absolute-label">담당업무 </label>
+                      <textarea class="cr_task" name="career[][cr_task]" focus="test12()" cols="30"
+                        rows="10"></textarea>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="line_carrer"></div>
+              <div class="line_carrer"></div>
 
 
-            <div id="carrerButtonBox" class="buttonBox" style="display:none;">
-              <button id="add_carrer" class="btn add-more button-yellow uppercase" type="button">
-                <i class="fas fa-plus-circle"></i>
-                <span style="font-size: 17px">추가</span>
-              </button>
-              <button id="delete_carrer" type="button" class="btn button-white uppercase">
-                <i class="fas fa-minus-circle"></i>
-                <span style="font-size: 17px">제거</span>
-              </button>
-            </div>
+              <div id="carrerButtonBox" class="buttonBox" style="display:none;">
+                <button id="add_carrer" class="btn add-more button-yellow uppercase" type="button">
+                  <i class="fas fa-plus-circle"></i>
+                  <span style="font-size: 17px">추가</span>
+                </button>
+                <button id="delete_carrer" type="button" class="btn button-white uppercase">
+                  <i class="fas fa-minus-circle"></i>
+                  <span style="font-size: 17px">제거</span>
+                </button>
+              </div>
 
-          </section>
+            </section>
 
 
-          <div id="schoolFieldset_main" style="display:none;" disabled>
-            <section class="form" id="학력사항">
-              </legend>
-              <p class="legend">학력사항</p>
-              <div id="items" class="form-group school-test items">
-                <div class="info">
-                  <div class="common_div width-140">
-                    <label class="absolute-label" for="">학교구분 <span>*</span></label>
-                    <span class="custom-dropdown big">
+            <div id="schoolFieldset_main" style="display:none;" disabled>
+              <section class="form" id="학력사항">
+                </legend>
+                <p class="legend">학력사항</p>
+                <div id="items" class="form-group school-test items">
+                  <div class="info">
+                    <div class="common_div width-140">
+                      <label class="absolute-label" for="">학교구분 <span>*</span></label>
+                      <span class="custom-dropdown big">
                         <select id="test01" class="common_select schoolSelected1" name="education[][schoolType]">
                           <option class="gray" value="">
                             <p>학교구분</p>
@@ -177,341 +183,348 @@
                           <option value="대학원">대학원</option>
                         </select>
                       </span>
-                  </div>
-                  <div class="common_div width-250">
-                    <label class="absolute-label" for="">학교이름 <span>*</span> </label>
-                    <input class="common_input" name="education[][edc_school]" type="text" autocomplete="off" />
-                  </div>
-
-                  <div class="school_fieldset hignschool_field" disabled>
-                    <div class="container1" style="display:none;">
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">졸업년도 <span>*</span> </label>
-                        <input class="common_input" name="education[][highschool_edc_date]" type="text"
-                               onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="4" autocomplete="off" />
-                      </div>
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">졸업상태 <span>*</span></label>
-                        <!-- <input class="common_input" name="edc_graduated" autocomplete="off" /> -->
-                        <select class="common_select schoolSelected1" name="education[][highschool_edc_graduated]">
-                          <option class="gray" value="">졸업상태</option>
-
-                          <option value="졸업">졸업</option>
-
-                          <option value="졸업예정">졸업예정</option>
-
-                          <option value="재학중">재학중</option>
-                        </select>
-                      </div>
-
                     </div>
-                  </div>
-
-
-                  <div class="college_field" disabled>
-                    <div class="container2" style="display:none;">
-                      <div class="common_div width-200">
-                        <label class="absolute-label" for="">입학년월 <span>*</span> </label>
-                        <input class="date_input" name="education[][college_edc_date_start]" type="month" autocomplete="off" />
-                      </div>
-                      <div class="common_div width-200">
-                        <label class="absolute-label" for="">졸업년월 <span>*</span></label>
-                        <input class="common_input" name="education[][college_edc_date_end]" type="month" autocomplete="off" />
-                      </div>
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">졸업상태 <span>*</span></label>
-                        <select class="common_select schoolSelected1" name="education[][college_edc_graduated]">
-                          <option class="gray" value="">졸업상태</option>
-
-                          <option value="졸업">졸업</option>
-
-                          <option value="졸업예정">졸업예정</option>
-
-                          <option value="재학중">재학중</option>
-
-                          <option value="중퇴">중퇴</option>
-
-                          <option value="수료">수료</option>
-
-                          <option value="휴학">휴학</option>
-                        </select>
-                      </div>
-
+                    <div class="common_div width-250">
+                      <label class="absolute-label" for="">학교이름 <span>*</span> </label>
+                      <input class="common_input" name="education[][edc_school]" type="text" autocomplete="off" />
                     </div>
 
-                    <div class="container2-1" style="display:none;">
-                      <div class="common_div width-300" style="width:409px;">
-                        <label class="absolute-label" for="">전공 <span>*</span></label>
-                        <input class="common_input" name="education[][college_edc_dept]" autocomplete="off" />
-                      </div>
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">학점 <span>*</span></label>
-                        <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="education[][college_edc_gpa]"
-                               autocomplete="off" />
-                      </div>
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">총점 <span>*</span></label>
-                        <select class="common_select schoolSelected1" name="education[][college_edc_ps]">
-                          <option class="gray" value="">총점</option>
+                    <div class="school_fieldset hignschool_field" disabled>
+                      <div class="container1" style="display:none;">
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">졸업년도 <span>*</span> </label>
+                          <input class="common_input" name="education[][highschool_edc_date]" type="text"
+                            onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="4" autocomplete="off" />
+                        </div>
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">졸업상태 <span>*</span></label>
+                          <!-- <input class="common_input" name="edc_graduated" autocomplete="off" /> -->
+                          <select class="common_select schoolSelected1" name="education[][highschool_edc_graduated]">
+                            <option class="gray" value="">졸업상태</option>
 
-                          <option value="4.5">4.5</option>
+                            <option value="졸업">졸업</option>
 
-                          <option value="4.3">4.3</option>
+                            <option value="졸업예정">졸업예정</option>
 
-                          <option value="4.0">4.0</option>
+                            <option value="재학중">재학중</option>
+                          </select>
+                        </div>
 
-                          <option value="100">100</option>
-                        </select>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="university_field" disabled>
-                    <div class="container3" style="display:none;">
-                      <div class="common_div width-200">
-                        <label class="absolute-label" for="">입학년월 <span>*</span> </label>
-                        <input class="date_input" name="education[][university_edc_date_start]" type="month" autocomplete="off" />
+
+                    <div class="college_field" disabled>
+                      <div class="container2" style="display:none;">
+                        <div class="common_div width-200">
+                          <label class="absolute-label" for="">입학년월 <span>*</span> </label>
+                          <input class="date_input" name="education[][college_edc_date_start]" type="month"
+                            autocomplete="off" />
+                        </div>
+                        <div class="common_div width-200">
+                          <label class="absolute-label" for="">졸업년월 <span>*</span></label>
+                          <input class="common_input" name="education[][college_edc_date_end]" type="month"
+                            autocomplete="off" />
+                        </div>
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">졸업상태 <span>*</span></label>
+                          <select class="common_select schoolSelected1" name="education[][college_edc_graduated]">
+                            <option class="gray" value="">졸업상태</option>
+
+                            <option value="졸업">졸업</option>
+
+                            <option value="졸업예정">졸업예정</option>
+
+                            <option value="재학중">재학중</option>
+
+                            <option value="중퇴">중퇴</option>
+
+                            <option value="수료">수료</option>
+
+                            <option value="휴학">휴학</option>
+                          </select>
+                        </div>
+
                       </div>
-                      <div class="common_div width-200">
-                        <label class="absolute-label" for="">졸업년월 <span>*</span></label>
-                        <input class="common_input" name="education[][university_edc_date_end]" type="month" autocomplete="off" />
+
+                      <div class="container2-1" style="display:none;">
+                        <div class="common_div width-300" style="width:409px;">
+                          <label class="absolute-label" for="">전공 <span>*</span></label>
+                          <input class="common_input" name="education[][college_edc_dept]" autocomplete="off" />
+                        </div>
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">학점 <span>*</span></label>
+                          <input class="common_input" type="text" onKeyup="score()" maxlength="3"
+                            name="education[][college_edc_gpa]" autocomplete="off" />
+                        </div>
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">총점 <span>*</span></label>
+                          <select class="common_select schoolSelected1" name="education[][college_edc_ps]">
+                            <option class="gray" value="">총점</option>
+
+                            <option value="4.5">4.5</option>
+
+                            <option value="4.3">4.3</option>
+
+                            <option value="4.0">4.0</option>
+
+                            <option value="100">100</option>
+                          </select>
+                        </div>
                       </div>
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">졸업상태 <span>*</span></label>
-                        <select class="common_select schoolSelected1" name="education[][university_edc_graduated]">
-                          <option class="gray" value="">졸업상태</option>
-
-                          <option value="졸업">졸업</option>
-
-                          <option value="졸업예정">졸업예정</option>
-
-                          <option value="재학중">재학중</option>
-
-                          <option value="중퇴">중퇴</option>
-
-                          <option value="수료">수료</option>
-
-                          <option value="휴학">휴학</option>
-                        </select>
-                      </div>
-
                     </div>
 
-                    <div class="container3-1" style="display:none;">
-                      <div class="common_div width-300" style="width: 409px">
-                        <label class="absolute-label" for="">전공 <span>*</span></label>
-                        <input class="common_input" name="education[][university_edc_dept]" autocomplete="off" />
+                    <div class="university_field" disabled>
+                      <div class="container3" style="display:none;">
+                        <div class="common_div width-200">
+                          <label class="absolute-label" for="">입학년월 <span>*</span> </label>
+                          <input class="date_input" name="education[][university_edc_date_start]" type="month"
+                            autocomplete="off" />
+                        </div>
+                        <div class="common_div width-200">
+                          <label class="absolute-label" for="">졸업년월 <span>*</span></label>
+                          <input class="common_input" name="education[][university_edc_date_end]" type="month"
+                            autocomplete="off" />
+                        </div>
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">졸업상태 <span>*</span></label>
+                          <select class="common_select schoolSelected1" name="education[][university_edc_graduated]">
+                            <option class="gray" value="">졸업상태</option>
+
+                            <option value="졸업">졸업</option>
+
+                            <option value="졸업예정">졸업예정</option>
+
+                            <option value="재학중">재학중</option>
+
+                            <option value="중퇴">중퇴</option>
+
+                            <option value="수료">수료</option>
+
+                            <option value="휴학">휴학</option>
+                          </select>
+                        </div>
+
                       </div>
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">학점 <span>*</span></label>
-                        <input class="common_input" type="text"
-                               onKeyup="score()" maxlength="3"
-                               name="education[][university_edc_gpa]" autocomplete="off" />
-                      </div>
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">총점 <span>*</span></label>
-                        <select  class="common_select schoolSelected1" name="education[][university_edc_ps]">
-                          <option class="gray" value="">총점</option>
 
-                          <option value="4.5">4.5</option>
+                      <div class="container3-1" style="display:none;">
+                        <div class="common_div width-300" style="width: 409px">
+                          <label class="absolute-label" for="">전공 <span>*</span></label>
+                          <input class="common_input" name="education[][university_edc_dept]" autocomplete="off" />
+                        </div>
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">학점 <span>*</span></label>
+                          <input class="common_input" type="text" onKeyup="score()" maxlength="3"
+                            name="education[][university_edc_gpa]" autocomplete="off" />
+                        </div>
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">총점 <span>*</span></label>
+                          <select class="common_select schoolSelected1" name="education[][university_edc_ps]">
+                            <option class="gray" value="">총점</option>
 
-                          <option value="4.3">4.3</option>
+                            <option value="4.5">4.5</option>
 
-                          <option value="4.0">4.0</option>
+                            <option value="4.3">4.3</option>
 
-                          <option value="100">100</option>
-                        </select>
+                            <option value="4.0">4.0</option>
+
+                            <option value="100">100</option>
+                          </select>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="graduate_field" disabled>
-                    <div class="container4" style="display:none;">
-                      <div class="common_div width-104">
-                        <label class="absolute-label" for="">학위 <span>*</span></label>
-                        <select  class="common_select schoolSelected1" name="education[][graduate-edc_graduated]">
-                          <option class="gray" value="">학위</option>
+                    <div class="graduate_field" disabled>
+                      <div class="container4" style="display:none;">
+                        <div class="common_div width-104">
+                          <label class="absolute-label" for="">학위 <span>*</span></label>
+                          <select class="common_select schoolSelected1" name="education[][graduate-edc_graduated]">
+                            <option class="gray" value="">학위</option>
 
-                          <option value="석사">석사</option>
+                            <option value="석사">석사</option>
 
-                          <option value="박사">박사</option>
+                            <option value="박사">박사</option>
 
-                          <option value="석박사">석박사</option>
-                        </select>
+                            <option value="석박사">석박사</option>
+                          </select>
+                        </div>
+                        <div class="common_div width-200">
+                          <label class="absolute-label" for="">입학년월 <span>*</span> </label>
+                          <input class="common_input" name="education[][graduate_edc_date_start]" type="month"
+                            autocomplete="off" />
+                        </div>
+                        <div class="common_div width-200">
+                          <label class="absolute-label" for="">졸업년월 <span>*</span></label>
+                          <input class="common_input" name="education[][graduate_edc_date_end]" type="month"
+                            autocomplete="off" />
+                        </div>
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">졸업상태 <span>*</span></label>
+                          <select class="common_select schoolSelected1" name="education[][graduate_edc_graduated]">
+                            <option class="gray" value="">졸업상태</option>
+
+                            <option value="졸업">졸업</option>
+
+                            <option value="졸업예정">졸업예정</option>
+
+                            <option value="재학중">재학중</option>
+
+                            <option value="중퇴">중퇴</option>
+
+                            <option value="수료">수료</option>
+
+                            <option value="휴학">휴학</option>
+                          </select>
+                        </div>
+
                       </div>
-                      <div class="common_div width-200">
-                        <label class="absolute-label" for="">입학년월 <span>*</span> </label>
-                        <input class="common_input" name="education[][graduate_edc_date_start]" type="month" autocomplete="off" />
-                      </div>
-                      <div class="common_div width-200">
-                        <label class="absolute-label" for="">졸업년월 <span>*</span></label>
-                        <input class="common_input" name="education[][graduate_edc_date_end]" type="month" autocomplete="off" />
-                      </div>
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">졸업상태 <span>*</span></label>
-                        <select  class="common_select schoolSelected1" name="education[][graduate_edc_graduated]">
-                          <option class="gray" value="">졸업상태</option>
+                      <div class="container4-1" style="display: none">
+                        <div class="common_div width-300" style="width: 374px">
+                          <label class="absolute-label" for="">전공 <span>*</span></label>
+                          <input class="common_input" name="education[][graduate_edc_dept]" autocomplete="off" />
+                        </div>
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">학점 <span>*</span></label>
+                          <input class="common_input" type="text" onKeyup="score()" maxlength="3"
+                            name="education[][graduate_edc_gpa]" autocomplete="off" />
+                        </div>
+                        <div class="common_div width-140">
+                          <label class="absolute-label" for="">총점 <span>*</span></label>
+                          <select class="common_select schoolSelected1" name="education[][graduate_edc_ps]">
+                            <option class="gray" value="">총점</option>
 
-                          <option value="졸업">졸업</option>
+                            <option value="4.5">4.5</option>
 
-                          <option value="졸업예정">졸업예정</option>
+                            <option value="4.3">4.3</option>
 
-                          <option value="재학중">재학중</option>
+                            <option value="4.0">4.0</option>
 
-                          <option value="중퇴">중퇴</option>
+                            <option value="100">100</option>
+                          </select>
+                        </div>
 
-                          <option value="수료">수료</option>
-
-                          <option value="휴학">휴학</option>
-                        </select>
-                      </div>
-
-                    </div>
-                    <div class="container4-1" style="display: none">
-                      <div class="common_div width-300" style="width: 374px">
-                        <label class="absolute-label" for="">전공 <span>*</span></label>
-                        <input class="common_input" name="education[][graduate_edc_dept]" autocomplete="off" />
-                      </div>
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">학점 <span>*</span></label>
-                        <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="education[][graduate_edc_gpa]"
-                               autocomplete="off" />
-                      </div>
-                      <div class="common_div width-140">
-                        <label class="absolute-label" for="">총점 <span>*</span></label>
-                        <select  class="common_select schoolSelected1" name="education[][graduate_edc_ps]">
-                          <option class="gray" value="">총점</option>
-
-                          <option value="4.5">4.5</option>
-
-                          <option value="4.3">4.3</option>
-
-                          <option value="4.0">4.0</option>
-
-                          <option value="100">100</option>
-                        </select>
-                      </div>
-
-                      <br />
-                      <div class="common_div width-full">
-                        <label class="absolute-label" for="">논문 url<span>*</span></label>
-                        <input type="url" name="education[][graduate_edc_paper]" class="common_input" autocomplete="off" />
+                        <br />
+                        <div class="common_div width-full">
+                          <label class="absolute-label" for="">논문 url<span>*</span></label>
+                          <input type="url" name="education[][graduate_edc_paper]" class="common_input"
+                            autocomplete="off" />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="line"></div>
+                <div class="line"></div>
 
-              <div class="buttonBox">
-                <button id="add" class="btn add-more button-yellow uppercase" type="button">
-                  <i class="fas fa-plus-circle"></i>
-                  <span style="font-size: 17px">추가</span>
-                </button>
-                <button type="button" class="delete btn button-white uppercase">
-                  <i class="fas fa-minus-circle"></i>
-                  <span style="font-size: 17px">제거</span>
-                </button>
-              </div>
+                <div class="buttonBox">
+                  <button id="add" class="btn add-more button-yellow uppercase" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    <span style="font-size: 17px">추가</span>
+                  </button>
+                  <button type="button" class="delete btn button-white uppercase">
+                    <i class="fas fa-minus-circle"></i>
+                    <span style="font-size: 17px">제거</span>
+                  </button>
+                </div>
+              </section>
+            </div>
+
+
             </section>
-          </div>
-
-
-          </section>
-          <div id="hobbyFieldset_main" style="display:none;" disabled>
-            <section class="form" id="취미/특기">
-              <p class="legend">취미•특기</p>
-              <div class="info">
-                <div class="common_div width-450">
-                  <label class="absolute-label" for="">취미 </label>
-                  <input class="common_input" name="cv_hobby" id="cv_hobby" />
-                </div>
-                <div class="common_div width-450">
-                  <label class="absolute-label" for="">특기 </label>
-                  <input class="common_input" type="text" name="cv_specialty" id="cv_specialty" />
-                </div>
-              </div>
-            </section>
-          </div>
-
-
-          <div id="awardFieldset_main" style="display:none;" disabled>
-            <section class="form" id="수상경력">
-              <p class="legend">수상경력</p>
-              <div class="item_award">
+            <div id="hobbyFieldset_main" style="display:none;" disabled>
+              <section class="form" id="취미/특기">
+                <p class="legend">취미•특기</p>
                 <div class="info">
-                  <div class="common_div width-350">
-                    <label class="absolute-label" for="">수상명 <span>*</span></label>
-                    <input class="common_input" name="awards[][awards_des]" />
+                  <div class="common_div width-450">
+                    <label class="absolute-label" for="">취미 </label>
+                    <input class="common_input" name="cv_hobby" id="cv_hobby" />
                   </div>
-                  <div class="common_div width-300">
-                    <label class="absolute-label" for="">수여기관 </label>
-                    <input class="common_input" type="text" name="awards[][awards_agency]" />
-                  </div>
-                  <div class="common_div width-104">
-                    <label class="absolute-label" for="">수상연도 </label>
-                    <input class="common_input" type="text" onKeyup="award_year()" maxlength="4" name="awards[][awards_date]" />
-                  </div>
-                  <div class="common_div width-full awardContents_div ">
-                    <label class="absolute-label">수여내용 </label>
-                    <textarea class="award_contents" name="awards[][award_contents]" focus="test12()" cols="30"
-                              rows="10"></textarea>
+                  <div class="common_div width-450">
+                    <label class="absolute-label" for="">특기 </label>
+                    <input class="common_input" type="text" name="cv_specialty" id="cv_specialty" />
                   </div>
                 </div>
-              </div>
+              </section>
+            </div>
 
 
-              <div class="line_award"></div>
-
-              <div class="buttonBox">
-                <button id="add_award" class="btn add-more button-yellow uppercase" type="button">
-                  <i class="fas fa-plus-circle"></i>
-                  <span style="font-size: 17px">추가</span>
-                </button>
-                <button id="delete_award" type="button" class="btn button-white uppercase">
-                  <i class="fas fa-minus-circle"></i>
-                  <span style="font-size: 17px">제거</span>
-                </button>
-              </div>
-            </section>
-          </div>
-
-
-          <div id="miliFieldset_main" style="display:none;" disabled>
-            <section class="form" id="우대사항/병역">
-              <p class="legend">우대사항•병역</p>
-              <div class="info">
-                <div class="common_div width-300" id="verteran_div">
-
-                  <label class="absolute-middleLabel" for="">보훈대상</label>
-                  <div class="preferentialTreatment">
-                    <input type="checkbox" style="zoom:1.5;" name="cv_verteran" value='1' id="cv_verteran"
-                           onClick="checkVerteran()" />
-                    <input type="hidden" name="cv_verteran" value='0' id="cv_verteran_hidden" />
-                  </div>
-
-                </div>
-                <div class="common_div width-300" id="disability_div">
-                  <label class="absolute-middleLabel" for="">장애</label>
-                  <div class="preferentialTreatment2">
-                    <input type="checkbox" style="zoom:1.5;" name="cv_disability" value='1' id="cv_disability"
-                           onClick="checkBoth()" />
-                    <input type="hidden" name="cv_disability" value='0' id="cv_disability_hidden" />
+            <div id="awardFieldset_main" style="display:none;" disabled>
+              <section class="form" id="수상경력">
+                <p class="legend">수상경력</p>
+                <div class="item_award">
+                  <div class="info">
+                    <div class="common_div width-350">
+                      <label class="absolute-label" for="">수상명 <span>*</span></label>
+                      <input class="common_input" name="awards[][awards_des]" />
+                    </div>
+                    <div class="common_div width-300">
+                      <label class="absolute-label" for="">수여기관 </label>
+                      <input class="common_input" type="text" name="awards[][awards_agency]" />
+                    </div>
+                    <div class="common_div width-104">
+                      <label class="absolute-label" for="">수상연도 </label>
+                      <input class="common_input" type="text" onKeyup="award_year()" maxlength="4"
+                        name="awards[][awards_date]" />
+                    </div>
+                    <div class="common_div width-full awardContents_div ">
+                      <label class="absolute-label">수여내용 </label>
+                      <textarea class="award_contents" name="awards[][award_contents]" focus="test12()" cols="30"
+                        rows="10"></textarea>
+                    </div>
                   </div>
                 </div>
-                <div class="common_div width-300" id="military_div">
-                  <label class="absolute-middleLabel" for="">병역</label>
-                  <div class="preferentialTreatment2">
-                    <input type="checkbox" style="zoom:1.5;" name="cv_military" value='1' id="cv_military"
-                           onClick="checkBoth()" />
-                    <input type="hidden" name="cv_military" value='0' id="cv_military_hidden" />
+
+
+                <div class="line_award"></div>
+
+                <div class="buttonBox">
+                  <button id="add_award" class="btn add-more button-yellow uppercase" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    <span style="font-size: 17px">추가</span>
+                  </button>
+                  <button id="delete_award" type="button" class="btn button-white uppercase">
+                    <i class="fas fa-minus-circle"></i>
+                    <span style="font-size: 17px">제거</span>
+                  </button>
+                </div>
+              </section>
+            </div>
+
+
+            <div id="miliFieldset_main" style="display:none;" disabled>
+              <section class="form" id="우대사항/병역">
+                <p class="legend">우대사항•병역</p>
+                <div class="info">
+                  <div class="common_div width-300" id="verteran_div">
+
+                    <label class="absolute-middleLabel" for="">보훈대상</label>
+                    <div class="preferentialTreatment">
+                      <input type="checkbox" style="zoom:1.5;" name="cv_verteran" value='1' id="cv_verteran"
+                        onClick="checkVerteran()" />
+                      <input type="hidden" name="cv_verteran" value='0' id="cv_verteran_hidden" />
+                    </div>
+
+                  </div>
+                  <div class="common_div width-300" id="disability_div">
+                    <label class="absolute-middleLabel" for="">장애</label>
+                    <div class="preferentialTreatment2">
+                      <input type="checkbox" style="zoom:1.5;" name="cv_disability" value='1' id="cv_disability"
+                        onClick="checkBoth()" />
+                      <input type="hidden" name="cv_disability" value='0' id="cv_disability_hidden" />
+                    </div>
+                  </div>
+                  <div class="common_div width-300" id="military_div">
+                    <label class="absolute-middleLabel" for="">병역</label>
+                    <div class="preferentialTreatment2">
+                      <input type="checkbox" style="zoom:1.5;" name="cv_military" value='1' id="cv_military"
+                        onClick="checkBoth()" />
+                      <input type="hidden" name="cv_military" value='0' id="cv_military_hidden" />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div id="info-extra" class="info-extra" style="display:none;">
-                <div id="disability-value" style="display:none;">
-                  <label class="" for="">장애</label>
-                  <div class="common_div width-300" style="border:none; padding:0px; padding-bottom: 19px;">
+                <div id="info-extra" class="info-extra" style="display:none;">
+                  <div id="disability-value" style="display:none;">
+                    <label class="" for="">장애</label>
+                    <div class="common_div width-300" style="border:none; padding:0px; padding-bottom: 19px;">
                       <span class="custom-dropdown big">
                         <select style="width:50%; height: 100%; margin-left:10px;" class="" name="cv_disability_degree">
                           <option class="gray" value="">
@@ -526,17 +539,17 @@
                           <option value="6급">6급</option>
                         </select>
                       </span>
+                    </div>
                   </div>
-                </div>
 
-                <br />
-                <div id="military-value" style="display:none;">
-                  <label class="" for="">병역</label>
-                  <div class="common_div width-300" style="border:none; padding:0px; padding-bottom: 19px;">
+                  <br />
+                  <div id="military-value" style="display:none;">
+                    <label class="" for="">병역</label>
+                    <div class="common_div width-300" style="border:none; padding:0px; padding-bottom: 19px;">
 
                       <span class="custom-dropdown big">
                         <select style="width:50%; height: 100%; margin-left:10px;" class=""
-                                name="militaryServiceClassification">
+                          name="militaryServiceClassification">
                           <option class="gray" value="">
                             <p>병역</p>
                           </option>
@@ -546,98 +559,246 @@
                           <option value="면제">면제</option>
                         </select>
                       </span>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+            </div>
+
+
+            <div id="famFieldset_main" style="display:none;" disabled>
+              <section class="form" id="가족사항">
+                <p class="legend">가족사항</p>
+                <div class="item_family">
+                  <div class="info">
+                    <div class="common_div ">
+                      <label class="absolute-label" for="">가족관계 <span>*</span></label>
+                      <select class="common_select" name="family[][fam_relation]">
+                        <option class="gray" value="">가족관계</option>
+
+                        <option value="부부">부부</option>
+
+                        <option value="부">부</option>
+
+                        <option value="모">모</option>
+
+                        <option value="자녀">자녀</option>
+
+                        <option value="형제">형제</option>
+
+                        <option value="자매">자매</option>
+                      </select>
+                    </div>
+                    <div class="common_div width-180">
+                      <label class="absolute-label" for="">이름 </label>
+                      <input class="common_input" type="text" name="family[][fam_name]" />
+                    </div>
+                    <div class="common_div width-104">
+                      <label class="absolute-label" for="">나이 </label>
+                      <input style="padding-left:30px;" class="age_input" type="text" onKeyup="award_year()"
+                        maxlength="2" name="family[][fam_age]" />
+                      <span style="font-size: 12px">살</span>
+                    </div>
+                    <div class="common_div width-180">
+                      <label class="absolute-label" for="">생년월일 </label>
+                      <input class="common_input date" type="date" name="family[][fam_birth]" />
+                    </div>
+                    <div class="common_div width-180">
+                      <label class="absolute-label" for="">지역 </label>
+                      <input class="common_input" type="text" name="family[][fam_living]" />
+                    </div>
                   </div>
                 </div>
 
-              </div>
-            </section>
-          </div>
 
+                <div class="line_family"></div>
 
-          <div id="famFieldset_main" style="display:none;" disabled>
-            <section class="form" id="가족사항">
-              <p class="legend">가족사항</p>
-              <div class="item_family">
-                <div class="info">
-                  <div class="common_div ">
-                    <label class="absolute-label" for="">가족관계 <span>*</span></label>
-                    <select class="common_select" name="family[][fam_relation]">
-                      <option class="gray" value="">가족관계</option>
-
-                      <option value="부부">부부</option>
-
-                      <option value="부">부</option>
-
-                      <option value="모">모</option>
-
-                      <option value="자녀">자녀</option>
-
-                      <option value="형제">형제</option>
-
-                      <option value="자매">자매</option>
-                    </select>
-                  </div>
-                  <div class="common_div width-180">
-                    <label class="absolute-label" for="">이름 </label>
-                    <input class="common_input" type="text" name="family[][fam_name]" />
-                  </div>
-                  <div class="common_div width-104">
-                    <label class="absolute-label" for="">나이 </label>
-                    <input style="padding-left:30px;" class="age_input" type="text" onKeyup="award_year()"
-                           maxlength="2" name="family[][fam_age]" />
-                    <span style="font-size: 12px">살</span>
-                  </div>
-                  <div class="common_div width-180">
-                    <label class="absolute-label" for="">생년월일 </label>
-                    <input class="common_input date" type="date" name="family[][fam_birth]" />
-                  </div>
-                  <div class="common_div width-180">
-                    <label class="absolute-label" for="">지역 </label>
-                    <input class="common_input" type="text" name="family[][fam_living]" />
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="line_family"></div>
-
-              <div class="buttonBox">
-                <button id="add_family" class="btn add-more button-yellow uppercase" type="button">
-                  <i class="fas fa-plus-circle"></i>
-                  <span style="font-size: 17px">추가</span>
-                </button>
-                <button id="delete_family" type="button" class="btn button-white uppercase">
-                  <i class="fas fa-minus-circle"></i>
-                  <span style="
+                <div class="buttonBox">
+                  <button id="add_family" class="btn add-more button-yellow uppercase" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    <span style="font-size: 17px">추가</span>
+                  </button>
+                  <button id="delete_family" type="button" class="btn button-white uppercase">
+                    <i class="fas fa-minus-circle"></i>
+                    <span style="
                     font-size: 17px">제거</span>
-                </button>
-              </div>
-            </section>
-          </div>
+                  </button>
+                </div>
+              </section>
+            </div>
 
-          <!-- <fieldset id="" style="display:none;" disabled> -->
-          <div id="licFieldset_main" style="display:none;" disabled>
-            <section class="form" id="자격증">
+            <!-- <fieldset id="" style="display:none;" disabled> -->
+            <div id="licFieldset_main" style="display:none;" disabled>
+              <section class="form" id="자격증">
 
-              <p class="legend">자격증</p>
+                <p class="legend">자격증</p>
 
-              <div class="item_lic">
-                <div class="info">
+                <div class="item_lic">
+                  <div class="info">
+                    <!-- body overlay -->
+                    <div class="body-blackout"></div>
 
-                  <div class="common_div width-450">
-                    <label class="absolute-label" for="">자격증 명 </label>
-                    <input class="common_input" type="text" name="certificate[][lic_name]" />
-                  </div>
-                  <div class="common_div width-180">
-                    <label class="absolute-label" for="">취득일 </label>
-                    <input class="common_input" type="date" name="certificate[][lic_date]" />
-                  </div>
-                  <div class="common_div width-180">
-                    <label class="absolute-label" for="">만료일 </label>
-                    <input class="common_input" type="date" name="certificate[][lic_due_date]" />
+                    <!-- Modals Triggers -->
+
+
+                    <!-- Modals -->
+                    <div class="popup-modal shadow" data-popup-modal="one">
+                      <i class="fa fa-window-close popup-modal__close"></i>
+                      <h1 class="font-weight-bold">자격증 불러오기</h1>
+                      <div>
+                        <div class="layer_manage_wrap" style="margin-top: 20px">
+                          <div class="resume_data">
+                            <div>
+                              <div class="title_wrap" style="margin: 10px 0 3px 0">
+                                <!-- COUNT --><strong class="attach_count">총 <span>2</span>건</strong>
+                              </div>
+                              <div class="table_scroll">
+                                <table class="manage_list_table">
+                                  <caption>
+                                    자격증 리스트
+                                  </caption>
+                                  <colgroup>
+                                    <col width="58" />
+                                    <col width="140" />
+                                    <col />
+                                    <col width="140" />
+                                  </colgroup>
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">
+                                        <span class="inpChk">
+                                          <input type="checkbox" name="import_all_check"
+                                            id="import_all_check_1623578366378" />
+                                          <label class="lbl hide" for="import_all_check_1623578366378">전체선택</label>
+                                        </span>
+                                      </th>
+                                      <th scope="col">취득일</th>
+                                      <th scope="col">자격증명</th>
+                                      <th scope="col">만료일</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <!-- LIST -->
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161003_1623578366378" /><label class="lbl hide"
+                                            for="import_2161003_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.08</td>
+                                      <td>컴퓨터그래픽스운용기능사</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <span class="inpChk"><input type="checkbox" name="import_check"
+                                            id="import_2161002_1623578366378" /><label class="lbl hide"
+                                            for="import_2161002_1623578366378"></label></span>
+                                      </td>
+                                      <td>2021.07</td>
+                                      <td>컴퓨터활용능력2급</td>
+                                      <td>2021.08</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bottom_btn_wrap">
+                            <button type="button" class="btn_confirm">불러오기</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="common_div width-430">
+                      <label class="absolute-label" for="">자격증 명 </label>
+                      <input class="common_input" type="text" name="certificate[][lic_name]" />
+                    </div>
+                    <div class="common_div width-180">
+                      <label class="absolute-label" for="">취득일 </label>
+                      <input class="common_input" type="date" name="certificate[][lic_date]" />
+                    </div>
+                    <div class="common_div width-180">
+                      <label class="absolute-label" for="">만료일 </label>
+                      <input class="common_input" type="date" name="certificate[][lic_due_date]" />
+                    </div>
+                    <button type="button" class="btn btn-sm btn-primary popup-trigger"
+                      style="margin-left:10px; vertical-align: top;">자격증 불러오기</button>
                   </div>
                 </div>
-              </div>  
                 <div class="line_lic"></div>
 
                 <div class="buttonBox">
@@ -650,92 +811,92 @@
                     <span style="font-size: 17px">제거</span>
                   </button>
                 </div>
-            </section>
-          </div>
+              </section>
+            </div>
 
-          <div id="flFieldset_main" style="display:none;" disabled>
+            <div id="flFieldset_main" style="display:none;" disabled>
 
-            <section class="form" id="어학">
+              <section class="form" id="어학">
 
-              <p class="legend">어학</p>
+                <p class="legend">어학</p>
 
-              <div class="item_fl">
-                <div class="info">
+                <div class="item_fl">
+                  <div class="info">
 
-                  <div class="common_div width-180">
-                    <label class="absolute-label" for="">외국어명 <span>*</span></label>
-                    <select class="common_select" name="language[][fl_language]">
-                      <option value="">-외국어 선택-</option>
-                      <option value="영어">영어</option>
-                      <option value="일본어">일본어</option>
-                      <option value="중국어">중국어</option>
-                      <option value="독일어">독일어</option>
-                      <option value="프랑스어">프랑스어</option>
-                      <option value="스페인어">스페인어</option>
-                      <option value="러시아어">러시아어</option>
-                      <option value="이탈리아어">이탈리아어</option>
-                      <option value="아랍어">아랍어</option>
-                      <option value="태국어">태국어</option>
-                      <option value="마인어">마인어</option>
-                      <option value="그리스어">그리스어</option>
-                      <option value="포르투갈어">포르투갈어</option>
-                      <option value="베트남어">베트남어</option>
-                      <option value="네달란드어">네달란드어</option>
-                      <option value="힌디어">힌디어</option>
-                      <option value="노르웨이어">노르웨이어</option>
-                      <option value="한국어">한국어</option>
-                    </select>
-                  </div>
+                    <div class="common_div width-180">
+                      <label class="absolute-label" for="">외국어명 <span>*</span></label>
+                      <select class="common_select" name="language[][fl_language]">
+                        <option value="">-외국어 선택-</option>
+                        <option value="영어">영어</option>
+                        <option value="일본어">일본어</option>
+                        <option value="중국어">중국어</option>
+                        <option value="독일어">독일어</option>
+                        <option value="프랑스어">프랑스어</option>
+                        <option value="스페인어">스페인어</option>
+                        <option value="러시아어">러시아어</option>
+                        <option value="이탈리아어">이탈리아어</option>
+                        <option value="아랍어">아랍어</option>
+                        <option value="태국어">태국어</option>
+                        <option value="마인어">마인어</option>
+                        <option value="그리스어">그리스어</option>
+                        <option value="포르투갈어">포르투갈어</option>
+                        <option value="베트남어">베트남어</option>
+                        <option value="네달란드어">네달란드어</option>
+                        <option value="힌디어">힌디어</option>
+                        <option value="노르웨이어">노르웨이어</option>
+                        <option value="한국어">한국어</option>
+                      </select>
+                    </div>
 
-                  <div class="common_div width-104">
-                    <label class="absolute-label" for="">회화능력 <span>*</span></label>
-                    <select class="common_select" name="language[][fl_conversation]">
-                      <option value="">선택</option>
-                      <option value="상">상</option>
-                      <option value="중">중</option>
-                      <option value="하">하</option>
-                    </select>
-                  </div>
+                    <div class="common_div width-104">
+                      <label class="absolute-label" for="">회화능력 <span>*</span></label>
+                      <select class="common_select" name="language[][fl_conversation]">
+                        <option value="">선택</option>
+                        <option value="상">상</option>
+                        <option value="중">중</option>
+                        <option value="하">하</option>
+                      </select>
+                    </div>
 
-                  <div class="common_div width-104">
-                    <label class="absolute-label" for="">독해능력 <span>*</span></label>
-                    <select class="common_select" name="language[][fl_reading]">
-                      <option value="">선택</option>
-                      <option value="상">상</option>
-                      <option value="중">중</option>
-                      <option value="하">하</option>
-                    </select>
-                  </div>
+                    <div class="common_div width-104">
+                      <label class="absolute-label" for="">독해능력 <span>*</span></label>
+                      <select class="common_select" name="language[][fl_reading]">
+                        <option value="">선택</option>
+                        <option value="상">상</option>
+                        <option value="중">중</option>
+                        <option value="하">하</option>
+                      </select>
+                    </div>
 
-                  <div class="common_div width-104">
-                    <label class="absolute-label" for="">작문능력 <span>*</span></label>
-                    <select class="common_select" name="language[][fl_writing]">
-                      <option value="">선택</option>
-                      <option value="상">상</option>
-                      <option value="중">중</option>
-                      <option value="하">하</option>
-                    </select>
-                  </div>
-                  <br />
+                    <div class="common_div width-104">
+                      <label class="absolute-label" for="">작문능력 <span>*</span></label>
+                      <select class="common_select" name="language[][fl_writing]">
+                        <option value="">선택</option>
+                        <option value="상">상</option>
+                        <option value="중">중</option>
+                        <option value="하">하</option>
+                      </select>
+                    </div>
+                    <br />
 
-                  <div class="common_div width-408">
-                    <label class="absolute-label" for="">시험종류 </label>
-                    <input class="common_input" type="text" name="language[][fl_name]" />
-                  </div>
-                  <div class="common_div width-140">
-                    <label class="absolute-label" for="">점수 </label>
-                    <input class="common_input" type="text" name="language[][fl_score]" />
-                  </div>
-                  <div class="common_div width-104">
-                    <label class="absolute-label" for="">급수</label>
-                    <input class="common_input" type="text" name="language[][fl_rank]" />
-                  </div>
-                  <div class="common_div width-180">
-                    <label class="absolute-label" for="">취득일 </label>
-                    <input class="common_input" type="date" name="language[][fl_date]" />
+                    <div class="common_div width-408">
+                      <label class="absolute-label" for="">시험종류 </label>
+                      <input class="common_input" type="text" name="language[][fl_name]" />
+                    </div>
+                    <div class="common_div width-140">
+                      <label class="absolute-label" for="">점수 </label>
+                      <input class="common_input" type="text" name="language[][fl_score]" />
+                    </div>
+                    <div class="common_div width-104">
+                      <label class="absolute-label" for="">급수</label>
+                      <input class="common_input" type="text" name="language[][fl_rank]" />
+                    </div>
+                    <div class="common_div width-180">
+                      <label class="absolute-label" for="">취득일 </label>
+                      <input class="common_input" type="date" name="language[][fl_date]" />
+                    </div>
                   </div>
                 </div>
-              </div>
                 <div class="line_fl"></div>
 
                 <div class="buttonBox">
@@ -749,108 +910,108 @@
                   </button>
                 </div>
                 <div>
-            </section>
-          </div>
-
-
-
-
-          <section class="form" id="희망조건">
-            <p class="legend">희망조건</p>
-            <div class="info">
-              <div class="common_div width-410">
-                <label class="absolute-label" for="">응시부문 <span>*</span></label>
-                <input class="common_input" name="sec_of_exam" autocomplete="off" />
-              </div>
-              <div id="sallay_div" class="common_div width-200">
-                <label id="desire" class="absolute-label" for="">희망 연봉 <span>*</span></label>
-                <input id="desired_salary" class="money_input" value="" type="number" name="desired_salary"
-                       autocomplete="off" />
-                <span style="font-size: 12px">만원이상</span>
-              </div>
-              <button type="button" id="decisionInterview">
-                <i id="checkWhite" class="fas fa-check-square checkWhite" style="color:rgb(206, 197, 197)"></i></i>
-                면접 후 결정
-              </button>
+              </section>
             </div>
-          </section>
 
-        </form>
+
+
+
+            <section class="form" id="희망조건">
+              <p class="legend">희망조건</p>
+              <div class="info">
+                <div class="common_div width-410">
+                  <label class="absolute-label" for="">응시부문 <span>*</span></label>
+                  <input class="common_input" name="sec_of_exam" autocomplete="off" />
+                </div>
+                <div id="sallay_div" class="common_div width-200">
+                  <label id="desire" class="absolute-label" for="">희망 연봉 <span>*</span></label>
+                  <input id="desired_salary" class="money_input" value="" type="number" name="desired_salary"
+                    autocomplete="off" />
+                  <span style="font-size: 12px">만원이상</span>
+                </div>
+                <button type="button" id="decisionInterview">
+                  <i id="checkWhite" class="fas fa-check-square checkWhite" style="color:rgb(206, 197, 197)"></i></i>
+                  면접 후 결정
+                </button>
+              </div>
+            </section>
+
+          </form>
+        </div>
+
+
+
+        <!-- form end -->
+        <div id="aside">
+          <!-- 오른쪽 메뉴부분 -->
+          <h2 id="addcv">추가항목</h2>
+          <ul id="addlist">
+            <li style="padding-top:25px;">
+              <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-graduation-cap"></i>
+              <span>학력</span>
+              <button type="button" id="btn1">
+                <i style="font-size:25px; " id="schoolPlus" class="fas fa-plus-circle"></i>
+              </button>
+
+            </li>
+            <li>
+              <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fab fa-dribbble"></i>
+              <span>취미•특기</span>
+              <button type="button" id="btn2"><i id="hobbyPlus" style="font-size:25px;"
+                  class="fas fa-plus-circle"></i></button>
+
+            </li>
+            <li>
+              <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-medal"></i>
+              <span>수상경력</span>
+              <button type="button" id="btn3"><i id="awardPlus" style="font-size:25px; "
+                  class="fas fa-plus-circle"></i></button>
+            </li>
+            <li>
+              <i style="font-size: 20px; color:rgb(182, 176, 176);" class="far fa-handshake"></i>
+              <span>우대사항•병역</span>
+              <button type="button" id="btn4"><i id="milPlus" style="font-size:25px; "
+                  class="fas fa-plus-circle"></i></button>
+            </li>
+            <li>
+              <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-users"></i>
+              <span>가족사항</span>
+              <button type="button" id="btn5"><i id="familPlus" style="font-size:25px;"
+                  class="fas fa-plus-circle"></i></button>
+            </li>
+            <li>
+              <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-address-card"></i>
+              <span>자격증</span>
+              <button type="button" id="btn6"><i id="certificatePlus" style="font-size:25px;"
+                  class="fas fa-plus-circle"></i></button>
+            </li>
+            <li>
+              <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-language"></i>
+              <span>어학</span>
+              <button type="button" id="btn7"><i id="languagePlus" style="font-size:25px;"
+                  class="fas fa-plus-circle"></i></button>
+            </li>
+          </ul>
+          <!-- 진짜 -->
+          <button id="submit" class="cvSubmit" type="button" form="cvForm">저장하기</button>
+          <!-- 임시용 -->
+          <!-- <a href="after.html"><button id="cvSubmit">저장하기</button></a> -->
+        </div>
+
+
       </div>
-
-
-
-      <!-- form end -->
-      <div id="aside">
-        <!-- 오른쪽 메뉴부분 -->
-        <h2 id="addcv">추가항목</h2>
-        <ul id="addlist">
-          <li style="padding-top:25px;">
-            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-graduation-cap"></i>
-            <span>학력</span>
-            <button type="button" id="btn1">
-              <i style="font-size:25px; " id="schoolPlus" class="fas fa-plus-circle"></i>
-            </button>
-
-          </li>
-          <li>
-            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fab fa-dribbble"></i>
-            <span>취미•특기</span>
-            <button type="button" id="btn2"><i id="hobbyPlus" style="font-size:25px;"
-                                               class="fas fa-plus-circle"></i></button>
-
-          </li>
-          <li>
-            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-medal"></i>
-            <span>수상경력</span>
-            <button type="button" id="btn3"><i id="awardPlus" style="font-size:25px; "
-                                               class="fas fa-plus-circle"></i></button>
-          </li>
-          <li>
-            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="far fa-handshake"></i>
-            <span>우대사항•병역</span>
-            <button type="button" id="btn4"><i id="milPlus" style="font-size:25px; "
-                                               class="fas fa-plus-circle"></i></button>
-          </li>
-          <li>
-            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-users"></i>
-            <span>가족사항</span>
-            <button type="button" id="btn5"><i id="familPlus" style="font-size:25px;"
-                                               class="fas fa-plus-circle"></i></button>
-          </li>
-          <li>
-            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-address-card"></i>
-            <span>자격증</span>
-            <button type="button" id="btn6"><i id="certificatePlus" style="font-size:25px;"
-                                               class="fas fa-plus-circle"></i></button>
-          </li>
-          <li>
-            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-language"></i>
-            <span>어학</span>
-            <button type="button" id="btn7"><i id="languagePlus" style="font-size:25px;"
-                                               class="fas fa-plus-circle"></i></button>
-          </li>
-        </ul>
-        <!-- 진짜 -->
-        <button id="submit" class="cvSubmit"type="button" form="cvForm">저장하기</button>
-        <!-- 임시용 -->
-        <!-- <a href="after.html"><button id="cvSubmit">저장하기</button></a> -->
-      </div>
-
 
     </div>
-
   </div>
-</div>
-</div>
-<script src="/js/register.js">
-</script>
-<script src="/js/jquery-3.6.0.min.js"></script>
-<script src="/js/jquery-serialize-object.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
-<script src="/js/cv.js"></script>
-
-
+  </div>
+  <script src="/js/register.js">
+  </script>
+  <script src="/js/jquery-3.6.0.min.js"></script>
+  <script src="/js/jquery-serialize-object.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js">
+  </script>
+  <script src="/js/cv.js"></script>
+  <script defer src="/js/s1_index.js"></script>
 </body>
 
 </html>
