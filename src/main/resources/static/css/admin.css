@@ -368,11 +368,17 @@ span:nth-of-type(1){
 .s140{
     width:140px;
 }
+.s160{
+    width:160px;
+}
 .s180{
     width:180px;
 }
 .s200{
     width:200px;
+}
+.s240{
+    width:240px;
 }
 .s270{
     width:270px;
@@ -391,6 +397,9 @@ span:nth-of-type(1){
 }
 .s610{
     width:610px;
+}
+.s650{
+    width:650px;
 }
 .shape{
     z-index:1;

@@ -165,21 +165,21 @@
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="6_1_checkH"
                                                                onclick="checkAll(this)"></span>
-                <span class="number s100">목록번호</span>
-                <span class="type s140">상담종류</span>
-                <span class="title s400">상담제목</span>
-                <span class="regdate s140">등록일</span>
-                <span class="moddate s140">수정일</span>
+                <span class="number s140">목록번호</span>
+                <span class="type s240">상담종류</span>
+                <span class="title s650">상담제목</span>
+                <span class="regdate s240">등록일</span>
+                <span class="moddate s240">수정일</span>
 <!--                <span class="preference">신청건수</span>-->
               </div>
 
               <div class="list_body" th:each=" consult : ${consultlist}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_1_check"></span>
-                <span class="number s100">[[${consult.cno}]]</span>
-                <span class="type s140">[[${consult.type}]]</span>
-                <span class="title s400">[[${consult.name}]]</span>
-                <span class="regdate s140">[[${#temporals.format(consult.consult_regdate, 'YYYY-MM-dd ')}]]</span>
-                <span class="moddate s140">[[${#temporals.format(consult.consult_moddate, 'YYYY-MM-dd ')}]]</span>
+                <span class="number s140">[[${consult.cno}]]</span>
+                <span class="type s240">[[${consult.type}]]</span>
+                <span class="title s650">[[${consult.name}]]</span>
+                <span class="regdate s240">[[${#temporals.format(consult.consult_regdate, 'YYYY-MM-dd ')}]]</span>
+                <span class="moddate s240">[[${#temporals.format(consult.consult_moddate, 'YYYY-MM-dd ')}]]</span>
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>
@@ -198,23 +198,21 @@
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="6_2_checkH"
                                                                onclick="checkAll(this)"></span>
-                <span class="number">번호</span>
-                <span class="name">이름</span>
-                <span class="username">아이디</span>
-                <span class="phone">연락처</span>
-                <span class="email">이메일</span>
-<!--                <span class="joindate">가입일</span>-->
-                <span class="role">권한</span>2
+                <span class="number s100">번호</span>
+                <span class="name s180">이름</span>
+                <span class="username s400">아이디</span>
+                <span class="phone s240">연락처</span>
+                <span class="email s430">이메일</span>
+                <span class="role s160">권한</span>2
               </div>
               <div class="list_body" th:each="con,i : ${counselorList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="6_2_check"></span>
-                <span class="number">[[${i.count}]]</span>
-                <span class="name">[[${con.getUser_name()}]]</span>
-                <span class="username">[[${con.getUser_id()}]]</span>
-                <span class="phone">[[${con.getUser_ph()}]]-[[${con.getUser_ph2()}]]-[[${con.getUser_ph3()}]]</span>
-                <span class="email">[[${con.getUser_email()}]]@[[${con.getUser_emailDomain()}]]</span>
-                <span class="role">[[${con.getUser_type()}]]</span>
-
+                <span class="number s100">[[${i.count}]]</span>
+                <span class="name s180">[[${con.getUser_name()}]]</span>
+                <span class="username s400">[[${con.getUser_id()}]]</span>
+                <span class="phone s240">[[${con.getUser_ph()}]]-[[${con.getUser_ph2()}]]-[[${con.getUser_ph3()}]]</span>
+                <span class="email s430">[[${con.getUser_email()}]]@[[${con.getUser_emailDomain()}]]</span>
+                <span class="role s160">[[${con.getUser_type()}]]</span>
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>
@@ -224,7 +222,7 @@
           <div id="main6_counselorCharge">
             <!--상담관리 > 상담사 > 담당 학생-->
             <div class="sub_menu_title">
-              <h3>담당학생</h3>
+              <h3>담당학생(넣을지말지고민중)</h3>
             </div>
             <div class="list">
               <div class="list_head">
