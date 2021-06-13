@@ -38,7 +38,7 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .antMatchers("/application/**").hasRole("STUDENT")
                 .antMatchers("/mypage/**").hasRole("USER")
                 .antMatchers("/counseling/**").hasRole("COUNSELOR")
-                .antMatchers("/admin/**").hasRole("Admin")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll();
 
 
@@ -48,7 +48,7 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/loginProc")
                 .defaultSuccessUrl("/");
         //http.rememberMe().tokenValiditySeconds(60*60*7).userDetailsService(principalDatail);  // 자동로그인
-
+        
         // 로그아웃 설정
         http.logout().logoutSuccessUrl("/");
 
