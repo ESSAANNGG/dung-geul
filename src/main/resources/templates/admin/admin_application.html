@@ -37,7 +37,7 @@
       <div id="menu_guide">
         <ul class="guide">입사지원 |
           <select class="guide_select">
-            <option>입사지원</option>
+            <option>지원현황</option>
           </select>
         </ul>
       </div>
@@ -48,7 +48,52 @@
       <div class="main">
         <!--dashboard-->
         <div class="main4">
+          <div id="main4_employ_search">
+            <!--채용공고 > 채용공고 > 공고검색-->
+            <div class="sub_menu_title">
+              <h3>지원자검색</h3>
+            </div>
+            <div class="search">
+              <ul>
+                <li>공고제목</li>
+                <li> <input type="text" class="search_data"></li>
+              </ul>
+              <ul>
+                <li>기업명</li>
+                <li> <input type="text" class="search_data"></li>
+              </ul>
+              <ul>
+                <li>기업형태</li>
+                <li>
+                  <select name="shape" class="search_data">
+                    <option value="">기업 형태</option>
+                    <option value="대기업">대기업</option>
+                    <option value="중견기업">중견기업</option>
+                    <option value="중소기업">중소기업</option>
+                  </select>
+                </li>
+              </ul>
+              <ul>
+                <li>근무지역</li>
+                <li>
+                  <select name="sido" class="search_data"></select>
+                  <select name="gugun" class="search_data"></select>
+                </li>
+              </ul>
+              <ul>
+                <li>지원자 아이디</li>
+                <li>
+                  <input type="text" class="search_data"></li>
+                </li>
+              </ul>
 
+              <div class="search_button">
+                <button class="search_submit">
+                  <h3>검색</h3>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
