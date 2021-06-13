@@ -217,11 +217,13 @@ let select_search;        //검색하는 검색창의 위치가 어디인지
 let search_data_length;   //검색할 수 있는 data 입력칸이 몇개가있는지
 let search_val;           //각 input칸의 data
 $('.search_submit').click(function(){
-    select_search = $(this).parent("div").parent("div");                //해당 search 클래스를 저장
-    search_data_length=$(select_search).find(".search_data").length;    //검색할 수 있는 data 입력칸이 몇개가있는지
+    select_search = $(this).parent("div").parent("div").parent("div").attr('id');                //해당 search 클래스를 저장
+    alert(select_search);
+    search_data_length=$('#'+select_search).find(".search_data").length;    //검색할 수 있는 data 입력칸이 몇개가있는지
+    alert(search_data_length);
 
     for (i=0; i<search_data_length; i++) {                              //input칸들의 값들을 확인
-        search_val=$(select_search).find(".search_data").eq(i).val();   //각 input들의 data를 받아옴(for문 돌리는중)
+        search_val=$('#'+select_search).find(".search_data").eq(i).val();   //각 input들의 data를 받아옴(for문 돌리는중)
         window[String(menu_name) + "_search"](i);
     }
     submit_param();
