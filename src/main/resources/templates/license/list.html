@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+  <!-- select 태그 부트스트랩 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+  <!-- <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/Employ.js"></script> -->
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+  <link rel="stylesheet" href="../../static/css/certificate.css" />
+  <link rel="stylesheet" href="../../static/css/menu-common2.css" />
+  <link rel="stylesheet" href="../../static/css/frame.css" />
+  <link rel="stylesheet" href="../../static/css/footer.css" />
+  <link rel="stylesheet" href="../../static/css/nav.css" />
+  <script defer src="/js/nav.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+  <!--nav 상담-->
+   <div th:replace="layout/layout :: nav" />
+
+
+  <!-- Main -->
+  <section id="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <div class="sidebar">
+            <div class="menu2">
+              <div id="bar">
+                <h2>자격증 관리</h2>
+                <ul id="menu_bar">
+                  <li id="menu_con1">
+                    <h4>자격증</h4>
+                    <ul id="sb_detail">
+                      <li><a>자격증 목록</a></li>
+                      <li><a>자격증 등록</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div> <!-- bar -->
+            </div> <!-- menu -->
+          </div>
+        </div>
+        <div class="employList">
+          <div class="employListPost">
+            <li>
+              <a class="read_page_click">
+                 <ul class="test">
+                  <li class="post_end_date" style="padding-right: 20px;">최종 작성일</li>
+                  <!-- 삭제버튼 -->
+                  <button id="certificateRemove"class="post_end_date mazer"><i class="fas fa-times"></i></button>
+                 </ul>
+                <ul class="post_corp_name_wrap"><i class="far fa-id-card"></i>
+                  <li class="post_corp_name">자격증 명</li>
+                </ul>
+                <ul>
+                  <li class="cerDate">취득일</li>
+                  <span class="cerDate">~</span>
+                  <li class="cerDate">만료일</li>
+                </ul>
+                <ul class="post_corp_name_wrap" style="margin-top: 10px;">
+                  <a class="certificate_modify" href="">수정하기</a>
+                </ul>
+                
+              </a>
+         <!--      <script type="text/javascript">
+                post_cont_sub_func();
+              </script> -->
+
+            </li>
+
+          </div>
+          <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
+            <li class="page-item">
+              <a class="page-link" tabindex="-1">Previous</a>
+            </li>
+            <li>
+              <a class="page-link"></a>
+            </li>
+            <li class="page-item">
+              <a class="page-link">Next</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+
+
+  </section>
+  </div>
+
+
+  <!-- footer -->
+   <footer th:replace="layout/layout :: footer" />
+
+
+
+
+
+</body>
+
+</html>
