@@ -32,11 +32,13 @@ public class Config extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         // 권한별 주소 접근 설정
 
+        //TODO.. 추가해야하는 접근 경로 뭐가 있는지 물어보기
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/application/cv/**").hasRole("STUDENT")
+                .antMatchers("/application/**").hasRole("STUDENT")
                 .antMatchers("/mypage/**").hasRole("USER")
-                .antMatchers("/allow/**").hasRole("ADMIN")
+                .antMatchers("/counseling/**").hasRole("COUNSELOR")
+                .antMatchers("/admin/**").hasRole("Admin")
                 .anyRequest().permitAll();
 
 
@@ -45,8 +47,9 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .loginProcessingUrl("/loginProc")
                 .defaultSuccessUrl("/");
-        //http.rememberMe().tokenValiditySeconds(60*60*7).userDetailsService(principalDatail);
+        //http.rememberMe().tokenValiditySeconds(60*60*7).userDetailsService(principalDatail);  // 자동로그인
 
+        // 로그아웃 설정
         http.logout().logoutSuccessUrl("/");
 
     }
