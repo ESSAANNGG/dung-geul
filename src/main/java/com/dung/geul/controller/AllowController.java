@@ -49,6 +49,8 @@ public class AllowController {
                 "page2 : " + page2);
         System.out.println("list 컨트롤러 실행");
 
+        System.out.println("shape : " + searchDTO.getShape());
+
         // allow = 0, page1 : 미인증 목록
         // allow = 1, page2 : 인증 목록
 

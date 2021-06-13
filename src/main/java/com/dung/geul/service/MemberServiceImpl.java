@@ -490,8 +490,12 @@ public class MemberServiceImpl implements MemberService {
         String id = dto.getId();
         String name = dto.getName();
         String shape = dto.getShape();
+
+        log.info("shape : " + shape);
+
         LocalDateTime startDate = null;
         LocalDateTime endDate = null;
+
         if(dto.getStartDate() != null && dto.getEndDate() != null){
             startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
             endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
@@ -520,7 +524,7 @@ public class MemberServiceImpl implements MemberService {
         }
         builder.and(epType);
 
-        if(name == null && id == null && (startDate == null || endDate == null) ){
+        if(name == null && id == null && (startDate == null || endDate == null) && shape == null){
             return builder;
         }
 
@@ -542,9 +546,12 @@ public class MemberServiceImpl implements MemberService {
             builder.and(epDate);
         }
 
-        if(shape != null){
+        if(dto.getShape() != null){
+            log.info("if문 실헹 : ");
             BooleanExpression epShape = qEtp.etp_shape.eq(shape);
+            log.info("epShape : " + epShape);
             builder.and(epShape);
+            log.info("builder and 문 실행 현재 builder : " + epShape);
         }
 
         log.info("builder.getValue() : " + builder.getValue().toString());
