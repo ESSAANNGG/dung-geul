@@ -60,8 +60,6 @@ public interface MemberService {
                 .etp_name(enterpriseDTO.getEtp_name())
                 .etp_ceo_name(enterpriseDTO.getEtp_ceo_name())
                 .etp_ph(enterpriseDTO.getEtp_ph())
-                .etp_ph2(enterpriseDTO.getEtp_ph2())
-                .etp_ph3(enterpriseDTO.getEtp_ph3())
                 .etp_fx(enterpriseDTO.getEtp_fx())
                 .etp_home(enterpriseDTO.getEtp_home())
                 .etp_contents(enterpriseDTO.getEtp_contents())
@@ -171,7 +169,12 @@ public interface MemberService {
                 .user_addr(m.getUser_addr())
                 .user_addr_details(m.getUser_addr_details())
                 .user_email(m.getUser_email())
+                .user_emailDomain(m.getUser_emailDomain())
                 .user_ph(m.getUser_ph())
+                .user_ph2(m.getUser_ph2())
+                .user_ph3(m.getUser_ph3())
+                .user_allow(m.getUser_allow())
+                .regDate(m.getRegDate())
                 .etp_id(e.getEtp_id())
                 .etp_num(e.getEtp_num())
                 .etp_name(e.getEtp_name())
@@ -183,6 +186,7 @@ public interface MemberService {
                 .etp_contents(e.getEtp_contents())
                 .etp_fx(e.getEtp_fx())
                 .etp_year(e.getEtp_year())
+                .role(m.getUser_type())
                 .build();
 
         return dto;

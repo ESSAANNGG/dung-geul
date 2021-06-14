@@ -63,6 +63,7 @@ public class AllowRestController {   // 권한 관리 컨트롤러
     public ResponseEntity memberDetailsRead(@RequestParam("user_id") String user_id , @RequestParam("type") String type ){
 
         log.info("memberDetailsRead - userId : " + user_id);
+        log.info("memberDetailsRead - type : " + type);
 
         if(type.equals("ENTERPRISE")){
             EnterpriseDTO enterpriseDTO = memberService.getEnterprise(user_id);

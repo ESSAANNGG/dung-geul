@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 public class EnterpriseDTO extends MemberDTO {
 
     // 기업 추가 정보
@@ -22,9 +22,9 @@ public class EnterpriseDTO extends MemberDTO {
 
     private String etp_ph; // 기업 전화번호  1
 
-    private String etp_ph2; // 기업 전화번호  2
+    private String user_ph2; // 기업 전화번호  2
 
-    private String etp_ph3; // 기업 전화번호  3
+    private String user_ph3; // 기업 전화번호  3
 
     private String etp_fx; // 기업 팩스번호
 
@@ -42,8 +42,6 @@ public class EnterpriseDTO extends MemberDTO {
     // 이거 두개는 나중에 변경하는거임 (관리자가 수동으로)
     private String etp_shape; // 기업 형태 : 대기업, 중소기업
 
-    private String etp_allow; // 인증여부
-
 
     @Builder
     public EnterpriseDTO(String user_id, String user_name, int user_allow,
@@ -52,7 +50,7 @@ public class EnterpriseDTO extends MemberDTO {
                          String user_grade, String user_class, String role, LocalDateTime regDate, Long etp_id,
                          String etp_num, String etp_name, String etp_ceo_name, String etp_ph,
                          String etp_fx, String etp_home, String etp_contents, LocalDate etp_year,
-                         int etp_member, String etp_sector, String etp_shape, String etp_allow) {
+                         int etp_member, String etp_sector, String etp_shape) {
         super(user_id, user_name, user_ph, user_ph2, user_ph3, user_postcode, user_addr, user_addr_details,
                 user_email, user_emailDomain, user_allow, user_dept, user_grade, user_class, role, regDate);
 
@@ -68,6 +66,5 @@ public class EnterpriseDTO extends MemberDTO {
         this.etp_sector = etp_sector;
         this.etp_shape = etp_shape;
         this.etp_year = etp_year;
-        this.etp_allow = etp_allow;
     }
 }
