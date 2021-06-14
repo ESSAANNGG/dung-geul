@@ -59,7 +59,7 @@ public class AllowRestController {   // 권한 관리 컨트롤러
     }
 
     // 회원의 상세정보 불러오기
-    @PostMapping("/detail/read")
+    @GetMapping("/detail/read")
     public ResponseEntity memberDetailsRead(@RequestParam("user_id") String user_id , @RequestParam("type") String type ){
 
         log.info("memberDetailsRead - userId : " + user_id);
@@ -67,12 +67,16 @@ public class AllowRestController {   // 권한 관리 컨트롤러
         if(type.equals("ENTERPRISE")){
             EnterpriseDTO enterpriseDTO = memberService.getEnterprise(user_id);
 
+            log.info("회원 상세정보 반환 값 : " + enterpriseDTO.toString());
+
             return new ResponseEntity(enterpriseDTO, HttpStatus.OK);
 
         } else {
             Member member = memberService.getMember(user_id);
 
             MemberDTO memberDTO = memberService.getMemberDTO(member);
+
+            log.info("회원 상세정보 반환 값 : " + memberDTO.toString());
 
             return new ResponseEntity(memberDTO, HttpStatus.OK);
         }

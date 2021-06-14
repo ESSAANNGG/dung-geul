@@ -20,7 +20,7 @@ function detail_on_userManage(id,roll){
 
     $.ajax({
         url: "/allow/detail/read?user_id="+id+"&type="+roll,
-        type: "POST",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify('id: '+id),

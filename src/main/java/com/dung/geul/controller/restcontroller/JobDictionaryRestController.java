@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 @RestController
-public class jobDictionaryRestController {
+public class JobDictionaryRestController {
 
     private  String authKey = "WNKO266ZTVI72UBY9LVWV2VR1HK";
 

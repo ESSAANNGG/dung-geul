@@ -368,7 +368,7 @@ public class MemberServiceImpl implements MemberService {
 
     public MemberDTO getMemberDTO(Member member){
 
-        MemberDTO memberDTO = getMemberDTO(member);
+        MemberDTO memberDTO = entityToDto(member);
 
         return memberDTO ;
     }
