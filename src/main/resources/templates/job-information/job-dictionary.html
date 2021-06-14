@@ -155,12 +155,12 @@
                         <h1>직업 사전</h1>
 
                         <div class="search-con">
-                            <p>「한국직업사전」은 우리나라의 직업 총람으로서(직업수 12,823개,
+                            「한국직업사전」은 우리나라의 직업 총람으로서(직업수 12,823개,
                                 직업명수 16,891개, 2019년말 기준), 체계적 직무분석을 통해 수행하는
                                 작업과정(수행 직무)과 각종 부가 직업 정보 (정규 교육, 숙련 기간, 작업강도,
-                                자격면허 등)와 직업/산업분류 코드를 제공합니다.</p>
+                                자격면허 등)와 직업/산업분류 코드를 제공합니다.
                         </div>
-                        <div class="search-box-body" style="width: 800px; margin: auto; margin: 20px;">
+                        <div class="search-box-body">
                             <div class="clear-search">
                                 <div id="label" class="on-a">키워드 검색</div>
                                 <!-- 직업 검색 form -->
@@ -168,13 +168,12 @@
                                     <input type="hidden" name="type" value="k">
                                     <input type="text" id="searchCode" name="searchCode" maxlength="30"
                                         class="form-control" placeholder="찾고 싶은 직업명을 입력하세요.">
-                                    <div class="a-list">
-                                    </div>
                                     <button type="submit" class="btn-d" onclick="jobSerchK()">검색</button>
                                 </div>
                                 <!-- 직업 검색 form -->
                             </div>
                             <br/>
+                            <div class="clear-search">
                             <div id="label1" class="on-a">조건 검색</div>
                             <div class="label-con form-outline">
                                 <select name="eduLevel" id="eduLevel" title="교육 수준 선택" class="form-control">
@@ -200,30 +199,24 @@
                                 </select>
                                 <button class="btn-k" onclick="jobSercCon()">검색</button>
                             </div> <!-- label-con form-out -->
+                            </div>
                         </div>
                         <!-- search-box-body -->
                     </div>
                     <!-- content -->
-                </div>
-                <!-- job-wrap -->
-
-
                     <!-- 키워드 검색 결과값을 보여주는 컨테이너 -->
                     <div class="srchlist">
-                        <p class="count mtp20 mbp20">
-                            <span class="point-orange" id="rtnPrsTotal">
-                                <!--  -->
-                            </span>
-                        </p>
-    
                         <div class="bg_gr">
                             <ul class="d2 clearfix bu text-sm" id="rtnPrsList">
                                 <!-- 여기에 ajax에서 파싱한 결과 값들을 추가한다. -->
                             </ul>
                         </div>
                     </div>
-                    <!-- end 키워드 검색 결과값을 보여주는 컨테이너 -->
+                </div>
+                <!-- job-wrap -->
 
+
+                <!-- end 키워드 검색 결과값을 보여주는 컨테이너 -->
 
             </div>
             <!-- job-main-wrap -->

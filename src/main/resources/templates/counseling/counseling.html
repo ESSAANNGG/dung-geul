@@ -122,5 +122,11 @@
 
 <footer th:replace="layout/layout :: footer"/>
 
+<script th:inline="javascript">
+    $(document).ready(function() {
+        a =([[${loginUser.User_id}]]);
+    });
+</script>
+
 </body>
 </html>
