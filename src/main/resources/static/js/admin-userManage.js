@@ -14,15 +14,13 @@ function userManage_guide(){
     }
 }
 
-
-
 let detail_per;         //어떤 권한의 사용자인지 확인하는 변수 0=학생 1=교직원 2=상담사 3=기업
 function detail_on_userManage(id,roll){
     detail_state=1;
 
     // TODO.. id랑 type 값 넣어서 요청
     $.ajax({
-        url: "/allow/detail/read?user_id=[]&type=[]",
+        url: "/allow/detail/read?user_id="+id+"&type="+roll,
         type: "POST",
         contentType: "application/json; charset=utf-8",
         dataType: "json",

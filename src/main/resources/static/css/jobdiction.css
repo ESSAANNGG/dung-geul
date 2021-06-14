@@ -15,7 +15,7 @@ time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    /*font: inherit;*/
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -68,9 +68,9 @@ input, button, select {
     font-size: 16px;
     border-radius: 5px;
     padding: 8px;
-    float: left;
-    margin-right: 20px;
-    margin-top: 5px;
+    /*float: left;*/
+    /*margin-right: 20px;*/
+    /*margin-top: 5px;*/
 }
 #job-main-wrap {
     padding: 50px 0 0 0;
@@ -102,14 +102,15 @@ input, button, select {
     border-bottom: 5px solid #f6f6f6;
 }
 .form-inline {
-    width: 350px;
+    text-align: center;
+    width: 400px;
     height: 350px;
     border: 1px solid #b3b3b3;
     box-shadow: 3px 3px 5px #ccc;
     /* position: absolute; */
     display: block;
     /*float: left;*/
-    margin-right: 50px;
+    /*margin-right: 50px;*/
     /*margin-top: 30px;*/
 }
 .form-outline {
@@ -181,7 +182,7 @@ input[type=text] {
     border: 1px solid #ddd;
     color: rgb(121, 121, 121);
     width: 250px;
-    margin: 50px 0 0 48px;
+    /*margin: 50px 0 0 48px;*/
 }
 .btn-d {
     display: inline;
@@ -196,7 +197,7 @@ input[type=text] {
     color: #fff;
     padding: 0 15px;
     line-height: 32px;
-    margin: 40px 0 0 68px;
+    margin-top: 40px;
 }
 .btn-k {
     display: inline;
@@ -211,13 +212,14 @@ input[type=text] {
     color: #fff;
     padding: 0 15px;
     line-height: 32px;
-    margin: 95px 0 0 68px;
+    margin-top:50px;
 }
 #searchCode {
     width: 250px;
-    margin: 40px 0 0 50px;
+    margin-top:50px;
 }
 .search-con {
+    font:inherit;
     /*width: 800px;*/
     height: 150px;
     background-color: #f8f8f8;
@@ -230,4 +232,30 @@ input[type=text] {
 }
 .search-box-body{
     display:flex;
+}
+.clear-search{
+    margin-right:100px;
+}
+.a{
+    text-align: center;
+    width:100%;
+    display:block;
+}
+#eduLevel{
+    margin-top:50px;
+}
+#skillYear{
+    margin-top:15px;
+}
+.srchlist{
+    width:100%;
+    min-height:200px;
+    margin-top:40px;
+    padding: 30px;
+    background: #f6f6f6;
+    color:#525252;
+    font-size:14px;
+    font-weight:400;
+
+    font-family: 'Noto Sans KR', sans-serif;
 }
