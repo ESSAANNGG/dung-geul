@@ -7,12 +7,15 @@ import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.MemberRepository;
 import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpResponse;
 import java.util.List;
+
+import static org.reflections.Reflections.log;
 
 
 @RestController
@@ -52,6 +55,28 @@ public class AllowRestController {   // 권한 관리 컨트롤러
         System.out.println(memberService.authMember(userIds, result));
 
         return memberService.authMember(userIds, result);
+
+    }
+
+    // 회원의 상세정보 불러오기
+    @PostMapping("/detail/read")
+    public ResponseEntity memberDetailsRead(@RequestParam("user_id") String user_id , @RequestParam("type") String type ){
+
+        log.info("memberDetailsRead - userId : " + user_id);
+
+        if(type.equals("ENTERPRISE")){
+            EnterpriseDTO enterpriseDTO = memberService.getEnterprise(user_id);
+
+            return new ResponseEntity(enterpriseDTO, HttpStatus.OK);
+
+        } else {
+            Member member = memberService.getMember(user_id);
+
+            MemberDTO memberDTO = memberService.getMemberDTO(member);
+
+            return new ResponseEntity(memberDTO, HttpStatus.OK);
+        }
+
 
     }
 

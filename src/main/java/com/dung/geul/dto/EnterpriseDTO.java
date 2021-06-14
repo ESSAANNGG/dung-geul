@@ -45,15 +45,15 @@ public class EnterpriseDTO extends MemberDTO {
 
 
     @Builder
-    public EnterpriseDTO(String user_id, String user_name, String user_pw,
+    public EnterpriseDTO(String user_id, String user_name, int user_allow,
                          String user_ph, String user_ph2, String user_ph3, String user_postcode, String user_addr,
                          String user_addr_details, String user_email, String user_emailDomain, String user_dept,
-                         String user_grade, String user_class, String user_job, String role, Long etp_id,
+                         String user_grade, String user_class, String role, Long etp_id,
                          String etp_num, String etp_name, String etp_ceo_name, String etp_ph,
                          String etp_fx, String etp_home, String etp_contents, LocalDate etp_year,
                          int etp_member, String etp_sector, String etp_shape, String etp_allow) {
-        super(user_id, user_name, user_pw, user_ph,user_ph2,user_ph3, user_postcode, user_addr, user_addr_details,
-                user_email,user_emailDomain, user_dept, user_grade, user_class, user_job, role);
+        super(user_id, user_name, user_ph, user_ph2, user_ph3, user_postcode, user_addr, user_addr_details,
+                user_email, user_emailDomain, user_allow, user_dept, user_grade, user_class, role);
 
         this.etp_id = etp_id;
         this.etp_num = etp_num;
