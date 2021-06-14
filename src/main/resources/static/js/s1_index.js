@@ -1,3 +1,5 @@
+// 자격증 한칸당 팝업뜨게
+
 document.addEventListener('DOMContentLoaded', () => {
   const bodyBlackout = document.querySelector('.body-blackout');
   const popupModal = document.querySelector('.popup-modal');
@@ -48,3 +50,14 @@ document.querySelector('#add_lic').addEventListener('click', () => {
     }
   }, 100);
 });
+
+// 체크박스 제한
+
+ function doOpenCheck(chk) {
+   var obj = document.getElementsByName('import_check');
+   for (var i = 0; i < obj.length; i++) {
+     if (obj[i] != chk) {
+       obj[i].checked = false;
+     }
+   }
+ }
