@@ -18,6 +18,7 @@ let detail_per;         //어떤 권한의 사용자인지 확인하는 변수 0
 function detail_on_userManage(id,roll){
     detail_state=1;
 
+    alert(id+roll);
     $.ajax({
         url: "/allow/detail/read?user_id="+id+"&type="+roll,
         type: "GET",
@@ -33,10 +34,27 @@ function detail_on_userManage(id,roll){
             $('input[name=우편번호]').val(M.user_postcode);
             $('input[name=주소]').val(M.user_addr+" "+M.user_addr_details);
             $('input[name=이메일]').val(M.user_email+"@"+M.user_emailDomain);
+            $('input[name=가입일]').val(M.regDate);
             $('input[name=소속]').val(M.user_dept+" "+M.user_grade+M.user_class);
+
+            //기업
+            $('input[name=기업명]').val(M.etp_name);
+            $('input[name=사업자번호]').val(M.etp_num);
+            $('input[name=대표자명]').val(M.etp_ceo_name);
+            //번호
+            $('input[name=대표번호]').val(M.etp_ph+"-"+M.etp_ph2+"-"+M.etp_ph3);
+            $('input[name=팩스]').val(M.etp_fx);
+            $('input[name=홈페이지]').val(M.etp_home);
+            $('input[name=주요사업내용]').val(M.etp_contents);
+            $('input[name=설립년도]').val(M.etp_year);
+            $('input[name=직원수]').val(M.etp_member);
+            $('input[name=업종]').val(M.etp_sector);
+            $('input[name=기업형태]').val(M.etp_shape);
+            $('input[name=담당자연락처]').val(M.user_ph+"-"+M.user_ph2+"-"+M.user_ph3);
+            $('input[name=담당자이메일]').val(M.user_email+"@"+M.user_emailDomain);
         },
         error : function (error){
-            alert("상세정보 호출에 실패했습니다");
+            alert("상세정보 로딩에 실패했습니다");
             console.log(error);
         }
     })
@@ -48,7 +66,7 @@ function detail_on_userManage(id,roll){
             break;
         case 'COUNSELOR': detail_per="detail_counselor";
             break;
-        case '' : detail_per="detail_enterprise";
+        case 'ENTERPRISE' : detail_per="detail_enterprise";
             break;
     }
     $('#'+detail_per).css({"visibility":"visible","opacity":"1"});

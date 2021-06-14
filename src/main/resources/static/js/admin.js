@@ -266,8 +266,8 @@ function detail(t) {
                 if(users_roll==""){                                           //기업관리 화면은 .role이 없고 대신 기업형태가있음 그래서 enterprise를 직접 설정해 넘겨준다.
                     users_roll="ENTERPRISE";
                 }
-                alert(users_roll);
-                alert(typeof(users_roll));
+                // alert(users_roll);
+                // alert(typeof(users_roll));
                 users_id=$(t).children('span.username').text();
                 setTimeout("window['detail_on_'+menu_name](users_id,users_roll)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
                 break;
