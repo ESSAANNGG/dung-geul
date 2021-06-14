@@ -24,6 +24,21 @@ function detail_on_userManage(id,roll){
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify('id: '+id),
+        success : function (MemberDTO) {
+            M=MemberDTO;
+            $('input[name=이름]').val(M.user_name);
+            $('input[name=아이디]').val(M.user_id);
+            $('input[name=비밀번호]').val(M.user_pw);
+            $('input[name=전화번호]').val(M.user_ph+"-"+M.user_ph2+"-"+M.user_ph3);
+            $('input[name=우편번호]').val(M.user_postcode);
+            $('input[name=주소]').val(M.user_addr+" "+M.user_addr_details);
+            $('input[name=이메일]').val(M.user_email+"@"+M.user_emailDomain);
+            $('input[name=소속]').val(M.user_dept+" "+M.user_grade+M.user_class);
+        },
+        error : function (error){
+            alert("상세정보 호출에 실패했습니다");
+            console.log(error);
+        }
     })
 
     switch (roll) {

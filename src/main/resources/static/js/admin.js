@@ -183,9 +183,7 @@ $('.list_submit').click(function(){
     check_name = $(List).find('input[type=checkbox]').eq(1).attr('name');     //해당리스트의 checkname을 가져옴
     checkLength = $('input[name=' + check_name + ']:checked').length;         //체크 수만큼 반복
     dataList = [];                                                            //배열이 계속 쌓이는걸 방지 (초기화) , 체크한 목록을 가져와 List에 담음
-    // alert(ListId+"das"+ListNum);
-    // alert($(List).attr("class"));
-    // alert($(List).parent("div").attr('id'));
+
     //유저관리를 위한 부분 공용으로 혹시 쓸수 있나 해서 공용js에 임시로 둠
     p = $(this).text();  //승인/거절/삭제인지 구분
     switch (p) {
@@ -218,9 +216,7 @@ let search_data_length;   //검색할 수 있는 data 입력칸이 몇개가있�
 let search_val;           //각 input칸의 data
 $('.search_submit').click(function(){
     select_search = $(this).parent("div").parent("div").parent("div").attr('id');                //해당 search 클래스를 저장
-    alert(select_search);
     search_data_length=$('#'+select_search).find(".search_data").length;    //검색할 수 있는 data 입력칸이 몇개가있는지
-    alert(search_data_length);
 
     for (i=0; i<search_data_length; i++) {                              //input칸들의 값들을 확인
         search_val=$('#'+select_search).find(".search_data").eq(i).val();   //각 input들의 data를 받아옴(for문 돌리는중)
@@ -267,6 +263,11 @@ function detail(t) {
         switch (menu_name){
             case "userManage": //회원관리메뉴에서의 모달창
                 users_roll=$(t).children('span.role').text();                 //role을 읽어옴
+                if(users_roll==""){                                           //기업관리 화면은 .role이 없고 대신 기업형태가있음 그래서 enterprise를 직접 설정해 넘겨준다.
+                    users_roll="ENTERPRISE";
+                }
+                alert(users_roll);
+                alert(typeof(users_roll));
                 users_id=$(t).children('span.username').text();
                 setTimeout("window['detail_on_'+menu_name](users_id,users_roll)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
                 break;
