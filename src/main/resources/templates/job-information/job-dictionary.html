@@ -20,29 +20,22 @@
         function jobSerchK() { // 직업사전 키워드 검색 함수
             var qData = $("#searchCode").serialize(); // 클라이언트가 입력한 키워드를 담은 변수
 
-            if($("#rtnPrsList") != null) { // 파싱한 결과 값을 담는 요소를 초기화 한다.
+            // 키워드 검색을 아무것도 입력하지 않았을 시
+            if (qData == "searchCode=") {
+                alert("키워드를 입력하세요!");
+            }
+
+            if ($("#rtnPrsList") != null) { // 파싱한 결과 값을 담는 요소를 초기화 한다.
                 $("#rtnPrsList").empty();
-            
             }
 
             $.ajax({
                 type: 'post',
-                url: "/jobSerchK",  // jobDictionaryRestController
-                data: qData,        // 클라이언트가 입력한 키워드
+                url: "/jobSerchK", // jobDictionaryRestController
+                data: qData, // 클라이언트가 입력한 키워드
                 success: function (xml) {
-                    // alert("SUCCESS");
-                    // alert(xml)
 
-                    // $(xml).find('dJobsList').each(function () {  // xml parsing (total)
-                    //     var total = $(this).find("total").text();
-                    //     console.log("total : " + total);
-
-                    //     var totalStr = "";
-                    //     totalStr = totalStr + "<p>검색 조건에 대한 결과는 총" + total + "건 입니다.</p>";
-                    //     $("#rtnPrsTotal").append(totalStr);
-                    // })
-
-                    $(xml).find('dJobList').each(function () {  // xml parsing
+                    $(xml).find('dJobList').each(function () { // xml parsing
                         var dJobNm = $(this).find("dJobNm").text();
 
                         var str = "";
@@ -50,9 +43,9 @@
 
                         str = str + ("<li>" + dJobNm + "</li>");
 
-                        $("#rtnPrsList").append(str);   // 파싱한 결과값을 추가한다.
+                        $("#rtnPrsList").append(str); // 파싱한 결과값을 추가한다.
 
-                    })  
+                    })
                 },
                 error: function (request, error) {
                     alert('오류발생!');
@@ -66,24 +59,34 @@
 
             }) // end ajax
 
-        }// end jobSerchCon()
-
+        } // end jobSerchCon()
 
         function jobSercCon() { // 직업사전 조건 검색 함수
             var eduLevel = $("#eduLevel").serialize(); // 클라이언트가 입력한 키워드를 담은 변수 (교육 수준)
             var skillYear = $("#skillYear").serialize(); // 클라이언트가 입력한 키워드를 담은 변수 (숙련 기간)
 
-            if($("#rtnPrsList") != null) { // 파싱한 결과 값을 담는 요소를 초기화 한다.
+            // 조건 검색을 아무것도 선택하지 않았을 시
+            if (eduLevel == "eduLevel=" && skillYear == "skillYear=") {
+                alert("조건을 선택해 주세요!")
+            } else if (eduLevel == "eduLevel=") { // 교육 수준을 선택하지 않았을 시
+                alert("교육 수준을 선택해 주세요!")
+            }
+
+            // 파싱한 결과 값을 담는 요소를 초기화 한다.
+            if ($("#rtnPrsList") != null) {
                 $("#rtnPrsList").empty();
             }
 
             $.ajax({
                 type: 'post',
-                url: "/jobSearchCon",  // jobDictionaryRestController
-                data: {eduLevel:eduLevel, skillYear:skillYear},
+                url: "/jobSearchCon", // jobDictionaryRestController
+                data: {
+                    eduLevel: eduLevel,
+                    skillYear: skillYear
+                },
 
                 success: function (xml) {
-                    $(xml).find('dJobList').each(function () {  // xml parsing
+                    $(xml).find('dJobList').each(function () { // xml parsing
                         var dJobNm = $(this).find("dJobNm").text();
 
                         var str = "";
@@ -91,7 +94,7 @@
 
                         str = str + ("<li><span>" + dJobNm + "</li></span>");
 
-                        $("#rtnPrsList").append(str);   // 파싱한 결과값을 추가한다.
+                        $("#rtnPrsList").append(str); // 파싱한 결과값을 추가한다.
 
                     })
                 },
@@ -107,8 +110,7 @@
 
             }) // end ajax
 
-        }// end jobSerchK()
-
+        } // end jobSerchK()
     </script>
 
     <!--네비 div-->
@@ -136,13 +138,6 @@
                                         <li><a href="/job-information/job-dictionary">직업 사전</a></li>
                                     </ul>
                                 </li>
-                                <!--
-                <li id="menu_con3"><h4>상담 정보</h4>
-                    <ul id="sb_detail">
-                        <li><a href="#">상담 신청</a></li>
-                        <li><a href="#">상담 내역</a></li>
-                    </ul>
-                </li> -->
                             </ul>
                         </div> <!-- bar -->
                     </div> <!-- menu -->
@@ -151,14 +146,13 @@
                 <div class="col-9 col-12-medium imp-medium">
 
                     <div id="job-wrap">
-
                         <h1>직업 사전</h1>
 
                         <div class="search-con">
                             「한국직업사전」은 우리나라의 직업 총람으로서(직업수 12,823개,
-                                직업명수 16,891개, 2019년말 기준), 체계적 직무분석을 통해 수행하는
-                                작업과정(수행 직무)과 각종 부가 직업 정보 (정규 교육, 숙련 기간, 작업강도,
-                                자격면허 등)와 직업/산업분류 코드를 제공합니다.
+                            직업명수 16,891개, 2019년말 기준), 체계적 직무분석을 통해 수행하는
+                            작업과정(수행 직무)과 각종 부가 직업 정보 (정규 교육, 숙련 기간, 작업강도,
+                            자격면허 등)와 직업/산업분류 코드를 제공합니다.
                         </div>
                         <div class="search-box-body">
                             <div class="clear-search">
@@ -166,39 +160,39 @@
                                 <!-- 직업 검색 form -->
                                 <div class="label-con form-inline">
                                     <input type="hidden" name="type" value="k">
-                                        <input type="text" id="searchCode" name="searchCode" maxlength="30"
+                                    <input type="text" id="searchCode" name="searchCode" maxlength="30"
                                         class="form-control" placeholder="찾고 싶은 직업명을 입력하세요.">
                                     <button type="submit" class="btn-d" onclick="jobSerchK()">검색</button>
                                 </div>
                                 <!-- 직업 검색 form -->
                             </div>
-                            <br/>
+                            <br />
                             <div class="clear-search">
-                            <div id="label1" class="on-a">조건 검색</div>
-                            <div class="label-con form-inline">
-                                <select name="eduLevel" id="eduLevel" title="교육 수준 선택" class="form-control">
-                                    <option value>교육 수준을 클릭하세요.</option>
-                                    <option value="1">6년 이하(초졸 이하)</option>
-                                    <option value="2">6년 초과~9년 이하(중졸 정도)</option>
-                                    <option value="3">9년 초과~12년 이하(고졸 정도)</option>
-                                    <option value="4">12년 초과~14년 이하(전문대졸 정도)</option>
-                                    <option value="5">14년 초과~16년 이하(대졸 정도)</option>
-                                    <option value="6">16년 초과(대학원 이상)</option>
-                                </select>
-                                <select name="skillYear" id="skillYear" title="숙련 기간 선택" class="form-control">
-                                    <option value>숙련 기간을 선택하세요.</option>
-                                    <option value="1">약간의 시범 정도</option>
-                                    <option value="2">시범 후 30일 이하</option>
-                                    <option value="3">1개월 초과~3개월 이하</option>
-                                    <option value="4">3개월 초과~6개월 이하</option>
-                                    <option value="5">6개월 초과~1년 이하</option>
-                                    <option value="6">1년 초과~2년 이하</option>
-                                    <option value="7">2년 초과~4년 이하</option>
-                                    <option value="8">4년 초과~10년 이하</option>
-                                    <option value="9">10년 초과</option>
-                                </select>
-                                <button class="btn-k" onclick="jobSercCon()">검색</button>
-                            </div> <!-- label-con form-out -->
+                                <div id="label1" class="on-a">조건 검색</div>
+                                <div class="label-con form-inline">
+                                    <select name="eduLevel" id="eduLevel" title="교육 수준 선택" class="form-control">
+                                        <option value>교육 수준을 클릭하세요.</option>
+                                        <option value="1">6년 이하(초졸 이하)</option>
+                                        <option value="2">6년 초과~9년 이하(중졸 정도)</option>
+                                        <option value="3">9년 초과~12년 이하(고졸 정도)</option>
+                                        <option value="4">12년 초과~14년 이하(전문대졸 정도)</option>
+                                        <option value="5">14년 초과~16년 이하(대졸 정도)</option>
+                                        <option value="6">16년 초과(대학원 이상)</option>
+                                    </select>
+                                    <select name="skillYear" id="skillYear" title="숙련 기간 선택" class="form-control">
+                                        <option value>숙련 기간을 선택하세요.</option>
+                                        <option value="1">약간의 시범 정도</option>
+                                        <option value="2">시범 후 30일 이하</option>
+                                        <option value="3">1개월 초과~3개월 이하</option>
+                                        <option value="4">3개월 초과~6개월 이하</option>
+                                        <option value="5">6개월 초과~1년 이하</option>
+                                        <option value="6">1년 초과~2년 이하</option>
+                                        <option value="7">2년 초과~4년 이하</option>
+                                        <option value="8">4년 초과~10년 이하</option>
+                                        <option value="9">10년 초과</option>
+                                    </select>
+                                    <button class="btn-k" onclick="jobSercCon()">검색</button>
+                                </div> <!-- label-con form-out -->
                             </div>
                         </div>
                         <!-- search-box-body -->
@@ -212,12 +206,9 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- srchlist -->
                 </div>
                 <!-- job-wrap -->
-
-
-                <!-- end 키워드 검색 결과값을 보여주는 컨테이너 -->
-
             </div>
             <!-- job-main-wrap -->
         </div>
