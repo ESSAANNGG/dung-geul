@@ -382,6 +382,13 @@ public class MemberServiceImpl implements MemberService {
         return memberOpt.get();
     }
 
+    public MemberDTO getMemberDTO(Member member){
+
+        MemberDTO memberDTO = getMemberDTO(member);
+
+        return memberDTO ;
+    }
+
     //mypage read Enterprise
     public EnterpriseDTO getEnterprise(String user_id) {
 

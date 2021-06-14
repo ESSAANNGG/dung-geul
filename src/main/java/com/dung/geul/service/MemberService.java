@@ -1,10 +1,6 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.AllowEtpDTO;
-import com.dung.geul.dto.EnterpriseDTO;
-import com.dung.geul.dto.IntroduceDTO;
-import com.dung.geul.dto.MemberDTO;
-import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Introduce;
 import com.dung.geul.entity.Member;
@@ -188,6 +184,16 @@ public interface MemberService {
                 .etp_fx(e.getEtp_fx())
                 .etp_year(e.getEtp_year())
                 .build();
+
+        return dto;
+    }
+
+    // TODO 이거 이어서 진행하기
+    default MemberDTO entityToDto(Member m){
+
+        MemberDTO dto = new MemberDTO(m.getUser_id(), m.getUser_name(), m.getUser_ph(), m.getUser_ph2(),m.getUser_ph3(),
+                m.getUser_postcode(), m.getUser_addr(), m.getUser_addr_details(), m.getUser_email(), m.getUser_emailDomain(),
+                m.getUser_allow(), m.getUser_dept(), m.getUser_grade(), m.getUser_class(), m.getUser_type());
 
         return dto;
     }
