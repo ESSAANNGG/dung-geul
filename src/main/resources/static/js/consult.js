@@ -1,8 +1,8 @@
 function consult_apply() {
     type=$("select[name=select-field]").val();
-        name=$("select[name=employ-field]").val();
-        consult_date=$("input[name=couns-date]").val();
-        consult_time=$("select[name=couns-time]").val()
+    name=$("select[name=employ-field]").val();
+    consult_date=$("input[name=couns-date]").val();
+    consult_time=$("select[name=couns-time]").val()
 alert(type+name+consult_date+consult_time);
     if(type==""||name==""||consult_date==""||consult_time==""){
         alert("값을 제대로 선택해주세요");
@@ -13,13 +13,15 @@ alert(type+name+consult_date+consult_time);
 
         alert(consult_date);
         alert(consult_time);
+        alert(a);
         consult_time1 = consult_time.substring(0,5);
 
         let data = {
             type:$("select[name=select-field]").val(),
             name:$("select[name=employ-field]").val(),
             consult_date:$("input[name=couns-date]").val(),
-            consult_time:consult_time1
+            consult_time:consult_time1,
+            id:a
         }
         // consult_time2 = consult_time.substring(6,11);
         // data=[];
@@ -35,5 +37,4 @@ alert(type+name+consult_date+consult_time);
             data: JSON.stringify(data),
         })
     }
-
 }

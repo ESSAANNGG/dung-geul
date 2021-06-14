@@ -108,9 +108,9 @@ input, button, select {
     box-shadow: 3px 3px 5px #ccc;
     /* position: absolute; */
     display: block;
-    float: left;
+    /*float: left;*/
     margin-right: 50px;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
 }
 .form-outline {
     width: 350px;
@@ -119,9 +119,9 @@ input, button, select {
     box-shadow: 3px 3px 5px #ccc;
     /* position: fixed; */
     display: block;
-    float: right;
-    margin-top: -350px;
-    margin-right: 60px;
+    /*float: right;*/
+    /*margin-top: -350px;*/
+    /*margin-right: 60px;*/
 }
 #label {
     color: rgb(39, 39, 39);
@@ -129,9 +129,9 @@ input, button, select {
     font-size: 18px;
     font-weight: 700;
     text-align: center;
-    display: flex;
-    margin-left: 125px;
-    margin-top: 40px;
+    /*display: flex;*/
+    /*margin-left: 125px;*/
+    /*margin-top: 40px;*/
 }
 #label1 {
     color: rgb(39, 39, 39);
@@ -139,9 +139,9 @@ input, button, select {
     font-size: 18px;
     font-weight: 700;
     text-align: center;
-    display: flex;
-    margin-left: 525px;
-    margin-top: -60px;
+    /*display: flex;*/
+    /*margin-left: 525px;*/
+    /*margin-top: -60px;*/
 }
 /* .on-a {
     border-bottom: 1px solid #ccc;
@@ -218,13 +218,16 @@ input[type=text] {
     margin: 40px 0 0 50px;
 }
 .search-con {
-    width: 800px;
+    /*width: 800px;*/
     height: 150px;
     background-color: #f8f8f8;
     font-weight: 800;
     font-size: 15px;
     border-radius: 5px;
     line-height: 32px;
-    padding: 12px;
-    padding-top: 30px;
+    padding: 30px;
+    /*padding-top: 30px;*/
+}
+.search-box-body{
+    display:flex;
 }
