@@ -18,8 +18,6 @@ import java.util.List;
 @Builder
 public class CvPageDTO {
 
-    //TODO ... 지원경로 없음
-
     private long cv_id;
 
     private String user_id;

@@ -188,7 +188,6 @@ public interface MemberService {
         return dto;
     }
 
-    // TODO 이거 이어서 진행하기
     default MemberDTO entityToDto(Member m){
 
         MemberDTO dto = new MemberDTO(m.getUser_id(), m.getUser_name(), m.getUser_ph(), m.getUser_ph2(),m.getUser_ph3(),

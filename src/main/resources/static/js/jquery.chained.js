@@ -58,8 +58,7 @@
                 });
 
                 /* Also check for first parent without subclassing. */
-                /* TODO: This should be dynamic and check for each parent */
-                /*       without subclassing. */
+
                 var first;
                 if ($.isArray(parentSelector)) {
                     first = $(parentSelector[0]).first();

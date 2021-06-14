@@ -260,8 +260,6 @@ public interface CVService {
         return dto;
     }
 
-//     TODO .. 엔티티 수정하는거 만들기
-
     default CV modifyEntity(CvPageDTO cvPageDTO, CV cv){
 
         cv.setUser_name(cvPageDTO.getUser_name());

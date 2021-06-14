@@ -84,23 +84,7 @@ public class MemberServiceImpl implements MemberService {
         }
 
     }
-    public int joinCon(MemberDTO memberDTO){
 
-        try {
-            String pw = encoder.encode(memberDTO.getUser_pw());
-
-            Member member = MemberDtoToEntity(memberDTO, pw);
-
-            AddColumn(member, memberDTO);   //맴버별 다른 칼럼 추가
-            member.addMemberRole(MemberRole.COUNSELOR);  // user 권한추가
-
-            memberRepository.save(member);
-            return 1;
-        } catch (Exception e) {
-            System.out.println(e);
-            return 0;
-        }
-    }
     //회원가입 기업
     public int joinEnterprise(EnterpriseDTO enterpriseDTO) {
 
