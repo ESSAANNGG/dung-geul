@@ -41,7 +41,7 @@ public class MemberRestController {
         System.out.println("ApiMemberController : joinCon() 실행");
         System.out.println("MemberDTO : " + memberDTO);
 
-        int response = memberService.joinCon(memberDTO);
+        int response = memberService.joinMember(memberDTO);
 
         System.out.println("restcontroller - result : " + response);
 
