@@ -9,8 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/license")
 public class LicenseController {
 
-    @GetMapping("list")
-    public String getList(){
-        return "/certificate/list";
+    @GetMapping("/list")
+    public void getList(){
+    }
+
+    @GetMapping("/register")
+    public void getRegister(){
+    }
+
+    @GetMapping("/modify")
+    public void getModify(){
     }
 }

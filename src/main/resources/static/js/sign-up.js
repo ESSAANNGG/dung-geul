@@ -50,7 +50,7 @@ let signUp = {
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success : function (result) {
-        if(result==1){
+          if(result==1){
           alert("회원가입이 완료되었습니다");
           location.href = "/login"
         }

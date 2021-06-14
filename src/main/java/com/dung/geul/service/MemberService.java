@@ -192,7 +192,7 @@ public interface MemberService {
 
         MemberDTO dto = new MemberDTO(m.getUser_id(), m.getUser_name(), m.getUser_ph(), m.getUser_ph2(),m.getUser_ph3(),
                 m.getUser_postcode(), m.getUser_addr(), m.getUser_addr_details(), m.getUser_email(), m.getUser_emailDomain(),
-                m.getUser_allow(), m.getUser_dept(), m.getUser_grade(), m.getUser_class(), m.getUser_type());
+                m.getUser_allow(), m.getUser_dept(), m.getUser_grade(), m.getUser_class(), m.getUser_type(), m.getRegDate());
 
         return dto;
     }

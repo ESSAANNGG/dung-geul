@@ -1,10 +1,13 @@
 package com.dung.geul.dto;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Data
 @ToString
@@ -45,10 +48,12 @@ public class MemberDTO {
 
     private String role;
 
+    private String regDate;
+
     public MemberDTO(String user_id, String user_name, String user_ph, String user_ph2, String user_ph3,
                      String user_postcode, String user_addr, String user_addr_details, String user_email,
                      String user_emailDomain, int user_allow, String user_dept, String user_grade,
-                     String user_class, String role) {
+                     String user_class, String role, LocalDateTime regDate) {
         this.user_id = user_id;
         this.user_name = user_name;
         this.user_ph = user_ph;
@@ -64,6 +69,9 @@ public class MemberDTO {
         this.user_grade = user_grade;
         this.user_class = user_class;
         this.role = role;
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.regDate = regDate.format(dateTimeFormatter);
     }
 
 
