@@ -175,9 +175,13 @@ public interface MemberService {
                 .user_ph3(m.getUser_ph3())
                 .user_allow(m.getUser_allow())
                 .regDate(m.getRegDate())
+
                 .etp_id(e.getEtp_id())
                 .etp_num(e.getEtp_num())
                 .etp_name(e.getEtp_name())
+                .etp_ph(e.getEtp_ph())
+                .etp_ph2(e.getEtp_ph2())
+                .etp_ph3(e.getEtp_ph3())
                 .etp_ceo_name(e.getEtp_ceo_name())
                 .etp_member(e.getEtp_member())
                 .etp_home(e.getEtp_home())
@@ -186,6 +190,7 @@ public interface MemberService {
                 .etp_contents(e.getEtp_contents())
                 .etp_fx(e.getEtp_fx())
                 .etp_year(e.getEtp_year())
+
                 .role(m.getUser_type())
                 .build();
 

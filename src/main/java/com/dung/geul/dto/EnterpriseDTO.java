@@ -22,9 +22,9 @@ public class EnterpriseDTO extends MemberDTO {
 
     private String etp_ph; // 기업 전화번호  1
 
-    private String user_ph2; // 기업 전화번호  2
+    private String etp_ph2; // 기업 전화번호  2
 
-    private String user_ph3; // 기업 전화번호  3
+    private String etp_ph3; // 기업 전화번호  3
 
     private String etp_fx; // 기업 팩스번호
 
@@ -48,7 +48,7 @@ public class EnterpriseDTO extends MemberDTO {
                          String user_ph, String user_ph2, String user_ph3, String user_postcode, String user_addr,
                          String user_addr_details, String user_email, String user_emailDomain, String user_dept,
                          String user_grade, String user_class, String role, LocalDateTime regDate, Long etp_id,
-                         String etp_num, String etp_name, String etp_ceo_name, String etp_ph,
+                         String etp_num, String etp_name, String etp_ceo_name, String etp_ph, String etp_ph2, String etp_ph3,
                          String etp_fx, String etp_home, String etp_contents, LocalDate etp_year,
                          int etp_member, String etp_sector, String etp_shape) {
         super(user_id, user_name, user_ph, user_ph2, user_ph3, user_postcode, user_addr, user_addr_details,
@@ -63,8 +63,11 @@ public class EnterpriseDTO extends MemberDTO {
         this.etp_home = etp_home;
         this.etp_member = etp_member;
         this.etp_ph = etp_ph;
+        this.etp_ph2 = etp_ph2;
+        this.etp_ph3 = etp_ph3;
         this.etp_sector = etp_sector;
         this.etp_shape = etp_shape;
         this.etp_year = etp_year;
+
     }
 }

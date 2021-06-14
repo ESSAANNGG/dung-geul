@@ -11,6 +11,8 @@ public class LicenseController {
 
     @GetMapping("/list")
     public void getList(){
+
+
     }
 
     @GetMapping("/register")
