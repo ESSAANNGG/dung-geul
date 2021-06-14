@@ -12,11 +12,11 @@ import javax.persistence.*;
 //@ToString(exclude = {"member" , "consult"})
 public class Consulting {    // 상담 테이블
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "con_user_id" ,foreignKey = @ForeignKey(name="con_user_id_fk"))
     private Member user_id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cno", foreignKey = @ForeignKey(name="consult_cno"))
     private Consult consult;
 
@@ -24,11 +24,8 @@ public class Consulting {    // 상담 테이블
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long consult_num;
 
-    @Column
+    @Column(length = 50, nullable = false)
     private String Consult_field;
-
-    @Column
-    private String Consult_detail_field;
 
     @Column
     private String consult_date;                  // 상담 일자
@@ -36,10 +33,10 @@ public class Consulting {    // 상담 테이블
     @Column
     private String consult_time; //신청날짜
 
-    @Column(length = 1)      //인증여부 ( 1: 인증 됨, Null : 인증 전) //nullable = false
-    private int consult_approve;             // 승인 여부
-
-    @Column(length = 1)
-    private int consult_complete;            // 완료 여부
+//    @Column(length = 1)      //인증여부 ( 1: 인증 됨, Null : 인증 전) //nullable = false
+//    private int consult_approve;             // 승인 여부
+//
+//    @Column(length = 1)
+//    private int consult_complete;            // 완료 여부
 
 }

@@ -17,7 +17,6 @@ public interface ConsultService {
 
     void modify(ConsultDTO consultDTO);
 
-//    Long register(ConsultDTO consultDTO);
 
     default Consult dtoToEntity(ConsultDTO consultDTO){
         Consult consult = Consult.builder()
@@ -33,8 +32,6 @@ public interface ConsultService {
                 .cno(consult.getCno())
                 .type(consult.getConsult_field())
                 .name(consult.getConsult_detail_field())
-//                .Consult_field(consult.getConsult_field())
-//                .Consult_detail_field(consult.getConsult_detail_field())
                 .consult_regdate(consult.getRegDate())
                 .consult_moddate(consult.getModDate())
                 .build();

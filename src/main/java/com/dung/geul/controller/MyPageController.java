@@ -33,8 +33,6 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
             return "redirect:/mypage/etp/read";
         }
         else if (authMemberDTO.getUser_type().equals("COUNSELOR")) {
-//            Member member = memberService.getMember(authMemberDTO.getUser_id());
-//            model.addAttribute("logincon",member);
             return "redirect:/mypage/consult/read";
         }
         else {

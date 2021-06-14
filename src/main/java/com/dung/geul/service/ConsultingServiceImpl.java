@@ -23,11 +23,11 @@ public class ConsultingServiceImpl implements ConsultingService {
     @Transactional
     public void coapply(ConsultingDTO consultingDTO) {
         try {
-            Member member = memberRepository.findById(consultingDTO.getUser_id()).get();
+            Member member = memberRepository.findById(consultingDTO.getCon_user_id()).get();
 
             log.info("지원자 : " +member);
 
-            Optional<Consulting> conapply = consultingRepository.findByUser_id(member);
+//            Optional<Consulting> conapply = consultingRepository.findByUser_id(member);
 
             log.info("-----------신청실행---------------");
             log.info(consultingDTO);

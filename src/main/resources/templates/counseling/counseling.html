@@ -77,8 +77,7 @@
                                 </select>
                                 <select name="employ-field" class="select-field1">
                                     <option value>세부분야</option>
-                                    <option th:each=" consult : ${list}">[[${consult.name}]]</option>
-                                    <option th:each="a : ${loginUser}">[[${a.user_id}]]</option>
+                                    <option th:each=" consult : ${list}" th:value="${consult.cno}">[[${consult.name}]]</option>
                                 </select>
                             </form>
                         </div>

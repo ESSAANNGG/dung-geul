@@ -15,17 +15,9 @@ import java.time.LocalDateTime;
 
 public class ConsultingDTO {
     private Long consult_num;
-
     private Long cno;
-
     private String type;
-
-    private String name;
-
-    private String user_id;
-
-    private String user_name;
-
+    private String con_user_id;
     private String consult_date;
 
     private String consult_time;
