@@ -72,12 +72,12 @@
                   <button id="certificateRemove"class="post_end_date mazer"><i class="fas fa-times"></i></button>
                  </ul>
                 <ul class="post_corp_name_wrap"><i class="far fa-id-card"></i>
-                  <li class="post_corp_name">[[${lic.getLicName()}]]</li>
+                  <li class="post_corp_name">[[${license.getLicName()}]]</li>
                 </ul>
                 <ul>
-                  <li class="cerDate">[[${lic.getLicDate()}]]</li>
+                  <li class="cerDate">[[${license.getLicDate()}]]</li>
                   <span class="cerDate"> ⁓ </span>
-                  <li class="cerDate">[[${lic.getLicDueDate()}]]</li>
+                  <li class="cerDate">[[${license.getLicDueDate()}]]</li>
                 </ul>
                 <ul class="post_corp_name_wrap" style="margin-top: 10px;">
                   <a class="certificate_modify" href="/license/modify">수정하기</a>
@@ -92,14 +92,22 @@
 
           </div>
           <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
-            <li class="page-item">
-              <a class="page-link" tabindex="-1">Previous</a>
+            <li class="page-item" th:if="${result.prev}">
+              <a class="page-link" th:href="@{/license/list(page=${result.start -1 },
+               type=${pageReuqestDTO?.type},
+               keyword = ${pageRequestDTO.keyword} )}" tabindex="-1">Previous</a>
             </li>
-            <li>
-              <a class="page-link"></a>
+            <li th:class="'page-item ' + ${result.page == page?'active':''}" th:each="page:${result.pageList}">
+              <a class="page-link" th:href="@{/license/list(page=${page},
+               type=${pageReuqestDTO?.type},
+               keyword = ${pageRequestDTO.keyword}
+            )}" th:text="${page}"></a>
             </li>
-            <li class="page-item">
-              <a class="page-link">Next</a>
+            <li class="page-item" th:if="${result.next}">
+              <a class="page-link" th:href="@{/license/list(page=${result.end +1 },
+              type=${pageReuqestDTO?.type},
+              keyword = ${pageRequestDTO.keyword}
+            )}">Next</a>
             </li>
           </ul>
         </div>
