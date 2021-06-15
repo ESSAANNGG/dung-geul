@@ -1,18 +1,28 @@
 body {
     font-family: 'Nanum Gothic', sans-serif;
+    background: #f2f5f3;
 }
 .main-wrap {
-    margin-top: 3.7%;
-    width: 100%;
-    height: 1650px;
-    background: #fff;
+margin-top: 3.7%;
+width: 100%;
+height: 1650px;
+background: #fff;
 }
 .all-wrap {
-    width: 1000px;
-    /* left: 30%; */
+width: 1000px;
+/* left: 30%; */
     position: relative;
     font-size: 22px;
     top: 5%;
+}
+.mid-tit {
+    padding: 12px;
+    text-align: center;
+    position: relative;
+    float: left;
+    width: 125px;
+    font-size: 14px;
+    border: 1px solid #000;
 }
 .onload {
     float: left;

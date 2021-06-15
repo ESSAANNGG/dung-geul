@@ -60,12 +60,12 @@
               <div class="info">
                 <div class="common_div width-200">
                   <label class="absolute-label" for="">이름 <span>*</span></label>
-                  <input class="common_input" name="user_name" id="user_name" th:value="${cv.getUser_name}" required />
+                  <input class="common_input" name="user_name" id="user_name" th:value="${cv.getUser_name()}" required />
                 </div>
                 <div class="common_div width-200">
                   <label class="absolute-label" for="">한문 이름 </label>
                   <input class="common_input" type="text" name="name_china" id="name_china" autocomplete="off"
-                    th:value="${cv.getUser_name}" required />
+                    th:value="${cv.getName_china()}" required />
                 </div>
                 <div class="common_div width-140">
                   <label class="absolute-label" for="">연령 <span>*</span> </label>
@@ -281,7 +281,7 @@
                           <label class="absolute-label" for="">총점 <span>*</span></label>
                           <select id="CollegePs" class="common_select schoolSelected1"
                             name="education[][college_edc_ps]">
-                            <option class="gray" value="">총점</option>
+                            <option class="gray" >[[${item.getPs()}]]</option>
 
                             <option value="4.5">4.5</option>
 
@@ -307,7 +307,7 @@
                           <input class="common_input" th:value="${item.getDateEnd()}"
                             name="education[][university_edc_date_end]" type="month" autocomplete="off" />
                         </div>
-                        <div class="common_div width-140">
+                        <div class="common_div width-140">th:value="${item.getPs()}"
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="univerGradu" class="common_select schoolSelected1"
                             name="education[][university_edc_graduated]">
@@ -343,8 +343,8 @@
                         <div class="common_div width-140">
                           <label class="absolute-label" for="">총점 <span>*</span></label>
                           <select id="univerPs" class="common_select schoolSelected1"
-                            name="education[][university_edc_ps]">
-                            <option class="gray" value="">총점</option>
+                            name="education[][university_edc_ps]" >
+                            <option class="gray" >[[${item.getPs()}]]</option>
 
                             <option value="4.5">4.5</option>
 
@@ -418,7 +418,7 @@
                           <label class="absolute-label" for="">총점 <span>*</span></label>
                           <select id="graduPs" class="common_select schoolSelected1"
                             name="education[][graduate_edc_ps]">
-                            <option class="gray" value="">총점</option>
+                            <option class="gray" >[[${item.getPs()}]]</option>
 
                             <option value="4.5">4.5</option>
 
