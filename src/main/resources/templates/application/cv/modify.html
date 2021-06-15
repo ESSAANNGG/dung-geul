@@ -9,18 +9,11 @@
   <link rel="stylesheet" href="/css/cvreset.css" />
   <link rel="stylesheet" href="/css/common.css" />
   <link rel="stylesheet" href="/css/cv_register.css" />
-  <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="/css/s1_style.css" />
-    <link rel="stylesheet" href="/css/content.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/css/s1_style.css" />
+  <link rel="stylesheet" href="/css/content.css" />
   <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
   <script src="/js/jquery-3.6.0.min.js"></script>
   <script src="/js/jquery-serialize-object.js"></script>
@@ -60,7 +53,8 @@
               <div class="info">
                 <div class="common_div width-200">
                   <label class="absolute-label" for="">이름 <span>*</span></label>
-                  <input class="common_input" name="user_name" id="user_name" th:value="${cv.getUser_name()}" required />
+                  <input class="common_input" name="user_name" id="user_name" th:value="${cv.getUser_name()}"
+                    required />
                 </div>
                 <div class="common_div width-200">
                   <label class="absolute-label" for="">한문 이름 </label>
@@ -93,7 +87,8 @@
                 </div>
                 <div class="common_div width-410">
                   <label class="absolute-label" for="">지원경로</label>
-                  <input class="common_input" type="text" th:value="${cv.getSupportPath()}" name="supportPath" id="" autocomplete="off" />
+                  <input class="common_input" type="text" th:value="${cv.getSupportPath()}" name="supportPath" id=""
+                    autocomplete="off" />
                 </div>
               </div>
             </section>
@@ -121,57 +116,60 @@
                   <div class="info">
                     <div class="common_div width-350">
                       <label class="absolute-label" for="">회사명 <span>*</span></label>
-                      <input class="common_input" name="career[][cr_etp_name]" th:value="${item.getCr_etp_name()}" />
+                      <input class="common_input etp_name" name="career[][cr_etp_name]"
+                        th:value="${item.getCr_etp_name()}" />
                     </div>
 
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">입사일자 </label>
-                      <input class="common_input" type="date" name="career[][cr_employment]"
+                      <input class="common_input employment" type="date" name="career[][cr_employment]"
                         th:value="${item.getCr_employment()}" />
                     </div>
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">퇴사일자 </label>
-                      <input class="common_input" type="date" name="career[][cr_resignation]"
+                      <input class="common_input resignation" type="date" name="career[][cr_resignation]"
                         th:value="${item.getCr_resignation()}" />
                     </div>
                     <br />
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">직위 </label>
-                      <input class="common_input" type="text" name="career[][cr_position]"
+                      <input class="common_input position" type="text" name="career[][cr_position]"
                         th:value="${item.getCr_position()}" />
                     </div>
                     <div class="common_div width-300">
                       <label class="absolute-label" for="">퇴사사유 </label>
-                      <input class="common_input" type="text" name="career[][reason_resign]"
+                      <input class="common_input resign" type="text" name="career[][reason_resign]"
                         th:value="${item.getReason_resign()}" />
                     </div>
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">연봉 <span>*</span></label>
-                      <input class="money_input2" value="" type="number" name="career[][salary]" autocomplete="off"
-                        th:value="${item.getSalary()}" />
+                      <input class="money_input2 salary" value="" type="number" name="career[][salary]"
+                        autocomplete="off" th:value="${item.getSalary()}" />
                       <span style="font-size: 12px">만원</span>
                     </div>
                     <div class="common_div width-full awardContents_div ">
-                      <label class="absolute-label">담당업무 </label>
+                      <label class="absolute-label task">담당업무 </label>
                       <textarea class="cr_task" th:text="${item.getCr_task()}" name="career[][cr_task]" focus="test12()"
                         cols="30" rows="10"></textarea>
                     </div>
+
                   </div>
                 </div>
-              </div>
-              <div class="line_carrer"></div>
+                <div class="line_carrer"></div>
 
 
-              <div id="carrerButtonBox" class="buttonBox" style="display:none;">
-                <button id="add_carrer" class="btn add-more button-yellow uppercase" type="button">
-                  <i class="fas fa-plus-circle"></i>
-                  <span style="font-size: 17px">추가</span>
-                </button>
-                <button id="delete_carrer" type="button" class="btn button-white uppercase">
-                  <i class="fas fa-minus-circle"></i>
-                  <span style="font-size: 17px">제거</span>
-                </button>
+                <div id="carrerButtonBox" class="buttonBox" style="display:none;">
+                  <button id="add_carrer" class="btn add-more button-yellow uppercase" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    <span style="font-size: 17px">추가</span>
+                  </button>
+                  <button id="delete_carrer" type="button" class="btn button-white uppercase">
+                    <i class="fas fa-minus-circle"></i>
+                    <span style="font-size: 17px">제거</span>
+                  </button>
+                </div>
               </div>
+
 
             </section>
 
@@ -186,7 +184,8 @@
                     <div class="common_div width-140">
                       <label class="absolute-label" for="">학교구분 <span>*</span></label>
                       <span class="custom-dropdown big">
-                        <select id="test01" class="schoolTypeSelect common_select schoolSelected1" name="education[][schoolType]">
+                        <select id="test01" class="schoolTypeSelect common_select schoolSelected1"
+                          name="education[][schoolType]">
                           <option class="gray" th:value="${item.getSchoolType()}">[[${item.getSchoolType()}]]</option>
 
                           <option value="고등학교">고등학교</option>
@@ -218,7 +217,7 @@
                           <!-- <input class="common_input" name="edc_graduated" autocomplete="off" /> -->
                           <select id="highSchoolGradu" class="common_select schoolSelected1"
                             name="education[][highschool_edc_graduated]">
-                            <option class="gray" >[[${item.getGraduated()}]]</option>
+                            <option class="gray">[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -248,7 +247,7 @@
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="collegeGradu" class="common_select schoolSelected1"
                             name="education[][college_edc_graduated]">
-                            <option class="gray" >[[${item.getGraduated()}]]</option>
+                            <option class="gray">[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -281,7 +280,7 @@
                           <label class="absolute-label" for="">총점 <span>*</span></label>
                           <select id="CollegePs" class="common_select schoolSelected1"
                             name="education[][college_edc_ps]">
-                            <option class="gray" >[[${item.getPs()}]]</option>
+                            <option class="gray">[[${item.getPs()}]]</option>
 
                             <option value="4.5">4.5</option>
 
@@ -311,7 +310,7 @@
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="univerGradu" class="common_select schoolSelected1"
                             name="education[][university_edc_graduated]">
-                            <option class="gray" >[[${item.getGraduated()}]]</option>
+                            <option class="gray">[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -343,8 +342,8 @@
                         <div class="common_div width-140">
                           <label class="absolute-label" for="">총점 <span>*</span></label>
                           <select id="univerPs" class="common_select schoolSelected1"
-                            name="education[][university_edc_ps]" >
-                            <option class="gray" >[[${item.getPs()}]]</option>
+                            name="education[][university_edc_ps]">
+                            <option class="gray">[[${item.getPs()}]]</option>
 
                             <option value="4.5">4.5</option>
 
@@ -386,7 +385,7 @@
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="graduateGradu" class="common_select schoolSelected1"
                             name="education[][graduate_edc_graduated]">
-                            <option class="gray" >[[${item.getGraduated()}]]</option>
+                            <option class="gray">[[${item.getGraduated()}]]</option>
 
                             <option value="졸업">졸업</option>
 
@@ -418,7 +417,7 @@
                           <label class="absolute-label" for="">총점 <span>*</span></label>
                           <select id="graduPs" class="common_select schoolSelected1"
                             name="education[][graduate_edc_ps]">
-                            <option class="gray" >[[${item.getPs()}]]</option>
+                            <option class="gray">[[${item.getPs()}]]</option>
 
                             <option value="4.5">4.5</option>
 
@@ -538,7 +537,8 @@
                     <div class="preferentialTreatment2">
                       <input type="checkbox" style="zoom:1.5;" name="cv_disability" value='1' id="cv_disability"
                         onClick="checkBoth()" th:attr="checked=${cv.getCv_disability() == 1 ? 'true' : 'false'}" />
-                      <input type="hidden" name="cv_disability" value='0' id="cv_disability_hidden" />
+                      <input type="checkbox" name="cv_disability" value='0' id="cv_disability_hidden"
+                        style="display: none;" th:attr="checked=${cv.getCv_disability() == 1 ? 'false' : 'true'}" />
                     </div>
                   </div>
                   <div class="common_div width-300" id="military_div">
@@ -546,7 +546,8 @@
                     <div class="preferentialTreatment2">
                       <input type="checkbox" style="zoom:1.5;" name="cv_military" value='1' id="cv_military"
                         onClick="checkBoth()" th:attr="checked=${cv.getCv_military() == 0 ? 'false' : 'true'}" />
-                      <input type="hidden" name="cv_military" value='0' id="cv_military_hidden" />
+                      <input type="checkbox" name="cv_military" value='0' id="cv_military_hidden" style="display: none;"
+                        th:attr="checked=${cv.getCv_military() == 0 ? 'true' : 'false'}" />
                     </div>
                   </div>
                 </div>
@@ -602,7 +603,7 @@
                     <div class="common_div ">
                       <label class="absolute-label" for="">가족관계 <span>*</span></label>
                       <select id="famrelation" class="common_select" name="family[][fam_relation]">
-                        <option class="gray" >[[${item.getFam_relation()}]]</option>
+                        <option class="gray">[[${item.getFam_relation()}]]</option>
 
                         <option value="부부">부부</option>
 
@@ -671,7 +672,7 @@
                     <div class="body-blackout"></div>
 
                     <!-- Modals Triggers -->
-                    
+
 
                     <!-- Modals -->
                     <div class="popup-modal shadow" data-popup-modal="one">
@@ -714,8 +715,8 @@
                                     <tr>
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161003_1623578366378" onclick="doOpenCheck(this)"; /><label class="lbl hide"
-                                            for="import_2161003_1623578366378"></label></span>
+                                            id="import_2161003_1623578366378" onclick="doOpenCheck(this)" ; /><label
+                                            class="lbl hide" for="import_2161003_1623578366378"></label></span>
                                       </td>
                                       <td>2021.08</td>
                                       <td>컴퓨터그래픽스운용기능사</td>
@@ -724,8 +725,8 @@
                                     <tr>
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)"; /><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
+                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
+                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
                                       </td>
                                       <td>2021.07</td>
                                       <td>컴퓨터활용능력2급</td>
@@ -734,8 +735,8 @@
                                     <tr>
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)"; /><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
+                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
+                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
                                       </td>
                                       <td>2021.07</td>
                                       <td>컴퓨터활용능력2급</td>
@@ -744,8 +745,8 @@
                                     <tr>
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
+                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
+                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
                                       </td>
                                       <td>2021.07</td>
                                       <td>컴퓨터활용능력2급</td>
@@ -754,8 +755,8 @@
                                     <tr>
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
+                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
+                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
                                       </td>
                                       <td>2021.07</td>
                                       <td>컴퓨터활용능력2급</td>
@@ -764,8 +765,8 @@
                                     <tr>
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
+                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
+                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
                                       </td>
                                       <td>2021.07</td>
                                       <td>컴퓨터활용능력2급</td>
@@ -774,8 +775,8 @@
                                     <tr>
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
+                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
+                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
                                       </td>
                                       <td>2021.07</td>
                                       <td>컴퓨터활용능력2급</td>
@@ -784,8 +785,8 @@
                                     <tr>
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
+                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
+                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
                                       </td>
                                       <td>2021.07</td>
                                       <td>컴퓨터활용능력2급</td>
@@ -794,8 +795,8 @@
                                     <tr>
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
+                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
+                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
                                       </td>
                                       <td>2021.07</td>
                                       <td>컴퓨터활용능력2급</td>
@@ -827,7 +828,8 @@
                       <input class="common_input" type="date" th:value="${item.getLic_due_date()}"
                         name="certificate[][lic_due_date]" />
                     </div>
-                    <button type="button" class="btn btn-sm btn-primary popup-trigger" style="margin-left:10px; vertical-align: top;">자격증 불러오기</button>
+                    <button type="button" class="btn btn-sm btn-primary popup-trigger"
+                      style="margin-left:10px; vertical-align: top;">자격증 불러오기</button>
                   </div>
                 </div>
                 <div class="line_lic"></div>
@@ -857,7 +859,7 @@
                     <div class="common_div width-180">
                       <label class="absolute-label" for="">외국어명 <span>*</span></label>
                       <select id="fl_lang" class="common_select" name="language[][fl_language]">
-                        <option >[[${item.getFl_language()}]]</option>
+                        <option>[[${item.getFl_language()}]]</option>
                         <option value="영어">영어</option>
                         <option value="일본어">일본어</option>
                         <option value="중국어">중국어</option>
@@ -882,7 +884,7 @@
                     <div class="common_div width-104">
                       <label class="absolute-label" for="">회화능력 <span>*</span></label>
                       <select id="fl_conversation" class="common_select" name="language[][fl_conversation]">
-                        <option >[[${item.getFl_conversation()}]]</option>
+                        <option>[[${item.getFl_conversation()}]]</option>
                         <option value="상">상</option>
                         <option value="중">중</option>
                         <option value="하">하</option>
@@ -892,7 +894,7 @@
                     <div class="common_div width-104">
                       <label class="absolute-label" for="">독해능력 <span>*</span></label>
                       <select id="fl_reading" class="common_select" name="language[][fl_reading]">
-                        <option >[[${item.getFl_reading()}]]</option>
+                        <option>[[${item.getFl_reading()}]]</option>
                         <option value="상">상</option>
                         <option value="중">중</option>
                         <option value="하">하</option>
@@ -902,7 +904,7 @@
                     <div class="common_div width-104">
                       <label class="absolute-label" for="">작문능력 <span>*</span></label>
                       <select id="fl_writing" class="common_select" name="language[][fl_writing]">
-                        <option >[[${item.getFl_writing()}]]</option>
+                        <option>[[${item.getFl_writing()}]]</option>
                         <option value="상">상</option>
                         <option value="중">중</option>
                         <option value="하">하</option>
@@ -1048,108 +1050,104 @@
   <script src="/js/s1_index.js"></script>
 
   <script type="text/javascript" th:inline="javascript">
-
-    
-    [# th:if="${cv.getEducation()}"]
+    [#th: if = "${cv.getEducation()}"]
     document.querySelector("#btn1").click();
     [/]
 
-    [# th:if="${cv.getCv_hobby()}"]
-    document.querySelector("#btn2").click();
-    [/]
+      [#th: if = "${cv.getCv_hobby()}"]
+      document.querySelector("#btn2").click();
+      [/]
 
-    // [# th:if="${cv.getCv_specialty()}"]
-    // document.querySelector("#btn2").click();
-    // [/]
+        // [# th:if="${cv.getCv_specialty()}"]
+        // document.querySelector("#btn2").click();
+        // [/]
 
-    [# th:if="${cv.getAwards()}"]
-    document.querySelector("#btn3").click();
-    [/]
+        [#th: if = "${cv.getAwards()}"]
+        document.querySelector("#btn3").click();
+        [/]
 
-    [# th:if="${cv.getCv_verteran()} !='0'"]
-    document.querySelector("#btn4").click();
-    document.querySelector('#verteran_div').classList.replace('common_div', 'common_div_blue');
-    [/]
+          [#th: if = "${cv.getCv_verteran()} !='0'"]
+          document.querySelector("#btn4").click();
+          document.querySelector('#verteran_div').classList.replace('common_div', 'common_div_blue');
+          [/]
 
-    [# th:if="${cv.getCv_disability()} !='0'"]
-    document.querySelector("#btn4").click();
-    document.querySelector('#disability_div').classList.replace('common_div', 'common_div_blue');
-    document.querySelector('#info-extra').style = 'display:block';
-    document.querySelector('#disability-value').style = 'display:block';
-    [/]
+            [#th: if = "${cv.getCv_disability()} !='0'"]
+            document.querySelector("#btn4").click();
+            document.querySelector('#disability_div').classList.replace('common_div', 'common_div_blue');
+            document.querySelector('#info-extra').style = 'display:block';
+            document.querySelector('#disability-value').style = 'display:block';
+            [/]
 
-    [# th:if="${cv.getCv_military()} !='0'"]
-    document.querySelector("#btn4").click();
-    document.querySelector('#military_div').classList.replace('common_div', 'common_div_blue');
-    document.querySelector('#info-extra').style = 'display:block';
-    document.querySelector('#military-value').style = 'display:block';
-    [/]
+              [#th: if = "${cv.getCv_military()} !='0'"]
+              document.querySelector("#btn4").click();
+              document.querySelector('#military_div').classList.replace('common_div', 'common_div_blue');
+              document.querySelector('#info-extra').style = 'display:block';
+              document.querySelector('#military-value').style = 'display:block';
+              [/]
 
-    [# th:if="${cv.getFamily()}"]
-    document.querySelector("#btn5").click();
-    [/]
+                [#th: if = "${cv.getFamily()}"]
+                document.querySelector("#btn5").click();
+                [/]
 
-    [# th:if="${cv.getCertificate()}"]
-    document.querySelector("#btn6").click();
-    [/]
+                  [#th: if = "${cv.getCertificate()}"]
+                  document.querySelector("#btn6").click();
+                  [/]
 
-    [# th:if="${cv.getLanguage()}"]
-    document.querySelector("#btn7").click();
-    [/]
-
-
-    //버튼조작
-
-    //경력사항
-
-    [# th:if="${cv.getCareer()}"]
-    $('#carrerField').attr('style', 'display:block;');
-    $('#carrerButtonBox').attr('style', 'display:block;');
-    [/]
+                    [#th: if = "${cv.getLanguage()}"]
+                    document.querySelector("#btn7").click();
+                    [/]
 
 
+                      //버튼조작
 
-    //우대사항 셀렉트 부분
+                      //경력사항
 
-    /*<![CDATA[*/
-     var degree = `/*[[ ${cv.getCv_disability_degree()} ]]*/`;
-    /*]]*/
-
-    $('#disability_degree').val(degree).prop("selected", true);
-
-    /*<![CDATA[*/
-     var verteran = `/*[[ ${cv.getMilitaryServiceClassification()} ]]*/`;
-    /*]]*/
+                      [#th: if = "${cv.getCareer()}"]
+                      $('#carrerField').attr('style', 'display:block;');
+                      $('#carrerButtonBox').attr('style', 'display:block;');
+                      [/]
 
 
+
+                        //우대사항 셀렉트 부분
+
+                        /*<![CDATA[*/
+                        var degree = `/*[[ ${cv.getCv_disability_degree()} ]]*/`;
+                        /*]]*/
+
+                        $('#disability_degree').val(degree).prop("selected", true);
+
+                        /*<![CDATA[*/
+                        var verteran = `/*[[ ${cv.getMilitaryServiceClassification()} ]]*/`;
+                        /*]]*/
   </script>
 
   <script>
-  let test13 = document.querySelector('#test01').value;
-  let high = document.querySelectorAll('.container1');
-  let college = document.querySelectorAll('.container2');
-  let college2 = document.querySelectorAll('.container2-1');
-  let university = document.querySelectorAll('.container3');
-  let university2 = document.querySelectorAll('.container3-1');
-  let graduate = document.querySelectorAll('.container4');
-  let graduate2 = document.querySelectorAll('.container4-1');
+    let test13 = document.querySelector('#test01').value;
+    let high = document.querySelectorAll('.container1');
+    let college = document.querySelectorAll('.container2');
+    let college2 = document.querySelectorAll('.container2-1');
+    let university = document.querySelectorAll('.container3');
+    let university2 = document.querySelectorAll('.container3-1');
+    let graduate = document.querySelectorAll('.container4');
+    let graduate2 = document.querySelectorAll('.container4-1');
 
     let schoolType;
 
     schoolType = document.getElementsByClassName("schoolTypeSelect");
 
     for (let i = 0; i < schoolType.length; i++) {
-      if(schoolType[i].value == '고등학교'){
-         high[i].style = 'display:inline-block'
-      }else if(schoolType[i].value == '전문대') {
+      if (schoolType[i].value == '고등학교') {
+        high[i].style = 'display:inline-block'
+      } else if (schoolType[i].value == '전문대') {
         college[i].style = 'display:inline-block';
         college2[i].style = 'display:inline-block';
-      }else if(schoolType[i].value == '대학교'){
+      } else if (schoolType[i].value == '대학교') {
         university[i].style = 'display:inline-block';
         university2[i].style = 'display:inline-block';
-      }else if(schoolType[i].value == '대학원'){
-         graduate[i].style = 'display:inline-block';
-         graduate2[i].style = 'display:inline-block';
+      } else if (schoolType[i].value == '대학원') {
+        graduate[i].style = 'display:inline-block';
+        graduate2[i].style = 'display:inline-block';
       }
       console.log(i);
 
@@ -1172,17 +1170,16 @@
       //     break;
       // }
     }
-    
+
     let desired_salary = document.querySelector('#desired_salary').value;
 
-    if(!(desired_salary)) {
+    if (!(desired_salary)) {
       document.querySelector('.money_input').style = 'visibility:hidden';
-    document.querySelector('#desire').style = 'visibility:hidden';
-    document.querySelector('#sallay_div').style = 'background-color:#c7c7c7';
-    document.querySelector('#desired_salary').value = '면접 후 결정';
+      document.querySelector('#desire').style = 'visibility:hidden';
+      document.querySelector('#sallay_div').style = 'background-color:#c7c7c7';
+      document.querySelector('#desired_salary').value = '면접 후 결정';
     }
   </script>
-
 
 
 
