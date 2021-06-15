@@ -69,7 +69,7 @@
                         <div class="coun-inline">
                             <form id="counsearch_k" name="counsearch_k" method="post" action="/counseling/counseling">
                                 <select name="select-field" class="select-field1">
-                                    <option value="">상담 분야</option>
+                                    <option value>상담 분야</option>
                                     <option value="진로상담">진로 상담</option>
                                     <option value="취업상담">취업 상담</option>
                                     <option value="창업상담">창업 상담</option>
@@ -123,7 +123,8 @@
 
 <script th:inline="javascript">
     $(document).ready(function() {
-        a =([[${loginUser.User_id}]]);
+        a =([[${loginUser.User_id}]])
+        b =([[${loginUser.User_name}]])
     });
 </script>
 
