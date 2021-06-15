@@ -118,7 +118,7 @@
     position: relative;
     right: 3%;
     height: 3%;
-
+    text-align: center;
 }
 .context {
     border-bottom: 2px solid #ccc;
