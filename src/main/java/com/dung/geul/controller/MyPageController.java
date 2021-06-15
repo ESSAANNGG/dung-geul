@@ -125,6 +125,11 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         model.addAttribute("conlist", getlist.getDtoList());
     }
 
+    @GetMapping("/consult/counselling_reject")
+    public void reject(){
+
+    }
+
     @GetMapping("/member/studentcoun")
     public void stu(PageRequestDTO pageRequestDTO, Model model){
         PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
