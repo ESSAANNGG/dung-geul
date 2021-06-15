@@ -54,8 +54,8 @@
                                     <li id="menu_con1">
                                         <h4>자격증</h4>
                                         <ul id="sb_detail">
-                                            <li><a>자격증 목록</a></li>
-                                            <li><a>자격증 등록</a></li>
+                                            <li><a href="/license/list">자격증 목록</a></li>
+                                            <li><a href="/license/register">자격증 등록</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -67,8 +67,8 @@
                 <div class="employ_register" id="employ_register1">
                     <div class="content">
 
-                        <input name="em_id" id="member_id" title="em_id" th:value="${{memberDTO.getUser_id()}}"
-                            style="display: none;" />
+                        <!-- <input name="em_id" id="member_id" title="em_id" th:value="${{memberDTO.getUser_id()}}"
+                            style="display: none;" /> -->
 
                         <form action="POST" autocomplete="off">
                             <div style="font-size:26px; margin:30px; color: black;">
@@ -82,11 +82,11 @@
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">취득일</label>
-                                    <input class="formInput" id="certificateDate" type="date" name="" id="" style="width:150px">
+                                    <input class="formInput" id="certificateDate" type="date" style="width:150px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">만료일</label>
-                                    <input class="formInput" id="certificateEndDate" type="date" name="" id="" style="width:150px">
+                                    <input class="formInput" id="certificateEndDate" type="date" style="width:150px">
                                 </div>
                             </div>
 

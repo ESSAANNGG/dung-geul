@@ -53,8 +53,8 @@
                   <li id="menu_con1">
                     <h4>자격증</h4>
                     <ul id="sb_detail">
-                      <li><a>자격증 목록</a></li>
-                      <li><a>자격증 등록</a></li>
+                      <li><a href="/license/list">자격증 목록</a></li>
+                      <li><a href="/license/register">자격증 등록</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -72,15 +72,15 @@
                   <button id="certificateRemove"class="post_end_date mazer"><i class="fas fa-times"></i></button>
                  </ul>
                 <ul class="post_corp_name_wrap"><i class="far fa-id-card"></i>
-                  <li class="post_corp_name">자격증 명</li>
+                  <li class="post_corp_name">[[${lic.getLicName()}]]</li>
                 </ul>
                 <ul>
-                  <li class="cerDate">취득일</li>
-                  <span class="cerDate">~</span>
-                  <li class="cerDate">만료일</li>
+                  <li class="cerDate">[[${lic.getLicDate()}]]</li>
+                  <span class="cerDate"> ⁓ </span>
+                  <li class="cerDate">[[${lic.getLicDueDate()}]]</li>
                 </ul>
                 <ul class="post_corp_name_wrap" style="margin-top: 10px;">
-                  <a class="certificate_modify" href="">수정하기</a>
+                  <a class="certificate_modify" href="/license/modify">수정하기</a>
                 </ul>
                 
               </a>
