@@ -197,14 +197,6 @@
                                                     <option value>취업 세부 분야 내용 1</option>
                                                     <option value>취업 세부 분야 내용 2</option>
                                                     <option value>취업 세부 분야 내용 3</option>
-                                                    <option value disabled>창업 세부 분야</option>
-                                                    <option value>창업 세부 분야 내용 1</option>
-                                                    <option value>창업 세부 분야 내용 2</option>
-                                                    <option value>창업 세부 분야 내용 3</option>
-                                                    <option value disabled>진로 세부 분야</option>
-                                                    <option value>진로 세부 분야 내용 1</option>
-                                                    <option value>진로 세부 분야 내용 2</option>
-                                                    <option value>진로 세부 분야 내용 3</option>
                                                 </select>
                                                 <input type="text" class="sang-name" placeholder="이름을 입력해 주세요.">
                                                 <button id="btn-s">검색</button>
@@ -222,77 +214,12 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td id="name">정혜리</td>
-                                                    <td id="field">진로 상담</td>
-                                                    <td id="sec-field"><a href="#">진로 계획 세우기</a></td>
-                                                    <td id="date">21.04.16 18:00</td>
-                                                    <td id="state"><input type="checkbox" class="check"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td id="name">정혜리</td>
-                                                    <td id="field">진로 상담</td>
-                                                    <td id="sec-field"><a href="#">진로 계획 세우기</a></td>
-                                                    <td id="date">21.04.16 18:00</td>
-                                                    <td id="state"><input type="checkbox" class="check"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td id="name">정혜리</td>
-                                                    <td id="field">진로 상담</td>
-                                                    <td id="sec-field"><a href="#">진로 계획 세우기</a></td>
-                                                    <td id="date">21.04.16 18:00</td>
-                                                    <td id="state"><input type="checkbox" class="check"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td id="name">정혜리</td>
-                                                    <td id="field">진로 상담</td>
-                                                    <td id="sec-field"><a href="#">진로 계획 세우기</a></td>
-                                                    <td id="date">21.04.16 18:00</td>
-                                                    <td id="state"><input type="checkbox" class="check"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">5</th>
-                                                    <td id="name">정혜리</td>
-                                                    <td id="field">진로 상담</td>
-                                                    <td id="sec-field"><a href="#">진로 계획 세우기</a></td>
-                                                    <td id="date">21.04.16 18:00</td>
-                                                    <td id="state"><input type="checkbox" class="check"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">6</th>
-                                                    <td id="name">정혜리</td>
-                                                    <td id="field">진로 상담</td>
-                                                    <td id="sec-field"><a href="#">진로 계획 세우기</a></td>
-                                                    <td id="date">21.04.16 18:00</td>
-                                                    <td id="state"><input type="checkbox" class="check"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">7</th>
-                                                    <td id="name">정혜리</td>
-                                                    <td id="field">진로 상담</td>
-                                                    <td id="sec-field"><a href="#">진로 계획 세우기</a></td>
-                                                    <td id="date">21.04.16 18:00</td>
-                                                    <td id="state"><input type="checkbox" class="check"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">8</th>
-                                                    <td id="name">정혜리</td>
-                                                    <td id="field">진로 상담</td>
-                                                    <td id="sec-field"><a href="#">진로 계획 세우기</a></td>
-                                                    <td id="date">21.04.16 18:00</td>
-                                                    <td id="state"><input type="checkbox" class="check"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">9</th>
-                                                    <td id="name">정혜리</td>
-                                                    <td id="field">진로 상담</td>
-                                                    <td id="sec-field"><a href="#">진로 계획 세우기</a></td>
-                                                    <td id="date">21.04.16 18:00</td>
-                                                    <td id="state"><input type="checkbox" class="check"></td>
+                                                <tr th:each="con : ${conlist}">
+                                                    <th scope="row">[[${con.consult_num}]]</th>
+                                                    <td>[[${con.type}]]</td>
+                                                    <td>[[${con.consult_time}]]</td>
+                                                    <td>[[${con.consult_date}]]</td>
+                                                    <td><input type="checkbox" class="check"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -302,9 +229,6 @@
                                             <b>모두 체크</b>
                                             <button class="btn-q" id="delete" style="margin-left: 10px;">삭제</button>
                                         </div>
-
-
-
                                     </div>
                                 </div>
                             </div>

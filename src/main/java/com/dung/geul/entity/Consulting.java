@@ -18,7 +18,7 @@ public class Consulting {    // 상담 테이블
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cno", foreignKey = @ForeignKey(name="consult_cno"))
-    private Consult consult;
+    private Consult cno;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
