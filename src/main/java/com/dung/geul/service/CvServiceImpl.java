@@ -245,7 +245,7 @@ public class CvServiceImpl implements CVService {
         if (licenseList.size() > 0) {
             List<CertificateDTO> licenseDTOList = new ArrayList<>();
             for (License l : licenseList) {
-                if (l.getLic_name() == "" || l.getLic_name() == null) {
+                if (l.getLicName() == "" || l.getLicName() == null) {
                     continue;
                 }
 

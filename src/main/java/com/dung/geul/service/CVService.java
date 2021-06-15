@@ -129,9 +129,9 @@ public interface CVService {
     default License dtoToEntity(CertificateDTO dto, Member member){
 
         License license = License.builder()
-                .lic_name(dto.getLic_name())
-                .lic_date(dto.getLic_date())
-                .lic_due_date(dto.getLic_due_date())
+                .licName(dto.getLic_name())
+                .licDate(dto.getLic_date())
+                .licDueDate(dto.getLic_due_date())
                 .member(member)
                 .build();
 
@@ -257,10 +257,10 @@ public interface CVService {
 
     default CertificateDTO EntityToDto(License entity){
         CertificateDTO dto = CertificateDTO.builder()
-                .lic_num(entity.getLic_num())
-                .lic_name(entity.getLic_name())
-                .lic_date(entity.getLic_date())
-                .lic_due_date(entity.getLic_due_date())
+                .lic_num(entity.getLicNum())
+                .lic_name(entity.getLicName())
+                .lic_date(entity.getLicDate())
+                .lic_due_date(entity.getLicDueDate())
                 .build();
 
         return dto;
@@ -361,9 +361,9 @@ public interface CVService {
 
     default License modifyEntity(CertificateDTO dto, License entity){
 
-        entity.setLic_name(dto.getLic_name());
-        entity.setLic_date(dto.getLic_date());
-        entity.setLic_due_date(dto.getLic_due_date());
+        entity.setLicName(dto.getLic_name());
+        entity.setLicDate(dto.getLic_date());
+        entity.setLicDueDate(dto.getLic_due_date());
 
         return entity;
 
