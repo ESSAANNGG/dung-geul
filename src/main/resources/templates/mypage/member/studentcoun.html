@@ -39,7 +39,7 @@
                     <ul id="sb_detail">
                         <li><a href="/counseling/intro">상담 소개</a></li>
                         <li><a href="/counseling/counseling">상담 신청</a></li>
-                        <li><a href="/counseling/studentcoun">상담 내역</a></li>
+                        <li><a href="/mypage/member/studentcoun">상담 내역</a></li>
                     </ul>
                 </li>
             </ul>
@@ -74,12 +74,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="ok">
-                        <th scope="row">4</th>
-                        <td>정혜리</td>
-                        <td>진로 상담</td>
-                        <td><a href="#" class="ok">진로 계획 세우기</a></td>
-                        <td>21.04.16 18:00</td>
+                    <tr class="ok" th:each="ml : ${mylist}">
+                        <th scope="row">[[${ml.consult_num}]]</th>
+                        <td>[[${ml.con_user_id}]]</td>
+                        <td>[[${ml.type}]]</td>
+                        <td></td>
+                        <td>[[${ml.consult_date}]] [[${ml.consult_time}]]</td>
                         <td>승인 완료</td>
                     </tr>
                     </tbody>
