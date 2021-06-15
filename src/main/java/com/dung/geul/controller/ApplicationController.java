@@ -1,6 +1,7 @@
 package com.dung.geul.controller;
 
 import com.dung.geul.dto.CvPageDTO;
+import com.dung.geul.dto.EducationDTO;
 import com.dung.geul.entity.CV;
 import com.dung.geul.entity.Education;
 import com.dung.geul.entity.Member;
@@ -88,6 +89,10 @@ public class ApplicationController {
         log.info("cvPage DTO : " + cv.toString());
         log.info("cv.getUser_age() : " + cv.getUser_age());
         log.info("cv.getDesired_salary() : " + cv.getDesired_salary());
+        for (EducationDTO dto: cv.getEducation()) {
+            log.info("학력 입학년월 : " + dto.getDateStart());
+            log.info("학력 졸업년월 : " + dto.getDateEnd());
+        }
 
 
     }

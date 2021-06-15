@@ -148,6 +148,7 @@ public class CvServiceImpl implements CVService {
                 .cv_id(cv.getCv_id())
                 .user_id(cv.getUser_id().getUser_id())
                 .user_name(cv.getUser_name())
+                .name_china(cv.getName_china())
                 .user_hp(cv.getUser_hp())
                 .user_email(cv.getUser_email())
                 .addr(cv.getAddr())
@@ -262,7 +263,6 @@ public class CvServiceImpl implements CVService {
     public int modify(CvPageDTO cvPageDTO) {
 
         log.info("modify 시작 dto : " +cvPageDTO);
-        try {
 
             Optional<CV> cvOpt = cvRepository.findById(cvPageDTO.getCv_id());
 
@@ -282,58 +282,70 @@ public class CvServiceImpl implements CVService {
                 List<CertificateDTO> certificateDTOList = cvPageDTO.getCertificate();
                 List<LanguageDTO> languageDTOList = cvPageDTO.getLanguage();
 
-                for (EducationDTO dto : educationDTOList) {
-                    Education entity = educationRepository.getOne(dto.getId());
-                    if(entity == null){
-                        entity = dtoToEntity(dto, member);
+                if(educationDTOList != null){
+                    for (EducationDTO dto : educationDTOList) {
+                        Education entity = educationRepository.getOne(dto.getId());
+                        if(entity == null || dto.getId() == null){
+                            entity = dtoToEntity(dto, member);
+                        }
+                        entity = modifyEntity(dto, entity);
+                        educationRepository.save(entity);
                     }
-                    entity = modifyEntity(dto, entity);
-                    educationRepository.save(entity);
                 }
 
-                for (CareerDTO dto : careerDTOList) {
-                    Carrer entity = carrerRepository.getOne(dto.getId());
-                    if(entity == null){
-                        entity = dtoToEntity(dto, member);
+                if(careerDTOList != null){
+                    for (CareerDTO dto : careerDTOList) {
+                        Carrer entity = carrerRepository.getOne(dto.getId());
+                        if(entity == null){
+                            entity = dtoToEntity(dto, member);
+                        }
+                        entity = modifyEntity(dto, entity);
+                        carrerRepository.save(entity);
                     }
-                    entity = modifyEntity(dto, entity);
-                    carrerRepository.save(entity);
                 }
 
-                for (AwardsDTO dto : awardsDTOList) {
-                    Awards entity = awardsRepository.getOne(dto.getId());
-                    if(entity == null){
-                        entity = dtoToEntity(dto, member);
+                if(awardsDTOList != null) {
+                    for (AwardsDTO dto : awardsDTOList) {
+                        Awards entity = awardsRepository.getOne(dto.getId());
+                        if (entity == null) {
+                            entity = dtoToEntity(dto, member);
+                        }
+                        entity = modifyEntity(dto, entity);
+                        awardsRepository.save(entity);
                     }
-                    entity = modifyEntity(dto, entity);
-                    awardsRepository.save(entity);
                 }
 
-                for (FamilyDTO dto : familyDTOList) {
-                    Family entity = familyRepository.getOne(dto.getId());
-                    if(entity == null){
-                        entity = dtoToEntity(dto, member);
+                if(familyDTOList != null) {
+                    for (FamilyDTO dto : familyDTOList) {
+                        Family entity = familyRepository.getOne(dto.getId());
+                        if (entity == null) {
+                            entity = dtoToEntity(dto, member);
+                        }
+                        entity = modifyEntity(dto, entity);
+                        familyRepository.save(entity);
                     }
-                    entity = modifyEntity(dto, entity);
-                    familyRepository.save(entity);
                 }
 
-                for (CertificateDTO dto : certificateDTOList) {
-                    License entity = licenseRepository.getOne(dto.getLic_num());
-                    if(entity == null){
-                        entity = dtoToEntity(dto, member);
+                if(certificateDTOList != null) {
+                    for (CertificateDTO dto : certificateDTOList) {
+                        License entity = licenseRepository.getOne(dto.getLic_num());
+                        if (entity == null) {
+                            entity = dtoToEntity(dto, member);
+                        }
+                        entity = modifyEntity(dto, entity);
+                        licenseRepository.save(entity);
                     }
-                    entity = modifyEntity(dto, entity);
-                    licenseRepository.save(entity);
                 }
 
-                for (LanguageDTO dto : languageDTOList) {
-                    Language entity = languageRepository.getOne(dto.getFl_id());
-                    if(entity == null){
-                        entity = dtoToEntity(dto, member);
+                if(languageDTOList != null) {
+                    for (LanguageDTO dto : languageDTOList) {
+                        Language entity = languageRepository.getOne(dto.getFl_id());
+                        if (entity == null) {
+                            entity = dtoToEntity(dto, member);
+                        }
+                        entity = modifyEntity(dto, entity);
+                        languageRepository.save(entity);
                     }
-                    entity = modifyEntity(dto, entity);
-                    languageRepository.save(entity);
                 }
 
                 log.info("수정 완료");
@@ -342,12 +354,6 @@ public class CvServiceImpl implements CVService {
             else{
                 return 0;
             }
-
-
-        } catch (Exception e) {
-            log.info("error : " + e);
-            return 0;
-        }
 
     }
 

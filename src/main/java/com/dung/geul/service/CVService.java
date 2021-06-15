@@ -10,6 +10,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
+import static org.reflections.Reflections.log;
+
 public interface CVService {
 
     default LocalDate dateFormat(String stringDate){
@@ -44,6 +46,7 @@ public interface CVService {
                 .cv_verteran(dto.getCv_verteran())
                 .cv_disability(dto.getCv_disability())
                 .cv_military(dto.getCv_military())
+                .cv_military_now(dto.getMilitaryServiceClassification())
                 //희망조건
                 .sec_of_exam(dto.getSec_of_exam())
                 .desired_salary(dto.getDesired_salary())
@@ -74,6 +77,8 @@ public interface CVService {
     default Education dtoToEntity(EducationDTO dto, Member member){
 
         String type = dto.getSchoolType();
+
+        log.info("학력 dto : " + dto.toString());
 
         Education education = Education.builder()
                 .member(member)
@@ -170,6 +175,7 @@ public interface CVService {
                  .id(entity.getEdc_ID())
                  .schoolType(entity.getSchoolType())
                  .edc_school(entity.getEdc_school())
+                 .highschool_edc_date(entity.getEdc_date_end())
                 .build();
 
          String type = dto.getSchoolType();
@@ -271,7 +277,7 @@ public interface CVService {
         cv.setSupportPath(cvPageDTO.getSupportPath());
         cv.setCv_verteran(cvPageDTO.getCv_verteran());
         cv.setCv_disability(cvPageDTO.getCv_disability());
-        cv.setCv_military(cv.getCv_military());
+        cv.setCv_military(cvPageDTO.getCv_military());
         cv.setCv_disability_degree(cvPageDTO.getCv_disability_degree());
         cv.setCv_military_now(cvPageDTO.getMilitaryServiceClassification());
         cv.setSec_of_exam(cvPageDTO.getSec_of_exam());
