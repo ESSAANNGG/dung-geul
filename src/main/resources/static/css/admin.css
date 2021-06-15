@@ -137,7 +137,7 @@ a{
     cursor: pointer;
 }
 .menubox_li h5{
-    width:80px;
+    width:90px;
     margin-left:20px;
     font-size:15px;
 }
@@ -419,65 +419,6 @@ span:nth-of-type(1){
     background:url("/img/down-arrow.png") no-repeat 87% 50%/11px auto;
 }
 
-/*.number{*/
-/*    width:100px;*/
-/*}*/
-/*.name{*/
-/*    width:140px;*/
-/*}*/
-/*.username{*/
-/*    width:380px;*/
-/*}*/
-/*.phone{*/
-/*    width:180px;*/
-/*}*/
-/*.email{*/
-/*    width:430px;*/
-/*}*/
-/*.joindate{*/
-/*    width:140px;*/
-/*}*/
-/*.role{*/
-/*    width:140px;*/
-/*}*/
-/*.corp_name{*/
-/*    width:320px;*/
-/*}*/
-
-/*!*채용공고메뉴*!*/
-/*.employ_title{*/
-/*    width:400px;*/
-/*}*/
-/*.ot{*/
-/*    width:270px;*/
-/*}*/
-/*.startDate{*/
-/*    width:140px;*/
-/*}*/
-/*.deadline{*/
-/*    width:140px;*/
-/*}*/
-/*상담관리메뉴*/
-/*.content{*/
-/*    width:520px;*/
-/*}*/
-/*.regdate{*/
-/*    width:140px;*/
-/*}*/
-/*.moddate{*/
-/*    width:140px;*/
-/*}*/
-/*.preference{!*신청건수*!*/
-/*    width:140px;*/
-/*}*/
-/*!*상담메뉴*!*/
-/*.title{*/
-/*    width:330px;*/
-/*}*/
-/*!*게시판*!*/
-/*.link{*/
-/*    width:140px;*/
-/*}*/
 .list_button button{
     width:90px;
     height:40px;
@@ -487,6 +428,10 @@ span:nth-of-type(1){
     font-size:14px;
     border:none;
 }
+.direct{
+    float:right;
+}
+
 
 
 

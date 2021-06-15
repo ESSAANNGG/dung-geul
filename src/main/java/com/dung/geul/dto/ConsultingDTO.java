@@ -19,6 +19,5 @@ public class ConsultingDTO {
     private String type;
     private String con_user_id;
     private String consult_date;
-
     private String consult_time;
 }

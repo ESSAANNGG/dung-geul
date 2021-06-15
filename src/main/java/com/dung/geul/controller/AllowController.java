@@ -105,5 +105,10 @@ public class AllowController {
 
     }
 
+    @GetMapping("/admin_supportProgram")
+    public void applicationd(){
+
+    }
+
 
 }

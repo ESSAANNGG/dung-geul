@@ -56,6 +56,7 @@ $(menubox_li).click(function(){
             break;
         case 5: menu_name="consult";
             break;
+        case 6: menu_name="supportProgram";
     }
     //세션 스토리지에 css를 저장
     window.sessionStorage.setItem('menu_name', menu_name);
@@ -63,7 +64,6 @@ $(menubox_li).click(function(){
     window.sessionStorage.setItem('select_detail_menu',Number(0)); //상세메뉴가 아닌 좌측메뉴클릭을 했을시엔 첫번째 상세메뉴를 보여줌
 
     //각 메뉴에 맞는 파라미터를 가져오기 위해 menu_name을 이용해 각menu.js파일에 존재하는 함수를 호출, 각 파라미터를 받아옴
-    //if (menu_name==userManage) == {userManage?type=UNIV&page1=1&page2=1}
     window[menu_name]();
 
     //파라미터를 받아온 후 새로고침하는 함수 호출
@@ -266,8 +266,8 @@ function detail(t) {
                 if(users_roll==""){                                           //기업관리 화면은 .role이 없고 대신 기업형태가있음 그래서 enterprise를 직접 설정해 넘겨준다.
                     users_roll="ENTERPRISE";
                 }
-                alert(users_roll);
-                alert(typeof(users_roll));
+                // alert(users_roll);
+                // alert(typeof(users_roll));
                 users_id=$(t).children('span.username').text();
                 setTimeout("window['detail_on_'+menu_name](users_id,users_roll)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
                 break;

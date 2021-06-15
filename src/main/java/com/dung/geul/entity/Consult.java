@@ -34,7 +34,7 @@ public class Consult extends BaseEntity {
         this.Consult_field = consult_field;
     }
 
-    @OneToMany(mappedBy = "consult")
+    @OneToMany(mappedBy = "cno")
     private List<Consulting> consultings = new ArrayList<>();
 
     public void updatedetail(String consult_detail_field) {

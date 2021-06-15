@@ -1,10 +1,17 @@
 package com.dung.geul.controller;
 
+import com.dung.geul.dto.ConsultingDTO;
 import com.dung.geul.dto.EnterpriseDTO;
+import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.entity.Consulting;
 import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
+import com.dung.geul.service.ConsultingService;
+import com.dung.geul.service.ConsultingServiceImpl;
 import com.dung.geul.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
@@ -21,6 +28,8 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
     @Autowired
     private MemberServiceImpl memberService;
 
+    @Autowired
+    private ConsultingService consultingService;
     // member 교내회원 마이페이지 (학생-STUDENT, 상담사-COUNSELOR, 관리자-ADMIN)
     // 매핑 기본 주소 : /mypage/
 
@@ -109,11 +118,18 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     }
 
-    @GetMapping({"/consult/counselling_reject", "/consult/counselling_request"})
-    public void okey(){
-
+    @GetMapping( "/consult/counselling_request")
+    public void okey(PageRequestDTO pageRequestDTO, Model model){
+        PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
+        System.out.println("================" + pageRequestDTO);
+        model.addAttribute("conlist", getlist.getDtoList());
     }
 
-
+    @GetMapping("/member/studentcoun")
+    public void stu(PageRequestDTO pageRequestDTO, Model model){
+        PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
+        System.out.println("===내 목록 확인하기===");
+        model.addAttribute("mylist", getlist.getDtoList());
+    }
 
 }

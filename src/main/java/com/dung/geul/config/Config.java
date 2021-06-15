@@ -37,7 +37,7 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/application/**").hasRole("STUDENT")
                 .antMatchers("/mypage/**").hasRole("USER")
-                .antMatchers("/counseling/**").hasRole("STUDENT")
+                .antMatchers("/counseling/**").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll();
 

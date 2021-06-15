@@ -14,7 +14,7 @@ public class EnterpriseDTO extends MemberDTO {
     // 기업 추가 정보
     private Long etp_id;
 
-    private String etp_num; //기업명
+    private String etp_num; //사업자번호
 
     private String etp_name; // 기업이름
 
