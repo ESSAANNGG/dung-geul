@@ -118,14 +118,18 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     }
 
-    //상담사 마이페이지
     @GetMapping( "/consult/counselling_request")
     public void okey(PageRequestDTO pageRequestDTO, Model model){
         PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
         System.out.println("================" + pageRequestDTO);
         model.addAttribute("conlist", getlist.getDtoList());
     }
-    //학생 마이페이지 상담신청내역
+
+    @GetMapping("/consult/counselling_reject")
+    public void reject(){
+
+    }
+
     @GetMapping("/member/studentcoun")
     public void stu(PageRequestDTO pageRequestDTO, Model model){
         PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
