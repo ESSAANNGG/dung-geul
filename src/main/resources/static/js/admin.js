@@ -56,6 +56,7 @@ $(menubox_li).click(function(){
             break;
         case 5: menu_name="consult";
             break;
+        case 6: menu_name="supportProgram";
     }
     //세션 스토리지에 css를 저장
     window.sessionStorage.setItem('menu_name', menu_name);
@@ -63,7 +64,6 @@ $(menubox_li).click(function(){
     window.sessionStorage.setItem('select_detail_menu',Number(0)); //상세메뉴가 아닌 좌측메뉴클릭을 했을시엔 첫번째 상세메뉴를 보여줌
 
     //각 메뉴에 맞는 파라미터를 가져오기 위해 menu_name을 이용해 각menu.js파일에 존재하는 함수를 호출, 각 파라미터를 받아옴
-    //if (menu_name==userManage) == {userManage?type=UNIV&page1=1&page2=1}
     window[menu_name]();
 
     //파라미터를 받아온 후 새로고침하는 함수 호출
