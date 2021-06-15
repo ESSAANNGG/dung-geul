@@ -126,16 +126,17 @@ public class MemberServiceImpl implements MemberService {
         try {
             Member member;
             Enterprise enterprise;
+
             for (AllowEtpIdShapeDTO dto : dtoList) {
                 member = memberRepository.findById(dto.getUser_id()).get();
 
                 enterprise = enterpriseRepository.findByUser_id(member);
 
-                if(member == null || enterprise == null) throw new Exception(dto.getUser_id() + "는 존재하지 않는 회원입니다.");
+                if (member == null || enterprise == null) throw new Exception(dto.getUser_id() + "는 존재하지 않는 회원입니다.");
 
-                if(result.equals("no")){
+                if (result.equals("no")) {
                     member.modUser_allow(2);
-                } else if(result.equals("ok")){
+                } else if (result.equals("ok")) {
                     member.modUser_allow(1);
                     enterprise.modifyEtp_shape(dto.getShape());         // 기업 형태 저장
                     member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
@@ -143,13 +144,12 @@ public class MemberServiceImpl implements MemberService {
 
                 memberRepository.save(member);
                 enterpriseRepository.save(enterprise);
-            }
+            } // end of for
 
-            return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity(1, HttpStatus.OK);
 
         } catch (Exception e) {
-            System.out.println(e);
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(0, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -176,12 +176,12 @@ public class MemberServiceImpl implements MemberService {
 
             } // end of for
 
-            return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity(1, HttpStatus.OK);
 
         } catch (Exception e){
 
             System.out.println("error : " + e);
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(2, HttpStatus.NOT_FOUND);
 
         }
     }
