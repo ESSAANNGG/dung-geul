@@ -84,9 +84,11 @@ public class MemberRepositoryTest {
     @Test
     public void insertCounselor(){
 
+        String pw = encoder.encode("123");
+
         Member member = Member.builder()
                 .user_id("con1")
-                .user_pw("123")
+                .user_pw(pw)
                 .user_name("박수진")
                 .user_ph("010")
                 .user_ph2("1119")
