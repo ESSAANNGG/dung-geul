@@ -18,19 +18,19 @@ public class License implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long lic_num; //자격증 등록번호
+    private Long licNum; //자격증 등록번호
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(foreignKey = @ForeignKey(name="lic_user_id_fk"))
     private Member member;
 
     @Column(length = 50, nullable = true)
-    private String lic_name; // 자격증 이름
+    private String licName; // 자격증 이름
 
     // 유효기간
-    private LocalDate lic_date;   // 유효일
-    private LocalDate lic_due_date; // 마감일
+    private LocalDate licDate;   // 유효일
+    private LocalDate licDueDate; // 마감일
 
-    private String lic_file; // 첨부파일
+    private String licFile; // 첨부파일
 
 }

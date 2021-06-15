@@ -330,7 +330,7 @@ $(document).ready(function () {
   $('#add_carrer').click(function (e) {
     carrer_name++;
     $('.line_carrer').before(
-      '<div class="item_career">         <div class="info">          <div class="common_div width-350">           <label class="absolute-label" for="">회사명 <span>*</span></label>           <input class="common_input" name="career[][cr_etp_name]" />          </div>          <div class="common_div width-200">           <label class="absolute-label" for="">입사일자 </label>           <input class="common_input" type="date" name="career[][cr_employment]" />          </div>          <div class="common_div width-200">           <label class="absolute-label" for="">퇴사일자 </label>           <input class="common_input" type="date" name="career[][cr_resignation]" />          </div>          <br />          <div class="common_div width-200">           <label class="absolute-label" for="">직위 </label>           <input class="common_input" type="text" name="career[][cr_position]" />          </div>          <div class="common_div width-300">           <label class="absolute-label" for="">퇴사사유 </label>           <input class="common_input" type="text" name="career[][reason_resign]" />          </div>          <div class="common_div width-200">           <label class="absolute-label" for="">연봉 <span>*</span></label>           <input class="money_input2" value="" type="number" name="career[][salary]"              autocomplete="off" />           <span style="font-size: 12px">만원</span>          </div>          <div class="common_div width-full awardContents_div ">           <label class="absolute-label" >담당업무 </label>           <textarea class="cr_task" name="career[][cr_task]" focus="test12()" cols="30" rows="10"></textarea>          </div>         </div>        </div> '
+      '<div class="item_career">         <div class="info">          <div class="common_div width-350">           <label class="absolute-label" for="">회사명 <span>*</span></label>           <input class="common_input etp_name" name="career[][cr_etp_name]" />          </div>          <div class="common_div width-200">           <label class="absolute-label" for="">입사일자 </label>           <input class="common_input employment" type="date" name="career[][cr_employment]" />          </div>          <div class="common_div width-200">           <label class="absolute-label" for="">퇴사일자 </label>           <input class="common_input resignation" type="date" name="career[][cr_resignation]" />          </div>          <br />          <div class="common_div width-200">           <label class="absolute-label" for="">직위 </label>           <input class="common_input position" type="text" name="career[][cr_position]" />          </div>          <div class="common_div width-300">           <label class="absolute-label" for="">퇴사사유 </label>           <input class="common_input resign" type="text" name="career[][reason_resign]" />          </div>          <div class="common_div width-200">           <label class="absolute-label" for="">연봉 <span>*</span></label>           <input class="money_input2 salary" value="" type="number" name="career[][salary]"              autocomplete="off" />           <span style="font-size: 12px">만원</span>          </div>          <div class="common_div width-full awardContents_div ">           <label class="absolute-label" >담당업무 </label>           <textarea class="cr_task" name="career[][cr_task]" focus="test12()" cols="30" rows="10"></textarea>          </div>         </div>        </div> '
     );
     carrer_number++;
     if (carrer_number > 0) {
@@ -1003,9 +1003,26 @@ function checkBoth() {
 
 $('input:radio[name=user_employment]').click(function () {
   if ($('input:radio[name=user_employment]:checked').val() == '0') {
+    let etp_name = document.querySelectorAll('.etp_name');
+    let employment = document.querySelectorAll('.employment');
+    let resignation = document.querySelectorAll('.resignation');
+    let position = document.querySelectorAll('.position');
+    let resign = document.querySelectorAll('.resign');
+    let salary = document.querySelectorAll('.salary');
+    let cr_task = document.querySelectorAll('.cr_task');
     $('#carrerField').prop('disabled', true);
     $('#carrerField').attr('style', 'display:none;');
     $('#carrerButtonBox').attr('style', 'display:none;');
+    for (let i = 0; i < etp_name.length; i++) {
+      etp_name[i].value = '';
+      employment[i].value = '';
+      resignation[i].value = '';
+      position[i].value = '';
+      resign[i].value = '';
+      salary[i].value = '';
+      cr_task[i].value = '';
+      console.log(i);
+    }
   } else {
     $('#carrerField').prop('disabled', false);
     $('#carrerField').attr('style', 'display:block;');
