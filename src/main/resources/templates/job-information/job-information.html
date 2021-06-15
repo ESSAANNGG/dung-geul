@@ -36,12 +36,11 @@
             if (searchCode == "searchCode=") {
                 alert("키워드를 입력하세요!");
             } else {
-
                 // ajax로 컨트롤로 넘기기
                 $.ajax({
                     type: 'post',
-                    url: "/jobsearch_k", // jobDictionaryRestController
-                    data: searchCode, // 클라이언트가 입력한 키워드
+                    url: "/jobsearch_k",    // jobInformationRestController
+                    data: searchCode,       // 클라이언트가 입력한 키워드
                     success: function (xml) {
                         // console.log(xml);
 
@@ -105,7 +104,6 @@
         }
     </script>
 
-
     <!--네비 div-->
     <div th:replace="layout/layout :: nav" />
     <section id="main">
@@ -132,13 +130,6 @@
                                             <li><a href="/job-information/job-dictionary">직업 사전</a></li>
                                         </ul>
                                     </li>
-                                    <!--
-            <li id="menu_con3"><h4>상담 정보</h4>
-                <ul id="sb_detail">
-                    <li><a href="#">상담 신청</a></li>
-                    <li><a href="#">상담 내역</a></li>
-                </ul>
-            </li> -->
                                 </ul>
                             </div> <!-- bar -->
                         </div> <!-- menu -->
@@ -161,13 +152,10 @@
                                 <div class="label">키워드 검색</div>
 
                                 <div class="label-con form-inline">
-                                    <!-- <form id="jobsearch_k" name="jobsearch_k" method="get"
-                                        action="https://www.work.go.kr/consltJobCarpa/srch/jobInfoSrch/srchJobInfo.do?cond=key&searchCode="> -->
-                                        <input type="hidden" name="type" value="k">
-                                        <input type="text" id="searchCode" name="searchCode" maxlength="20"
-                                            class="form-control" placeholder="직종명을 입력하세요.">
-                                        <button type="submit" class="btn-d" onclick="job_search()">검색</button>
-                                    <!-- </form> -->
+                                    <input type="hidden" name="type" value="k">
+                                    <input type="text" id="searchCode" name="searchCode" maxlength="20"
+                                        class="form-control" placeholder="직종명을 입력하세요.">
+                                    <button type="submit" class="btn-d" onclick="job_search()">검색</button>
                                 </div>
                                 <!-- label-con form-inline -->
                             </div> <!-- clear-search -->
@@ -219,7 +207,6 @@
     </section>
     <!--footer -->
     <footer th:replace="layout/layout :: footer" />
-
 
 </body>
 

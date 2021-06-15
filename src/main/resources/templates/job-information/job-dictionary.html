@@ -20,20 +20,22 @@
         function jobSerchK() { // 직업사전 키워드 검색 함수
             var qData = $("#searchCode").serialize(); // 클라이언트가 입력한 키워드를 담은 변수
 
-            // 키워드 검색을 아무것도 입력하지 않았을 시
-            if (qData == "searchCode=") {
-                alert("키워드를 입력하세요!");
-            }
 
             if ($("#rtnPrsList") != null) { // 파싱한 결과 값을 담는 요소를 초기화 한다.
                 $("#rtnPrsList").empty();
             }
-
-            $.ajax({
+            
+            // 키워드 검색을 아무것도 입력하지 않았을 시
+            if (qData == "searchCode=") {
+                alert("키워드를 입력하세요!");
+                
+            } else {
+                $.ajax({
                 type: 'post',
                 url: "/jobSerchK", // jobDictionaryRestController
                 data: qData, // 클라이언트가 입력한 키워드
                 success: function (xml) {
+                    alert("조회에 성공하였습니다.");
 
                     $(xml).find('dJobList').each(function () { // xml parsing
                         var dJobNm = $(this).find("dJobNm").text();
@@ -48,6 +50,7 @@
                     })
                 },
                 error: function (request, error) {
+                    alert("오류가 발생하였습니다.");
                     // 에로 발생 원인을 알려준다.
                     console.log("CODE : " + request.status + "\n" +
                         "MESSAGE : " + request.responseText + "\n" +
@@ -55,7 +58,10 @@
                     console.log(xml)
                 },
 
-            }) // end ajax
+                }) // end ajax
+
+            }// end if else
+            
 
         } // end jobSerchCon()
 
@@ -63,19 +69,18 @@
             var eduLevel = $("#eduLevel").serialize(); // 클라이언트가 입력한 키워드를 담은 변수 (교육 수준)
             var skillYear = $("#skillYear").serialize(); // 클라이언트가 입력한 키워드를 담은 변수 (숙련 기간)
 
-            // 조건 검색을 아무것도 선택하지 않았을 시
-            if (eduLevel == "eduLevel=" && skillYear == "skillYear=") {
-                alert("조건을 선택해 주세요!")
-            } else if (eduLevel == "eduLevel=") { // 교육 수준을 선택하지 않았을 시
-                alert("교육 수준을 선택해 주세요!")
-            }
-
             // 파싱한 결과 값을 담는 요소를 초기화 한다.
             if ($("#rtnPrsList") != null) {
                 $("#rtnPrsList").empty();
             }
 
-            $.ajax({
+            // 조건 검색을 아무것도 선택하지 않았을 시
+            if (eduLevel == "eduLevel=" && skillYear == "skillYear=") {
+                alert("조건을 선택해 주세요!")
+            } else if (eduLevel == "eduLevel=") { // 교육 수준을 선택하지 않았을 시
+                alert("교육 수준을 선택해 주세요!")
+            } else {
+                $.ajax({
                 type: 'post',
                 url: "/jobSearchCon", // jobDictionaryRestController
                 data: {
@@ -84,6 +89,8 @@
                 },
 
                 success: function (xml) {
+                    alert("조회에 성공하였습니다.");
+
                     $(xml).find('dJobList').each(function () { // xml parsing
                         var dJobNm = $(this).find("dJobNm").text();
 
@@ -108,17 +115,20 @@
 
                     })
 
+                    },
+                    error: function (request, error) {
+                        alert("오류가 발생하였습니다.");
 
-                },
-                error: function (request, error) {
-                    // 에로 발생 원인을 알려준다.
-                    console.log("CODE : " + request.status + "\n" +
-                        "MESSAGE : " + request.responseText + "\n" +
-                        "EERROR : " + error);
-                    console.log(xml)
-                }
+                        // 에로 발생 원인을 알려준다.
+                        console.log("CODE : " + request.status + "\n" +
+                            "MESSAGE : " + request.responseText + "\n" +
+                            "EERROR : " + error);
+                        console.log(xml)
+                    }
 
-            }) // end ajax
+                }) // end ajax
+
+            } // end if else if else
 
         } // end jobSerchK()
     </script>
@@ -167,14 +177,14 @@
                         <div class="search-box-body">
                             <div class="clear-search">
                                 <div id="label" class="on-a">키워드 검색</div>
-                                <!-- 직업 검색 form -->
+                                <!-- 직업 검색 -->
                                 <div class="label-con form-inline">
                                     <input type="hidden" name="type" value="k">
                                     <input type="text" id="searchCode" name="searchCode" maxlength="20"
                                         class="form-control" placeholder="찾고 싶은 직업명을 입력하세요.">
                                     <button type="submit" class="btn-d" onclick="jobSerchK()">검색</button>
                                 </div>
-                                <!-- 직업 검색 form -->
+                                <!-- 직업 검색 -->
                             </div>
                             <br />
                             <div class="clear-search">

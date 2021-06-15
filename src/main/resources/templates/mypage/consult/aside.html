@@ -9,7 +9,7 @@
     <ul class="nav active">
         <!-- 사이드메뉴 첫번째 -->
         <li>
-            <a href="/mypage/consult/read" th:if="${memberDTO}" class="active">
+            <a href="/mypage/consult/read" class="active">
                 <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i>
                 <span>회원 정보</span>
             </a>
@@ -26,15 +26,15 @@
             </a>
             <ul id="two-ul" class="nav lt">
                 <li>
-                    <a th:href = "@{/mypage/consult/counselling_request}">
+                    <a th:href = "@{/mypage/consult/counselling_reject}">
                         <i class="fa fa-angle-right"></i>
-                        <span>대기목록</span>
+                        <span>상담목록</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href = "@{/mypage/consult/counselling_reject}">
+                    <a th:href = "@{/mypage/consult/counselling_request}">
                         <i class="fa fa-angle-right"></i>
-                        <span>거절목록</span>
+                        <span>대기목록</span>
                     </a>
                 </li>
             </ul>
