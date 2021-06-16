@@ -250,3 +250,8 @@
   font-size: 14.5px;
   padding: 6px;
 }
+
+.ui_flex {
+  display: flex;
+  justify-content: space-between;
+}

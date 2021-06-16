@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Getter
 @Table(name="board")
 @Entity
-public class Board implements Serializable {
+public class Board extends BaseEntity{
 
     @Id
     @Column(name = "board_num")
@@ -32,7 +32,7 @@ public class Board implements Serializable {
     @Column(length = 2000, nullable = false)
     private String content; // 내용
 
-    private String board_file; //첨부파일
+//    private String board_file; //첨부파일
 
 
     @ManyToOne(fetch = FetchType.LAZY)

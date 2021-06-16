@@ -22,8 +22,7 @@ public class notice_boardDTO {  // 공지사항 DTO
 
     private Member b;   // 게시글 작성자
 
-    // 게시글 파일
+    private LocalDateTime regDate;  // 작성일
 
-    //private LocalDateTime regDate, modDate;
 
 }

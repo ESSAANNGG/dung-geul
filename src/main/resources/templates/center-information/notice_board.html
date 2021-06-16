@@ -20,78 +20,6 @@
 
     <!--  검색 이벤트 처리를 위한 jQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- 목록 데이터 페이지 처리, 등록 버튼 CSS 디자인 : 차후 css파일에 수정 要-->
-<!--    <style>-->
-<!--    -->
-<!--        /* 목록 데이터 페이지 처리 */-->
-<!--        .page-ul-div {-->
-<!--            text-align: center;-->
-<!--        }-->
-
-<!--        .page-ul {-->
-<!--            display: block;-->
-<!--            list-style: none;-->
-<!--            margin: 5px;-->
-<!--            padding: 5px;-->
-
-<!--        }-->
-
-<!--        /* [글쓰기] 버튼 */-->
-<!--        .write-btn {-->
-<!--            color: #fff;-->
-<!--            background-color: #1a508b;-->
-
-<!--            font-size: 15px;-->
-<!--            text-align: right;-->
-
-<!--        }-->
-
-<!--        /* [이전], [페이지] ,[다음] 버튼 */-->
-<!--        .page-li {-->
-<!--            margin: 5px;-->
-<!--            padding: 5px;-->
-<!--            border-radius: 5px;-->
-<!--            float: left;-->
-
-<!--            background-color: #6b7770;-->
-<!--        }-->
-
-<!--        /* [이전], [다음] 버튼 hover */-->
-<!--        .page-li:hover {-->
-<!--            background-color: #1a508b;-->
-<!--        }-->
-
-<!--        /* 검색 처리 */-->
-<!--        .input-group {-->
-<!--            padding: 10px;-->
-<!--        }-->
-
-<!--        /* 검색조건 선택창 */-->
-<!--        .custom-select {-->
-<!--            border-radius: 0;-->
-<!--            width: 50%;-->
-<!--            height: 35px;-->
-<!--            line-height: 20px;-->
-<!--        }-->
-
-<!--        /* 검색 조건 입력창 */-->
-<!--        .form-control {-->
-<!--            border-radius: 5px;-->
-<!--            width: 50%;-->
-<!--            height: 35px;-->
-<!--            margin-top: 10px;-->
-<!--        }-->
-
-<!--        /* 버튼 */-->
-<!--        .btn-search, .btn-clear {-->
-<!--            font-size: 15px;-->
-<!--        }-->
-<!--        -->
-
-<!--    </style>-->
-
-
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
@@ -146,12 +74,10 @@
                              </div>
                              <div class="t_body t_line" th:each="dto : ${result.dtoList}">
                                  <a th:href="@{/center-information/notice_board_read(num = ${dto.num}, page= ${result.page})}">
-                                 <span class="number"><h4>
-                                     [[${dto.num}]]
-                                 </h4></span>
+                                 <span class="number"><h4>[[${dto.num}]]</h4></span>
                                  <span class="title"><h4>[[${dto.title}]]</h4></span>
-                                 <span class="writer"><h4>관리자[[${dto.b}]]</h4></span>
-                                 <span class="date"><h4>YYYY-DD-MM</h4></span>
+                                 <span class="writer"><h4>[[${dto.b}]]</h4></span>
+                                 <span class="date"><h4>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</h4></span>
                                  </a>
                              </div>
                          </div>
