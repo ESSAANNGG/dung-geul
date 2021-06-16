@@ -67,11 +67,11 @@
                 <div class="employ_register" id="employ_register1">
                     <div class="content">
 
-                        <input type="hidden" id="Intro_num"  th:value="${dto.num}"/>
-                        <input type="hidden" id="member_id"  th:value="${{memberDTO.getUser_id()}}"
-                            style="display: none;" />
+                        <form th:action="@{/license/modify(page=${page})}" autocomplete="off" method="post">
 
-                        <form action="POST" autocomplete="off">
+                            <input type="hidden" name="lic_num" th:value="${dto.getLic_num()}"/>
+                            <input type="hidden" name="user_id" th:value="${{dto.getUser_id()}}" style="display: none;" />
+
                             <div style="font-size:26px; margin:30px; color: black;">
                                <!-- <i class="far fa-address-card" style="font-size: 28px;"></i>  -->
                                자격증
@@ -79,24 +79,23 @@
                             <div id="inputWrap">
                                 <div class="inputBox">
                                     <label class="formLabel" for="">자격증 명</label>
-                                    <input class="formInput" id="licenseName" type="text" style="width: 350px">
+                                    <input class="formInput" id="licenseName" type="text" name="lic_name" th:value="${dto.getLic_name()}" style="width: 350px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">취득일</label>
-                                    <input class="formInput" id="licenseDate" type="date" style="width:150px">
+                                    <input class="formInput" id="licenseDate" type="date" name="lic_date" th:value="${dto.getLic_date()}" style="width:150px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">만료일</label>
-                                    <input class="formInput" id="licenseEndDate" type="date" style="width:150px">
+                                    <input class="formInput" id="licenseEndDate" type="date" name="lic_due_date" th:value="${dto.getLic_due_date()}" style="width:150px">
                                 </div>
                             </div>
 
+                            <div class="base_button_wrap" style="margin-bottom: 20px;">
+                                <button id="licenseSave" class="base_button";>수정완료</button>
+                            </div>
 
                         </form>
-
-                        <div class="base_button_wrap" style="margin-bottom: 20px;">
-                            <button id="licenseSave" class="base_button";>수정완료</button>
-                        </div>
                     </div>
 
 

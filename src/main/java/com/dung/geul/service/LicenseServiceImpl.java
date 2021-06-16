@@ -75,4 +75,34 @@ public class LicenseServiceImpl implements LicenseService{
         licenseRepository.save(license);
 
     }
+
+    @Override
+    public CertificateDTO getCertificateDTO(Long lic_num) {
+
+        License entity = licenseRepository.getOne(lic_num);
+
+        CertificateDTO dto = entityToDto(entity);
+
+        return dto;
+
+    }
+
+    @Override
+    public void modifyLicense(CertificateDTO certificateDTO) {
+
+        License license = licenseRepository.getOne(certificateDTO.getLic_num());
+
+        license.modLicName(certificateDTO.getLic_name());
+        license.modLicDate(certificateDTO.getLic_date());
+        license.modLicDueDate(certificateDTO.getLic_due_date());
+
+        licenseRepository.save(license);
+    }
+
+    @Override
+    public void deleteLicense(Long lic_num) {
+
+        licenseRepository.deleteById(lic_num);
+
+    }
 }

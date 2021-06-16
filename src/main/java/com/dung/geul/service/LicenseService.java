@@ -5,17 +5,18 @@ import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.License;
 import com.dung.geul.entity.Member;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 
 public interface LicenseService {
 
     PageResultDTO<CertificateDTO, License> getLicensePage(String user_id, PageRequestDTO pageRequestDTO);
 
     void register(CertificateDTO certificateDTO);
+
+    CertificateDTO getCertificateDTO(Long lic_num);
+
+    void modifyLicense(CertificateDTO certificateDTO);
+
+    void deleteLicense(Long lic_num);
 
     default CertificateDTO entityToDto(License entity){
 
@@ -25,6 +26,7 @@ public interface LicenseService {
                 .lic_date(entity.getLicDate())
                 .lic_due_date(entity.getLicDueDate())
                 .regDate(entity.getRegDate())
+                .user_id(entity.getMember().getUser_id())
                 .build();
 
         return dto;

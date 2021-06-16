@@ -33,4 +33,24 @@ public class License extends BaseEntity implements Serializable{
 
     private String licFile; // 첨부파일
 
+
+    public void modLicNum(Long licNum){
+        this.licNum = licNum;
+    }
+
+    public void modLicName(String licName) {
+        this.licName = licName;
+    }
+
+    public void modLicDate(LocalDate licDate) {
+        this.licDate = licDate;
+    }
+
+    public void modLicDueDate(LocalDate licDueDate) {
+        this.licDueDate = licDueDate;
+    }
+
+    public void modLicFile(String licFile) {
+        this.licFile = licFile;
+    }
 }

@@ -73,7 +73,7 @@
                         <!-- <input name="em_id" id="member_id" title="em_id" th:value="${{memberDTO.getUser_id()}}"
                             style="display: none;" /> -->
 
-                        <form action="" autocomplete="off" method="post">
+                        <form action="/license/register" autocomplete="off" method="post">
 
                             <input type="hidden" name="user_id" th:value="${user_id}">
 
@@ -84,24 +84,24 @@
                             <div id="inputWrap">
                                 <div class="inputBox">
                                     <label class="formLabel" for="">자격증 명</label>
-                                    <input class="formInput" name="licName" id="certificateName" type="text" style="width: 350px">
+                                    <input class="formInput" name="lic_name" id="certificateName" type="text" style="width: 350px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">취득일</label>
-                                    <input class="formInput" name="licDate" id="certificateDate" type="date" style="width:150px">
+                                    <input class="formInput" name="lic_date" id="certificateDate" type="date" style="width:150px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">만료일</label>
-                                    <input class="formInput" name="licDueDate" id="certificateEndDate" type="date" style="width:150px">
+                                    <input class="formInput" name="lic_due_date" id="certificateEndDate" type="date" style="width:150px">
                                 </div>
                             </div>
 
+                            <div class="base_button_wrap" style="margin-bottom: 20px;">
+                                <button id="licenseReg" class="base_button";>작성완료</button>
+                            </div>
 
                         </form>
 
-                        <div class="base_button_wrap" style="margin-bottom: 20px;">
-                            <button id="licenseReg" class="base_button";>작성완료</button>
-                        </div>
                     </div>
 
 

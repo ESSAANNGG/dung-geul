@@ -11,10 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Log4j2
 @Controller
@@ -36,7 +34,7 @@ public class LicenseController {
 
         log.info("PageResultDTO : " + resultDTO);
 
-        model.addAttribute("page", resultDTO);
+        model.addAttribute("result", resultDTO);
 
 
     }
@@ -51,10 +49,42 @@ public class LicenseController {
     public String postRegister(CertificateDTO certificateDTO){
 
         licenseService.register(certificateDTO);
+
         return "redirect:/license/list";
     }
 
     @GetMapping("/modify")
-    public void getModify(){
+    public void getModify(@RequestParam("num") Long lic_num,
+                          @RequestParam("page") int page,
+                          Model model){
+
+        CertificateDTO dto = licenseService.getCertificateDTO(lic_num);
+
+        model.addAttribute("dto", dto);
+        model.addAttribute("page", page);
+
+    }
+
+    @PostMapping("/modify")
+    public String postModify(RedirectAttributes redirect,
+                             @RequestParam("page") int page,
+                             CertificateDTO certificateDTO){
+
+        log.info("modify 실행 - certificateDTO : " + certificateDTO);
+        licenseService.modifyLicense(certificateDTO);
+
+        redirect.addAttribute("page", page);
+
+        return "redirect:/license/list";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("num") Long lic_num){
+
+        log.info("lic_num : " + lic_num);
+
+        licenseService.deleteLicense(lic_num);
+
+        return "redirect:/license/list";
     }
 }
