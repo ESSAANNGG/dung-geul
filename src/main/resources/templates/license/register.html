@@ -67,7 +67,7 @@
                 <div class="employ_register" id="employ_register1">
                     <div class="content">
 
-                        <input name="em_id" id="member_id" title="em_id" th:value="${{memberDTO.getUser_id()}}"
+                        <input name="em_id" id="member_id" title="em_id"
                             style="display: none;" />
 
                         <form action="POST" autocomplete="off">
@@ -77,15 +77,15 @@
                             <div id="inputWrap">
                                 <div class="inputBox">
                                     <label class="formLabel" for="">자격증 명</label>
-                                    <input class="formInput" id="certificateName" type="text" style="width: 350px">
+                                    <input class="formInput" name="licName" id="certificateName" type="text" style="width: 350px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">취득일</label>
-                                    <input class="formInput" id="certificateDate" type="date" name="" id="" style="width:150px">
+                                    <input class="formInput" name="licDate" id="certificateDate" type="date" style="width:150px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">만료일</label>
-                                    <input class="formInput" id="certificateEndDate" type="date" name="" id="" style="width:150px">
+                                    <input class="formInput" name="licDueDate" id="certificateEndDate" type="date" style="width:150px">
                                 </div>
                             </div>
 
