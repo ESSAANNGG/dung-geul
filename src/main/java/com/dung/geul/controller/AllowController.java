@@ -110,5 +110,10 @@ public class AllowController {
 
     }
 
+    @GetMapping("/admin_supportProgram_Reg")
+    public void applicationdR(){
+
+    }
+
 
 }

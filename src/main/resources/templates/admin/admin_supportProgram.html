@@ -38,8 +38,7 @@
                 <ul class="guide">지원프로그램 |
                     <select class="guide_select">
                         <option>지원프로그램 목록</option>
-                        <option>지원프로그램 등록</option>
-                        <option>후기 관리</option>
+                        <option>후기관리</option>
                     </select>
                 </ul>
             </div>
@@ -48,10 +47,64 @@
             </div>
 
             <div class="main">
-                <!--dashboard-->
+                <!--지원프로그램-->
                 <div class="main7">
-                    <div id="main7_employ_search">
-                        <!--채용공고 > 채용공고 > 공고검색-->
+                    <div id="main7_program_division">
+                        <!--지원프로그램 > 목록 > 분류관리-->
+                        <div class="sub_menu_title">
+                            <h3>분류관리</h3>
+                        </div>
+                        <div class="manage">
+                            <div class="manage_box">
+                                <div class="li_box">
+                                    <li class="manage_li">
+                                        학습
+                                    </li>
+                                </div>
+                                <button class="manage_submit">
+                                    +
+                                </button>
+                                <button class="manage_submit">
+                                    -
+                                </button>
+                            </div>
+                            <div class="manage_box">
+                                <div class="li_box">
+
+                                </div>
+                                <button class="manage_submit">
+                                    +
+                                </button>
+                                <button class="manage_submit">
+                                    -
+                                </button>
+                            </div>
+                            <div class="manage_box">
+                                <div class="li_box">
+
+                                </div>
+                                <button class="manage_submit">
+                                    +
+                                </button>
+                                <button class="manage_submit">
+                                    -
+                                </button>
+                            </div>
+                            <div class="manage_box">
+                                <div class="li_box">
+
+                                </div>
+                                <button class="manage_submit">
+                                    +
+                                </button>
+                                <button class="manage_submit">
+                                    -
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="main7_program_search">
+                        <!--지원프로그램 > 목록 > 검색-->
                         <div class="sub_menu_title">
                             <h3>검색</h3>
                         </div>
@@ -68,7 +121,7 @@
                                 <li>영역</li>
                                 <li>
                                     <select name="shape" class="search_data">
-                                        <option value="">기업 형태</option>
+                                        <option value="">영역</option>
                                         <option value="대기업">학습</option>
                                         <option value="중견기업">글로벌</option>
                                         <option value="중소기업">취업</option>
@@ -81,23 +134,13 @@
                                 <li>분류</li>
                                 <li>
                                     <select name="shape" class="search_data">
-                                    <option value="">기업 형태</option>
+                                    <option value="">분류</option>
                                     <option value="대기업">학습</option>
                                     <option value="중견기업">글로벌</option>
                                     <option value="중소기업">취업</option>
                                     <option value="중소기업">창업</option>
                                     <option value="중소기업">진로/심리</option>
                                     </select>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>핵심역량</li>
-                                <li>
-                                    <input type="checkbox" name="핵심역량" value="자기주도"><span class="label">자기주도</span>
-                                    <input type="checkbox" name="핵심역량" value="창의융합"><span class="label">창의융합</span>
-                                    <input type="checkbox" name="핵심역량" value="전문직무"><span class="label">전문직무</span>
-                                    <input type="checkbox" name="핵심역량" value="글로벌리더"><span class="label">글로벌리더</span>
-                                    <input type="checkbox" name="핵심역량" value="명품인성"><span class="label">명품인성</span>
                                 </li>
                             </ul>
                             <ul>
@@ -113,6 +156,16 @@
                                     </select>
                                 </li>
                             </ul>
+                            <ul>
+                                <li>핵심역량</li>
+                                <li>
+                                    <input type="checkbox" name="핵심역량" value="자기주도"><span class="label">자기주도</span>
+                                    <input type="checkbox" name="핵심역량" value="창의융합"><span class="label">창의융합</span>
+                                    <input type="checkbox" name="핵심역량" value="전문직무"><span class="label">전문직무</span>
+                                    <input type="checkbox" name="핵심역량" value="글로벌리더"><span class="label">글로벌리더</span>
+                                    <input type="checkbox" name="핵심역량" value="명품인성"><span class="label">명품인성</span>
+                                </li>
+                            </ul>
 
                             <div class="search_button">
                                 <button class="search_submit">
@@ -122,6 +175,7 @@
                         </div>
                     </div>
                     <div id="main7_program_list">
+                        <!--지원프로그램 > 목록 > 목록 -->
                         <div class="sub_menu_title">
                             <h3>프로그램 목록</h3>
                         </div>
@@ -147,6 +201,7 @@
                             </div>
                             <div class="list_button">
                                 <button class="list_submit">삭제</button>
+                                <a th:href="@{/admin/admin_supportProgram_Reg}" target="_blank"><button class="list_submit direct">등록</button></a>
                             </div>
                         </div>
                     </div>

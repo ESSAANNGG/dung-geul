@@ -8132,5 +8132,23 @@ function selectAll(){
         else if($('input[name="animal"]').is(':checked')==false) {
             $('input[class="check"]').prop("checked",false);
         }
-
 }
+
+$('.btn-q').click(function(){
+    ajax_list=[];
+    checked_length=$('.check:checked').length;
+    for(i = 0; i < checked_length; i++){
+        index=($('.check').index($('.check:checked'))); //<<1개만 반환됨
+        ($('.check').eq(index)).prop("checked", false);
+        num = $('.check').eq(index).parent("td").parent("tr").find("th").text();  //해당 순번에 해당하는 열의 순번 저장
+        ajax_list.push(num);
+    }
+    $.ajax({
+        url: '',
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(ajax_list),
+    })
+    alert(ajax_list+"선택된 값들입니다");
+})

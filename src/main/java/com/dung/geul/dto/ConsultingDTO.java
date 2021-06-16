@@ -1,16 +1,14 @@
 package com.dung.geul.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Data
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 
 public class ConsultingDTO {
