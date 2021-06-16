@@ -40,7 +40,6 @@ function detail_on_userManage(id,roll){
             $('input[name=기업명]').val(M.etp_name);
             $('input[name=사업자번호]').val(M.etp_num);
             $('input[name=대표자명]').val(M.etp_ceo_name);
-            //번호
             $('input[name=대표번호]').val(M.etp_ph+"-"+M.etp_ph2+"-"+M.etp_ph3);
             $('input[name=팩스]').val(M.etp_fx);
             $('input[name=홈페이지]').val(M.etp_home);
@@ -102,34 +101,31 @@ let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
 
 function userManage_list_send(){
 
-        if(ListId == "main2_user") {
-            $.ajax({
-                url: "/allow/member/read?result=" + p,
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify(dataList),
-            })
+    if(ListId == "main2_user"){
+        A_url="/allow/member/read?result=" + p;
+    }
+    else if(ListId == "main2_corp" &&p=="no"){
+        A_url="/allow/etp/delete?result=" + p;
+    }
+    else if(ListId == "main2_corp" && p == "ok"){
+        A_url="/allow/etp/read?result=" + p;
+    }
+
+
+    $.ajax({
+        url: A_url,
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(dataList),
+        success : function (result){
+            alert("회원정보 변경 성공");
+            submit_param();
+        },
+        error : function (err) {
+            alert("err : " + err);
         }
-        else if(ListId == "main2_corp" &&p=="no"){
-            $.ajax({
-                url: "/allow/etp/delete?result=" + p,
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify(dataList),
-            })
-        }
-        else if(ListId == "main2_corp" && p == "ok"){
-            $.ajax({
-                url: "/allow/etp/read?result=" + p,
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify(dataList),
-            })
-        }
-    submit_param();
+    })
 }
 
 function userManage_search(i){
