@@ -5,6 +5,10 @@ import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.License;
 import com.dung.geul.entity.Member;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 public interface LicenseService {
 
@@ -17,6 +21,8 @@ public interface LicenseService {
     void modifyLicense(CertificateDTO certificateDTO);
 
     void deleteLicense(Long lic_num);
+
+    List<CertificateDTO> getLicenseList(String user_id);
 
     default CertificateDTO entityToDto(License entity){
 

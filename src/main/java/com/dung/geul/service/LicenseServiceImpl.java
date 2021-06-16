@@ -5,19 +5,23 @@ import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.License;
 import com.dung.geul.entity.Member;
-import com.dung.geul.entity.QLicense;
 import com.dung.geul.repository.LicenseRepository;
 import com.dung.geul.repository.MemberRepository;
-import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.lang.annotation.Annotation;
+import java.net.http.HttpResponse;
+import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Log4j2
 @Service
@@ -34,27 +38,9 @@ public class LicenseServiceImpl implements LicenseService{
 
         Member member = memberRepository.getOne(user_id);
 
-        log.info("license service - member : " + member);
-
         Pageable pageable = pageRequestDTO.getPageable(Sort.by("licNum").descending());
 
-        log.info("license service - pageable : " + pageable);
-
-        // 조건 생성 (회원)
-        BooleanBuilder builder = new BooleanBuilder();
-
-        QLicense qLicense = QLicense.license;
-
-        BooleanExpression epMember = qLicense.member.user_id.eq(user_id);
-
-        builder.and(epMember);
-        // 조건 생성 끝
-
-        log.info("license service - builder : " + builder);
-
         Page<License> licensePage = licenseRepository.findByMember(member, pageable);
-
-        log.info("license service - license List : " + licensePage.getContent() );
 
         Function<License, CertificateDTO> fn = (entity -> entityToDto(entity));
 
@@ -104,5 +90,24 @@ public class LicenseServiceImpl implements LicenseService{
 
         licenseRepository.deleteById(lic_num);
 
+    }
+
+    // 이력서에 회원별 리스트 전달
+    @Override
+    public List<CertificateDTO> getLicenseList(String user_id) {
+
+        Member member = memberRepository.getOne(user_id);
+
+        List<License> licenseList = licenseRepository.findByMember(member);
+
+        log.info("자격증 리스트 : " + licenseList.toString());
+
+        Function<License, CertificateDTO> fn = (entity -> entityToDto(entity));
+
+        List<CertificateDTO> certificateDTOList = licenseList.stream().map(fn).collect(Collectors.toList());
+
+        log.info("자격증DTO 리스트 : " + certificateDTOList.toString());
+
+        return certificateDTOList;
     }
 }
