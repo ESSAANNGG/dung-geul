@@ -59,11 +59,15 @@
 
                         <div id="board_title">
                             <h2>공지사항</h2>
-                            <h3>글번호_[[${dto.num}]]</h3>
-                            <h3><span style="font-size:16px">[[${dto.title}]]</span><span style="float:right">작성자 : 관리자[[${dto.b}]]</span></h3>
+                            <h3>
+                                글번호_[[${dto.num}]]
+                                <span style="float:right">작성자 : [[${dto.b}]]</span>
+                            </h3>
+                            <h3>
+                                <span style="font-size:16px">[[${dto.title}]]</span>
+                                <span style="float:right">작성일 : [[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</span>
+                            </h3>
                         </div>
-
-
 
                         <div class="content">
                             [[${dto.content}]]

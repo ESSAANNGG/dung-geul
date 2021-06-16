@@ -36,7 +36,7 @@ public interface notice_boardService {
                 .title(entity.getBoard_title())
                 .content(entity.getContent())
                 .b(entity.getB())
-                //.regDate(entity.getRegDate())
+                .regDate(entity.getRegDate())
                 //.modDate(entity.getModDate())
                 .build();
 
