@@ -18,12 +18,12 @@ public interface ConsultingService {
                 .Consult_field(consultingDTO.getType())
                 .cno(Consult.builder().Consult_field(consultingDTO.getType()).build())
                 .cno(Consult.builder().cno(consultingDTO.getCno()).build())
+                .con_user_name(consultingDTO.getCon_user_name())
                 .Consult_detail_field(consultingDTO.getName())
                 .consult_date(consultingDTO.getConsult_date())
                 .consult_time(consultingDTO.getConsult_time())
                 .user_id(Member.builder()
                         .user_id(consultingDTO.getCon_user_id())
-                        .user_name(consultingDTO.getCon_user_name())
                         .build())
                 .build();
         return consulting;
@@ -36,6 +36,7 @@ public interface ConsultingService {
                 .type(consulting.getConsult_field())
                 .cno(consulting.getCno().getCno())
                 .name(consulting.getConsult_detail_field())
+                .con_user_name(consulting.getCon_user_name())
                 .consult_time(consulting.getConsult_time())
                 .consult_date(consulting.getConsult_date())
                 .build();
