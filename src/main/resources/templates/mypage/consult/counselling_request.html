@@ -189,10 +189,14 @@
                                             <tbody>
                                                 <tr th:each="con : ${conlist}">
                                                     <th scope="row">[[${con.consult_num}]]</th>
-                                                    <td>학생명</td>
-                                                    <td>[[${con.type}]]</td>
-                                                    <td>세부분류</td>
-                                                    <td>[[${con.consult_date}]]</br>[[${con.consult_time}]]</td>
+                                                </tr>
+                                                <tr th:each="user : ${loginUser}">
+                                                    <td>[[${user.user_name}]]</td>
+                                                </tr>
+                                                <tr th:each="co : ${conlist}">
+                                                    <td>[[${co.type}]]</td>
+                                                    <td>[[${co.name}]]</td>
+                                                    <td>[[${co.consult_date}]]</br>[[${co.consult_time}]]</td>
                                                     <td><input type="checkbox" class="check"></td>
                                                 </tr>
                                             </tbody>

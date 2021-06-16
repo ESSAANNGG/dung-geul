@@ -27,14 +27,14 @@ public class Consulting {    // 상담 테이블
     @Column(length = 50, nullable = false)
     private String Consult_field;
 
+    @Column (length = 50, nullable = false)
+    private String Consult_detail_field;
+
     @Column
     private String consult_date;                  // 상담 일자
 
     @Column
     private String consult_time; //신청날짜
-
-    @Column
-    private String con_user_name;
 
 //    @Column(length = 1)      //인증여부 ( 1: 인증 됨, Null : 인증 전) //nullable = false
 //    private int consult_approve;             // 승인 여부

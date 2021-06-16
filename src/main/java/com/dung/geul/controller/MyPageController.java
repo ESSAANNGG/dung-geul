@@ -115,19 +115,18 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
         model.addAttribute("user_id", user_id);
         model.addAttribute("loginUser", authMemberDTO);
-
     }
 
     @GetMapping( "/consult/counselling_request")
-    public void okey(PageRequestDTO pageRequestDTO, Model model){
+    public void okey(PageRequestDTO pageRequestDTO, Model model,@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
         PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
         System.out.println("================" + pageRequestDTO);
         model.addAttribute("conlist", getlist.getDtoList());
+        model.addAttribute("loginUser", authMemberDTO);
     }
 
     @GetMapping("/consult/counselling_reject")
     public void reject(){
-
     }
 
     @GetMapping("/member/studentcoun")
@@ -136,5 +135,4 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         System.out.println("===내 목록 확인하기===");
         model.addAttribute("mylist", getlist.getDtoList());
     }
-
 }

@@ -1,6 +1,7 @@
 function consult_apply() {
     type=$("select[name=select-field]").val();
     cno=$("select[name=employ-field]").val();
+    name=$("select[name=employ-field] option:checked").text();
     consult_date=$("input[name=couns-date]").val();
     consult_time=$("select[name=couns-time]").val()
 alert(type+cno+consult_date+consult_time);
@@ -13,6 +14,7 @@ alert(type+cno+consult_date+consult_time);
 
         alert(consult_date);
         alert(consult_time);
+        alert(name);
         alert(a);
         alert(b);
         consult_time1 = consult_time.substring(0,5);
@@ -22,6 +24,7 @@ alert(type+cno+consult_date+consult_time);
             cno:$("select[name=employ-field]").val(),
             consult_date:$("input[name=couns-date]").val(),
             consult_time:$("select[name=couns-time]").val(),
+            name:name,
             con_user_id:a,
             con_user_name:b
         }
