@@ -33,6 +33,8 @@ public class License extends BaseEntity implements Serializable{
 
     private String licFile; // 첨부파일
 
+    private int inCv;   // 1: 이력서에 추가되어 있음 , 0 : 없음
+
 
     public void modLicNum(Long licNum){
         this.licNum = licNum;
@@ -53,4 +55,6 @@ public class License extends BaseEntity implements Serializable{
     public void modLicFile(String licFile) {
         this.licFile = licFile;
     }
+
+    public void modInCv(int inCv){ this.inCv = inCv; }
 }

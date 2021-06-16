@@ -132,6 +132,7 @@ public interface CVService {
                 .licName(dto.getLic_name())
                 .licDate(dto.getLic_date())
                 .licDueDate(dto.getLic_due_date())
+                .inCv(1)
                 .member(member)
                 .build();
 
@@ -261,6 +262,7 @@ public interface CVService {
                 .lic_name(entity.getLicName())
                 .lic_date(entity.getLicDate())
                 .lic_due_date(entity.getLicDueDate())
+                .inCv(entity.getInCv())
                 .build();
 
         return dto;
@@ -364,6 +366,7 @@ public interface CVService {
         entity.setLicName(dto.getLic_name());
         entity.setLicDate(dto.getLic_date());
         entity.setLicDueDate(dto.getLic_due_date());
+        entity.setInCv(1);
 
         return entity;
 

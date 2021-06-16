@@ -109,9 +109,20 @@ public class CvServiceImpl implements CVService {
             List<CertificateDTO> certificateList = cvPageDTO.getCertificate();
             if (certificateList.size() > 0) {
                 for (CertificateDTO dto : certificateList) {
-                    License license = dtoToEntity(dto, member);
-                    licenseRepository.save(license);
-
+                    Long num = dto.getLic_num();
+                    log.info("등록 - 자격증 num : " + num);
+                    if(num == null || num.equals("")) {
+                        License license = dtoToEntity(dto, member);
+                        licenseRepository.save(license);
+                    } else {
+                        Optional<License> licOpt = licenseRepository.findById(dto.getLic_num());
+                        if(licOpt.isEmpty()) {
+                            License license = dtoToEntity(dto, member);
+                            licenseRepository.save(license);
+                        } else {
+                            continue;
+                        }
+                    }
                 }
             }
 
@@ -240,12 +251,12 @@ public class CvServiceImpl implements CVService {
             pageDTO.setLanguage(languageDTOList);
         }
 
-        List<License> licenseList = licenseRepository.findByMember(member);
+        List<License> licenseList = licenseRepository.findByMemberAndInCv(member, 1);
 
         if (licenseList.size() > 0) {
             List<CertificateDTO> licenseDTOList = new ArrayList<>();
             for (License l : licenseList) {
-                if (l.getLicName() == "" || l.getLicName() == null) {
+                if (l.getLicName().equals("") || l.getLicName() == null) {
                     continue;
                 }
 
@@ -374,7 +385,6 @@ public class CvServiceImpl implements CVService {
             List<Education> education = educationRepository.findByMember(m);
             List<Awards> awards = awardsRepository.findByMember(m);
             List<Family> family = familyRepository.findByMember(m);
-            List<License> license = licenseRepository.findByMember(m);
             List<Language> language = languageRepository.findByMember(m);
             List<Carrer> carrer = carrerRepository.findByMember(m);
 
@@ -397,13 +407,6 @@ public class CvServiceImpl implements CVService {
                 for(Family e : family){
                     familyRepository.delete(e);
                     log.info("가족사항 삭제 성공: " + e);
-                }
-            }
-
-            if(!license.isEmpty()){
-                for(License e : license){
-                    licenseRepository.delete(e);
-                    log.info("자격증 삭제 성공: " + e);
                 }
             }
 
