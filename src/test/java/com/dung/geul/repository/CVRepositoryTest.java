@@ -202,9 +202,9 @@ public class CVRepositoryTest {
 
 
             License license = License.builder()
-                    .lic_name("정보처리산업기사")
-                    .lic_date(LocalDate.of(2020, 04,21))
-                    .lic_due_date(LocalDate.of(2030, 04, 11))
+                    .licName("정보처리산업기사")
+                    .licDate(LocalDate.of(2020, 04,21))
+                    .licDueDate(LocalDate.of(2030, 04, 11))
                     .member(member)
                     .build();
 
