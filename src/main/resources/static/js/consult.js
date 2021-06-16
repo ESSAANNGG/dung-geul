@@ -14,6 +14,7 @@ alert(type+cno+consult_date+consult_time);
         alert(consult_date);
         alert(consult_time);
         alert(a);
+        alert(b);
         consult_time1 = consult_time.substring(0,5);
 
         let data = {
@@ -22,6 +23,7 @@ alert(type+cno+consult_date+consult_time);
             consult_date:$("input[name=couns-date]").val(),
             consult_time:$("select[name=couns-time]").val(),
             con_user_id:a,
+            con_user_name:b
         }
         // consult_time2 = consult_time.substring(6,11);
         // data=[];

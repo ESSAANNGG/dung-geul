@@ -20,6 +20,10 @@ public interface ConsultingService {
                 .cno(Consult.builder().cno(consultingDTO.getCno()).build())
                 .consult_date(consultingDTO.getConsult_date())
                 .consult_time(consultingDTO.getConsult_time())
+                .user_id(Member.builder()
+                        .user_id(consultingDTO.getCon_user_id())
+                        .user_name(consultingDTO.getCon_user_name())
+                        .build())
                 .build();
         return consulting;
     }
@@ -30,6 +34,7 @@ public interface ConsultingService {
                 .consult_num(consulting.getConsult_num())
                 .type(consulting.getConsult_field())
                 .cno(consulting.getCno().getCno())
+                .con_user_name(consulting.getCon_user_name())
                 .consult_time(consulting.getConsult_time())
                 .consult_date(consulting.getConsult_date())
                 .build();
