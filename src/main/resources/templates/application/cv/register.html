@@ -97,56 +97,55 @@
               <div class="info">
                 <div class="common_div width-280" style="padding:0px;">
                   <input class="user_employment" name="user_employment"
-                    th:attr="checked=${cv.getCareer() == null ? 'true' : 'false'}" id="id1" type="radio"
+                     id="id1" type="radio"
                     value="0"><label style="cursor: pointer" class="carrer_label" for="id1">신입</label><br />
                 </div>
                 <div class="common_div width-280" style="padding:0px;">
                   <input class="user_employment" name="user_employment"
-                    th:attr="checked=${cv.getCareer() != null ? 'true' : 'false'}" id="id2" type="radio"
+                     id="id2" type="radio"
                     value="1"><label style="cursor: pointer" class="carrer_label" for="id2">경력</label><br />
                 </div>
                 <br />
               </div>
               <div id="carrerField" disabled style="display: none;">
-                <div class="item_career" th:each="item, i : ${cv.getCareer()}">
-                  <input type="hidden" name="career[][id]" th:value="${item.getId()}">
+                <div class="item_career" >
+                  <input type="hidden" name="career[][id]">
                   <div class="info">
                     <div class="common_div width-350">
                       <label class="absolute-label" for="">회사명 <span>*</span></label>
-                      <input class="common_input etp_name" name="career[][cr_etp_name]"
-                        th:value="${item.getCr_etp_name()}" />
+                      <input class="common_input etp_name" name="career[][cr_etp_name]" />
                     </div>
 
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">입사일자 </label>
                       <input class="common_input employment" type="date" name="career[][cr_employment]"
-                        th:value="${item.getCr_employment()}" />
+                         />
                     </div>
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">퇴사일자 </label>
                       <input class="common_input resignation" type="date" name="career[][cr_resignation]"
-                        th:value="${item.getCr_resignation()}" />
+                         />
                     </div>
                     <br />
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">직위 </label>
                       <input class="common_input position" type="text" name="career[][cr_position]"
-                        th:value="${item.getCr_position()}" />
+                         />
                     </div>
                     <div class="common_div width-300">
                       <label class="absolute-label" for="">퇴사사유 </label>
                       <input class="common_input resign" type="text" name="career[][reason_resign]"
-                        th:value="${item.getReason_resign()}" />
+                         />
                     </div>
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">연봉 <span>*</span></label>
                       <input class="money_input2 salary" value="" type="number" name="career[][salary]"
-                        autocomplete="off" th:value="${item.getSalary()}" />
+                        autocomplete="off"  />
                       <span style="font-size: 12px">만원</span>
                     </div>
                     <div class="common_div width-full awardContents_div ">
                       <label class="absolute-label task">담당업무 </label>
-                      <textarea class="cr_task" th:text="${item.getCr_task()}" name="career[][cr_task]" focus="test12()"
+                      <textarea class="cr_task"  name="career[][cr_task]" focus="test12()"
                         cols="30" rows="10"></textarea>
                     </div>
 
