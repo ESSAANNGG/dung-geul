@@ -79,10 +79,13 @@ input[type="checkbox"]:checked:before {
     left:-13px;
     top:-4px;
     font-weight: 900;
-    color: red;
+    color: #ffffff;
     content: '\2713';
     /*-webkit-margin-start: -12px;       start==left, end==right, before==top, after==bottom*/
     /*-webkit-margin-before:-50px;        top이 안되어서 그냥 relative*/
+}
+input[type="checkbox"]:checked{
+    background: -webkit-linear-gradient(#7278B9, #7278B9);
 }
 a{
     text-decoration:none;
@@ -294,7 +297,20 @@ a{
 .search ul button:hover{
     background-color:#5977b918;
 }
-
+.search input[type="checkbox"]{
+    display:inline-block;
+    height: 18px;
+    width: 20px;
+    line-height:22px;
+    margin:0px !important;
+    margin-right:10px;
+    font-size:15px;
+    -webkit-appearance:none;
+    border:1px solid #c2c9db;
+}
+.label{
+    font-size:15px;
+}
 
 /*검색버튼*/
 .search_button{
@@ -338,7 +354,7 @@ a{
 }
 
 /* list의 각 항목들 */
-span{
+.list span{
     display:inline-block;
     height:38px;
     line-height:35px;
@@ -348,7 +364,7 @@ span{
     font-size:16px;
     overflow: hidden;
 }
-span:nth-of-type(1){
+.list span:nth-of-type(1){
     border-left:1px solid #e2e2e2;
 }
 
@@ -562,3 +578,4 @@ span:nth-of-type(1){
 .highcharts-axis-title{
     display:none;
 }
+
