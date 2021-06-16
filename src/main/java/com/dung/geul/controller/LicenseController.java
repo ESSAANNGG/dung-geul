@@ -1,7 +1,9 @@
 package com.dung.geul.controller;
 
+import com.dung.geul.dto.CertificateDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.entity.License;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.LicenseService;
 import lombok.extern.log4j.Log4j2;
@@ -10,6 +12,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -35,10 +38,20 @@ public class LicenseController {
 
         model.addAttribute("page", resultDTO);
 
+
     }
 
     @GetMapping("/register")
-    public void getRegister(){
+    public void getRegister(@AuthenticationPrincipal AuthMemberDTO member,
+                            Model model){
+        model.addAttribute("user_id", member.getUser_id());
+    }
+
+    @PostMapping("/register")
+    public String postRegister(CertificateDTO certificateDTO){
+
+        licenseService.register(certificateDTO);
+        return "redirect:/license/list";
     }
 
     @GetMapping("/modify")

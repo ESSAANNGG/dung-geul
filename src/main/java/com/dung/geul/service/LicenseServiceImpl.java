@@ -60,4 +60,19 @@ public class LicenseServiceImpl implements LicenseService{
 
         return new PageResultDTO<>(licensePage, fn);
     }
+
+    @Override
+    public void register(CertificateDTO certificateDTO) {
+
+        String userId = certificateDTO.getUser_id();
+
+        log.info("user ID : " + userId);
+
+        Member member = memberRepository.getOne(userId);
+
+        License license = dtoToEntity(certificateDTO, member);
+
+        licenseRepository.save(license);
+
+    }
 }

@@ -65,25 +65,24 @@
         </div>
         <div class="employList">
           <div class="employListPost">
-            <li th:each="dto: ${result.dtoList}">
-              <a th:href="@{/license/read(num = ${dto.num}, page = ${result.page},
-              type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
+            <li th:each="dto: ${page.getDtoList()}">
+              <a th:href="@{/license/read(num = ${dto.getLic_num()}, page = ${page.getPage()})}" class="read_page_click">
                  <ul class="test">
-                  <li class="post_end_date" style="padding-right: 20px;" th:text="'작성일'+' '+ ${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}">작성일</li>
+                  <li class="post_end_date" style="padding-right: 20px;" th:text="'작성일'+' '+ ${#temporals.format(dto.getRegDate(), 'YYYY-MM-dd ')}">작성일</li>
                   <!-- 삭제버튼 -->
                   <button id="licenseRemove"class="post_end_date mazer licenseRemove"><i class="fas fa-times"></i></button>
-                  <input type="hidden" class="lic_num"  th:value="${dto.num}">
+                  <input type="hidden" class="lic_num"  th:value="${dto.getLicNum()}">
                  </ul>
                 <ul class="post_corp_name_wrap"><i class="far fa-id-card"></i>
-                  <li class="post_corp_name" th:text="${license.getLicName()}">자격증 명</li>
+                  <li class="post_corp_name" th:text="${dto.getLicName()}">자격증 명</li>
                 </ul>
                 <ul>
-                  <li class="cerDate" th:text="${license.getLicDate()}">취득일</li>
+                  <li class="cerDate" th:text="${dto.getLicDate()}">취득일</li>
                   <span class="cerDate"> ⁓ </span>
-                  <li class="cerDate" th:text="${license.getLicDueDate()}">만료일</li>
+                  <li class="cerDate" th:text="${dto.getLicDueDate()}">만료일</li>
                 </ul>
                 <ul class="post_corp_name_wrap" style="margin-top: 10px;">
-                  <a class="license_modify" th:href="@{/license/modify(num = ${dto.num})}">수정하기</a>
+                  <a class="license_modify" th:href="@{/license/modify(num = ${dto.getLicNum()})}">수정하기</a>
                 </ul>
                 
               </a>
@@ -93,32 +92,31 @@
 
             </li>
 
-          </div>
-          <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
-            <li class="page-item" th:if="${result.prev}">
-              <a class="page-link" th:href="@{/license/list(page=${result.start -1 },
-               type=${pageReuqestDTO?.type},
-               keyword = ${pageRequestDTO.keyword} )}" tabindex="-1">Previous</a>
-            </li>
-            <li th:class="'page-item ' + ${result.page == page?'active':''}" th:each="page:${result.pageList}">
-              <a class="page-link" th:href="@{/license/list(page=${page},
-               type=${pageReuqestDTO?.type},
-               keyword = ${pageRequestDTO.keyword}
-            )}" th:text="${page}"></a>
-            </li>
-            <li class="page-item" th:if="${result.next}">
-              <a class="page-link" th:href="@{/license/list(page=${result.end +1 },
-              type=${pageReuqestDTO?.type},
-              keyword = ${pageRequestDTO.keyword}
-            )}">Next</a>
-            </li>
-          </ul>
-        </div>
-    </div>
+<!--          </div>-->
+<!--          <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">-->
+<!--            <li class="page-item" th:if="${result.prev}">-->
+<!--              <a class="page-link" th:href="@{/license/list(page=${result.start -1 },-->
+<!--               type=${pageReuqestDTO?.type},-->
+<!--               keyword = ${pageRequestDTO.keyword} )}" tabindex="-1">Previous</a>-->
+<!--            </li>-->
+<!--            <li th:class="'page-item ' + ${result.page == page?'active':''}" th:each="page:${result.pageList}">-->
+<!--              <a class="page-link" th:href="@{/license/list(page=${page},-->
+<!--               type=${pageReuqestDTO?.type},-->
+<!--               keyword = ${pageRequestDTO.keyword}-->
+<!--            )}" th:text="${page}"></a>-->
+<!--            </li>-->
+<!--            <li class="page-item" th:if="${result.next}">-->
+<!--              <a class="page-link" th:href="@{/license/list(page=${result.end +1 },-->
+<!--              type=${pageReuqestDTO?.type},-->
+<!--              keyword = ${pageRequestDTO.keyword}-->
+<!--            )}">Next</a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
   </section>
-  </div>
 
 
   <!-- footer -->

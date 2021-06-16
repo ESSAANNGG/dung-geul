@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @ToString
 @Builder
 @Entity
-public class License implements Serializable {
+public class License extends BaseEntity implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
