@@ -1,11 +1,11 @@
 $(document).ready(function () {
   //자격증 등록
-  $('#certificateReg').on('click', function () {
+  $('#licenseReg').on('click', function () {
     let data = {
       user_id: $('#member_id').val(),
-      certificateName: $('#certificateName').val(),
-      certificateDate: $('#certificateDate').val(),
-      certificateEndDate: $('#certificateEndDate').val(),
+      licenseName: $('#licenseName').val(),
+      licenseDate: $('#licenseDate').val(),
+      licenseEndDate: $('#licenseEndDate').val(),
     };
     console.log(data);
     $.ajax({
@@ -17,46 +17,33 @@ $(document).ready(function () {
       // dataType (default: Intelligent Guess (xml, json, script, or html))  // JSON : 응답을 JSON으로 평가하고 JavaScript 객체를 반환합니다
     })
       .done(function () {
-        location.href = '/certificate/list';
+        location.href = '/license/list';
       })
       .fail(function (error) {
         alert(JSON.stringify(error));
       });
   });
 
-  //자격증 글 삭제
-  $('#certificateRemove').on('click', function () {
-    $.ajax({
-      url: '/license/list',
-      method: 'delete',
-    })
-      .done(function () {
-        location.href = '/Introduce/list';
-      })
-      .fail(function (error) {
-        console.log(error);
-        alert(JSON.stringify(error));
-      });
-  });
 
   // 자격증 수정
-  $('#certificateModify').on('click', function () {
+  $('#licenseSave').on('click', function () {
     let data = {
+      num: $('#Intro_num').val(),
       user_id: $('#member_id').val(),
-      certificateName: $('#certificateName').val(),
-      certificateDate: $('#certificateDate').val(),
-      certificateEndDate: $('#certificateEndDate').val(),
+      licenseName: $('#licenseName').val(),
+      licenseDate: $('#licenseDate').val(),
+      licenseEndDate: $('#licenseEndDate').val(),
     };
 
     console.log(data);
     $.ajax({
-      url: '/license/list',
+      url: '/lic/licSave',
       method: 'put',
       data: JSON.stringify(data),
       contentType: 'application/json; charset=utf-8,',
     })
       .done(function () {
-        location.href = '/certificate/list';
+        location.href = '/license/list';
       })
       .fail(function (error) {
         alert(JSON.stringify(error));

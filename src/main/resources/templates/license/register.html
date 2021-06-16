@@ -39,7 +39,9 @@
 <body>
 
 
-     <div th:replace="layout/layout :: nav" />
+     <div style="display: none">id : [[${memberDTO.getUser_id()}]]</div>
+    <!--네비 div-->
+    <div th:replace="layout/layout :: nav" />
 
 
     <!-- Main -->
@@ -79,15 +81,15 @@
                             <div id="inputWrap">
                                 <div class="inputBox">
                                     <label class="formLabel" for="">자격증 명</label>
-                                    <input class="formInput" id="certificateName" type="text" style="width: 350px">
+                                    <input class="formInput" id="licenseName" type="text" style="width: 350px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">취득일</label>
-                                    <input class="formInput" id="certificateDate" type="date" style="width:150px">
+                                    <input class="formInput" id="licenseDate" type="date" style="width:150px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">만료일</label>
-                                    <input class="formInput" id="certificateEndDate" type="date" style="width:150px">
+                                    <input class="formInput" id="licenseEndDate" type="date" style="width:150px">
                                 </div>
                             </div>
 
@@ -95,7 +97,7 @@
                         </form>
 
                         <div class="base_button_wrap" style="margin-bottom: 20px;">
-                            <button id="certificateReg" class="base_button";>작성완료</button>
+                            <button id="licenseReg" class="base_button";>작성완료</button>
                         </div>
                     </div>
 
