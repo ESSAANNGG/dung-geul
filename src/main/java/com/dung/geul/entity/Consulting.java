@@ -38,9 +38,13 @@ public class Consulting {    // 상담 테이블
 
     @Column
     private String con_user_name;
-//    @Column(length = 1)      //인증여부 ( 1: 인증 됨, Null : 인증 전) //nullable = false
-//    private int consult_approve;             // 승인 여부
-//
+
+    @Column(length = 1)      //인증여부 ( 0: 인증 됨,  1: 인증 전 2: 거절 //nullable = false
+    private int consult_approve;             // 승인 여부
+
+    public void modCon_allow(int consult_approve){
+        this.consult_approve= consult_approve;
+    }
 //    @Column(length = 1)
 //    private int consult_complete;            // 완료 여부
 

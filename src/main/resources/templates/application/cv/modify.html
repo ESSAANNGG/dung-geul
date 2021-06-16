@@ -1048,137 +1048,73 @@
   </script>
   <script src="/js/cv_modify_option.js"></script>
   <script src="/js/s1_index.js"></script>
-
-  <script type="text/javascript" th:inline="javascript">
-    [#th: if = "${cv.getEducation()}"]
+  <script th:inline="javascript">
+   /*  [#th: if = "${cv.getEducation()}"] */
     document.querySelector("#btn1").click();
-    [/]
+    /* [/] */
 
-      [#th: if = "${cv.getCv_hobby()}"]
-      document.querySelector("#btn2").click();
-      [/]
+    /* [#th: if = "${cv.getCv_hobby()}"] */
+    document.querySelector("#btn2").click();
+    /* [/] */
 
-        // [# th:if="${cv.getCv_specialty()}"]
-        // document.querySelector("#btn2").click();
-        // [/]
+    /* [#th: if = "${cv.getAwards()}"] */
+    document.querySelector("#btn3").click();
+    /* [/] */
 
-        [#th: if = "${cv.getAwards()}"]
-        document.querySelector("#btn3").click();
-        [/]
+    /* [#th: if = "${cv.getCv_verteran()} !='0'"] */
+    document.querySelector("#btn4").click();
+    document.querySelector('#verteran_div').classList.replace('common_div', 'common_div_blue');
+    /* [/] */
 
-          [#th: if = "${cv.getCv_verteran()} !='0'"]
-          document.querySelector("#btn4").click();
-          document.querySelector('#verteran_div').classList.replace('common_div', 'common_div_blue');
-          [/]
+    /* [#th: if = "${cv.getCv_disability()} !='0'"] */
+    document.querySelector("#btn4").click();
+    document.querySelector('#disability_div').classList.replace('common_div', 'common_div_blue');
+    document.querySelector('#info-extra').style = 'display:block';
+    document.querySelector('#disability-value').style = 'display:block';
+    /* [/] */
 
-            [#th: if = "${cv.getCv_disability()} !='0'"]
-            document.querySelector("#btn4").click();
-            document.querySelector('#disability_div').classList.replace('common_div', 'common_div_blue');
-            document.querySelector('#info-extra').style = 'display:block';
-            document.querySelector('#disability-value').style = 'display:block';
-            [/]
+    /* [#th: if = "${cv.getCv_military()} !='0'"] */
+    document.querySelector("#btn4").click();
+    document.querySelector('#military_div').classList.replace('common_div', 'common_div_blue');
+    document.querySelector('#info-extra').style = 'display:block';
+    document.querySelector('#military-value').style = 'display:block';
+    /* [/] */
 
-              [#th: if = "${cv.getCv_military()} !='0'"]
-              document.querySelector("#btn4").click();
-              document.querySelector('#military_div').classList.replace('common_div', 'common_div_blue');
-              document.querySelector('#info-extra').style = 'display:block';
-              document.querySelector('#military-value').style = 'display:block';
-              [/]
+    /* [#th: if = "${cv.getFamily()}"] */
+    document.querySelector("#btn5").click();
+    /* [/] */
 
-                [#th: if = "${cv.getFamily()}"]
-                document.querySelector("#btn5").click();
-                [/]
+    /* [#th: if = "${cv.getCertificate()}"] */
+    document.querySelector("#btn6").click();
+    /* [/] */
 
-                  [#th: if = "${cv.getCertificate()}"]
-                  document.querySelector("#btn6").click();
-                  [/]
-
-                    [#th: if = "${cv.getLanguage()}"]
-                    document.querySelector("#btn7").click();
-                    [/]
+    /* [#th: if = "${cv.getLanguage()}"] */
+    document.querySelector("#btn7").click();
+    /* [/] */
 
 
-                      //버튼조작
+    //버튼조작
 
-                      //경력사항
+    //경력사항
 
-                      [#th: if = "${cv.getCareer()}"]
-                      $('#carrerField').attr('style', 'display:block;');
-                      $('#carrerButtonBox').attr('style', 'display:block;');
-                      [/]
+    /* [#th: if = "${cv.getCareer()}"] */
+    $('#carrerField').attr('style', 'display:block;');
+    $('#carrerButtonBox').attr('style', 'display:block;');
+    /* [/] */
 
 
 
-                        //우대사항 셀렉트 부분
+    //우대사항 셀렉트 부분
 
-                        /*<![CDATA[*/
-                        var degree = `/*[[ ${cv.getCv_disability_degree()} ]]*/`;
-                        /*]]*/
+    /*<![CDATA[*/
+    var degree = `/*[[ ${cv.getCv_disability_degree()} ]]*/`;
+    /*]]*/
 
-                        $('#disability_degree').val(degree).prop("selected", true);
+    $('#disability_degree').val(degree).prop("selected", true);
 
-                        /*<![CDATA[*/
-                        var verteran = `/*[[ ${cv.getMilitaryServiceClassification()} ]]*/`;
-                        /*]]*/
-  </script>
-
-  <script>
-    let test13 = document.querySelector('#test01').value;
-    let high = document.querySelectorAll('.container1');
-    let college = document.querySelectorAll('.container2');
-    let college2 = document.querySelectorAll('.container2-1');
-    let university = document.querySelectorAll('.container3');
-    let university2 = document.querySelectorAll('.container3-1');
-    let graduate = document.querySelectorAll('.container4');
-    let graduate2 = document.querySelectorAll('.container4-1');
-
-    let schoolType;
-
-    schoolType = document.getElementsByClassName("schoolTypeSelect");
-
-    for (let i = 0; i < schoolType.length; i++) {
-      if (schoolType[i].value == '고등학교') {
-        high[i].style = 'display:inline-block'
-      } else if (schoolType[i].value == '전문대') {
-        college[i].style = 'display:inline-block';
-        college2[i].style = 'display:inline-block';
-      } else if (schoolType[i].value == '대학교') {
-        university[i].style = 'display:inline-block';
-        university2[i].style = 'display:inline-block';
-      } else if (schoolType[i].value == '대학원') {
-        graduate[i].style = 'display:inline-block';
-        graduate2[i].style = 'display:inline-block';
-      }
-      console.log(i);
-
-      // switch (schoolType[i].value) {
-      //   case '고등학교':
-      //     high[i].style = 'display:inline-block'
-      //     break;
-      //   case '전문대':
-      //     college[i].style = 'display:inline-block';
-      //     college2[i].style = 'display:inline-block';
-      //     break;
-      //   case '대학교':
-      //     university[i].style = 'display:inline-block';
-      //     university2[i].style = 'display:inline-block';
-      //     break;
-
-      //   case '대학원':
-      //     graduate[i].style = 'display:inline-block';
-      //     graduate2[i].style = 'display:inline-block';
-      //     break;
-      // }
-    }
-
-    let desired_salary = document.querySelector('#desired_salary').value;
-
-    if (!(desired_salary)) {
-      document.querySelector('.money_input').style = 'visibility:hidden';
-      document.querySelector('#desire').style = 'visibility:hidden';
-      document.querySelector('#sallay_div').style = 'background-color:#c7c7c7';
-      document.querySelector('#desired_salary').value = '면접 후 결정';
-    }
+    /*<![CDATA[*/
+    var verteran = `/*[[ ${cv.getMilitaryServiceClassification()} ]]*/`;
+    /*]]*/
   </script>
 
 

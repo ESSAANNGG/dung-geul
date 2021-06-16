@@ -999,3 +999,60 @@ $('input:radio[name=user_employment]').click(function () {
 });
 
 function check() {}
+
+let test13 = document.querySelector('#test01').value;
+let high = document.querySelectorAll('.container1');
+let college = document.querySelectorAll('.container2');
+let college2 = document.querySelectorAll('.container2-1');
+let university = document.querySelectorAll('.container3');
+let university2 = document.querySelectorAll('.container3-1');
+let graduate = document.querySelectorAll('.container4');
+let graduate2 = document.querySelectorAll('.container4-1');
+
+let schoolType;
+
+schoolType = document.getElementsByClassName('schoolTypeSelect');
+
+for (let i = 0; i < schoolType.length; i++) {
+  if (schoolType[i].value == '고등학교') {
+    high[i].style = 'display:inline-block';
+  } else if (schoolType[i].value == '전문대') {
+    college[i].style = 'display:inline-block';
+    college2[i].style = 'display:inline-block';
+  } else if (schoolType[i].value == '대학교') {
+    university[i].style = 'display:inline-block';
+    university2[i].style = 'display:inline-block';
+  } else if (schoolType[i].value == '대학원') {
+    graduate[i].style = 'display:inline-block';
+    graduate2[i].style = 'display:inline-block';
+  }
+  console.log(i);
+
+  // switch (schoolType[i].value) {
+  //   case '고등학교':
+  //     high[i].style = 'display:inline-block'
+  //     break;
+  //   case '전문대':
+  //     college[i].style = 'display:inline-block';
+  //     college2[i].style = 'display:inline-block';
+  //     break;
+  //   case '대학교':
+  //     university[i].style = 'display:inline-block';
+  //     university2[i].style = 'display:inline-block';
+  //     break;
+
+  //   case '대학원':
+  //     graduate[i].style = 'display:inline-block';
+  //     graduate2[i].style = 'display:inline-block';
+  //     break;
+  // }
+}
+
+let desired_salary = document.querySelector('#desired_salary').value;
+
+if (!desired_salary) {
+  document.querySelector('.money_input').style = 'visibility:hidden';
+  document.querySelector('#desire').style = 'visibility:hidden';
+  document.querySelector('#sallay_div').style = 'background-color:#c7c7c7';
+  document.querySelector('#desired_salary').value = '면접 후 결정';
+}
