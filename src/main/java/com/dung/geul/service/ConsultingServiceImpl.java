@@ -1,5 +1,6 @@
 package com.dung.geul.service;
 
+import com.dung.geul.dto.AllowConsultingDTO;
 import com.dung.geul.dto.ConsultingDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
@@ -16,9 +17,12 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.function.Function;
 
 @Service
@@ -49,6 +53,31 @@ public class ConsultingServiceImpl implements ConsultingService {
         }
     }
 
+    //승인거절대기
+    @Transactional
+    public ResponseEntity conok(List<Long> consult_num, String result){
+        System.out.println("consultingServiceImpl - consulting : " + consult_num.toString());
+        try {
+            Consulting consulting;
+
+            for (int i=0; i<consult_num.size(); i++){
+                consulting = consultingRepository.getOne(consult_num.get(i));
+
+                if(result.equals("no")) {
+                    consulting.modCon_allow(2);
+                }else if(result.equals("ok")){
+                    consulting.modCon_allow(0);
+                }else if(result.equals("stay")){
+                    consulting.modCon_allow(1);
+                }
+                consultingRepository.save(consulting);
+            }
+            return new ResponseEntity(0, HttpStatus.OK);
+        } catch (Exception e){
+            System.out.println("error119 : " + e);
+            return new ResponseEntity(2, HttpStatus.NOT_FOUND);
+        }
+    }
 
     @Override
     public PageResultDTO<ConsultingDTO, Consulting> conlist(PageRequestDTO pageRequestDTO) {

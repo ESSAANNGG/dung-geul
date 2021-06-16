@@ -8144,7 +8144,7 @@ $('.btn-q').click(function(){
         ajax_list.push(num);
     }
     $.ajax({
-        url: '',
+        url: "/consult/counselling_request?result=" + p,
         type: "POST",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
