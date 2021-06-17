@@ -57,10 +57,9 @@ width: 1000px;
 }
 #map {
     width: 500px;
-    height: 380px;
+    height: 440px;
     margin-right: 11px;
     position: relative;
-    top: 54px;
 }
 .middle {
     border-bottom: 2px solid #ddd;
