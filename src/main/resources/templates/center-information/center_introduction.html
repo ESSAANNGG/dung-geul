@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>취업정보센터</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
-    <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
 
-  </head>
-  <body class="is-preload">
-    <div id="page-wrapper">
-		
-      <!-- Header -->
-      <header id="header">
+<head>
+  <title>취업정보센터</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <!-- <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
+    <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}"> -->
+  <link rel="stylesheet" href="/css/center_guide.css" />
+  <link rel="stylesheet" href="/css/frame.css" />
+  <link rel="stylesheet" href="/css/center_intro.css" />
 
 
-        <!--네비 div-->
-        <div th:replace="layout/layout :: nav"/>
-      </header>
+</head>
+
+<body class="is-preload">
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
 
 
-      <!-- Main -->
-      <div id="mainWrap">
+      <!--네비 div-->
+      <div th:replace="layout/layout :: nav" />
+    </header>
+
+
+    <!-- Main -->
+    <div id="mainWrap">
       <section id="main">
         <div class="container">
           <div class="row">
             <div class="col-3">
               <div class="sidebar">
-               <div class="menu2">
-    <div id="bar">
-        <h2>센터안내</h2>
-        <ul id="menu_bar">
-            <li id="menu_con1"><h4>센터정보</h4>
-                <ul id="sb_detail">
-                    <li><a href="#" th:href="@{/center-information/center_introduction}">센터소개</a></li>
-                    <li><a href="#" th:href="@{/center-information/main_business}">주요업무내용</a></li>
-                    <li><a href="#" th:href="@{/center-information/notice_board}">공지사항</a></li>
-                </ul>
-            </li>
-            <!-- <li id="menu_con2"><h4>직업 정보</h4>
+                <div class="menu2">
+                  <div id="bar">
+                    <h2>센터안내</h2>
+                    <ul id="menu_bar">
+                      <li id="menu_con1">
+                        <h4>센터정보</h4>
+                        <ul id="sb_detail">
+                          <li><a href="#" th:href="@{/center-information/center_introduction}">센터소개</a></li>
+                          <li><a href="#" th:href="@{/center-information/main_business}">주요업무내용</a></li>
+                          <li><a href="#" th:href="@{/center-information/notice_board}">공지사항</a></li>
+                        </ul>
+                      </li>
+                      <!-- <li id="menu_con2"><h4>직업 정보</h4>
                 <ul id="sb_detail">
                     <li><a href="#">직업 정보 조회</a></li>
                     <li><a href="#">직업 사전</a></li>
@@ -54,9 +58,9 @@
                     <li><a href="#">상담 내역</a></li>
                 </ul>
             </li> -->
-        </ul>
-    </div> <!-- bar -->
-</div> <!-- menu -->
+                    </ul>
+                  </div> <!-- bar -->
+                </div> <!-- menu -->
               </div>
             </div>
             <div class="col-9 col-12-medium imp-medium">
@@ -65,195 +69,102 @@
 
                 <article class="box page-content">
                   <header>
-					<h2 class="major"><span>영진전문대학교 취업정보센터</span></h2>
-                    <h2 class="h2-">센터소개</h2> 
+                    <h2 class="major"><span>영진전문대학교 취업정보센터</span></h2>
+                    <h2 class="h2-" style="padding-top: 30px;">센터소개</h2>
                   </header>
 
                   <section>
-					  <ul class="square">
-						  <li><h3>종합인력개발센터 설치 및 목적</h3></li>
-					  </ul>
-                    <span class="image featured"
-                      ><img src="/img/team3.png" alt=""
-                    /></span>
+                    <ul class="square">
+                      <li>
+                        <h3 class="subTitle">설치목적</h3>
+                      </li>
+                    </ul>
+                   
                     <p>
-                     재학생 및 졸업생들에게 진로선택에 필요한 취업 및 진학정보를 제공하고 재학생들에게는 현장실습을 효과적으로 이수하게 하여 산업계의 실정을 파악하고 현장실습의 기회를 갖도록 하며 학교와 산업체와의 산학협력체제를 구축하여 본 대학 출신자들이 전문기술인으로서 사회에 자연스럽게 적응할 수 있도록 지원하는데 있다.
+                      취업정보센터는 학생들의 적성과 전공 역량을 발휘할 수 있도록 맞춤형 진로의 설정, 경력개발의 방향 제시 및 다양한 취업역량의 강화를 <br> 통하여 재학생과 졸업생의 효과적 진로 선택, 성공적 취업 달성을 지원하고자 합니다.
                     </p>
                   </section>
 
                   <section>
-					  <ul class="square">
-						  <li><h3>조직도</h3></li>
-					  </ul>
-                    
-					<span class="image featured"
-                      ><img src="/img/zozik.jpg" alt=""
-                    /></span>
+                    <ul class="square">
+                      <li>
+                        <h3 class="subTitle" style="margin-top: 50px;">조직도</h3>
+                      </li>
+                    </ul>
+
+                    <span class="image featured"><img src="/img/조직도.PNG" alt="" /></span>
+
+                  </section>
+
+                  <section>
+                    <ul class="square">
+                     
+                    </ul>
+
+                    <p>
+                       <h3 class="subTitle">이용시간</h3>
+
+
+                    <ul>
+                      <li>
+                        <p style="margin-top:10px">09:00 ~ 17:30 (12:00 ~ 13:00 점심시간)</p>
+                      </li>
+                    </ul>
+                  </section>
+                  <section>
+
+                    <h4 class="subTitle">종합인력개발센터 비치 자료</h4>
+
+
+                    <ul class="blackSquare" style="margin-top: 10px;">
+                      <li>● 취업정보자료집(이력서 및 자기소개서 양식/샘플/작성법, 면접요령)</li>
+                      <li>● 진로가이드북</li>
+                      <li>● 기타 관련 자료</li>
+                    </ul>
+                    </p>
+
+                  </section>
+                 
+                  <section>
+
+                    <h4 class="subTitle" style="margin-bottom: 10px;">위치</h4>
+
+
+                    <span class="image featured"><img src="/img/image00001.JPG" alt="" /></span>
+                  </section>
+                  <section>
+
                    
                   </section>
-
-                  <section>
-					   <ul class="square">
-						  <li><h3>취창업지원위원회 운영</h3></li>
-					  </ul>
-                    
-                    <p>
-                     취업 및 창업관련 업무를 원할히 수행하기 위하여 계열 및 학과별 취창업지원위원을 임명하여 운영한다.
-                    </p>
-                    
-                  </section>
-				  <section>
-					   <ul class="square">
-						  <li><h3>취창업지원위원 명단</h3></li>
-					  </ul>
-					  <div>
-						  <table>
-							  <thead>
-  <tr>
-    <th>계열학과</th>
-    <th class="table-border">성함</th>
-    <th class="table-border">내선</th>
-    <th>휴대폰번호</th>
-  </tr>
-  </thead>
-  <tr>
-    <td data-th="계열학과">컴퓨터정보계열</td>
-    <td class="table-border" >김경태</td>
-    <td class="table-border">5300</td>
-    <td data-th="휴대폰번호">010-5790-1828</td>
-  </tr>
-   <tr>
-    <td data-th="계열학과">컴퓨터응용기계계열</td>
-    <td class="table-border">윤갑석</td>
-    <td class="table-border" >5214</td>
-    <td data-th="휴대폰번호">010-8638-1683</td>
-  </tr>
-  <tr>
-    <td data-th="계열학과">전자정보통신계열</td>
-    <td class="table-border">최경환</td>
-    <td class="table-border">5262</td>
-    <td data-th="휴대폰번호">010-8583-3645</td>
-  </tr>
-  <tr>
-    <td data-th="계열학과">신재생에너지전기계열</td>
-    <td class="table-border">공정식</td>
-    <td class="table-border">5237</td>
-    <td data-th="휴대폰번호">010-4506-3701</td>
-  </tr>
-  <tr>
-    <td data-th="계열학과">건축인테리어디자인계열</td>
-    <td class="table-border">이준혁</td>
-    <td class="table-border">5231</td>
-    <td data-th="휴대폰번호">010-5123-5669</td>
-  </tr>
-  <tr>
-    <td data-th="계열학과">스마트경영계열</td>
-    <td class="table-border">김영목</td>
-    <td class="table-border">5363</td>
-    <td data-th="휴대폰번호">010-3541-6868</td>
-  </tr>
-  <tr>
-    <td data-th="계열학과">국제관광조리계열</td>
-    <td class="table-border">김태균</td>
-    <td class="table-border">5393</td>
-    <td data-th="휴대폰번호">010-9312-5613</td>
-  </tr>
-  <tr>
-    <td data-th="계열학과">부사관계열</td>
-    <td class="table-border">서원경</td>
-    <td class="table-border">5788</td>
-    <td data-th="휴대폰번호">010-2881-8126</td>
-  </tr>
-  <tr>
-    <td data-th="계열학과">콘텐츠디자인과</td>
-    <td class="table-border">이우용</td>
-    <td class="table-border">5332</td>
-    <td data-th="휴대폰번호">010-2532-8918</td>
-  </tr>
-  <tr>
-    <td data-th="계열학과">사회복지과</td>
-    <td class="table-border">이재성</td>
-    <td class="table-border">5415</td>
-    <td data-th="휴대폰번호">010-3803-4505</td>
-  </tr>
-  <tr>
-    <td data-th="계열학과">유아교육과</td>
-    <td class="table-border">이영미</td>
-    <td class="table-border">5423</td>
-    <td data-th="휴대폰번호">010-9063-6041</td>
-  </tr>
-  <tr>
-    <td data-th="계열학과">간호과</td>
-    <td class="table-border">유시연</td>
-    <td class="table-border">5837</td>
-    <td data-th="휴대폰번호">010-6581-2505</td>
-  </tr>
-
-</table>  
-					  </div>
-					
-
-				  </section>
-				  <section>
-					
-						<h4>종합인력개발센터 위치</h4>
-					 
-					  
-					    <span class="image featured"
-                      ><img src="/img/wichi.jpg" alt=""
-                    /></span>
-				  </section>
-				  <section>
-					 
-						 <h4>종합인력개발센터 이용시간</h4>
-					 
-					  
-					  <ul>
-						  <li><p>09:00 ~ 17:30 (12:00 ~ 13:00 점심시간)</p></li>
-					  </ul>
-				  </section>
-				  <section>
-					  
-						 <h4>종합인력개발센터 비치 자료</h4>
-					 
-					  
-					  <ul>
-						  <li>국가기술 자격검정 시행계획 일정표 및 수검원서</li>
-						  <li>이력서 및 자기소개서 양식</li>
-						  <li>취업을 위한 면접요령 비디오 자료</li>
-						  <li>각종 취업정보 자료</li>
-						  <li>진학안내 자료(학교소개 비디오 자료 등)</li>
-						  <li>기타 관련자료</li>
-					  </ul>
-				  </section>
                 </article>
               </div>
             </div>
-           
-                    
-                  </div>
-                </div>
-              </section>
-        <!--footer -->
-        <footer th:replace="layout/layout :: footer"/>
-            </div>
+
+
           </div>
         </div>
       </section>
-      
-
-     
+      <!--footer -->
+      <footer th:replace="layout/layout :: footer" />
     </div>
+  </div>
+  </div>
+  </section>
 
-    <!-- Scripts -->
-    <script src="/js/jquery-3.5.1.min.js"></script>
 
-    <!-- <script src="assets/js/jquery.min.js"></script>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/jquery-3.5.1.min.js"></script>
+
+  <!-- <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script> -->
-    <!-- <script src="assets/js/main.js"></script> -->
-  </body>
+  <!-- <script src="assets/js/main.js"></script> -->
+</body>
+
 </html>
