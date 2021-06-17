@@ -50,6 +50,35 @@ function board_list_send(){
 
 function board_search(i){
     alert("board");
+    if(search_val!=""){                                                 //input값이 있다면 파라미터를 설정
+
+        // switch (i) {
+        //     case 0: //권한은 타입이 기본적으로 type=UNIV로 설정되어있음 그래서 문자열함수로 기존파라미터에서 변경
+        //         parameter = parameter.replace("&type=UNIV", "");
+        //         search_val = "&type=" + search_val;
+        //         break;
+        //     case 1:
+        //         search_val = "&name=" + search_val;
+        //         break;
+        //     case 2:
+        //         search_val = "&id=" + search_val;
+        //         break;
+        //     case 3:
+        //         search_val = "&startDate=" + search_val;
+        //         break;
+        //     case 4:
+        //         search_val = "&endDate=" + search_val;
+        //         break;
+        // }
+    }
+
+    if(search_parameter==undefined){
+        search_parameter=search_val;
+    }
+    else {
+        search_parameter = search_parameter + search_val;
+    }
+
 }
 
 function detail_on_board(board_num){

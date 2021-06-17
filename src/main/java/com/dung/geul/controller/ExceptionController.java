@@ -16,18 +16,18 @@ public class ExceptionController {
     @ExceptionHandler(IllegalArgumentException.class) // 해당 예외 발생 시, 수행!
     public String notFound(Exception exception, Model model) {
         model.addAttribute("exception", exception);
-        return "error/404"; // 해당 페이지를 보여 줌!
+        return "error/error"; // 해당 페이지를 보여 줌!
     }
 
     @ResponseStatus(HttpStatus.FORBIDDEN) // 403
     @ExceptionHandler(DataIntegrityViolationException.class)
     public String forbidden() {
-        return "error/403";
+        return "error/error";
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 500
     @ExceptionHandler({NullPointerException.class, ClassNotFoundException.class, IndexOutOfBoundsException.class})
     public String serverError() {
-        return "error/500";
+        return "error/error";
     }
 }
