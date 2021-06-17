@@ -26,6 +26,7 @@ navbar li{
   }
 }
 .nav {
+  width: 1903px;
   position: relative;
   text-align: center;
   /*width:100%;*/
@@ -56,7 +57,7 @@ navbar li{
   font-size: 0px;
   padding-top: 20px;
   height: 100px;
-  /*background: #fff;*/
+  background: #fff;
 }
 
 .nav .dep1 > li {
