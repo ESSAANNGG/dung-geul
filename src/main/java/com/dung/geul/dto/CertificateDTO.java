@@ -27,4 +27,6 @@ public class CertificateDTO {
 
     private String user_id;
 
+    private int inCv;
+
 }

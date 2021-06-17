@@ -48,7 +48,7 @@
       <div class="main">
         <!--dashboard-->
         <div class="main4">
-          <div id="main4_employ_search">
+          <div id="main4_apply_search">
             <!--채용공고 > 채용공고 > 공고검색-->
             <div class="sub_menu_title">
               <h3>지원자검색</h3>
@@ -94,7 +94,35 @@
               </div>
             </div>
           </div>
-          <!-- 아이디로 검색 공고로 검색 해당 기업으로 검색-->
+
+          <div id="main4_apply_list">
+            <div class="sub_menu_title">
+              <h3>지원자리스트</h3>
+            </div>
+            <div class="list">
+              <div class="list_head">
+                                    <span class="check"><input type="checkbox" name="4_1_checkH"
+                                                               onclick="checkAll(this)"></span>
+                <span class="number s140">목록번호</span>
+                <span class="type s240">상담종류</span>
+                <span class="title s650">상담제목</span>
+                <span class="regdate s240">등록일</span>
+                <span class="moddate s240">수정일</span>
+              </div>
+
+              <div class="list_body" onclick="detail(this)">
+                <span class="check"><input type="checkbox" name="4_1_check"></span>
+                <span class="number s140"></span>
+                <span class="type s240"></span>
+                <span class="title s650"></span>
+                <span class="regdate s240"></span>
+                <span class="moddate s240"></span>
+              </div>
+              <div class="list_button">
+                <button class="list_submit">삭제</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

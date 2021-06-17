@@ -13,5 +13,7 @@ public interface LicenseRepository extends JpaRepository<License, Long> {
 
     List<License> findByMember(Member member);
 
+    List<License> findByMemberAndInCv(Member member, int inCv);
+
     Page<License> findByMember(Member member, Pageable pageable);
 }

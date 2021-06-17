@@ -1,5 +1,6 @@
 package com.dung.geul.controller;
 
+import com.dung.geul.dto.CertificateDTO;
 import com.dung.geul.dto.CvPageDTO;
 import com.dung.geul.dto.EducationDTO;
 import com.dung.geul.entity.CV;
@@ -9,10 +10,7 @@ import com.dung.geul.repository.CvRepository;
 import com.dung.geul.repository.EducationRepository;
 import com.dung.geul.repository.MemberRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
-import com.dung.geul.service.CVService;
-import com.dung.geul.service.CvServiceImpl;
-import com.dung.geul.service.MemberService;
-import com.dung.geul.service.MemberServiceImpl;
+import com.dung.geul.service.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -45,6 +43,9 @@ public class ApplicationController {
     @Autowired
     private CvServiceImpl cvService;
 
+    @Autowired
+    private LicenseService licenseService;
+
     @GetMapping("/cv/before")
     public String cvBefore(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
@@ -68,32 +69,29 @@ public class ApplicationController {
     }
 
     @GetMapping("/cv/register")
-    public String register(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+    public void register(Model model,
+                           @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
-        Member member = memberService.getMember(authMemberDTO.getUser_id());
+        String id = authMemberDTO.getUser_id();
+        Member member = memberService.getMember(id);
+        List<CertificateDTO> certificateDTOList = licenseService.getLicenseList(id);
 
         model.addAttribute("loginUser", member);
-
-        return "application/cv/register";
+        model.addAttribute("licenseList" + certificateDTOList);
 
     }
 
     @GetMapping({"/cv/read", "/cv/modify"})
     public void read(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
-        CvPageDTO cv = cvService.getCvPageDto(authMemberDTO.getUser_id());
+        String id = authMemberDTO.getUser_id();
+
+        CvPageDTO cv = cvService.getCvPageDto(id);
+        List<CertificateDTO> certificateDTOList = licenseService.getLicenseList(id);
 
         model.addAttribute("cv", cv);
         model.addAttribute("loginUser", authMemberDTO);
-
-        log.info("cvPage DTO : " + cv.toString());
-        log.info("cv.getUser_age() : " + cv.getUser_age());
-        log.info("cv.getDesired_salary() : " + cv.getDesired_salary());
-        for (EducationDTO dto: cv.getEducation()) {
-            log.info("학력 입학년월 : " + dto.getDateStart());
-            log.info("학력 졸업년월 : " + dto.getDateEnd());
-        }
-
+        model.addAttribute("licenseList" + certificateDTOList);
 
     }
 

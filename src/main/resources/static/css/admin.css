@@ -136,7 +136,7 @@ a{
     justify-content: center;
     align-items: center;
 
-    border-bottom:2px outset #ffffff3b;
+    border-bottom:1px outset #ffffff3b;
     cursor: pointer;
 }
 .menubox_li h5{
@@ -203,6 +203,10 @@ a{
     font-size: 18px;
     border:none;
     background:url("/img/guide_button.svg") no-repeat 94% 100%/24px auto;
+    background-color: #f0f3fa !important;
+}
+#menu_guide select {
+    -webkit-writing-mode: unset !important;
 }
 #menu_guide select:focus{
     outline:none;
@@ -472,6 +476,7 @@ a{
 .manage .manage_li:hover{
     background-color: #5978b9;
     color:#ffffff;
+    cursor: pointer;
 }
 .manage .manage_submit{
     width:25px;

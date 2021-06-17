@@ -67,62 +67,7 @@ public class CvServiceImpl implements CVService {
 
             cvRepository.save(cv);
 
-//         수상경력 등록
-            List<AwardsDTO> awardsList = cvPageDTO.getAwards();
-            if (awardsList.size() > 0) {
-                for (AwardsDTO dto : awardsList) {
-                    Awards awards = dtoToEntity(dto, member);
-                    awardsRepository.save(awards);
-                }
-            }
-
-            // 경력 등록
-            List<CareerDTO> careerList = cvPageDTO.getCareer();
-            if (careerList.size() > 0) {
-                for (CareerDTO dto : careerList) {
-                    Carrer carrer = dtoToEntity(dto, member);
-                    carrerRepository.save(carrer);
-                }
-            }
-
-
-            //학력 등록
-            List<EducationDTO> educationList = cvPageDTO.getEducation();
-            if (educationList.size() > 0) {
-                for (EducationDTO dto : educationList) {
-                    Education education = dtoToEntity(dto, member);
-                    educationRepository.save(education);
-                }
-            }
-
-
-            // 가족사항 등록
-            List<FamilyDTO> familyList = cvPageDTO.getFamily();
-            if (familyList.size() > 0) {
-                for (FamilyDTO dto : familyList) {
-                    Family family = dtoToEntity(dto, member);
-                    familyRepository.save(family);
-                }
-            }
-
-
-            List<CertificateDTO> certificateList = cvPageDTO.getCertificate();
-            if (certificateList.size() > 0) {
-                for (CertificateDTO dto : certificateList) {
-                    License license = dtoToEntity(dto, member);
-                    licenseRepository.save(license);
-
-                }
-            }
-
-
-            List<LanguageDTO> languageList = cvPageDTO.getLanguage();
-            if (languageList.size() > 0) {
-                for (LanguageDTO dto : languageList) {
-                    Language language = dtoToEntity(dto, member);
-                    languageRepository.save(language);
-                }
-            }
+            registerCvEntitys(cvPageDTO, member);
 
             log.info("이력서 등록 완료 ! ");
 
@@ -240,12 +185,12 @@ public class CvServiceImpl implements CVService {
             pageDTO.setLanguage(languageDTOList);
         }
 
-        List<License> licenseList = licenseRepository.findByMember(member);
+        List<License> licenseList = licenseRepository.findByMemberAndInCv(member, 1);
 
         if (licenseList.size() > 0) {
             List<CertificateDTO> licenseDTOList = new ArrayList<>();
             for (License l : licenseList) {
-                if (l.getLicName() == "" || l.getLicName() == null) {
+                if (l.getLicName().equals("") || l.getLicName() == null) {
                     continue;
                 }
 
@@ -282,49 +227,8 @@ public class CvServiceImpl implements CVService {
                 List<CertificateDTO> certificateDTOList = cvPageDTO.getCertificate();
                 List<LanguageDTO> languageDTOList = cvPageDTO.getLanguage();
 
-                if(educationDTOList != null){
-                    for (EducationDTO dto : educationDTOList) {
-                        Education entity = educationRepository.getOne(dto.getId());
-                        if(entity == null || dto.getId() == null){
-                            entity = dtoToEntity(dto, member);
-                        }
-                        entity = modifyEntity(dto, entity);
-                        educationRepository.save(entity);
-                    }
-                }
-
-                if(careerDTOList != null){
-                    for (CareerDTO dto : careerDTOList) {
-                        Carrer entity = carrerRepository.getOne(dto.getId());
-                        if(entity == null){
-                            entity = dtoToEntity(dto, member);
-                        }
-                        entity = modifyEntity(dto, entity);
-                        carrerRepository.save(entity);
-                    }
-                }
-
-                if(awardsDTOList != null) {
-                    for (AwardsDTO dto : awardsDTOList) {
-                        Awards entity = awardsRepository.getOne(dto.getId());
-                        if (entity == null) {
-                            entity = dtoToEntity(dto, member);
-                        }
-                        entity = modifyEntity(dto, entity);
-                        awardsRepository.save(entity);
-                    }
-                }
-
-                if(familyDTOList != null) {
-                    for (FamilyDTO dto : familyDTOList) {
-                        Family entity = familyRepository.getOne(dto.getId());
-                        if (entity == null) {
-                            entity = dtoToEntity(dto, member);
-                        }
-                        entity = modifyEntity(dto, entity);
-                        familyRepository.save(entity);
-                    }
-                }
+                deletetCvEntitys(member);
+                registerCvEntitys(cvPageDTO, member);
 
                 if(certificateDTOList != null) {
                     for (CertificateDTO dto : certificateDTOList) {
@@ -337,16 +241,6 @@ public class CvServiceImpl implements CVService {
                     }
                 }
 
-                if(languageDTOList != null) {
-                    for (LanguageDTO dto : languageDTOList) {
-                        Language entity = languageRepository.getOne(dto.getFl_id());
-                        if (entity == null) {
-                            entity = dtoToEntity(dto, member);
-                        }
-                        entity = modifyEntity(dto, entity);
-                        languageRepository.save(entity);
-                    }
-                }
 
                 log.info("수정 완료");
                 return 1;
@@ -371,55 +265,7 @@ public class CvServiceImpl implements CVService {
 
             log.info("이력서 삭제 성공: " + cv.get());
 
-            List<Education> education = educationRepository.findByMember(m);
-            List<Awards> awards = awardsRepository.findByMember(m);
-            List<Family> family = familyRepository.findByMember(m);
-            List<License> license = licenseRepository.findByMember(m);
-            List<Language> language = languageRepository.findByMember(m);
-            List<Carrer> carrer = carrerRepository.findByMember(m);
-
-            if(!education.isEmpty()){
-                for(Education e : education){
-                    educationRepository.delete(e);
-                    log.info("학력 삭제 성공: " + e);
-                }
-
-            }
-
-            if(!awards.isEmpty()){
-                for(Awards e : awards){
-                    awardsRepository.delete(e);
-                    log.info("수상내역 삭제 성공: " + e);
-                }
-            }
-
-            if(!family.isEmpty()){
-                for(Family e : family){
-                    familyRepository.delete(e);
-                    log.info("가족사항 삭제 성공: " + e);
-                }
-            }
-
-            if(!license.isEmpty()){
-                for(License e : license){
-                    licenseRepository.delete(e);
-                    log.info("자격증 삭제 성공: " + e);
-                }
-            }
-
-            if(!language.isEmpty()){
-                for(Language e : language){
-                    languageRepository.delete(e);
-                    log.info("어학능력 삭제 성공: " + e);
-                }
-            }
-
-            if(!carrer.isEmpty()){
-                for(Carrer e : carrer){
-                    carrerRepository.delete(e);
-                    log.info("경력 삭제 성공: " + e);
-                }
-            }
+            deletetCvEntitys(m);
 
             return new ResponseEntity(HttpStatus.OK);
 
@@ -427,6 +273,123 @@ public class CvServiceImpl implements CVService {
             System.out.println("Cvservice - delete error : " + e);
 
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    public void deletetCvEntitys(Member m){
+        List<Education> education = educationRepository.findByMember(m);
+        List<Awards> awards = awardsRepository.findByMember(m);
+        List<Family> family = familyRepository.findByMember(m);
+        List<Language> language = languageRepository.findByMember(m);
+        List<Carrer> carrer = carrerRepository.findByMember(m);
+
+        if(!education.isEmpty()){
+            for(Education e : education){
+                educationRepository.delete(e);
+                log.info("학력 삭제 성공: " + e);
+            }
+
+        }
+
+        if(!awards.isEmpty()){
+            for(Awards e : awards){
+                awardsRepository.delete(e);
+                log.info("수상내역 삭제 성공: " + e);
+            }
+        }
+
+        if(!family.isEmpty()){
+            for(Family e : family){
+                familyRepository.delete(e);
+                log.info("가족사항 삭제 성공: " + e);
+            }
+        }
+
+        if(!language.isEmpty()){
+            for(Language e : language){
+                languageRepository.delete(e);
+                log.info("어학능력 삭제 성공: " + e);
+            }
+        }
+
+        if(!carrer.isEmpty()){
+            for(Carrer e : carrer){
+                carrerRepository.delete(e);
+                log.info("경력 삭제 성공: " + e);
+            }
+        }
+    }
+
+    public void registerCvEntitys(CvPageDTO cvPageDTO, Member member){
+
+//         수상경력 등록
+        List<AwardsDTO> awardsList = cvPageDTO.getAwards();
+        if (awardsList.size() > 0) {
+            for (AwardsDTO dto : awardsList) {
+                Awards awards = dtoToEntity(dto, member);
+                awardsRepository.save(awards);
+            }
+        }
+
+        // 경력 등록
+        List<CareerDTO> careerList = cvPageDTO.getCareer();
+        if (careerList.size() > 0) {
+            for (CareerDTO dto : careerList) {
+                Carrer carrer = dtoToEntity(dto, member);
+                carrerRepository.save(carrer);
+            }
+        }
+
+        //학력 등록
+        List<EducationDTO> educationList = cvPageDTO.getEducation();
+        if (educationList.size() > 0) {
+            for (EducationDTO dto : educationList) {
+                Education education = dtoToEntity(dto, member);
+                educationRepository.save(education);
+            }
+        }
+
+        // 가족사항 등록
+        List<FamilyDTO> familyList = cvPageDTO.getFamily();
+        if (familyList.size() > 0) {
+            for (FamilyDTO dto : familyList) {
+                Family family = dtoToEntity(dto, member);
+                familyRepository.save(family);
+            }
+        }
+
+        List<LanguageDTO> languageList = cvPageDTO.getLanguage();
+        if (languageList.size() > 0) {
+            for (LanguageDTO dto : languageList) {
+                Language language = dtoToEntity(dto, member);
+                languageRepository.save(language);
+            }
+        }
+
+        List<CertificateDTO> certificateList = cvPageDTO.getCertificate();
+        if (certificateList.size() > 0) {
+            for (CertificateDTO dto : certificateList) {
+                Long num = dto.getLic_num();
+                log.info("등록 - 자격증 num : " + num);
+                if(num == null || num.equals("")) {
+                    License license = dtoToEntity(dto, member);
+                    licenseRepository.save(license);
+                    continue;
+                } else {
+                    Optional<License> licOpt = licenseRepository.findById(dto.getLic_num());
+                    if(licOpt.isEmpty()) {
+                        License license = dtoToEntity(dto, member);
+                        licenseRepository.save(license);
+                        continue;
+                    } else {
+                        License license = licOpt.get();
+                        license.modInCv(1);
+                        licenseRepository.save(license);
+                        continue;
+                    }
+                }
+            }
         }
 
     }
