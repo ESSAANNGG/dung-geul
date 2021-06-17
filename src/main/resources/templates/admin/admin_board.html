@@ -26,7 +26,39 @@
 
 <body>
 
-
+<!--모달효과 줄것들은 따로 뺴놓습니다-->
+<div id="main5_detail">
+  <!-- 회원 관리 > 상세 정보 -->
+  <div class="detailBox detail_board" id="detail_board_register">
+    <div class="d_role"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTQ4OC41IDYxaC00NjVjLTEyLjk1OCAwLTIzLjUgMTAuNTQyLTIzLjUgMjMuNXYyNzYuMTQzYzAgNC4xNDMgMy4zNTggNy41IDcuNSA3LjVzNy41LTMuMzU3IDcuNS03LjV2LTI3Ni4xNDNjMC00LjY4NyAzLjgxMy04LjUgOC41LTguNWg0NjVjNC42ODcgMCA4LjUgMy44MTMgOC41IDguNXY1OS41NzFjMCA0LjE0MyAzLjM1OCA3LjUgNy41IDcuNXM3LjUtMy4zNTcgNy41LTcuNXYtNTkuNTcxYzAtMTIuOTU4LTEwLjU0Mi0yMy41LTIzLjUtMjMuNXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCBkPSJtNTA0LjUgMTcxLjU3MWMtNC4xNDIgMC03LjUgMy4zNTctNy41IDcuNXYyNDguNDI5YzAgNC42ODctMy44MTMgOC41LTguNSA4LjVoLTQ2NWMtNC42ODcgMC04LjUtMy44MTMtOC41LTguNXYtMzEuODU3YzAtNC4xNDMtMy4zNTgtNy41LTcuNS03LjVzLTcuNSAzLjM1Ny03LjUgNy41djMxLjg1N2MwIDEyLjk1OCAxMC41NDIgMjMuNSAyMy41IDIzLjVoNDY1YzEyLjk1OCAwIDIzLjUtMTAuNTQyIDIzLjUtMjMuNXYtMjQ4LjQyOWMwLTQuMTQyLTMuMzU4LTcuNS03LjUtNy41eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIGQ9Im00NjEuNSA0MTQuNTQyYzguNTQ3IDAgMTUuNS02Ljk1MyAxNS41LTE1LjV2LTI4Ni4wODRjMC04LjU0Ny02Ljk1My0xNS41LTE1LjUtMTUuNWgtNDExYy04LjU0NyAwLTE1LjUgNi45NTMtMTUuNSAxNS41djI4Ni4wODRjMCA4LjU0NyA2Ljk1MyAxNS41IDE1LjUgMTUuNXptLTQxMS41LTE1LjV2LTI4Ni4wODRjMC0uMjc1LjIyNC0uNS41LS41aDQxMWMuMjc2IDAgLjUuMjI1LjUuNXYyODYuMDg0YzAgLjI3NS0uMjI0LjUtLjUuNWgtNDExYy0uMjc2IDAtLjUtLjIyNS0uNS0uNXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCBkPSJtMzIwLjUwMSAyNjMuNzVjMi4xNzEgNy4xMTkgOS42ODkgMTEuMTU2IDE2Ljg1MSA4Ljk3NWw5My45NzktMjguNjYyYzcuMTE5LTIuMTcyIDExLjE0NS05LjczMSA4Ljk3NS0xNi44NTEgMC0uMDAxIDAtLjAwMSAwLS4wMDFsLTI4LjY2My05My45NzhjLTIuMTc0LTcuMTI3LTkuNjk4LTExLjE1My0xNi44NTItOC45NzZsLTI1LjA0NyA3LjYzOWMtNC4zMTgtNi4zODItMTEuNjIzLTEwLjU4Ni0xOS44OTItMTAuNTg2LTEzLjIyNCAwLTIzLjk4NCAxMC43NTItMjMuOTk5IDIzLjk3MmwtMjUuMDQxIDcuNjM3Yy03LjEyIDIuMTcyLTExLjE0NiA5LjczMS04Ljk3NCAxNi44NTF6bTI5LjM1Mi0xMjcuNDM4YzQuMDM0IDAgNy41ODkgMi42OTUgOC42NjYgNi42MjIgMS42MDQgNS44NzktMi44NyAxMS4zNzgtOC42NjYgMTEuMzc4LTUuMDE1IDAtOS00LjExNS05LTkgMC00Ljk2MyA0LjAzOC05IDktOXptLTE5LjMyMyAyMy4yMjhjNC4zMzEgNS44OTEgMTEuMzc3IDkuNjk2IDE5LjExIDkuNzY2IDEzLjEzNC4wOSAyMy41OTYtMTAuMjM1IDI0LjE4NC0yMi44NjUuMDAyLS4wMzYuMDA2LS4wNzIuMDA3LS4xMDhsMjMuOTAxLTcuMjkgMjcuNzg4IDkxLjEwOS05MS4xMDkgMjcuNzg3LTI3Ljc4Ny05MS4xMDh6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTg1Ljk1MyAyOTMuMDk3aDQxLjYyNnY2OS45MThjMCA3LjQ0NCA2LjA1NiAxMy41IDEzLjUgMTMuNWg5OC4yNTJjNy40NDQgMCAxMy41LTYuMDU2IDEzLjUtMTMuNXYtOTguMjUyYzAtNy40NDQtNi4wNTYtMTMuNS0xMy41LTEzLjVoLTI2LjMzM2MtMi4zNzgtNy4yMDktOC4wODQtMTIuOTE1LTE1LjI5My0xNS4yOTN2LTU0LjYyNWMwLTcuNDQ0LTYuMDU2LTEzLjUtMTMuNS0xMy41aC0yNi4zMzNjLTMuMTU3LTkuNTcxLTEyLjE3OS0xNi41LTIyLjc5My0xNi41cy0xOS42MzYgNi45MjktMjIuNzkzIDE2LjVoLTI2LjMzM2MtNy40NDQgMC0xMy41IDYuMDU2LTEzLjUgMTMuNXY5OC4yNTJjMCA3LjQ0NCA2LjA1NiAxMy41IDEzLjUgMTMuNXptMTI3LjA1Mi0yNi44MzRoMjQuODI2djk1LjI1MmgtOTUuMjUydi03NS45MTgtMTkuMzM0aDI0LjgyNmMzLjIyMyA5Ljc2NyAxMi40MjcgMTYuNSAyMi44IDE2LjUgMTAuMzMzIDAgMTkuNTU4LTYuNjc3IDIyLjgtMTYuNXptLTIyLjgtMTYuNWM0Ljk2MiAwIDkgNC4wMzcgOSA5cy00LjAzOCA5LTkgOWMtNS4wNDIgMC05LTQuMTQ2LTktOSAwLTQuOTYzIDQuMDM3LTkgOS05em0tNTUuMTI2LTgzLjQxOGM0Ljk2MiAwIDkgNC4wMzcgOSA5cy00LjAzOCA5LTkgOS05LTQuMDM3LTktOSA0LjAzNy05IDktOXptLTQ3LjYyNiAxNi41aDI0LjgyNmMuMDIyLjA2Ny4wNTEuMTMxLjA3NC4xOTggMy4yODkgOS42ODMgMTIuNDExIDE2LjMwMiAyMi43MjYgMTYuMzAyIDEwLjM4NiAwIDE5LjU3NC02LjcyNCAyMi44LTE2LjVoMjQuODI2djUzLjExOGMtLjA5MS4wMy0uMTc5LjA2Ny0uMjY5LjA5OC02Ljk4IDIuMzk2LTEyLjUwOSA3Ljg5LTE0LjkyNyAxNC45MTMtLjAzMy4wOTctLjA3My4xOTEtLjEwNS4yODloLTI2LjMyNmMtNy40NDQgMC0xMy41IDYuMDU2LTEzLjUgMTMuNXYxMy4zMzRoLTQwLjEyNXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==" /></div>
+    <div class="d_box Big">
+      <div class="d_tagN">제목</div>
+      <input type="text" class="d_cont" name="제목">
+    </div>
+    <div class="d_box Big">
+      <div class="d_tagN">아이디</div>
+      <textarea class="d_cont" name="본문"></textarea>
+    </div>
+    <div class="d_btn">
+      <button class="d_button" name="d_button">등록</button>
+    </div>
+  </div>
+  <div class="detailBox detail_board" id="detail_board_read">
+    <div class="d_role"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTQ4OC41IDYxaC00NjVjLTEyLjk1OCAwLTIzLjUgMTAuNTQyLTIzLjUgMjMuNXYyNzYuMTQzYzAgNC4xNDMgMy4zNTggNy41IDcuNSA3LjVzNy41LTMuMzU3IDcuNS03LjV2LTI3Ni4xNDNjMC00LjY4NyAzLjgxMy04LjUgOC41LTguNWg0NjVjNC42ODcgMCA4LjUgMy44MTMgOC41IDguNXY1OS41NzFjMCA0LjE0MyAzLjM1OCA3LjUgNy41IDcuNXM3LjUtMy4zNTcgNy41LTcuNXYtNTkuNTcxYzAtMTIuOTU4LTEwLjU0Mi0yMy41LTIzLjUtMjMuNXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCBkPSJtNTA0LjUgMTcxLjU3MWMtNC4xNDIgMC03LjUgMy4zNTctNy41IDcuNXYyNDguNDI5YzAgNC42ODctMy44MTMgOC41LTguNSA4LjVoLTQ2NWMtNC42ODcgMC04LjUtMy44MTMtOC41LTguNXYtMzEuODU3YzAtNC4xNDMtMy4zNTgtNy41LTcuNS03LjVzLTcuNSAzLjM1Ny03LjUgNy41djMxLjg1N2MwIDEyLjk1OCAxMC41NDIgMjMuNSAyMy41IDIzLjVoNDY1YzEyLjk1OCAwIDIzLjUtMTAuNTQyIDIzLjUtMjMuNXYtMjQ4LjQyOWMwLTQuMTQyLTMuMzU4LTcuNS03LjUtNy41eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIGQ9Im00NjEuNSA0MTQuNTQyYzguNTQ3IDAgMTUuNS02Ljk1MyAxNS41LTE1LjV2LTI4Ni4wODRjMC04LjU0Ny02Ljk1My0xNS41LTE1LjUtMTUuNWgtNDExYy04LjU0NyAwLTE1LjUgNi45NTMtMTUuNSAxNS41djI4Ni4wODRjMCA4LjU0NyA2Ljk1MyAxNS41IDE1LjUgMTUuNXptLTQxMS41LTE1LjV2LTI4Ni4wODRjMC0uMjc1LjIyNC0uNS41LS41aDQxMWMuMjc2IDAgLjUuMjI1LjUuNXYyODYuMDg0YzAgLjI3NS0uMjI0LjUtLjUuNWgtNDExYy0uMjc2IDAtLjUtLjIyNS0uNS0uNXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCBkPSJtMzIwLjUwMSAyNjMuNzVjMi4xNzEgNy4xMTkgOS42ODkgMTEuMTU2IDE2Ljg1MSA4Ljk3NWw5My45NzktMjguNjYyYzcuMTE5LTIuMTcyIDExLjE0NS05LjczMSA4Ljk3NS0xNi44NTEgMC0uMDAxIDAtLjAwMSAwLS4wMDFsLTI4LjY2My05My45NzhjLTIuMTc0LTcuMTI3LTkuNjk4LTExLjE1My0xNi44NTItOC45NzZsLTI1LjA0NyA3LjYzOWMtNC4zMTgtNi4zODItMTEuNjIzLTEwLjU4Ni0xOS44OTItMTAuNTg2LTEzLjIyNCAwLTIzLjk4NCAxMC43NTItMjMuOTk5IDIzLjk3MmwtMjUuMDQxIDcuNjM3Yy03LjEyIDIuMTcyLTExLjE0NiA5LjczMS04Ljk3NCAxNi44NTF6bTI5LjM1Mi0xMjcuNDM4YzQuMDM0IDAgNy41ODkgMi42OTUgOC42NjYgNi42MjIgMS42MDQgNS44NzktMi44NyAxMS4zNzgtOC42NjYgMTEuMzc4LTUuMDE1IDAtOS00LjExNS05LTkgMC00Ljk2MyA0LjAzOC05IDktOXptLTE5LjMyMyAyMy4yMjhjNC4zMzEgNS44OTEgMTEuMzc3IDkuNjk2IDE5LjExIDkuNzY2IDEzLjEzNC4wOSAyMy41OTYtMTAuMjM1IDI0LjE4NC0yMi44NjUuMDAyLS4wMzYuMDA2LS4wNzIuMDA3LS4xMDhsMjMuOTAxLTcuMjkgMjcuNzg4IDkxLjEwOS05MS4xMDkgMjcuNzg3LTI3Ljc4Ny05MS4xMDh6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTg1Ljk1MyAyOTMuMDk3aDQxLjYyNnY2OS45MThjMCA3LjQ0NCA2LjA1NiAxMy41IDEzLjUgMTMuNWg5OC4yNTJjNy40NDQgMCAxMy41LTYuMDU2IDEzLjUtMTMuNXYtOTguMjUyYzAtNy40NDQtNi4wNTYtMTMuNS0xMy41LTEzLjVoLTI2LjMzM2MtMi4zNzgtNy4yMDktOC4wODQtMTIuOTE1LTE1LjI5My0xNS4yOTN2LTU0LjYyNWMwLTcuNDQ0LTYuMDU2LTEzLjUtMTMuNS0xMy41aC0yNi4zMzNjLTMuMTU3LTkuNTcxLTEyLjE3OS0xNi41LTIyLjc5My0xNi41cy0xOS42MzYgNi45MjktMjIuNzkzIDE2LjVoLTI2LjMzM2MtNy40NDQgMC0xMy41IDYuMDU2LTEzLjUgMTMuNXY5OC4yNTJjMCA3LjQ0NCA2LjA1NiAxMy41IDEzLjUgMTMuNXptMTI3LjA1Mi0yNi44MzRoMjQuODI2djk1LjI1MmgtOTUuMjUydi03NS45MTgtMTkuMzM0aDI0LjgyNmMzLjIyMyA5Ljc2NyAxMi40MjcgMTYuNSAyMi44IDE2LjUgMTAuMzMzIDAgMTkuNTU4LTYuNjc3IDIyLjgtMTYuNXptLTIyLjgtMTYuNWM0Ljk2MiAwIDkgNC4wMzcgOSA5cy00LjAzOCA5LTkgOWMtNS4wNDIgMC05LTQuMTQ2LTktOSAwLTQuOTYzIDQuMDM3LTkgOS05em0tNTUuMTI2LTgzLjQxOGM0Ljk2MiAwIDkgNC4wMzcgOSA5cy00LjAzOCA5LTkgOS05LTQuMDM3LTktOSA0LjAzNy05IDktOXptLTQ3LjYyNiAxNi41aDI0LjgyNmMuMDIyLjA2Ny4wNTEuMTMxLjA3NC4xOTggMy4yODkgOS42ODMgMTIuNDExIDE2LjMwMiAyMi43MjYgMTYuMzAyIDEwLjM4NiAwIDE5LjU3NC02LjcyNCAyMi44LTE2LjVoMjQuODI2djUzLjExOGMtLjA5MS4wMy0uMTc5LjA2Ny0uMjY5LjA5OC02Ljk4IDIuMzk2LTEyLjUwOSA3Ljg5LTE0LjkyNyAxNC45MTMtLjAzMy4wOTctLjA3My4xOTEtLjEwNS4yODloLTI2LjMyNmMtNy40NDQgMC0xMy41IDYuMDU2LTEzLjUgMTMuNXYxMy4zMzRoLTQwLjEyNXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==" /></div>
+    <div class="d_box Big">
+      <div class="d_tagN">제목</div>
+      <input type="text" class="d_cont" name="제목">
+    </div>
+    <div class="d_box Big">
+      <div class="d_tagN">아이디</div>
+      <textarea class="d_cont" name="본문"></textarea>
+    </div>
+    <div class="d_btn">
+      <button class="d_button" name="d_button">수정</button>
+      <button class="d_button">삭제</button>
+    </div>
+  </div>
+</div>
 
   <div id="shadow_box">
     <div th:replace="admin/layout :: header" />
@@ -39,7 +71,6 @@
           <ul class="guide">게시판관리 |
             <select class="guide_select">
               <option>공지사항</option>
-              <option>기업정보</option>
             </select>
           </ul>
         </div>
@@ -62,10 +93,6 @@
                 <ul>
                   <li>제목</li>
                   <li><input type="text" class="search_data" name="keyword"></li>
-                </ul>
-                <ul>
-                  <li>작성자</li>
-                  <li><input type="text" class="search_data"></li>
                 </ul>
                 <ul>
                   <li>작성일</li>
@@ -95,7 +122,6 @@
                   <span class="check"><input type="checkbox" name="5_1_checkH" onclick="checkAll(this)"></span>
                   <span class="number s100">번호</span>
                   <span class="title s610">제목</span>
-                  <span class="username s400">작성자</span>
                   <span class="date s200">작성일</span>
                   <span class="link s200">바로가기</span>
                 </div>
@@ -103,89 +129,12 @@
                   <span class="check"><input type="checkbox" name="5_1_check"></span>
                   <span class="number s100">[[${dto.num}]]</span>
                   <span class="title s610">[[${dto.title}]]</span>
-                  <span class="username s400">관리자[[${dto.b}]]</span>
                   <span class="date s200">[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</span>
                 <span class="link s200"><a th:href="@{/center-information/notice_board_read(num = ${dto.num})}" target="_blank">이동하기</a></span>
               </div>
-              <!-- <div class="list_button">
-                <button class="list_submit">삭제</button>
-                <a th:href="@{/center-information/notice_board_register}" target="_blank"><button class="list_submit direct">글쓰기</button></a>
-              </div> -->
-            </div>
-          </div>
-        </div>
-        <div class="main5" id="main5_corpInformation">
-         <!--기업정보게시판-->
-          <div id="main5_corpInformation_search">
-            <div class="sub_menu_title">
-              <h3>기업정보 검색</h3>
-            </div>
-            <div class="search">
-              <ul>
-                <li>회원권한</li>
-                <li>
-                  <select name="role" class="search_data">
-                    <option value="UNIV">전체</option>
-                    <option value="STUDENT">학생</option>
-                    <option value="STAFF">교직원</option>
-                    <option value="COUNSELOR">상담사</option>
-                  </select>
-                </li>
-              </ul>
-              <ul>
-                <li>이름</li>
-                <li> <input type="text" class="search_data"></li>
-              </ul>
-              <ul>
-                <li>아이디</li>
-                <li><input type="text" class="search_data"></li>
-              </ul>
-              <ul>
-                <li>가입/요청 일자</li>
-                <li>
-                  <input type="date" class="search_date search_data"> &nbsp;~&nbsp; <input type="date"
-                                                                                           class="search_date search_data">
-                  <button class="search_date_button">오늘</button>
-                  <button class="search_date_button">이번주</button>
-                  <button class="search_date_button">이번달</button>
-                  <button class="search_date_button">전체</button>
-                </li>
-              </ul>
-              <div class="search_button">
-                <button class="search_submit">
-                  <h3>검색</h3>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div id="main5_corpInformation_list">
-            <div class="sub_menu_title">
-              <h3>기업정보 리스트</h3>
-            </div>
-            <div class="list">
-              <div class="list_head">
-                                    <span class="check"><input type="checkbox" name="6_2_checkH"
-                                                               onclick="checkAll(this)"></span>
-                <span class="number">번호</span>
-                <span class="name">이름</span>
-                <span class="username">아이디</span>
-                <span class="phone">연락처</span>
-                <span class="email">이메일</span>
-                <span class="joindate">가입일</span>
-                <span class="role">권한</span>
-              </div>
-              <div class="list_body" onclick="detail(this)">
-                <span class="check"><input type="checkbox" name="6_2_check"></span>
-                <span class="number"></span>
-                <span class="name"></span>
-                <span class="username"></span>
-                <span class="phone"></span>
-                <span class="email"></span>
-                <span class="joindate"></span>
-                <span class="role"></span>
-              </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>
+                <button class="list_submit direct" onclick="detail(this)">등록</button></a>
               </div>
             </div>
           </div>

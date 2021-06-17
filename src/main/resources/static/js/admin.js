@@ -266,12 +266,20 @@ function detail(t) {
                 if(users_roll==""){                                           //기업관리 화면은 .role이 없고 대신 기업형태가있음 그래서 enterprise를 직접 설정해 넘겨준다.
                     users_roll="ENTERPRISE";
                 }
-                // alert(users_roll);
-                // alert(typeof(users_roll));
                 users_id=$(t).children('span.username').text();
                 setTimeout("window['detail_on_'+menu_name](users_id,users_roll)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
                 break;
 
+            case "board": //게시판메뉴에서의 모달창
+                board_num=undefined;
+                if($(t).attr("class")=="list_submit direct"){
+                    setTimeout("window['detail_on_'+menu_name]()", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+                }
+                else{
+                    board_num=$(t).children('span.number').text();
+                    setTimeout("window['detail_on_'+menu_name](board_num)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+                }
+                break;
             case "consult": //상담관리메뉴에서의 모달창
                 num=$(t).children('span.number').text();                 //번호를 읽어옴
                 setTimeout("window['detail_on_'+menu_name](num)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
