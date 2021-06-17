@@ -5,7 +5,7 @@ import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.dto.notice_boardDTO;
 import com.dung.geul.entity.Board;
 
-public interface notice_boardService {
+public interface notice_boardService {  // 공지사항 게시판 Service
 
     PageResultDTO<notice_boardDTO, Board> getList(PageRequestDTO pageRequestDTO);   // 게시글 조회
 

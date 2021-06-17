@@ -1,34 +1,24 @@
 package com.dung.geul.controller;
 
 import com.dung.geul.dto.*;
-import com.dung.geul.entity.Enterprise;
-import com.dung.geul.entity.Member;
-import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.EmployService;
 import com.dung.geul.service.MemberServiceImpl;
+import com.dung.geul.service.notice_boardService;
 import com.querydsl.core.BooleanBuilder;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.view.RedirectView;
-
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Locale;
 
 
 @RequestMapping("/admin")
 @Controller
 @Log4j2
-public class AllowController {
+public class AdminPageController {
 
     @Autowired
     private MemberServiceImpl memberService;
@@ -90,22 +80,35 @@ public class AllowController {
 
     }
 
-    @GetMapping("/admin_dashboard")
+    @GetMapping("/admin_dashboard") // 관리자 페이지.대쉬보드
     public void emf(){
 
     }
 
-    @GetMapping("/admin_board")
-    public void emg(){
+    private notice_boardService service;  // 공지사항 게시판 Service
 
+    // 생성자(공지사항 게시판 글을 불러온다.)
+    // 클라 -> DTO -> Service
+    public AdminPageController(notice_boardService service) {
+        this.service = service;
     }
 
-    @GetMapping("/admin_application")
+    @GetMapping("/admin_board") // 관리자 페이지.게시판 관리
+    public void emg(PageRequestDTO pageRequestDTO, Model model){
+
+        log.info("list............." + pageRequestDTO);
+
+        // PageResultDTO
+        // : 공지사항 게시판의 글을 불러와 관리자 페이지의 (공지사항)게시판 관리에 보여준다.
+        model.addAttribute("result", service.getList(pageRequestDTO));
+    }
+
+    @GetMapping("/admin_application")   // 관리자 페이지.입사지원
     public void application(){
 
     }
 
-    @GetMapping("/admin_supportProgram")
+    @GetMapping("/admin_supportProgram")    // 관리자 페이지.지원 프로그램
     public void applicationd(){
 
     }

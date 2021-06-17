@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 @RestController
-public class JobInformationRestController {
+public class JobInformationRestController { // 진로설계 - 직업정보, 사전 검색
 
     private  String authKey = "WNKO266ZTVI72UBY9LVWV2VR1HK";
 

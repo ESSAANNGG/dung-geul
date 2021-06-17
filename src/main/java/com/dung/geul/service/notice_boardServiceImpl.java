@@ -75,15 +75,13 @@ public class notice_boardServiceImpl implements notice_boardService {
 //    }
 
     @Override
-    public void remove(Long num) {
-
+    public void remove(Long num) {  // 삭제
         boardRepository.deleteById(num);
-
     }
 
 
     @Override
-    public void modify(notice_boardDTO dto) {
+    public void modify(notice_boardDTO dto) {   // 수정
 
         //업데이트 하는 항목은 '제목', '내용'
 
@@ -131,7 +129,7 @@ public class notice_boardServiceImpl implements notice_boardService {
             conditionBuilder.or(qBoard.content.contains(keyword));          // 내용
         }
 
-//  공지사항 페이지는 관리자만이 작성함으로 작성자는 없어도 무관하다.
+//  공지사항 페이지는 관리자만이 작성함으로 작성자는 없어도 무관하다. 근데 지우지는 마셈
 //        if(type.contains("w")){
 //            conditionBuilder.or(qBoard.b.contains(keyword));                // 작성자
 //        }

@@ -29,7 +29,7 @@ import java.util.List;
 @RequestMapping("/center-information")
 @RequiredArgsConstructor    // 페이지 목록 처리
 @Log4j2
-public class CenterInformationController {
+public class CenterInformationController {  // 센터정보 컨트롤러
 
     @GetMapping("/center_introduction")   // 센터 소개
     public String center_introduction(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
@@ -39,7 +39,11 @@ public class CenterInformationController {
     @GetMapping("/main_business")   // 주요 업무
     public String main_business(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
         model.addAttribute("loginUser", authMemberDTO);
-        return "center-information/main_business"; }
+        return "center-information/main_business";
+    }
+
+
+// 공지사항 게시판 =======================================================================================================
 
     @GetMapping("/notice_board_form")   // 공지 사항 작성 페이지
     public String notice_board_form(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
@@ -62,11 +66,11 @@ public class CenterInformationController {
     }
 
     @GetMapping("/notice_board_register")
-    public void register() {
+    public void register() {    // 공지사항 게시판 작성 GET
         log.info("REGISTER GET...");
     }
 
-    @PostMapping("/notice_board_register")
+    @PostMapping("/notice_board_register")  // 공지사항 게시판 작성 POST
     public String registerPost(notice_boardDTO dto, RedirectAttributes redirectAttributes){
 
         log.info("dto..." + dto);
@@ -76,11 +80,12 @@ public class CenterInformationController {
 
         redirectAttributes.addFlashAttribute("msg", num);
 
-        return "redirect:/center-information/notice_board";
+        return "redirect:/center-information/notice_board"; // 작성이 끝나면 공시사항 게시판 페이지로 redirect 해준다.
     }
 
     @GetMapping({"/notice_board_read", "/notice_board_modify"}) // 매핑을 배열로 두개 처리
-    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model){
+    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, 
+                     Model model){
 
         log.info("num: " + num);
 
@@ -91,7 +96,7 @@ public class CenterInformationController {
     }
 
     @PostMapping("/remove")
-    public String remove(long num, RedirectAttributes redirectAttributes){
+    public String remove(long num, RedirectAttributes redirectAttributes){  // 게시글 삭제
 
         log.info("num: " + num);
 
@@ -106,7 +111,7 @@ public class CenterInformationController {
     @PostMapping("/notice_board_modify")
     public String modify(notice_boardDTO dto,
                          @ModelAttribute("requestDTO") PageRequestDTO requestDTO,
-                         RedirectAttributes redirectAttributes){
+                         RedirectAttributes redirectAttributes){    // 게시글 수정
 
         log.info("post modify.........................................");
         log.info("dto: " + dto);

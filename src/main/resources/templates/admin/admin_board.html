@@ -4,8 +4,7 @@
 <head>
   <meta charset="utf-8" />
 
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
   <link rel="stylesheet" href="/css/admin.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
@@ -29,86 +28,89 @@
 
 
 
-<div id="shadow_box">
-  <div th:replace="admin/layout :: header"/>
+  <div id="shadow_box">
+    <div th:replace="admin/layout :: header" />
 
-  <div id="wrap">
-    <div th:replace="admin/layout :: menubox"/>
+    <div id="wrap">
+      <div th:replace="admin/layout :: menubox" />
 
-    <div id="main_wrap">
-      <div id="menu_guide">
-        <ul class="guide">게시판관리 |
-          <select class="guide_select">
-            <option>공지사항</option>
-            <option>기업정보</option>
-          </select>
-        </ul>
-      </div>
-      <div id="menu_title">
-        <h3>게시판관리</h3>
-      </div>
+      <div id="main_wrap">
+        <div id="menu_guide">
+          <ul class="guide">게시판관리 |
+            <select class="guide_select">
+              <option>공지사항</option>
+              <option>기업정보</option>
+            </select>
+          </ul>
+        </div>
+        <div id="menu_title">
+          <h3>게시판관리</h3>
+        </div>
 
-      <div class="main">
-      <!--게시판관리-->
-        <div class="main5" id="main5_notice">
-        <!--공지사항게시판-->
-          <div id="main5_notice_search">
-            <div class="sub_menu_title">
-              <h3>공지사항 검색</h3>
-            </div>
-            <div class="search">
-              <ul>
-                <li>제목</li>
-                <li> <input type="text" class="search_data"></li>
-              </ul>
-              <ul>
-                <li>작성자</li>
-                <li> <input type="text" class="search_data"></li>
-              </ul>
-              <ul>
-                <li>작성일</li>
-                <li>
-                  <input type="date" class="search_date search_data"> &nbsp;~&nbsp; <input type="date"
-                                                                                           class="search_date search_data">
-                  <button class="search_date_button">오늘</button>
-                  <button class="search_date_button">이번주</button>
-                  <button class="search_date_button">이번달</button>
-                  <button class="search_date_button">전체</button>
-                </li>
-              </ul>
-              <div class="search_button">
-                <button class="search_submit">
-                  <h3>검색</h3>
-                </button>
+        <div class="main">
+          <!--게시판관리-->
+          <div class="main5" id="main5_notice">
+            <!--공지사항게시판-->
+            <div id="main5_notice_search">
+              <div class="sub_menu_title">
+                <h3>공지사항 검색</h3>
+              </div>
+              <div class="search">
+                <!-- <form action="/admin/admin_board" method="get">
+                
+                </form> -->
+                <ul>
+                  <li>제목</li>
+                  <li><input type="text" class="search_data" name="keyword"></li>
+                </ul>
+                <ul>
+                  <li>작성자</li>
+                  <li><input type="text" class="search_data"></li>
+                </ul>
+                <ul>
+                  <li>작성일</li>
+                  <li>
+                    <input type="date" class="search_date search_data"> &nbsp;~&nbsp; <input type="date"
+                      class="search_date search_data">
+                    <button class="search_date_button">오늘</button>
+                    <button class="search_date_button">이번주</button>
+                    <button class="search_date_button">이번달</button>
+                    <button class="search_date_button">전체</button>
+                  </li>
+                </ul>
+                <div class="search_button">
+                  <button class="search_submit">
+                    <h3>검색</h3>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <div id="main5_notice_list">
-            <div class="sub_menu_title">
-              <h3>공지사항 리스트</h3>
-            </div>
-            <div class="list">
-              <div class="list_head">
-                                    <span class="check"><input type="checkbox" name="5_1_checkH"
-                                                               onclick="checkAll(this)"></span>
-                <span class="number s100">번호</span>
-                <span class="title s610">제목</span>
-                <span class="username s400">작성자</span>
-                <span class="date s200">작성일</span>
-                <span class="link s200">바로가기</span>
+
+            <div id="main5_notice_list">
+              <div class="sub_menu_title">
+                <h3>공지사항 리스트</h3>
               </div>
-              <div class="list_body" onclick="detail(this)">
-                <span class="check"><input type="checkbox" name="5_1_check"></span>
-                <span class="number s100"></span>
-                <span class="title s610"></span>
-                <span class="username s400"></span>
-                <span class="date s200"></span>
-                <span class="link s200"></span>
+              <div class="list">
+                <div class="list_head">
+                  <span class="check"><input type="checkbox" name="5_1_checkH" onclick="checkAll(this)"></span>
+                  <span class="number s100">번호</span>
+                  <span class="title s610">제목</span>
+                  <span class="username s400">작성자</span>
+                  <span class="date s200">작성일</span>
+                  <span class="link s200">바로가기</span>
+                </div>
+                <div class="list_body" onclick="detail(this)" th:each="dto : ${result.dtoList}">
+                  <span class="check"><input type="checkbox" name="5_1_check"></span>
+                  <span class="number s100">[[${dto.num}]]</span>
+                  <span class="title s610">[[${dto.title}]]</span>
+                  <span class="username s400">관리자[[${dto.b}]]</span>
+                  <span class="date s200">[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</span>
+                <span class="link s200"><a th:href="@{/center-information/notice_board_read(num = ${dto.num})}" target="_blank">이동하기</a></span>
               </div>
-              <div class="list_button">
+              <!-- <div class="list_button">
                 <button class="list_submit">삭제</button>
                 <a th:href="@{/center-information/notice_board_register}" target="_blank"><button class="list_submit direct">글쓰기</button></a>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
