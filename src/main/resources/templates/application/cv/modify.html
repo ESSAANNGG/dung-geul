@@ -1049,53 +1049,76 @@
   <script src="/js/cv_modify_option.js"></script>
   <script src="/js/s1_index.js"></script>
   <script th:inline="javascript">
-   /*  [#th: if = "${cv.getEducation()} === null"] */
-        document.querySelector("#btn1").click();
-    /* [/] */
 
-    /* [#th: if = "${cv.getCv_hobby()}"] */
-        document.querySelector("#btn2").click();
-    /* [/] */
+    /*<![CDATA[*/
+    var school = `/* [[${cv.getEducation()}]] */`;
+    var award = `/* [[${cv.getAwards()}]] */`;
+    var special = `/* [[${cv.getCv_specialty()}]] */`;
+    var hobby = `/* [[${cv.getCv_hobby()}]] */`;
+    var family = `/* [[${cv.getFamily()}]] */`;
+    var license = `/* [[${cv.getCertificate()}]] */`;
+    var language = `/* [[${cv.getLanguage()}]] */`;
+    var verteran = `/* [[${cv.getCv_verteran()}]] */`;
+    var disability = `/* [[${cv.getCv_disability()}]] */`;
+    var military = `/* [[${cv.getCv_military()}]] */`;
+    var carrer = `/* [[${cv.getCareer()}]] */`;
+    /*]]*/
 
-    /* [#th: if = "${cv.getAwards()}"] */
-        document.querySelector("#btn3").click();
-    /* [/] */
+    console.log(verteran);
+    console.log(disability);
+    console.log(military);
+    console.log(carrer);
 
-    /* [#th: if = "${cv.getCv_verteran()} !='0'"] */
-    document.querySelector("#btn4").click();
-    document.querySelector('#verteran_div').classList.replace('common_div', 'common_div_blue');
-    /* [/] */
+    if(school != "/* null */"){
+      document.querySelector("#btn1").click();
+    }
 
-    /* [#th: if = "${cv.getCv_disability()} !='0'"] */
-    document.querySelector("#btn4").click();
-    document.querySelector('#disability_div').classList.replace('common_div', 'common_div_blue');
-    document.querySelector('#info-extra').style = 'display:block';
-    document.querySelector('#disability-value').style = 'display:block';
-    /* [/] */
+    if(hobby != "/* null */"){
+      document.querySelector("#btn2").click();
+    }else if(special != "/* null */"){
+      document.querySelector("#btn2").click();
+    }
 
-    /* [#th: if = "${cv.getCv_military()} !='0'"] */
-    document.querySelector("#btn4").click();
-    document.querySelector('#military_div').classList.replace('common_div', 'common_div_blue');
-    document.querySelector('#info-extra').style = 'display:block';
-    document.querySelector('#military-value').style = 'display:block';
-    /* [/] */
+    if(award != "/* null */"){
+      document.querySelector("#btn3").click();
+    }
 
-    /* [#th: if = "${cv.getFamily()}"] */
-    document.querySelector("#btn5").click();
-    /* [/] */
+    if(family != "/* null */"){
+      document.querySelector("#btn5").click();
+    }
 
-    /* [#th: if = "${cv.getCertificate()}"] */
-    document.querySelector("#btn6").click();
-    /* [/] */
+    if(license != "/* null */"){
+      document.querySelector("#btn6").click();
+    }
 
-    /* [#th: if = "${cv.getLanguage()}"] */
-    document.querySelector("#btn7").click();
-    /* [/] */
+    if(language != "/* null */"){
+      document.querySelector("#btn7").click();
+    }
 
+    if(verteran != "/* 0 */"){
+      document.querySelector("#btn4").click();
+      document.querySelector('#verteran_div').classList.replace('common_div', 'common_div_blue');
+    }
+
+    if(disability != "/* 0 */"){
+      document.querySelector("#btn4").click();
+      document.querySelector('#disability_div').classList.replace('common_div', 'common_div_blue');
+      document.querySelector('#info-extra').style = 'display:block';
+      document.querySelector('#disability-value').style = 'display:block';
+    }
+
+    if(military != "/* 0 */"){
+      document.querySelector("#btn4").click();
+      document.querySelector('#military_div').classList.replace('common_div', 'common_div_blue');
+      document.querySelector('#info-extra').style = 'display:block';
+      document.querySelector('#military-value').style = 'display:block';
+    }
 
     //버튼조작
 
     //경력사항
+
+    // 추후에 수정
 
     /* [#th: if = "${cv.getCareer()}"] */
     $('#carrerField').attr('style', 'display:block;');
