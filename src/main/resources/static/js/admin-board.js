@@ -15,21 +15,21 @@ function board_guide(){
 
 let num; //글번호를 담음
 function board_list() {
-    num = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .username').text();                        //글번호값을 읽어옴
+    num = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .number').text();                        //글번호값을 읽어옴
     dataList.push(num);
 }
 
-function userManage_list_send(){
+function board_list_send(){
 
-    if(ListId == "main2_user"){
-        A_url="/allow/member/read?result=" + p;
-    }
-    else if(ListId == "main2_corp" &&p=="no"){
-        A_url="/allow/etp/delete?result=" + p;
-    }
-    else if(ListId == "main2_corp" && p == "ok"){
-        A_url="/allow/etp/read?result=" + p;
-    }
+    // if(ListId == "main2_user"){
+    //     A_url="/allow/member/read?result=" + p;
+    // }
+    // else if(ListId == "main2_corp" &&p=="no"){
+    //     A_url="/allow/etp/delete?result=" + p;
+    // }
+    // else if(ListId == "main2_corp" && p == "ok"){
+    //     A_url="/allow/etp/read?result=" + p;
+    // }
 
 
     $.ajax({
