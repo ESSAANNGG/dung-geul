@@ -107,7 +107,7 @@
                 </div>
                 <br />
               </div>
-              <div id="carrerField" disabled style="display: none;">
+              <div id="carrerField"  style="display: none;">
                 <div class="item_career" >
                   <input type="hidden" name="career[][id]">
                   <div class="info">
@@ -170,7 +170,7 @@
             </section>
 
 
-            <div id="schoolFieldset_main" style="display:none;" disabled>
+            <div id="schoolFieldset_main" style="display:none;" >
               <section class="form" id="학력사항">
                 </legend>
                 <p class="legend">학력사항</p>
@@ -199,7 +199,7 @@
                       <input class="common_input" name="education[][edc_school]" type="text" autocomplete="off" />
                     </div>
 
-                    <div class="school_fieldset hignschool_field" disabled>
+                    <div class="school_fieldset hignschool_field" >
                       <div class="container1" style="display:none;">
                         <div class="common_div width-140">
                           <label class="absolute-label" for="">졸업년도 <span>*</span> </label>
@@ -224,7 +224,7 @@
                     </div>
 
 
-                    <div class="college_field" disabled>
+                    <div class="college_field" >
                       <div class="container2" style="display:none;">
                         <div class="common_div width-200">
                           <label class="absolute-label" for="">입학년월 <span>*</span> </label>
@@ -284,7 +284,7 @@
                       </div>
                     </div>
 
-                    <div class="university_field" disabled>
+                    <div class="university_field" >
                       <div class="container3" style="display:none;">
                         <div class="common_div width-200">
                           <label class="absolute-label" for="">입학년월 <span>*</span> </label>
@@ -344,7 +344,7 @@
                       </div>
                     </div>
 
-                    <div class="graduate_field" disabled>
+                    <div class="graduate_field" >
                       <div class="container4" style="display:none;">
                         <div class="common_div width-104">
                           <label class="absolute-label" for="">학위 <span>*</span></label>
@@ -440,24 +440,24 @@
 
 
             </section>
-            <div id="hobbyFieldset_main" style="display:none;" disabled>
+            <div id="hobbyFieldset_main" style="display:none;" >
               <section class="form" id="취미/특기">
                 <p class="legend">취미•특기</p>
                 <div class="info">
                   <div class="common_div width-450">
                     <label class="absolute-label" for="">취미 </label>
-                    <input class="common_input" name="cv_hobby" id="cv_hobby" />
+                    <input class="common_input" name="cv_hobby" id="cv_hobby"/>
                   </div>
                   <div class="common_div width-450">
                     <label class="absolute-label" for="">특기 </label>
-                    <input class="common_input" type="text" name="cv_specialty" id="cv_specialty" />
+                    <input class="common_input" type="text" name="cv_specialty" id="cv_specialty"/>
                   </div>
                 </div>
               </section>
             </div>
 
 
-            <div id="awardFieldset_main" style="display:none;" disabled>
+            <div id="awardFieldset_main" style="display:none;" >
               <section class="form" id="수상경력">
                 <p class="legend">수상경력</p>
                 <div class="item_award">
@@ -500,7 +500,7 @@
             </div>
 
 
-            <div id="miliFieldset_main" style="display:none;" disabled>
+            <div id="miliFieldset_main" style="display:none;" >
               <section class="form" id="우대사항/병역">
                 <p class="legend">우대사항•병역</p>
                 <div class="info">
@@ -577,7 +577,7 @@
             </div>
 
 
-            <div id="famFieldset_main" style="display:none;" disabled>
+            <div id="famFieldset_main" style="display:none;" >
               <section class="form" id="가족사항">
                 <p class="legend">가족사항</p>
                 <div class="item_family">
@@ -638,8 +638,8 @@
               </section>
             </div>
 
-            <!-- <fieldset id="" style="display:none;" disabled> -->
-            <div id="licFieldset_main" style="display:none;" disabled>
+            <!-- <fieldset id="" style="display:none;" > -->
+            <div id="licFieldset_main" style="display:none;" >
               <section class="form" id="자격증">
 
                 <p class="legend">자격증</p>
@@ -661,7 +661,8 @@
                           <div class="resume_data">
                             <div>
                               <div class="title_wrap" style="margin: 10px 0 3px 0">
-                                <!-- COUNT --><strong class="attach_count">총 <span>2</span>건</strong>
+                                <!-- COUNT -->
+                                <!-- <strong class="attach_count">총 <span>2</span>건</strong> -->
                               </div>
                               <div class="table_scroll">
                                 <table class="manage_list_table">
@@ -673,6 +674,7 @@
                                     <col width="140" />
                                     <col />
                                     <col width="140" />
+                                    <col / style="display:none;">
                                   </colgroup>
                                   <thead>
                                     <tr>
@@ -684,99 +686,21 @@
                                       <th scope="col">취득일</th>
                                       <th scope="col">자격증명</th>
                                       <th scope="col">만료일</th>
+                                      <th scope="col" style="display: none;">번호</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <!-- LIST -->
-                                    <tr>
+                                    <tr th:each="lic : ${licenseList}">
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
                                             id="import_2161003_1623578366378" onclick="doOpenCheck(this)"; /><label class="lbl hide"
                                             for="import_2161003_1623578366378"></label></span>
                                       </td>
-                                      <td>2021.08</td>
-                                      <td>컴퓨터그래픽스운용기능사</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)"; /><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)"; /><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)";/><label class="lbl hide"
-                                            for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
+                                      <td th:text="${lic.getLic_date()}" ></td>
+                                      <td th:text="${lic.getLic_name()}" ></td>
+                                      <td th:text="${lic.getLic_due_date()}">2021.08</td>
+                                      <td th:text="${lic.getLic_num()}" style="display: none;">번호</td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -822,7 +746,7 @@
               </section>
             </div>
 
-            <div id="flFieldset_main" style="display:none;" disabled>
+            <div id="flFieldset_main" style="display:none;" >
 
               <section class="form" id="어학">
 

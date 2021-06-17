@@ -472,7 +472,7 @@
             </div>
 
 
-            <div id="awardFieldset_main" style="display:none;" disabled th:if="${cv.getAwards()} != null">
+            <div id="awardFieldset_main" style="display:none;" disabled >
               <section class="form" id="경력사항">
                 <p class="legend">수상경력</p>
                 <div class="item_award">
@@ -660,7 +660,7 @@
             </div>
 
             <!-- <fieldset id="" style="display:none;" disabled> -->
-            <div id="licFieldset_main" style="display:none;" disabled th:if="${cv.getCertificate()} != null">
+            <div id="licFieldset_main" style="display:none;" disabled>
               <section class="form" id="자격증">
 
                 <p class="legend">자격증</p>
@@ -847,7 +847,7 @@
               </section>
             </div>
 
-            <div id="flFieldset_main" style="display:none;" disabled th:if="${cv.getLanguage()} != null">
+            <div id="flFieldset_main" style="display:none;" >
 
               <section class="form" id="어학">
 
@@ -1049,16 +1049,16 @@
   <script src="/js/cv_modify_option.js"></script>
   <script src="/js/s1_index.js"></script>
   <script th:inline="javascript">
-   /*  [#th: if = "${cv.getEducation()}"] */
-    document.querySelector("#btn1").click();
+   /*  [#th: if = "${cv.getEducation()} === null"] */
+        document.querySelector("#btn1").click();
     /* [/] */
 
     /* [#th: if = "${cv.getCv_hobby()}"] */
-    document.querySelector("#btn2").click();
+        document.querySelector("#btn2").click();
     /* [/] */
 
     /* [#th: if = "${cv.getAwards()}"] */
-    document.querySelector("#btn3").click();
+        document.querySelector("#btn3").click();
     /* [/] */
 
     /* [#th: if = "${cv.getCv_verteran()} !='0'"] */

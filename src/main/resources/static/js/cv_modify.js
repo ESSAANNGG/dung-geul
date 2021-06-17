@@ -3,6 +3,26 @@ let modify = {
     $('#submit').on('click', event => {
       event.preventDefault();
       alert('modify실행');
+      let a = document.querySelectorAll('input');
+      for (let i = 0; i < a.length; i++) {
+        if (a[i].value == '') {
+          a[i].disabled = true;
+        }
+      }
+
+      let b = document.querySelectorAll('select');
+      for (let i = 0; i < b.length; i++) {
+        if (b[i].value == '') {
+          b[i].disabled = true;
+        }
+      }
+
+      let c = document.querySelectorAll('textarea');
+      for (let i = 0; i < c.length; i++) {
+        if (c[i].value == '') {
+          c[i].disabled = true;
+        }
+      }
       this.save();
     });
   },
@@ -22,10 +42,10 @@ let modify = {
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
       success: function (result) {
-        if(result == 1){
+        if (result == 1) {
           alert('이력서 수정이 완료되었습니다.');
           location.href = '/application/cv/read';
-        }else{
+        } else {
           alert('이력서 수정을 실패했습니다. 다시 작성해주세요.');
         }
       },

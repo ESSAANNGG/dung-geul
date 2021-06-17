@@ -77,7 +77,7 @@ public class ApplicationController {
         List<CertificateDTO> certificateDTOList = licenseService.getLicenseList(id);
 
         model.addAttribute("loginUser", member);
-        model.addAttribute("licenseList" + certificateDTOList);
+        model.addAttribute("licenseList" , certificateDTOList);
 
     }
 
