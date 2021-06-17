@@ -203,6 +203,13 @@ $('.list_submit').click(function(){
         ($('input[name=' + check_name + ']').eq(checked)).prop("checked", false);                                       //해당하는 인덱스의 체크 해제 < 이걸 해야 바로 위 문장의 인덱스가 1씩 늘어나서 다음 체크된 것들에 대해 수행할 수 있음
         window[String(menu_name)+"_list"]();                                                                                  //data를 담는 함수 호출
     }
+    alert(dataList);
+    alert(List);
+    alert(ListNum);
+    alert(ListId);
+    alert(check_name);
+
+
     if(dataList.length!=0){                                 //넘어온 값이 없을 시 수행하지 않음
 
         alert(JSON.stringify(dataList)+"선택된 값들입니다");   //디버깅
