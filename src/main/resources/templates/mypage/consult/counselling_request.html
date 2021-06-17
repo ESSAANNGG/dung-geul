@@ -187,7 +187,23 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr th:each="con : ${conlist}">
+                                                <tr class="enter" th:each="con : ${conlist}">
+                                                    <th scope="row">[[${con.consult_num}]]</th>
+                                                    <td>[[${con.con_user_name}]]</td>
+                                                    <td>[[${con.type}]]</td>
+                                                    <td>[[${con.name}]]</td>
+                                                    <td>[[${con.consult_date}]]</br>[[${con.consult_time}]]</td>
+                                                    <td><input type="checkbox" class="check"></td>
+                                                </tr>
+                                                <tr class="ok" th:each="con : ${conlist}">
+                                                    <th scope="row">[[${con.consult_num}]]</th>
+                                                    <td>[[${con.con_user_name}]]</td>
+                                                    <td>[[${con.type}]]</td>
+                                                    <td>[[${con.name}]]</td>
+                                                    <td>[[${con.consult_date}]]</br>[[${con.consult_time}]]</td>
+                                                    <td><input type="checkbox" class="check"></td>
+                                                </tr>
+                                                <tr class="no" th:each="con : ${conlist}">
                                                     <th scope="row">[[${con.consult_num}]]</th>
                                                     <td>[[${con.con_user_name}]]</td>
                                                     <td>[[${con.type}]]</td>
