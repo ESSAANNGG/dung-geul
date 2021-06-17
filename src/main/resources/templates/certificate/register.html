@@ -22,11 +22,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="../../static/css/certificate_register.css" />
-    <link rel="stylesheet" href="../../static/css/menu-common2.css" />
-    <link rel="stylesheet" href="../../static/css/frame.css" />
-    <link rel="stylesheet" href="../../static/css/footer.css" />
-    <link rel="stylesheet" href="../../static/css/nav.css" />
+    <link rel="stylesheet" href="/css/certificate_register.css" />
+    <link rel="stylesheet" href="/css/menu-common2.css" />
+    <link rel="stylesheet" href="/css/frame.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
     <script defer src="/js/nav.js"></script>
     <script defer src="/js/certificate.js"></script>
 
@@ -54,8 +54,8 @@
                                     <li id="menu_con1">
                                         <h4>수료증</h4>
                                         <ul id="sb_detail">
-                                            <li><a>수료증 목록</a></li>
-                                            <li><a>수료증 등록</a></li>
+                                            <li><a href="/certificate/list">수료증 목록</a></li>
+                                            <li><a href="/certificate/register">수료증 등록</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -66,11 +66,9 @@
 
                 <div class="employ_register" id="employ_register1">
                     <div class="content">
-
+                         <form action="POST" autocomplete="off" enctype="multipart/form-data">
                         <input name="em_id" id="member_id" title="em_id" th:value="${{memberDTO.getUser_id()}}"
                             style="display: none;" />
-
-                        <form action="POST" autocomplete="off" enctype="multipart/form-data">
                             <div style="font-size:26px; margin:30px; color: black;">
                                 수료증
                             </div>
@@ -81,18 +79,18 @@
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">교육 과정</label>
-                                    <input class="formInput" id="certificateDate" type="text" name="" id="" style="width:350px">
+                                    <input class="formInput" id="certificateDate" type="text"  style="width:350px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">교육 날짜</label>
-                                    <input class="formInput" id="certificateStartDate" type="date" name="" id="" style="width:164px">
+                                    <input class="formInput" id="certificateStartDate" type="date"  style="width:164px">
                                     <span>  ⁓  </span>
-                                    <input class="formInput" id="certificateEndDate" type="date" name="" id="" style="width:164px">
+                                    <input class="formInput" id="certificateEndDate" type="date"  style="width:164px">
 
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">파일 찾기</label>
-                                    <input class="formInput" id="certificateFile" type="file" name="" id="" style="border: none; display: inline-block;" >
+                                    <input class="formInput" id="certificateFile" type="file" style="border: none; display: inline-block;" >
                                 </div>
                             </div>
 

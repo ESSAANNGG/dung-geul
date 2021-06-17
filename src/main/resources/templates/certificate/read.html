@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
+    <script th:async src="/js/Introduce.js"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="/css/menu-common2.css" />
+    <link rel="stylesheet" href="/css/frame.css" />
+    <link rel="stylesheet" href="/css/introduce_read.css" />
+
+    <title>영진전문대 자기소개서</title>
+</head>
+
+<body>
+    <input id="Intro_num" name="Intro_num" th:value="${dto.num}" style="display: none" />
+
+    <div th:replace="layout/layout :: nav" />
+
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="sidebar">
+                        <div class="menu2">
+                            <div id="bar">
+                                <h2>수료증 관리</h2>
+                                <ul id="menu_bar">
+                                    <li id="menu_con1">
+                                        <h4>수료증</h4>
+                                        <ul id="sb_detail">
+                                            <li><a href="/certificate/list">수료증 목록</a></li>
+                                            <li><a href="/certificate/register">수료증 등록</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div> <!-- bar -->
+                        </div> <!-- menu -->
+                    </div>
+                </div>
+                <div class="col-9 col-12-medium imp-medium">
+                    <div id="head_wrap">
+                        <h1 id="em_title">수료증 명</h1>
+                    </div>
+
+                    <div class="base_wrap">
+                        <li class="category">
+                            <h5>수료증명</h5>
+                        </li>
+                        <li class="data" id="em_ot">
+                            수료증명
+                        </li>
+
+                        <li />
+                    </div>
+                    <div class="base_wrap">
+                        <li class="category">
+                            <h5>교육 과정</h5>
+                        </li>
+                        <li class="data" id="em_ot">
+                            교육과정
+                        </li>
+
+                        <li />
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="submit_btn">
+                            <a th:href="@{/certificate/modify(num = ${dto.num})}">
+                                <button type="button">수정하기</button>
+                            </a>
+                            <button class="boxed-btn3" id="certificateRemove" name="IntroRemove" type="submit">
+                                삭제
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer -->
+
+    <footer th:replace="layout/layout :: footer" />
+</body>
+
+</html>
