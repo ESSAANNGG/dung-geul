@@ -314,12 +314,12 @@ blockquote {
   font-style: italic;
 }
 
-p,
+/* p,
 ul,
 ol,
 dl {
   margin-bottom: 3em;
-}
+} */
 
 .triangle {
   list-style-type: disclosure-closed;
