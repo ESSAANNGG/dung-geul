@@ -12,6 +12,17 @@ function selectAll()  {
             check=false;
         }
 }
+let check;
+function checkAll(checkI) {
+    let checkName=(checkI.name);                                      //체크한 부모체크박스의 이름을 가져옴 ex)2_1_checkH
+    check=(checkName.substr(0,9));                        //부모체크박스의 name중 h를 떼어 자식name으로 변경
+    if($('input[name='+checkName+']').is(':checked')==true){          //자식 checkBox에 check적용
+        $('input[name='+check+']').prop("checked",true);
+    }
+    else if($('input[name='+checkName+']').is(':checked')==false) {
+        $('input[name=' + check + ']').prop("checked", false);
+    }
+}
 
 $(document).ready(function(){
     $("#delete").click(function() {
