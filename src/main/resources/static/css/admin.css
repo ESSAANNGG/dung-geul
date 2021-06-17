@@ -400,6 +400,9 @@ a{
 .s240{
     width:240px;
 }
+.s250{
+    width:250px;
+}
 .s270{
     width:270px;
 }
@@ -420,6 +423,9 @@ a{
 }
 .s650{
     width:650px;
+}
+.s960{
+    width:960px;
 }
 .shape{
     z-index:1;

@@ -28,45 +28,7 @@
 <body>
 
 <!--모달효과 줄것들은 따로 뺴놓습니다-->
-<div id="main2_detail">
-  <!-- 회원 관리 > 상세 정보 -->
-  <!-- 상담사상세정보 -->
-  <div class="detailBox" id="detail_counselor">
-    <div class="d_role"><i class="fas fa-hands-helping"></i></div>
-    <div class="d_box">
-      <div class="d_tagN">이름</div>
-      <input type="text" class="d_cont" value="이름" readonly>
-    </div>
-    <div class="d_box">
-      <div class="d_tagN">아이디</div>
-      <input type="text" class="d_cont" value="아이디" readonly>
-    </div>
-    <div class="d_box">
-      <div class="d_tagN">비밀번호</div>
-      <input type="text" class="d_cont" value="비밀번호">
-    </div>
-    <div class="d_box">
-      <div class="d_tagN">전화번호</div>
-      <input type="text" class="d_cont" value="전화번호" readonly>
-    </div>
-    <div class="d_box">
-      <div class="d_tagN">주소</div>
-      <input type="text" class="d_cont" value="주소" readonly>
-    </div>
-    <div class="d_box">
-      <div class="d_tagN">이메일</div>
-      <input type="text" class="d_cont" value="이메일" readonly>
-    </div>
-    <div class="d_box">
-      <div class="d_tagN">가입일</div>
-      <input type="text" class="d_cont" value="회원가입일" readonly>
-    </div>
-    <div class="d_btn">
-      <button class="d_button" name="d_button">수정</button>
-      <button class="d_button">삭제</button>
-    </div>
-  </div>
-
+<div id="main6_detail">
   <!-- 상담목록상세정보 -->
   <div class="detailBox" id="detail_consult">
     <div class="d_role"><i class="fas fa-hands-helping"></i></div>
@@ -111,7 +73,6 @@
         <ul class="guide">상담관리 |
           <select class="guide_select">
             <option>상담관리</option>
-            <option>상담사</option>
             <option>상담등록</option>
           </select>
         </ul>
@@ -183,64 +144,6 @@
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="main6" id="main6_counselor">
-          <!--상담관리 > 상담사-->
-          <div id="main6_counselor_list">
-            <!--상담관리 > 상담사 > 상담사리스트-->
-            <div class="sub_menu_title">
-              <h3>상담사리스트</h3>
-            </div>
-            <div class="list">
-              <div class="list_head">
-                                    <span class="check"><input type="checkbox" name="6_2_checkH"
-                                                               onclick="checkAll(this)"></span>
-                <span class="number s100">번호</span>
-                <span class="name s180">이름</span>
-                <span class="username s400">아이디</span>
-                <span class="phone s240">연락처</span>
-                <span class="email s430">이메일</span>
-                <span class="role s160">권한</span>2
-              </div>
-              <div class="list_body" th:each="con,i : ${counselorList}" onclick="detail(this)">
-                <span class="check"><input type="checkbox" name="6_2_check"></span>
-                <span class="number s100">[[${i.count}]]</span>
-                <span class="name s180">[[${con.getUser_name()}]]</span>
-                <span class="username s400">[[${con.getUser_id()}]]</span>
-                <span class="phone s240">[[${con.getUser_ph()}]]-[[${con.getUser_ph2()}]]-[[${con.getUser_ph3()}]]</span>
-                <span class="email s430">[[${con.getUser_email()}]]@[[${con.getUser_emailDomain()}]]</span>
-                <span class="role s160">[[${con.getUser_type()}]]</span>
-              </div>
-              <div class="list_button">
-                <button class="list_submit">삭제</button>
-              </div>
-            </div>
-          </div>
-          <div id="main6_counselorCharge">
-            <!--상담관리 > 상담사 > 담당 학생-->
-            <div class="sub_menu_title">
-              <h3>담당학생(넣을지말지고민중)</h3>
-            </div>
-            <div class="list">
-              <div class="list_head">
-                                    <span class="check"><input type="checkbox" name="6_3_checkH"
-                                                               onclick="checkAll(this)"></span>
-                <span class="student_number">학번</span>
-                <span class="name">이름</span>
-                <span class="name">상담 프로그램명</span>
-                <span class="state">상태</span>
-                <span class="shape">보고서</span>
-              </div>
-              <div class="list_body" onclick="detail(this)">
-                <span class="check"><input type="checkbox" name="6_3_check"></span>
-                <span class="student_number">학번</span>
-                <span class="name">이름</span>
-                <span class="name">상담 프로그램명</span>
-                <span class="state">상태</span>
-                <span class="shape">보고서</span>
               </div>
             </div>
           </div>
