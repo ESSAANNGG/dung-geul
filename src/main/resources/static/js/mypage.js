@@ -8136,6 +8136,7 @@ function selectAll(){
 
 
 //상담사 상담
+let p;
 $('.btn-q').click(function(){
     p=$(this).text();
     switch (p) {
