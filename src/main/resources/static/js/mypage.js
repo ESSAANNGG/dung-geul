@@ -8134,7 +8134,18 @@ function selectAll(){
         }
 }
 
+
+//상담사 상담
 $('.btn-q').click(function(){
+    p=$(this).text();
+    switch (p) {
+        case "삭제":
+            p="no";
+            break;
+        case "승인":
+            p="ok";
+            break;
+    }
     ajax_list=[];
     checked_length=$('.check:checked').length;
     for(i = 0; i < checked_length; i++){
