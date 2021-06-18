@@ -1,9 +1,9 @@
-@import "reset.css";
-@import "common.css";
+@import 'reset.css';
+@import 'common.css';
 
 body {
   background: #f4f7f8;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 #school-member_category {
@@ -24,7 +24,8 @@ h3 {
 .radio {
   border: 0.3px solid #cfcecebd;
   padding: 10px 10px 10px 100px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 70px;
   border-radius: 8px;
   background-color: #cfcecebd;
 }
