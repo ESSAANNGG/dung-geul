@@ -4,6 +4,7 @@
 body {
   background: #f4f7f8;
   font-family: 'Nunito', sans-serif;
+  height: 100vh;
 }
 
 #school-member_category {
@@ -23,11 +24,13 @@ h3 {
 
 .radio {
   border: 0.3px solid #cfcecebd;
-  padding: 10px 10px 10px 100px;
+  padding: 10px 10px 10px 10px;
   margin-top: 40px;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
   border-radius: 8px;
   background-color: #cfcecebd;
+  display: flex;
+  justify-content: space-around;
 }
 
 .radio:hover {
@@ -64,4 +67,8 @@ label > p {
   font-size: 18px;
   font-weight: bold;
   color: aliceblue;
+}
+
+img {
+  width: 150px;
 }
