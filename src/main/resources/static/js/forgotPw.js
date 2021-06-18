@@ -1,8 +1,8 @@
 let find = {
     init: function () {
-        alert("로드 성공");
+        console.log("로드 성공");
         $("#findPwBtn").on("click", () => {
-            alert("findPw() 실행");
+            console.log("findPw() 실행");
             this.findPw();
         });
     },
@@ -14,7 +14,6 @@ let find = {
         };
 
         console.log(JSON.stringify(userData));
-        alert(JSON.stringify(userData));
 
         $.ajax({
             type: "post",
@@ -27,7 +26,8 @@ let find = {
                 console.log(result);
 
                 if(result == 1){
-                    alert("수정 성공");
+                    alert("임시 비밀번호 발급이 완료되었습니다.\n로그인 페이지로 이동합니다.");
+
                     location.href = "/mypage/member/read";
                 } else{
                     alert("회원정보 찾기에 실패했습니다.\n아이디와 이메일을 다시 확인해주세요.");

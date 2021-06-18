@@ -1,8 +1,8 @@
 let findID = {
     init: function () {
-        alert("로드 성공");
+        console.log("로드 성공");
         $("#findIdBtn").on("click", () => {
-            alert("findId() 실행");
+            console.log("findId() 실행");
             this.findId();
         });
     },
@@ -14,7 +14,6 @@ let findID = {
         };
 
         console.log(JSON.stringify(userData));
-        alert(JSON.stringify(userData));
 
         $.ajax({
             type: "post",
