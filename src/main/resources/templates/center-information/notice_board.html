@@ -76,7 +76,7 @@
                                  <a th:href="@{/center-information/notice_board_read(num = ${dto.num}, page= ${result.page})}">
                                  <span class="number"><h4>[[${dto.num}]]</h4></span>
                                  <span class="title"><h4>[[${dto.title}]]</h4></span>
-                                 <span class="writer"><h4>[[${dto.b}]]</h4></span>
+                                 <span class="writer"><h4>관리자[[${dto.b}]]</h4></span>
                                  <span class="date"><h4>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</h4></span>
                                  </a>
                              </div>

@@ -37,12 +37,12 @@ public class EnterpriseRepositoryTest {
         for (int i = 0; i < 15; i++) {
 
             Member m = Member.builder()
-                    .user_id("etpmember" + i)
+                    .user_id("enterprise" + i)
                     .user_pw(pw)
                     .user_ph("010")
                     .user_ph2("2063")
                     .user_ph3("5065")
-                    .user_name("기업담당자" + i)
+                    .user_name("스토브 잡스" + i)
                     .user_type("ENTERPRISE")
                     .user_allow(0)
                     .user_postcode("45645")
@@ -60,18 +60,18 @@ public class EnterpriseRepositoryTest {
 
                 Enterprise e = Enterprise.builder()
                         .user_id(m)
-                        .etp_name("기업이름" + i)
+                        .etp_name("(주)삼촌전자" + i)
                         .etp_num("11111" + i)
-                        .etp_ceo_name("대표" + i)
+                        .etp_ceo_name("재.Dragon" + i)
                         .etp_ph("010")
-                        .etp_ph2("2033")
-                        .etp_ph3("4055")
-                        .etp_fx("11112222")
-                        .etp_home("http:www.기업" + i + ".com")
-                        .etp_contents("기업 주요 설명 기업 주요 설명 기업 주요 설명")
+                        .etp_ph2("1234")
+                        .etp_ph3("5678")
+                        .etp_fx("053-940-5117")
+                        .etp_home("https:/www.apple" + i + ".com")
+                        .etp_contents("가전제품 판매업")
                         .etp_year(LocalDate.of(1998, 05, 21))
                         .etp_member(21 + i)
-                        .etp_sector("IT")
+                        .etp_sector("가전제품 판매업")
                         .build();
 
                 enterpriseRepository.save(e);

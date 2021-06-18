@@ -80,7 +80,7 @@ public class CenterInformationController {  // 센터정보 컨트롤러
 
         redirectAttributes.addFlashAttribute("msg", num);
 
-        return "redirect:/center-information/notice_board"; // 작성이 끝나면 공시사항 게시판 페이지로 redirect 해준다.
+        return "redirect:/admin/admin_board"; // 작성이 끝나면 게시판 관리 페이지로 redurect 해준다
     }
 
     @GetMapping({"/notice_board_read", "/notice_board_modify"}) // 매핑을 배열로 두개 처리
