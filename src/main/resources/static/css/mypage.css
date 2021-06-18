@@ -9370,7 +9370,7 @@ a:hover .caret-white {
     -webkit-overflow-scrolling: touch;
   }
   ::-webkit-scrollbar {
-    width: 7px;
+    /* width: 7px; */
     height: 7px;
   }
   ::-webkit-scrollbar-thumb {

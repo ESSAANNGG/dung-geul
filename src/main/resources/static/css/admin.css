@@ -618,11 +618,9 @@ a{
 
 /*지원프로그램 분류 select*/
 select[name="division"]{
-    visibility: hidden;
+    display:none;
 }
-select[name="division"]:nth-child(1){
-    visibility: visible;
-}
+
 /*main2_회원통계chart*/
 #container{
     width:1550px;

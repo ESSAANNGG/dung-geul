@@ -528,7 +528,7 @@
                     <div class="preferentialTreatment">
                       <input type="checkbox" style="zoom:1.5;" name="cv_verteran" value='1' id="cv_verteran"
                         onClick="checkVerteran()" th:attr="checked=${cv.getCv_verteran() == 1 ? 'true' : 'false'}" />
-                      <input type="hidden" name="cv_verteran" value='0' id="cv_verteran_hidden" />
+                      <input type="checkbox" name="cv_verteran" value='0' id="cv_verteran_hidden" style="display: none;" th:attr="checked=${cv.getCv_verteran() == 1 ? 'false' : 'true'}" />
                     </div>
 
                   </div>
@@ -1095,20 +1095,21 @@
       document.querySelector("#btn7").click();
     }
 
-    if(verteran != "/* 0 */"){
+    if(verteran || disability || military != "/* 0 */" ){
       document.querySelector("#btn4").click();
+    }
+
+    if(verteran != "/* 0 */"){
       document.querySelector('#verteran_div').classList.replace('common_div', 'common_div_blue');
     }
 
     if(disability != "/* 0 */"){
-      document.querySelector("#btn4").click();
       document.querySelector('#disability_div').classList.replace('common_div', 'common_div_blue');
       document.querySelector('#info-extra').style = 'display:block';
       document.querySelector('#disability-value').style = 'display:block';
     }
 
     if(military != "/* 0 */"){
-      document.querySelector("#btn4").click();
       document.querySelector('#military_div').classList.replace('common_div', 'common_div_blue');
       document.querySelector('#info-extra').style = 'display:block';
       document.querySelector('#military-value').style = 'display:block';

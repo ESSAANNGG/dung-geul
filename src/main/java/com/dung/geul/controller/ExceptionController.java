@@ -22,12 +22,12 @@ public class ExceptionController {
     @ResponseStatus(HttpStatus.FORBIDDEN) // 403
     @ExceptionHandler(DataIntegrityViolationException.class)
     public String forbidden() {
-        return "error/error";
+        return "error/403";
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 500
     @ExceptionHandler({NullPointerException.class, ClassNotFoundException.class, IndexOutOfBoundsException.class})
     public String serverError() {
-        return "error/error";
+        return "error/403";
     }
 }
