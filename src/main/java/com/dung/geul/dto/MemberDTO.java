@@ -50,6 +50,7 @@ public class MemberDTO {
 
     private String regDate;
 
+
     public MemberDTO(String user_id, String user_name, String user_ph, String user_ph2, String user_ph3,
                      String user_postcode, String user_addr, String user_addr_details, String user_email,
                      String user_emailDomain, int user_allow, String user_dept, String user_grade,

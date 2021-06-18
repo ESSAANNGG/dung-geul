@@ -6,6 +6,8 @@ import com.dung.geul.service.MemberServiceImpl;
 import lombok.extern.log4j.Log4j2;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -69,27 +71,42 @@ public class MemberRestController {
     }
 
     // 아이디 찾기
+
     @PostMapping("/forgot/id")
-    public String findId(@RequestBody MemberDTO memberDTO) {
-        System.out.println("memberRestController의 findId() 실행");
-        System.out.println("memberDTO = " + memberDTO);
+    public ResponseEntity<?> findId(@RequestBody MemberDTO memberDTO) {
 
-        String email = memberDTO.getUser_email();
+        try {
+            System.out.println("memberRestController의 findId() 실행");
+            System.out.println("memberDTO = " + memberDTO);
 
-        String[] emails = email.split("@");
+            String email = memberDTO.getUser_email();
 
-        String name = memberDTO.getUser_name();
+            String[] emails = email.split("@");
 
-        log.info("emails" + emails[0] + emails[1]);
+            String name = memberDTO.getUser_name();
 
-        String id = memberService.confirmNameAndEmail(name, emails[0], emails[1]);    //return 성공 = user_id / 실패 = null
+            log.info("emails[0] : " + emails[0]);
+            log.info("emails[1] : " + emails[1]);
+            log.info("name : " + name);
+            String id = memberService.confirmNameAndEmail(name, emails[0], emails[1]);    //return 성공 = user_id / 실패 = null
+            log.info("name : " + name);
+            log.info("일치하는 id : " + id);
+            MemberDTO response  =  new MemberDTO();
+            response.setUser_id(id);
 
-        // 아이디와 이메일이 일치하는 DB값 없으면 0 반환
-        if (id == null) {
-            id = "0";
+            // 아이디와 이메일이 일치하는 DB값 없으면 0 반환
+            if (id == null) {
+                return new ResponseEntity<>("bad request", HttpStatus.BAD_REQUEST);
+            }
+
+            log.info("return id : " + id);
+
+            return new ResponseEntity<>(response, HttpStatus.OK);
+
+        }catch (Exception e){
+            System.out.println(e);
+            return new ResponseEntity<>("bad request", HttpStatus.BAD_REQUEST);
         }
-
-        return id;
     }
 
 

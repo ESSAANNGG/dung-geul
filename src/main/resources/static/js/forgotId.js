@@ -24,18 +24,19 @@ let findID = {
             dataType: "json",
             success : function (result) {
 
-                console.log(result);
-
+                console.log('result : ' + result.user_id);
+                alert(result);
                 if(result =='0'){
                     alert("회원정보 찾기에 실패했습니다.\n이름과 이메일을 다시 확인해주세요.");
                 } else{
-                    alert("당신의 이메일은" + result);
+                    alert("당신의 아이디는" + result.user_id);
                     location.href = "/login";
                 }
-
             },
             error : function (err) {
-                alert("회원정보 찾기에 실패했습니다.\n이름과 이메일을 다시 확인해주세요.");
+                console.log(err);
+                alert(err);
+                alert("오류 발생.\n이름과 이메일을 다시 확인해주세요.");
             }
         })
     }
