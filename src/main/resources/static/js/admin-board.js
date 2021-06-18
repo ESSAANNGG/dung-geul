@@ -1,12 +1,12 @@
 //게시판관리 전용 js파일
 
 function board(){
-    parameter="/admin/admin_board";
+    parameter="/admin/admin_board?";
 }
 
 function board_guide(){
     switch (guide_val) {
-        case "미구현" : parameter="/admin/admin_board";
+        case "미구현" : parameter="/admin/admin_board?";
             break;
     }
 }
@@ -52,24 +52,16 @@ function board_search(i){
     alert("board");
     if(search_val!=""){                                                 //input값이 있다면 파라미터를 설정
 
-        // switch (i) {
-        //     case 0: //권한은 타입이 기본적으로 type=UNIV로 설정되어있음 그래서 문자열함수로 기존파라미터에서 변경
-        //         parameter = parameter.replace("&type=UNIV", "");
-        //         search_val = "&type=" + search_val;
-        //         break;
-        //     case 1:
-        //         search_val = "&name=" + search_val;
-        //         break;
-        //     case 2:
-        //         search_val = "&id=" + search_val;
-        //         break;
-        //     case 3:
-        //         search_val = "&startDate=" + search_val;
-        //         break;
-        //     case 4:
-        //         search_val = "&endDate=" + search_val;
-        //         break;
-        // }
+        switch (i) {
+            case 0:
+                search_val = "&type=t&keyword=" + search_val;
+                alert(search_val);
+                break;
+            case 1:
+                // search_val = "&name=" + search_val;
+                alert("날짜는 아직 안함");
+                break;
+        }
     }
 
     if(search_parameter==undefined){
@@ -78,7 +70,6 @@ function board_search(i){
     else {
         search_parameter = search_parameter + search_val;
     }
-
 }
 
 function detail_on_board(board_num){
