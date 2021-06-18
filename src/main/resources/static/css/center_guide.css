@@ -313,12 +313,12 @@ blockquote {
   font-style: italic;
 }
 
-p,
+/* p,
 ul,
 ol,
 dl {
   margin-bottom: 3em;
-}
+} */
 
 .square {
   list-style-type: square;
@@ -3288,5 +3288,4 @@ form ::-moz-focus-inner {
 .submit_btn {
   margin: 20px;
 }
-
 
