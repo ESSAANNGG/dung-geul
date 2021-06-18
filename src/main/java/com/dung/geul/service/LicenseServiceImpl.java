@@ -36,7 +36,9 @@ public class LicenseServiceImpl implements LicenseService{
     @Override
     public PageResultDTO<CertificateDTO, License> getLicensePage(String user_id, PageRequestDTO pageRequestDTO) {
 
+        System.out.println("getLicensePage 시작" );
         Member member = memberRepository.getOne(user_id);
+        System.out.println("member : " + member);
 
         Pageable pageable = pageRequestDTO.getPageable(Sort.by("licNum").descending());
 

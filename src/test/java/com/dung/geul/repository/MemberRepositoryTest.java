@@ -18,54 +18,27 @@ public class MemberRepositoryTest {
     @Autowired
     private BCryptPasswordEncoder encoder;
 
-    private CVRepositoryTest cvRepositoryTest;
-
-    @Test
-    public void memberRoleRead(){
-        Member member = Member.builder()
-                .user_id("user2ID")
-                .user_addr("user1Address")
-                .user_email("user2Email")
-                .user_name("user1Name")
-                .user_ph("01020635065")
-                .user_pw("1234")
-                .user_class("userClass")
-                .user_dept("userDept")
-                .build();
-
-        member.addMemberRole(MemberRole.USER);
-        member.addMemberRole(MemberRole.STUDENT);
-
-        memberRepository.save(member);
-
-        Optional<Member> result = memberRepository.findByUser_email("user2Email");
-
-        System.out.print("Member는     " + result.get());
-
-        Optional<Member> result2 = memberRepository.findByIdWidthRole("user2ID");
-
-
-    }
-
     @Test
     public void studentInsertTest(){
 
         String pw = encoder.encode("123");
 
-        for (int i = 0; i<15; i++) {
+        String[] names = {"김경태", "김우진", "이상준", "서지현", "황하경",
+                "정혜리", "지민우", "김도엽", "김수환", "신미란"};
+
+        for (int i = 0; i<10; i++) {
             Member member = Member.builder()
-                    .user_id("student" + i)
+                    .user_id("student" + i + ((i+1)/7))
                     .user_pw(pw)
-                    .user_name("김수환"+i)
+                    .user_name(names[i])
                     .user_ph("010")
-                    .user_ph2("1234")
-                    .user_ph3("3333")
+                    .user_ph2("123" + i)
+                    .user_ph3("986"+ i)
                     .user_postcode("23445")
-                    .user_addr("대구 북구 칠곡 중앙대로 " + i + "길" + i)
-                    .user_addr_details("가동 "+i +"호")
-                    .user_email("yamyam")
+                    .user_addr("대구광역시 북구 경진로 12길 24")
+                    .user_addr_details("E편한세상 " + i + "동 " + i + "01호")
+                    .user_email("cos850")
                     .user_emailDomain("naver.com")
-//                    .user_addr("userAddress")
                     .user_dept("컴퓨터정보계열")
                     .user_class("WD-A")
                     .user_type("STUDENT")
@@ -76,7 +49,7 @@ public class MemberRepositoryTest {
 
             memberRepository.save(member);
 
-            System.out.println("회원 한명 추가 id : userID" + i + " , pw : 123");
+            System.out.println("회원 한명 추가 id : student" + i + " , pw : 123");
         }
 
     }
@@ -106,7 +79,7 @@ public class MemberRepositoryTest {
 
         memberRepository.save(member);
 
-        System.out.println("회원 한명 추가 id : userID, pw : 1111");
+        System.out.println("회원 한명 추가 id : con1, pw : 123");
     }
 
     @Test
@@ -120,12 +93,12 @@ public class MemberRepositoryTest {
                 .user_ph("010")
                 .user_ph2("2063")
                 .user_ph3("5065")
-                .user_email("admin@email")
-                .user_emailDomain("com")
+                .user_email("admin")
+                .user_emailDomain("email.com")
 
                 .user_postcode("41521")
                 .user_addr("대구광역시 북구 복현로36길 32-13")
-                .user_addr_details("상세주소입니다아아")
+                .user_addr_details("사랑채 302호")
                 .user_type("ADMIN")
                 .user_allow(1)
                 .build();
@@ -136,7 +109,7 @@ public class MemberRepositoryTest {
         memberRepository.save(member);
 
 
-        System.out.println("회원 한명 추가 id : admin1, pw : 123");
+        System.out.println("회원 한명 추가 id : admin, pw : 123");
 
     }
 
@@ -145,17 +118,6 @@ public class MemberRepositoryTest {
 
         System.out.println(memberRepository.findByIdWidthRole("member1ID"));
     }
-
-//    @Test
-//    public void findNameAndEmail(){
-//
-//        String member = memberRepository.findByUser_emailAndUser_name("123@aaa.bbb", "123");
-//
-//        System.out.println(member);
-//
-//        System.out.println();
-//
-//    }
 
     @Test
     public void findEmail(){

@@ -72,7 +72,7 @@
                             </ul>
                             <ul class="test">
                                 <li class="post_end_date" style="padding-right: 20px; font-size: 15px; "
-                                    th:text="'작성일'+' '+ ${#temporals.format(dto.getRegDate(), 'YYYY-MM-dd ')}">작성일
+                                    th:text="'작성일'+' '+ ${dto.getRegDate()}">작성일
                                 </li>
                                 <!-- 삭제버튼 -->
                                 <a th:href="@{/license/delete(num=${dto.getLic_num()})}">

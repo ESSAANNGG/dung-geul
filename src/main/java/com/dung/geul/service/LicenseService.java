@@ -5,9 +5,12 @@ import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.License;
 import com.dung.geul.entity.Member;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public interface LicenseService {
@@ -26,14 +29,19 @@ public interface LicenseService {
 
     default CertificateDTO entityToDto(License entity){
 
+        System.out.println("License : " + entity);
+
         CertificateDTO dto = CertificateDTO.builder()
                 .lic_num(entity.getLicNum())
                 .lic_name(entity.getLicName())
                 .lic_date(entity.getLicDate())
                 .lic_due_date(entity.getLicDueDate())
-                .regDate(entity.getRegDate())
                 .user_id(entity.getMember().getUser_id())
                 .build();
+
+        dto.setRegDate(entity.getRegDate());
+
+        System.out.println(entity.getRegDate());
 
         return dto;
     }

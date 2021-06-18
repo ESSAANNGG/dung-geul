@@ -1,10 +1,13 @@
 package com.dung.geul.dto;
 
 import lombok.*;
+import org.apache.tomcat.jni.Local;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Data
 @AllArgsConstructor
@@ -23,10 +26,26 @@ public class CertificateDTO {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate lic_due_date;     // 만료일
 
-    private LocalDateTime regDate;
+    private String regDate;
 
     private String user_id;
 
     private int inCv;
 
+    public void setRegDate(LocalDateTime regDate) {
+
+        String stringRegDate = null;
+
+        System.out.println("SetRegDate : " + regDate);
+
+        LocalDate localDate = regDate.toLocalDate();
+
+        if(regDate != null){
+            stringRegDate = localDate.toString();
+
+            System.out.println("stringRegDate : " + stringRegDate);
+        }
+
+        this.regDate = stringRegDate;
+    }
 }
