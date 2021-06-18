@@ -87,8 +87,7 @@ $('.guide_select').change(function(){
 let search_parameter; //parameter+search될시 사용하는 파라미터를 이용할 시에 search를 연속할 시 여러번 눌러짐 그래서 search할 시 사용되는 parameter는 따로 저장
 function submit_param(){  //메뉴클릭,가이드메뉴 선택시 파라미터를 받은 후, 새로고침
         window.sessionStorage.setItem('parameter',parameter);
-        alert(parameter);
-        alert(search_parameter);
+        
         if(search_parameter==undefined) {
             location.href = parameter;
         }
