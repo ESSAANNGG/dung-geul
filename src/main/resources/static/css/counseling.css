@@ -14,7 +14,7 @@ time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
-    /*font-size: 100%;*/
+    font-size: 100%;
     /*font: inherit;*/
     vertical-align: baseline;
 }
@@ -82,8 +82,6 @@ input, button, select {
 
 #coun-wrap {
     position: relative;
-    padding: 30px;
-    height: 100px;
     margin: 0;
     border-bottom: 1px solid #eee;
 }
@@ -112,6 +110,12 @@ h1 {
     border-radius: 3px;
     padding: 30px;
     width: 100%;
+}
+.coun-box select{
+    cursor:none;
+}
+.coun-box input{
+    cursor: none;
 }
 .clear-coun{
     display:block;
@@ -198,4 +202,12 @@ input[type=text] {
 #job-main-wrap {
     padding: 80px 0 80px;
 }
+#coun-wrap h1{
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 5px solid #f6f6f6;
+}
+
 
