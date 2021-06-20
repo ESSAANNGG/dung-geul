@@ -167,7 +167,7 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
 
     //지민우 //상담사 수정
-    @GetMapping({"/member/read", "/consult/modify"})
+    @GetMapping( "/consult/modify")
     public void mypageReadConsult(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
         Member member = memberService.getMember(authMemberDTO.getUser_id());
