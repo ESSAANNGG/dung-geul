@@ -159,10 +159,13 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
     }
 
     @GetMapping("/member/studentcoun")
-    public void stu(PageRequestDTO pageRequestDTO, Model model){
+    public void stu(PageRequestDTO pageRequestDTO, Model model,@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
         PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
         System.out.println("===내 목록 확인하기===");
         model.addAttribute("mylist", getlist.getDtoList());
+
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
+        model.addAttribute("memberDTO",member);
     }
 
 
