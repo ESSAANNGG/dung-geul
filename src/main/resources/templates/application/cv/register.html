@@ -706,28 +706,6 @@
                                       <td class="Lic_due_date" th:text="${lic.getLic_due_date()}">2021-08-07</td>
                                       <td class="Lic_num" th:text="${lic.getLic_num()}" style="display: none;">21</td>
                                     </tr>
-                                    <tr th:each="lic : ${licenseList}">
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161003_1623578366378" class="import_check" onclick="doOpenCheck(this)"; /><label class="lbl hide"
-                                            for="import_2161003_1623578366378"></label></span>
-                                      </td>
-                                      <td class="Lic_date" th:text="${lic.getLic_date()}" >2021-08-08</td>
-                                      <td class="Lic_name" th:text="${lic.getLic_name()}" >자격증이름1</td>
-                                      <td class="Lic_due_date" th:text="${lic.getLic_due_date()}">2021-08-08</td>
-                                      <td class="Lic_num" th:text="${lic.getLic_num()}" style="display: none;">20</td>
-                                    </tr> 
-                                    <tr th:each="lic : ${licenseList}">
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161003_1623578366378" class="import_check" onclick="doOpenCheck(this)"; /><label class="lbl hide"
-                                            for="import_2161003_1623578366378"></label></span>
-                                      </td>
-                                      <td class="Lic_date" th:text="${lic.getLic_date()}" >2021-10-10</td>
-                                      <td class="Lic_name" th:text="${lic.getLic_name()}" >자격증이름2</td>
-                                      <td class="Lic_due_date" th:text="${lic.getLic_due_date()}">2021-10-10</td>
-                                      <td class="Lic_num" th:text="${lic.getLic_num()}" style="display: none;">19</td>
-                                    </tr>
                                   </tbody>
                                 </table>
                               </div>

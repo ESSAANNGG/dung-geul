@@ -668,11 +668,7 @@
 
                 <p class="legend">자격증</p>
 
-                <div class="item_lic" th:each="item : ${cv.getCertificate()}">
-                  <div class="info">
-                    <input type="hidden" name="certificate[][lic_num]" th:value="${item.getLic_num()}">
-                    <!-- body overlay -->
-                    <div class="body-blackout"></div>
+                <div class="body-blackout"></div>
 
                     <!-- Modals Triggers -->
 
@@ -686,7 +682,8 @@
                           <div class="resume_data">
                             <div>
                               <div class="title_wrap" style="margin: 10px 0 3px 0">
-                                <!-- COUNT --><strong class="attach_count">총 <span>2</span>건</strong>
+                                <!-- COUNT -->
+                                <!-- <strong class="attach_count">총 <span>2</span>건</strong> -->
                               </div>
                               <div class="table_scroll">
                                 <table class="manage_list_table">
@@ -698,112 +695,33 @@
                                     <col width="140" />
                                     <col />
                                     <col width="140" />
+                                    <col / style="display:none;">
                                   </colgroup>
                                   <thead>
                                     <tr>
                                       <th scope="col">
                                         <span class="inpChk">
-                                          <input type="checkbox" name="import_all_check"
-                                            id="import_all_check_1623578366378" />
-                                          <label class="lbl hide" for="import_all_check_1623578366378">전체선택</label>
+                                          <label  for="import_all_check_1623578366378">선택</label>
                                         </span>
                                       </th>
                                       <th scope="col">취득일</th>
                                       <th scope="col">자격증명</th>
                                       <th scope="col">만료일</th>
+                                      <th scope="col" style="display: none;">번호</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <!-- LIST -->
-                                    <tr>
+                                    <tr th:each="lic : ${licenseList}">
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161003_1623578366378" onclick="doOpenCheck(this)" ; /><label
-                                            class="lbl hide" for="import_2161003_1623578366378"></label></span>
+                                            id="import_2161003_1623578366378" class="import_check" onclick="doOpenCheck(this)"; /><label class="lbl hide"
+                                            for="import_2161003_1623578366378"></label></span>
                                       </td>
-                                      <td>2021.08</td>
-                                      <td>컴퓨터그래픽스운용기능사</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
-                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
-                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
-                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
-                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
-                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
-                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
-                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161002_1623578366378" onclick="doOpenCheck(this)" ; /><label
-                                            class="lbl hide" for="import_2161002_1623578366378"></label></span>
-                                      </td>
-                                      <td>2021.07</td>
-                                      <td>컴퓨터활용능력2급</td>
-                                      <td>2021.08</td>
+                                      <td class="Lic_date" th:text="${lic.getLic_date()}" >2021-08-07</td>
+                                      <td class="Lic_name" th:text="${lic.getLic_name()}" >자격증이름0</td>
+                                      <td class="Lic_due_date" th:text="${lic.getLic_due_date()}">2021-08-07</td>
+                                      <td class="Lic_num" th:text="${lic.getLic_num()}" style="display: none;">21</td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -816,20 +734,28 @@
                         </div>
                       </div>
                     </div>
+                <div class="item_lic" th:each="item : ${cv.getCertificate()}">
+                  <div class="info">
+                    <!-- body overlay -->
+                    
                     <div class="common_div width-430">
                       <label class="absolute-label" for="">자격증 명 </label>
-                      <input class="common_input" type="text" th:value="${item.getLic_name()}"
+                      <input class="common_input licName" type="text" th:value="${item.getLic_name()}"
                         name="certificate[][lic_name]" />
                     </div>
                     <div class="common_div width-180">
                       <label class="absolute-label" for="">취득일 </label>
-                      <input class="common_input" type="date" th:value="${item.getLic_date()}"
+                      <input class="common_input licDate" type="date" th:value="${item.getLic_date()}"
                         name="certificate[][lic_date]" />
                     </div>
                     <div class="common_div width-180">
                       <label class="absolute-label" for="">만료일 </label>
-                      <input class="common_input" type="date" th:value="${item.getLic_due_date()}"
+                      <input class="common_input licDue" type="date" th:value="${item.getLic_due_date()}"
                         name="certificate[][lic_due_date]" />
+                    </div>
+                    <div class="common_div width-180" style="display: none;">
+                      <label class="absolute-label" for="">번호 </label>
+                      <input class="common_input licNum" type="number" name="certificate[][lic_num]" th:value="${item.getLic_num()}" />
                     </div>
                     <button type="button" class="btn btn-sm btn-primary popup-trigger"
                       style="margin-left:10px; vertical-align: top;">자격증 불러오기</button>

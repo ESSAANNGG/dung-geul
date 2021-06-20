@@ -25,6 +25,9 @@ let numVal;
 
 var obj = document.getElementsByName('import_check');
 
+var index;
+var indexTest;
+
 document.addEventListener('DOMContentLoaded', () => {
   const bodyBlackout = document.querySelector('.body-blackout');
   const popupModal = document.querySelector('.popup-modal');
@@ -51,15 +54,26 @@ document.addEventListener('DOMContentLoaded', () => {
     bodyBlackout.classList.remove('is-blacked-out');
   });
 
+  $('.popup-trigger').click(function () {
+    $('.import_check').prop('checked', false);
+
+    index = $('.popup-trigger').index(this);
+
+    popupModal.classList.add('is--visible');
+    bodyBlackout.classList.add('is-blacked-out');
+
+    indexTest = index;
+    console.log(indexTest);
+    console.log(typeof indexTest);
+  });
+
   btn_confirm.addEventListener('click', () => {
     popupModal.classList.remove('is--visible');
     bodyBlackout.classList.remove('is-blacked-out');
-    licName1.value = nameVal;
-    licDate1.value = dateVal;
-    licDue1.value = dueVal;
-    licNum1.value = numVal;
-
-    
+    licName[indexTest].value = nameVal;
+    licDate[indexTest].value = dateVal;
+    licDue[indexTest].value = dueVal;
+    licNum[indexTest].value = numVal;
   });
 });
 
@@ -103,12 +117,12 @@ document.addEventListener('DOMContentLoaded', () => {
 }); */
 
 document.querySelector('#add_lic').addEventListener('click', () => {
-  setTimeout(function () {
-    popupTrigger = document.querySelectorAll('.popup-trigger');
-    const bodyBlackout = document.querySelector('.body-blackout');
-    const popupModal = document.querySelector('.popup-modal');
-    const btn_confirm = document.querySelector('.btn_confirm');
+  popupTrigger = document.querySelectorAll('.popup-trigger');
+  const bodyBlackout = document.querySelector('.body-blackout');
+  const popupModal = document.querySelector('.popup-modal');
+  const btn_confirm = document.querySelector('.btn_confirm');
 
+  setTimeout(function () {
     licName = document.querySelectorAll('.licName');
     licDate = document.querySelectorAll('.licDate');
     licDue = document.querySelectorAll('.licDue');
@@ -117,19 +131,17 @@ document.querySelector('#add_lic').addEventListener('click', () => {
     $('.popup-trigger').click(function () {
       $('.import_check').prop('checked', false);
 
-      var index = $('.popup-trigger').index(this);
-      console.log(index);
+      index = $('.popup-trigger').index(this);
+
       popupModal.classList.add('is--visible');
       bodyBlackout.classList.add('is-blacked-out');
 
-      btn_confirm.addEventListener('click', () => {
-        licName[index].value = nameVal;
-        licDate[index].value = dateVal;
-        licDue[index].value = dueVal;
-        licNum[index].value = numVal;
-      });
+      indexTest = index;
+      console.log(indexTest);
+      console.log(typeof indexTest);
     });
-  });
+    btn_confirm.addEventListener('click', () => {});
+  }, 100);
 });
 
 // 체크박스 제한
