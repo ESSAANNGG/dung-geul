@@ -66,12 +66,23 @@
                         <div class="inline">
                         <div class="coun-inline">
                             <form id="counsearch_k" name="counsearch_k" method="post" action="/counseling/counseling">
-                                <select name="select-field" class="select-field1">
+                                <select name="select-field" class="select-field1" onchange="division_select()">
                                     <option value>상담 분야</option>
                                     <option value="진로상담">진로 상담</option>
                                     <option value="취업상담">취업 상담</option>
                                     <option value="창업상담">창업 상담</option>
                                 </select>
+                                <!--진로-->
+                                <select name="employ-field" class="select-field1">
+                                    <option value>세부분야</option>
+                                    <option th:each=" consult : ${list}" th:value="${consult.cno}">[[${consult.name}]]</option>
+                                </select>
+                                <!--취업-->
+                                <select name="employ-field" class="select-field1">
+                                    <option value>세부분야</option>
+                                    <option th:each=" consult : ${list}" th:value="${consult.cno}">[[${consult.name}]]</option>
+                                </select>
+                                <!--창업-->
                                 <select name="employ-field" class="select-field1">
                                     <option value>세부분야</option>
                                     <option th:each=" consult : ${list}" th:value="${consult.cno}">[[${consult.name}]]</option>

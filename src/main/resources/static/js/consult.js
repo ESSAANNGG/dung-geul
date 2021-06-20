@@ -47,3 +47,11 @@ function consult_apply() {
         })
     }
 }
+
+function division_select(){
+    select_index = $("select[name=select-field] option").index( $("select[name=select-field] option:selected"));
+    $("select[name=employ-field]").css("display","none");
+    if(select_index!=0) {
+        $("select[name=employ-field]").eq(select_index - 1).css("display", "inline-block");         //select_index가 0일때 -1을 해버리니 마지막 요소에 css가 적용됨
+    }
+}

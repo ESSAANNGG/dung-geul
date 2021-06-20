@@ -199,5 +199,8 @@ input[type=text] {
     color: #333;
     border-bottom: 5px solid #f6f6f6;
 }
+select[name=employ-field]{
+    display:none;
+}
 
 
