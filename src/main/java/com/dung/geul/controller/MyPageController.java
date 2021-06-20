@@ -123,6 +123,10 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         System.out.println("================" + pageRequestDTO);
         model.addAttribute("conlist", getlist.getDtoList());
         model.addAttribute("loginUser", authMemberDTO);
+
+        //지민우
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
+        model.addAttribute("memberDTO",member);
     }
 
     @GetMapping("/consult/counselling_reject")
@@ -134,5 +138,35 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
         System.out.println("===내 목록 확인하기===");
         model.addAttribute("mylist", getlist.getDtoList());
+    }
+
+
+    //지민우
+    @GetMapping({"/member/read", "/consult/modify"})
+    public void mypageReadConsult(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
+
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
+
+        model.addAttribute("memberDTO", member);
+
+        Set<String> roles = new HashSet<>();
+
+        // role에
+        if(authMemberDTO.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_STUDENT")))
+            roles.add("STUDENT");
+
+        else if(authMemberDTO.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_MENTO")))
+            roles.add("MENTO");
+
+        else if(authMemberDTO.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_COUNSELOR")))
+            roles.add("COUNSELOR");
+
+
+        System.out.println(roles.contains("STUDENT"));
+
+        model.addAttribute("roles", roles);
+
+        model.addAttribute("loginUser", authMemberDTO);
+
     }
 }

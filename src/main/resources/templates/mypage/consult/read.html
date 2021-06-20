@@ -74,7 +74,7 @@
                 </a>
                 <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
 
-                    <li> <a href="/mypage/member/modify">회원 정보수정</a> </li>
+                    <li> <a href="/mypage/consult/modify">회원 정보수정</a> </li>
                     <!-- <li> <a href=""> <span class="badge bg-danger pull-right">3</span> 알림 </a> </li>  -->
                     <li class="divider"></li>
                     <li> <a href="">Logout</a> </li>
@@ -109,46 +109,10 @@
                     </header>
                     <!-- MY HOME END -->
                     <section class="w-f scrollable">
-                        <div class="slim-scroll" data-height="auto" data-disable-fade-out="true"
-                             data-distance="0" data-size="5px" data-color="#333333">
-                            <!-- aside nav 따로 파일 나눠놨어요 -->
-                            <nav class="nav-primary hidden-xs">
-                                    <ul class="nav active">
-                                        <!-- 사이드메뉴 첫번째 -->
-                                        <li>
-                                            <a href="/mypage/consult/read" th:if="${memberDTO}">
-                                                <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i>
-                                                <span>회원 정보</span>
-                                            </a>
-                                        </li>
-                                        <!-- 두번째 -->
-                                        <li>
-                                            <a>
-                                                <i class="fa fa-columns icon"><b class="bg-warning"></b> </i>
-                                                <span class="pull-right">
-                                                    <i class="fa fa-angle-down text"></i>
-                                                    <i class="fa fa-angle-up text-active"></i>
-                                                </span>
-                                                <span>상담관리</span>
-                                            </a>
-                                            <ul  class="nav lt" >
-                                                <li>
-                                                    <a th:href="@{/mypage/consult/counselling_request}">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        <span>대기목록</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a th:href="@{/mypage/consult/counselling_reject}">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        <span>거절목록</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            <!-- nav end -->
+                        <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0"
+                             data-size="5px" data-color="#333333">
+                            <!-- aside nav -->
+                            <div th:replace="mypage/consult/aside :: body"/>
                         </div>
                     </section>
 
