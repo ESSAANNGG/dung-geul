@@ -116,32 +116,22 @@ h1 {
 }
 .coun-box input{
     cursor: none;
+    height:42px;
 }
 .clear-coun{
     display:block;
 }
 .coun-box .label {
     color: #000;
-    margin:0px;
-    margin-right: 20px;
-    display: inline-block;
-    padding: .2em .6em .3em;
+    padding-left: .6em;
     font-size: 75%;
     font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-
 }
 .coun-box .label1 {
     color: #000;
     padding-left: .6em;
     font-size: 75%;
     font-weight: 700;
-    width: 75px;
-    position: relative;
-    margin:0px;
-    margin-top: -13px;
-    display: inline-block;
 }
 
 .coun-box>div>div {
