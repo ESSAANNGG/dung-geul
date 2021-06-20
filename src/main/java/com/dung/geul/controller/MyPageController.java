@@ -98,6 +98,31 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
         System.out.println("controller - enterpriseDTO : " + enterpriseDTO.toString());
 
+
+        //지민우 //기업정보수정
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
+
+        model.addAttribute("memberDTO", member);
+
+        Set<String> roles = new HashSet<>();
+
+        // role에
+        if(authMemberDTO.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_STUDENT")))
+            roles.add("STUDENT");
+
+        else if(authMemberDTO.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_MENTO")))
+            roles.add("MENTO");
+
+        else if(authMemberDTO.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_COUNSELOR")))
+            roles.add("COUNSELOR");
+
+
+        System.out.println(roles.contains("STUDENT"));
+
+        model.addAttribute("roles", roles);
+
+        model.addAttribute("loginUser", authMemberDTO);
+
     }
     @GetMapping({"/consult/read"})
     public void conMypageRead(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
@@ -141,7 +166,7 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
     }
 
 
-    //지민우
+    //지민우 //상담사 수정
     @GetMapping({"/member/read", "/consult/modify"})
     public void mypageReadConsult(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
