@@ -44,6 +44,8 @@ public class ApplicationService {
                 .introduceDTOList(introduceList)
                 .build();
 
+        System.out.println("return : " + applicationModalDTO);
+
         return applicationModalDTO;
 
     }

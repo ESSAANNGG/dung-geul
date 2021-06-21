@@ -18,7 +18,14 @@ h1{
     font-weight:700;
     color:#222222;
 }
-h2{ /*제목 -> 기업명*/
+#head_wrap h2{
+    margin:0px;
+    margin-bottom:8px;
+    font-size:18px;
+    font-weight:400;
+    color:#222222;
+}
+#apply_button h2{ /*제목 -> 기업명*/
     margin:0px;
     margin-bottom:8px;
     font-size:18px;
@@ -312,7 +319,7 @@ button:focus{
 
 #apply_title{
     padding:10px 0;
-    height:80px;
+    /*height:80px;*/
     border-bottom: 1px solid #e5e6eb;
 }
 #apply_title h3{
@@ -329,8 +336,8 @@ button:focus{
 }
 .apply_li{
     position:relative;
-    height:80px;
-    margin: 0px 10px 100px 10px;
+    height:70px;
+    margin: 0px 10px 70px 10px;
     background-color : #f8f9fa;
     border-radius: 10px;
     box-shadow: 0 0 0 1px #e3e3e4 inset;
@@ -339,23 +346,25 @@ button:focus{
     margin-bottom:70px;
 }
 
-.apply_li h1{
+.apply_li h2{
     height:40px;
     padding:10px;
 }
 
 .apply_li_select{
     position:absolute;
+    padding:10px;
     width:100%;
-    height:70px;
+    height:50px;
     margin:0 auto;
     background-color:#ffffff;
     border: 1px solid #e3e3e4;
     border-radius: 10px;
-    box-shadow: 0 2px 14px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 0px 3px 0 rgb(0 0 0 / 10%)
 }
 .apply_li select{
-    height:70px;
+    padding:10px;
+    height:50px;
 }
 
 #apply_button button{
@@ -365,6 +374,6 @@ button:focus{
     width:100%;
     height:30px;
     background-color: #f8f9fa;
-    border-radius:10px;
+    /*border-radius:10px;*/
     border:1px solid  #f8f9fa;
 }

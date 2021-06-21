@@ -135,6 +135,7 @@ function detail_on_userManage(id,roll){
         data: JSON.stringify('id: '+id),
         success : function (MemberDTO) {
             M=MemberDTO;
+            alert(M.user_name);
             $('input[name=이름]').val(M.user_name);
             $('input[name=아이디]').val(M.user_id);
             $('input[name=비밀번호]').val(M.user_pw);

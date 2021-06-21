@@ -33,8 +33,7 @@
                 <span><a th:href="@{/Employ/list}">다른 공고 보러가기</a></span>
                 <h2>[[${dto.etp_name}]]</h2>
                 <h1 id="em_title" th:text="${dto.title}"></h1>
-                <h1 id="em_title1" th:text="${memberDTO.getUser_id}"></h1>
-                [[${memberDTO.getUser_name}]]
+
                 <!-- <div id="nav">
                     <button>채용정보</button>
                     <button>지원정보</button>
@@ -144,13 +143,14 @@
     </div>
     <div id="apply_cont">
         <div class="apply_li">
-            <h1>이력서</h1>
+            <h2>이력서</h2>
             <div class="apply_li_select">
+                <h4 id="apply_check">등록한 이력서가 없습니다. 이력서를 등록해주세요</h4>
             </div>
         </div>
         <div class="apply_li">
-            <h1>자소서</h1>
-            <select class="apply_li_select"></select>
+            <h2>자소서</h2>
+            <h4><select class="apply_li_select"></select></h4>
         </div>
     </div>
     <div id="apply_button">
@@ -161,6 +161,11 @@
 
 <footer th:replace="layout/layout :: footer" />
 
-
+<script th:inline="javascript">
+    $(document).ready(function() {
+        userId=[];
+        userId.push([[${memberDTO.getUser_id}]]);
+    });
+</script>
 </body>
 </html>

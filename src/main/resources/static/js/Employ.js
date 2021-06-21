@@ -440,10 +440,28 @@ $('document').ready(function() {
 //채용공고 상세페이지 > 온라인지원 창
 // let apply=document.getElementById("apply_submit");
 function apply_open(){
-    // $('#id').css("display", "none");
     $("#apply_submit").css("display", "block");
 
     $("#main").css("opacity","0.4");
+
+    $.ajax({
+        url: "/application/cvIntro/list?user_id="+userId +"&page=1",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success : function (applyDTO){
+            $("#apply_check").text("이력서가 확인 되었습니다.");
+            M=applyDTO;
+            console.log(JSON.stringify(M.introduceDTOList.dtoList));
+            introduce_length=M.introduceDTOList.dtoList.length;
+            for (i=0; i<introduce_length; i++){
+                $('.apply_li_select').append($("<option>"+M.introduceDTOList.dtoList[i].title+"</option>"));
+            }
+        },
+        error : function (err) {
+            alert("err : " + err);
+        }
+    })
 }
 function apply_close(){
     $("#apply_submit").css("display", "none");

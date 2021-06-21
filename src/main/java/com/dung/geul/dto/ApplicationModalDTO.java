@@ -1,15 +1,13 @@
 package com.dung.geul.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class ApplicationModalDTO {
 
     private CvPageDTO cv;
