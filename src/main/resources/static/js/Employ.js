@@ -463,7 +463,7 @@ function apply_open(){
             }
         },
         error : function (err) {
-            alert("err : " + err);
+            // alert("err : " + err);
         }
     })
 }

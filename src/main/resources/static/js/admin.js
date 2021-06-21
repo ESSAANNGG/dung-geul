@@ -226,6 +226,16 @@ $('.search_submit').click(function(){
     }
     submit_param();
 })
+//검색을 위해 search_data를 참조하는데 checkbox의 value를 가져오기위해 더미 input에 search_data 클래스를 주어 검색한다
+$('li input[type=checkbox]').change(function (){
+    if($(this).attr('class')=="radio"){             //라디오 타입이면 다른 체크를 해제한 후 체크 한것만 체크적용
+        this_name=$(this).attr('name');
+        $('input[name='+this_name+']').prop("checked", false);
+        $(this).prop("checked",true);
+    }
+    $(this).parent('li').children('input[type=text]').val($(this).val());   //더미에 value저장
+})
+
 
 //ajax로 데이터전송(등록부분)
 let select_register;        //등록창의 위치가 어디인지
