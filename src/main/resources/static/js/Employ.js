@@ -444,6 +444,7 @@ function apply_open(){
 
     $("#main").css("opacity","0.4");
 
+    $("#apply_check").text("등록한 이력서가 없습니다. 이력서를 등록해주세요");
     $.ajax({
         url: "/application/cvIntro/list?user_id="+userId +"&page=1",
         type: "GET",
@@ -453,9 +454,12 @@ function apply_open(){
             $("#apply_check").text("이력서가 확인 되었습니다.");
             M=applyDTO;
             console.log(JSON.stringify(M.introduceDTOList.dtoList));
+
+
+            //자소서 업로드
             introduce_length=M.introduceDTOList.dtoList.length;
             for (i=0; i<introduce_length; i++){
-                $('.apply_li_select').append($("<option>"+M.introduceDTOList.dtoList[i].title+"</option>"));
+                $('.apply_li select').append($("<option>"+M.introduceDTOList.dtoList[i].title+"</option>"));
             }
         },
         error : function (err) {
@@ -469,4 +473,37 @@ function apply_close(){
     $("#main").css("opacity","1");
 }
 
+function apply(){
 
+    cv_num=(M.cv.cv_id);
+    introduct_index=$(".apply_li select option").index($(".apply_li select option:selected"));
+    introduct_num=(M.introduceDTOList.dtoList[introduct_index-1].num);
+    hope_area=$('#hope_area').val();
+    hope_task=$('#hope_task').val();
+    dataList=[];
+
+    let obj=new Object();
+    obj.cv_num=(M.cv.cv_id);
+    obj.introduct_num=(M.introduceDTOList.dtoList[introduct_index-1].num);
+    obj.hope_area=$('#hope_area').val();
+    obj.hope_task=$('#hope_task').val();
+    dataList.push(obj);                             //전달할 배열에 값 삽입
+    alert()
+    $.ajax({
+        url: "/application/cvIntro/save",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(dataList),
+        success : function (result){
+            confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
+            // let conF=confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
+            // if(conF==true){
+            //     location.href="/mypage/member/studentcoun";
+            // }
+        },
+        error : function (err) {
+            alert("err : " + err);
+        }
+    })
+}

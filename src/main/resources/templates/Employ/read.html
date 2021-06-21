@@ -150,10 +150,20 @@
         </div>
         <div class="apply_li">
             <h2>자소서</h2>
-            <h4><select class="apply_li_select"></select></h4>
+            <h4><select class="apply_li_select">
+                <option>자소서를 선택해주세요</option>
+            </select></h4>
+        </div>
+        <div class="apply_li">
+            <h2>희망근무지역</h2>
+            <h4><input type="text" class="apply_li_select" id="hope_area"></h4>
+        </div>
+        <div class="apply_li">
+            <h2>희망업무</h2>
+            <h4><input type="text" class="apply_li_select" id="hope_task"></h4>
         </div>
     </div>
-    <div id="apply_button">
+    <div id="apply_button" onclick="apply()">
         <button><h2>지원하기</h2></button>
     </div>
 </div>
