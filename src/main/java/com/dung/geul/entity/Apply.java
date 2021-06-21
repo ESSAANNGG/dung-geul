@@ -20,10 +20,6 @@ public class Apply implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ap_id;
-//
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "ap_em_num")
-//    private Empoly em_num; // Empoly 앞에 패키지명이 붙어있길래 지움 - 정혜리
 
     @Column(nullable = false)
     private LocalDate ap_date;  //지원 일자
@@ -40,4 +36,14 @@ public class Apply implements Serializable {
     @Column(length = 1,nullable = false)
     private Long ap_pass; //서류합격유무
 
+
+    // 이력서와 자소서
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Introduce introduce;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CV cv;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Employ em_num; // Empoly 앞에 패키지명이 붙어있길래 지움 - 정혜리
 }

@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 })
 public class Employ extends BaseEntity{
     // baseEntity 추가 (채용공고 등록일, 수정일로 사용) - 정혜리
+    // 채용공고 엔티티
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

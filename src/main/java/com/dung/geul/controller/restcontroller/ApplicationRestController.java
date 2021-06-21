@@ -1,14 +1,15 @@
 package com.dung.geul.controller.restcontroller;
 
-import com.dung.geul.dto.CertificateDTO;
-import com.dung.geul.dto.CvPageDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.entity.CV;
 import com.dung.geul.entity.License;
 import com.dung.geul.handler.HttpResponse;
 import com.dung.geul.repository.CvRepository;
 import com.dung.geul.repository.LicenseRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
+import com.dung.geul.service.ApplicationService;
 import com.dung.geul.service.CvServiceImpl;
+import com.dung.geul.service.IntroduceService;
 import com.dung.geul.service.LicenseService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,12 @@ public class ApplicationRestController {
 
     @Autowired
     private LicenseService licenseService;
+
+    @Autowired
+    private IntroduceService introduceService;
+
+    @Autowired
+    private ApplicationService applicationService;
 
     // 이력서 관련
     @PostMapping("/cv/register")
@@ -74,5 +81,59 @@ public class ApplicationRestController {
 
         return licenseService.getLicenseList(authMemberDTO.getUser_id());
     }
+
+
+    // 자소서 관련
+
+    //자소서등록
+    @PostMapping("/intro/introReg")
+    public void register(@RequestBody IntroduceDTO introduceDTO) {
+        introduceService.register(introduceDTO);
+
+    }
+
+    //자소서삭제
+    @DeleteMapping("/intro/{num}")
+    public ResponseEntity<String> remove(@PathVariable("num") Long num) {
+
+        log.info("Num:" + num);
+
+        introduceService.remove(num);
+
+        return new ResponseEntity<>("succes", HttpStatus.OK);
+    }
+
+    //자소서수정
+    @PutMapping("/intro/introSave")
+    public ResponseEntity<String> modify(@RequestBody IntroduceDTO introduceDTO) {
+
+        log.info(introduceDTO);
+
+        introduceService.modify(introduceDTO);
+
+        return new ResponseEntity<>("succes", HttpStatus.OK);
+    }
+
+
+    // 입사지원
+
+    //modal 창에 본인 이력서랑 자소서 보여주기
+    @GetMapping("/cvIntro/list")
+    public ResponseEntity getApc(@RequestParam("user_id") String user_id, PageRequestDTO pageRequestDTO){
+
+        try{
+            ApplicationModalDTO applicationModalDTO = applicationService.getCvAndIntro(user_id, pageRequestDTO);
+            if(applicationModalDTO == null){
+                throw new Exception();
+            }
+            return new ResponseEntity(applicationModalDTO, HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity(0, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+
+    // 들어온 이력서와 자소서를 온라인 지원 테이블에 저장하기
 
 }

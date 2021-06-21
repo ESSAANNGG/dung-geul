@@ -1,8 +1,6 @@
 package com.dung.geul.controller;
 
-import com.dung.geul.dto.CertificateDTO;
-import com.dung.geul.dto.CvPageDTO;
-import com.dung.geul.dto.EducationDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.entity.CV;
 import com.dung.geul.entity.Education;
 import com.dung.geul.entity.Member;
@@ -17,6 +15,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.tags.EditorAwareTag;
@@ -45,6 +44,12 @@ public class ApplicationController {
 
     @Autowired
     private LicenseService licenseService;
+
+    @Autowired
+    private IntroduceService service;
+
+
+    // 이력서
 
     @GetMapping("/cv/before")
     public String cvBefore(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
@@ -93,6 +98,57 @@ public class ApplicationController {
         model.addAttribute("loginUser", authMemberDTO);
         model.addAttribute("licenseList" , certificateDTOList);
 
+    }
+
+
+    // 자소서
+
+    //자기소개서리스트
+    @GetMapping("/introduce/list")
+    public void list(PageRequestDTO pageRequestDTO, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO) {
+
+        PageResultDTO pageResultDTO = service.getList(pageRequestDTO, authMemberDTO.getUser_id());
+
+        model.addAttribute("result", pageResultDTO);
+
+        System.out.println(pageResultDTO.toString());
+
+
+    }
+
+    //자기소개서등록이동
+    @GetMapping("/introduce/register")
+    public void register(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
+
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
+
+        model.addAttribute("memberDTO", member);
+
+    }
+
+    //자기소개서상세페이지
+    @GetMapping("/introduce/read")
+    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model) {
+        //@ModelAttribute는 클라이언트가 전송하는 여러 파라미터들을 1대1로 객체에 바인딩하여 다시 View로 넘겨서 출력하기 위해 사용되는 오브젝트이다.
+
+        log.info("num :" +num);
+
+        IntroduceDTO dto = service.read(num);
+
+        model.addAttribute("dto", dto);
+    }
+
+    //자기소개서수정이동
+    @GetMapping("/introduce/modify")
+    public void modify(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, @AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
+        log.info("num :" +num);
+
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
+
+        IntroduceDTO dto = service.read(num);
+
+        model.addAttribute("memberDTO", member);
+        model.addAttribute("dto", dto);
     }
 
 
