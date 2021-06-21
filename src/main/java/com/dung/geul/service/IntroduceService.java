@@ -21,6 +21,8 @@ public interface IntroduceService {
 
     void remove(Long num);
 
+    Introduce getIntroduce(Long intro_id);
+
     default Introduce dtoToEntity(IntroduceDTO introduceDTO) {
 
         Member member = Member.builder().user_id(introduceDTO.getUser_id()).build();

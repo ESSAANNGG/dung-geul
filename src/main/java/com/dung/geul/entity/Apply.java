@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Builder
@@ -22,10 +23,7 @@ public class Apply implements Serializable {
     private Long ap_id;
 
     @Column(nullable = false)
-    private LocalDate ap_date;  //지원 일자
-
-    @Column(length = 5)
-    private Long ap_ds; // 회망 연봉
+    private LocalDateTime ap_date;  //지원 일자
 
     @Column(length = 20)
     private String ap_area; // 희망 근무 지역

@@ -77,4 +77,10 @@ public class IntroduceServiceImpl implements IntroduceService {
         introduceRepository.deleteById(num);
 
     }
+
+    @Override
+    public Introduce getIntroduce(Long intro_id) {
+
+        return introduceRepository.findById(intro_id).get();
+    }
 }

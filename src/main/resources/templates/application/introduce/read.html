@@ -43,8 +43,8 @@
                     <li id="menu_con1">
                       <h4>자기소개서 목록</h4>
                       <ul id="sb_detail">
-                        <li><a th:href="@{/Introduce/list}">자기소개서 목록</a></li>
-                        <li><a th:href="@{/Introduce/register}">자기소개서 등록</a></li>
+                        <li><a th:href="@{/templates/application/introduce/list}">자기소개서 목록</a></li>
+                        <li><a th:href="@{/templates/application/introduce/register}">자기소개서 등록</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -100,7 +100,7 @@
 
           <div class="col-md-12">
             <div class="submit_btn">
-              <a th:href="@{/Introduce/modify(num = ${dto.num})}">
+              <a th:href="@{/templates/application/introduce/modify(num = ${dto.num})}">
                 <button type="button">수정하기</button>
               </a>
               <button class="boxed-btn3" id="IntroRemove" name="IntroRemove" type="submit">

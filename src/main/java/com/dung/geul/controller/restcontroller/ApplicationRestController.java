@@ -123,17 +123,21 @@ public class ApplicationRestController {
 
         try{
             ApplicationModalDTO applicationModalDTO = applicationService.getCvAndIntro(user_id, pageRequestDTO);
-            if(applicationModalDTO == null){
-                throw new Exception();
-            }
+
             return new ResponseEntity(applicationModalDTO, HttpStatus.OK);
         } catch (Exception e){
-            return new ResponseEntity(0, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
 
 
     // 들어온 이력서와 자소서를 온라인 지원 테이블에 저장하기
+    @PostMapping("/cvIntro/save")
+    public ResponseEntity saveApc(@RequestBody ApplicationModalDTO applicationModalDTO) {
+
+        return applicationService.save(applicationModalDTO);
+
+    }
 
 }

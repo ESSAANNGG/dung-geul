@@ -43,6 +43,10 @@ public class CvServiceImpl implements CVService {
     @Autowired
     private LanguageRepository languageRepository;
 
+    public CV getCv(Long cv_id){
+        return cvRepository.getOne(cv_id);
+    }
+
     // 이력서 등록
     @Transactional
     public int register(CvPageDTO cvPageDTO) {
