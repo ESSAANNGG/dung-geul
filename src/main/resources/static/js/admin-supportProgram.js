@@ -20,6 +20,3 @@ function division_select(){
         $("select[name=division]").eq(select_index - 1).css("display", "inline-block");         //select_index가 0일때 -1을 해버리니 마지막 요소에 css가 적용됨
     }
 }
-$('select[name=dept]').change(function(){    //검색창의 select에 값을 넣을시
-
-});

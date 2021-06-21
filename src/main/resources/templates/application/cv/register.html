@@ -38,6 +38,10 @@
         <a href="/application/cv/before">
           <p style="float:right; font-size:15px; color:#a4acc7;">이력서 관리</p>
         </a>
+        <a href="/mypage/before/read">
+        <p style=" float: right; font-size:15px; color:#a4acc7; margin-right: 20px;"><i style="font-size: 23px;" class="fas fa-house-user"></i></p>
+        </a>
+        
       </div>
     </div>
     <div id="content">
@@ -694,13 +698,13 @@
                                     <tr th:each="lic : ${licenseList}">
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161003_1623578366378" onclick="doOpenCheck(this)"; /><label class="lbl hide"
+                                            id="import_2161003_1623578366378" class="import_check" onclick="doOpenCheck(this)"; /><label class="lbl hide"
                                             for="import_2161003_1623578366378"></label></span>
                                       </td>
-                                      <td th:text="${lic.getLic_date()}" ></td>
-                                      <td th:text="${lic.getLic_name()}" ></td>
-                                      <td th:text="${lic.getLic_due_date()}">2021.08</td>
-                                      <td th:text="${lic.getLic_num()}" style="display: none;">번호</td>
+                                      <td class="Lic_date" th:text="${lic.getLic_date()}" >2021-08-07</td>
+                                      <td class="Lic_name" th:text="${lic.getLic_name()}" >자격증이름0</td>
+                                      <td class="Lic_due_date" th:text="${lic.getLic_due_date()}">2021-08-07</td>
+                                      <td class="Lic_num" th:text="${lic.getLic_num()}" style="display: none;">21</td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -717,15 +721,19 @@
 
                     <div class="common_div width-430">
                       <label class="absolute-label" for="">자격증 명 </label>
-                      <input class="common_input" type="text" name="certificate[][lic_name]" />
+                      <input class="common_input licName" type="text" name="certificate[][lic_name]" />
                     </div>
                     <div class="common_div width-180">
                       <label class="absolute-label" for="">취득일 </label>
-                      <input class="common_input" type="date" name="certificate[][lic_date]" />
+                      <input class="common_input licDate" type="date" name="certificate[][lic_date]" />
                     </div>
                     <div class="common_div width-180">
                       <label class="absolute-label" for="">만료일 </label>
-                      <input class="common_input" type="date" name="certificate[][lic_due_date]" />
+                      <input class="common_input licDue" type="date" name="certificate[][lic_due_date]" />
+                    </div>
+                    <div class="common_div width-180" style="display: none;">
+                      <label class="absolute-label" for="">번호 </label>
+                      <input class="common_input licNum" type="number" name="certificate[][lic_num]" />
                     </div>
                     <button type="button" class="btn btn-sm btn-primary popup-trigger"
                       style="margin-left:10px; vertical-align: top;">자격증 불러오기</button>

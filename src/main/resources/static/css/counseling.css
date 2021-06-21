@@ -14,7 +14,7 @@ time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
-    /*font-size: 100%;*/
+    font-size: 100%;
     /*font: inherit;*/
     vertical-align: baseline;
 }
@@ -82,8 +82,6 @@ input, button, select {
 
 #coun-wrap {
     position: relative;
-    padding: 30px;
-    height: 100px;
     margin: 0;
     border-bottom: 1px solid #eee;
 }
@@ -113,31 +111,27 @@ h1 {
     padding: 30px;
     width: 100%;
 }
+.coun-box select{
+    cursor:none;
+}
+.coun-box input{
+    cursor: none;
+    height:42px;
+}
 .clear-coun{
     display:block;
 }
 .coun-box .label {
     color: #000;
-    margin:0px;
-    margin-right: 20px;
-    display: inline-block;
-    padding: .2em .6em .3em;
+    padding-left: .6em;
     font-size: 75%;
     font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-
 }
 .coun-box .label1 {
     color: #000;
     padding-left: .6em;
     font-size: 75%;
     font-weight: 700;
-    width: 75px;
-    position: relative;
-    margin:0px;
-    margin-top: -13px;
-    display: inline-block;
 }
 
 .coun-box>div>div {
@@ -198,4 +192,15 @@ input[type=text] {
 #job-main-wrap {
     padding: 80px 0 80px;
 }
+#coun-wrap h1{
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 5px solid #f6f6f6;
+}
+select[name=employ-field]{
+    display:none;
+}
+
 

@@ -179,6 +179,36 @@ function detail_on_userManage(id,roll){
     $('#'+detail_per).css({"visibility":"visible","opacity":"1"});
     $('#wrap,#admin_header').css("opacity","0.4");
 }
+function userManage_detail_submit(select_modal){
+    modal_val=[];
+    modal_val.push($('#'+select_modal).find('input[name="아이디"]').val());
+    switch (select_modal) {
+        case 'detail_student':
+        case 'detail_counselor':
+            A_url="/allow/member/read?result=no";
+            break;
+        case 'detail_enterprise':
+            A_url="/allow/etp/delete?result=no";
+            break;
+    }
+
+    // alert(JSON.stringify(modal_val)+"선택된 값들입니다");   //디버깅
+
+    $.ajax({
+        url: A_url,
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(modal_val),
+        success : function (result){
+            alert("회원정보 삭제완료");
+            submit_param();
+        },
+        error : function (err) {
+            alert("err : " + err);
+        }
+    })
+}
 
 let datea=[];
 let ran;
