@@ -60,10 +60,12 @@ public class ApplicationService {
             Employ employ = employRepository.findById(dto.getEmploy_num()).get();
 
             Apply apply = Apply.builder()
-                    .ap_date(LocalDateTime.now())
-                    .ap_area(dto.getAp_area())
-                    .ap_task(dto.getAp_task())
-                    .em_num(employ)
+                    .ap_date(LocalDateTime.now())   // 입사지원 일자
+                    .ap_area(dto.getAp_area())      // 희망근무지역
+                    .ap_task(dto.getAp_task())      // 희망업무
+                    .em_num(employ)                 // 채용공고
+                    .cv(cv)                         // 이려서
+                    .introduce(intro)               // 자소서
                     .build();
 
             applyRepository.save(apply);

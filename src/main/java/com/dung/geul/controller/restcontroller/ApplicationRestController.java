@@ -131,7 +131,7 @@ public class ApplicationRestController {
 
     }
 
-
+    // /application/cvIntro/save
     // 들어온 이력서와 자소서를 온라인 지원 테이블에 저장하기
     @PostMapping("/cvIntro/save")
     public ResponseEntity saveApc(@RequestBody ApplicationModalDTO applicationModalDTO) {

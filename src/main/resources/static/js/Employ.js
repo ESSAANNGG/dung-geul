@@ -483,10 +483,10 @@ function apply(){
     dataList=[];
 
     let obj=new Object();
-    obj.cv_num=(M.cv.cv_id);
-    obj.introduct_num=(M.introduceDTOList.dtoList[introduct_index-1].num);
-    obj.hope_area=$('#hope_area').val();
-    obj.hope_task=$('#hope_task').val();
+    obj.cv_id=(M.cv.cv_id);
+    obj.intro_id=(M.introduceDTOList.dtoList[introduct_index-1].num);
+    obj.ap_area=$('#hope_area').val();
+    obj.ap_task=$('#hope_task').val();
     dataList.push(obj);                             //전달할 배열에 값 삽입
     alert()
     $.ajax({
@@ -496,7 +496,7 @@ function apply(){
         dataType: "json",
         data: JSON.stringify(dataList),
         success : function (result){
-            confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
+            confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?' + result);
             // let conF=confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
             // if(conF==true){
             //     location.href="/mypage/member/studentcoun";

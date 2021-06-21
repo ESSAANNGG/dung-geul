@@ -37,11 +37,11 @@ public class Apply implements Serializable {
 
     // 이력서와 자소서
     @ManyToOne(fetch = FetchType.LAZY)
-    private Introduce introduce;
+    private Introduce introduce;        // 자소서
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private CV cv;
+    private CV cv;              // 이력서
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Employ em_num; // Empoly 앞에 패키지명이 붙어있길래 지움 - 정혜리
+    private Employ em_num; // 채용공고
 }
