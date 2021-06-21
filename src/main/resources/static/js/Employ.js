@@ -483,6 +483,13 @@ function apply(){
     dataList=[];
 
     let obj=new Object();
+    let data = {
+        cv_id : (M.cv.cv_id),
+        intro_id : (M.introduceDTOList.dtoList[introduct_index-1].num),
+        ap_area : $('#hope_area').val(),
+        ap_task : $('#hope_task').val(),
+        employ_num : employ_num
+    }
     obj.cv_id=(M.cv.cv_id);
     obj.intro_id=(M.introduceDTOList.dtoList[introduct_index-1].num);
     obj.ap_area=$('#hope_area').val();
@@ -495,7 +502,7 @@ function apply(){
         type: "POST",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        data: JSON.stringify(dataList),
+        data: JSON.stringify(data),
         success : function (result){
             confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?' + result);
             // let conF=confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');

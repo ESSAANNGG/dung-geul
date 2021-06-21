@@ -47,8 +47,8 @@
                   <li id="menu_con1">
                     <h4>자기소개서 목록</h4>
                     <ul id="sb_detail">
-                      <li><a th:href="@{/templates/application/introduce/list}">자기소개서 목록</a></li>
-                      <li><a th:href="@{/templates/application/introduce/register}">자기소개서 등록</a></li>
+                      <li><a th:href="@{/application/introduce/list}">자기소개서 목록</a></li>
+                      <li><a th:href="@{/application/introduce/register}">자기소개서 등록</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -59,7 +59,7 @@
         <div class="col-9 col-12-medium imp-medium">
           <div class="employListPost">
             <li th:each="dto: ${result.dtoList}">
-              <a th:href="@{/templates/application/introduce/read(num = ${dto.num}, page = ${result.page},
+              <a th:href="@{/application/introduce/read(num = ${dto.num}, page = ${result.page},
               type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
                  <ul>
                   <li class="post_end_date" th:text="'작성일'+' '+ ${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}">작성일</li>
@@ -78,18 +78,18 @@
           </div>
           <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
             <li class="page-item" th:if="${result.prev}">
-              <a class="page-link" th:href="@{/templates/application/introduce/list(page=${result.start -1 },
+              <a class="page-link" th:href="@{/application/introduce/list(page=${result.start -1 },
                type=${pageReuqestDTO?.type},
                keyword = ${pageRequestDTO.keyword} )}" tabindex="-1">Previous</a>
             </li>
             <li th:class="'page-item ' + ${result.page == page?'active':''}" th:each="page:${result.pageList}">
-              <a class="page-link" th:href="@{/templates/application/introduce/list(page=${page},
+              <a class="page-link" th:href="@{/application/introduce/list(page=${page},
                type=${pageReuqestDTO?.type},
                keyword = ${pageRequestDTO.keyword}
             )}" th:text="${page}"></a>
             </li>
             <li class="page-item" th:if="${result.next}">
-              <a class="page-link" th:href="@{/templates/application/introduce/list(page=${result.end +1 },
+              <a class="page-link" th:href="@{/application/introduce/list(page=${result.end +1 },
               type=${pageReuqestDTO?.type},
               keyword = ${pageRequestDTO.keyword}
             )}">Next</a>

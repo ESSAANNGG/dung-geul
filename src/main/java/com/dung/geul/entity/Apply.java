@@ -25,13 +25,12 @@ public class Apply implements Serializable {
     @Column(nullable = false)
     private LocalDateTime ap_date;  //지원 일자
 
-    @Column(length = 20)
+    @Column(length = 20, nullable = false)
     private String ap_area; // 희망 근무 지역
 
-    @Column(length = 20)
+    @Column(length = 20, nullable = false)
     private String ap_task; //희망 업무
 
-    @Column(length = 1,nullable = false)
     private Long ap_pass; //서류합격유무
 
 
@@ -39,7 +38,7 @@ public class Apply implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Introduce introduce;        // 자소서
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY )
     private CV cv;              // 이력서
 
     @ManyToOne(fetch = FetchType.LAZY)
