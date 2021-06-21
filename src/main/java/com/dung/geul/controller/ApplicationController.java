@@ -14,10 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.tags.EditorAwareTag;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -47,6 +44,9 @@ public class ApplicationController {
 
     @Autowired
     private IntroduceService service;
+
+    @Autowired
+    private ApplicationService applicationService;
 
 
     // 이력서
@@ -151,5 +151,12 @@ public class ApplicationController {
         model.addAttribute("dto", dto);
     }
 
+    // 학생회원 본인 입사지원 목록 반환
+    @GetMapping("/student/list")
+    public void getStudentList(@RequestParam("user_id") String user_id, PageRequestDTO pageRequestDTO, Model model){
+        PageResultDTO pageResultDTO = applicationService.getStudentApplyListPageDTO(pageRequestDTO, user_id);
 
+        model.addAttribute("result", pageResultDTO);
+
+    }
 }

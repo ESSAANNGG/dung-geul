@@ -6,12 +6,17 @@ import com.dung.geul.repository.ApplyRepository;
 import com.dung.geul.repository.EmployRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.function.Function;
 
 @Service
 @Log4j2
@@ -66,6 +71,7 @@ public class ApplicationService {
                     .em_num(employ)                 // 채용공고
                     .cv(cv)                         // 이려서
                     .introduce(intro)               // 자소서
+                    .ap_pass("대기중")                 // 합격여부(대기중, 합격, 불합격, 취소)
                     .build();
 
             applyRepository.save(apply);
@@ -79,6 +85,49 @@ public class ApplicationService {
         }
 
 
+    }
+
+    // 학생회원한테 지원현황 목록 보여주기
+    public PageResultDTO<ApplyStudentDTO, Object[]> getStudentApplyListPageDTO(PageRequestDTO pageRequestDTO, String user_id){
+
+        // page랑 function으로 pageResultDTO 반환
+
+        Pageable pageable = pageRequestDTO.getPageable(Sort.by("ap_date"));
+
+        Member member = memberService.getMember(user_id);
+
+        Page<Object[]> pageResult = applyRepository.findByMember(pageable, member);
+
+        Function<Object[], ApplyStudentDTO> fn = (en -> entityToApplyStudentDTO((Apply) en[0], (Employ) en[1], (Enterprise) en[2]) );
+
+        PageResultDTO<ApplyStudentDTO, Object[]> pageResultDTO = new PageResultDTO<ApplyStudentDTO, Object[]>(pageResult, fn);
+
+        return pageResultDTO;
+    }
+
+
+    // 학생회원에게 지원 목록 보여주는 DTO 생성
+    public ApplyStudentDTO entityToApplyStudentDTO(Apply ap, Employ em, Enterprise etp){
+
+        String apDate = ap.getAp_date().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+
+        ApplyStudentDTO dto = ApplyStudentDTO.builder()
+                .etp_id(etp.getEtp_id())
+                .etp_num(etp.getEtp_num())
+                .etp_name(etp.getEtp_name())
+
+                .emp_num(em.getNum())
+                .emp_title(em.getTitle())
+                .emp_content(em.getContent())
+
+                .ap_date(apDate)
+                .cv_id(ap.getCv().getCv_id())
+                .intro_num(ap.getIntroduce().getNum())
+                .ap_pass(ap.getAp_pass())
+                .build();
+
+        return dto;
     }
 
 

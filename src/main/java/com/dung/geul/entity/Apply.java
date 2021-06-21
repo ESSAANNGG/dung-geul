@@ -31,14 +31,14 @@ public class Apply implements Serializable {
     @Column(length = 20, nullable = false)
     private String ap_task; //희망 업무
 
-    private Long ap_pass; //서류합격유무
+    private String ap_pass; //서류합격유무
 
 
     // 이력서와 자소서
     @ManyToOne(fetch = FetchType.LAZY)
     private Introduce introduce;        // 자소서
 
-    @ManyToOne(fetch = FetchType.LAZY )
+    @ManyToOne(fetch = FetchType.LAZY)
     private CV cv;              // 이력서
 
     @ManyToOne(fetch = FetchType.LAZY)

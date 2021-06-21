@@ -20,7 +20,7 @@ public class Enterprise implements Serializable{
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long etp_id;
 
-        @OneToOne
+        @OneToOne(cascade=CascadeType.REMOVE)
         @JoinColumn(name = "etp_user_id" ,foreignKey = @ForeignKey(name="etp_user_id_fk"))
         private Member user_id;
 
