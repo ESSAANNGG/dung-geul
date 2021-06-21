@@ -487,8 +487,9 @@ function apply(){
     obj.intro_id=(M.introduceDTOList.dtoList[introduct_index-1].num);
     obj.ap_area=$('#hope_area').val();
     obj.ap_task=$('#hope_task').val();
+    obj.employ_num=employ_num;
     dataList.push(obj);                             //전달할 배열에 값 삽입
-    alert()
+    alert(JSON.stringify(dataList));
     $.ajax({
         url: "/application/cvIntro/save",
         type: "POST",
