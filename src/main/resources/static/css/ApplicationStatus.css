@@ -6,3 +6,72 @@
 .table-flex {
   border-top: 3px solid rgba(31, 29, 29, 0.884);
 }
+
+.tg {
+  border-collapse: collapse;
+  border-color: #9abad9;
+  border-spacing: 0;
+}
+
+.tg td {
+  background-color: #ebf5ff;
+  border-color: #9abad9;
+  border-style: solid;
+  border-width: 1px;
+  color: #444;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg th {
+  background-color: #409cff;
+  border-color: #9abad9;
+  border-style: solid;
+  border-width: 1px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg .tg-t4zm {
+  border-color: inherit;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tg .tg-yq5v {
+  background-color: #409cff;
+  border-color: inherit;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tg .tg-9wq8 {
+  border-color: inherit;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tg .tg-cji8 {
+  border-color: inherit;
+  font-size: 18px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tg .tg-19lu {
+  border-color: inherit;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;
+}
