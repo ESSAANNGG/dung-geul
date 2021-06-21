@@ -203,10 +203,9 @@ function userManage_detail_submit(select_modal){
         data: JSON.stringify(modal_val),
         success : function (result){
             alert("회원정보 삭제완료");
-            submit_param();
         },
         error : function (err) {
-            alert("err : " + err);
+            alert("삭제실패");
         }
     })
 }
