@@ -1,0 +1,8 @@
+/* #main-content {
+  display: flex;
+  justify-content: center;
+} */
+
+.table-flex {
+  border-top: 3px solid rgba(31, 29, 29, 0.884);
+}
