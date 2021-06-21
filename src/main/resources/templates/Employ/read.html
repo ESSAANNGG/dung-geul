@@ -33,7 +33,8 @@
                 <span><a th:href="@{/Employ/list}">다른 공고 보러가기</a></span>
                 <h2>[[${dto.etp_name}]]</h2>
                 <h1 id="em_title" th:text="${dto.title}"></h1>
-
+                <h1 id="em_title1" th:text="${memberDTO.getUser_id}"></h1>
+                [[${memberDTO.getUser_name}]]
                 <!-- <div id="nav">
                     <button>채용정보</button>
                     <button>지원정보</button>
@@ -138,21 +139,17 @@
         <i class="fas fa-times" onclick="apply_close()"></i>
     </div>
     <div id="apply_title">
-        <h3>네이버웹툰컴퍼니(주)</h3>
+        <h3>[[${dto.etp_name}]]</h3>
         <h2 th:text="${dto.title}"></h2>
     </div>
     <div id="apply_cont">
         <div class="apply_li">
             <h1>이력서</h1>
-            <div  class="apply_li_select">
+            <div class="apply_li_select">
             </div>
         </div>
         <div class="apply_li">
-            <h1>자격증</h1>
-            <select class="apply_li_select"></select>
-        </div>
-        <div class="apply_li">
-            <h1>외국어능력</h1>
+            <h1>자소서</h1>
             <select class="apply_li_select"></select>
         </div>
     </div>
