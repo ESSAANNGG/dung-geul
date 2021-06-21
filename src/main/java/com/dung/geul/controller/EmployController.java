@@ -2,10 +2,13 @@ package com.dung.geul.controller;
 
 import com.dung.geul.dto.EmployDTO;
 import com.dung.geul.dto.EnterpriseDTO;
+import com.dung.geul.dto.MemberDTO;
 import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.EmployService;
 import com.dung.geul.service.MemberService;
+import com.dung.geul.service.MemberServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -25,6 +28,9 @@ public class EmployController {
 
     @Autowired
     MemberService memberService;
+
+    @Autowired
+    private MemberServiceImpl memberServiceImpl;
     
     //채용공고리스트
     @GetMapping("/list")
@@ -35,7 +41,7 @@ public class EmployController {
 
     //채용공고상세페이지
     @GetMapping("/read")
-    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model) {
+    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, @AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
         //@ModelAttribute는 클라이언트가 전송하는 여러 파라미터들을 1대1로 객체에 바인딩하여 다시 View로 넘겨서 출력하기 위해 사용되는 오브젝트이다.
 
         log.info("num :" +num);
@@ -43,6 +49,11 @@ public class EmployController {
         EmployDTO dto = service.read(num);
 
         model.addAttribute("dto", dto);
+
+        //지민우
+        Member member = memberServiceImpl.getMember(authMemberDTO.getUser_id());
+
+        model.addAttribute("memberDTO", member);
     }
     
     //채용등록이동
