@@ -77,44 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/* document.querySelector('#add_lic').addEventListener('click', () => {
-  setTimeout(function () {
-    bodyBlackout = document.querySelectorAll('.body-blackout');
-    popupModal = document.querySelectorAll('.popup-modal');
-    popupTrigger = document.querySelectorAll('.popup-trigger');
-    popupModalClose = document.querySelectorAll('.popup-modal__close');
-
-    licName = document.querySelectorAll('.licName');
-    licDate = document.querySelectorAll('.licDate');
-    licDue = document.querySelectorAll('.licDue');
-    licNum = document.querySelectorAll('.licNum');
-
-    for (let i = 0; i < popupTrigger.length; i++) {
-      popupTrigger[i].addEventListener('click', () => {
-        popupModal[i].classList.add('is--visible');
-        bodyBlackout[i].classList.add('is-blacked-out');
-        for (let j = 0; j < Lic_date.length; j++) {}
-      });
-
-      popupModalClose[i].addEventListener('click', () => {
-        popupModal[i].classList.remove('is--visible');
-        bodyBlackout[i].classList.remove('is-blacked-out');
-      });
-
-      bodyBlackout[i].addEventListener('click', () => {
-        popupModal[i].classList.remove('is--visible');
-        bodyBlackout[i].classList.remove('is-blacked-out');
-      });
-
-      btn_confirm[i].addEventListener('click', () => {
-        licName[i].value = nameVal;
-        licDate[i].value = dateVal;
-        licDue[i].value = dueVal;
-        licNum[i].value = numVal;
-      });
-    }
-  }, 100);
-}); */
 
 document.querySelector('#add_lic').addEventListener('click', () => {
   popupTrigger = document.querySelectorAll('.popup-trigger');
