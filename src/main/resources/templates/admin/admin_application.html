@@ -74,16 +74,18 @@
                 </li>
               </ul>
               <ul>
-                <li>근무지역</li>
+                <li>지원자 아이디</li>
                 <li>
-                  <select name="sido" class="search_data"></select>
-                  <select name="gugun" class="search_data"></select>
+                  <input type="text" class="search_data">
                 </li>
               </ul>
               <ul>
-                <li>지원자 아이디</li>
+                <li>합격여부</li>
                 <li>
-                  <input type="text" class="search_data"></li>
+                  <input type="text" class=search_data name="더미" style="display:none;">               <!--체크박스는 더미 칸을 만들어 값을 넣은 후 검색-->
+                  <input type="checkbox" class="radio" name="합격여부" value="합격"><span class="label">합격</span>
+                  <input type="checkbox" class="radio" name="합격여부" value="불합격"><span class="label">불합격</span>
+                  <input type="checkbox" class="radio" name="합격여부" value="대기"><span class="label">대기</span>
                 </li>
               </ul>
 
@@ -103,20 +105,22 @@
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="4_1_checkH"
                                                                onclick="checkAll(this)"></span>
-                <span class="number s140">목록번호</span>
-                <span class="type s240">상담종류</span>
-                <span class="title s650">상담제목</span>
-                <span class="regdate s240">등록일</span>
-                <span class="moddate s240">수정일</span>
+                <span class="number s140">지원자명</span>
+                <span class="id s270">아이디</span>
+                <span class="title s480">공고제목</span>
+                <span class="corp_name s340">기업명</span>
+                <span class="shape s140">기업형태</span>
+                <span class="whether s140">합격여부</span>
               </div>
 
               <div class="list_body" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="4_1_check"></span>
                 <span class="number s140"></span>
-                <span class="type s240"></span>
-                <span class="title s650"></span>
-                <span class="regdate s240"></span>
-                <span class="moddate s240"></span>
+                <span class="id s270"></span>
+                <span class="title s480"></span>
+                <span class="corp_name s340"></span>
+                <span class="shape s140"></span>
+                <span class="whether s140"></span>
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>

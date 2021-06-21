@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="col-9 col-12-medium imp-medium">
-          <div class="employListPost">
+           <div class="employListPost">
             <li th:each="dto: ${result.dtoList}">
               <a th:href="@{/application/introduce/read(num = ${dto.num}, page = ${result.page},
               type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
@@ -69,9 +69,7 @@
                 </ul>
                 
               </a>
-         <!--      <script type="text/javascript">
-                post_cont_sub_func();
-              </script> -->
+
 
             </li>
 
@@ -95,6 +93,10 @@
             )}">Next</a>
             </li>
           </ul>
+
+          <img th:if="${#lists.size(result.dtoList)} == 0" style="width:650px; margin-left: 70px;" src="/video/blankL.gif" alt="">
+
+
         </div>
     </div>
 

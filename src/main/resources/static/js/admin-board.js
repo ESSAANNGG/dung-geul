@@ -75,15 +75,26 @@ function board_search(i){
 function detail_on_board(board_num){
     detail_state=1;
 
-    if(board_num!=undefined){
-        $('#detail_board_read').css({"visibility":"visible","opacity":"1"});
-        $('#wrap,#admin_header').css("opacity","0.4");
-        //값 넣는 코드
-    }
-    else if(board_num==undefined){
-        $('#detail_board_register').css({"visibility":"visible","opacity":"1"});
-        $('#wrap,#admin_header').css("opacity","0.4");
-    }
+    $('#detail_board_read').css({"visibility":"visible","opacity":"1"});
+    $('#wrap,#admin_header').css("opacity","0.4");
 
-    //값 초기화 코드
+
+    if(board_num!=undefined){
+        $.ajax({
+            url: "",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(board_num),
+            success : function (boardDTO) {
+
+                $('input[name=title]').val(boardDTO.title);
+                $('input[name=content]').val(boardDTO.content);
+            },
+            error : function (error){
+                alert("게시판 로딩에 실패했습니다");
+                console.log(error);
+            }
+        })
+    }
 }
