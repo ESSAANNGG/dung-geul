@@ -213,13 +213,10 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         PageResultDTO pageResultDTO = applicationService.getStudentApplyListPageDTO(pageRequestDTO, authMemberDTO.getUser_id());
 
         model.addAttribute("result", pageResultDTO);
+        model.addAttribute("member", authMemberDTO);
 
         log.info("getStudentList - result : " + pageResultDTO);
 
     }
 
-    @GetMapping("/member/apply/read")
-    public void getSudentApplyRead(){
-
-    }
 }
