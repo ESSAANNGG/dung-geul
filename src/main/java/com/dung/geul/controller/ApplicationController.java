@@ -151,12 +151,5 @@ public class ApplicationController {
         model.addAttribute("dto", dto);
     }
 
-    // 학생회원 본인 입사지원 목록 반환
-    @GetMapping("/student/list")
-    public void getStudentList(@RequestParam("user_id") String user_id, PageRequestDTO pageRequestDTO, Model model){
-        PageResultDTO pageResultDTO = applicationService.getStudentApplyListPageDTO(pageRequestDTO, user_id);
 
-        model.addAttribute("result", pageResultDTO);
-
-    }
 }

@@ -35,8 +35,8 @@ let signUp = {
       role: $('#role').val(), // ENTERPRISE
     };
 
-    console.log(userData);
-    alert(userData);
+    console.log(JSON.stringify(userData));
+    alert(JSON.stringify(userData));
 
     $.ajax({
       type: 'post',

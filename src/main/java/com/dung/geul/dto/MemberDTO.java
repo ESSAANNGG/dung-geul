@@ -1,6 +1,7 @@
 package com.dung.geul.dto;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ import java.time.format.DateTimeFormatter;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@SuperBuilder
 public class MemberDTO {
 
     private String user_id;
@@ -49,32 +51,5 @@ public class MemberDTO {
     private String role;
 
     private String regDate;
-
-
-    public MemberDTO(String user_id, String user_name, String user_ph, String user_ph2, String user_ph3,
-                     String user_postcode, String user_addr, String user_addr_details, String user_email,
-                     String user_emailDomain, int user_allow, String user_dept, String user_grade,
-                     String user_class, String role, LocalDateTime regDate) {
-        this.user_id = user_id;
-        this.user_name = user_name;
-        this.user_ph = user_ph;
-        this.user_ph2 = user_ph2;
-        this.user_ph3 = user_ph3;
-        this.user_postcode = user_postcode;
-        this.user_addr = user_addr;
-        this.user_addr_details = user_addr_details;
-        this.user_email = user_email;
-        this.user_emailDomain = user_emailDomain;
-        this.user_allow = user_allow;
-        this.user_dept = user_dept;
-        this.user_grade = user_grade;
-        this.user_class = user_class;
-        this.role = role;
-
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        this.regDate = regDate.format(dateTimeFormatter);
-    }
-
-
 
 }

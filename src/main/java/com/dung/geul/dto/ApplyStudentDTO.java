@@ -10,7 +10,7 @@ import lombok.*;
 public class ApplyStudentDTO {
 
     private Long etp_id;               // 기업 pk
-    private String etp_num;           // 사업자 번호
+    private String etp_num;
     private String etp_name;            // 기업 이름
 
     private Long emp_num;           // 채용공고 pk

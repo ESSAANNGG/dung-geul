@@ -1,6 +1,7 @@
 package com.dung.geul.dto;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -9,6 +10,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString(callSuper = true)
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class EnterpriseDTO extends MemberDTO {
 
     // 기업 추가 정보
@@ -42,32 +46,4 @@ public class EnterpriseDTO extends MemberDTO {
     // 이거 두개는 나중에 변경하는거임 (관리자가 수동으로)
     private String etp_shape; // 기업 형태 : 대기업, 중소기업
 
-
-    @Builder
-    public EnterpriseDTO(String user_id, String user_name, int user_allow,
-                         String user_ph, String user_ph2, String user_ph3, String user_postcode, String user_addr,
-                         String user_addr_details, String user_email, String user_emailDomain, String user_dept,
-                         String user_grade, String user_class, String role, LocalDateTime regDate, Long etp_id,
-                         String etp_num, String etp_name, String etp_ceo_name, String etp_ph, String etp_ph2, String etp_ph3,
-                         String etp_fx, String etp_home, String etp_contents, LocalDate etp_year,
-                         int etp_member, String etp_sector, String etp_shape) {
-        super(user_id, user_name, user_ph, user_ph2, user_ph3, user_postcode, user_addr, user_addr_details,
-                user_email, user_emailDomain, user_allow, user_dept, user_grade, user_class, role, regDate);
-
-        this.etp_id = etp_id;
-        this.etp_num = etp_num;
-        this.etp_name = etp_name;
-        this.etp_contents = etp_contents;
-        this.etp_ceo_name = etp_ceo_name;
-        this.etp_fx = etp_fx;
-        this.etp_home = etp_home;
-        this.etp_member = etp_member;
-        this.etp_ph = etp_ph;
-        this.etp_ph2 = etp_ph2;
-        this.etp_ph3 = etp_ph3;
-        this.etp_sector = etp_sector;
-        this.etp_shape = etp_shape;
-        this.etp_year = etp_year;
-
-    }
 }

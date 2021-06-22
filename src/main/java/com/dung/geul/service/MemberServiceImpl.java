@@ -90,6 +90,7 @@ public class MemberServiceImpl implements MemberService {
 
         int result = 0;
         System.out.println("MemberServiceImpl - enterprise");
+        log.info("enterpriseDTO : " + enterpriseDTO);
 
         String pw = encoder.encode(enterpriseDTO.getUser_pw());
 
@@ -111,8 +112,8 @@ public class MemberServiceImpl implements MemberService {
 
         } catch (Exception e) {
             memberRepository.delete(member);
-            result = 0;
             System.out.println("error : " + e);
+            result = 0;
         }
 
         return result;

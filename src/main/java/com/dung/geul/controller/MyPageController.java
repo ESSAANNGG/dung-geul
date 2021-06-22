@@ -7,9 +7,11 @@ import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Consulting;
 import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
+import com.dung.geul.service.ApplicationService;
 import com.dung.geul.service.ConsultingService;
 import com.dung.geul.service.ConsultingServiceImpl;
 import com.dung.geul.service.MemberServiceImpl;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Log4j2
 @Controller
 @RequestMapping("/mypage")
 public class MyPageController {        // 마이페이지 관련 컨트롤러
@@ -30,6 +33,9 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     @Autowired
     private ConsultingService consultingService;
+
+    @Autowired
+    private ApplicationService applicationService;
     // member 교내회원 마이페이지 (학생-STUDENT, 상담사-COUNSELOR, 관리자-ADMIN)
     // 매핑 기본 주소 : /mypage/
 
@@ -195,6 +201,18 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         model.addAttribute("roles", roles);
 
         model.addAttribute("loginUser", authMemberDTO);
+
+    }
+
+    // 학생회원 본인 입사지원 목록 반환
+    @GetMapping("/member/applicationStatus")
+    public void getStudentList(@RequestParam("user_id") String user_id, PageRequestDTO pageRequestDTO, Model model){
+
+        PageResultDTO pageResultDTO = applicationService.getStudentApplyListPageDTO(pageRequestDTO, user_id);
+
+        model.addAttribute("result", pageResultDTO);
+
+        log.info("getStudentList - result : " + pageResultDTO);
 
     }
 }

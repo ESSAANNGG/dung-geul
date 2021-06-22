@@ -60,6 +60,8 @@ public interface MemberService {
                 .etp_name(enterpriseDTO.getEtp_name())
                 .etp_ceo_name(enterpriseDTO.getEtp_ceo_name())
                 .etp_ph(enterpriseDTO.getEtp_ph())
+                .etp_ph2(enterpriseDTO.getEtp_ph2())
+                .etp_ph3(enterpriseDTO.getEtp_ph3())
                 .etp_fx(enterpriseDTO.getEtp_fx())
                 .etp_home(enterpriseDTO.getEtp_home())
                 .etp_contents(enterpriseDTO.getEtp_contents())
@@ -68,6 +70,8 @@ public interface MemberService {
                 .etp_sector(enterpriseDTO.getEtp_sector())
                 .etp_shape(enterpriseDTO.getEtp_shape())
                 .build();
+
+        System.out.println("memberService - 기업회원가입 dto To entity 의 enterprise \n " + enterprise);
 
         return enterprise;
     }
@@ -174,7 +178,6 @@ public interface MemberService {
                 .user_ph2(m.getUser_ph2())
                 .user_ph3(m.getUser_ph3())
                 .user_allow(m.getUser_allow())
-                .regDate(m.getRegDate())
 
                 .etp_id(e.getEtp_id())
                 .etp_num(e.getEtp_num())
@@ -194,14 +197,37 @@ public interface MemberService {
                 .role(m.getUser_type())
                 .build();
 
+
+
         return dto;
     }
 
     default MemberDTO entityToDto(Member m){
 
-        MemberDTO dto = new MemberDTO(m.getUser_id(), m.getUser_name(), m.getUser_ph(), m.getUser_ph2(),m.getUser_ph3(),
-                m.getUser_postcode(), m.getUser_addr(), m.getUser_addr_details(), m.getUser_email(), m.getUser_emailDomain(),
-                m.getUser_allow(), m.getUser_dept(), m.getUser_grade(), m.getUser_class(), m.getUser_type(), m.getRegDate());
+        MemberDTO dto = MemberDTO.builder()
+                .user_id(m.getUser_id())
+                .user_name(m.getUser_name())
+                .user_ph(m.getUser_ph())
+                .user_ph2(m.getUser_ph2())
+                .user_ph3(m.getUser_ph3())
+                .user_postcode(m.getUser_postcode())
+                .user_addr(m.getUser_addr())
+                .user_addr_details(m.getUser_addr_details())
+                .user_email(m.getUser_email())
+                .user_emailDomain(m.getUser_emailDomain())
+                .user_allow(m.getUser_allow())
+                .user_dept(m.getUser_dept())
+                .user_grade(m.getUser_grade())
+                .user_class(m.getUser_class())
+                .role(m.getUser_type())
+                .build();
+
+
+        if(m.getRegDate() != null){
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String regDate = m.getRegDate().format(dateTimeFormatter);
+            dto.setRegDate(regDate);
+        }
 
         return dto;
     }
