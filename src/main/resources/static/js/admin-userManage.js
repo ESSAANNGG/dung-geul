@@ -53,7 +53,6 @@ function userManage_list_send(){
         A_url="/allow/etp/read?result=" + p;
     }
 
-
     $.ajax({
         url: A_url,
         type: "POST",
