@@ -1,14 +1,15 @@
 .active .page-link{
-    background-color: #3498db !important;
-    color:#ffffff !important;
+    background-color: #3498db;
+    color:#ffffff;
 }
 .page-link{
     font-size: 13px;
     font-weight:900;
-    color:#3498db !important;
+    color:#3498db;
     /*border-radius: initial !important   ;*/
 }
 .pagination{
+    margin-top: 20px;
     display:flex;
     justify-content: center;
 }
