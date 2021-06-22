@@ -16,19 +16,19 @@ public class CenterInformationRestController {
     private notice_boardService service;
 
 //    //지민우 관리자 게시글 삭제
-//    @PostMapping("/remove_admin")
-//    public ResponseEntity remove_admin(@RequestParam("num") long num){  // 게시글 삭제
-//
-//        try {
-//            log.info("remove_admin - num: " + num);
-//
-//            service.remove(num);
-//
-//            return new ResponseEntity(1, HttpStatus.OK);
-//        } catch (Exception e) {
-//
-//            return new ResponseEntity(0, HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//
-//    }
+    @PostMapping("/remove_admin")
+    public ResponseEntity remove_admin(@RequestParam("num") long num){  // 게시글 삭제
+
+        try {
+            log.info("remove_admin - num: " + num);
+
+            service.remove(num);
+
+            return new ResponseEntity(num, HttpStatus.OK);
+        } catch (Exception e) {
+
+            return new ResponseEntity(0, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 }

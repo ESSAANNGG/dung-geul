@@ -95,8 +95,22 @@ function detail_on_board(board_num){
 }
 function board_detail_submit(select_modal){
     conF=confirm('게시글을 삭제하시겠습니까?');
-    if(conF==true){
-        link_val=$('#'+select_modal).find('input[name="num"]').val();
-        location.href ="/center-information/remove_admin?num="+link_val;
-    }
+    modal_val=[];
+    link_val=$('#'+select_modal).find('input[name="num"]').val();
+    modal_val.push(link_val);
+
+    alert(JSON.stringify(link_val)+"선택된 값들입니다dd");   //디버깅
+    $.ajax({
+        url: "/center-information/remove_admin?num="+link_val,
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success : function (result){
+            alert("회원정보 삭제완료");
+            submit_param();
+        },
+        error : function (err) {
+            alert("삭제실패");
+        }
+    })
 }

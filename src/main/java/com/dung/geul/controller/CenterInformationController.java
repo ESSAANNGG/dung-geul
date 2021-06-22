@@ -105,18 +105,18 @@ public class CenterInformationController {  // 센터정보 컨트롤러
 
     }
 
-    @GetMapping("/remove_admin")
-    public String remove_admin(long num, RedirectAttributes redirectAttributes){  // 게시글 삭제
-
-        log.info("num: " + num);
-
-        service.remove(num);
-
-        redirectAttributes.addFlashAttribute("msg", num);
-
-        return "redirect:/admin/admin_board?";
-
-    }
+//    @GetMapping("/remove_admin")
+//    public String remove_admin(long num, RedirectAttributes redirectAttributes){  // 게시글 삭제
+//
+//        log.info("num: " + num);
+//
+//        service.remove(num);
+//
+//        redirectAttributes.addFlashAttribute("msg", num);
+//
+//        return "redirect:/admin/admin_board?";
+//
+//    }
 
 
 
