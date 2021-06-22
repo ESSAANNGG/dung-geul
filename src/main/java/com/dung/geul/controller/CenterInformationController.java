@@ -7,29 +7,26 @@ import com.dung.geul.entity.Board;
 import com.dung.geul.repository.BoardRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.notice_boardService;
+import com.dung.geul.service.notice_boardServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.awt.print.Pageable;
-import java.util.List;
 
 @Controller
 @RequestMapping("/center-information")
 @RequiredArgsConstructor    // 페이지 목록 처리
 @Log4j2
 public class CenterInformationController {  // 센터정보 컨트롤러
+
+    @Autowired
+    notice_boardServiceImpl boardservice;
 
     @GetMapping("/center_introduction")   // 센터 소개
     public String center_introduction(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model) {
@@ -84,7 +81,7 @@ public class CenterInformationController {  // 센터정보 컨트롤러
     }
 
     @GetMapping({"/notice_board_read", "/notice_board_modify"}) // 매핑을 배열로 두개 처리
-    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, 
+    public void read(long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO,
                      Model model){
 
         log.info("num: " + num);
@@ -126,4 +123,12 @@ public class CenterInformationController {  // 센터정보 컨트롤러
     }
 
 
+    // 게시판 모달에 띄우기
+    @GetMapping("/detail/read")
+    public ResponseEntity memberDetailsRead(@RequestParam("board_num") Long board_num){
+
+        notice_boardDTO board = boardservice.read(board_num);
+        log.info(board.toString());
+        return new ResponseEntity(board, HttpStatus.OK);
+    }
 }

@@ -31,7 +31,8 @@ public class AdminPageController {
     public void getList(Model model,
                         @RequestParam(value = "page1", required = false, defaultValue = "1") int page1,
                         @RequestParam(value = "page2", required = false, defaultValue = "1") int page2,
-                        SearchDTO searchDTO
+                        SearchDTO searchDTO,
+                        PageRequestDTO pageRequestDTO //지민우
     ){
 
         // type : USER / ENTERPRISE / STUDENT / STAFF / COUNSELOR / UNIV
@@ -60,6 +61,8 @@ public class AdminPageController {
 
         model.addAttribute("notAllowList", notAllowDto.getDtoList());
         model.addAttribute("allowList", allowDto.getDtoList());
+
+        model.addAttribute("result", service.getList(pageRequestDTO));//지민우
 
         log.info("notAllowList : " + notAllowDto.getDtoList());
         log.info("allowList : " + allowDto.getDtoList());
