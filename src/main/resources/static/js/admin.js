@@ -315,5 +315,6 @@ $('#shadow_box').click(function(e){
 $('.d_button').click(function(e){
     select_modal=$(this).parent("div").parent("div").attr('id');
     window[String(menu_name) + "_detail_submit"](select_modal);
+    alert("처리 완료되었습니다");
     submit_param();
 })

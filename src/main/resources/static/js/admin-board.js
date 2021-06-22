@@ -21,17 +21,6 @@ function board_list() {
 
 function board_list_send(){
 
-    // if(ListId == "main2_user"){
-    //     A_url="/allow/member/read?result=" + p;
-    // }
-    // else if(ListId == "main2_corp" &&p=="no"){
-    //     A_url="/allow/etp/delete?result=" + p;
-    // }
-    // else if(ListId == "main2_corp" && p == "ok"){
-    //     A_url="/allow/etp/read?result=" + p;
-    // }
-
-
     $.ajax({
         url: '',
         type: "POST",
@@ -88,6 +77,7 @@ function detail_on_board(board_num){
             dataType: "json",
             success : function (boardDTO) {
                 $('#detail_board_read').css({"visibility":"visible","opacity":"1"});
+                $('input[name=num]').val(boardDTO.num);
                 $('input[name=title]').val(boardDTO.title);
                 $('textarea[name=content]').val(boardDTO.content);
             },
@@ -101,5 +91,12 @@ function detail_on_board(board_num){
         $('#detail_board_register').css({"visibility":"visible","opacity":"1"});
         $('input[name=title]').val("");
         $('textarea[name=content]').val("");
+    }
+}
+function board_detail_submit(select_modal){
+    conF=confirm('게시글을 삭제하시겠습니까?');
+    if(conF==true){
+        link_val=$('#'+select_modal).find('input[name="num"]').val();
+        location.href ="/center-information/remove_admin?num="+link_val;
     }
 }
