@@ -9,7 +9,7 @@
 <body>
 <div th:fragment="header">
     <div id="admin_header">
-        <h5><a th:href="@{/}">YJE</a></h5>
+        <h5><a sec:authorize="isAuthenticated()" href="/logout" >YJE</a></h5>
     </div>
 </div>
 
