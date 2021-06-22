@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>회원 정보</title>
+    <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <!-- select 태그 부트스트랩 -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="../../../static/css/mypage.css">
+    <link rel="stylesheet" href="../../../static/css/user_info.css">
+    <link rel="stylesheet" href="../../../static/css/recruitmentManagement.css">
+    <link rel="stylesheet" href="../../../static/css/pagenation.css" />
+
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+
+    <body>
+        <section class="vbox">
+
+            <!-- 상단 네비게이션 자리  -->
+            <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+                <!--취업정보센터 링크 -->
+                <div class="navbar-header aside-md">
+                    <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open"
+                        data-target="#nav,html"><i class="fa fa-bars"></i></a>
+
+
+                    <a href="/" class="navbar-brand" data-toggle="fullscreen"><i class="fas fa-book-open"></i>
+                        취업정보센터</a>
+
+                    <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"><i
+                            class="fa fa-cog"></i></a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
+                    <!-- 알림표시 -->
+                    <!-- open으로 작동 -->
+                    <!-- 로그아웃 드롭다운 메뉴 -->
+                    <!-- open -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span> &nbsp; &nbsp;</span> [[${etp.getUser_name()}]] 님 <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
+
+                            <li> <a href="/mypage/etp/modify">회원 정보수정</a> </li>
+                            <!-- <li> <a href=""> <span class="badge bg-danger pull-right">3</span> 알림 </a> </li>  -->
+                            <li class="divider"></li>
+                            <li><a sec:authorize="isAuthenticated()" href="/logout">Logout</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </header>
+            <!-- 상단 네비게이션 end -->
+
+            <section>
+                <section class="hbox stretch">
+                    <!-- .aside -->
+                    <!-- 왼쪽메뉴 -->
+                    <!-- nav-xs로 줄임 -->
+                    <aside class="bg-dark lter aside-md hidden-print " id="nav">
+                        <section class="vbox">
+                            <!--MY HOME-->
+                            <header class="header bg-primary lter text-center clearfix">
+                                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project">
+                                    <i class="fas fa-home"></i>
+                                </button>
+                                <div class="btn-group hidden-nav-xs">
+                                    <a href="">
+                                        <button type="button" class="btn btn-sm btn-primary"
+                                            style="font-size: 20px; margin-bottom: 10px;"></i> MY
+                                            HOME
+
+                                        </button>
+                                    </a>
+
+                                </div>
+                            </header>
+                            <!-- MY HOME END -->
+                            <section class="w-f scrollable">
+                                <div class="slim-scroll" data-height="auto" data-disable-fade-out="true"
+                                    data-distance="0" data-size="5px" data-color="#333333">
+                                    <!-- aside nav 따로 파일 나눠놨어요 -->
+                                    <div th:replace="mypage/etp/aside :: body" />
+                                    <!-- nav end -->
+                                </div>
+                            </section>
+
+                            <footer class="footer lt hidden-xs b-t b-dark">
+                                <!-- 메뉴숨길때 btn-icon active -->
+                                <a href="#nav" data-toggle="class:nav-xs"
+                                    class="pull-right btn btn-sm btn-dark btn-icon ">
+                                    <i class="fa fa-angle-left text"></i>
+                                    <i class="fa fa-angle-right text-active"></i>
+                                </a>
+                                <div class="btn-group hidden-nav-xs">
+                                </div>
+                            </footer>
+                        </section>
+                    </aside>
+
+                    <!-- /.aside -->
+                    <!-- 콘텐츠 자리 -->
+                    <section id="content">
+                        <section class="vbox">
+                            <section class="scrollable padder">
+                                <!-- 요기안에 컨텐츠 넣으면 되용 -->
+                                <div id="content-frame">
+                                    <!-- 메뉴제목자리 -->
+                                    <div id="title">
+                                        <h1>채용관리</h1>
+                                    </div>
+                                    <!-- 주요컨텐츠 -->
+                                    <div id="main-content">
+                                        
+                                        <div class="employList employ">
+                                            <div style=" margin-bottom:16px;" class="employListPost">
+                                                <li th:each="dto: ${result.dtoList}">
+                                                    <a th:href="@{/Employ/read(num = ${dto.num}"
+                                                        class="read_page_click">
+                                                        <ul class="post_title_wrap" style="margin-bottom: 10px; padding-right: 5px;">
+                                                            <li class="post_title" th:text="${dto.title}">11111111</li>
+                                                            <button style="float: right;">지원자 확인</button>
+                                                        </ul>
+                                                        
+                                                        <ul>
+
+                                                            <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
+                                                            <i class="far fa-clock"></i>
+                                                    
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div style=" margin-bottom:16px;" class="employListPost" th:each="dto: ${result.dtoList}">
+                                                <li>
+                                                    <a th:href="@{/Employ/read(num = ${dto.num}"
+                                                        class="read_page_click">
+                                                        <ul class="post_title_wrap" style="margin-bottom: 10px; padding-right: 5px;">
+                                                            <li class="post_title" th:text="${dto.title}">11111111</li>
+                                                            <button style="float: right;">지원자 확인</button>
+                                                        </ul>
+                                                        
+                                                        <ul>
+
+                                                            <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
+                                                            <i class="far fa-clock"></i>
+                                                    
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div style=" margin-bottom:16px;" class="employListPost">
+                                                <li th:each="dto: ${result.dtoList}">
+                                                    <a th:href="@{/Employ/read(num = ${dto.num}"
+                                                        class="read_page_click">
+                                                        <ul class="post_title_wrap" style="margin-bottom: 10px; padding-right: 5px;">
+                                                            <li class="post_title" th:text="${dto.title}">11111111</li>
+                                                            <button style="float: right;">지원자 확인</button>
+                                                        </ul>
+                                                        
+                                                        <ul>
+
+                                                            <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
+                                                            <i class="far fa-clock"></i>
+                                                    
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div style=" margin-bottom:16px;" class="employListPost">
+                                                <li th:each="dto: ${result.dtoList}">
+                                                    <a th:href="@{/Employ/read(num = ${dto.num}"
+                                                        class="read_page_click">
+                                                        <ul class="post_title_wrap" style="margin-bottom: 10px; padding-right: 5px;">
+                                                            <li class="post_title" th:text="${dto.title}">11111111</li>
+                                                            <button style="float: right;">지원자 확인</button>
+                                                        </ul>
+                                                        
+                                                        <ul>
+
+                                                            <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
+                                                            <i class="far fa-clock"></i>
+                                                    
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div style=" margin-bottom:16px;" class="employListPost">
+                                                <li th:each="dto: ${result.dtoList}">
+                                                    <a th:href="@{/Employ/read(num = ${dto.num}"
+                                                        class="read_page_click">
+                                                        <ul class="post_title_wrap" style="margin-bottom: 10px; padding-right: 5px;">
+                                                            <li class="post_title" th:text="${dto.title}">11111111</li>
+                                                            <button style="float: right;">지원자 확인</button>
+                                                        </ul>
+                                                        
+                                                        <ul>
+
+                                                            <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
+                                                            <i class="far fa-clock"></i>
+                                                    
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div style=" margin-bottom:16px;" class="employListPost">
+                                                <li th:each="dto: ${result.dtoList}">
+                                                    <a th:href="@{/Employ/read(num = ${dto.num}"
+                                                        class="read_page_click">
+                                                        <ul class="post_title_wrap" style="margin-bottom: 10px; padding-right: 5px;">
+                                                            <li class="post_title" th:text="${dto.title}">11111111</li>
+                                                            <button style="float: right;">지원자 확인</button>
+                                                        </ul>
+                                                        
+                                                        <ul>
+
+                                                            <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
+                                                            <i class="far fa-clock"></i>
+                                                    
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div style=" margin-bottom:16px;" class="employListPost">
+                                                <li th:each="dto: ${result.dtoList}">
+                                                    <a th:href="@{/Employ/read(num = ${dto.num}"
+                                                        class="read_page_click">
+                                                        <ul class="post_title_wrap" style="margin-bottom: 10px; padding-right: 5px;">
+                                                            <li class="post_title" th:text="${dto.title}">11111111</li>
+                                                            <button style="float: right;">지원자 확인</button>
+                                                        </ul>
+                                                        
+                                                        <ul>
+
+                                                            <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
+                                                            <i class="far fa-clock"></i>
+                                                    
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div style=" margin-bottom:16px;" class="employListPost">
+                                                <li th:each="dto: ${result.dtoList}">
+                                                    <a th:href="@{/Employ/read(num = ${dto.num}"
+                                                        class="read_page_click">
+                                                        <ul class="post_title_wrap" style="margin-bottom: 10px; padding-right: 5px;">
+                                                            <li class="post_title" th:text="${dto.title}">11111111</li>
+                                                            <button style="float: right;">지원자 확인</button>
+                                                        </ul>
+                                                        
+                                                        <ul>
+
+                                                            <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
+                                                            <i class="far fa-clock"></i>
+                                                    
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div style=" margin-bottom:16px;" class="employListPost">
+                                                <li th:each="dto: ${result.dtoList}">
+                                                    <a th:href="@{/Employ/read(num = ${dto.num}"
+                                                        class="read_page_click">
+                                                        <ul class="post_title_wrap" style="margin-bottom: 10px; padding-right: 5px;">
+                                                            <li class="post_title" th:text="${dto.title}">11111111</li>
+                                                            <button style="float: right;">지원자 확인</button>
+                                                        </ul>
+                                                        
+                                                        <ul>
+
+                                                            <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
+                                                            <i class="far fa-clock"></i>
+                                                    
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div style=" margin-bottom:16px;" class="employListPost">
+                                                <li th:each="dto: ${result.dtoList}">
+                                                    <a th:href="@{/Employ/read(num = ${dto.num}"
+                                                        class="read_page_click">
+                                                        <ul class="post_title_wrap" style="margin-bottom: 10px; padding-right: 5px;">
+                                                            <li class="post_title" th:text="${dto.title}">11111111</li>
+                                                            <button style="float: right;">지원자 확인</button>
+                                                        </ul>
+                                                        
+                                                        <ul>
+
+                                                            <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
+                                                            <i class="far fa-clock"></i>
+                                                    
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="recruit">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+                        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen"
+                        data-target="#nav"></a>
+                    </section>
+            <!-- 콘텐츠 END -->
+
+            <aside class="bg-light lter b-l aside-md hide" id="notes">
+                <div class="wrapper">Notification</div>
+            </aside>
+        </section>
+    </section>
+</section> <!-- Bootstrap -->
+<!-- App -->
+
+</body>
+<!-- partial -->
+<script src="/js/mypage.js"></script>
+</body>
+
+</html>
