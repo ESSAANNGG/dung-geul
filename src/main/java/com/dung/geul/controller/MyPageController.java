@@ -205,7 +205,7 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
     }
 
     // 학생회원 본인 입사지원 목록 반환
-    @GetMapping("/member/applicationStatus")
+    @GetMapping("/member/ApplicationStatus")
     public void getStudentList(@RequestParam("user_id") String user_id, PageRequestDTO pageRequestDTO, Model model){
 
         PageResultDTO pageResultDTO = applicationService.getStudentApplyListPageDTO(pageRequestDTO, user_id);
