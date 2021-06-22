@@ -57,6 +57,8 @@ li{
     background-color: initial !important;
     color: #5978b9 !important;
 }
+/*페이지네이션 끝*/
+
 input{
     padding-left:15px;
 }
@@ -458,7 +460,7 @@ a{
 }
 .shape select{
     text-align-last: center;
-    width:140px;
+    width:120px;
     height:40px;
     line-height:35px;
 

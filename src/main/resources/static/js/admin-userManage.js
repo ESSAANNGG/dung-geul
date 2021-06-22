@@ -53,7 +53,6 @@ function userManage_list_send(){
         A_url="/allow/etp/read?result=" + p;
     }
 
-
     $.ajax({
         url: A_url,
         type: "POST",
@@ -135,7 +134,6 @@ function detail_on_userManage(id,roll){
         data: JSON.stringify('id: '+id),
         success : function (MemberDTO) {
             M=MemberDTO;
-            alert(M.user_name);
             $('input[name=이름]').val(M.user_name);
             $('input[name=아이디]').val(M.user_id);
             $('input[name=비밀번호]').val(M.user_pw);
@@ -181,19 +179,20 @@ function detail_on_userManage(id,roll){
     $('#wrap,#admin_header').css("opacity","0.4");
 }
 function userManage_detail_submit(select_modal){
-    modal_val=[];
-    modal_val.push($('#'+select_modal).find('input[name="아이디"]').val());
-    switch (select_modal) {
-        case 'detail_student':
-        case 'detail_counselor':
-            A_url="/allow/member/read?result=no";
-            break;
-        case 'detail_enterprise':
-            A_url="/allow/etp/delete?result=no";
-            break;
+    conF=confirm('해당 회원을 삭제하시겠습니까?');
+    if(conF==true) {
+        modal_val = [];
+        modal_val.push($('#' + select_modal).find('input[name="아이디"]').val());
+        switch (select_modal) {
+            case 'detail_student':
+            case 'detail_counselor':
+                A_url = "/allow/member/read?result=no";
+                break;
+            case 'detail_enterprise':
+                A_url = "/allow/etp/delete?result=no";
+                break;
+        }
     }
-
-    // alert(JSON.stringify(modal_val)+"선택된 값들입니다");   //디버깅
 
     $.ajax({
         url: A_url,
@@ -202,10 +201,11 @@ function userManage_detail_submit(select_modal){
         dataType: "json",
         data: JSON.stringify(modal_val),
         success : function (result){
-            alert("회원정보 삭제완료");
+            alert("처리되었습니다.");
+            submit_param();
         },
         error : function (err) {
-            alert("삭제실패");
+            alert("처리에 실패했습니다.");
         }
     })
 }

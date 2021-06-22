@@ -315,5 +315,5 @@ $('#shadow_box').click(function(e){
 $('.d_button').click(function(e){
     select_modal=$(this).parent("div").parent("div").attr('id');
     window[String(menu_name) + "_detail_submit"](select_modal);
-    submit_param();
+    //submit_param()는 sucess에서 실행
 })

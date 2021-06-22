@@ -305,8 +305,8 @@ let cont_func_index=0;
 function post_cont_sub_func(){
     let post_cont = document.getElementsByClassName("post_cont")[cont_func_index];
     post_cont_txt=post_cont.innerText;                             //text값을 받아와서 txt에 담음
-    if(post_cont_txt.length > 70){                                //내용이길다면 sub변수에 substr를 이용해 간추림
-        var post_cont_sub=post_cont_txt.substr(0,70)+"...";
+    if(post_cont_txt.length > 90){                                //내용이길다면 sub변수에 substr를 이용해 간추림
+        var post_cont_sub=post_cont_txt.substr(0,90)+"...";
         post_cont.innerText=post_cont_sub;                                        //text 설정
     }
 

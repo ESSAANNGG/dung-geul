@@ -1,3 +1,4 @@
+let className;
 let modify = {
     init: function () {
         $("#modifyMember").on("click", (event) => {
@@ -36,10 +37,10 @@ let modify = {
             success : function (result) {
 
                 console.log(result);
-
                 if(result == 1){
                     alert("수정 성공");
-                    location.href = "/mypage/member/read";
+                    href=window.location.href.replaceAll('modify','read');
+                    location.href=href;
                 }
             }
 

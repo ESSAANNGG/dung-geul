@@ -181,14 +181,10 @@
 
             <div class="employListPost">
               <li th:each="dto: ${result.dtoList}">
-                <a
-                  th:href="@{/Employ/read(num = ${dto.num}, page = ${result.page},
-              type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}"
-                  class="read_page_click"
-                >
+                <a th:href="@{/Employ/read(num = ${dto.num}, page = ${result.page},
+              type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
                   <ul class="post_title_wrap">
                     <li class="post_title" th:text="${dto.title}"></li>
-                    <i class="far fa-bookmark"></i>
                   </ul>
                   <ul class="post_corp_name_wrap">
                     <i class="fas fa-map-marker-alt"></i>
@@ -197,10 +193,7 @@
                   <ul class="post_cont" th:text="${dto.content}"></ul>
                   <ul>
                     <!--                  <li class="post_start_date"><i class="far fa-clock"></i>8시간 전</li>-->
-                    <li
-                      class="post_end_date"
-                      th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}"
-                    >
+                    <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
                       <i class="far fa-clock"></i>
                     </li>
                   </ul>
@@ -222,31 +215,6 @@
 <!--            <input type="checkbox" name="type" id="dummy_detailArea"  value="gugun" th:checked="${pageRequestDTO.type == 'gugun'}" >-->
 <!--          </div>-->
 <!--        </div>-->
-
-
-        <div class="employListPost">
-          <li th:each="dto: ${result.dtoList}">
-            <a th:href="@{/Employ/read(num = ${dto.num}, page = ${result.page},
-              type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
-              <ul class="post_title_wrap">
-                <li class="post_title" th:text="${dto.title}"></li><!--<i class="far fa-bookmark"></i>-->
-              </ul>
-              <ul class="post_corp_name_wrap"><i class="fas fa-map-marker-alt"></i>
-                <li class="post_corp_name" th:text="${dto?.etp_name}">작성자</li>
-              </ul>
-              <ul class="post_cont" th:text="${dto.content}"></ul>
-              <ul>
-
-                <!--                  <li class="post_start_date"><i class="far fa-clock"></i>8시간 전</li>-->
-                <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}"><i class="far fa-clock"></i></li>
-              </ul>
-            </a>
-            <script type="text/javascript">
-              post_cont_sub_func();
-            </script>
-          </li>
-        </div>
-
 
             <ul class="pagination h-100 justify-content-center align-items-center" id="pagination">
               <li class="page-item" th:if="${result.prev}">

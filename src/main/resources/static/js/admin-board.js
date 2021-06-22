@@ -21,17 +21,6 @@ function board_list() {
 
 function board_list_send(){
 
-    // if(ListId == "main2_user"){
-    //     A_url="/allow/member/read?result=" + p;
-    // }
-    // else if(ListId == "main2_corp" &&p=="no"){
-    //     A_url="/allow/etp/delete?result=" + p;
-    // }
-    // else if(ListId == "main2_corp" && p == "ok"){
-    //     A_url="/allow/etp/read?result=" + p;
-    // }
-
-
     $.ajax({
         url: '',
         type: "POST",
@@ -75,21 +64,22 @@ function board_search(i){
 function detail_on_board(board_num){
     detail_state=1;
 
-    $('#detail_board_read').css({"visibility":"visible","opacity":"1"});
+
     $('#wrap,#admin_header').css("opacity","0.4");
 
 
     if(board_num!=undefined){
+
         $.ajax({
-            url: "",
+            url: "/center-information/detail/read?board_num="+board_num,
             type: "GET",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: JSON.stringify(board_num),
             success : function (boardDTO) {
-
+                $('#detail_board_read').css({"visibility":"visible","opacity":"1"});
+                $('input[name=num]').val(boardDTO.num);
                 $('input[name=title]').val(boardDTO.title);
-                $('input[name=content]').val(boardDTO.content);
+                $('textarea[name=content]').val(boardDTO.content);
             },
             error : function (error){
                 alert("게시판 로딩에 실패했습니다");
@@ -97,4 +87,30 @@ function detail_on_board(board_num){
             }
         })
     }
+    else if(board_num==undefined){
+        $('#detail_board_register').css({"visibility":"visible","opacity":"1"});
+        $('input[name=title]').val("");
+        $('textarea[name=content]').val("");
+    }
+}
+function board_detail_submit(select_modal){
+    conF=confirm('게시글을 삭제하시겠습니까?');
+    modal_val=[];
+    link_val=$('#'+select_modal).find('input[name="num"]').val();
+    modal_val.push(link_val);
+
+    alert(JSON.stringify(link_val)+"선택된 값들입니다dd");   //디버깅
+    $.ajax({
+        url: "/center-information/remove_admin?num="+link_val,
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success : function (result){
+            alert("회원정보 삭제완료");
+            submit_param();
+        },
+        error : function (err) {
+            alert("삭제실패");
+        }
+    })
 }
