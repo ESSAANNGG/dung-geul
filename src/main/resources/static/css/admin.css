@@ -38,6 +38,25 @@ body{
 li{
     list-style-type:none;
 }
+/*페이지네이션*/
+.page-ltem{
+    width:28px;
+    height:28px;
+    margin:0px 2px;
+    text-align: center;
+}
+.page-item,.active{
+    outline:1px solid #e2e2e2;
+    background-color: #ffffff;
+    text-align: center;
+}
+.page-link{
+    color: #a8a8a8 !important;
+}
+.active .page-link {
+    background-color: initial !important;
+    color: #5978b9 !important;
+}
 input{
     padding-left:15px;
 }

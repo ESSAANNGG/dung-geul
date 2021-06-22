@@ -137,8 +137,6 @@
                 <span class="link s200"><a th:href="@{/center-information/notice_board_read(num = ${dto.num})}" target="_blank">이동하기</a></span>
                </div>
                 <div class="list_button">
-                  <button class="list_submit">삭제</button>
-                  <button class="list_submit direct" onclick="detail(this)">등록</button></a>
                   <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
                     <li class="page-ltem " th:if="${result.prev}">
                       <a class="page-link" th:href="@{/admin/admin_board(page= ${result.start -1})}" tabindex="-1">이전</a>
@@ -154,6 +152,8 @@
                       <a class="page-link" th:href="@{/admin/admin_board(page=${result.end + 1})}">다음</a>
                     </li>
                   </ul>
+                  <button class="list_submit">삭제</button>
+                  <button class="list_submit direct" onclick="detail(this)">등록</button></a>
                 </div>
               </div>
             </div>
