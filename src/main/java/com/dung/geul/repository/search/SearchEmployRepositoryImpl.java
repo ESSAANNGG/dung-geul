@@ -70,7 +70,7 @@ public class SearchEmployRepositoryImpl extends QuerydslRepositorySupport implem
         QEnterprise enterprise = QEnterprise.enterprise;
 
         JPQLQuery<Employ> jpqlQuery = from(employ);
-        jpqlQuery.leftJoin(enterprise).on(employ.etp_id.eq(enterprise));
+        jpqlQuery.leftJoin(enterprise).on(employ.etpId.eq(enterprise));
 
         JPQLQuery<Tuple> tuple = jpqlQuery.select(employ,enterprise);
 

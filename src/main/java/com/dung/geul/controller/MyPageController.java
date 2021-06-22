@@ -1,16 +1,11 @@
 package com.dung.geul.controller;
 
-import com.dung.geul.dto.ConsultingDTO;
-import com.dung.geul.dto.EnterpriseDTO;
-import com.dung.geul.dto.PageRequestDTO;
-import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.entity.Consulting;
+import com.dung.geul.entity.Employ;
 import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
-import com.dung.geul.service.ApplicationService;
-import com.dung.geul.service.ConsultingService;
-import com.dung.geul.service.ConsultingServiceImpl;
-import com.dung.geul.service.MemberServiceImpl;
+import com.dung.geul.service.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -21,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Log4j2
@@ -36,6 +32,9 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     @Autowired
     private ApplicationService applicationService;
+
+    @Autowired
+    private EmployService employService;
     // member 교내회원 마이페이지 (학생-STUDENT, 상담사-COUNSELOR, 관리자-ADMIN)
     // 매핑 기본 주소 : /mypage/
 
@@ -218,5 +217,19 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         log.info("getStudentList - result : " + pageResultDTO);
 
     }
+
+    // 기업회원 본인 채용공고 목록 반환
+    @GetMapping("/etp/employ/list")
+    public void getEmployList(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
+
+        List<EmployDTO> emList = employService.getListByMember(authMemberDTO.getUser_id());
+
+        model.addAttribute("emList", emList);
+        model.addAttribute("memberDTO", authMemberDTO);
+
+        log.info("채용공고 리스트 : " + emList);
+    }
+
+
 
 }

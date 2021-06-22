@@ -9,12 +9,16 @@ import com.dung.geul.entity.Employ;
 import com.dung.geul.entity.Enterprise;
 import net.bytebuddy.asm.Advice;
 
+import java.util.List;
+
 
 public interface EmployService {
 
 //    PageResultDTO<EmployDTO, Employ> getList(PageRequestDTO pageRequestDTO);
 
     PageResultDTO<EmployDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
+
+    List<EmployDTO> getListByMember(String user_id);        // 회원별 등록한 채용 공고 리스트 보여주기
 
     EmployDTO read(Long num);
 
@@ -43,7 +47,7 @@ public interface EmployService {
                 .area(dto.getArea())
                 .apply(dto.getApply())
                 .file(dto.getFile())
-                .etp_id(enterprise)
+                .etpId(enterprise)
                 .build();
         return entity;
     }

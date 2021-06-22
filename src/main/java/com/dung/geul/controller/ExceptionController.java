@@ -25,9 +25,9 @@ public class ExceptionController {
         return "error/403";
     }
 
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 500
-    @ExceptionHandler({NullPointerException.class, ClassNotFoundException.class, IndexOutOfBoundsException.class})
-    public String serverError() {
-        return "error/403";
-    }
+//    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 500
+//    @ExceptionHandler({NullPointerException.class, ClassNotFoundException.class, IndexOutOfBoundsException.class})
+//    public String serverError() {
+//        return "error/403";
+//    }
 }

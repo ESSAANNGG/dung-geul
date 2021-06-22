@@ -66,7 +66,6 @@ public class Employ extends BaseEntity{
     private String file;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="em_etp_id")
-    private Enterprise etp_id;
+    private Enterprise etpId;
 
 }

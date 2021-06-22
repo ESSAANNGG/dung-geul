@@ -17,7 +17,6 @@ public class MemberRestController {
 // 회원관리 컨트롤러
     // 로그인, 회원가입, 회원정보 수정
 
-
     @Autowired
     private MemberServiceImpl memberService;
 
