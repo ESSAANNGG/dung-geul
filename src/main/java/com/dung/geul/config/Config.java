@@ -35,12 +35,13 @@ public class Config extends WebSecurityConfigurerAdapter {
         //TODO.. 추가해야하는 접근 경로 뭐가 있는지 물어보기
         http.csrf().disable()
                 .authorizeRequests()
-//                .antMatchers("/application/**").hasRole("STUDENT")                          // 이력서 전체
-                .antMatchers("/Introduce/**").hasRole("STUDENT")                            // 자기소개서
+                .antMatchers("/application/**").hasRole("STUDENT")                          // 이력서 전체
                 .antMatchers("/mypage/**").hasRole("USER")                                  // 사용자 마이페이지 전체
-                .antMatchers("/counseling/**").hasRole("USER")                              // 상담 전체
+                .antMatchers("/counseling/**").hasAnyRole("STUDENT", "COUNSELOR")    // 상담 전체
                 .antMatchers("/center-information/notice_board_modify/**").hasRole("ADMIN") // 공지사항 게시판 수정,삭제 페이지
                 .antMatchers("/admin/**").hasRole("ADMIN")                                  // 관리자 페이지 전체
+                .antMatchers("/license/**").hasRole("STUDENT")                              // 자격증 전체
+                .antMatchers("/Employ/register", "/Employ/modify").hasAnyRole("ADMIN", "ENTERPRISE", "STAFF")   // 채용공고 등록 수정
                 .anyRequest().permitAll();
 
 
