@@ -1,4 +1,4 @@
-package com.dung.geul.dto;
+package com.dung.geul.dto.cv;
 
 import com.dung.geul.entity.Member;
 import lombok.AllArgsConstructor;

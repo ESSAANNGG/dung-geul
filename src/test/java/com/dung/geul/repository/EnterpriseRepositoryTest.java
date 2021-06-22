@@ -34,7 +34,7 @@ public class EnterpriseRepositoryTest {
         String pw = encoder.encode("123");
 
 
-        for (int i = 0; i < 15; i++) {
+        for (int i = 15; i <25; i++) {
 
             Member m = Member.builder()
                     .user_id("enterprise" + i)

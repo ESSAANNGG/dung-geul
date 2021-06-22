@@ -1,11 +1,11 @@
 package com.dung.geul.service;
 
 import com.dung.geul.dto.*;
+import com.dung.geul.dto.cv.*;
 import com.dung.geul.entity.*;
 import com.dung.geul.repository.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.Repository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

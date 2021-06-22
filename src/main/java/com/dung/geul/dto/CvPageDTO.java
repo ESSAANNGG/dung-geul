@@ -1,12 +1,10 @@
 package com.dung.geul.dto;
 
-import com.dung.geul.entity.Member;
+import com.dung.geul.dto.cv.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.tomcat.jni.Local;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;

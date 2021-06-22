@@ -51,9 +51,12 @@ public class EmployController {
         model.addAttribute("dto", dto);
 
         //지민우
-        Member member = memberServiceImpl.getMember(authMemberDTO.getUser_id());
+        if(authMemberDTO != null){
+            Member member = memberServiceImpl.getMember(authMemberDTO.getUser_id());
 
-        model.addAttribute("memberDTO", member);
+            model.addAttribute("memberDTO", member);
+        }
+
     }
     
     //채용등록이동

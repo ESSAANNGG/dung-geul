@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @Table(name = "cv")
+@ToString
 public class CV  implements Serializable{
 
     @Id

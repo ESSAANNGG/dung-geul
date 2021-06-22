@@ -1,7 +1,6 @@
 package com.dung.geul.entity;
 
 
-import com.dung.geul.dto.AwardsDTO;
 import lombok.*;
 
 import javax.persistence.*;

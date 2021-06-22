@@ -1,6 +1,8 @@
 package com.dung.geul.service;
 
 import com.dung.geul.dto.*;
+import com.dung.geul.dto.apply.ApplicationModalDTO;
+import com.dung.geul.dto.apply.ApplyStudentDTO;
 import com.dung.geul.entity.*;
 import com.dung.geul.repository.ApplyRepository;
 import com.dung.geul.repository.EmployRepository;
@@ -13,7 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.function.Function;
@@ -60,19 +61,32 @@ public class ApplicationService {
 
         try {
 
+            System.out.println("save - applicaionModalDTO : " + dto);
+
             CV cv = cvService.getCv(dto.getCv_id());
+
+            System.out.println("cv: " + cv);
+
             Introduce intro = introduceService.getIntroduce(dto.getIntro_id());
-            Employ employ = employRepository.findById(dto.getEmploy_num()).get();
+
+            System.out.println("introduce: " + intro);
+
+            Employ employ = employRepository.getOne(dto.getEmploy_num());
+
+            System.out.println("employ : " + employ);
+
 
             Apply apply = Apply.builder()
                     .ap_date(LocalDateTime.now())   // 입사지원 일자
                     .ap_area(dto.getAp_area())      // 희망근무지역
                     .ap_task(dto.getAp_task())      // 희망업무
                     .em_num(employ)                 // 채용공고
-                    .cv(cv)                         // 이려서
+                    .cv(cv)                         // 이력서
                     .introduce(intro)               // 자소서
                     .ap_pass("대기중")                 // 합격여부(대기중, 합격, 불합격, 취소)
                     .build();
+
+            System.out.println("apply : " + apply);
 
             applyRepository.save(apply);
 
@@ -129,6 +143,10 @@ public class ApplicationService {
 
         return dto;
     }
+
+
+    // 채용공고별 입사지원 리스트 페이지 보여주기
+//    public PageResultDTO<>
 
 
 }

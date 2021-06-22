@@ -1,14 +1,11 @@
 package com.dung.geul.service;
 
 import com.dung.geul.dto.*;
+import com.dung.geul.dto.cv.*;
 import com.dung.geul.entity.*;
 
-import java.text.DateFormat;
-import java.text.ParsePosition;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
 
 import static org.reflections.Reflections.log;
 

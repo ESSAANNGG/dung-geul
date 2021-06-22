@@ -230,6 +230,12 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         log.info("채용공고 리스트 : " + emList);
     }
 
+    // 채용공고별 입사지원자 페이지
+    @GetMapping("etp/employ/apply/list")
+    public void getEmployApplyList(){
+
+    }
+
 
 
 }

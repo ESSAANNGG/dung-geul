@@ -1,11 +1,7 @@
 package com.dung.geul.controller.restcontroller;
 
 import com.dung.geul.dto.*;
-import com.dung.geul.entity.CV;
-import com.dung.geul.entity.License;
-import com.dung.geul.handler.HttpResponse;
-import com.dung.geul.repository.CvRepository;
-import com.dung.geul.repository.LicenseRepository;
+import com.dung.geul.dto.apply.ApplicationModalDTO;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.ApplicationService;
 import com.dung.geul.service.CvServiceImpl;
@@ -21,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/application")

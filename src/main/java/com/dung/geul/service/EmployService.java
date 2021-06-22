@@ -91,6 +91,8 @@ public interface EmployService {
     //getList
     default EmployDTO List(Employ entity, Enterprise enterprise ){
 
+        System.out.println("Enterprise : " + enterprise);
+
         EmployDTO dto = EmployDTO.builder()
                 .num(entity.getNum())
                 .title(entity.getTitle())

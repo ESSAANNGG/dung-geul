@@ -1,4 +1,4 @@
-package com.dung.geul.dto;
+package com.dung.geul.dto.cv;
 
 import lombok.*;
 
