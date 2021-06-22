@@ -51,11 +51,8 @@ public class EmployController {
         model.addAttribute("dto", dto);
 
         //지민우
-        if(authMemberDTO != null){
-            Member member = memberServiceImpl.getMember(authMemberDTO.getUser_id());
 
-            model.addAttribute("memberDTO", member);
-        }
+            model.addAttribute("memberDTO", authMemberDTO);
 
     }
     
