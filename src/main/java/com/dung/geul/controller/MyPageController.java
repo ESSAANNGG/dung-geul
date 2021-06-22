@@ -204,15 +204,22 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     }
 
+    // 입사지원
+
     // 학생회원 본인 입사지원 목록 반환
     @GetMapping("/member/ApplicationStatus")
-    public void getStudentList(@RequestParam("user_id") String user_id, PageRequestDTO pageRequestDTO, Model model){
+    public void getStudentApplyList(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, PageRequestDTO pageRequestDTO, Model model){
 
-        PageResultDTO pageResultDTO = applicationService.getStudentApplyListPageDTO(pageRequestDTO, user_id);
+        PageResultDTO pageResultDTO = applicationService.getStudentApplyListPageDTO(pageRequestDTO, authMemberDTO.getUser_id());
 
         model.addAttribute("result", pageResultDTO);
 
         log.info("getStudentList - result : " + pageResultDTO);
+
+    }
+
+    @GetMapping("/member/apply/read")
+    public void getSudentApplyRead(){
 
     }
 }
