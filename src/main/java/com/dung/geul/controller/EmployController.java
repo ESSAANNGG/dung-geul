@@ -50,9 +50,8 @@ public class EmployController {
 
         model.addAttribute("dto", dto);
 
-        //지민우
-
-            model.addAttribute("memberDTO", authMemberDTO);
+        // 지민우
+        model.addAttribute("memberDTO", authMemberDTO);
 
     }
     
@@ -76,9 +75,8 @@ public class EmployController {
 
         model.addAttribute("etp", enterpriseDTO);
         model.addAttribute("dto", dto);
+
     }
-
-
 
 
 }
