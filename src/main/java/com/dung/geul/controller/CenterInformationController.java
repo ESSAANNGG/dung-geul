@@ -137,6 +137,24 @@ public class CenterInformationController {  // 센터정보 컨트롤러
         return "redirect:/center-information/notice_board_read";
     }
 
+    //지민우
+    @PostMapping("/admin_board_modify")
+    public String adminModify(notice_boardDTO dto,
+                         @ModelAttribute("requestDTO") PageRequestDTO requestDTO,
+                         RedirectAttributes redirectAttributes){    // 게시글 수정
+
+        log.info("post modify.........................................");
+        log.info("dto: " + dto);
+
+        service.modify(dto);
+
+        redirectAttributes.addAttribute("page",requestDTO.getPage());
+        redirectAttributes.addAttribute("num",dto.getNum());
+
+
+        return "redirect:/admin/admin_board?";
+    }
+
 
     // 게시판 모달에 띄우기
     @GetMapping("/detail/read")

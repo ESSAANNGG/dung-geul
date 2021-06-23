@@ -314,6 +314,6 @@ $('#shadow_box').click(function(e){
 //상세정보 중 삭제
 $('.d_button').click(function(e){
     select_modal=$(this).parent("div").parent("div").attr('id');
-    window[String(menu_name) + "_detail_submit"](select_modal);
+    window[String(menu_name) + "_detail_submit"](select_modal,this);
     //submit_param()는 sucess에서 실행
 })
