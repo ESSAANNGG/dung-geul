@@ -2,10 +2,21 @@ body {
     font-family: 'Nanum Gothic', sans-serif;
     background: #f2f5f3;
 }
+@media screen and (max-height:1700px){
+    .main-wrap {
+        height: 1700px !important;
+    }
+/*    html{*/
+/*        height:initial;*/
+/*    }*/
+/*    body{*/
+/*        height:initial;*/
+/*    }*/
+}
 .main-wrap {
 /* margin-top: 3.7%; */
 width: 100%;
-height: 1650px;
+height: 100%;
 background: #fff;
 }
 .all-wrap {

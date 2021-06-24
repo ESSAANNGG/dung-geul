@@ -3,28 +3,53 @@
   font-family: 'Noto Sans KR', sans-serif !important;
   font-weight:100 !important;
 }
-.footer a{
-  color:white;
-}
+@media screen and (max-width:1903px){
   .footer {
-    width:1903px;
-    font-size: 13px ;
-    font-weight:100;
-    background-color: #51585e;
-    color: WHITE;
+    width: 1903px;
+  }
+}
+@media screen and (min-width:1903px) {
+  .footer {
+    width: 100%;
   }
   .footer_top{
+    width:1800px;
     padding: 20px 450px 20px 300px;
-    text-align: left;
+    /*text-align: left;*/
     border-bottom: 1px solid #63696e;
     color:#c5c7c9;
   }
-  .imgs{
-    right: 0;
-    position: relative;
-    top: -20px;
-    float: right;
+  .footer_bottom{
+    width:1800px;
+    padding: 20px 300px 20px 300px;
+    /*text-align: left;*/
   }
+  .footer_box{
+    width:1800px;
+    margin:auto;
+  }
+}
+.footer a{
+  color:white;
+}
+.footer {
+  font-size: 13px ;
+  font-weight:100;
+  background-color: #51585e;
+  color: WHITE;
+}
+.footer_top{
+  padding: 20px 450px 20px 300px;
+  text-align: left;
+  border-bottom: 1px solid #63696e;
+  color:#c5c7c9;
+}
+.imgs{
+  right: 0;
+  position: relative;
+  top: -20px;
+  float: right;
+}
   .imgs img{
     margin:0 5px;
   }
