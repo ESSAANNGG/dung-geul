@@ -4,21 +4,21 @@
 } */
 
 .table-flex {
-  width: 1291px;
+  width: 1300px;
   height: auto;
   border: 2px solid rgba(206, 205, 205, 0.884);
   border-radius: 10px;
-
+  padding-left: 4px;
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
+  max-height: 641px;
+  overflow: auto;
 }
 
 .tg {
-  border-collapse: collapse;
   border-color: #9abad9;
-  border-spacing: 0;
-  margin
+  border-collapse: collapse;
 }
 .tg td {
   background-color: #ebf5ff;
@@ -86,4 +86,12 @@
   border-color: inherit;
   text-align: left;
   vertical-align: top;
+}
+
+.tg .tg-19lu {
+  border-color: inherit;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;
 }

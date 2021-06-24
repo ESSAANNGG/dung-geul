@@ -69,14 +69,13 @@ function detail_on_board(board_num){
 
 
     if(board_num!=undefined){
-
+        $('#detail_board_read').css({"visibility":"visible","opacity":"1"});
         $.ajax({
             url: "/center-information/detail/read?board_num="+board_num,
             type: "GET",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success : function (boardDTO) {
-                $('#detail_board_read').css({"visibility":"visible","opacity":"1"});
                 $('input[name=num]').val(boardDTO.num);
                 $('input[name=title]').val(boardDTO.title);
                 $('textarea[name=content]').val(boardDTO.content);
@@ -93,24 +92,38 @@ function detail_on_board(board_num){
         $('textarea[name=content]').val("");
     }
 }
-function board_detail_submit(select_modal){
-    conF=confirm('게시글을 삭제하시겠습니까?');
-    modal_val=[];
-    link_val=$('#'+select_modal).find('input[name="num"]').val();
-    modal_val.push(link_val);
+function board_detail_submit(select_modal,t){
 
-    alert(JSON.stringify(link_val)+"선택된 값들입니다dd");   //디버깅
-    $.ajax({
-        url: "/center-information/remove_admin?num="+link_val,
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success : function (result){
-            alert("회원정보 삭제완료");
-            submit_param();
-        },
-        error : function (err) {
-            alert("삭제실패");
+    conF=confirm('게시글을 '+$(t).text()+'하시겠습니까?');
+    if(conF==true) {
+        switch ($(t).text()) {
+            case "삭제":
+                modal_val = [];
+                link_val = $('#' + select_modal).find('input[name="num"]').val();
+                modal_val.push(link_val);
+                $.ajax({
+                    url: "/center-information/remove_admin?num=" + link_val,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        alert("회원정보 삭제완료");
+                        submit_param();
+                    },
+                    error: function (err) {
+                        alert("삭제실패");
+                    }
+                })
+                break;
+            case "수정":
+                $("button")
+                    .attr("type","submit") //confirm에서 취소 할시에 버튼을 기본 submit형식으로 해놓으면 원치 않은 새로고침이 됨 그래서 수정 할시에만 submit type을 주어 제대로 전송
+                $("form")
+                    .attr("action", "/center-information/admin_board_modify")
+                    .attr("method","post")
+                    .submit();
+                submit_param();
+                break;
         }
-    })
+    }
 }

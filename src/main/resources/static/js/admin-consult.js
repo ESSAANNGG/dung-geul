@@ -104,3 +104,4 @@ function detail_on_consult(num){
     $('#detail_consult').css({"visibility":"visible","opacity":"1"});
     $('#wrap,#admin_header').css("opacity","0.4");
 }
+
