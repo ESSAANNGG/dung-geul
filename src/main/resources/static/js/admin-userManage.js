@@ -223,7 +223,7 @@ $(document).ready(function() {
             text: 'Combination chart'
         },
         xAxis: {
-            categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+            categories: ['2021', '2020']
         },
         labels: {
             items: [{
@@ -240,43 +240,59 @@ $(document).ready(function() {
         },
         series: [{
             type: 'column',
-            name: 'Jane',
+            name: '컴퓨터정보계열',
             data: [211, 42]
         }, {
             type: 'column',
-            name: 'John',
-            data: [312, 2123]
+            name: '컴퓨터응용기계계열',
+            data: [312, 600]
         }, {
             type: 'column',
-            name: 'John',
+            name: 'ICT반도체전자계열',
             data: [23, 43]
         },{
             type: 'column',
-            name: 'John',
+            name: '신재생에너지계열',
             data: [222, 322]
         },{
             type: 'column',
-            name: 'John',
+            name: '건축인테리어디자인계열',
             data: [200, 319]
         },{
             type: 'column',
-            name: 'John',
+            name: '부사관계열',
             data: [294, 102]
         },{
             type: 'column',
-            name: 'John',
+            name: '콘텐츠디자인과',
             data: [22, 33]
         },{
             type: 'column',
-            name: 'John',
+            name: '드론항공전자과',
             data: [24, 377]
         },{
             type: 'column',
-            name: 'John',
+            name: '경영회계서비스계열',
             data: [312, 702]
         },{
             type: 'column',
-            name: 'Joe',
+            name: '호텔항공관광계열',
+            data: [44, 33]
+        },{
+            type: 'column',
+            name: '사회복지과',
+            data: [44, 33]
+        },{
+            type: 'column',
+            name: '유아교육과',
+            data: [44, 33]
+        },{
+            type: 'column',
+            name: '보건의료행정과',
+            data: [44, 33]
+        },{
+            type: 'column',
+            name: '간호과',
             data: [44, 33]
         }, {
             type: 'spline',
