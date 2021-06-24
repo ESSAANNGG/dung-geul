@@ -125,11 +125,16 @@ a{
     height:75px;
     background-color: #ffffff;
 }
-#admin_header h5{
+#admin_header h3{
     display:inline-block;
-    margin:20px 0px 20px 40px;
+    height:75px;
+    line-height:75px;
+    margin:0 0px 0 40px;
+    color: black;
+    font-size:16px;
+}
+#admin_header h3:hover{
     color:#5978b9;
-    font-size:23px;
 }
 
 
