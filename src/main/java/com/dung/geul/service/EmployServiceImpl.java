@@ -4,30 +4,19 @@ import com.dung.geul.dto.EmployDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Employ;
-
-
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
-import com.dung.geul.entity.QEmploy;
 import com.dung.geul.repository.EmployRepository;
-
-
 import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.MemberRepository;
-import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.RequiredArgsConstructor;
-
-
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -37,7 +26,7 @@ import java.util.stream.Collectors;
 public class EmployServiceImpl implements EmployService {
 
     @Autowired
-    private final EmployRepository employRepository;
+    private EmployRepository employRepository;
 
     @Autowired
     private EnterpriseRepository enterpriseRepository;
@@ -83,11 +72,15 @@ public class EmployServiceImpl implements EmployService {
 
         Enterprise etp = enterpriseRepository.findByUser_id(member);
 
-        List<Employ> emList = employRepository.findByEtpId(etp);
+        List<Employ> list = employRepository.findByEtpId(etp);
 
-        Function<Employ, EmployDTO> fn = (entity -> entityToDto(entity, entity.getEtpId()));
+        log.info(list.toString());
 
-        List<EmployDTO> emDtoList = emList.stream().map(fn).collect(Collectors.toList());
+        Function<Employ, EmployDTO> fn = (entity -> entityToDto(entity, etp ));
+
+        List<EmployDTO> emDtoList = list.stream().map(fn).collect(Collectors.toList());
+
+        log.info(emDtoList.toString());
 
         return emDtoList;
     }

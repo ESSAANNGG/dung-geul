@@ -80,7 +80,7 @@ public class ApplicationService {
                     .ap_date(LocalDateTime.now())   // 입사지원 일자
                     .ap_area(dto.getAp_area())      // 희망근무지역
                     .ap_task(dto.getAp_task())      // 희망업무
-                    .em_num(employ)                 // 채용공고
+                    .employ(employ)                 // 채용공고
                     .cv(cv)                         // 이력서
                     .introduce(intro)               // 자소서
                     .ap_pass("대기중")                 // 합격여부(대기중, 합격, 불합격, 취소)

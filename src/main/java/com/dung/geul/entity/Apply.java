@@ -37,5 +37,5 @@ public class Apply implements Serializable {
     private CV cv;              // 이력서
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Employ em_num; // 채용공고
+    private Employ employ; // 채용공고
 }

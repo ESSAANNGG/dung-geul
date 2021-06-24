@@ -1,13 +1,10 @@
 package com.dung.geul.service;
 
 import com.dung.geul.dto.EmployDTO;
-
-import com.dung.geul.dto.EnterpriseDTO;
 import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Employ;
 import com.dung.geul.entity.Enterprise;
-import net.bytebuddy.asm.Advice;
 
 import java.util.List;
 
@@ -53,7 +50,7 @@ public interface EmployService {
     }
 
 
-    default EmployDTO entityToDto(Employ entity, Enterprise enterprise ){
+    default EmployDTO entityToDto(Employ entity, Enterprise enterprise){
 
         EmployDTO dto = EmployDTO.builder()
                 .num(entity.getNum())
@@ -83,11 +80,20 @@ public interface EmployService {
                 .etp_fx(enterprise.getEtp_fx())
                 .etp_shape(enterprise.getEtp_shape())
                 .etp_home(enterprise.getEtp_home())
-
                 .build();
 
         return dto;
     }
+
+    default EmployDTO entityToDto(Employ entity, Enterprise enterprise, Long count){
+
+        EmployDTO dto = entityToDto(entity, enterprise);
+
+        dto.setApplyCount(count);
+
+        return dto;
+    }
+
     //getList
     default EmployDTO List(Employ entity, Enterprise enterprise ){
 

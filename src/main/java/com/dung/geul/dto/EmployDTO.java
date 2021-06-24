@@ -67,5 +67,7 @@ public class EmployDTO {
 
     private String etp_fx;
 
+    private Long applyCount;
+
 
 }

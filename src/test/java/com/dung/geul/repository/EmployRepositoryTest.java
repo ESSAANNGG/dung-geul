@@ -1,24 +1,21 @@
 package com.dung.geul.repository;
 
-import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.Employ;
 import com.dung.geul.entity.Enterprise;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
-import java.util.Arrays;
-import java.util.stream.IntStream;
+import java.util.List;
 
 @SpringBootTest
 public class EmployRepositoryTest {
 
     @Autowired
     private EmployRepository employRepository;
+
+    @Autowired
+    private EnterpriseRepository enterpriseRepository;
 
 //
 //    @Test
@@ -67,4 +64,18 @@ public class EmployRepositoryTest {
 
 
     }*/
+
+    @Test
+    public void findByEtpIdTest(){
+
+        Long id = Long.valueOf(1);
+
+        Enterprise enterprise = enterpriseRepository.getOne(id);
+
+        List<Employ> list = employRepository.findByEtpId(enterprise);
+
+        for (Employ obj : list) {
+            System.out.println(obj);
+        }
+    }
 }

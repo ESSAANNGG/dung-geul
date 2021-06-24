@@ -3,7 +3,6 @@ package com.dung.geul.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -12,11 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@ToString(exclude = "etp_id")
-@AttributeOverrides({
-        @AttributeOverride(name = "regDate", column = @Column(name = "em_regdate")),
-        @AttributeOverride(name = "modDate", column = @Column(name = "em_modDate"))
-})
+@ToString
 public class Employ extends BaseEntity{
     // baseEntity 추가 (채용공고 등록일, 수정일로 사용) - 정혜리
     // 채용공고 엔티티
