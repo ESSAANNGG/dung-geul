@@ -147,20 +147,21 @@
                 <div class="list_button">
                   <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
                     <li class="page-ltem " th:if="${result.prev}">
-                      <a class="page-link" th:href="@{/admin/admin_board(page= ${result.start -1})}" tabindex="-1">이전</a>
+                      <a class="page-link" onclick="pagenation(this)" tabindex="-1">이전</a>
+<!--                      th:href="@{/admin/admin_board(page= ${result.start -1})}"-->
                     </li>
 
                     <li th:class=" 'page-ltem ' + ${result.page == page?'active':''} " th:each= "page: ${result.pageList}">
-                      <a class="page-link" th:href="@{/admin/admin_board(page= ${page})}">
-                        [[${page}]]
-                      </a>
+                      <a class="page-link now_page" onclick="pagenation(this)">[[${page}]]</a>
+<!--                      <a class="page-link" th:href="@{/admin/admin_board(page= ${page})}">[[${page}]]</a>-->
                     </li>
 
                     <li class="page-ltem" th:if="${result.next}">
-                      <a class="page-link" th:href="@{/admin/admin_board(page=${result.end + 1})}">다음</a>
+                      <a class="page-link" onclick="pagenation(this)">다음</a>
+<!--                      th:href="@{/admin/admin_board(page=${result.end + 1})}"-->
                     </li>
                   </ul>
-                  <button class="list_submit">삭제</button>
+                  <button class="list_submit" onclick="a()">삭제</button>
                   <button class="list_submit direct" onclick="detail(this)">등록</button></a>
                 </div>
               </div>
