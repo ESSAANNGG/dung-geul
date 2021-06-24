@@ -47,6 +47,8 @@ public class CvServiceImpl implements CVService {
         return cvRepository.getOne(cv_id);
     }
 
+    public Optional<CV> findByMember(Member member){ return cvRepository.findByUser_id(member); }
+
     // 이력서 등록
     @Transactional
     public int register(CvPageDTO cvPageDTO) {

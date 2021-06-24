@@ -2,12 +2,13 @@ package com.dung.geul.controller;
 
 import com.dung.geul.dto.EmployDTO;
 import com.dung.geul.dto.EnterpriseDTO;
-import com.dung.geul.dto.MemberDTO;
 import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.entity.CV;
 import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
+import com.dung.geul.service.ApplicationService;
+import com.dung.geul.service.CvServiceImpl;
 import com.dung.geul.service.EmployService;
-import com.dung.geul.service.MemberService;
 import com.dung.geul.service.MemberServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Optional;
+
 @Log4j2
 @RequestMapping("/Employ")
 @Controller
@@ -27,10 +30,13 @@ public class EmployController {
     private EmployService service;
 
     @Autowired
-    MemberService memberService;
+    MemberServiceImpl memberService;
 
     @Autowired
-    private MemberServiceImpl memberServiceImpl;
+    private CvServiceImpl cvService;
+
+    @Autowired
+    private ApplicationService applicationService;
     
     //채용공고리스트
     @GetMapping("/list")
@@ -52,6 +58,17 @@ public class EmployController {
 
         // 지민우
         model.addAttribute("memberDTO", authMemberDTO);
+
+        // 현재 채용공고에 입사지원했는지 안했는지
+        Boolean alreayApply = false;        // true : 했음, false : 안했음
+        if(authMemberDTO != null) {
+            Member member = memberService.getMember(authMemberDTO.getUser_id());
+            Optional<CV> optCV = cvService.findByMember(member);
+            if(!optCV.isEmpty()){
+                alreayApply = applicationService.alreadyApply(optCV.get(), num);
+            }
+        }
+        model.addAttribute("alreadyApply", alreayApply);
 
     }
     

@@ -2,18 +2,21 @@ package com.dung.geul.controller;
 
 import com.dung.geul.dto.*;
 import com.dung.geul.entity.Consulting;
-import com.dung.geul.entity.Employ;
 import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
-import com.dung.geul.service.*;
+import com.dung.geul.service.ApplicationService;
+import com.dung.geul.service.ConsultingService;
+import com.dung.geul.service.EmployService;
+import com.dung.geul.service.MemberServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashSet;
 import java.util.List;
@@ -231,8 +234,12 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
     }
 
     // 채용공고별 입사지원자 페이지
-    @GetMapping("etp/employ/apply/list")
-    public void getEmployApplyList(){
+    @GetMapping("etp/employ/apply/list/{num}")
+    public void getEmployApplyList(@PathVariable("num") Long num, PageRequestDTO pageRequestDTO){
+
+        PageResultDTO resultDTO = applicationService.employApplyPage(num, pageRequestDTO);
+
+        log.info("pageResultDTO : " + resultDTO);
 
     }
 

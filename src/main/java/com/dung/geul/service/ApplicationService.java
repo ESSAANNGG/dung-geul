@@ -1,6 +1,9 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.*;
+import com.dung.geul.dto.CvPageDTO;
+import com.dung.geul.dto.IntroduceDTO;
+import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.dto.apply.ApplicationModalDTO;
 import com.dung.geul.dto.apply.ApplyStudentDTO;
 import com.dung.geul.entity.*;
@@ -38,7 +41,64 @@ public class ApplicationService {
     @Autowired
     private MemberServiceImpl memberService;
 
-    // 회원별 이력서와 자소서 리스트 보여주기
+    // 기업회원에게 지원 목록 보여주는 DTO 생성
+    public ApplyStudentDTO entityToApplyStudentDTO(Apply ap, CV c){
+
+        ApplyStudentDTO dto = ApplyStudentDTO.builder()
+                .ap_date(ap.getAp_date().format(DateTimeFormatter.ISO_DATE))
+                .cv_id(ap.getCv().getCv_id())
+                .intro_num(ap.getIntroduce().getNum())
+                .ap_pass(ap.getAp_pass())
+                .ap_task(ap.getAp_task())
+                .ap_area(ap.getAp_area())
+
+                .user_id(ap.getCv().getUser_id().getUser_id())
+                .user_name(c.getUser_name())
+                .build();
+
+        return dto;
+    }
+
+    // 학생회원에게 지원 목록 보여주는 DTO 생성
+    public ApplyStudentDTO entityToApplyStudentDTO(Apply ap, Employ em, Enterprise etp){
+
+        String apDate = ap.getAp_date().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+
+        ApplyStudentDTO dto = ApplyStudentDTO.builder()
+                .ap_date(apDate)
+                .cv_id(ap.getCv().getCv_id())
+                .intro_num(ap.getIntroduce().getNum())
+                .ap_pass(ap.getAp_pass())
+                .ap_area(ap.getAp_area())
+                .ap_task(ap.getAp_task())
+
+                .etp_id(etp.getEtp_id())
+                .etp_name(etp.getEtp_name())
+                .etp_num(etp.getEtp_num())
+
+                .emp_num(em.getNum())
+                .emp_title(em.getTitle())
+                .emp_content(em.getContent())
+                .build();
+
+        return dto;
+    }
+
+    // 지원했는지 안했는지 확인하기
+    public Boolean alreadyApply(CV cv, Long em_id){
+
+        Employ em = employRepository.getOne(em_id);
+
+        if(cv != null && em != null) {
+            return applyRepository.existsByCvAndEmploy(cv, em);
+        } else {
+            return Boolean.FALSE;
+        }
+
+    }
+
+    // 학생 회원 본인의 이력서와 자소서 리스트 보여주기
     public ApplicationModalDTO getCvAndIntro(String user_id, PageRequestDTO pageRequestDTO){
 
         CvPageDTO cvDTO = cvService.getCvPageDto(user_id);
@@ -65,16 +125,14 @@ public class ApplicationService {
 
             CV cv = cvService.getCv(dto.getCv_id());
 
-            System.out.println("cv: " + cv);
-
-            Introduce intro = introduceService.getIntroduce(dto.getIntro_id());
-
-            System.out.println("introduce: " + intro);
-
             Employ employ = employRepository.getOne(dto.getEmploy_num());
 
-            System.out.println("employ : " + employ);
+            // 이미 지원 했는지 아닌지 확인
+            Boolean isExsist = applyRepository.existsByCvAndEmploy(cv, employ);
+            if(isExsist){ return new ResponseEntity(2, HttpStatus.BAD_REQUEST); }
+            //
 
+            Introduce intro = introduceService.getIntroduce(dto.getIntro_id());
 
             Apply apply = Apply.builder()
                     .ap_date(LocalDateTime.now())   // 입사지원 일자
@@ -93,11 +151,9 @@ public class ApplicationService {
             return new ResponseEntity(1, HttpStatus.OK);
 
         } catch (Exception e){
-            log.info("error : " + e);
 
             return new ResponseEntity(0, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
 
     }
 
@@ -120,33 +176,24 @@ public class ApplicationService {
     }
 
 
-    // 학생회원에게 지원 목록 보여주는 DTO 생성
-    public ApplyStudentDTO entityToApplyStudentDTO(Apply ap, Employ em, Enterprise etp){
+    // 채용공고별 입사지원 현황 리스트 페이지 보여주기
+    public PageResultDTO employApplyPage(Long num, PageRequestDTO pageRequestDTO) {
 
-        String apDate = ap.getAp_date().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        Employ employ = employRepository.getOne(num);
 
+        Pageable pageable = pageRequestDTO.getPageable(Sort.by("ap_date"));
 
-        ApplyStudentDTO dto = ApplyStudentDTO.builder()
-                .etp_id(etp.getEtp_id())
-                .etp_num(etp.getEtp_num())
-                .etp_name(etp.getEtp_name())
+        Page<Object[]> applyPage = applyRepository.findByEmploy(pageable, employ);
 
-                .emp_num(em.getNum())
-                .emp_title(em.getTitle())
-                .emp_content(em.getContent())
+        Function<Object[], ApplyStudentDTO> fn = (entity -> entityToApplyStudentDTO((Apply) entity[0], (CV) entity[1]));
 
-                .ap_date(apDate)
-                .cv_id(ap.getCv().getCv_id())
-                .intro_num(ap.getIntroduce().getNum())
-                .ap_pass(ap.getAp_pass())
-                .build();
+        PageResultDTO<ApplyStudentDTO, Object[]> resultDTO = new PageResultDTO<>(applyPage, fn);
 
-        return dto;
+        return resultDTO;
+
     }
 
 
-    // 채용공고별 입사지원 리스트 페이지 보여주기
-//    public PageResultDTO<>
 
 
 }
