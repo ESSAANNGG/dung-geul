@@ -2,7 +2,7 @@ body {
     font-family: 'Nanum Gothic', sans-serif;
     background: #f2f5f3;
 }
-@media screen and (max-height:1700px){
+@media screen and (max-height:1800px){
     .main-wrap {
         height: 1700px !important;
     }
