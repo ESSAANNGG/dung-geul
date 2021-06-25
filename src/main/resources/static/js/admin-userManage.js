@@ -1,16 +1,16 @@
 //회원관리 전용 js파일
 
 function userManage(){
-    parameter="/admin/admin_userManage?page1=1&page2=1&type=UNIV";
+    parameter="/admin/admin_userManage?page1=&page2=&type=UNIV";
 }
 
 function userManage_guide(){
     switch (guide_val) {
-        case "회원관리" : parameter="/admin/admin_userManage?page1=1&page2=1&type=UNIV";
+        case "회원관리" : parameter="/admin/admin_userManage?page1=&page2=&type=UNIV";
             break;
-        case "기업관리" : parameter="/admin/admin_userManage?page1=1&page2=1&type=ENTERPRISE";
+        case "기업관리" : parameter="/admin/admin_userManage?page1=&page2=&type=ENTERPRISE";
             break;
-        case "가입현황" : parameter="/admin/admin_userManage?page1=1&page2=1&type=UNIV";
+        case "가입현황" : parameter="/admin/admin_userManage?page1=&page2=&type=UNIV";
     }
 }
 
