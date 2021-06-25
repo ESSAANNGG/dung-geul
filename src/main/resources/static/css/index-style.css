@@ -1,7 +1,10 @@
 @import 'reset.css';
 @import 'common.css';
-
+html{
+  height:100%;
+}
 body {
+  height:100%;
   position: relative;
   z-index: -99;
   background: #eeeeeeb4;

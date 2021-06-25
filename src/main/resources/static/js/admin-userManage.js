@@ -217,50 +217,156 @@ $(document).ready(function() {
         ran = Math.floor(Math.random() * 200) + 1;
         datea.push(ran);
     }
+
     Highcharts.chart('container', {
-
+        title: {
+            text: 'Combination chart'
+        },
         xAxis: {
-            accessibility: {
-                rangeDescription: 'Range: 1 to 2'
-            }
+            categories: ['2021', '2020']
         },
-
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-                pointStart: 1
-            }
-        },
-
-        series: [{
-            name: '2020',
-            data: [datea[0],datea[1],datea[2],datea[3],datea[4],datea[5],datea[6],datea[7],datea[8],datea[9],datea[10],datea[11],datea[12],]
-        }, {
-            name: '2021',
-            data: [122, 23, 55, 233, 22, 88, 112, 12,22,33,44,55]
-        }],
-
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
+        labels: {
+            items: [{
+                html: 'Total fruit consumption',
+                style: {
+                    left: '50px',
+                    top: '18px',
+                    color: ( // theme
+                        Highcharts.defaultOptions.title.style &&
+                        Highcharts.defaultOptions.title.style.color
+                    ) || 'black'
                 }
             }]
-        }
+        },
+        series: [{
+            type: 'column',
+            name: '컴퓨터정보계열',
+            data: [211, 42]
+        }, {
+            type: 'column',
+            name: '컴퓨터응용기계계열',
+            data: [312, 600]
+        }, {
+            type: 'column',
+            name: 'ICT반도체전자계열',
+            data: [23, 43]
+        },{
+            type: 'column',
+            name: '신재생에너지계열',
+            data: [222, 322]
+        },{
+            type: 'column',
+            name: '건축인테리어디자인계열',
+            data: [200, 319]
+        },{
+            type: 'column',
+            name: '부사관계열',
+            data: [294, 102]
+        },{
+            type: 'column',
+            name: '콘텐츠디자인과',
+            data: [22, 33]
+        },{
+            type: 'column',
+            name: '드론항공전자과',
+            data: [24, 377]
+        },{
+            type: 'column',
+            name: '경영회계서비스계열',
+            data: [312, 702]
+        },{
+            type: 'column',
+            name: '호텔항공관광계열',
+            data: [44, 33]
+        },{
+            type: 'column',
+            name: '사회복지과',
+            data: [44, 33]
+        },{
+            type: 'column',
+            name: '유아교육과',
+            data: [44, 33]
+        },{
+            type: 'column',
+            name: '보건의료행정과',
+            data: [44, 33]
+        },{
+            type: 'column',
+            name: '간호과',
+            data: [44, 33]
+        }, {
+            type: 'spline',
+            name: 'Average',
+            data: [333, 255.4],
+            marker: {
+                lineWidth: 2,
+                lineColor: Highcharts.getOptions().colors[3],
+                fillColor: 'white'
+            }
+        }, {
+            type: 'pie',
+            name: 'Total consumption',
+            data: [{
+                name: '2021',
+                y: 13,
+                color: Highcharts.getOptions().colors[0] // Jane's color
+            }, {
+                name: '2020',
+                y: 23,
+                color: Highcharts.getOptions().colors[1] // John's color
+            }],
+            center: [100, 80],
+            size: 100,
+            showInLegend: false,
+            dataLabels: {
+                enabled: false
+            }
+        }]
     });
+    // Highcharts.chart('container', {
+    //
+    //     xAxis: {
+    //         accessibility: {
+    //             rangeDescription: 'Range: 1 to 2'
+    //         }
+    //     },
+    //
+    //     legend: {
+    //         layout: 'vertical',
+    //         align: 'right',
+    //         verticalAlign: 'middle'
+    //     },
+    //
+    //     plotOptions: {
+    //         series: {
+    //             label: {
+    //                 connectorAllowed: false
+    //             },
+    //             pointStart: 1
+    //         }
+    //     },
+    //
+    //     series: [{
+    //         name: '2020',
+    //         data: [datea[0],datea[1],datea[2],datea[3],datea[4],datea[5],datea[6],datea[7],datea[8],datea[9],datea[10],datea[11],datea[12],]
+    //     }, {
+    //         name: '2021',
+    //         data: [122, 23, 55, 233, 22, 88, 112, 12,22,33,44,55]
+    //     }],
+    //
+    //     responsive: {
+    //         rules: [{
+    //             condition: {
+    //                 maxWidth: 500
+    //             },
+    //             chartOptions: {
+    //                 legend: {
+    //                     layout: 'horizontal',
+    //                     align: 'center',
+    //                     verticalAlign: 'bottom'
+    //                 }
+    //             }
+    //         }]
+    //     }
+    // });
 })

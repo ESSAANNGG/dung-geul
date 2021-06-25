@@ -159,6 +159,11 @@ li {
   z-index: -2;
   min-height: 675px;
 }
+@media screen and (min-width:1903px) {
+  #main{
+    width:100%;
+  }
+}
 #job-main-wrap {
   background-color: #f4f4f4;
 }

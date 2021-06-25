@@ -317,3 +317,33 @@ $('.d_button').click(function(e){
     window[String(menu_name) + "_detail_submit"](select_modal,this);
     //submit_param()는 sucess에서 실행
 })
+
+function a() {
+    b=(window.location.href);
+    b=b.replace('?','?page=2');
+    $("#main5_notice_list .list").load(b + "#main5_notice_list .list");
+}
+
+let pagenation_check=0;
+function pagenation(t) {
+    link=(window.location.href);
+    page_text=$(t).text();
+    first_page=$(t).parents('.pagenation').find('.now_page').eq(0).text();
+    first_page=Number(first_page);
+    if(page_text=='다음'){
+        page_text=first_page+10;
+    }
+    else if(page_text=='이전') {
+        page_text=first_page-1;
+    }
+    else{
+
+    }
+    link=link.replace('?','?page='+page_text);
+    sub_menu_title=$(t).parents(".list").parent().find('.sub_menu_title').text();
+    list=$(t).parents(".list").parent().attr('id');//해당리스트를 검색
+    $('#'+list).load(link +"#"+list +' .list',function (){
+        $('#'+list).prepend("<div class="+'"sub_menu_title"'+"><h3>"+sub_menu_title+"</h3></div>");
+    });
+
+}
