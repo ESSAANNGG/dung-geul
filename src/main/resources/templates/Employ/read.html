@@ -59,10 +59,10 @@
 
             <div id="button_wrap">
                 <div sec:authorize="hasRole('STUDENT')">
-                    <button onclick="apply_open()"><h1>온라인 지원</h1></button>
+                    <button onclick="apply_open()" id="online_apply"><h1>온라인 지원</h1></button>
+                    <a th:href="${dto.etp_home}" th:target="_blank"><button id="homepage_apply"><h1>홈페이지 지원</h1></button></a>
                 </div>
             </div>
-
             <div id="receipt_wrap">
                 <div id="receipt_head" class="head">
                     <h3>지원정보</h3>
@@ -177,7 +177,22 @@
         userId=[];
         userId.push([[${memberDTO.getUser_id}]]);
 
-        applies=([[${alreadyApply}]]);
+        applies=([[${alreadyApply}]]); //이미 지원한 공고인지 확인
+
+        //홈페이지 지원과 온라인 지원을 해주는 공고일 시 그에맞는 지원 버튼만 출력
+        applys=[[${dto.apply}]];
+        apply_item=applys.split(',');
+        apply_count=apply_item.length;
+
+        $('#button_wrap button').css('display','none');
+        for(i=0; i<apply_count; i++){
+            if(apply_item[i]=="홈페이지접수"){
+                $('#homepage_apply').css('display','initial');
+            }
+            else if(apply_item[i]=="온라인지원"){
+                $('#online_apply').css('display','initial');
+            }
+        }
     });
 </script>
 </body>

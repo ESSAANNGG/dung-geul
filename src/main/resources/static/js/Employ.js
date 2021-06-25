@@ -479,7 +479,6 @@ function apply(){
         alert("지원창을 모두 작성해주세요");
     }
     else if (apply_ok==1) {
-        alert(applies);
         if(applies==true){
             alert("이미 지원 완료 되었습니다.")
             return;
