@@ -346,6 +346,24 @@
                 <span class="role s140">[[${item.user_type}]]</span>
               </div>
               <div class="list_button">
+
+                <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
+                  <li class="page-ltem " th:if="${notAllow.prev}">
+                    <a class="page-link" onclick="pagenation(this)" tabindex="-1">이전</a>
+                    <!--                    th:href="@{/admin/admin_userManage(page2= ${result.start -1})}"-->
+                  </li>
+
+                  <li th:class=" 'page-ltem ' + ${notAllow.page == page?'active':''} " th:each= "page: ${notAllow.pageList}">
+                    <a class="page-link now_page" onclick="pagenation(this)">[[${page}]]</a>
+                    <!--                    th:href="@{/admin/admin_userManage(page2= ${page})}"-->
+                  </li>
+
+                  <li class="page-ltem" th:if="${notAllow.next}">
+                    <a class="page-link" onclick="pagenation(this)">다음</a>
+                    <!--                    th:href="@{/admin/admin_userManage(page2=${result.end + 1})}"-->
+                  </li>
+                </ul>
+
                 <button class="list_submit">승인</button>
                 <button class="list_submit">거절</button>
               </div>
@@ -423,6 +441,24 @@
                 <span class="shape s140">[[${item.etp_shape}]]</span>
               </div>
               <div class="list_button">
+
+                <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
+                  <li class="page-ltem " th:if="${allow.prev}">
+                    <a class="page-link" onclick="pagenation(this)" tabindex="-1">이전</a>
+                    <!--                    th:href="@{/admin/admin_userManage(page2= ${result.start -1})}"-->
+                  </li>
+
+                  <li th:class=" 'page-ltem ' + ${allow.page == page?'active':''} " th:each= "page: ${allow.pageList}">
+                    <a class="page-link now_page" onclick="pagenation(this)">[[${page}]]</a>
+                    <!--                    th:href="@{/admin/admin_userManage(page2= ${page})}"-->
+                  </li>
+
+                  <li class="page-ltem" th:if="${allow.next}">
+                    <a class="page-link" onclick="pagenation(this)">다음</a>
+                    <!--                    th:href="@{/admin/admin_userManage(page2=${result.end + 1})}"-->
+                  </li>
+                </ul>
+
                 <button class="list_submit">삭제</button>
               </div>
             </div>
@@ -458,6 +494,24 @@
                                         </select></span>
               </div>
               <div class="list_button">
+
+                <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
+                  <li class="page-ltem " th:if="${notAllow.prev}">
+                    <a class="page-link" onclick="pagenation(this)" tabindex="-1">이전</a>
+                    <!--                    th:href="@{/admin/admin_userManage(page2= ${result.start -1})}"-->
+                  </li>
+
+                  <li th:class=" 'page-ltem ' + ${notAllow.page == page?'active':''} " th:each= "page: ${notAllow.pageList}">
+                    <a class="page-link now_page" onclick="pagenation(this)">[[${page}]]</a>
+                    <!--                    th:href="@{/admin/admin_userManage(page2= ${page})}"-->
+                  </li>
+
+                  <li class="page-ltem" th:if="${notAllow.next}">
+                    <a class="page-link" onclick="pagenation(this)">다음</a>
+                    <!--                    th:href="@{/admin/admin_userManage(page2=${result.end + 1})}"-->
+                  </li>
+                </ul>
+
                 <button class="list_submit">승인</button>
                 <button class="list_submit">거절</button>
               </div>
