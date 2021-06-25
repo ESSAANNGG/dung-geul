@@ -479,7 +479,6 @@ function apply(){
         alert("지원창을 모두 작성해주세요");
     }
     else if (apply_ok==1) {
-        alert(applies);
         if(applies==true){
             alert("이미 지원 완료 되었습니다.")
             return;
@@ -515,10 +514,13 @@ function apply(){
                 data: JSON.stringify(data),
                 success: function (result) {
                     confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
-                    // let conF=confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
-                    // if(conF==true){
-                    //     location.href="/mypage/member/studentcoun";
-                    // }
+
+                    if(conF==true){
+                        location.href="/mypage/member/ApplicationStatus";
+                    }
+                    else{
+                        location.href = location.href;
+                    }
                 },
                 error: function (err) {
                     alert("err : " + err);
