@@ -1,97 +1,115 @@
-/* #main-content {
-  display: flex;
-  justify-content: center;
-} */
-
-.table-flex {
-  width: 1300px;
-  height: auto;
-  border: 2px solid rgba(206, 205, 205, 0.884);
-  border-radius: 10px;
-  padding-left: 4px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  max-height: 641px;
-  overflow: auto;
+#main-content {
+	max-height: 561px;
+	overflow-y: auto;
 }
 
-.tg {
-  border-color: #9abad9;
-  border-collapse: collapse;
-}
-.tg td {
-  background-color: #ebf5ff;
-  border-color: #9abad9;
-  border-style: solid;
-  border-width: 1px;
-  color: #444;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
-.tg th {
-  background-color: #409cff;
-  border-color: #9abad9;
-  border-style: solid;
-  border-width: 1px;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
-.tg .tg-t4zm {
-  border-color: inherit;
-  font-size: 16px;
-  text-align: center;
-  vertical-align: middle;
-}
-.tg .tg-yq5v {
-  background-color: #409cff;
-  border-color: inherit;
-  color: #ffffff;
-  text-align: center;
-  vertical-align: middle;
-}
-.tg .tg-9wq8 {
-  border-color: inherit;
-  text-align: center;
-  vertical-align: middle;
-}
-.tg .tg-cji8 {
-  border-color: inherit;
-  font-size: 18px;
-  text-align: center;
-  vertical-align: middle;
-}
-.tg .tg-zagm {
-  /* border-color: #ebf5ff; */
-  font-size: 16px;
-  text-align: center;
-  vertical-align: top;
-}
-.tg .tg-19lu {
-  border-color: inherit;
-  color: #ffffff;
-  font-size: 16px;
-  text-align: center;
-  vertical-align: middle;
-}
-.tg .tg-0pky {
-  border-color: inherit;
-  text-align: left;
-  vertical-align: top;
+body {
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.25;
 }
 
-.tg .tg-19lu {
-  border-color: inherit;
-  color: #ffffff;
-  font-size: 16px;
-  text-align: center;
-  vertical-align: middle;
+table {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	table-layout: fixed;
+}
+
+table caption {
+	font-size: 1.5em;
+	margin: 0.5em 0 0.75em;
+}
+
+table tr {
+	background-color: #f8f8f8;
+	border: 1px solid #ddd;
+	padding: 0.35em;
+}
+
+table th,
+table td {
+	padding: 0.625em;
+	text-align: center;
+}
+
+table th {
+	font-size: 0.85em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+	table {
+		border: 0;
+	}
+
+	table caption {
+		font-size: 1.3em;
+	}
+
+	table thead {
+		border: none;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+
+	table tr {
+		border-bottom: 3px solid #ddd;
+		display: block;
+		margin-bottom: 0.625em;
+	}
+
+	table td {
+		border-bottom: 1px solid #ddd;
+		display: block;
+		font-size: 0.8em;
+		text-align: right;
+	}
+
+	table td::before {
+		/*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	table td:last-child {
+		border-bottom: 0;
+	}
+}
+
+.checkRemove {
+	background: inherit;
+	border: none;
+	box-shadow: none;
+	border-radius: 0;
+	padding: 0;
+	overflow: visible;
+	cursor: pointer;
+
+	border: 1px solid rgba(180, 177, 177, 0.582);
+	padding: 7px 5px;
+	border-radius: 5px;
+	background-color: #479ee6f8;
+	color: white;
+}
+
+.checkRemove:hover {
+	background-color: #3073aaf8;
+}
+
+th {
+	background-color: #324960;
+	color: #f8f8f8;
 }
