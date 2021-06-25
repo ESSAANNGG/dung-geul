@@ -328,7 +328,7 @@ let pagenation_check=0;
 function pagenation(t) {
     link=(window.location.href);
     page_text=$(t).text();
-    first_page=$(t).parents('.pagenation').find('.now_page').eq(0).text();
+    first_page=$(t).parents('ul').find('.now_page').eq(0).text();
     first_page=Number(first_page);
     if(page_text=='다음'){
         page_text=first_page+10;
@@ -339,11 +339,29 @@ function pagenation(t) {
     else{
 
     }
-    link=link.replace('?','?page='+page_text);
+
     sub_menu_title=$(t).parents(".list").parent().find('.sub_menu_title').text();
     list=$(t).parents(".list").parent().attr('id');//해당리스트를 검색
-    $('#'+list).load(link +"#"+list +' .list',function (){
+
+    switch (menu_name) {
+        case "userManage":
+            if(list=="main2_list"||list=="main2_corp_list") {
+                link = link.replace('page2=', 'page2=' + page_text);
+            }
+            break;
+        case "employ":
+        case "board":
+            link=link.replace('?','?page='+page_text);
+            break;
+
+    }
+    alert(link);
+    alert(list);
+    $('#'+list).load(link +" #"+list +" > .list",function (){
         $('#'+list).prepend("<div class="+'"sub_menu_title"'+"><h3>"+sub_menu_title+"</h3></div>");
     });
+    // $('#'+list).load(link +("#main5_notice_list > .list"),function (){
+    //     $('#'+list).prepend("<div class="+'"sub_menu_title"'+"><h3>"+sub_menu_title+"</h3></div>");
+    // });
 
 }
