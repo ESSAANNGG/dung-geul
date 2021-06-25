@@ -515,10 +515,13 @@ function apply(){
                 data: JSON.stringify(data),
                 success: function (result) {
                     confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
-                    // let conF=confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
-                    // if(conF==true){
-                    //     location.href="/mypage/member/studentcoun";
-                    // }
+
+                    if(conF==true){
+                        location.href="/mypage/member/ApplicationStatus";
+                    }
+                    else{
+                        location.href = location.href;
+                    }
                 },
                 error: function (err) {
                     alert("err : " + err);

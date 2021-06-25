@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -58,7 +58,9 @@
             </div>
 
             <div id="button_wrap">
-                <button onclick="apply_open()"><h1>온라인 지원</h1></button>
+                <div sec:authorize="hasRole('STUDENT')">
+                    <button onclick="apply_open()"><h1>온라인 지원</h1></button>
+                </div>
             </div>
 
             <div id="receipt_wrap">
@@ -174,6 +176,7 @@
         employ_num=[[${dto.num}]];
         userId=[];
         userId.push([[${memberDTO.getUser_id}]]);
+
         applies=([[${alreadyApply}]]);
     });
 </script>
