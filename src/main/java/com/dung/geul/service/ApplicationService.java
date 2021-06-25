@@ -220,7 +220,7 @@ public class ApplicationService {
 
         // page랑 function으로 pageResultDTO 반환
 
-        Pageable pageable = pageRequestDTO.getPageable(Sort.by("ap_date"));
+        Pageable pageable = pageRequestDTO.getPageable(Sort.by("apDate"));
 
         Member member = memberService.getMember(user_id);
 
