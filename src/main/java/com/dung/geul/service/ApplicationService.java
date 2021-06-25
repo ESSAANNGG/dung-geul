@@ -90,12 +90,12 @@ public class ApplicationService {
 
         Employ em = employRepository.getOne(em_id);
 
-        if(cv != null && em != null) {
-            System.out.println("em : " + em+ "\ncv : " + cv);
-            return applyRepository.existsByCvAndEmploy(cv, em);
-        } else {
-            System.out.println("service return : false");
+        if(cv == null || em == null) {
+
             return Boolean.FALSE;
+        } else {
+
+            return applyRepository.existsByCvAndEmploy(cv, em);
         }
 
     }

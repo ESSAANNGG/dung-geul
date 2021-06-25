@@ -32,8 +32,8 @@ class ApplicationServiceTest {
 
     @Test
     public void alreadyApply(){
-        Long cv_id = Long.valueOf(212);
-        Long em_id = Long.valueOf(211);
+        Long cv_id = Long.valueOf(221);
+        Long em_id = Long.valueOf(223);
 
         CV cv = cvService.getCv(cv_id);
 
