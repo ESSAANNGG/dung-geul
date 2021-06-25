@@ -145,7 +145,7 @@
                 <span class="link s200"><a th:href="@{/center-information/notice_board_read(num = ${dto.num})}" target="_blank">이동하기</a></span>
                </div>
                 <div class="list_button">
-                  <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
+                  <ul class="pagination  h-100 justify-content-center align-items-center">
                     <li class="page-ltem " th:if="${result.prev}">
                       <a class="page-link" onclick="pagenation(this)" tabindex="-1">이전</a>
 <!--                      th:href="@{/admin/admin_board(page= ${result.start -1})}"-->

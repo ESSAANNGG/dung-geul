@@ -345,14 +345,15 @@ function pagenation(t) {
             if(list=="main2_list"||list=="main2_corp_list") {
                 link = link.replace('page2=', 'page2=' + page_text);
             }
+            else if(list=="main2_perList"||list=="main2_corp_perList"){
+                link = link.replace('page1=', 'page1=' + page_text);
+            }
             break;
         case "employ":
         case "board":
             link=link.replace('?','?page='+page_text);
             break;
-
     }
-
     $('#'+list).load(link +" #"+list +" > .list",function (){//띄어쓰기 잘해야함
         $('#'+list).prepend("<div class="+'"sub_menu_title"'+"><h3>"+sub_menu_title+"</h3></div>"); //load로 교체시 안의 내용이 모두 교체되어 title을 추가해야함
     });                                                                                             //append는 뒤에, prepend는 앞에
