@@ -106,7 +106,7 @@
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="4_1_checkH"
                                                                onclick="checkAll(this)"></span>
-                <span class="number s140">지원자명</span>
+                <span class="name s140">지원자명</span>
                 <span class="id s270">아이디</span>
                 <span class="title s360">공고제목</span>
                 <span class="corp_name s320">기업명</span>
@@ -115,15 +115,15 @@
                 <span class="whether s140">합격여부</span>
               </div>
 
-              <div class="list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
+              <div class="list_body" th:each="item, i : ${result.getDtoList()}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="4_1_check"></span>
-                <span class="number s140"></span>
-                <span class="id s270"></span>
-                <span class="title s360"></span>
-                <span class="corp_name s320"></span>
-                <span class="shape s140"></span>
-                <span class="date s140"></span>
-                <span class="whether s140"></span>
+                <span class="name s140">[[${item.emp_num}]]</span>
+                <span class="id s270">[[${item.user_id}]]</span>
+                <span class="title s360">[[${item.emp_title}]]</span>
+                <span class="corp_name s320">[[${item.etp_name}]]</span>
+                <span class="shape s140">[[${item.etp_shape}]]</span>
+                <span class="date s140">[[${item.ap_date}]]</span>
+                <span class="whether s140">[[${item.ap_pass}]]</span>
               </div>
               <div class="list_button">
                 <button class="list_submit">삭제</button>
