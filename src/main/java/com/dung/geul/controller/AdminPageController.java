@@ -1,6 +1,11 @@
 package com.dung.geul.controller;
 
-import com.dung.geul.dto.*;
+import com.dung.geul.dto.EnterpriseDTO;
+import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.dto.SearchDTO;
+import com.dung.geul.dto.apply.ApplyStudentDTO;
+import com.dung.geul.service.ApplicationService;
 import com.dung.geul.service.EmployService;
 import com.dung.geul.service.MemberServiceImpl;
 import com.dung.geul.service.notice_boardService;
@@ -25,6 +30,9 @@ public class AdminPageController {
 
     @Autowired
     private EmployService employservice;
+
+    @Autowired
+    private ApplicationService applicationService;
 
     // 전체 회원 인증 리스트 페이지
     @GetMapping("/admin_userManage")
@@ -107,7 +115,16 @@ public class AdminPageController {
     }
 
     @GetMapping("/admin_application")   // 관리자 페이지.입사지원
-    public void application(){
+    public void application(SearchDTO searchDTO, PageRequestDTO pageRequestDTO, Model model){
+
+        log.info(".... AdminPageController controller 실행 ....");
+        log.info("searchDTO : " + searchDTO);
+        log.info("PageRequestDTO : " + pageRequestDTO);
+
+        PageResultDTO<ApplyStudentDTO, Object> result = applicationService.searchApplyListPage(pageRequestDTO, searchDTO);
+        log.info("result : " + result);
+
+        model.addAttribute("result", result);
 
     }
 
@@ -120,6 +137,7 @@ public class AdminPageController {
     public void applicationdR(){
 
     }
+
 
 
 }

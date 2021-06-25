@@ -109,8 +109,9 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
         //지민우 //기업정보수정
         Member member = memberService.getMember(authMemberDTO.getUser_id());
+        MemberDTO memberDTO = memberService.getMemberDTO(member);
 
-        model.addAttribute("memberDTO", member);
+        model.addAttribute("memberDTO", memberDTO);
 
         Set<String> roles = new HashSet<>();
 

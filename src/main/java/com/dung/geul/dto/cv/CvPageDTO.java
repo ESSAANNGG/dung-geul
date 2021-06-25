@@ -1,6 +1,6 @@
-package com.dung.geul.dto;
+package com.dung.geul.dto.cv;
 
-import com.dung.geul.dto.cv.*;
+import com.dung.geul.dto.CertificateDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

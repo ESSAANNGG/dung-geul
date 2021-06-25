@@ -1,11 +1,10 @@
 package com.dung.geul.controller;
 
 import com.dung.geul.dto.*;
+import com.dung.geul.dto.cv.CvPageDTO;
 import com.dung.geul.entity.CV;
-import com.dung.geul.entity.Education;
 import com.dung.geul.entity.Member;
 import com.dung.geul.repository.CvRepository;
-import com.dung.geul.repository.EducationRepository;
 import com.dung.geul.repository.MemberRepository;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.*;
@@ -15,8 +14,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.tags.EditorAwareTag;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.dung.geul.repository;
+package com.dung.geul.repository.search;
 
 import com.dung.geul.dto.AllowEtpDTO;
 import com.dung.geul.dto.QAllowEtpDTO;
@@ -20,10 +20,10 @@ import static com.dung.geul.entity.QMember.member;
 
 @Repository
 @Log4j2
-public class MemberRepositorySupport extends QuerydslRepositorySupport {
+public class SearchMemberRepository extends QuerydslRepositorySupport {
     private final JPAQueryFactory queryFactory;
 
-    public MemberRepositorySupport(JPAQueryFactory queryFactory) {
+    public SearchMemberRepository(JPAQueryFactory queryFactory) {
         super(Member.class);
         this.queryFactory = queryFactory;
     }

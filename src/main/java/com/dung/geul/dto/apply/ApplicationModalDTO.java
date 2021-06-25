@@ -1,6 +1,6 @@
 package com.dung.geul.dto.apply;
 
-import com.dung.geul.dto.CvPageDTO;
+import com.dung.geul.dto.cv.CvPageDTO;
 import com.dung.geul.dto.IntroduceDTO;
 import com.dung.geul.dto.PageResultDTO;
 import lombok.*;

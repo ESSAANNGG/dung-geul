@@ -2,6 +2,7 @@ package com.dung.geul.controller.restcontroller;
 
 import com.dung.geul.dto.*;
 import com.dung.geul.dto.apply.ApplicationModalDTO;
+import com.dung.geul.dto.cv.CvPageDTO;
 import com.dung.geul.security.dto.AuthMemberDTO;
 import com.dung.geul.service.ApplicationService;
 import com.dung.geul.service.CvServiceImpl;

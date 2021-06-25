@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,7 +19,7 @@ public class Apply implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ap_id;
 
-    private LocalDateTime ap_date;  //지원 일자
+    private LocalDateTime apDate;  //지원 일자
 
     private String ap_area; // 희망 근무 지역
 

@@ -6,7 +6,7 @@ import com.dung.geul.entity.*;
 import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.IntroduceRepository;
 import com.dung.geul.repository.MemberRepository;
-import com.dung.geul.repository.MemberRepositorySupport;
+import com.dung.geul.repository.search.SearchMemberRepository;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryFactory;
 import com.querydsl.core.types.dsl.BooleanExpression;
@@ -38,7 +38,7 @@ public class MemberServiceImpl implements MemberService {
     private MemberRepository memberRepository;
 
     @Autowired
-    private MemberRepositorySupport memberRepositorySupport;
+    private SearchMemberRepository searchMemberRepository;
 
     @Autowired
     private EnterpriseRepository enterpriseRepository;
@@ -547,7 +547,7 @@ public class MemberServiceImpl implements MemberService {
 
         log.info("getPageResultDTO실행");
 
-        Page<AllowEtpDTO> result = memberRepositorySupport.getUser(builder, pageable);
+        Page<AllowEtpDTO> result = searchMemberRepository.getUser(builder, pageable);
 
         log.info("page<> result : " + result.getContent());
 

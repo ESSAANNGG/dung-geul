@@ -1,10 +1,8 @@
 package com.dung.geul.entity;
 
-import com.dung.geul.dto.CvPageDTO;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Getter
