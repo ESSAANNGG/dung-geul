@@ -285,7 +285,7 @@
                 <span class="joindate s140">가입일</span>
                 <span class="role s140">권한</span>
               </div>
-              <div class="list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
+              <div class="list_body" th:each="item, i : ${allow.getDtoList()}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="2_1_check"></span>
                 <span class="number s100">[[${i.count}]]</span>
                 <span class="name s140">[[${item.user_name}]]</span>
@@ -298,17 +298,17 @@
               <div class="list_button">
 
                 <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
-                  <li class="page-ltem " th:if="${result.prev}">
+                  <li class="page-ltem " th:if="${allow.prev}">
                     <a class="page-link" onclick="pagenation(this)" tabindex="-1">이전</a>
 <!--                    th:href="@{/admin/admin_userManage(page2= ${result.start -1})}"-->
                   </li>
 
-                  <li th:class=" 'page-ltem ' + ${result.page == page?'active':''} " th:each= "page: ${result.pageList}">
+                  <li th:class=" 'page-ltem ' + ${allow.page == page?'active':''} " th:each= "page: ${allow.pageList}">
                     <a class="page-link now_page" onclick="pagenation(this)">[[${page}]]</a>
 <!--                    th:href="@{/admin/admin_userManage(page2= ${page})}"-->
                   </li>
 
-                  <li class="page-ltem" th:if="${result.next}">
+                  <li class="page-ltem" th:if="${allow.next}">
                     <a class="page-link" onclick="pagenation(this)">다음</a>
 <!--                    th:href="@{/admin/admin_userManage(page2=${result.end + 1})}"-->
                   </li>
@@ -335,7 +335,7 @@
                 <span class="joindate s140">가입일</span>
                 <span class="role s140">권한</span>
               </div>
-              <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
+              <div class="list_body" th:each="item, i : ${notAllow.getDtoList()}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="2_2_check"></span>
                 <span class="number s100">[[${i.count}]]</span>
                 <span class="name s140">[[${item.user_name}]]</span>
@@ -413,7 +413,7 @@
                 <span class="joindate s140">가입일</span>
                 <span class="shape s140">기업형태</span>
               </div>
-              <div class="list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
+              <div class="list_body" th:each="item, i : ${allow.getDtoList()}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="2_3_check"></span>
                 <span class="number s100">[[${i.count}]]</span>
                 <span class="corp_name s320">[[${item.user_name}]]</span>
@@ -443,7 +443,7 @@
                 <span class="joindate s140">가입일</span>
                 <span class="shape s140">기업형태</span>
               </div>
-              <div class="list_body" th:each="item, i : ${notAllowList}" onclick="detail(this)">
+              <div class="list_body" th:each="item, i : ${notAllow.getDtoList()}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="2_4_check"></span>
                 <span class="number s100">[[${i.count}]]</span>
                 <span class="corp_name s320">[[${item.user_name}]]</span>

@@ -44,7 +44,7 @@ public class SearchApplyRepository extends QuerydslRepositorySupport {
                                 enterprise.etp_name,
                                 enterprise.etp_shape,
                                 apply.ap_pass,
-                                apply.ap_date.stringValue(),
+                                apply.apDate.stringValue(),
                                 cV.cv_id,
                                 apply.introduce.num
 

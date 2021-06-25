@@ -115,7 +115,7 @@
                 <span class="whether s140">합격여부</span>
               </div>
 
-              <div class="list_body" onclick="detail(this)">
+              <div class="list_body" th:each="item, i : ${allowList}" onclick="detail(this)">
                 <span class="check"><input type="checkbox" name="4_1_check"></span>
                 <span class="number s140"></span>
                 <span class="id s270"></span>

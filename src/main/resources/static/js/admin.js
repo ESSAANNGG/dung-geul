@@ -336,9 +336,6 @@ function pagenation(t) {
     else if(page_text=='이전') {
         page_text=first_page-1;
     }
-    else{
-
-    }
 
     sub_menu_title=$(t).parents(".list").parent().find('.sub_menu_title').text();
     list=$(t).parents(".list").parent().attr('id');//해당리스트를 검색
@@ -360,8 +357,4 @@ function pagenation(t) {
     $('#'+list).load(link +" #"+list +" > .list",function (){//띄어쓰기 잘해야함
         $('#'+list).prepend("<div class="+'"sub_menu_title"'+"><h3>"+sub_menu_title+"</h3></div>");
     });
-    // $('#'+list).load(link +("#main5_notice_list > .list"),function (){
-    //     $('#'+list).prepend("<div class="+'"sub_menu_title"'+"><h3>"+sub_menu_title+"</h3></div>");
-    // });
-
 }
