@@ -233,8 +233,9 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         log.info("채용공고 리스트 : " + emList);
     }
 
+    // /mypage/etp/employ/apply/list/{num} // num : 채용공고 번호
     // 채용공고별 입사지원자 리스트 (+ 페이지네이션)
-    @GetMapping("etp/employ/apply/list/{num}")
+    @GetMapping("/etp/employ/apply/list/{num}")
     public void getEmployApplyList(@PathVariable("num") Long num, PageRequestDTO pageRequestDTO, Model model){
 
 
