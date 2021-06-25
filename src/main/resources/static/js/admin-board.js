@@ -107,7 +107,7 @@ function board_detail_submit(select_modal,t){
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (result) {
-                        alert("회원정보 삭제완료");
+                        alert("게시글 삭제완료");
                         submit_param();
                     },
                     error: function (err) {

@@ -357,7 +357,7 @@ function pagenation(t) {
     }
     alert(link);
     alert(list);
-    $('#'+list).load(link +" #"+list +" > .list",function (){
+    $('#'+list).load(link +" #"+list +" > .list",function (){//띄어쓰기 잘해야함
         $('#'+list).prepend("<div class="+'"sub_menu_title"'+"><h3>"+sub_menu_title+"</h3></div>");
     });
     // $('#'+list).load(link +("#main5_notice_list > .list"),function (){
