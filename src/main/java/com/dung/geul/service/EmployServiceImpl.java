@@ -70,7 +70,7 @@ public class EmployServiceImpl implements EmployService {
 
         Member member = memberRepository.getOne(user_id);
 
-        Enterprise etp = enterpriseRepository.findByUser_id(member);
+        Enterprise etp = enterpriseRepository.findByMember(member);
 
         List<Employ> list = employRepository.findByEtpId(etp);
 

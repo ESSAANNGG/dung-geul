@@ -3,12 +3,9 @@ package com.dung.geul.service;
 
 import com.dung.geul.dto.*;
 import com.dung.geul.entity.*;
-import com.dung.geul.handler.ErrorHttpResponse;
-import com.dung.geul.handler.SuccessHttpResponse;
 import com.dung.geul.repository.EnterpriseRepository;
 import com.dung.geul.repository.IntroduceRepository;
 import com.dung.geul.repository.MemberRepository;
-
 import com.dung.geul.repository.MemberRepositorySupport;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryFactory;
@@ -17,8 +14,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -34,9 +29,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
-
-import com.dung.geul.entity.Introduce;
 
 @Service
 @Log4j2
@@ -131,7 +123,7 @@ public class MemberServiceImpl implements MemberService {
             for (AllowEtpIdShapeDTO dto : dtoList) {
                 member = memberRepository.findById(dto.getUser_id()).get();
 
-                enterprise = enterpriseRepository.findByUser_id(member);
+                enterprise = enterpriseRepository.findByMember(member);
 
                 if (member == null || enterprise == null) throw new Exception(dto.getUser_id() + "는 존재하지 않는 회원입니다.");
 
@@ -249,7 +241,7 @@ public class MemberServiceImpl implements MemberService {
             Optional<Member> member = memberRepository.findById(enterpriseDTO.getUser_id());
 
             Member memberEntity = member.get();
-            Enterprise enterpriseEntity = enterpriseRepository.findByUser_id(memberEntity);
+            Enterprise enterpriseEntity = enterpriseRepository.findByMember(memberEntity);
 
             memberEntity.memberModify(
                     enterpriseDTO.getUser_name(),
@@ -343,7 +335,7 @@ public class MemberServiceImpl implements MemberService {
 
             if (memberEntiry.getUser_type().equals("ENTERPRISE")) {
 
-                Enterprise etpEntity = enterpriseRepository.findByUser_id(memberEntiry);
+                Enterprise etpEntity = enterpriseRepository.findByMember(memberEntiry);
 
                 enterpriseRepository.delete(etpEntity);
 

@@ -70,6 +70,8 @@ public class EmployController {
         }
         model.addAttribute("alreadyApply", alreayApply);
 
+        log.info("!!!!!!!!-!!!!!!!!!! 지원했는지 안했는지 확인 : " + alreayApply);
+
     }
     
     //채용등록이동

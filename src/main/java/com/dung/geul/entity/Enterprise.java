@@ -5,7 +5,6 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Builder
@@ -21,8 +20,8 @@ public class Enterprise implements Serializable{
         private Long etp_id;
 
         @OneToOne(cascade=CascadeType.REMOVE)
-        @JoinColumn(name = "etp_user_id" ,foreignKey = @ForeignKey(name="etp_user_id_fk"))
-        private Member user_id;
+        @JoinColumn(foreignKey = @ForeignKey(name="etp_user_id_fk"))
+        private Member member;
 
         @Column(length = 12, nullable = false)
         private String etp_num; //사업자등록번호

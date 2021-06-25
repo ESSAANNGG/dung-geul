@@ -23,4 +23,5 @@ public interface ApplyRepository extends JpaRepository<Apply, Long> {
 
     // 해당 학생회원이 이 공고에 지원 했는지 확인
     Boolean existsByCvAndEmploy(CV cv, Employ employ);
+
 }

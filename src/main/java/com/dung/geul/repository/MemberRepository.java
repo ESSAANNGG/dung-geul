@@ -1,19 +1,11 @@
 package com.dung.geul.repository;
 
-import com.dung.geul.dto.AllowEtpDTO;
-import com.dung.geul.dto.PageRequestDTO;
-import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
-import com.querydsl.core.BooleanBuilder;
-import com.querydsl.jpa.JPQLQuery;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<Member, String> {
@@ -40,7 +32,7 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     String findByUser_emailAndUser_name(@Param("user_email") String user_email, @Param("user_emailDomain") String user_emailDomain, @Param("user_name") String user_name);
 
     //
-    @Query(value = "select m, e from Member m , Enterprise e where e.user_id = m and m.user_id = :user_id")
+    @Query(value = "select m, e from Member m , Enterprise e where e.member = m and m.user_id = :user_id")
     Object findByUser_idEtpJoinMember(@Param("user_id") String user_id);
 
     @Query("select m from Member m where m.user_type = :user_type and m.user_allow = 1")

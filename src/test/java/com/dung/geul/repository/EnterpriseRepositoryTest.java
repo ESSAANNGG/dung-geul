@@ -1,18 +1,14 @@
 package com.dung.geul.repository;
 
-import com.dung.geul.entity.Employ;
 import com.dung.geul.entity.Enterprise;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
-import net.bytebuddy.asm.Advice;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDate;
-
-import java.util.stream.IntStream;
 
 
 @SpringBootTest
@@ -59,7 +55,7 @@ public class EnterpriseRepositoryTest {
             try {
 
                 Enterprise e = Enterprise.builder()
-                        .user_id(m)
+                        .member(m)
                         .etp_name("(주)삼촌전자" + i)
                         .etp_num("11111" + i)
                         .etp_ceo_name("재.Dragon" + i)

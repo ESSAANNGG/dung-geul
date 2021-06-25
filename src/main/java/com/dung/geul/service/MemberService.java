@@ -1,15 +1,16 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.*;
+import com.dung.geul.dto.AllowEtpDTO;
+import com.dung.geul.dto.EnterpriseDTO;
+import com.dung.geul.dto.MemberDTO;
+import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.entity.Enterprise;
-import com.dung.geul.entity.Introduce;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.MemberRole;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.function.Function;
 
 public interface MemberService {
@@ -55,7 +56,7 @@ public interface MemberService {
 
         // 기업 entity 객체 생성
         Enterprise enterprise = Enterprise.builder()
-                .user_id(member)
+                .member(member)
                 .etp_num(enterpriseDTO.getEtp_num())
                 .etp_name(enterpriseDTO.getEtp_name())
                 .etp_ceo_name(enterpriseDTO.getEtp_ceo_name())
