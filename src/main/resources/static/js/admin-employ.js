@@ -1,17 +1,16 @@
 //채용공고 전용 js파일
 
 function employ(){
-    parameter="/admin/admin_employ?page=1";
+    parameter="/admin/admin_employ?";
 }
 
 function employ_guide(){
     switch (guide_val) {
-        case "공고조회" : parameter="/admin/admin_employ?page=1";
+        case "공고조회" : parameter="/admin/admin_employ?";
             break;
         case "공고등록" : parameter="/admin/admin_employ";
                          window.open("/Employ/list");
             break;
-        case "미구현" : parameter="/admin/admin_employ?page=1";
     }
 }
 
@@ -52,7 +51,7 @@ function employ_search(i) {
             case 5: search_parameter+=keywords[7]+search_val+"&type=date";
                 break;
             case 6: search_parameter+=keywords[8]+search_val+"&type=date";
-                search_parameter=search_parameter.replace("/admin/admin_employ?page=1","");
+                search_parameter=search_parameter.replace("/admin/admin_employ?","");
                 break;
         }
     }
@@ -73,7 +72,7 @@ function employ_search(i) {
             case 5: search_parameter+="&keywords=";
                 break;
             case 6: search_parameter+="&keywords=";
-                search_parameter=search_parameter.replace("/admin/admin_employ?page=1","");
+                search_parameter=search_parameter.replace("/admin/admin_employ?","");
                 break;
         }
     }
