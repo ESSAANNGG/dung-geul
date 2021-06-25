@@ -475,46 +475,56 @@ function apply_close(){
 
 let apply_ok=0; //지원을 넣을 수 있는 상태인지 체크
 function apply(){
-    if (apply_ok==1) {
-        cv_num = (M.cv.cv_id);
-        introduct_index = $(".apply_li select option").index($(".apply_li select option:selected"));
-        introduct_num = (M.introduceDTOList.dtoList[introduct_index - 1].num);
-        hope_area = $('#hope_area').val();
-        hope_task = $('#hope_task').val();
-        dataList = [];
-
-        let obj = new Object();
-        let data = {
-            cv_id: (M.cv.cv_id),
-            intro_id: (M.introduceDTOList.dtoList[introduct_index - 1].num),
-            ap_area: $('#hope_area').val(),
-            ap_task: $('#hope_task').val(),
-            employ_num: employ_num
+    if (apply_ok==0){
+        alert("지원창을 모두 작성해주세요");
+    }
+    else if (apply_ok==1) {
+        alert(applies);
+        if(applies==true){
+            alert("이미 지원 완료 되었습니다.")
+            return;
         }
-        obj.cv_id = (M.cv.cv_id);
-        obj.intro_id = (M.introduceDTOList.dtoList[introduct_index - 1].num);
-        obj.ap_area = $('#hope_area').val();
-        obj.ap_task = $('#hope_task').val();
-        obj.employ_num = employ_num;
-        dataList.push(obj);                             //전달할 배열에 값 삽입
-        alert(JSON.stringify(dataList));
-        $.ajax({
-            url: "/application/cvIntro/save",
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            data: JSON.stringify(data),
-            success: function (result) {
-                confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?' + result);
-                // let conF=confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
-                // if(conF==true){
-                //     location.href="/mypage/member/studentcoun";
-                // }
-            },
-            error: function (err) {
-                alert("err : " + err);
+        else if (applies == false) {
+            cv_num = (M.cv.cv_id);
+            introduct_index = $(".apply_li select option").index($(".apply_li select option:selected"));
+            introduct_num = (M.introduceDTOList.dtoList[introduct_index - 1].num);
+            hope_area = $('#hope_area').val();
+            hope_task = $('#hope_task').val();
+            dataList = [];
+
+            let obj = new Object();
+            let data = {
+                cv_id: (M.cv.cv_id),
+                intro_id: (M.introduceDTOList.dtoList[introduct_index - 1].num),
+                ap_area: $('#hope_area').val(),
+                ap_task: $('#hope_task').val(),
+                employ_num: employ_num
             }
-        })
+            obj.cv_id = (M.cv.cv_id);
+            obj.intro_id = (M.introduceDTOList.dtoList[introduct_index - 1].num);
+            obj.ap_area = $('#hope_area').val();
+            obj.ap_task = $('#hope_task').val();
+            obj.employ_num = employ_num;
+            dataList.push(obj);                             //전달할 배열에 값 삽입
+            // alert(JSON.stringify(dataList));
+            $.ajax({
+                url: "/application/cvIntro/save",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(data),
+                success: function (result) {
+                    confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
+                    // let conF=confirm('신청 완료!\n마이페이지에서 바로 확인하시겠습니까?');
+                    // if(conF==true){
+                    //     location.href="/mypage/member/studentcoun";
+                    // }
+                },
+                error: function (err) {
+                    alert("err : " + err);
+                }
+            })
+        }
     }
 }
 

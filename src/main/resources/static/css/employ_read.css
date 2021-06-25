@@ -50,6 +50,9 @@ h5{ /*콘텐츠들*/
     font-size:14px;
     font-weight:400;
 }
+.category h5{
+    font-weight:700;
+}
 h6{ /*지원방법의 date font*/
     margin:0px;
     color:#444444;
