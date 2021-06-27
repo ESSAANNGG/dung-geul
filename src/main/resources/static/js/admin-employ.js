@@ -127,3 +127,50 @@ $(window).load(function(){
         }
     });
 });
+
+
+function detail_on_employ(employ_num){
+    detail_state=1;
+
+    $.ajax({
+        url: "",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify('num: '+num),
+    //     success : function (MemberDTO) {
+    //         M=MemberDTO;
+    //         $('input[name=이름]').val(M.user_name);
+    //         $('input[name=아이디]').val(M.user_id);
+    //         $('input[name=비밀번호]').val(M.user_pw);
+    //         $('input[name=전화번호]').val(M.user_ph+"-"+M.user_ph2+"-"+M.user_ph3);
+    //         $('input[name=우편번호]').val(M.user_postcode);
+    //         $('input[name=주소]').val(M.user_addr+" "+M.user_addr_details);
+    //         $('input[name=이메일]').val(M.user_email+"@"+M.user_emailDomain);
+    //         $('input[name=가입일]').val(M.regDate);
+    //         $('input[name=소속]').val(M.user_dept+" "+M.user_grade+M.user_class);
+    //
+    //         //기업
+    //         $('input[name=기업명]').val(M.etp_name);
+    //         $('input[name=사업자번호]').val(M.etp_num);
+    //         $('input[name=대표자명]').val(M.etp_ceo_name);
+    //         $('input[name=대표번호]').val(M.etp_ph+"-"+M.etp_ph2+"-"+M.etp_ph3);
+    //         $('input[name=팩스]').val(M.etp_fx);
+    //         $('input[name=홈페이지]').val(M.etp_home);
+    //         $('input[name=주요사업내용]').val(M.etp_contents);
+    //         $('input[name=설립년도]').val(M.etp_year);
+    //         $('input[name=직원수]').val(M.etp_member);
+    //         $('input[name=업종]').val(M.etp_sector);
+    //         $('input[name=기업형태]').val(M.etp_shape);
+    //         $('input[name=담당자연락처]').val(M.user_ph+"-"+M.user_ph2+"-"+M.user_ph3);
+    //         $('input[name=담당자이메일]').val(M.user_email+"@"+M.user_emailDomain);
+    //     },
+    //     error : function (error){
+    //         alert("상세정보 로딩에 실패했습니다");
+    //         console.log(error);
+    //     }
+    })
+
+    $('#detail_employ').css({"visibility":"visible","opacity":"1"});
+    $('#wrap,#admin_header').css("opacity","0.4");
+}
