@@ -1,9 +1,6 @@
 package com.dung.geul.controller;
 
-import com.dung.geul.dto.EnterpriseDTO;
-import com.dung.geul.dto.PageRequestDTO;
-import com.dung.geul.dto.PageResultDTO;
-import com.dung.geul.dto.SearchDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.dto.apply.ApplyStudentDTO;
 import com.dung.geul.service.ApplicationService;
 import com.dung.geul.service.EmployService;
@@ -13,6 +10,8 @@ import com.querydsl.core.BooleanBuilder;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -86,6 +85,14 @@ public class AdminPageController {
 
             model.addAttribute("result", employservice.getList(pageRequestDTO));
 
+    }
+
+    @GetMapping("/admin_employ/detail")
+    public ResponseEntity memberDetailsRead(@RequestParam("employ_num") Long employ_num){
+
+        EmployDTO dto = employservice.read(employ_num);
+        log.info(dto.toString());
+        return new ResponseEntity(dto, HttpStatus.OK);
     }
 
     @GetMapping("/admin_dashboard") // 관리자 페이지.대쉬보드
