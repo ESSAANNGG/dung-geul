@@ -63,7 +63,6 @@ function employ_search(i) {
             case 3: search_parameter+="&keywords=";
                 break;
             case 4:
-                alert(search_parameter);
                 search_parameter+="&keywords=&sido=";
                 break;
             case 5: search_parameter+="&keywords=";
@@ -191,7 +190,7 @@ function employ_detail_submit(select_modal,t){
                 }).done(function () {
                     location.href = '/Employ/list';
                 }).fail(function (error) {
-                    alert(JSON.stringify(error));
+                    alert("수정에 실패했습니다");
                 })
             }
             break;

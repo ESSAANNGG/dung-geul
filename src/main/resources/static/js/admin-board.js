@@ -28,27 +28,24 @@ function board_list_send(){
         dataType: "json",
         data: JSON.stringify(dataList),
         success : function (result){
-            alert("회원정보 변경 성공");
+            alert("삭제 성공");
             submit_param();
         },
         error : function (err) {
-            alert("err : " + err);
+            alert("삭제 실패");
         }
     })
 }
 
 function board_search(i){
-    alert("board");
     if(search_val!=""){                                                 //input값이 있다면 파라미터를 설정
 
         switch (i) {
             case 0:
                 search_val = "&type=t&keyword=" + search_val;
-                alert(search_val);
                 break;
             case 1:
                 // search_val = "&name=" + search_val;
-                alert("날짜는 아직 안함");
                 break;
         }
     }

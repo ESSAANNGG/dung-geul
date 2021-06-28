@@ -64,7 +64,7 @@ function userManage_list_send(){
             submit_param();
         },
         error : function (err) {
-            alert("err : " + err);
+            alert("회원정보 변경 실패");
         }
     })
 }
