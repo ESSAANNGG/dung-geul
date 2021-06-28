@@ -178,23 +178,20 @@ function employ_detail_submit(select_modal,t){
                     num : $('input[name=번호]').val(),
                     title: $('input[name=제목]').val(),
                     content : $('input[name=코멘트]').val(),
-                    ot : $('input[name=직종]').val(),
-                    ep :  $('input[name=고용형태]').val(),
-                    etp_id : $("input[name=고용형태]").val()
+                    ot : $('input[name=직종]').val()
+                    // ep :  $('input[name=고용형태]').val(),
+                    // etp_id : $('input[name=고용형태]').val()
                 }
 
                 $.ajax({
                     url: "/rest/emSave",
                     method: 'put',
                     data: JSON.stringify(data),
-                    contentType: 'application/json; charset=utf-8,',
-                    success: function (result) {
-                        alert("처리되었습니다.");
-                        submit_param();
-                    },
-                    error: function (err) {
-                        alert("처리에 실패했습니다.");
-                    }
+                    contentType: 'application/json; charset=utf-8,'
+                }).done(function () {
+                    location.href = '/Employ/list';
+                }).fail(function (error) {
+                    alert(JSON.stringify(error));
                 })
             }
             break;
@@ -217,47 +214,3 @@ function employ_detail_submit(select_modal,t){
             break;
     }
 }
-    // if(conF==true) {
-    //     modal_val = [];
-    //     modal_val.push($('#' + select_modal).find('input[name="아이디"]').val());
-    //     switch (select_modal) {
-    //         case 'detail_student':
-    //         case 'detail_counselor':
-    //             A_url = "/allow/member/read?result=no";
-    //             break;
-    //         case 'detail_enterprise':
-    //             A_url = "/allow/etp/delete?result=no";
-    //             break;
-    //     }
-    // }
-    //
-    // $.ajax({
-    //     url: A_url,
-    //     type: "POST",
-    //     contentType: "application/json; charset=utf-8",
-    //     dataType: "json",
-    //     data: JSON.stringify(modal_val),
-    //     success : function (result){
-    //         alert("처리되었습니다.");
-    //         submit_param();
-    //     },
-    //     error : function (err) {
-    //         alert("처리에 실패했습니다.");
-    //     }
-    // })
-
-
-// $('#emRemove').on('click', function () {
-//
-//     let num = $('#em_num').val();
-//     console.log(num);
-//     $.ajax({
-//         url: '/rest/' + num ,
-//         method: 'delete'
-//     }).done(function () {
-//         location.href = '/Employ/list';
-//     }).fail(function (error) {
-//         console.log(error);
-//         alert(JSON.stringify(error));
-//     })
-// });

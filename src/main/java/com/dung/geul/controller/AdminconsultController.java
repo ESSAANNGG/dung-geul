@@ -1,9 +1,6 @@
 package com.dung.geul.controller;
 
-import com.dung.geul.dto.AllowEtpDTO;
-import com.dung.geul.dto.ConsultDTO;
-import com.dung.geul.dto.PageRequestDTO;
-import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.entity.Consult;
 import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
@@ -57,6 +54,16 @@ public class AdminconsultController {
             log.info("ddddd");
 
         return "admin/admin_consult_Reg";
+        }
+
+        //지민우
+        //상담정보 모달에 띄우기
+        @GetMapping("/admin_consult/detail")
+        public ResponseEntity memberDetailsRead(@RequestParam("consult_num") Long cno){
+
+            ConsultDTO consult = consultService.read(cno);
+            log.info(consult.toString());
+            return new ResponseEntity(consult, HttpStatus.OK);
         }
 
 

@@ -257,7 +257,6 @@ $('.register_submit').click(function(){
         window[String(menu_name) + "_register"](i);                             //data를 리스트에 담음
     }
     window[String(menu_name) + "_register_submit"](i);                          //data를 전송
-    submit_param();
 })
 
 
@@ -296,6 +295,11 @@ function detail(t) {
                 setTimeout("window['detail_on_'+menu_name](employ_num)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
                 break;
 
+            case "application": //지원관리메뉴에서의 모달창
+                employ_num=$(t).children('span.employ_num').text();
+                setTimeout("window['detail_on_'+menu_name](employ_num)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+                break;
+
             case "board": //게시판메뉴에서의 모달창
                 board_num=undefined;
                 if($(t).attr("class")=="list_submit direct"){
@@ -308,8 +312,8 @@ function detail(t) {
                 break;
 
             case "consult": //상담관리메뉴에서의 모달창
-                num=$(t).children('span.number').text();                 //번호를 읽어옴
-                setTimeout("window['detail_on_'+menu_name](num)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+                consult_num=$(t).children('span.number').text();                 //번호를 읽어옴
+                setTimeout("window['detail_on_'+menu_name](consult_num)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
                 break;
         }
     }
@@ -323,7 +327,7 @@ $('#shadow_box').click(function(e){
     }
 })
 
-//상세정보 중 삭제
+//상세정보 중 버튼
 $('.d_button').click(function(e){
     select_modal=$(this).parent("div").parent("div").attr('id');
     window[String(menu_name) + "_detail_submit"](select_modal,this);
@@ -356,6 +360,7 @@ function pagenation(t) {
             }
             break;
         case "employ":
+        case "application":
         case "board":
             link=link.replace('?','?page='+page_text);
             break;
