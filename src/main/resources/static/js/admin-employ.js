@@ -21,12 +21,9 @@ function employ_list(){
         url: '/rest/' + employ_num ,
         method: 'delete'
     })
-    dataList.push(employ_num);
 }
 
 function employ_list_send(){
-
-    alert(dataList) //디버깅용
     submit_param();
 }
 
@@ -139,30 +136,27 @@ function detail_on_employ(employ_num){
         dataType: "json",
         success : function (EmployDTO) {
             E=EmployDTO;
-            $('input[name=이름]').val(M.user_name);
-            $('input[name=아이디]').val(M.user_id);
-            $('input[name=비밀번호]').val(M.user_pw);
-            $('input[name=전화번호]').val(M.user_ph+"-"+M.user_ph2+"-"+M.user_ph3);
-            $('input[name=우편번호]').val(M.user_postcode);
-            $('input[name=주소]').val(M.user_addr+" "+M.user_addr_details);
-            $('input[name=이메일]').val(M.user_email+"@"+M.user_emailDomain);
-            $('input[name=가입일]').val(M.regDate);
-            $('input[name=소속]').val(M.user_dept+" "+M.user_grade+M.user_class);
-
-            //기업
-            $('input[name=기업명]').val(M.etp_name);
-            $('input[name=사업자번호]').val(M.etp_num);
-            $('input[name=대표자명]').val(M.etp_ceo_name);
-            $('input[name=대표번호]').val(M.etp_ph+"-"+M.etp_ph2+"-"+M.etp_ph3);
-            $('input[name=팩스]').val(M.etp_fx);
-            $('input[name=홈페이지]').val(M.etp_home);
-            $('input[name=주요사업내용]').val(M.etp_contents);
-            $('input[name=설립년도]').val(M.etp_year);
-            $('input[name=직원수]').val(M.etp_member);
-            $('input[name=업종]').val(M.etp_sector);
-            $('input[name=기업형태]').val(M.etp_shape);
-            $('input[name=담당자연락처]').val(M.user_ph+"-"+M.user_ph2+"-"+M.user_ph3);
-            $('input[name=담당자이메일]').val(M.user_email+"@"+M.user_emailDomain);
+            $('input[name=번호]').val(E.num);
+            $('input[name=기업명]').val(E.etp_name);
+            $('input[name=제목]').val(E.title);
+            $('input[name=코멘트]').val(E.content);
+            $('input[name=직종]').val(E.ot);
+            $('input[name=고용형태]').val(E.ep);
+            $('input[name=경력]').val(E.career);
+            $('input[name=학력]').val(E.education);
+            $('input[name=근무지역]').val(E.area);
+            $('input[name=급여]').val(E.salary+'만원');
+            $('input[name=모집인원]').val(E.people+'명');
+            $('input[name=지원방법]').val(E.apply);
+            $('input[name=모집일]').val(E.start_date.substring(0,10));
+            $('input[name=마감일]').val(E.end_date.substring(0,10));
+            $('input[name=본문이미지]').val(E.file);
+            $('input[name=업종]').val(E.etp_sector);
+            $('input[name=기업형태]').val(E.etp_shape);
+            $('input[name=홈페이지]').val(E.etp_home);
+            $('input[name=대표번호]').val(E.etp_ph+"-"+E.etp_ph2+"-"+E.etp_ph3);
+            $('input[name=대표자명]').val(E.etp_ceo_name);
+            $('input[name=팩스]').val(E.etp_fx);
         },
         error : function (error){
             alert("상세정보 로딩에 실패했습니다");
@@ -173,3 +167,97 @@ function detail_on_employ(employ_num){
     $('#detail_employ').css({"visibility":"visible","opacity":"1"});
     $('#wrap,#admin_header').css("opacity","0.4");
 }
+
+function employ_detail_submit(select_modal,t){
+    btn_text=$(t).text();
+    switch (btn_text) {
+        case "수정" :
+            conF = confirm('해당 공고를 수정하시겠습니까?');
+            if (conF == true) {
+                let data = {
+                    num : $('input[name=번호]').val(),
+                    title: $('input[name=제목]').val(),
+                    content : $('input[name=코멘트]').val(),
+                    ot : $('input[name=직종]').val(),
+                    ep :  $('input[name=고용형태]').val(),
+                    etp_id : $("input[name=고용형태]").val()
+                }
+
+                $.ajax({
+                    url: "/rest/emSave",
+                    method: 'put',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json; charset=utf-8,',
+                    success: function (result) {
+                        alert("처리되었습니다.");
+                        submit_param();
+                    },
+                    error: function (err) {
+                        alert("처리에 실패했습니다.");
+                    }
+                })
+            }
+            break;
+        case "삭제" :
+            conF = confirm('해당 공고를 삭제하시겠습니까?');
+            if (conF == true) {
+                num = $('#' + select_modal).find('input[name="번호"]').val();
+                $.ajax({
+                    url: '/rest/' + num,
+                    method: 'delete',
+                    success: function (result) {
+                        alert("처리되었습니다.");
+                        submit_param();
+                    },
+                    error: function (err) {
+                        alert("처리에 실패했습니다.");
+                    }
+                })
+            }
+            break;
+    }
+}
+    // if(conF==true) {
+    //     modal_val = [];
+    //     modal_val.push($('#' + select_modal).find('input[name="아이디"]').val());
+    //     switch (select_modal) {
+    //         case 'detail_student':
+    //         case 'detail_counselor':
+    //             A_url = "/allow/member/read?result=no";
+    //             break;
+    //         case 'detail_enterprise':
+    //             A_url = "/allow/etp/delete?result=no";
+    //             break;
+    //     }
+    // }
+    //
+    // $.ajax({
+    //     url: A_url,
+    //     type: "POST",
+    //     contentType: "application/json; charset=utf-8",
+    //     dataType: "json",
+    //     data: JSON.stringify(modal_val),
+    //     success : function (result){
+    //         alert("처리되었습니다.");
+    //         submit_param();
+    //     },
+    //     error : function (err) {
+    //         alert("처리에 실패했습니다.");
+    //     }
+    // })
+
+
+// $('#emRemove').on('click', function () {
+//
+//     let num = $('#em_num').val();
+//     console.log(num);
+//     $.ajax({
+//         url: '/rest/' + num ,
+//         method: 'delete'
+//     }).done(function () {
+//         location.href = '/Employ/list';
+//     }).fail(function (error) {
+//         console.log(error);
+//         alert(JSON.stringify(error));
+//     })
+// });

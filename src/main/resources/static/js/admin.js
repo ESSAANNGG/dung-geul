@@ -178,6 +178,12 @@ let checked;        //체크된 체크박스들의 인덱스
 let p;              //승인,거절,삭제 중 무엇인지 html으로부터 받아옴
 
 $('.list_submit').click(function(){
+
+    conF = confirm('정보를 변경하시겠습니까?');
+    if (conF == false) {
+        return;
+    }
+
     List = $(this).parents('.list');                                          //해당하는 리스트를 가져옴
     ListNum = $('.list').index(List);                                         //해당하는 리스트의 인덱스num
     ListId = $(List).parent("div").parent("div").attr('id');                  //선택한 리스트가 어느상세메뉴에 있는지 가져옴(회원관리,기업관리)
@@ -323,12 +329,6 @@ $('.d_button').click(function(e){
     window[String(menu_name) + "_detail_submit"](select_modal,this);
     //submit_param()는 sucess에서 실행
 })
-
-function a() {
-    b=(window.location.href);
-    b=b.replace('?','?page=2');
-    $("#main5_notice_list .list").load(b + "#main5_notice_list .list");
-}
 
 let pagenation_check=0;
 function pagenation(t) {

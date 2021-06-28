@@ -540,6 +540,7 @@ a{
     right:0;
     top:7%;
     width:850px;
+    max-height:80%;
     padding:35px;
     margin:auto;
     background-color: #ffffff;
@@ -551,7 +552,7 @@ a{
 
     opacity:0; /*css효과를주기위해*/
     visibility:hidden;
-    /*overflow-y: scroll;*/
+    overflow-y: scroll;
     transition-property:opacity;
     transition-duration: 0.45s;
     z-index:3;
