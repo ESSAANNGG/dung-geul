@@ -87,7 +87,7 @@
                   <td class="width-224">근무기간</td>
                   <td class="width-224">회사명</td>
                   <td class="width-200">직위</td>
-                  <td class="width-300">담당업무</td>
+                  <td class="width-300">퇴사사유</td>
                   <td class="width-104">연봉</td>
                 </tr>
                 </thead>
@@ -97,11 +97,11 @@
                     <td rowspan="2" class="align_center"> [[${item.getCr_employment()}]] ~ [[${item.getCr_resignation()}]]</td>
                     <td rowspan="2" class="align_center carrerName">[[${item.getCr_etp_name()}]]</td>
                     <td class="align_center">[[${item.getCr_position()}]]</td>
-                    <td class="align_center">[[${item.getCr_task()}]]</td>
+                    <td class="align_center">[[${item.getReason_resign()}]]</td>
                     <td class="align_center">[[${item.getSalary()}]] 만원</td>
                   </tr>
                   <tr>
-                    <td colspan="3"><span class="read_resign">퇴사사유</span>[[${item.getReason_resign()}]]</td>
+                    <td colspan="3"><span class="read_resign">담당업무</span>[[${item.getCr_task()}]]</td>
                   </tr>
                 </div>
                 </tbody>

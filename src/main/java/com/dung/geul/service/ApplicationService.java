@@ -239,7 +239,7 @@ public class ApplicationService {
 
         Employ employ = employRepository.getOne(num);
 
-        Pageable pageable = pageRequestDTO.getPageable(Sort.by("ap_date"));
+        Pageable pageable = pageRequestDTO.getPageable(Sort.by("apDate"));
 
         Page<Object[]> applyPage = applyRepository.findByEmploy(pageable, employ);
 
