@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="/css/frame.css" />
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/licenseList.css" />
+
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script defer src="/js/nav.js"></script>
     <script src="/js/license.js"></script>
@@ -64,7 +66,7 @@
                 </div>
                 <div class="employList">
                     <div class="employListPost">
-                        <li th:each="dto: ${result.getDtoList()}">
+                        <!-- <li th:each="dto: ${result.getDtoList()}">
                             <div class="ui_flex">
                                 <ul class="post_corp_name_wrap">
                                     <i class="far fa-id-card" style="display: inline;"></i>
@@ -75,7 +77,7 @@
                                     <li class="post_end_date" style="padding-right: 20px; font-size: 15px; "
                                         th:text="'작성일'+' '+ ${dto.getRegDate()}">작성일
                                     </li>
-                                    <!-- 삭제버튼 -->
+                                    //삭제버튼
                                     <a th:href="@{/license/delete(num=${dto.getLic_num()})}">
                                         <button id="licenseRemove" class="post_end_date mazer licenseRemove">
                                             <i class="fas fa-times" style="font-size: 22px;"></i>
@@ -97,12 +99,50 @@
                                     th:href="@{/license/modify(num = ${dto.getLic_num()}, page = ${result.getPage()})}">수정하기</a>
                             </ul>
 
-                            <!--      <script type="text/javascript">
-                               post_cont_sub_func();
-                             </script> -->
+                           
+                        </li> -->
+                        <div class="wrapper">
 
-                        </li>
+                            <div class="able">
 
+                                <div class="ae header blue">
+                                    <div class="cell" >
+                                        자격증 명
+                                    </div>
+                                    <div class="cell">
+                                        자격번호
+                                    </div>
+                                    <div class="cell">
+                                        발급기관
+                                    </div>
+                                    <div class="cell" th:text="${dto.getLic_date()}">
+                                        취득일
+                                    </div>
+                                    <div class="cell" th:text="${dto.getLic_due_date()}">
+                                        만료일
+                                    </div>
+                                </div>
+
+                                <div class="ae" th:each="dto: ${result.getDtoList()}">
+                                    <div class="cell" data-title="Name" style="max-width: 250px;" th:text="'(국가)'+${dto.getLic_name()}">
+                                        (국가)정보처리산업기사사사사사사
+                                    </div>
+                                    <div class="cell" data-title="NUM" style="max-width: 140px;">
+                                        adwjs-123512123
+                                    </div>
+                                    <div class="cell" data-title="Occupation" style="max-width: 200px;">
+                                        한국어딘가어딘가딘가딘가
+                                    </div>
+                                    <div class="cell" data-title="Sdate"  style="max-width: 98px;" th:text="${dto.getLic_date()}">
+                                        2016-04-25
+                                    </div>
+                                    <div class="cell" data-title="ndate"  style="max-width: 98px;" th:text="${dto.getLic_due_date()}">
+                                        2016-04-25
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
                         <li class="page-item" th:if="${result.prev}">

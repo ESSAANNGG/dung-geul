@@ -78,8 +78,24 @@
                             </div>
                             <div id="inputWrap">
                                 <div class="inputBox">
+                                    <label class="formLabel" for="">자격종류</label>
+                                    <select name="lic_type">
+                                        <option value="">자격선택</option>
+                                        <option value="(국가)">국가자격증</option>
+                                        <option value="(민간)">민간자격증</option>
+                                    </select>
+                                </div>
+                                <div class="inputBox">
                                     <label class="formLabel" for="">자격증 명</label>
                                     <input class="formInput" id="licenseName" type="text" name="lic_name" th:value="${dto.getLic_name()}" style="width: 350px">
+                                </div>
+                                <div class="inputBox">
+                                    <label class="formLabel" for="">자격번호</label>
+                                    <input class="formInput" name="lic_num"  type="text" style="width: 350px">
+                                </div>
+                                <div class="inputBox">
+                                    <label class="formLabel" for="">발급기관</label>
+                                    <input class="formInput" name="lic_agency"  type="text" style="width: 350px">
                                 </div>
                                 <div class="inputBox">
                                     <label class="formLabel" for="">취득일</label>

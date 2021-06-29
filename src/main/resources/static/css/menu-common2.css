@@ -191,9 +191,12 @@ select {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: #6b7770;
-  font-size: 13pt;
+  /* 폰트사이즈 */
+  /* font-size: 13pt; */
   line-height: 2em;
 }
+
+
 
 /*h1,*/
 /*h2,*/
@@ -2846,10 +2849,10 @@ table thead {
 @media screen and (max-width: 980px) {
   /* Basic */
 
-  html,
+  /* html,
   body {
     overflow-x: hidden;
-  }
+  } */
 
   /* Box */
 
