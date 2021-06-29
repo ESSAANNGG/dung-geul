@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/nav.css" />
     <link rel="stylesheet" href="/css/licenseList.css" />
+    <link rel="stylesheet" href="/css/pagenation.css" />
+    
 
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script defer src="/js/nav.js"></script>
@@ -101,44 +103,61 @@
 
                            
                         </li> -->
-                        <div class="wrapper">
 
+                             <div id="board_title" style="margin-left: 30px; margin-top: 30px; margin-bottom: 20px;">
+                                <h2 style="font-size:17px;">자격증 목록</h2>
+                            </div>
+                        <div class="wrapper">
                             <div class="able">
 
-                                <div class="ae header blue">
-                                    <div class="cell" >
+                                <div th:if="${#lists.size(result.getDtoList())} != 0 " class="ae header blue">
+                                    <div class="cell" style="text-align: center;">
                                         자격증 명
                                     </div>
-                                    <div class="cell">
+                                    <div class="cell" style="text-align: center;">
                                         자격번호
                                     </div>
-                                    <div class="cell">
+                                    <div class="cell" style="text-align: center;">
                                         발급기관
                                     </div>
-                                    <div class="cell" >
+                                    <div class="cell" style="text-align: center;">
                                         취득일
                                     </div>
-                                    <div class="cell">
+                                    <div class="cell" style="text-align: center;">
                                         만료일
+                                    </div>
+                                    <div class="cell" style="background-color: #184a6b; text-align: center;">
+                                        삭제
                                     </div>
                                 </div>
 
                                 <div class="ae" th:each="dto: ${result.getDtoList()}">
-                                    <div class="cell" data-title="Name" style="max-width: 250px;" th:text="'(국가)'+${dto.getLic_name()}">
-                                        (국가)정보처리산업기사사사사사사
+                                    <div class="cell" data-title="Name" style="max-width: 250px; max-height: 40px; text-align: center;"
+                                        th:text="${dto.getLic_type()}+${dto.getLic_name()}">
+                                        (국가)정보처리산업기사
                                     </div>
-                                    <div class="cell" data-title="NUM" style="max-width: 140px;">
+                                    <div class="cell" data-title="NUM" style="max-width: 140px; text-align: center;" th:text="${dto.getLic_num()}">
                                         adwjs-123512123
                                     </div>
-                                    <div class="cell" data-title="Occupation" style="max-width: 200px;">
+                                    <div class="cell" data-title="Occupation" style="max-width: 200px; text-align: center;" th:text="${dto.getLic_agency()}">
                                         한국어딘가어딘가딘가딘가
                                     </div>
-                                    <div class="cell" data-title="Sdate"  style="max-width: 98px;" th:text="${dto.getLic_date()}">
+                                    <div class="cell" data-title="Sdate" style="max-width: 98px; text-align: center;"
+                                        th:text="${dto.getLic_date()}">
                                         2016-04-25
                                     </div>
-                                    <div class="cell" data-title="ndate"  style="max-width: 98px;" th:text="${dto.getLic_due_date()}">
+                                    <div class="cell" data-title="ndate" style="max-width: 98px; text-align: center;"
+                                        th:text="${dto.getLic_due_date()}">
                                         2016-04-25
                                     </div>
+                                    <div class="cell" style="max-width: 20px; text-align: center;">
+                                        <a th:href="@{/license/delete(num=${dto.getLic_num()})}">
+                                            <button id="licenseRemove" class="post_end_date mazer licenseRemove">
+                                                <i class="fas fa-times" style="font-size: 22px;"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div>
 
