@@ -8167,12 +8167,10 @@ $('.btn-q').click(function(){
 $('.excute').on('click',function (){
     conF=confirm("회원탈퇴하시겠습니까?");
     if(conF==true){
+        $('.trigger').css('display','block');
         $('.trigger').trigger('click');
     }
 });
 $('.trigger').on('click',function(){
-    alert("탈퇴");
+    alert("탈퇴되었습니다.");
 })
-function abc(){
-    alert('abc');
-}
