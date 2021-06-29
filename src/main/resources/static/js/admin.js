@@ -263,11 +263,11 @@ $('.register_submit').click(function(){
 
 
 //모달창
-// 모달창
 let non_detail=0;       //.list_body안에 있는 체크박스나 select(기업형태)등 a링크를 클릭했을시 모달창을 띄우지 않게하기위한 참조변수
 let detail_state=0;     //상세정보페이지가 켜져있는지 꺼져있는지 확인하기 위한 참조변수;
 $('.list_body :checkbox, select[class=shapeSelect]').click(function(){
     non_detail=1;
+    alert(non_detail);
 })
 $('.link').click(function(){
     non_detail=1;

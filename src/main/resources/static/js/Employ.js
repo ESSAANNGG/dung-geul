@@ -530,7 +530,8 @@ function apply(){
     }
 }
 
-function apply_check(){
+function apply_check(t){
+
     if($('#apply_check').text()=="이력서가 확인 되었습니다."&&$('select[class=apply_li_select]').val()!="자소서를 선택해주세요"&&$('#hope_area').val()!=""&&$('#hope_task').val()!=""){
         $('#apply_button button').css('backgroundColor','#4876ef');
         $('#apply_button button h3').css('color','#fff');

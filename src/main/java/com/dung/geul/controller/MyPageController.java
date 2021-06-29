@@ -150,6 +150,24 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         model.addAttribute("loginUser", authMemberDTO);
     }
 
+    @GetMapping("/etp/modifyPw")
+    public void ModifyEtpPw(String user_id, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+
+        System.out.println("ModifyPw() 실행 user_id : " + user_id);
+
+        model.addAttribute("user_id", user_id);
+        model.addAttribute("loginUser", authMemberDTO);
+    }
+
+    @GetMapping("/consult/modifyPw")
+    public void ModifyConsultPw(String user_id, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+
+        System.out.println("ModifyPw() 실행 user_id : " + user_id);
+
+        model.addAttribute("user_id", user_id);
+        model.addAttribute("loginUser", authMemberDTO);
+    }
+
     @GetMapping( "/consult/counselling_request")
     public void okey(PageRequestDTO pageRequestDTO, Model model,@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
         PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);

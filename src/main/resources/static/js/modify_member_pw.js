@@ -2,7 +2,6 @@ let modify = {
     init: function () {
         $("#submit").on("click", (event) => {
             event.preventDefault();
-            alert("modifyBtnPwFn() 실행");
             this.modifyBtnPwFn();
         });
     },
@@ -15,7 +14,6 @@ let modify = {
         };
 
         console.log(JSON.stringify(userData));
-        alert(JSON.stringify(userData));
 
         $.ajax({
             type: "post",
