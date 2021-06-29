@@ -21,6 +21,7 @@ navbar li{
     width: 1903px;
   }
 }
+
 @media screen and (min-width:1903px){
   navbar{
     width:100%;
@@ -28,12 +29,6 @@ navbar li{
   .nav{
     width:100%;
     margin:auto;
-  }
-  .nav2{
-    width:100%;
-  }
-  .dep1{
-    width:100%;
   }
 }
 .nav {
@@ -44,11 +39,12 @@ navbar li{
   height: 100px;
   /*background-color: #ffffff;*/
   /* transition-property: ;*/
-  transition-duration: 0.4s;
+  /*transition-duration: 0.4s;*/
   z-index:5;
 }
 
 .nav2 {
+  width:100%;
   position: absolute;
   display: block;
   /*width:1903px;*/

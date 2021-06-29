@@ -36,7 +36,7 @@ $(document).ready(function () {
         }).done(function () {
             location.href = '/Employ/list';
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            alert("등록실패");
         })
     });
 
@@ -52,7 +52,7 @@ $(document).ready(function () {
             location.href = '/Employ/list';
         }).fail(function (error) {
             console.log(error);
-            alert(JSON.stringify(error));
+            alert("삭제실패");
         })
     });
 
@@ -82,7 +82,7 @@ $(document).ready(function () {
         }).done(function () {
             location.href = '/Employ/list';
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            alert("수정실패");
         })
     });
 
@@ -523,7 +523,7 @@ function apply(){
                     }
                 },
                 error: function (err) {
-                    alert("err : " + err);
+                    alert("지원실패");
                 }
             })
         }
