@@ -144,7 +144,7 @@ public class ApplicationRestController {
     @GetMapping("/etp/employ/list/{num}")
     public PageResultDTO getEmployApplyList(@PathVariable("num") Long num, PageRequestDTO pageRequestDTO){
 
-        log.info("실행");
+        log.info("실행 - num : "+ num);
 
         PageResultDTO resultDTO = applicationService.employApplyPage(num, pageRequestDTO);
 
