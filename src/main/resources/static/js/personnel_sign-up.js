@@ -2,7 +2,6 @@ let signUp = {
   init: function () {
     $("#submit").on("click", event => {
       event.preventDefault();
-      alert("sign-up.js실행");
       this.save();
     });
   },
@@ -26,9 +25,9 @@ let signUp = {
       role: $('#role').val(),
     };
 
-    alert("userdate 전송 ! " + JSON.stringify(userData));
+
     console.log(JSON.stringify(userData));
-    alert(JSON.stringify(userData));
+
 
     $.ajax({
       type: "POST",
@@ -46,7 +45,7 @@ let signUp = {
         }
       },
       error: function (error) {
-        alert("수정 실패");
+        alert("회원가입에 실패했습니다");
         console.log(error);
         location.href = "/mypage/member/read";
       },

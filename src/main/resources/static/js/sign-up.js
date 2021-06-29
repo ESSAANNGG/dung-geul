@@ -3,7 +3,6 @@ let signUp = {
     // 회원가입
     $("#submit").on("click", (event) => {
       event.preventDefault();
-      alert("sign-up.js실행");
       this.save();
     });
 
@@ -39,7 +38,6 @@ let signUp = {
     }
 
     // 값 확인
-    alert("userdate 전송 ! " + JSON.stringify(data));
     console.log(JSON.stringify(data));
 
     // 데이터 전송 ajax
@@ -60,7 +58,7 @@ let signUp = {
         }
       },
       error : function (error){
-        alert("회원가입");
+        alert("회원가입에 실패했습니다");
         console.log(error);
         location.href = "/mypage/member/read";
       }

@@ -21,20 +21,20 @@
         <span id="checkIdResult"></span>
         <div id="Result"></div>
 
-        <label for="password">비밀번호 (6~16자리 특수문자 포함)</label>
+        <label for="user_pw">비밀번호 (6~16자리 특수문자 포함)</label>
         <input type="password" id="user_pw" name="user_pw" autocomplete="new-password" onchange="check_pw2()" required />
 
-        <label for="password">비밀번호 확인</label>
+        <label for="checkPw">비밀번호 확인</label>
         <input type="password" id="checkPw" name="checkPw" autocomplete="new-password" onchange="check_pw2()" required />
         &nbsp;<span id="check"></span>
         <!-- 결과 텍스트가 삽입될 칸 -->
         <span id="checkPwResult"></span>
         <div id="Result"></div>
 
-        <label for="name">담당자 이름:</label>
+        <label for="user_name">담당자 이름:</label>
         <input type="text" id="user_name" name="user_name" required />
 
-        <label for="mail">이메일</label>
+        <label for="user_email">이메일</label>
         <input type="text" id="user_email" name="user_email" required />
         <span id="EmailSign">@</span>
         <input type="text" id="user_emailDomain" name="user_emailDomain" required />
@@ -83,13 +83,13 @@
 
         <fieldset class="12">
           <legend><span class="number">2</span>상세 정보</legend>
-          <label for="enterprise">기업 명:</label>
+          <label for="etp_name">기업 명:</label>
           <input type="text" id="etp_name" name="etp_name" />
 
-          <label for="corp_num">사업자등록번호</label>
+          <label for="etp_num">사업자등록번호</label>
           <input type="number" id="etp_num" name="etp_num" />
 
-          <label for="corp_rep">대표자 이름:</label>
+          <label for="etp_ceo_name">대표자 이름:</label>
           <input type="text" id="etp_ceo_name" name="etp_ceo_name" />
 
           <label for="etp_ph">기업 전화번호</label>
@@ -117,17 +117,17 @@
             required
           />
 
-          <label for="corp_px">팩스 번호</label>
+          <label for="etp_fx">팩스 번호</label>
           <input type="tel" id="etp_fx" name="etp_fx" />
 
-          <label for="corp_home">홈페이지</label>
+          <label for="etp_home">홈페이지</label>
           <input type="url" id="etp_home" name="etp_home" />
 
-          <label for="corp_contents">주요사업내용</label>
+          <label for="etp_contents">주요사업내용</label>
           <textarea id="etp_contents" name="etp_contents"></textarea>
 
           <!-- 검색 기능-->
-          <label for="addr">주소찾기</label>
+          <label for="postcodify">주소찾기</label>
           <div id="postcodify"></div>
 
           <input type="text" id="user_postcode" placeholder="우편번호" readonly />
@@ -141,13 +141,13 @@
         </fieldset>
         <input type="text" name="role" id="role" class="role" value="ENTERPRISE" readonly />
 
-        <label for="">설립년도</label>
+        <label for="etp_year">설립년도</label>
         <input class type="date" id="etp_year" name="etp_year" />
 
-        <label for="">직원수</label>
+        <label for="etp_member">직원수</label>
         <input type="number" id="etp_member" name="etp_member" />
 
-        <label for="">업종</label>
+        <label for="etp_sector">업종</label>
         <input type="text" id="etp_sector" name="etp_sector" />
       </fieldset>
 

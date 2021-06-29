@@ -2,7 +2,6 @@ let signUp = {
   init: function () {
     $('#submit').on('click', event => {
       event.preventDefault();
-      alert('signUp 실행');
       this.save();
     });
   },
@@ -36,7 +35,7 @@ let signUp = {
     };
 
     console.log(JSON.stringify(userData));
-    alert(JSON.stringify(userData));
+
 
     $.ajax({
       type: 'post',
@@ -56,7 +55,7 @@ let signUp = {
         }
       },
       error: function (error) {
-        alert('내부 오류, 회원가입 실패');
+        alert('회원가입 실패했습니다');
         console.log(error);
         location.href = '/';
       },

@@ -27,7 +27,7 @@
         <span id="checkIdResult"></span>
         <div id="Result"></div>
 
-        <label for="password">비밀번호 (6~16자리 특수문자 포함)</label>
+        <label for="user_pw">비밀번호 (6~16자리 특수문자 포함)</label>
         <input
           type="password"
           id="user_pw"
@@ -37,7 +37,7 @@
           required
         />
 
-        <label for="password">비밀번호 확인</label>
+        <label for="checkPw">비밀번호 확인</label>
         <input
           type="password"
           id="checkPw"
@@ -51,7 +51,7 @@
         <span id="checkPwResult"></span>
         <div id="Result"></div>
 
-        <label for="name">이름:</label>
+        <label for="user_name">이름:</label>
         <input
           type="text"
           id="user_name"
@@ -60,7 +60,7 @@
           required
         />
 
-        <label for="mail">이메일</label>
+        <label for="user_email">이메일</label>
         <input type="text" id="user_email" name="user_email" required />
         <span id="EmailSign">@</span>
         <input
@@ -117,7 +117,7 @@
         />
 
         <!-- 검색 기능-->
-        <label for="addr">주소찾기</label>
+        <label for="user_postcode">주소찾기</label>
         <input type="text" id="user_postcode" placeholder="우편번호" readonly />
         <input
           class="search_button"
@@ -180,7 +180,7 @@
         <legend><span class="number">2</span>상세 정보</legend>
       </fieldset>
       <fieldset>
-        <label for="name">학번:</label>
+        <label for="user_studentId">학번:</label>
         <input
           type="number"
           id="user_studentId"
@@ -188,7 +188,7 @@
           required
         />
 
-        <label for="department">계열/학과 선택</label>
+        <label for="user_dept">계열/학과 선택</label>
         <select id="user_dept" name="user_dept">
           <option value="">-- 계열/학과 --</option>
           <option value="컴퓨터정보계열">컴퓨터정보계열</option>
@@ -208,7 +208,7 @@
           <!-- <option value="O">스마트금형과</option>
       <option value="P">스마트기계과</option> -->
         </select>
-        <label for="grade">학년 선택</label>
+        <label for="user_grade">학년 선택</label>
         <select id="user_grade" name="user_grade">
           <option value="">-- 학년 --</option>
           <option data-chained="컴퓨터정보계열" value="1">1</option>
@@ -247,7 +247,8 @@
           <option data-chained="O" value="Osecond">2</option>
           <option data-chained="P" value="Pfirst">1</option>
         </select>
-        <label for="class">반 선택</label>
+        <label for="user_class
+">반 선택</label>
         <select id="user_class" name="user_class">
           <option value="">-- 반 --</option>
           <option

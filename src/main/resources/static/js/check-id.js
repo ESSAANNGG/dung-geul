@@ -3,7 +3,6 @@ let check = {
         // 아이디 중복 체크
         $("#checkId").on("click", (event) => {
             event.preventDefault();
-            alert("checkId() 실행");
             this.checkId();
         });
     },
@@ -11,7 +10,6 @@ let check = {
     // 아이디 중복체크
     checkId: function () {
 
-        alert($("#user_id").val());
 
         $.ajax({
             type: "get",
@@ -34,7 +32,6 @@ let check = {
             },
             error : function (error){
                 console.log(error);
-                alert("error발생");
             }
 
         })

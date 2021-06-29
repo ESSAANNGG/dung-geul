@@ -27,7 +27,7 @@
     <span id="checkIdResult"></span>
     <div id="Result"></div>
 
-    <label for="password">비밀번호 (6~16자리 특수문자 포함)</label>
+    <label for="user_pw">비밀번호 (6~16자리 특수문자 포함)</label>
         <input
           type="password"
           id="user_pw"
@@ -37,7 +37,7 @@
           required
         />
 
-        <label for="password">비밀번호 확인</label>
+        <label for="checkPw">비밀번호 확인</label>
         <input
           type="password"
           id="checkPw"
@@ -51,10 +51,10 @@
     <span id="checkPwResult"></span>
     <div id="Result"></div>
 
-    <label for="name">이름:</label>
+    <label for="user_name">이름:</label>
     <input type="text" id="user_name" name="user_name" required />
 
-    <label for="mail">이메일</label>
+    <label for="user_email">이메일</label>
         <input type="text" id="user_email" name="user_email" required />
         <span id="EmailSign">@</span>
         <input
@@ -111,7 +111,7 @@
         />
 
     <!-- 검색 기능-->
-    <label for="addr">주소찾기</label>
+    <label for="user_postcode">주소찾기</label>
     <input type="text" id="user_postcode" placeholder="우편번호" readonly/>
     <input
             class="search_button"
@@ -140,7 +140,7 @@
     <legend><span class="number">2</span>상세 정보</legend>
   </fieldset>
   <fieldset>
-    <label for="organization">소속 기관</label>
+    <label for="user_org">소속 기관</label>
     <select id="user_org" name="user_org">
       <option value="">--소속 기관--</option>
       <optgroup label="직속기관">
@@ -176,7 +176,7 @@
         </option>
       </optgroup>
     </select>
-    <label for="department">소속부서</label>
+    <label for="user_pdept">소속부서</label>
     <select id="user_pdept" name="user_pdept">
       <option value="">-- 소속 부서 --</option>
       <option value="국제교류팀" data-chained="국제교류원">
@@ -341,7 +341,7 @@
         비행교육팀
       </option>
     </select>
-    <label for="team">소속팀</label>
+    <label for="user_team">소속팀</label>
     <select id="user_team" name="user_team">
       <option value="">-- 팀 --</option>
       <option value="교무팀" data-chained="교무처">교무팀</option>
