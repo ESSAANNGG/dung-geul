@@ -39,4 +39,13 @@ let check = {
     // checkId() end
 };
 
+
+$(".ph_num").on("keyup", function() {
+    $(this).val($(this).val().replace(/[^0-9]/g,""));
+    if($(this).val().length==4){
+
+    }
+});
+
+
 check.init();
