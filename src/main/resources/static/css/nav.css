@@ -82,22 +82,27 @@ navbar li{
 .nav .dep1 > li.logo {
   font-size: 16px;
   font-weight: 600;
-  width: 200px;
+  width: 350px;
   /*li.menu를 한꺼번에 묶어서 하지않은 이유는 a태그때문에 li.menu가 갇혀있기때문*/
 }
 .nav .dep1 > li.menu {
   width: 150px;
 }
 .nav .dep1 > li.login {
-  margin-left: 50px;
+  margin-left: 60px;
 }
 
+
+.nav .dep1 > li.center,
 .nav .dep1 > li.login,
 .nav .dep1 > li.join {
   color: #666666;
   font-size: 14px;
   font-weight: 500;
-  width: 100px;
+  width: 90px;
+}
+.nav .dep1 > li.center{
+  width:160px;
 }
 /*depth2*/
 .nav .dep2 {
