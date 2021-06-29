@@ -1,6 +1,9 @@
 package com.dung.geul.controller.restcontroller;
 
-import com.dung.geul.dto.*;
+import com.dung.geul.dto.CertificateDTO;
+import com.dung.geul.dto.IntroduceDTO;
+import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.dto.apply.ApplicationModalDTO;
 import com.dung.geul.dto.cv.CvPageDTO;
 import com.dung.geul.security.dto.AuthMemberDTO;
@@ -133,6 +136,21 @@ public class ApplicationRestController {
     public ResponseEntity saveApc(@RequestBody ApplicationModalDTO applicationModalDTO) {
 
         return applicationService.save(applicationModalDTO);
+
+    }
+
+    // /application/etp/employ/apply/list/{num} // num : 채용공고 번호
+    // 채용공고별 입사지원자 리스트 (+ 페이지네이션)
+    @GetMapping("/etp/employ/list/{num}")
+    public PageResultDTO getEmployApplyList(@PathVariable("num") Long num, PageRequestDTO pageRequestDTO){
+
+        log.info("실행");
+
+        PageResultDTO resultDTO = applicationService.employApplyPage(num, pageRequestDTO);
+
+        log.info("result : " + resultDTO);
+
+        return resultDTO;
 
     }
 

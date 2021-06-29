@@ -15,7 +15,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashSet;
@@ -232,20 +231,6 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         model.addAttribute("memberDTO", authMemberDTO);
 
         log.info("채용공고 리스트 : " + emList);
-    }
-
-    // /mypage/etp/employ/apply/list/{num} // num : 채용공고 번호
-    // 채용공고별 입사지원자 리스트 (+ 페이지네이션)
-    @GetMapping("/etp/employ/apply/list/{num}")
-    public void getEmployApplyList(@PathVariable("num") Long num, PageRequestDTO pageRequestDTO, Model model){
-
-
-        PageResultDTO resultDTO = applicationService.employApplyPage(num, pageRequestDTO);
-
-        model.addAttribute("result", resultDTO);
-
-        log.info("result : " + resultDTO);
-
     }
 
 
