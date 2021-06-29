@@ -1,13 +1,10 @@
 package com.dung.geul.dto;
 
 import lombok.*;
-import org.apache.tomcat.jni.Local;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Data
 @AllArgsConstructor
@@ -16,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 @ToString
 public class CertificateDTO {
 
-    private Long lic_num;
+    private String lic_num;
 
     private String lic_name;
 
@@ -25,6 +22,10 @@ public class CertificateDTO {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate lic_due_date;     // 만료일
+
+    private String lic_agency;   // 발급기관
+
+    private String lic_type; // 자격종류
 
     private String regDate;
 

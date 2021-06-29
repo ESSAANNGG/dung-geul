@@ -12,13 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.lang.annotation.Annotation;
-import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -65,7 +60,7 @@ public class LicenseServiceImpl implements LicenseService{
     }
 
     @Override
-    public CertificateDTO getCertificateDTO(Long lic_num) {
+    public CertificateDTO getCertificateDTO(String lic_num) {
 
         License entity = licenseRepository.getOne(lic_num);
 
@@ -80,7 +75,10 @@ public class LicenseServiceImpl implements LicenseService{
 
         License license = licenseRepository.getOne(certificateDTO.getLic_num());
 
+        license.modLicNum(certificateDTO.getLic_num());
         license.modLicName(certificateDTO.getLic_name());
+        license.modLicAgency(certificateDTO.getLic_agency());
+        license.modLicType(certificateDTO.getLic_type());
         license.modLicDate(certificateDTO.getLic_date());
         license.modLicDueDate(certificateDTO.getLic_due_date());
 
@@ -88,7 +86,7 @@ public class LicenseServiceImpl implements LicenseService{
     }
 
     @Override
-    public void deleteLicense(Long lic_num) {
+    public void deleteLicense(String lic_num) {
 
         licenseRepository.deleteById(lic_num);
 

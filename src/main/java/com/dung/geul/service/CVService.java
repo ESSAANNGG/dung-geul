@@ -126,7 +126,10 @@ public interface CVService {
     default License dtoToEntity(CertificateDTO dto, Member member){
 
         License license = License.builder()
+                .licNum(dto.getLic_num())
                 .licName(dto.getLic_name())
+                .licAgency(dto.getLic_agency())
+                .licType(dto.getLic_type())
                 .licDate(dto.getLic_date())
                 .licDueDate(dto.getLic_due_date())
                 .inCv(1)
@@ -257,6 +260,8 @@ public interface CVService {
         CertificateDTO dto = CertificateDTO.builder()
                 .lic_num(entity.getLicNum())
                 .lic_name(entity.getLicName())
+                .lic_agency(entity.getLicAgency())
+                .lic_type(entity.getLicType())
                 .lic_date(entity.getLicDate())
                 .lic_due_date(entity.getLicDueDate())
                 .inCv(entity.getInCv())

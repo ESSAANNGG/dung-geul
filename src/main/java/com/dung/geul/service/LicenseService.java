@@ -5,12 +5,7 @@ import com.dung.geul.dto.PageRequestDTO;
 import com.dung.geul.dto.PageResultDTO;
 import com.dung.geul.entity.License;
 import com.dung.geul.entity.Member;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.ResponseEntity;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public interface LicenseService {
@@ -19,11 +14,11 @@ public interface LicenseService {
 
     void register(CertificateDTO certificateDTO);
 
-    CertificateDTO getCertificateDTO(Long lic_num);
+    CertificateDTO getCertificateDTO(String lic_num);
 
     void modifyLicense(CertificateDTO certificateDTO);
 
-    void deleteLicense(Long lic_num);
+    void deleteLicense(String lic_num);
 
     List<CertificateDTO> getLicenseList(String user_id);
 
@@ -34,6 +29,8 @@ public interface LicenseService {
         CertificateDTO dto = CertificateDTO.builder()
                 .lic_num(entity.getLicNum())
                 .lic_name(entity.getLicName())
+                .lic_type(entity.getLicType())
+                .lic_agency(entity.getLicAgency())
                 .lic_date(entity.getLicDate())
                 .lic_due_date(entity.getLicDueDate())
                 .user_id(entity.getMember().getUser_id())
@@ -49,6 +46,9 @@ public interface LicenseService {
     default License dtoToEntity(CertificateDTO dto, Member member){
 
         License entity = License.builder()
+                .licNum(dto.getLic_num())
+                .licType(dto.getLic_type())
+                .licAgency(dto.getLic_agency())
                 .licName(dto.getLic_name())
                 .licDate(dto.getLic_date())
                 .licDueDate(dto.getLic_due_date())

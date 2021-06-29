@@ -364,7 +364,7 @@ public class CvServiceImpl implements CVService {
         List<CertificateDTO> certificateList = cvPageDTO.getCertificate();
         if (certificateList != null) {
             for (CertificateDTO dto : certificateList) {
-                Long num = dto.getLic_num();
+                String num = dto.getLic_num();
                 log.info("등록 - 자격증 num : " + num);
 
                 if(num == null) {   // 아이디가 없으면 (새로 등록한 자격증이면)

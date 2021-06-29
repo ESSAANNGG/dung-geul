@@ -28,7 +28,9 @@ public class Carrer extends BaseEntity {
 
     private String cr_etp_name;  // 회사 명
 
-    private String cr_task; // 담당업무
+    private String cr_task; // 담당업무 1
+
+    private String cr_task2;    // 담당업무 2
 
     private String cr_position; //직위
 
