@@ -22,7 +22,6 @@ let alertShape;  //기업형태를 입력하였는지에 대한 참조변수
 
     function userManage_list() {
         userid = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .username').text();                        //아이디값을 읽어옴
-
         if (ListId == "main2_user" || p=="no") {                                                             //일반회원이거나 기업형태가 필요없는 기업리스트의 삭제는 바로 값을 담음
             dataList.push(userid);
         } else if (ListId == "main2_corp" && p=="ok") {                                                      //기업회원중 기업인증할때만 shape가 필요 LISTNUM 2는 기업회원 리스트 3은 기업회원 인증리스트

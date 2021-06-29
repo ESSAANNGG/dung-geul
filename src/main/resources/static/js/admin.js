@@ -202,7 +202,7 @@ $('.list_submit').click(function(){
             p = "no";
             break;
     }
-    Shape = 0;
+    alertShape = 0;
     //유저관리를 위한 부분
 
     for (j = 0; j < checkLength; j++) {
