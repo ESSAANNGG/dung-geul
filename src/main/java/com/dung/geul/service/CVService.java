@@ -149,6 +149,7 @@ public interface CVService {
                 .cr_resignation(dto.getCr_resignation())
                 .reason_resign(dto.getReason_resign())
                 .cr_task(dto.getCr_task())
+                .cr_task2(dto.getCr_task2())
                 .Salary(dto.getSalary())
                 .build();
 
@@ -221,6 +222,7 @@ public interface CVService {
                 .reason_resign(entity.getReason_resign())
                 .salary(entity.getSalary())
                 .cr_task(entity.getCr_task())
+                .cr_task2(entity.getCr_task2())
                 .build();
 
         return dto;

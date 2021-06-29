@@ -20,5 +20,7 @@ public class CareerDTO {
     private String reason_resign;   // 퇴사 사유
     private int salary;          // 급여
     private String cr_task;         // 업무
+    private String cr_task2;         // 업무2
+
 
 }
