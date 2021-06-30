@@ -76,7 +76,7 @@
                 </a>
                 <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
 
-                    <li> <a href="/mypage/member/modify">회원 정보수정</a> </li>
+                    <li> <a href="/mypage/consult/modify">회원 정보수정</a> </li>
                     <!-- <li> <a href=""> <span class="badge bg-danger pull-right">3</span> 알림 </a> </li>  -->
                     <li class="divider"></li>
                     <li><a sec:authorize="isAuthenticated()" href="/logout" >Logout</a> </li>
@@ -248,14 +248,13 @@
                                     <input class="margin-top15" type="submit" value="내용수정" id="modifyMember">
                                 </form>
                                 <div class="password common-button">
-                                    <a th:href="@{/mypage/member/modifyPw(user_id=${memberDTO.getUser_id})}">
+                                    <a th:href="@{/mypage/consult/modifyPw(user_id=${memberDTO.getUser_id})}">
                                         비밀번호 변경하기
                                     </a>
                                 </div>
                                 <div class="excute common-button">
-                                    <a
-                                            th:href="@{/mypage/member/delete(user_id=${memberDTO.getUser_id()})}">회원탈퇴</a>
-
+                                    <a>회원탈퇴</a>
+                                    <a th:href="@{/mypage/member/delete(user_id=${memberDTO.getUser_id()})}" style="display:none" class="trigger">회원탈퇴</a>
                                 </div>
 
                             </div>

@@ -43,7 +43,11 @@ let check = {
 $(".ph_num").on("keyup", function() {
     $(this).val($(this).val().replace(/[^0-9]/g,""));
     if($(this).val().length==4){
-
+        this_index=$(".ph_num").index(this);
+        next_index=this_index+1;
+        if(next_index!=2) {
+            $(".ph_num").eq(next_index).focus();
+        }
     }
 });
 

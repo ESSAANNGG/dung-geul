@@ -177,14 +177,13 @@ let checkLength;    //체크된 체크박스들의 수(이만큼 반복을 하�
 let checked;        //체크된 체크박스들의 인덱스
 let p;              //승인,거절,삭제 중 무엇인지 html으로부터 받아옴
 
-$('.list_submit').click(function(){
-
+function list_submit(t){
     conF = confirm('정보를 변경하시겠습니까?');
     if (conF == false) {
         return;
     }
 
-    List = $(this).parents('.list');                                          //해당하는 리스트를 가져옴
+    List = $(t).parents('.list');                                          //해당하는 리스트를 가져옴
     ListNum = $('.list').index(List);                                         //해당하는 리스트의 인덱스num
     ListId = $(List).parent("div").parent("div").attr('id');                  //선택한 리스트가 어느상세메뉴에 있는지 가져옴(회원관리,기업관리)
     check_name = $(List).find('input[type=checkbox]').eq(1).attr('name');     //해당리스트의 checkname을 가져옴
@@ -192,7 +191,7 @@ $('.list_submit').click(function(){
     dataList = [];                                                            //배열이 계속 쌓이는걸 방지 (초기화) , 체크한 목록을 가져와 List에 담음
 
     //유저관리를 위한 부분 공용으로 혹시 쓸수 있나 해서 공용js에 임시로 둠
-    p = $(this).text();  //승인/거절/삭제인지 구분
+    p = $(t).text();  //승인/거절/삭제인지 구분
     switch (p) {
         case '승인' :
             p = "ok";
@@ -202,7 +201,7 @@ $('.list_submit').click(function(){
             p = "no";
             break;
     }
-    Shape = 0;
+    alertShape = 0;
     //유저관리를 위한 부분
 
     for (j = 0; j < checkLength; j++) {
@@ -210,12 +209,12 @@ $('.list_submit').click(function(){
         ($('input[name=' + check_name + ']').eq(checked)).prop("checked", false);                                       //해당하는 인덱스의 체크 해제 < 이걸 해야 바로 위 문장의 인덱스가 1씩 늘어나서 다음 체크된 것들에 대해 수행할 수 있음
         window[String(menu_name)+"_list"]();                                                                                  //data를 담는 함수 호출
     }
-
+    
     if(dataList.length!=0){                                 //넘어온 값이 없을 시 수행하지 않음
 
         window[String(menu_name)+"_list_send"]();           //list를 담았고 data보내는 함수 호출
     }
-})
+}
 
 //검색을 위한 파라미터값 변경
 let select_search;        //검색하는 검색창의 위치가 어디인지
@@ -263,15 +262,17 @@ $('.register_submit').click(function(){
 
 
 //모달창
-// 모달창
 let non_detail=0;       //.list_body안에 있는 체크박스나 select(기업형태)등 a링크를 클릭했을시 모달창을 띄우지 않게하기위한 참조변수
 let detail_state=0;     //상세정보페이지가 켜져있는지 꺼져있는지 확인하기 위한 참조변수;
-$('.list_body :checkbox, select[class=shapeSelect]').click(function(){
+function non_detailFunc(){
     non_detail=1;
-})
-$('.link').click(function(){
-    non_detail=1;
-})
+}
+// $('.list_body :checkbox, select[class=shapeSelect]').click(function(){
+//     non_detail=1;
+// })
+// $('.link').click(function(){
+//     non_detail=1;
+// })
 //체크박스나 select를 클릭하였다면 상세정보를 띄우지않는다.
 //non_detail=0이면 상세정보를 띄워줌
 function detail(t) {
@@ -333,7 +334,6 @@ $('.d_button').click(function(e){
     //submit_param()는 sucess에서 실행
 })
 
-let pagenation_check=0;
 function pagenation(t) {
     link=(window.location.href);
     page_text=$(t).text();
@@ -364,7 +364,10 @@ function pagenation(t) {
             link=link.replace('?','?page='+page_text);
             break;
     }
-    $('#'+list).load(link +" #"+list +" > .list",function (){//띄어쓰기 잘해야함
-        $('#'+list).prepend("<div class="+'"sub_menu_title"'+"><h3>"+sub_menu_title+"</h3></div>"); //load로 교체시 안의 내용이 모두 교체되어 title을 추가해야함
-    });                                                                                             //append는 뒤에, prepend는 앞에
+
+    $('#'+list).load(link +" #"+list +" > .list",function () {//띄어쓰기 잘해야함
+        $('#' + list).prepend("<div class=" + '"sub_menu_title"' + "><h3>" + sub_menu_title + "</h3></div>"); //load로 교체시 안의 내용이 모두 교체되어 title을 추가해야함
+    });                                                                                                       //append는 뒤에, prepend는 앞에
+
+
 }

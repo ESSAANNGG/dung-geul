@@ -150,6 +150,24 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         model.addAttribute("loginUser", authMemberDTO);
     }
 
+    @GetMapping("/etp/modifyPw")
+    public void ModifyEtpPw(String user_id, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+
+        System.out.println("ModifyPw() 실행 user_id : " + user_id);
+
+        model.addAttribute("user_id", user_id);
+        model.addAttribute("loginUser", authMemberDTO);
+    }
+
+    @GetMapping("/consult/modifyPw")
+    public void ModifyConsultPw(String user_id, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+
+        System.out.println("ModifyPw() 실행 user_id : " + user_id);
+
+        model.addAttribute("user_id", user_id);
+        model.addAttribute("loginUser", authMemberDTO);
+    }
+
     @GetMapping( "/consult/counselling_request")
     public void okey(PageRequestDTO pageRequestDTO, Model model,@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
         PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
@@ -226,9 +244,10 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
     public void getEmployList(@AuthenticationPrincipal AuthMemberDTO authMemberDTO, Model model){
 
         List<EmployDTO> emList = employService.getListByMember(authMemberDTO.getUser_id());
-
+        EnterpriseDTO enterpriseDTO = memberService.getEnterprise(authMemberDTO.getUser_id());
         model.addAttribute("emList", emList);
         model.addAttribute("memberDTO", authMemberDTO);
+        model.addAttribute("etp", enterpriseDTO);
 
         log.info("채용공고 리스트 : " + emList);
     }

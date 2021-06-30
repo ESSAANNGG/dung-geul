@@ -8162,5 +8162,15 @@ $('.btn-q').click(function(){
         dataType: "json",
         data: JSON.stringify(ajax_list),
     })
-    alert(ajax_list+"선택된 값들입니다");
+})
+
+$('.excute').on('click',function (){
+    conF=confirm("회원탈퇴하시겠습니까?");
+    if(conF==true){
+        $('.trigger').css('display','block');
+        $('.trigger').trigger('click');
+    }
+});
+$('.trigger').on('click',function(){
+    alert("탈퇴되었습니다.");
 })

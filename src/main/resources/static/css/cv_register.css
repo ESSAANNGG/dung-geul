@@ -1,394 +1,414 @@
 #nav {
-  background-color: white;
-  height: 35px;
+	background-color: white;
+	height: 35px;
 }
 
 #nav p {
-  padding-top: 10px;
-  font-weight: 700;
-  display: inline-block;
+	padding-top: 10px;
+	font-weight: 700;
+	display: inline-block;
 }
 
 #menu {
-  width: 1250px;
-  margin: auto;
+	width: 1250px;
+	margin: auto;
 }
 
 #content {
-  background-color: #e8ecef;
-  margin: auto;
-  padding-top: 10px;
-  background-clip: content-box;
-  /* padding-bottom: 100px; */
+	background-color: #e8ecef;
+	margin: auto;
+	padding-top: 10px;
+	background-clip: content-box;
+	/* padding-bottom: 100px; */
 }
 
 #cv {
-  width: 1260px;
-  margin: auto;
-  padding-bottom: 100px;
+	width: 1260px;
+	margin: auto;
+	padding-bottom: 100px;
 }
 
 #form {
-  background-color: #e8ecef;
-  width: 980px;
-  height: auto;
-  padding-bottom: 30px;
-  display: inline-block;
+	background-color: #e8ecef;
+	width: 980px;
+	height: auto;
+	padding-bottom: 30px;
+	display: inline-block;
 }
 
 .buttonBox {
-  text-align: center;
-  padding-top: 10px;
-  border-top: 1px solid rgba(184, 181, 181, 0.658);
-  background-color: white;
-  width: 980px;
-  height: 50px;
+	text-align: center;
+	padding-top: 10px;
+	border-top: 1px solid rgba(184, 181, 181, 0.658);
+	background-color: white;
+	width: 980px;
+	height: 50px;
 }
 
 .legend {
-  padding-left: 10px;
-  font-size: 23px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #ffffff;
-  background-color: #09529b;
-  height: 50px;
-  line-height: 50px;
+	padding-left: 10px;
+	font-size: 23px;
+	font-weight: 700;
+	margin-bottom: 20px;
+	color: #ffffff;
+	background-color: #09529b;
+	height: 50px;
+	line-height: 50px;
 }
 
 #aside {
-  background-color: rgb(255, 255, 255);
-  width: 240px;
-  height: 510px;
-  display: inline;
-  float: right;
-  position: fixed;
-  margin-left: 20px;
+	background-color: rgb(255, 255, 255);
+	width: 240px;
+	height: 510px;
+	display: inline;
+	float: right;
+	position: fixed;
+	margin-left: 20px;
 }
 
 .form {
-  width: inherit;
-  height: fit-content;
-  background-color: #e8ecef;
-  margin-bottom: 40px;
-  margin-top: 20px;
+	width: inherit;
+	height: fit-content;
+	background-color: #e8ecef;
+	margin-bottom: 40px;
+	margin-top: 20px;
 }
 
 h1 {
-  margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 /* 이력서 양식 부분 */
 .fa-plus-circle,
 .fa-minus-circle {
-  font-size: 20px;
-  color: dodgerblue;
+	font-size: 20px;
+	color: dodgerblue;
 }
 
 .fa-check-square {
-  font-size: 20px;
+	font-size: 20px;
 }
 .fa-check-square {
-  color: black;
+	color: black;
 }
 
 .info {
-  background-color: white;
-  padding: 20px;
+	background-color: white;
+	padding: 20px;
 }
 
 .info-extra {
-  background-color: #f5f7fa;
-  padding: 20px;
+	background-color: #f5f7fa;
+	padding: 20px;
 }
 
 .common_div {
-  border: 1px solid rgba(211, 200, 200, 0.692);
-  display: inline-block;
-  height: 62px;
-  position: relative;
-  padding-top: 19px;
-  margin-right: 5px;
-  margin-top: 7px;
-  margin-bottom: 7px;
+	border: 1px solid rgba(211, 200, 200, 0.692);
+	display: inline-block;
+	height: 62px;
+	position: relative;
+	padding-top: 19px;
+	margin-right: 5px;
+	margin-top: 7px;
+	margin-bottom: 7px;
 }
 
 .common_div_blue {
-  border: 1.5px solid dodgerblue;
-  display: inline-block;
-  height: 62px;
-  position: relative;
-  padding-top: 19px;
-  margin-right: 5px;
-  margin-top: 7px;
-  margin-bottom: 7px;
+	border: 1.5px solid dodgerblue;
+	display: inline-block;
+	height: 62px;
+	position: relative;
+	padding-top: 19px;
+	margin-right: 5px;
+	margin-top: 7px;
+	margin-bottom: 7px;
 }
 
 .absolute-label {
-  top: 9px;
-  left: 15px;
-  bottom: 36px;
-  font-size: 12px;
-  text-align: left;
-  position: absolute;
-  color: #ada9a9;
+	top: 9px;
+	left: 15px;
+	bottom: 36px;
+	font-size: 12px;
+	text-align: left;
+	position: absolute;
+	color: #ada9a9;
 }
 
 .absolute-label > span {
-  color: red;
+	color: red;
 }
 
 .absolute-middleLabel {
-  text-align: center;
-  margin: auto;
+	text-align: center;
+	margin: auto;
 
-  color: #ada9a9;
-  display: block;
+	color: #ada9a9;
+	display: block;
 }
 
 .absolute-middleLabel > span {
-  color: red;
+	color: red;
 }
 
 .common_input {
-  width: 100%;
-  border: none;
-  height: 41px;
-  vertical-align: middle;
-  padding: 0px 15px;
-  font-size: 17px;
+	width: 100%;
+	border: none;
+	height: 41px;
+	vertical-align: middle;
+	padding: 0px 15px;
+	font-size: 17px;
 }
 
 .date_input {
-  width: 100%;
-  border: none;
-  height: 41px;
-  vertical-align: middle;
-  padding: 0px 15px;
-  font-size: 17px;
+	width: 100%;
+	border: none;
+	height: 41px;
+	vertical-align: middle;
+	padding: 0px 15px;
+	font-size: 17px;
 }
 
 .money_input {
-  width: 70%;
-  border: none;
-  height: 41px;
-  vertical-align: middle;
-  padding: 0px 15px;
-  font-size: 17px;
+	width: 70%;
+	border: none;
+	height: 41px;
+	vertical-align: middle;
+	padding: 0px 15px;
+	font-size: 17px;
 }
 
 .money_input2 {
-  width: 70%;
-  border: none;
-  height: 41px;
-  vertical-align: middle;
-  padding: 0px 15px;
-  font-size: 17px;
+	width: 70%;
+	border: none;
+	height: 41px;
+	vertical-align: middle;
+	padding: 0px 15px;
+	font-size: 17px;
 }
 
 .age_input {
-  width: 70%;
-  border: none;
-  height: 41px;
-  vertical-align: middle;
-  padding: 0px 15px;
-  font-size: 17px;
+	width: 70%;
+	border: none;
+	height: 41px;
+	vertical-align: middle;
+	padding: 0px 15px;
+	font-size: 17px;
 }
 
 .common_select {
-  width: 100%;
-  border: none;
-  height: 41px;
-  vertical-align: middle;
-  padding: 0px 15px;
-  font-size: 17px;
+	width: 100%;
+	border: none;
+	height: 41px;
+	vertical-align: middle;
+	padding: 0px 15px;
+	font-size: 17px;
 }
 
 .container1,
 .container2,
 .container3,
 .container4 {
-  display: inline-block;
+	display: inline-block;
 }
 
 input:focus,
 select:focus {
-  outline: none;
+	outline: none;
 }
 input[type='number']::-webkit-outer-spin-button,
 input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 input[type='date']::-webkit-calendar-picker-indicator,
 input[type='date']::-webkit-inner-spin-button {
-  display: none;
-  appearance: none;
+	display: none;
+	appearance: none;
 }
 
 input[type='date']::-webkit-calendar-picker-indicator {
-  color: rgba(0, 0, 0, 0);
-  opacity: 1;
-  display: block;
-  background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png) no-repeat;
-  width: 20px;
-  height: 20px;
-  border-width: thin;
+	color: rgba(0, 0, 0, 0);
+	opacity: 1;
+	display: block;
+	background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png) no-repeat;
+	width: 20px;
+	height: 20px;
+	border-width: thin;
 }
 
 .school_fieldset {
-  display: inline-block;
-  height: 52px;
+	display: inline-block;
+	height: 52px;
 }
 
 /* 크기 조절 */
 
 .width-50 {
-  width: 50px;
+	width: 50px;
 }
 
 .wdith-60 {
-  width: 60px;
+	width: 60px;
 }
 
 .width-104 {
-  width: 104px;
+	width: 104px;
 }
 .width-200 {
-  width: 200px;
+	width: 200px;
 }
 
 .width-250 {
-  width: 250px;
+	width: 250px;
 }
 
 .width-280 {
-  width: 280px;
+	width: 280px;
 }
 
 .width-140 {
-  width: 140px;
+	width: 140px;
 }
 
 .width-180 {
-  width: 180px;
+	width: 180px;
+}
+
+.width-261 {
+	width: 261px;
 }
 
 .width-300 {
-  width: 300px;
+	width: 300px;
 }
 
 .width-350 {
-  width: 350px;
+	width: 350px;
+}
+
+.width-405 {
+	width: 405px;
 }
 
 .width-408 {
-  width: 408px;
+	width: 408px;
 }
 
 .width-430 {
-  width: 430px;
+	width: 430px;
 }
 
 .width-450 {
-  width: 450px;
+	width: 449px;
+}
+
+.width-670 {
+	width: 671px;
+}
+
+.width-767 {
+	width: 767px;
+}
+
+.width-771 {
+	width: 771px;
 }
 
 .width-full {
-  width: 848px;
+	width: 848px;
 }
 
 .width-410 {
-  width: 409px;
+	width: 410px;
 }
 
 option > button {
-  width: 100%;
+	width: 100%;
 }
 
 /* 크기조절 END */
 
 /* 우대사항 */
 .preferentialTreatment {
-  position: absolute;
-  display: inline-block;
-  top: 14.8px;
-  left: 80px;
-  padding-left: 4px;
+	position: absolute;
+	display: inline-block;
+	top: 14.8px;
+	left: 80px;
+	padding-left: 4px;
 }
 
 .preferentialTreatment2 {
-  position: absolute;
-  display: inline-block;
-  top: 14.8px;
-  left: 95px;
-  padding-left: 4px;
+	position: absolute;
+	display: inline-block;
+	top: 14.8px;
+	left: 95px;
+	padding-left: 4px;
 }
 
 /* 경력사항 */
 
 .carrer_label {
-  color: #ada9a9;
-  display: block;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  line-height: 62px;
+	color: #ada9a9;
+	display: block;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	line-height: 62px;
 }
 
 .carrer_label > span {
-  color: red;
+	color: red;
 }
 
 .user_employment {
-  opacity: 0;
-  position: absolute;
+	opacity: 0;
+	position: absolute;
 }
 
 .user_employment > label {
-  border: 1px solid #ccc;
-  border-radius: 3px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
 }
 
 input[type='radio']:checked + label {
-  background: dodgerblue;
-  color: white;
+	background: dodgerblue;
+	color: white;
 }
 
 /* 수상내역 */
 
 .awardContents_div:focus-within {
-  height: 200px;
+	height: 200px;
 }
 
 .award_contents {
-  width: 100%;
-  height: 100%;
-  border: none;
+	width: 100%;
+	height: 100%;
+	border: none;
 
-  resize: none;
+	resize: none;
 }
 
 textarea:focus-within {
-  outline: none;
+	outline: none;
 }
 
 /* 경력사항 */
 .item_career {
-  border-top: 1px solid rgba(184, 181, 181, 0.658);
+	border-top: 1px solid rgba(184, 181, 181, 0.658);
 }
 
 .awardContents_div:focus-within {
-  height: 200px;
+	height: 200px;
 }
 
 .cr_task {
-  width: 100%;
-  height: 100%;
-  border: none;
+	width: 100%;
+	height: 100%;
+	border: none;
 
-  resize: none;
+	resize: none;
 }
 
 /* 이력서 양식 부분 END */
@@ -396,37 +416,37 @@ textarea:focus-within {
 /* aside */
 
 #addcv {
-  margin: 0px 10px;
-  font-size: 17px;
-  text-align: left;
-  color: #999999;
-  height: 48px;
-  width: 220px;
-  line-height: 48px;
-  border-bottom: 1px solid rgb(238, 229, 229);
+	margin: 0px 10px;
+	font-size: 17px;
+	text-align: left;
+	color: #999999;
+	height: 48px;
+	width: 220px;
+	line-height: 48px;
+	border-bottom: 1px solid rgb(238, 229, 229);
 }
 
 #addlist {
-  margin: 0px 10px;
-  font-size: 16px;
+	margin: 0px 10px;
+	font-size: 16px;
 
-  width: 210px;
-  height: 400px;
+	width: 210px;
+	height: 400px;
 }
 
 #addlist > li {
-  margin-bottom: 30px;
-  font-size: 17px;
+	margin-bottom: 30px;
+	font-size: 17px;
 }
 
 #addlist > li > button {
-  float: right;
+	float: right;
 }
 
 .cvSubmit {
-  width: 100%;
-  height: 60px;
-  color: white;
-  font-size: 17px;
-  background: #3399ff;
+	width: 100%;
+	height: 60px;
+	color: white;
+	font-size: 17px;
+	background: #3399ff;
 }

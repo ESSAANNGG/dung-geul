@@ -3,7 +3,6 @@ let modify = {
     init: function () {
         $("#modifyMember").on("click", (event) => {
             event.preventDefault();
-            alert("modifyMember 실행");
             this.modifyMemberFn();
         });
     },
@@ -26,7 +25,6 @@ let modify = {
         };
 
         console.log(JSON.stringify(userData));
-        alert(JSON.stringify(userData));
 
         $.ajax({
             type: "post",

@@ -276,7 +276,7 @@
             <div class="list">
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="2_1_checkH"
-                                                               onclick="checkAll(this)"></span>
+                                                               onclick="checkAll(this);"></span>
                 <span class="number s100" >번호</span>
                 <span class="name s140">이름</span>
                 <span class="username s380">아이디</span>
@@ -286,7 +286,7 @@
                 <span class="role s140">권한</span>
               </div>
               <div class="list_body" th:each="item, i : ${allow.getDtoList()}" onclick="detail(this)">
-                <span class="check"><input type="checkbox" name="2_1_check"></span>
+                <span class="check"><input type="checkbox" name="2_1_check" onclick="non_detailFunc();"></span>
                 <span class="number s100">[[${i.count}]]</span>
                 <span class="name s140">[[${item.user_name}]]</span>
                 <span class="username s380">[[${item.user_id}]]</span>
@@ -314,7 +314,7 @@
                   </li>
                 </ul>
 
-                <button class="list_submit">삭제</button>
+                <button class="list_submit" onclick="list_submit(this)">삭제</button>
               </div>
             </div>
           </div>
@@ -326,7 +326,7 @@
             <div class="list">
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="2_2_checkH"
-                                                               onclick="checkAll(this)"></span>
+                                                               onclick="checkAll(this);"></span>
                 <span class="number s100">번호</span>
                 <span class="name s140">이름</span>
                 <span class="username s380">아이디</span>
@@ -336,7 +336,7 @@
                 <span class="role s140">권한</span>
               </div>
               <div class="list_body" th:each="item, i : ${notAllow.getDtoList()}" onclick="detail(this)">
-                <span class="check"><input type="checkbox" name="2_2_check"></span>
+                <span class="check"><input type="checkbox" name="2_2_check" onclick="non_detailFunc();"></span>
                 <span class="number s100">[[${i.count}]]</span>
                 <span class="name s140">[[${item.user_name}]]</span>
                 <span class="username s380">[[${item.user_id}]]</span>
@@ -364,8 +364,8 @@
                   </li>
                 </ul>
 
-                <button class="list_submit">승인</button>
-                <button class="list_submit">거절</button>
+                <button class="list_submit" onclick="list_submit(this)">승인</button>
+                <button class="list_submit" onclick="list_submit(this)">거절</button>
               </div>
             </div>
           </div>
@@ -423,7 +423,7 @@
             <div class="list">
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="2_3_checkH"
-                                                               onclick="checkAll(this)"></span>
+                                                               onclick="checkAll(this);"></span>
                 <span class="number s100">번호</span>
                 <span class="corp_name s320">기업명</span>
                 <span class="username s380">아이디</span>
@@ -432,7 +432,7 @@
                 <span class="shape s140">기업형태</span>
               </div>
               <div class="list_body" th:each="item, i : ${allow.getDtoList()}" onclick="detail(this)">
-                <span class="check"><input type="checkbox" name="2_3_check"></span>
+                <span class="check"><input type="checkbox" name="2_3_check" onclick="non_detailFunc();"></span>
                 <span class="number s100">[[${i.count}]]</span>
                 <span class="corp_name s320">[[${item.user_name}]]</span>
                 <span class="username s380">[[${item.user_id}]]</span>
@@ -471,7 +471,7 @@
             <div class="list" id="e_per_list">
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="2_4_checkH"
-                                                               onclick="checkAll(this)"></span>
+                                                               onclick="checkAll(this);"></span>
                 <span class="number s100">번호</span>
                 <span class="corp_name s320">기업명</span>
                 <span class="username s380">아이디</span>
@@ -480,7 +480,7 @@
                 <span class="shape s140">기업형태</span>
               </div>
               <div class="list_body" th:each="item, i : ${notAllow.getDtoList()}" onclick="detail(this)">
-                <span class="check"><input type="checkbox" name="2_4_check"></span>
+                <span class="check"><input type="checkbox" name="2_4_check" onclick="non_detailFunc();"></span>
                 <span class="number s100">[[${i.count}]]</span>
                 <span class="corp_name s320">[[${item.user_name}]]</span>
                 <span class="username s380">[[${item.user_id}]]</span>
