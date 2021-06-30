@@ -1,10 +1,6 @@
 $(document).ready(function () {
   //자격증 등록
   $('#licenseReg').on('click', function () {
-    if($('select[name=lic_type]').val()==""||)
-          $('#licenseName').val()
-          $('#licenseDate').val()
-          $('#licenseEndDate').val()
     let data = {
       user_id: $('#member_id').val(),
       licenseName: $('#licenseName').val(),
