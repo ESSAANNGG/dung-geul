@@ -17,13 +17,22 @@ function employ_guide(){
 let employ_num; //공고번호
 function employ_list(){
     employ_num = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .number').text();                        //아이디값을 읽어옴
+    dataList.push(num);                                                                                        //dataList가 빈 배열일시 다음 함수를 수행하지 않음
     $.ajax({
         url: '/rest/' + employ_num ,
-        method: 'delete'
+        method: 'delete',
+        success : function (result){
+            console.log(dataList);
+        },
+        error : function (err) {
+            alert('삭제실패');
+            return;
+        }
     })
 }
 
 function employ_list_send(){
+    alert("삭제 성공");
     submit_param();
 }
 

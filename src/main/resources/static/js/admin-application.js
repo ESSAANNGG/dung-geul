@@ -28,6 +28,12 @@ function application_search(i){
                     search_val = "&id=" + search_val;
                     break;
                 case 4:
+                    search_val = "&startDate=" + search_val;
+                    break;
+                case 5:
+                    search_val = "&endDate=" + search_val;
+                    break;
+                case 6:
                     search_val = "&pass=" + search_val;
                     break;
             }
