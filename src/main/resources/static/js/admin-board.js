@@ -16,24 +16,24 @@ function board_guide(){
 let num; //글번호를 담음
 function board_list() {
     num = $('.list:eq(' + ListNum + ') .list_body:eq(' + checked + ') .number').text();                        //글번호값을 읽어옴
-    dataList.push(num);
+    dataList.push(num);                                                                                        //dataList가 빈 배열일시 다음 함수를 수행하지 않음
+    $.ajax({
+        url: "/center-information/remove_admin?num=" + num,
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        success : function (result){
+            console.log(dataList);
+        },
+        error : function (err) {
+            alert('삭제실패');
+            return;
+        }
+    })
 }
 
 function board_list_send(){
-    $.ajax({
-        url: '',
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        data: JSON.stringify(dataList),
-        success : function (result){
-            alert("삭제 성공");
-            submit_param();
-        },
-        error : function (err) {
-            alert("삭제 실패");
-        }
-    })
+    alert("삭제 성공");
+    submit_param();
 }
 
 function board_search(i){
