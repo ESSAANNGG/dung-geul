@@ -39,9 +39,10 @@
           <p style="float:right; font-size:15px; color:#a4acc7;">이력서 관리</p>
         </a>
         <a href="/mypage/before/read">
-        <p style=" float: right; font-size:15px; color:#a4acc7; margin-right: 20px;"><i style="font-size: 23px;" class="fas fa-house-user"></i></p>
+          <p style=" float: right; font-size:15px; color:#a4acc7; margin-right: 20px;"><i style="font-size: 23px;"
+              class="fas fa-house-user"></i></p>
         </a>
-        
+
       </div>
     </div>
     <div id="content">
@@ -100,19 +101,17 @@
               <p class="legend">경력사항</p>
               <div class="info">
                 <div class="common_div width-280" style="padding:0px;">
-                  <input class="user_employment" name="user_employment"
-                     id="id1" type="radio"
-                    value="0" checked><label style="cursor: pointer" class="carrer_label" for="id1">신입</label><br />
+                  <input class="user_employment" name="user_employment" id="id1" type="radio" value="0" checked><label
+                    style="cursor: pointer" class="carrer_label" for="id1">신입</label><br />
                 </div>
                 <div class="common_div width-280" style="padding:0px;">
-                  <input class="user_employment" name="user_employment"
-                     id="id2" type="radio"
-                    value="1"><label style="cursor: pointer" class="carrer_label" for="id2">경력</label><br />
+                  <input class="user_employment" name="user_employment" id="id2" type="radio" value="1"><label
+                    style="cursor: pointer" class="carrer_label" for="id2">경력</label><br />
                 </div>
                 <br />
               </div>
-              <div id="carrerField"  style="display: none;">
-                <div class="item_career" >
+              <div id="carrerField" style="display: none;">
+                <div class="item_career">
                   <input type="hidden" name="career[][id]">
                   <div class="info">
                     <div class="common_div width-350">
@@ -122,35 +121,34 @@
 
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">입사일자 </label>
-                      <input class="common_input employment" type="date" name="career[][cr_employment]"
-                         />
+                      <input class="common_input employment" type="date" name="career[][cr_employment]" />
                     </div>
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">퇴사일자 </label>
-                      <input class="common_input resignation" type="date" name="career[][cr_resignation]"
-                         />
+                      <input class="common_input resignation" type="date" name="career[][cr_resignation]" />
                     </div>
                     <br />
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">직위 </label>
-                      <input class="common_input position" type="text" name="career[][cr_position]"
-                         />
+                      <input class="common_input position" type="text" name="career[][cr_position]" />
                     </div>
-                    <div class="common_div width-300">
+                    <div class="common_div width-350">
                       <label class="absolute-label" for="">퇴사사유 </label>
-                      <input class="common_input resign" type="text" name="career[][reason_resign]"
-                         />
+                      <input class="common_input resign" type="text" name="career[][reason_resign]" />
                     </div>
                     <div class="common_div width-200">
                       <label class="absolute-label" for="">연봉 <span>*</span></label>
                       <input class="money_input2 salary" value="" type="number" name="career[][salary]"
-                        autocomplete="off"  />
+                        autocomplete="off" />
                       <span style="font-size: 12px">만원</span>
                     </div>
-                    <div class="common_div width-full awardContents_div ">
+                    <div class="common_div width-767">
                       <label class="absolute-label task">담당업무 </label>
-                      <textarea class="cr_task"  name="career[][cr_task]" focus="test12()"
-                        cols="30" rows="10"></textarea>
+                      <input class="common_input" name="career[][cr_task]"></input>
+                    </div>
+                    <div class="common_div width-767">
+                      <label class="absolute-label task">담당업무2 </label>
+                      <input class="common_input" name="career[][cr_task2]"></input>
                     </div>
 
                   </div>
@@ -174,7 +172,7 @@
             </section>
 
 
-            <div id="schoolFieldset_main" style="display:none;" >
+            <div id="schoolFieldset_main" style="display:none;">
               <section class="form" id="학력사항">
                 </legend>
                 <p class="legend">학력사항</p>
@@ -198,12 +196,12 @@
                         </select>
                       </span>
                     </div>
-                    <div class="common_div width-250">
+                    <div class="common_div width-261">
                       <label class="absolute-label" for="">학교이름 <span>*</span> </label>
                       <input class="common_input" name="education[][edc_school]" type="text" autocomplete="off" />
                     </div>
 
-                    <div class="school_fieldset hignschool_field" >
+                    <div class="school_fieldset hignschool_field">
                       <div class="container1" style="display:none;">
                         <div class="common_div width-140">
                           <label class="absolute-label" for="">졸업년도 <span>*</span> </label>
@@ -228,7 +226,7 @@
                     </div>
 
 
-                    <div class="college_field" >
+                    <div class="college_field">
                       <div class="container2" style="display:none;">
                         <div class="common_div width-200">
                           <label class="absolute-label" for="">입학년월 <span>*</span> </label>
@@ -288,7 +286,7 @@
                       </div>
                     </div>
 
-                    <div class="university_field" >
+                    <div class="university_field">
                       <div class="container3" style="display:none;">
                         <div class="common_div width-200">
                           <label class="absolute-label" for="">입학년월 <span>*</span> </label>
@@ -348,7 +346,7 @@
                       </div>
                     </div>
 
-                    <div class="graduate_field" >
+                    <div class="graduate_field">
                       <div class="container4" style="display:none;">
                         <div class="common_div width-104">
                           <label class="absolute-label" for="">학위 <span>*</span></label>
@@ -418,7 +416,7 @@
                         </div>
 
                         <br />
-                        <div class="common_div width-full">
+                        <div class="common_div width-670">
                           <label class="absolute-label" for="">논문 url<span>*</span></label>
                           <input type="url" name="education[][graduate_edc_paper]" class="common_input"
                             autocomplete="off" />
@@ -444,24 +442,24 @@
 
 
             </section>
-            <div id="hobbyFieldset_main" style="display:none;" >
+            <div id="hobbyFieldset_main" style="display:none;">
               <section class="form" id="취미/특기">
                 <p class="legend">취미•특기</p>
                 <div class="info">
                   <div class="common_div width-450">
                     <label class="absolute-label" for="">취미 </label>
-                    <input class="common_input" name="cv_hobby" id="cv_hobby"/>
+                    <input class="common_input" name="cv_hobby" id="cv_hobby" />
                   </div>
                   <div class="common_div width-450">
                     <label class="absolute-label" for="">특기 </label>
-                    <input class="common_input" type="text" name="cv_specialty" id="cv_specialty"/>
+                    <input class="common_input" type="text" name="cv_specialty" id="cv_specialty" />
                   </div>
                 </div>
               </section>
             </div>
 
 
-            <div id="awardFieldset_main" style="display:none;" >
+            <div id="awardFieldset_main" style="display:none;">
               <section class="form" id="수상경력">
                 <p class="legend">수상경력</p>
                 <div class="item_award">
@@ -479,7 +477,7 @@
                       <input class="common_input" type="text" onKeyup="award_year()" maxlength="4"
                         name="awards[][awards_date]" />
                     </div>
-                    <div class="common_div width-full awardContents_div ">
+                    <div class="common_div width-771 awardContents_div">
                       <label class="absolute-label">수여내용 </label>
                       <textarea class="award_contents" name="awards[][award_contents]" focus="test12()" cols="30"
                         rows="10"></textarea>
@@ -504,7 +502,7 @@
             </div>
 
 
-            <div id="miliFieldset_main" style="display:none;" >
+            <div id="miliFieldset_main" style="display:none;">
               <section class="form" id="우대사항/병역">
                 <p class="legend">우대사항•병역</p>
                 <div class="info">
@@ -581,7 +579,7 @@
             </div>
 
 
-            <div id="famFieldset_main" style="display:none;" >
+            <div id="famFieldset_main" style="display:none;">
               <section class="form" id="가족사항">
                 <p class="legend">가족사항</p>
                 <div class="item_family">
@@ -643,7 +641,7 @@
             </div>
 
             <!-- <fieldset id="" style="display:none;" > -->
-            <div id="licFieldset_main" style="display:none;" >
+            <div id="licFieldset_main" style="display:none;">
               <section class="form" id="자격증">
 
                 <p class="legend">자격증</p>
@@ -684,7 +682,7 @@
                                     <tr>
                                       <th scope="col">
                                         <span class="inpChk">
-                                          <label  for="import_all_check_1623578366378">선택</label>
+                                          <label for="import_all_check_1623578366378">선택</label>
                                         </span>
                                       </th>
                                       <th scope="col">취득일</th>
@@ -698,13 +696,17 @@
                                     <tr th:each="lic : ${licenseList}">
                                       <td>
                                         <span class="inpChk"><input type="checkbox" name="import_check"
-                                            id="import_2161003_1623578366378" class="import_check" onclick="doOpenCheck(this)"; /><label class="lbl hide"
+                                            id="import_2161003_1623578366378" class="import_check"
+                                            onclick="doOpenCheck(this)" ; /><label class="lbl hide"
                                             for="import_2161003_1623578366378"></label></span>
                                       </td>
-                                      <td class="Lic_date" th:text="${lic.getLic_date()}" >2021-08-07</td>
-                                      <td class="Lic_name" th:text="${lic.getLic_name()}" >자격증이름0</td>
+                                      <td class="Lic_date" th:text="${lic.getLic_date()}">2021-08-07</td>
+                                      <td class="Lic_name" th:text="${lic.getLic_name()}">자격증이름0</td>
                                       <td class="Lic_due_date" th:text="${lic.getLic_due_date()}">2021-08-07</td>
                                       <td class="Lic_num" th:text="${lic.getLic_num()}" style="display: none;">21</td>
+                                      <td class="Lic_type" th:text="${lic.getLic_type()}" style="display: none;">(국가)</td>
+                                      <td class="Lic_agency" th:text="${lic.getLic_agency()}" style="display: none;">21</td>
+                                      
                                     </tr>
                                   </tbody>
                                 </table>
@@ -718,11 +720,34 @@
                       </div>
                     </div>
 
-
-                    <div class="common_div width-430">
+                    <div class="common_div width-140">
+                      <label class="absolute-label" for="">자격종류 <span>*</span></label>
+                      <span class="custom-dropdown big">
+                        <select class="common_select licType" name="certificate[][lic_type]">
+                          <option class="gray" value="">
+                            <p>자격선택</p>
+                          </option>
+                          <option value="(국가)">국가자격증</option>
+                          <option value="(민간)">민간자격증</option>
+                        </select>
+                      </span>
+                    </div>
+                    <div class="common_div width-350">
                       <label class="absolute-label" for="">자격증 명 </label>
                       <input class="common_input licName" type="text" name="certificate[][lic_name]" />
                     </div>
+                    <div class="common_div width-280">
+                      <label class="absolute-label" for="">자격번호 </label>
+                      <input class="common_input licNum" type="text" name="certificate[][lic_num]" />
+                    </div>
+                     <button type="button" class="btn btn-sm btn-primary popup-trigger"
+                      style="margin-left:10px; vertical-align: top;">자격증 불러오기</button>
+                    <div class="common_div width-410">
+                      <label class="absolute-label" for="">발급기관 </label>
+                      <input class="common_input licAgency" type="text" name="certificate[][lic_agency]" />
+                    </div>
+                   
+                    
                     <div class="common_div width-180">
                       <label class="absolute-label" for="">취득일 </label>
                       <input class="common_input licDate" type="date" name="certificate[][lic_date]" />
@@ -731,12 +756,8 @@
                       <label class="absolute-label" for="">만료일 </label>
                       <input class="common_input licDue" type="date" name="certificate[][lic_due_date]" />
                     </div>
-                    <div class="common_div width-180" style="display: none;">
-                      <label class="absolute-label" for="">번호 </label>
-                      <input class="common_input licNum" type="number" name="certificate[][lic_num]" />
-                    </div>
-                    <button type="button" class="btn btn-sm btn-primary popup-trigger"
-                      style="margin-left:10px; vertical-align: top;">자격증 불러오기</button>
+                    
+                    
                   </div>
                 </div>
                 <div class="line_lic"></div>
@@ -754,7 +775,7 @@
               </section>
             </div>
 
-            <div id="flFieldset_main" style="display:none;" >
+            <div id="flFieldset_main" style="display:none;">
 
               <section class="form" id="어학">
 
@@ -819,11 +840,11 @@
                     </div>
                     <br />
 
-                    <div class="common_div width-408">
+                    <div class="common_div width-405">
                       <label class="absolute-label" for="">시험종류 </label>
                       <input class="common_input" type="text" name="language[][fl_name]" />
                     </div>
-                    <div class="common_div width-140">
+                    <div class="common_div width-104">
                       <label class="absolute-label" for="">점수 </label>
                       <input class="common_input" type="text" name="language[][fl_score]" />
                     </div>
