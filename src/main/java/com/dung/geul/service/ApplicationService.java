@@ -22,7 +22,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.function.Function;
 
@@ -134,6 +136,15 @@ public class ApplicationService {
         if(pass != null) {
             BooleanExpression epPass = qApply.ap_pass.eq(pass);
             builder.and(epPass);
+        }
+
+        if(dto.getStartDate() != null && dto.getEndDate() != null){
+            // date
+            LocalDateTime startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
+            LocalDateTime endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
+
+            BooleanExpression epDate = qApply.apDate.between(startDate, endDate);     // regdate 조건
+            builder.and(epDate);
         }
 
         return builder;
