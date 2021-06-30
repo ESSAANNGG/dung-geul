@@ -110,7 +110,7 @@
             <div class="list">
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="6_1_checkH"
-                                                               onclick="checkAll(this)"></span>
+                                                               onclick="checkAll(this);"></span>
                 <span class="number">목록번호</span>
                 <span class="title">상담종류</span>
                 <span class="content">상담제목</span>
@@ -120,14 +120,14 @@
               </div>
 
               <div class="list_body" th:each=" consult : ${consultlist}" onclick="detail(this)">
-                <span class="check"><input type="checkbox" name="6_1_check"></span>
+                <span class="check"><input type="checkbox" name="6_1_check" onclick="non_detailFunc();"></span>
                 <span class="number">[[${consult.cno}]]</span>
                 <span class="title">[[${consult.Consult_field}]]</span>
                 <span class="content">[[${consult.Consult_detail_field}]]</span>
 <!--                <span class="preference">신청건수</span>-->
               </div>
               <div class="list_button">
-                <button class="list_submit">삭제</button>
+                <button class="list_submit" onclick="list_submit(this)">삭제</button>
               </div>
             </div>
           </div>

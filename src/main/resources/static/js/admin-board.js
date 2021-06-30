@@ -20,7 +20,6 @@ function board_list() {
 }
 
 function board_list_send(){
-
     $.ajax({
         url: '',
         type: "POST",

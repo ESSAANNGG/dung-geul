@@ -205,7 +205,7 @@
             <div class="list">
               <div class="list_head">
                                     <span class="check"><input type="checkbox" name="3_1_checkH"
-                                                               onclick="checkAll(this)"></span>
+                                                               onclick="checkAll(this);"></span>
                 <span class="number s100">공고번호</span>
                 <span class="employ_title s400">제목</span>
                 <span class="corp_name s320">기업명</span>
@@ -215,7 +215,7 @@
                 <span class="deadline s140">마감일</span>
               </div>
               <div class="list_body" th:each="dto: ${result.dtoList}" onclick="detail(this)">
-                <span class="check"><input type="checkbox" name="3_1_check"></span>
+                <span class="check"><input type="checkbox" name="3_1_check" onclick="non_detailFunc();"></span>
                 <span class="number s100">[[${dto.num}]]</span>
                 <span class="employ_title s400">[[${dto.title}]]</span>
                 <span class="corp_name  s320">[[${dto?.etp_name}]]</span>
@@ -225,7 +225,7 @@
                 <span class="deadline s140">[[${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}]]</span>
               </div>
               <div class="list_button">
-                <button class="list_submit">삭제</button>
+                <button class="list_submit" onclick="list_submit(this)">삭제</button>
 
                 <ul class="pagination  h-100 justify-content-center align-items-center">
                   <li class="page-ltem" th:if="${result.prev}">

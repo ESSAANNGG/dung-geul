@@ -131,18 +131,18 @@
               </div>
               <div class="list">
                 <div class="list_head">
-                  <span class="check"><input type="checkbox" name="5_1_checkH" onclick="checkAll(this)"></span>
+                  <span class="check"><input type="checkbox" name="5_1_checkH" onclick="checkAll(this);"></span>
                   <span class="number s100">번호</span>
                   <span class="title s960">제목</span>
                   <span class="date s250">작성일</span>
                   <span class="link s200">바로가기</span>
                 </div>
                 <div class="list_body" onclick="detail(this)" th:each="dto : ${result.dtoList}">
-                  <span class="check"><input type="checkbox" name="5_1_check"></span>
+                  <span class="check"><input type="checkbox" name="5_1_check" onclick="non_detailFunc();"></span>
                   <span class="number s100">[[${dto.num}]]</span>
                   <span class="title s960">[[${dto.title}]]</span>
                   <span class="date s250">[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</span>
-                <span class="link s200"><a th:href="@{/center-information/notice_board_read(num = ${dto.num})}" target="_blank">이동하기</a></span>
+                <span class="link s200" onclick="non_detailFunc()"><a th:href="@{/center-information/notice_board_read(num = ${dto.num})}" target="_blank">이동하기</a></span>
                </div>
                 <div class="list_button">
                   <ul class="pagination  h-100 justify-content-center align-items-center">
@@ -161,7 +161,7 @@
 <!--                      th:href="@{/admin/admin_board(page=${result.end + 1})}"-->
                     </li>
                   </ul>
-                  <button class="list_submit">삭제</button>
+                  <button class="list_submit" onclick="list_submit(this)">삭제</button>
                   <button class="list_submit direct" onclick="detail(this)">등록</button></a>
                 </div>
               </div>

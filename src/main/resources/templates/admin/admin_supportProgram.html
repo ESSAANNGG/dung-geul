@@ -228,7 +228,7 @@
                         <div class="list">
                             <div class="list_head">
                                     <span class="check"><input type="checkbox" name="7_1_checkH"
-                                                               onclick="checkAll(this)"></span>
+                                                               onclick="checkAll(this);"></span>
                                 <span class="number s140">목록번호</span>
                                 <span class="type s240">상담종류</span>
                                 <span class="title s650">상담제목</span>
@@ -238,7 +238,7 @@
                             </div>
 
                             <div class="list_body" th:each=" consult : ${consultlist}" onclick="detail(this)">
-                                <span class="check"><input type="checkbox" name="7_1_check"></span>
+                                <span class="check"><input type="checkbox" name="7_1_check" onclick="non_detailFunc();"></span>
                                 <span class="number s140">[[${consult.cno}]]</span>
                                 <span class="type s240">[[${consult.type}]]</span>
                                 <span class="title s650">[[${consult.name}]]</span>
@@ -246,7 +246,7 @@
                                 <span class="moddate s240">[[${#temporals.format(consult.consult_moddate, 'YYYY-MM-dd ')}]]</span>
                             </div>
                             <div class="list_button">
-                                <button class="list_submit">삭제</button>
+                                <button class="list_submit" onclick="list_submit(this)">삭제</button>
                                 <a th:href="@{/admin/admin_supportProgram_Reg}" target="_blank"><button class="list_submit direct">등록</button></a>
                             </div>
                         </div>
