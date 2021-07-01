@@ -34,6 +34,16 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
 
     implementation 'com.querydsl:querydsl-jpa'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore
+    implementation group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.1'
+// https://mvnrepository.com/artifact/commons-logging/commons-logging
+    implementation group: 'commons-logging', name: 'commons-logging', version: '1.2'
+// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.0.3'
+    compile group: 'org.daisy.libs', name: 'commons-httpclient', version: '3.1.0'
+
+
 }
 bootJar{
     archivesBaseName = '-'
