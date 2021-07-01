@@ -54,6 +54,7 @@ public class ApplicationService {
     public ApplyStudentDTO entityToApplyStudentDTO(Apply ap, CV c){
 
         ApplyStudentDTO dto = ApplyStudentDTO.builder()
+                .ap_id(ap.getAp_id())
                 .ap_date(ap.getApDate().format(DateTimeFormatter.ISO_DATE))
                 .cv_id(ap.getCv().getCv_id())
                 .intro_num(ap.getIntroduce().getNum())
@@ -199,7 +200,6 @@ public class ApplicationService {
             // 이미 지원 했는지 아닌지 확인
             Boolean isExsist = applyRepository.existsByCvAndEmploy(cv, employ);
             if(isExsist){ return new ResponseEntity(2, HttpStatus.BAD_REQUEST); }
-            //
 
             Introduce intro = introduceService.getIntroduce(dto.getIntro_id());
 
@@ -210,7 +210,7 @@ public class ApplicationService {
                     .employ(employ)                 // 채용공고
                     .cv(cv)                         // 이력서
                     .introduce(intro)               // 자소서
-                    .ap_pass("대기중")                 // 합격여부(대기중, 합격, 불합격, 취소)
+                    .ap_pass("대기중")                // 합격여부(대기중, 합격, 불합격, 취소)
                     .build();
 
             System.out.println("apply : " + apply);

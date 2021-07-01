@@ -25,6 +25,7 @@ public class ApplyStudentDTO {
     private String user_name;       // 지원한 회원 이름
     private String user_id;         // 지원한 회원 아이디
 
+    private Long ap_id;             // Apply pk
     private String ap_date;         // 지원일자
     private String ap_pass;            // 합격 여부
     private String ap_area;         // 희망 근무 지역
