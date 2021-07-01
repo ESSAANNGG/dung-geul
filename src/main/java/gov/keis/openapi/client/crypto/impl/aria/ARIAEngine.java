@@ -557,20 +557,19 @@ public class ARIAEngine
   
   private static void printBlock(PrintStream paramPrintStream, byte[] paramArrayOfByte)
   {
-    int i;
-    for (i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; i++) {
       byteToHex(paramPrintStream, paramArrayOfByte[i]);
     }
     paramPrintStream.print(" ");
-    for (i = 4; i < 8; i++) {
+    for (int i = 4; i < 8; i++) {
       byteToHex(paramPrintStream, paramArrayOfByte[i]);
     }
     paramPrintStream.print(" ");
-    for (i = 8; i < 12; i++) {
+    for (int i = 8; i < 12; i++) {
       byteToHex(paramPrintStream, paramArrayOfByte[i]);
     }
     paramPrintStream.print(" ");
-    for (i = 12; i < 16; i++) {
+    for (int i = 12; i < 16; i++) {
       byteToHex(paramPrintStream, paramArrayOfByte[i]);
     }
   }
@@ -630,11 +629,10 @@ public class ARIAEngine
     int i = 0;
     PrintStream localPrintStream = System.out;
     ARIAEngine localARIAEngine = new ARIAEngine(256);
-    int j;
-    for ( j = 0; j < 32; j++) {
+    for (int j = 0; j < 32; j++) {
       arrayOfByte3[j] = 0;
     }
-    for (j = 0; j < 16; j++) {
+    for (int j = 0; j < 16; j++) {
       arrayOfByte1[j] = 0;
     }
     localPrintStream.println("BEGIN testing the roundtrip...");
@@ -653,7 +651,7 @@ public class ARIAEngine
     printBlock(localPrintStream, arrayOfByte1);
     localPrintStream.println();
     i = 0;
-    for (j = 0; j < 16; j++) {
+    for (int j = 0; j < 16; j++) {
       if (arrayOfByte1[j] != 0) {
         i = 1;
       }
@@ -664,10 +662,9 @@ public class ARIAEngine
       localPrintStream.println("Okay.  The result is correct.");
     }
     localPrintStream.println("END   testing the roundtrip.\n");
-    j = 8388608;
+    int j = 8388608;
     localPrintStream.println("BEGIN speed measurement...");
-    int k;
-    for ( k = 0; k < 16; k++) {
+    for (int k = 0; k < 16; k++) {
       arrayOfByte3[k] = ((byte)k);
     }
     localPrintStream.println("  First, EncKeySetup():");
@@ -677,7 +674,7 @@ public class ARIAEngine
     localARIAEngine.reset();
     localARIAEngine.setKeySize(128);
     localARIAEngine.setKey(arrayOfByte3);
-    for (k = 0; k < 1000; k++) {
+    for (int k = 0; k < 1000; k++) {
       localARIAEngine.setupEncRoundKeys();
     }
     Date localDate1 = new Date();
@@ -693,18 +690,17 @@ public class ARIAEngine
     localPrintStream.print(j * 128 / (f * 1024.0F * 1024.0F));
     localPrintStream.println(" megabits/sec.\n");
     localPrintStream.println("  Next, Crypt():");
-    int n;
-    for (n = 0; n < 16; n++) {
+    for (int n = 0; n < 16; n++) {
       arrayOfByte1[n] = ((byte)(n << 4 ^ n));
     }
     localPrintStream.print("  plaintext : ");
     printBlock(localPrintStream, arrayOfByte1);
     localPrintStream.println();
-    for (n = 0; n < 1000; n++) {
+    for (int n = 0; n < 1000; n++) {
       localARIAEngine.encrypt(arrayOfByte1, 0, arrayOfByte2, 0);
     }
     localDate1 = new Date();
-    for (n = 0; n < j; n++) {
+    for (int n = 0; n < j; n++) {
       localARIAEngine.encrypt(arrayOfByte1, 0, arrayOfByte2, 0);
     }
     localDate2 = new Date();
@@ -719,11 +715,11 @@ public class ARIAEngine
     localPrintStream.print(j * 128 / (f * 1024.0F * 1024.0F));
     localPrintStream.println(" megabits/sec.\n");
     localPrintStream.println("  Finally, DecKeySetup():");
-    for (n = 0; n < 1000; n++) {
+    for (int n = 0; n < 1000; n++) {
       localARIAEngine.setupDecRoundKeys();
     }
     localDate1 = new Date();
-    for (n = 0; n < j; n++) {
+    for (int n = 0; n < j; n++) {
       localARIAEngine.setupDecRoundKeys();
     }
     localDate2 = new Date();
@@ -755,7 +751,6 @@ public class ARIAEngine
   
   public static void main(String[] paramArrayOfString)
   {
-
   }
   
   static
@@ -764,8 +759,7 @@ public class ARIAEngine
     int[] arrayOfInt1 = new int['Ā'];
     int[] arrayOfInt2 = new int['Ā'];
     arrayOfInt1[0] = 1;
-    int i;
-    for ( i= 1; i < 256; i++)
+    for (int i = 1; i < 256; i++)
     {
       int j = arrayOfInt1[(i - 1)] << 1 ^ arrayOfInt1[(i - 1)];
       if ((j & 0x100) != 0) {
@@ -773,7 +767,7 @@ public class ARIAEngine
       }
       arrayOfInt1[i] = j;
     }
-    for (i = 1; i < 255; i++) {
+    for (int i = 1; i < 255; i++) {
       arrayOfInt2[arrayOfInt1[i]] = i;
     }
     int[][] arrayOfInt3 = { { 1, 0, 0, 0, 1, 1, 1, 1 }, { 1, 1, 0, 0, 0, 1, 1, 1 }, { 1, 1, 1, 0, 0, 0, 1, 1 }, { 1, 1, 1, 1, 0, 0, 0, 1 }, { 1, 1, 1, 1, 1, 0, 0, 0 }, { 0, 1, 1, 1, 1, 1, 0, 0 }, { 0, 0, 1, 1, 1, 1, 1, 0 }, { 0, 0, 0, 1, 1, 1, 1, 1 } };
@@ -783,8 +777,7 @@ public class ARIAEngine
     int i1;
     int i2;
     int i3;
-    int k;
-    for ( k= 0; k < 256; k++)
+    for (int k = 0; k < 256; k++)
     {
       m = 0;
       if (k == 0) {
@@ -806,7 +799,7 @@ public class ARIAEngine
       S1[k] = ((byte)m);
       X1[m] = ((byte)k);
     }
-    for (k = 0; k < 256; k++)
+    for (int k = 0; k < 256; k++)
     {
       m = 0;
       if (k == 0) {
@@ -828,7 +821,7 @@ public class ARIAEngine
       S2[k] = ((byte)m);
       X2[m] = ((byte)k);
     }
-    for (k = 0; k < 256; k++)
+    for (int k = 0; k < 256; k++)
     {
       TS1[k] = (65793 * (S1[k] & 0xFF));
       TS2[k] = (16777473 * (S2[k] & 0xFF));

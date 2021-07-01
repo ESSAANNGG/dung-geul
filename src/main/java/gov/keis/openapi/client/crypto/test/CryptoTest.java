@@ -12,7 +12,7 @@ public class CryptoTest
     System.out.println("*********************************************");
     System.out.println("CryptoTest Start ");
     
-    String schoolID = "1701257";
+    String schoolID = "U0116";
     String studentID = "1701257";
     
     String password = "WNGXVGIDR0JK75CY4TFRV2VRETJ";
