@@ -139,7 +139,7 @@ public class ApplicationRestController {
 
     }
 
-    // /application/etp/employ/apply/list/{num} // num : 채용공고 번호
+    // /application/etp/employ/list/{num} // num : 채용공고 번호
     // 채용공고별 입사지원자 리스트 (+ 페이지네이션)
     @GetMapping("/etp/employ/list/{num}")
     public PageResultDTO getEmployApplyList(@PathVariable("num") Long num, PageRequestDTO pageRequestDTO){

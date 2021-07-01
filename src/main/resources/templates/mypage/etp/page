@@ -1,4 +1,4 @@
-<div class="pagiNa">
+w<div class="pagiNa">
                                                     <ul class="pagination  h-100 justify-content-center align-items-center"
                                                         id="pagination">
                                                         <li class="page-item" th:if="${result.prev}">
