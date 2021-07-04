@@ -389,3 +389,11 @@ input.checkbox:checked + label.input-label.radio::before {
 }
 .ok{display:none;}
 .no{display:none;}
+
+input[class="check"]{
+    margin:0px !important;
+    position:static !important;
+}
+span[class="checkbox"]{
+    display:inline-block;
+}

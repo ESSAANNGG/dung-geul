@@ -30,6 +30,7 @@ public interface EmployService {
         Enterprise enterprise = Enterprise.builder().etp_id(dto.getEtp_id()).build();
 
         Employ entity = Employ.builder()
+                .num(dto.getNum())
                 .title(dto.getTitle())
                 .content(dto.getContent())
                 .ot(dto.getOt())
