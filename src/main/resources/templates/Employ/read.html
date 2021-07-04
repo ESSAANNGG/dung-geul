@@ -31,7 +31,7 @@
         <div id="wrap">
             <div id="head_wrap">
                 <span><a th:href="@{/Employ/list}">다른 공고 보러가기</a></span>
-                <h2>[[${dto.etp_name}]]</h2>
+                <h2 id="etp_name">[[${dto.etp_name}]]</h2>
                 <h1 id="em_title" th:text="${dto.title}"></h1>
 
                 <!-- <div id="nav">
@@ -89,7 +89,7 @@
             <div id="corp_wrap">
                 <div id="corp_head" class="head">
                     <h3>기업정보</h3>
-                    <div class="right_text"><a><u>이 기업의 다른 공고 보러가기</u></a></div>
+                    <div class="right_text"><a style="cursor: pointer" onclick="sameEtp()"><u>이 기업의 다른 공고 보러가기</u></a></div>
                 </div>
                 <div id="corp_box" class="box">
                     <div id="corp_image">
@@ -124,7 +124,7 @@
                         <a th:href="@{/Employ/modify(num = ${dto.num})}">
                             <button type="button">수정하기</button>
                         </a>
-                        <button class="boxed-btn3" id="emRemove" name="emRemove" type="submit">삭제</button>
+<!--                        <button class="boxed-btn3" id="emRemove" name="emRemove" type="submit">삭제</button>-->
 
                         <!--  <button class="boxed-btn3" id="emModify" name="emModify" type="submit">수정</button>
                           <button class="boxed-btn3" id="emSave" name="emSave" type="submit">저장</button>-->

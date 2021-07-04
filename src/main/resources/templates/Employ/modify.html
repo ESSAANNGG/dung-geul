@@ -73,7 +73,7 @@
                             직종
                         </div>
                         <select id="em_ot" name="register_ot_val" class="register_input" >
-                            <option>----- 직종 -----</option>
+                            <option value="">----- 직종 -----</option>
                             <option>경영·회계·사무 관련직</option>
                             <option>금융·보험 관련직</option>
                             <option>교육관련직</option>
@@ -202,8 +202,9 @@
                         <input type="datetime-local" name="em_end_date" id="em_end_date" class="date">
                     </div>
 
-                    <div class="base_button_wrap">
+                    <div class="submit_btn">
                         <button class="base_button" id="emSave" name="emSave" type="submit">수정하기</button>
+                        <button class="base_button boxed-btn3" id="emRemove" name="emRemove" type="submit">삭제</button>
                     </div>
                 </div>
             </div>
@@ -276,7 +277,6 @@
 
         apply=[[${dto.apply}]];
         apply_split=apply.split(",");
-        alert(apply_split.length);
         for (i=0; i<apply_split.length; i++) {
             $("input[name='지원방법'][value=" + apply_split[i] + "]").prop("checked", true);
         }

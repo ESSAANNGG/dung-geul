@@ -9,6 +9,14 @@ $(document).ready(function () {
             ap += $(this).val();
         })
 
+        let sido;
+        if($('#em_sido').val()=="시/도 선택"){
+            sido="";
+        }
+        else{
+            sido=$('#em_sido').val()+'/';
+        }
+
         let data = {
             title: $('#em_title').val(),
             content : $('#em_content').val(),
@@ -19,7 +27,7 @@ $(document).ready(function () {
             people: $('#em_people').val(),
             career : $('input[name="career"]:checked').val(),
             education : ed,
-            area : $('#em_sido').val()+'/'+$('#em_gugun').val(),
+            area : sido+$('#em_gugun').val(),
             salary : $('#em_salary').val(),
             apply :   ap,
             file : $('#em_file').val(),
@@ -71,6 +79,14 @@ $(document).ready(function () {
             ap += $(this).val();
         })
 
+        let sido;
+        if($('#em_sido').val()=="시/도 선택"){
+            sido="";
+        }
+        else{
+            sido=$('#em_sido').val()+'/';
+        }
+
         let data = {
             etp_id : $("#em_id").val(),
             num : $('#em_num').val(),
@@ -84,7 +100,7 @@ $(document).ready(function () {
             start_date : $('#em_start_date').val(),
             end_date : $('#em_end_date').val(),
             salary : $('#em_salary').val(),
-            area : $('#em_sido').val()+'/'+$('#em_gugun').val(),
+            area : sido+$('#em_gugun').val(),
             apply : ap
         }
 
@@ -557,4 +573,9 @@ function apply_check(t){
         $('#apply_button button h3').css('color','#222222');
         apply_ok=0;
     }
+}
+
+function sameEtp(){
+    etp_name=$('#etp_name').text();
+    window.location.href="/Employ/list?page=1&keywords=&keywords=" + etp_name + "&type=w&keywords=&keywords=&keywords=&keywords=&sido=&keywords=&keywords="
 }
