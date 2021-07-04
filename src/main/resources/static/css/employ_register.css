@@ -152,15 +152,22 @@ input[type="file"] {
 /*다음단계로 넘어가는 버튼*/
 .base_button_wrap{
     display:flex;
-    justify-content: center;
     height:100px;
 }
 .base_button{
-    width:200px;
-    height:50px;
-    margin:10px;
-    background-color:#1f3786d5;
-    font-size:16px;
-    color:#ffffff;
-    cursor:pointer;
+    border: none !important;
+    background-color: #3498db;
+    color: white;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
 }

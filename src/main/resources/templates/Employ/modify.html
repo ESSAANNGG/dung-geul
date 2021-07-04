@@ -73,7 +73,7 @@
                             직종
                         </div>
                         <select id="em_ot" name="register_ot_val" class="register_input" >
-                            <option>----- 직종 -----</option>
+                            <option value="">----- 직종 -----</option>
                             <option>경영·회계·사무 관련직</option>
                             <option>금융·보험 관련직</option>
                             <option>교육관련직</option>
@@ -202,8 +202,9 @@
                         <input type="datetime-local" name="em_end_date" id="em_end_date" class="date">
                     </div>
 
-                    <div class="base_button_wrap">
+                    <div class="submit_btn">
                         <button class="base_button" id="emSave" name="emSave" type="submit">수정하기</button>
+                        <button class="base_button boxed-btn3" id="emRemove" name="emRemove" type="submit">삭제</button>
                     </div>
                 </div>
             </div>
@@ -251,7 +252,8 @@
         $('#em_title').val([[${dto.title}]]);
         $('#em_content').val([[${dto.content}]]);
         $('#em_ot').val([[${dto.ot}]]);
-        $("input[name='고용형태'][value=" + [[${dto.ep}]] + "]").prop("checked",true);
+
+        $("input[name='고용형태']:input[value=" + [[${dto.ep}]] + "]").prop("checked",true);
         $("input[name='career'][value=" + [[${dto.career}]] + "]").prop("checked",true);
         $('#em_career').val([[${dto.career}]]);
         $('#em_people').val([[${dto.people}]]);
@@ -273,6 +275,11 @@
         $('#em_sido').val(area[0]).trigger('change');
         $('#em_gugun').val(area[1]);
 
+        apply=[[${dto.apply}]];
+        apply_split=apply.split(",");
+        for (i=0; i<apply_split.length; i++) {
+            $("input[name='지원방법'][value=" + apply_split[i] + "]").prop("checked", true);
+        }
     });
 </script>
 </html>
