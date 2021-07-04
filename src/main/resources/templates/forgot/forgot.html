@@ -23,8 +23,8 @@
                     </p>
                 </div>
                 <div class="mlog-sign">
-                    <div class="mlog">
-                        <h2 class="login_sub_tit">아이디 찾기</h2>
+                    <div class="mlog one_box">
+                        <h2 class="login_sub_tit o_tag" onclick="one_on()">아이디 찾기</h2>
                         <fieldset>
                             <legend>find ID</legend>
                             <div class="radio-wrap">
@@ -44,7 +44,7 @@
                                 </li>
                                 <a class="login_bt01"  id="findIdBtn" href="#">아이디 찾기</a>
                             </ul>
-                            <p class="bottom_text">회원가입 시 입력하신 이름+이메일 또는 휴대폰 번호로 찾을 수 있습니다.</p>
+                            <p class="bottom_text">회원가입 시 입력하신 이름+이메일로 찾을 수 있습니다.</p>
                             <div class="find_wrap">
                                 <div>
                                     <a href="sign-up" style="cursor: pointer;">회원가입 바로 가기 ></a>
@@ -52,37 +52,97 @@
                             </div>
                         </fieldset>
                     </div>
+                    <div class="sign one_box">
+                        <h2 class="login_sub_tit t_tag" onclick="two_on()">임시 비밀번호 발급</h2>
+                        <div id="find_phone_input_wrap" style="display: block;">
+                            <fieldset>
+                                <legend>find Id</legend>
+                                <div class="radio-wrap">
+                                    <label class="find_email">
+                                        <input type="radio" class="find_phone_email" name="find_phone_id__type" value="email" checked="checked">
+                                        전화번호로 찾기
+                                    </label>
+                                </div>
+                                <ul class="frm-list">
+                                    <li class="user-name">
+                                        <span>이름</span>
+                                        <input type="text" name="user_id" id="find_phone_id" value class="MS_input_txt" size="10" maxlength="12">
+                                    </li>
+                                    <li id="find_email_wrap" style="display: list-item";>
+                                        <span>전화번호</span>
+                                        <input type="text" id="find_phone" name="phone" class="MS_input_txt" value maxlength="80" title="이메일 주소" placeholder>
+                                    </li>
+                                    <a class="login_bt01" id="findphoneBtn">아이디 찾기</a>
+                                </ul>
+                                <p class="bottom_text">회원가입 시 입력하신 이름+전화번호로 찾을 수 있습니다.</p>
+                                <div class="find_wrap">
+                                    <div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                        </div>
+                    </div>
                     <!-- 아이디 찾기 끝 -->
                     <!-- 비밀번호 찾기 시작 -->
-                    <div class="sign">
-                        <h2 class="login_sub_tit">임시 비밀번호 발급</h2>
+                    <div class="mlog two_box">
+                        <h2 class="login_sub_tit o_tag" onclick="one_on()">아이디 찾기</h2>
+                        <fieldset>
+                            <legend>find ID</legend>
+                            <div class="radio-wrap">
+                                <label class="find_email">
+                                    <input type="radio" class="find_pw_email" name="find_pw_type" value="email" checked="checked">
+                                    이메일로 찾기
+                                </label>
+                            </div>
+                            <ul class="frm-list">
+                                <li class="user-name">
+                                    <span>아이디</span>
+                                    <input type="text" id="find_pw_id" name="user_name" class="MS_input_txt" value maxlength="30" title="이름" placeholder>
+                                </li>
+                                <li id="find_pw_email_wrap">
+                                    <span>이메일</span>
+                                    <input type="text" id="find_pw_email" name="email" class="MS_input_txt" value maxlength="80" title="이메일 주소" placeholder>
+                                </li>
+                                <a class="login_bt01"  id="findPwBtn" href="#">비밀번호 찾기</a>
+                            </ul>
+                            <p class="bottom_text">회원가입 시 입력하신 이름+이메일로 임시 비밀번호를 알려 드립니다.</p>
+                            <div class="find_wrap">
+                                <div>
+                                    <a href="sign-up" style="cursor: pointer;">회원가입 바로 가기 ></a>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sign two_box">
+                        <h2 class="login_sub_tit t_tag" onclick="two_on()">임시 비밀번호 발급</h2>
                         <div id="find_pw_input_wrap" style="display: block;">
                             <fieldset>
                                 <legend>find Password</legend>
                                 <div class="radio-wrap">
-                                    <label class="find_email">
-                                        <input type="radio" class="find_pw_email" name="find_pw_type" value="email" checked="checked">
-                                        이메일로 찾기
+                                    <label class="find_phone">
+                                        <input type="radio" class="find_pw_phone" name="find_pw_type1" value="phone" checked="checked">
+                                        전화번호로 찾기
                                     </label>
                                 </div>
                                 <ul class="frm-list">
                                     <li class="user-name">
                                         <span>아이디</span>
-                                        <input type="text" name="user_id" id="find_pw_id" value class="MS_input_txt" size="10" maxlength="12">
+                                        <input type="text" name="user_id" id="find_pw_ido" value class="MS_input_txt" size="10" maxlength="12">
                                     </li>
-                                    <li id="find_pw_email_wrap" style="display: list-item";>
-                                        <span>이메일</span>
-                                        <input type="text" id="find_pw_email" name="email" class="MS_input_txt" value maxlength="80" title="이메일 주소" placeholder>
+                                    <li id="find_pw_phone_wrap" style="display: list-item";>
+                                        <span>전화번호</span>
+                                        <input type="text" id="find_pw_phone" name="phone" class="MS_input_txt" value maxlength="80" title="휴대폰번호" placeholder>
                                     </li>
-                                    <a class="login_bt01" id="findPwBtn">비밀번호 찾기</a>
+                                    <a class="login_bt01" id="findPwBtn_phone">비밀번호 찾기</a>
                                 </ul>
-                                <p class="bottom_text">회원가입 시 입력하신 이메일 또는 휴대폰 번호로 임시 비밀번호를 보내 드립니다.</p>
+                                <p class="bottom_text">회원가입 시 휴대폰 번호로 임시 비밀번호를 보내 드립니다.</p>
                                 <div class="find_wrap">
                                     <div>
-                                        <a href="sign-up" style="cursor: pointer;">회원가입 바로 가기 ></a>
                                     </div>
                                 </div>
                             </fieldset>
+
                         </div>
                     </div>
                     <!-- 비밀번호 찾기 끝 -->
