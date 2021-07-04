@@ -128,15 +128,17 @@ public class MemberServiceImpl implements MemberService {
                 if (member == null || enterprise == null) throw new Exception(dto.getUser_id() + "는 존재하지 않는 회원입니다.");
 
                 if (result.equals("no")) {
-                    member.modUser_allow(2);
+                    deleteMember(dto.getUser_id());
+                    continue;
                 } else if (result.equals("ok")) {
                     member.modUser_allow(1);
                     enterprise.modifyEtp_shape(dto.getShape());         // 기업 형태 저장
                     member.addMemberRole(MemberRole.ENTERPRISE);                // 기업 권한 추가
+
+                    memberRepository.save(member);
+                    enterpriseRepository.save(enterprise);
                 }
 
-                memberRepository.save(member);
-                enterpriseRepository.save(enterprise);
             } // end of for
 
             return new ResponseEntity(1, HttpStatus.OK);
@@ -161,10 +163,12 @@ public class MemberServiceImpl implements MemberService {
                 if(member==null) throw new Exception(userIds.get(i) + "는 존재하지 않는 회원입니다.");
 
                 if (result.equals("no")) {     // 거절
-                    member.modUser_allow(2);
+                    deleteMember(member.getUser_id());
                 } else if(result.equals("ok")){    // 승인
                     AddRole(member, member.getUser_type()); // 권한주기
                     member.modUser_allow(1);
+
+                    memberRepository.save(member);
                 }
 
             } // end of for
