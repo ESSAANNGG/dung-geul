@@ -1,0 +1,17 @@
+.td-h {
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.table-type {
+    border-collapse: collapse;
+    border: 1px solid #cccccc;
+}
+
+tr, th, td {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 5px;
+    border: 1px solid #cccccc;
+}
