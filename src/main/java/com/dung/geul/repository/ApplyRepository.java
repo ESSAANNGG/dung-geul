@@ -18,8 +18,8 @@ public interface ApplyRepository extends JpaRepository<Apply, Long> {
     Page<Object[]> findByMember(Pageable pageable, @Param("member") Member member);
 
     // 해당 채용 공고의 지원자 리스트 보여주기
-    @Query(value = "select a, c from Apply a, CV c where a.cv = c")
-    Page<Object[]> findByEmploy(Pageable pageable, Employ employ);
+    @Query(value = "select a, c from Apply a, CV c where a.cv = c and a.employ = :employ ")
+    Page<Object[]> findByEmploy(Pageable pageable, @Param("employ") Employ employ);
 
     // 해당 학생회원이 이 공고에 지원 했는지 확인
     Boolean existsByCvAndEmploy(CV cv, Employ employ);

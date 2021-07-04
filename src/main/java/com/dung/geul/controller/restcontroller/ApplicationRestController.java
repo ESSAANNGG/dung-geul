@@ -154,4 +154,11 @@ public class ApplicationRestController {
 
     }
 
+    // 기업마이페이지에서 입사지원자의 합격 불합격 여부 기능
+    @PostMapping("/apply/pass")
+    public ResponseEntity ApplyPass(@RequestBody String[] ap_ids){
+
+        return null;
+    }
+
 }
