@@ -1,6 +1,8 @@
 package com.dung.geul.entity;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -35,6 +37,7 @@ public class Apply implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private CV cv;              // 이력서
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Employ employ; // 채용공고
 }
