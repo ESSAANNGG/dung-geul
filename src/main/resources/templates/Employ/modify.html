@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <!-- Required meta tags -->
@@ -238,6 +238,14 @@
     let ep;
     //근무지역,지원방법,첨부파일
     $(document).ready(function() {
+
+        etp_id=[[${etp.etp_id}]];
+        etp_id2=[[${dto.etp_id}]];
+        if(etp_id!=etp_id2){
+            alert("해당 공고를 등록하신 분만 수정이 가능합니다");
+            window.history.go(-1);
+        }
+
         eduFunc();
 
         $('#em_title').val([[${dto.title}]]);
@@ -250,6 +258,7 @@
         $('#em_salary').val([[${dto.salary}]]);
         $('#em_start_date').val([[${dto.start_date}]]);
         $('#em_end_date').val([[${dto.end_date}]]);
+
 
         career=[[${dto.education}]];
         if([[${dto.education}]]==null||[[${dto.education}]]=="무관"){
@@ -264,8 +273,6 @@
         $('#em_sido').val(area[0]).trigger('change');
         $('#em_gugun').val(area[1]);
 
-
-        alert([[${dto.education}]]);
     });
 </script>
 </html>
