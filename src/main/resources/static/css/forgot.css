@@ -117,7 +117,7 @@ h2 {
 
 
 ul.frm-list li span {
-    width: 70px;
+    width: 74px;
     display: inline-block;
     font-size: 14px;
     font-weight: 500;
@@ -144,7 +144,9 @@ input, a {
 #loginWrap .mlog-sign .mlog, #loginWrap .mlog-sign .sign {
     float: left;
 }
-
+.login_sub_tit{
+    cursor: pointer;
+}
 #loginWrap .mlog-sign .sign {
     position: relative;
     width: 460px;

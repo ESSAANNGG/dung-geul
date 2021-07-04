@@ -42,3 +42,28 @@ let findID = {
 }
 
 findID.init();
+
+
+function one_on(){
+    $('.one_box').css('display','block');
+    $('.two_box').css('display','none');
+    $('.o_tag').css('color','#21209c');
+    $('.t_tag').css('color','#000');
+    $('.o_tag').css('border-bottom','1px solid #21209c');
+    $('.t_tag').css('border-bottom','1px solid #dddddd');
+}
+function two_on(){
+    $('.one_box').css('display','none');
+    $('.two_box').css('display','block');
+    $('.o_tag').css('color','#000');
+    $('.t_tag').css('color','#21209c');
+    $('.t_tag').css('border-bottom','1px solid #21209c');
+    $('.o_tag').css('border-bottom','1px solid #dddddd');
+
+}
+
+window.onload = function () {
+    $('.two_box').css('display','none');
+    $('.o_tag').css('color','#21209c');
+    $('.o_tag').css('border-bottom','1px solid #21209c');
+}
