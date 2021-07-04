@@ -8125,6 +8125,20 @@ Date.now =
     jQuery.fn.extend({ slimscroll: jQuery.fn.slimScroll });
 })(jQuery);
 
+function conManage(){
+    parameter="/consult/counselling_request?page1=&page2=&type=no";
+}
+
+function conManage_guide(){
+    switch (guide_val) {
+        case "대기" :
+            parameter = "/consult/counselling_request?page1=&page2=&type=no";
+            break;
+        case "승인" :
+            parameter = "/consult/counselling_request?page1=&page2=&type=ok";
+            break;
+    }
+}
 function selectAll(){
         if($('input[name="animal"]').is(':checked')==true){          //자식 checkBox에 check적용
             $('input[class="check"]').prop("checked",true);
@@ -8155,14 +8169,22 @@ $('.btn-q').click(function(){
         num = $('.check').eq(index).parent("td").parent("tr").find("th").text();  //해당 순번에 해당하는 열의 순번 저장
         ajax_list.push(num);
     }
-    $.ajax({
-        url: "/consult/counselling_request?result=" + p,
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        data: JSON.stringify(ajax_list),
-    })
-})
+    function conManage_list_send() {
+        if(ListId == "con_no" &&p=="no"){
+            A_Url="/consult/counselling_request?result=" + p
+        }
+        else if (ListId=="con_ok" &&p=="ok"){
+            A_Url="/consult/counselling_request?result=" + p
+        }
+        $.ajax({
+            url: A_Url,
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(ajax_list),
+
+        })
+    }
 
 $('.excute').on('click',function (){
     conF=confirm("회원탈퇴하시겠습니까?");

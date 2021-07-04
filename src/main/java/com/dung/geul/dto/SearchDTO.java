@@ -19,4 +19,5 @@ public class SearchDTO {
     private String shape;
     private String pass;
     private String title;
+    private String consult_num;
 }

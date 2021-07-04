@@ -1,19 +1,18 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.AllowConsultingDTO;
-import com.dung.geul.dto.ConsultingDTO;
-import com.dung.geul.dto.PageRequestDTO;
-import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.entity.Consulting;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.QConsult;
 import com.dung.geul.entity.QConsulting;
 import com.dung.geul.repository.ConsultingRepository;
 import com.dung.geul.repository.MemberRepository;
+import com.dung.geul.repository.search.SearchConsultingRepository;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -31,8 +30,11 @@ import java.util.function.Function;
 public class ConsultingServiceImpl implements ConsultingService {
     private final ConsultingRepository consultingRepository;
 
+    @Autowired
     private final MemberRepository memberRepository;
 
+    @Autowired
+    private final SearchConsultingRepository searchConsultingRepository;
     @Transactional
     public void coapply(ConsultingDTO consultingDTO) {
         try {
@@ -64,19 +66,36 @@ public class ConsultingServiceImpl implements ConsultingService {
                 consulting = consultingRepository.getOne(consult_num.get(i));
 
                 if(result.equals("no")) {
-                    consulting.modCon_allow(2);
+                    consulting.modCon_allow(1);
                 }else if(result.equals("ok")){
                     consulting.modCon_allow(0);
-                }else if(result.equals("stay")){
-                    consulting.modCon_allow(1);
                 }
+//                else if(result.equals("stay")){
+//                    consulting.modCon_allow(1);
+//                }
                 consultingRepository.save(consulting);
             }
             return new ResponseEntity(0, HttpStatus.OK);
         } catch (Exception e){
             System.out.println("error119 : " + e);
-            return new ResponseEntity(2, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(1, HttpStatus.NOT_FOUND);
         }
+    }
+
+    public BooleanBuilder findByCon(SearchDTO dto, int approve){
+        String consult_num = dto.getConsult_num();
+
+        QConsulting qConsulting = QConsulting.consulting;
+
+        BooleanBuilder builder = new BooleanBuilder();
+        BooleanExpression conAllow = qConsulting.consult_approve.eq(approve);
+
+        return builder;
+    }
+
+    public PageResultDTO<ConsultingDTO, Object> getPageResultDTO(BooleanBuilder builder, Pageable pageable){
+        Page<ConsultingDTO> result = searchConsultingRepository.getConuser(builder, pageable);
+        return new PageResultDTO<>(result);
     }
 
     @Override

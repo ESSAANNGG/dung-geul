@@ -22,6 +22,7 @@ public interface ConsultingService {
                 .Consult_detail_field(consultingDTO.getName())
                 .consult_date(consultingDTO.getConsult_date())
                 .consult_time(consultingDTO.getConsult_time())
+                .consult_approve(consultingDTO.getApprove())
                 .user_id(Member.builder()
                         .user_id(consultingDTO.getCon_user_id())
                         .build())

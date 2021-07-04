@@ -186,7 +186,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="enter" th:each="con : ${conlist}">
+                                                <tr class="enter" id="con_no" th:each="con : ${notAllow.getDtoList()}">
                                                     <th scope="row">[[${con.consult_num}]]</th>
                                                     <td>[[${con.con_user_name}]]</td>
                                                     <td>[[${con.type}]]</td>
@@ -194,22 +194,15 @@
                                                     <td>[[${con.consult_date}]]</br>[[${con.consult_time}]]</td>
                                                     <td><input type="checkbox" class="check" name="check1"></td>
                                                 </tr>
-                                                <tr class="ok" th:each="con : ${conlist}">
-                                                    <th scope="row">[[${con.consult_num}]]</th>
-                                                    <td>[[${con.con_user_name}]]</td>
-                                                    <td>[[${con.type}]]</td>
-                                                    <td>[[${con.name}]]</td>
-                                                    <td>[[${con.consult_date}]]</br>[[${con.consult_time}]]</td>
+                                                <tr class="ok" id="con_ok" th:each="con1 : ${allow.getDtoList()}">
+                                                    <th scope="row">[[${con1.consult_num}]]</th>
+                                                    <td>[[${con1.con_user_name}]]</td>
+                                                    <td>[[${con1.type}]]</td>
+                                                    <td>[[${con1.name}]]</td>
+                                                    <td>[[${con1.consult_date}]]</br>[[${con1.consult_time}]]</td>
                                                     <td><input type="checkbox" class="check" name="check2"></td>
                                                 </tr>
-                                                <tr class="no" th:each="con : ${conlist}">
-                                                    <th scope="row">[[${con.consult_num}]]</th>
-                                                    <td>[[${con.con_user_name}]]</td>
-                                                    <td>[[${con.type}]]</td>
-                                                    <td>[[${con.name}]]</td>
-                                                    <td>[[${con.consult_date}]]</br>[[${con.consult_time}]]</td>
-                                                    <td><input type="checkbox" class="check" name="check3"></td>
-                                                </tr>
+
                                             </tbody>
                                         </table>
                                         <div id="selectAll-wrap">
