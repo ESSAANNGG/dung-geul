@@ -251,7 +251,8 @@
         $('#em_title').val([[${dto.title}]]);
         $('#em_content').val([[${dto.content}]]);
         $('#em_ot').val([[${dto.ot}]]);
-        $("input[name='고용형태'][value=" + [[${dto.ep}]] + "]").prop("checked",true);
+
+        $("input[name='고용형태']:input[value=" + [[${dto.ep}]] + "]").prop("checked",true);
         $("input[name='career'][value=" + [[${dto.career}]] + "]").prop("checked",true);
         $('#em_career').val([[${dto.career}]]);
         $('#em_people').val([[${dto.people}]]);
@@ -273,6 +274,12 @@
         $('#em_sido').val(area[0]).trigger('change');
         $('#em_gugun').val(area[1]);
 
+        apply=[[${dto.apply}]];
+        apply_split=apply.split(",");
+        alert(apply_split.length);
+        for (i=0; i<apply_split.length; i++) {
+            $("input[name='지원방법'][value=" + apply_split[i] + "]").prop("checked", true);
+        }
     });
 </script>
 </html>

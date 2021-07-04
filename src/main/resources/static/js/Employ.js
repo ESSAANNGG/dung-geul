@@ -44,7 +44,7 @@ $(document).ready(function () {
     $('#emRemove').on('click', function () {
 
         let num = $('#em_num').val();
-        console.log(num);
+
         $.ajax({
             url: '/rest/' + num ,
             method: 'delete'
@@ -63,14 +63,29 @@ $(document).ready(function () {
     // 채용 글 수정
     $('#emSave').on('click', function() {
 
-
+        let ap = '';
+        $('input[name="지원방법"]:checked').each(function(index){
+            if(index != 0){
+                ap += ',';
+            }
+            ap += $(this).val();
+        })
 
         let data = {
+            etp_id : $("#em_id").val(),
             num : $('#em_num').val(),
             title: $('#em_title').val(),
             content : $('#em_content').val(),
             ot : $('#em_ot').val(),
-            etp_id : $("#em_id").val()
+            ep : $('input[name="고용형태"]:checked').val(),
+            career : $('input[name="career"]:checked').val(),
+            education : ed,
+            people : $('#em_people').val(),
+            start_date : $('#em_start_date').val(),
+            end_date : $('#em_end_date').val(),
+            salary : $('#em_salary').val(),
+            area : $('#em_sido').val()+'/'+$('#em_gugun').val(),
+            apply : ap
         }
 
         console.log(data);
