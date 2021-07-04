@@ -145,6 +145,7 @@
                             <div id="main-content" style="height: 100vh;">
                                 <div id="sang-con">
                                     <div id="radio">
+
                                         <input type="radio" name="radio" id="allow1" value="전체" class="checkbox" checked>
                                         <label for="allow1" class="input-label radio">전체</label>
                                         <input type="radio" name="radio" id="allow2" value="승인" class="checkbox">
@@ -152,50 +153,27 @@
                                         <input type="radio" name="radio" id="allow3" value="거절" class="checkbox">
                                         <label for="allow3" class="input-label radio">거절</label>
                                     </div>
-                                    <table class="type07">
-                                        <thead>
-                                        <tr>
-                                            <th scope="cols">순번</th>
-                                            <th scope="cols">상담사명</th>
-                                            <th scope="cols">상담 분야</th>
-                                            <th scope="cols">세부 분류</th>
-                                            <th scope="cols">신청 일시</th>
-                                            <th scope="cols">상태</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr class="enter" th:each="ml : ${mylist}">
-                                            <th scope="row">[[${ml.consult_num}]]</th>
-                                            <td>[[${ml.con_user_id}]]</td>
-                                            <td>[[${ml.type}]]</td>
-                                            <td>[[${ml.name}]]</td>
-                                            <td>[[${ml.consult_date}]] [[${ml.consult_time}]]</td>
-                                            <td>상태</td>
-                                        </tr>
-                                        <tr class="ok" th:each="ml : ${mylist}">
-                                            <th scope="row">[[${ml.consult_num}]]</th>
-                                            <td>[[${ml.con_user_id}]]</td>
-                                            <td>[[${ml.type}]]</td>
-                                            <td>[[${ml.name}]]</td>
-                                            <td>[[${ml.consult_date}]] [[${ml.consult_time}]]</td>
-                                            <td>승인 완료</td>
-                                        </tr>
-                                        <tr class="no" th:each="ml : ${mylist}">
-                                            <th scope="row">[[${ml.consult_num}]]</th>
-                                            <td>[[${ml.con_user_id}]]</td>
-                                            <td>[[${ml.type}]]</td>
-                                            <td>[[${ml.name}]]</td>
-                                            <td>[[${ml.consult_date}]] [[${ml.consult_time}]]</td>
-                                            <td>거절</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <div id="selectAll-wrap">
-                                        <input style="margin-left: 80px;" type="checkbox" name="animal"
-                                               value="selectall" onclick='selectAll()' />
-                                        <b>모두 체크</b>
-                                        <button class="btn-q" id="delete" style="margin-left: 10px;">삭제</button>
+                                    <div class="sang_con">
+                                    <div class="sang_list_head">
+                                    <span class="check"><input type="checkbox" name="2_2_checkH"
+                                                               onclick="checkAll(this);"></span>
+                                        <span class="number s100">순번</span>
+                                        <span class="name s140">상담분야</span>
+                                        <span class="username s380">세부분류</span>
+                                        <span class="phone s180">신청일시</span>
+                                        <span class="email s430">상태</span>
                                     </div>
+                                        <div class="sang_list_body" th:each="ml : ${mylist}" onclick="detail(this)">
+                                            <span class="check"><input type="checkbox" name="2_2_check" onclick="non_detailFunc();"></span>
+                                            <span class="number s100">[[${ml.consult_num}]]</span>
+                                            <span class="name s140">[[${ml.con_user_id}]]</span>
+                                            <span class="username s380">[[${ml.type}]]</span>
+                                            <span class="phone s180">[[${ml.name}]]</span>
+                                            <span class="email s430" >[[${ml.consult_date}]] [[${ml.consult_time}]]</span>
+                                        </div>
+                                    </div>
+                                    <button class="list_submit" onclick="list_submit(this)">승인</button>
+                                    <button class="list_submit" onclick="list_submit(this)">거절</button>
                                 </div>
                             </div>
                         </div>
