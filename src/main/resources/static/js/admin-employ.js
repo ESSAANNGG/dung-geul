@@ -165,6 +165,7 @@ function detail_on_employ(employ_num){
             $('input[name=대표번호]').val(E.etp_ph+"-"+E.etp_ph2+"-"+E.etp_ph3);
             $('input[name=대표자명]').val(E.etp_ceo_name);
             $('input[name=팩스]').val(E.etp_fx);
+            $('#etp_id').val(E.etp_id);
         },
         error : function (error){
             alert("상세정보 로딩에 실패했습니다");
@@ -182,26 +183,28 @@ function employ_detail_submit(select_modal,t){
         case "수정" :
             conF = confirm('해당 공고를 수정하시겠습니까?');
             if (conF == true) {
-                let data = {
+                data = {
+                    ep :  $('input[name=고용형태]').val(),
+                    etp_id : $('#etp_id').val(),
                     num : $('input[name=번호]').val(),
                     title: $('input[name=제목]').val(),
                     content : $('input[name=코멘트]').val(),
-                    ot : $('input[name=직종]').val()
-                    // ep :  $('input[name=고용형태]').val(),
-                    // etp_id : $('input[name=고용형태]').val()
+                    ot : $('input[name=직종]').val()}
                 }
 
                 $.ajax({
                     url: "/rest/emSave",
                     method: 'put',
                     data: JSON.stringify(data),
-                    contentType: 'application/json; charset=utf-8,'
-                }).done(function () {
-                    location.href = '/Employ/list';
-                }).fail(function (error) {
-                    alert("수정에 실패했습니다");
+                    contentType: 'application/json; charset=utf-8',
+                    success : function (result){
+                        alert("수정되었습니다.");
+                        submit_param();
+                    },
+                    error : function (err) {
+                        alert("수정에 실패했습니다.");
+                    }
                 })
-            }
             break;
         case "삭제" :
             conF = confirm('해당 공고를 삭제하시겠습니까?');

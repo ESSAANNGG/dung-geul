@@ -118,6 +118,7 @@
 
                 </div>
             </div>
+            <div sec:authorize="hasRole('ENTERPRISE')">
                 <div class="col-md-12">
                     <div class="submit_btn">
                         <a th:href="@{/Employ/modify(num = ${dto.num})}">
@@ -125,10 +126,12 @@
                         </a>
                         <button class="boxed-btn3" id="emRemove" name="emRemove" type="submit">삭제</button>
 
-                      <!--  <button class="boxed-btn3" id="emModify" name="emModify" type="submit">수정</button>
-                        <button class="boxed-btn3" id="emSave" name="emSave" type="submit">저장</button>-->
+                        <!--  <button class="boxed-btn3" id="emModify" name="emModify" type="submit">수정</button>
+                          <button class="boxed-btn3" id="emSave" name="emSave" type="submit">저장</button>-->
                     </div>
                 </div>
+            </div>
+
         </div>
     </section>
 </section>

@@ -68,6 +68,7 @@ public interface EmployService {
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .file(entity.getFile())
+                .etp_id(enterprise.getEtp_id())
                 .etp_name(enterprise.getEtp_name())
                 .etp_sector(enterprise.getEtp_sector())
                 .etp_ph(enterprise.getEtp_ph())
