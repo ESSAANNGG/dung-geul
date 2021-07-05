@@ -69,8 +69,8 @@
                 </div>
                 <div id="receipt_box" class="box">
                     <div id="receipt_date">
-                        <h6>남은 기간</h6>
-                        <h1>10일 05:10:09</h1>
+                        <h6>마감일</h6>
+                        <h1>[[${dto.end_date}]]</h1>
                         <!--                <h6 style="margin-top:10px;">시작일 | <span  id="regDate"  th:text="${dto.start_date}"  ></span></h6>-->
                         <!--                <h6 style="margin-top:5px;"  >마감일 | <span id="end_date" th:text="${dto.end_date}" ></span></h6>-->
                     </div>
@@ -110,14 +110,15 @@
             </div>
 
 
-            <div id="stats_wrap">
-                <div id="stats_head" class="head">
-                    <h3>지원자 통계</h3>
-                </div>
-                <div id="stats_box" class="box">
+<!--            <div id="stats_wrap">-->
+<!--                <div id="stats_head" class="head">-->
+<!--                    <h3>지원자 통계</h3>-->
+<!--                </div>-->
+<!--                <div id="stats_box" class="box">-->
 
-                </div>
-            </div>
+<!--                </div>-->
+<!--            </div>-->
+
             <div sec:authorize="hasRole('ENTERPRISE')">
                 <div class="col-md-12">
                     <div class="submit_btn">
@@ -173,12 +174,28 @@
 <!-- footer -->
 
 <footer th:replace="layout/layout :: footer" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script>
+    $(document).ready(function() {
 
+        // nowTime = new Date()
+        // nowTime=nowTime.toISOString().substring(0,16)
+        //
+        restTime = $('#receipt_date h1').text();
+        restTime=restTime.split('T');
+        $('#receipt_date h1').text(restTime[0]);
+        var br = document.createElement("br");
+        $('#receipt_date h1').append(br);
+        $('#receipt_date h1').append(restTime[1]);
+
+    });
+</script>
 <script th:inline="javascript">
     $(document).ready(function() {
         employ_num=[[${dto.num}]];
-        userId=[];
-        userId.push([[${memberDTO.getUser_id}]]);
+
+
+        userId=([[${memberDTO.getUser_id}]]);
 
         applies=([[${alreadyApply}]]); //이미 지원한 공고인지 확인
 
@@ -196,6 +213,7 @@
                 $('#online_apply').css('display','initial');
             }
         }
+
     });
 </script>
 </body>

@@ -134,6 +134,7 @@ button:focus{
     padding:25px 0 25px 0;
     border-top:1px solid #e5e6eb;
     border-bottom:1px solid #e5e6eb;
+    margin-bottom:30px;
 }
 
 #base_wrap li{
