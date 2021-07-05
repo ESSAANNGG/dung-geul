@@ -250,6 +250,7 @@
                 $('.enter').css('display','table-row');
                 $('.ok').css('display','none');
                 $('.no').css('display','none');
+                window.location.href="/mypage/consult/counselling_request?page1=&page2=";
                 checkIndex=1;
                 break;
             case '승인':
@@ -298,10 +299,10 @@
                     alert("처리되었습니다");
                     // window.location.href=location.href;
                     if(p=='ok') {
-                        $("#allow2").trigger("click");
+                        window.location.href="/mypage/consult/counselling_request?page1=&page2=&type=ok"
                     }
                     else if(p=='no'){
-                        $("#allow3").trigger("click");
+                        window.location.href="/mypage/consult/counselling_request?page1=&page2=&type=no"
                     }
                 },
                 error : function (err) {
