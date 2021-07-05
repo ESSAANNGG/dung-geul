@@ -75,7 +75,7 @@
                         <!--                <h6 style="margin-top:5px;"  >마감일 | <span id="end_date" th:text="${dto.end_date}" ></span></h6>-->
                     </div>
                     <div id="receipt_cont">
-                        <li><h5>모집인원 : <span id="em_people" th:text="${dto.people}"></span></h5></li>
+                        <li><h5>모집인원 : <span id="em_people">[[${dto.people}]]명</span></h5></li>
                         <li><h5>지원방법 : <span id="em_apply" th:text="${dto.apply}"></span></h5></li>
                     </div>
                 </div>

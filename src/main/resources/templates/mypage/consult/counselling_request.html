@@ -164,12 +164,6 @@
                                                     <option value="2">취업 상담</option>
                                                     <option value="3">창업 상담</option>
                                                 </select>
-                                                <select name="employ-field" class="select-field">
-                                                    <option value disabled>취업 세부 분야</option>
-                                                    <option value>취업 세부 분야 내용 1</option>
-                                                    <option value>취업 세부 분야 내용 2</option>
-                                                    <option value>취업 세부 분야 내용 3</option>
-                                                </select>
                                                 <input type="text" class="sang-name" placeholder="이름을 입력해 주세요.">
                                                 <button id="btn-s">검색</button>
                                             </from>
@@ -271,6 +265,51 @@
                 checkIndex=3;
                 break;
         }
+    })
+
+    //상담사 상담
+    let p;
+    $('.btn-q').click(function() {
+        p = $(this).text();
+        switch (p) {
+            case "삭제":
+                p = "no";
+                break;
+            case "승인":
+                p = "ok";
+                break;
+        }
+        ajax_list = [];
+        checked_length = $('.check:checked').length;
+        for (i = 0; i < checked_length; i++) {
+            index = ($('.check').index($('.check:checked'))); //<<1개만 반환됨
+            ($('.check').eq(index)).prop("checked", false);
+            num = $('.check').eq(index).parent("td").parent("tr").find("th").text();  //해당 순번에 해당하는 열의 순번 저장
+            ajax_list.push(num);
+        }
+
+            $.ajax({
+                url: "/consult/counselling_request?result="+p,
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(ajax_list),
+                success : function (result){
+                    alert("처리되었습니다");
+                    // window.location.href=location.href;
+                    if(p=='ok') {
+                        $("#allow2").trigger("click");
+                    }
+                    else if(p=='no'){
+                        $("#allow3").trigger("click");
+                    }
+                },
+                error : function (err) {
+                    alert("상담목록 처리 실패");
+                }
+            })
+
+
     })
 </script>
 </body>
