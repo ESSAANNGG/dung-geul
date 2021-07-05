@@ -89,11 +89,13 @@ public class EmployController {
         log.info("num :" +num);
 
         EnterpriseDTO enterpriseDTO = memberService.getEnterprise(authMemberDTO.getUser_id());
+        Member member = memberService.getMember(authMemberDTO.getUser_id());
 
         EmployDTO dto = service.read(num);
 
         model.addAttribute("etp", enterpriseDTO);
         model.addAttribute("dto", dto);
+        model.addAttribute("member", member);
 
     }
 

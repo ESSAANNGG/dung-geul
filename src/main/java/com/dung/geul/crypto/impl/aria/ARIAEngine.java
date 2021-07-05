@@ -1,4 +1,4 @@
-package gov.keis.openapi.client.crypto.impl.aria;
+package com.dung.geul.crypto.impl.aria;
 
 import java.io.PrintStream;
 import java.security.InvalidKeyException;
@@ -17,7 +17,7 @@ public class ARIAEngine
   private static final int[] TX1 = new int['Ā'];
   private static final int[] TX2 = new int['Ā'];
   private static final int blockSize = 16;
-  private static gov.keis.openapi.client.crypto.impl.aria.CryptoPadding padding = null;
+  private static com.dung.geul.crypto.impl.aria.CryptoPadding padding = null;
   private int keySize = 0;
   private int numberOfRounds = 0;
   private byte[] masterKey = null;

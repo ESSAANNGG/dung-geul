@@ -1,8 +1,8 @@
-package gov.keis.openapi.client.crypto.impl;
+package com.dung.geul.crypto.impl;
 
-import gov.keis.openapi.client.crypto.impl.aria.ARIAEngine;
-import gov.keis.openapi.client.crypto.impl.aria.AnsiX923Padding;
-import gov.keis.openapi.client.crypto.impl.aria.CryptoPadding;
+import com.dung.geul.crypto.impl.aria.ARIAEngine;
+import com.dung.geul.crypto.impl.aria.AnsiX923Padding;
+
 import java.security.InvalidKeyException;
 
 public class ARIACipher

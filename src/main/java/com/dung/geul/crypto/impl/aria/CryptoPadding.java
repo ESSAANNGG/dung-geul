@@ -1,4 +1,4 @@
-package gov.keis.openapi.client.crypto.impl.aria;
+package com.dung.geul.crypto.impl.aria;
 
 public abstract interface CryptoPadding
 {
