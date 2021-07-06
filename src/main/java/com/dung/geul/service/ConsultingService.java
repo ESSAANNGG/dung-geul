@@ -7,7 +7,15 @@ import com.dung.geul.entity.Consult;
 import com.dung.geul.entity.Consulting;
 import com.dung.geul.entity.Member;
 
+import java.util.function.Function;
+
 public interface ConsultingService {
+
+    default Function<Object[], ConsultingDTO> getFunction(){
+        Function<Object[], ConsultingDTO> fn = (en -> OkEntityDTO((Consult) en[0], (ConsultingDTO) en[1]));
+        return fn;
+    }
+    void remove(Long consult_num);
 
     PageResultDTO<ConsultingDTO, Consulting> conlist(PageRequestDTO pageRequestDTO);
 
@@ -42,5 +50,24 @@ public interface ConsultingService {
                 .consult_date(consulting.getConsult_date())
                 .build();
         return consultingDTO;
+    }
+
+    //승인목록
+    default ConsultingDTO OkEntityDTO(Consult c, ConsultingDTO t){
+        ConsultingDTO AllowDTO = new ConsultingDTO(c.getCno());
+            AllowDTO.setApprove(t.getApprove());
+//
+//            int approve;
+//
+//            if (t.getApprove()==(0)){
+//                approve=0;
+//            }else if (t.getApprove()==1){
+//                approve=1;
+//            }else if (t.getApprove()==2){
+//                approve=2;
+//            }
+//
+//            AllowDTO.setApprove(approve);
+        return AllowDTO;
     }
 }

@@ -55,7 +55,7 @@ public class ConsultingServiceImpl implements ConsultingService {
         }
     }
 
-    //승인거절대기
+    //승인거절대기 //0대기 1 승인 2 거절
     @Transactional
     public ResponseEntity conok(List<Long> consult_num, String result){
         System.out.println("consultingServiceImpl - consulting : " + consult_num.toString());
@@ -65,15 +65,18 @@ public class ConsultingServiceImpl implements ConsultingService {
             for (int i=0; i<consult_num.size(); i++){
                 consulting = consultingRepository.getOne(consult_num.get(i));
 
-                if(result.equals("no")) {
-                    consulting.modCon_allow(1);
-                }else if(result.equals("ok")){
+                if(result.equals("stay")) {
                     consulting.modCon_allow(0);
+                    consultingRepository.save(consulting);
+                }else if(result.equals("ok")){
+                    consulting.modCon_allow(1);
+                    consultingRepository.save(consulting);
                 }
-//                else if(result.equals("stay")){
-//                    consulting.modCon_allow(1);
-//                }
-                consultingRepository.save(consulting);
+                else if(result.equals("no")){
+                    consulting.modCon_allow(2);
+                    consultingRepository.save(consulting);
+                }
+
             }
             return new ResponseEntity(0, HttpStatus.OK);
         } catch (Exception e){
@@ -83,19 +86,40 @@ public class ConsultingServiceImpl implements ConsultingService {
     }
 
     public BooleanBuilder findByCon(SearchDTO dto, int approve){
-        String consult_num = dto.getConsult_num();
+        log.info("findbycon 실행");
+        log.info("SearchDTO : " + dto);
 
+//        String approve1 = dto.getConsult_num();
+//        String type = dto.getType();
+
+//        log.info("approve" + approve1);
+
+//        QConsult qConsult = QConsult.consult;
         QConsulting qConsulting = QConsulting.consulting;
+
 
         BooleanBuilder builder = new BooleanBuilder();
         BooleanExpression conAllow = qConsulting.consult_approve.eq(approve);
+        builder.and(conAllow);
 
         return builder;
     }
 
     public PageResultDTO<ConsultingDTO, Object> getPageResultDTO(BooleanBuilder builder, Pageable pageable){
+        log.info("getPageResultDTO 실행");
+
         Page<ConsultingDTO> result = searchConsultingRepository.getConuser(builder, pageable);
+
+        log.info("page<> result : " + result.getContent());
+
+        log.info("function : " + getFunction().toString());
+
         return new PageResultDTO<>(result);
+    }
+
+    @Override
+    public void remove(Long consult_num) {
+        consultingRepository.deleteById(consult_num);
     }
 
     @Override

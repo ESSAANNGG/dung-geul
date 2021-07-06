@@ -9,6 +9,7 @@ import com.dung.geul.entity.QMember;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryResults;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -22,6 +23,7 @@ import static com.dung.geul.entity.QConsulting.consulting;
 import static com.dung.geul.entity.QMember.member;
 
 @Repository
+@Log4j2
 public class SearchConsultingRepository extends QuerydslRepositorySupport {
     private final JPAQueryFactory queryFactory;
 
@@ -31,6 +33,7 @@ public class SearchConsultingRepository extends QuerydslRepositorySupport {
     }
 
     public Page<ConsultingDTO> getConuser(BooleanBuilder builder, Pageable pageable){
+
         QueryResults<ConsultingDTO> page = queryFactory
                 .select(
                         new QConsultingDTO(
@@ -53,9 +56,16 @@ public class SearchConsultingRepository extends QuerydslRepositorySupport {
                         .limit(pageable.getPageSize())
                         .fetchResults();
         List<ConsultingDTO> list = page.getResults();
+
+        log.info("list :" + list.toString());
+
         long total = page.getTotal();
 
+        log.info("total : " + total);
+
         PageImpl<ConsultingDTO> pageImpl = new PageImpl<>(list, pageable, total);
+
+        log.info(pageImpl.getContent().toString());
 
         return pageImpl;
 

@@ -143,11 +143,11 @@
                                     <div id="sang-con">
                                         <div id="radio">
                                             <input type="radio" name="radio" id="allow1" value="전체" class="checkbox" checked>
-                                            <label for="allow1" class="input-label radio">전체</label>
+                                            <label for="allow1" class="input-label radio">거절</label>
                                             <input type="radio" name="radio" id="allow2" value="승인" class="checkbox">
                                             <label for="allow2" class="input-label radio">승인</label>
-                                            <input type="radio" name="radio" id="allow3" value="거절" class="checkbox">
-                                            <label for="allow3" class="input-label radio">거절</label>
+<!--                                            <input type="radio" name="radio" id="allow3" value="거절" class="checkbox">-->
+<!--                                            <label for="allow3" class="input-label radio">거절</label>-->
                                         </div>
 
                                         <div id="consss" style="
@@ -180,7 +180,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="enter" id="con_no" th:each="con : ${notAllow.getDtoList()}">
+                                                <tr class="enter" id="con_stay" th:each="con2 : ${stay.getDtoList()}">
+                                                    <th scope="row">[[${con2.consult_num}]]</th>
+                                                    <td>[[${con2.con_user_name}]]</td>
+                                                    <td>[[${con2.type}]]</td>
+                                                    <td>[[${con2.name}]]</td>
+                                                    <td>[[${con2.consult_date}]]</br>[[${con2.consult_time}]]</td>
+                                                    <td><input type="checkbox" class="check" name="check1"></td>
+
+                                                </tr><tr class="enter" id="con_no" th:each="con : ${notAllow.getDtoList()}">
                                                     <th scope="row">[[${con.consult_num}]]</th>
                                                     <td>[[${con.con_user_name}]]</td>
                                                     <td>[[${con.type}]]</td>
@@ -250,20 +258,20 @@
                 $('.enter').css('display','table-row');
                 $('.ok').css('display','none');
                 $('.no').css('display','none');
-                window.location.href="/mypage/consult/counselling_request?page1=&page2=";
-                checkIndex=1;
+                window.location.href="/mypage/consult/counselling_request?page1=&page2=&page3=";
+                checkIndex=2;
                 break;
             case '승인':
                 $('.enter').css('display','none');
                 $('.ok').css('display','table-row');
                 $('.no').css('display','none');
-                checkIndex=2;
+                checkIndex=1;
                 break;
             case '거절':
                 $('.enter').css('display','none');
                 $('.ok').css('display','none');
                 $('.no').css('display','table-row');
-                checkIndex=3;
+                checkIndex=0;
                 break;
         }
     })
@@ -273,6 +281,9 @@
     $('.btn-q').click(function() {
         p = $(this).text();
         switch (p) {
+            case "전체" :
+                p = "stay";
+                break;
             case "삭제":
                 p = "no";
                 break;
@@ -298,11 +309,14 @@
                 success : function (result){
                     alert("처리되었습니다");
                     // window.location.href=location.href;
-                    if(p=='ok') {
-                        window.location.href="/mypage/consult/counselling_request?page1=&page2=&type=ok"
+                    if(ListId == "content-frame" ||p=='ok') {
+                        window.location.href="/mypage/consult/counselling_request?page1=&page2=&page3=&type=ok"
                     }
-                    else if(p=='no'){
-                        window.location.href="/mypage/consult/counselling_request?page1=&page2=&type=no"
+                    else if(ListId == "content-frame" || p=='no'){
+                        window.location.href="/mypage/consult/counselling_request?page1=&page2=&page3=&type=no"
+                    }
+                    else if(ListId == "content-frame" || p=='stay'){
+                        window.location.href="/mypage/consult/counselling_request?page1=&page2=&page3=&type=stay"
                     }
                 },
                 error : function (err) {

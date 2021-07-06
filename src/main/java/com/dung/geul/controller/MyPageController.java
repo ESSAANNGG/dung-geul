@@ -175,6 +175,7 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
     public void getList(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO,
                         @RequestParam(value = "page1", required = false, defaultValue = "1") int page1,
                         @RequestParam(value = "page2", required = false, defaultValue = "1") int page2,
+                        @RequestParam(value = "page3", required = false, defaultValue = "1") int page3,
                         SearchDTO searchDTO
     ){
 
@@ -183,33 +184,39 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
                 "page2 : " + page2);
         System.out.println("list 컨트롤러 실행");
 
-        System.out.println("shape : " + searchDTO.getShape());
+        System.out.println("approve : " + searchDTO.getApprove());
 
         // allow = 1, page1 : 미인증 목록
         // allow = 0, page2 : 인증 목록
-
+        PageRequestDTO StayPageDTO = new PageRequestDTO(page2);
         PageRequestDTO NotAllowPageDTO = new PageRequestDTO(page1);
         PageRequestDTO AllowPageDTO = new PageRequestDTO(page2);
 
-        BooleanBuilder NotAllowBuilder = consultingServiceImpl.findByCon(searchDTO, 0);
+        BooleanBuilder NotAllowBuilder = consultingServiceImpl.findByCon(searchDTO, 2);
         BooleanBuilder AllowBuilder = consultingServiceImpl.findByCon(searchDTO, 1);
+        BooleanBuilder StayBuilder = consultingServiceImpl.findByCon(searchDTO,0);
 
         log.info("booleanBuilder - notAllowBuilder : " + NotAllowBuilder.getValue());
         log.info("booleanBuilder - allowBuilder : " + AllowBuilder.getValue());
+        log.info("booleanBuilder - StayBuilder : " + StayBuilder.getValue());
 
         Sort sort = Sort.by("consult_num");
 
         PageResultDTO notAllowDto = consultingServiceImpl.getPageResultDTO(NotAllowBuilder, NotAllowPageDTO.getPageable(sort));
         PageResultDTO allowDto = consultingServiceImpl.getPageResultDTO(AllowBuilder, AllowPageDTO.getPageable(sort));
+        PageResultDTO stayDTO = consultingServiceImpl.getPageResultDTO(StayBuilder, StayPageDTO.getPageable(sort));
         //지민우
         Member member = memberService.getMember(authMemberDTO.getUser_id());
 
         model.addAttribute("memberDTO",member);
         model.addAttribute("notAllow", notAllowDto);
         model.addAttribute("allow", allowDto);
+        model.addAttribute("stay", stayDTO);
+
 
         log.info("notAllowList : " + notAllowDto.getDtoList());
         log.info("allowList : " + allowDto.getDtoList());
+        log.info("stayList : " + stayDTO.getDtoList());
     }
 
 //    @GetMapping( "/consult/counselling_request")
