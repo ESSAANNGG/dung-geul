@@ -176,7 +176,6 @@ function detail_on_employ(employ_num){
     })
 
     $('#detail_employ').css({"visibility":"visible","opacity":"1"});
-    $('#detail_remocon').css({"visibility":"visible","opacity":"1"});
     $('#wrap,#admin_header').css("opacity","0.4");
 }
 
@@ -227,4 +226,66 @@ function employ_detail_submit(select_modal,t){
             }
             break;
     }
+}
+
+function remote_on(t){
+    $('#detail_remote').css('opacity','1');
+    $('#detail_remote').css('visibility','visible');
+    val_name=$(t).attr('name');
+    $('#'+val_name+'_modal').css('display','block');
+
+}
+function remote_off(){
+    $('#detail_remote').css('opacity','0');
+    $('#detail_remote').css('visibility','hidden');
+    $('.remote_modal').css('display','none');
+
+    //값 초기화
+    $('.remote_modal input').val('');
+    $('.remote_modal select').val('').prop("selected", true);
+}
+function modal_val(t){
+    // ex) 직종_modal이 name인 것을 잘라 [직종]문자를 만들어 name이 [직종] input에 값 교체
+    // 모집인원 급여 등 뒤에 [명,만원]을 덧붙이고 싶다면 추가적으로 if문 작성
+    val_name=$(t).attr('name');
+    val_name=val_name.split("_");
+    val_name=val_name[0];
+    val=$(t).val();
+    $('input[name='+val_name+']').val(val);
+
+    if(val_name=='모집인원'){
+        $('input[name='+val_name+']').val(val+'명');
+    }
+    else if(val_name=='급여'){
+        $('input[name='+val_name+']').val(val+'만원');
+    }
+}
+
+//수정창 모집인원,급여 유효성검사(숫자를 쓰는것들)
+$(".remote_modal input[type=text]").on("keyup", function() {
+    $(this).val($(this).val().replace(/[^0-9]/g,""));
+    modal_val(this);
+});
+
+//date타입 시작일,마감일
+$(".remote_modal input[type=datetime-local]").change(function() {
+    val_name=$(this).attr('name');
+    val_name=val_name.split("_");
+    val_name=val_name[0];
+    val=$(this).val();
+    val=val.substring(0,10);
+    $('input[name='+val_name+']').val(val);
+});
+
+//체크박스전용
+function checkbox() {
+    let ap = '';
+    $('.remote_modal input[type="checkbox"]:checked').each(function (index) {
+        if (index != 0) {
+            ap += ',';
+        }
+        ap += $(this).val();
+    })
+    alert(ap);
+    $('input[name=지원방법]').val(ap);
 }

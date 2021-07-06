@@ -654,17 +654,59 @@ a{
 }
 
 
-#detail_remocon{
-    left:1400px;
-    width:400px;
+#detail_remote{
+    display:block;
+    position:fixed;
+    left:0;
+    right:0;
+    top:25%;
+    width:370px;
     max-height:80%;
+    padding:35px;
+    margin:auto;
+    background-color: #ffffff;
+    color:#545c64;
+
+    border-radius: 3px;
+    font-weight: 700;
+    font-size:14px;
+    box-shadow: 0px 0px 3px black;
+    opacity:0; /*css효과를주기위해*/
+    visibility:hidden;
+    transition-property:opacity;
+    transition-duration: 0.45s;
+    z-index:4;
     overflow-y: -moz-scrollbars-none;
 }
-
-/*지원프로그램 분류 select*/
-select[name="division"]{
-    display:none;
+#detail_remote h3{
+    color:#212126;
+    font-size:14px;
 }
+#detail_remote span{
+    color:#212126;
+}
+.remote_modal{
+    display:none;
+    margin:15px 0px;
+}
+.remote_button{
+    background-color: #3f51b5;
+    box-shadow:  0px 2px 2px #b5b5b5;
+    color:#ffffff;
+    border:none;
+    font-weight: 500;
+    font-size:12px;
+    width:82px;
+    height:27px;
+}
+.remote_modal select{
+    width:300px;
+}
+
+
+
+
+
 
 /*main2_회원통계chart*/
 #container{
@@ -685,6 +727,11 @@ select[name="division"]{
 .highcharts-axis-title{
     display:none;
 }
+
+
+
+
+
 
 @media screen and (max-width: 650px) {
     .detailBox {

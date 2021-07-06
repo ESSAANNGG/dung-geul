@@ -324,6 +324,7 @@ $('#shadow_box').click(function(e){
         $('.detailBox').css({"visibility": "hidden", "opacity": "0"});
         $('#wrap,#admin_header').css("opacity", "1");
         detail_state = 0;
+        remote_off(); //공고 수정모달창
     }
 })
 
@@ -368,6 +369,4 @@ function pagenation(t) {
     $('#'+list).load(link +" #"+list +" > .list",function () {//띄어쓰기 잘해야함
         $('#' + list).prepend("<div class=" + '"sub_menu_title"' + "><h3>" + sub_menu_title + "</h3></div>"); //load로 교체시 안의 내용이 모두 교체되어 title을 추가해야함
     });                                                                                                       //append는 뒤에, prepend는 앞에
-
-
 }
