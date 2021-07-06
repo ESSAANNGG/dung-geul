@@ -243,6 +243,8 @@ function remote_off(){
     //값 초기화
     $('.remote_modal input').val('');
     $('.remote_modal select').val('').prop("selected", true);
+    $(".remote_modal input[type=checkbox]").attr("checked", false);
+    apply_index=0;
 }
 function modal_val(t){
     // ex) 직종_modal이 name인 것을 잘라 [직종]문자를 만들어 name이 [직종] input에 값 교체
@@ -278,14 +280,51 @@ $(".remote_modal input[type=datetime-local]").change(function() {
 });
 
 //체크박스전용
-function checkbox() {
-    let ap = '';
-    $('.remote_modal input[type="checkbox"]:checked').each(function (index) {
-        if (index != 0) {
-            ap += ',';
+let apply_index=0;
+$("input[type=checkbox]").change(function() {
+    val_name=$(this).attr('name');
+    // alert($('input[name=지원방법_val]').index(this));  //인덱스는 제대로 잡힘
+    val_name=val_name.split("_");
+    val_name=val_name[0];
+    val=$(this).attr('id');
+
+    if(apply_index==0){
+        $('input[name='+val_name+']').val("");
+    }
+
+    if($(this).is(":checked")==true){
+        if($('input[name='+val_name+']').val()==""){
+            $('input[name='+val_name+']').val(val);
         }
-        ap += $(this).val();
-    })
-    alert(ap);
-    $('input[name=지원방법]').val(ap);
-}
+        else if($('input[name='+val_name+']').val()!=""){
+            $('input[name='+val_name+']').val($('input[name='+val_name+']').val()+','+val);
+        }
+    }
+    else{
+        str_index=$('input[name='+val_name+']').val().indexOf(val);
+        if(str_index==0){
+            $('input[name='+val_name+']').val($('input[name='+val_name+']').val().replace(val,''));
+        }
+        else if(str_index>0){
+            $('input[name='+val_name+']').val($('input[name='+val_name+']').val().replace(','+val,''));
+        }
+    }
+    apply_index=1;
+})
+
+// function checkbox() {
+//     let ap = '';
+//     ap_index=0;
+//     $('.remote_modal input[type="checkbox"]:checked').each(function (ap_index) {
+//         alert(ap_index);
+//         if (ap_index != 0) {
+//             ap += ',';
+//         }
+//         ap += $(this).val();
+//         alert($(this).val());
+//         return ap_index;
+//     })
+//     $('input[name=지원방법]').val(ap);
+//
+//     remote_off();
+// }
