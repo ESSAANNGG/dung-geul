@@ -156,8 +156,10 @@ function detail_on_employ(employ_num){
             $('input[name=급여]').val(E.salary+'만원');
             $('input[name=모집인원]').val(E.people+'명');
             $('input[name=지원방법]').val(E.apply);
-            $('input[name=모집일]').val(E.start_date.substring(0,10));
-            $('input[name=마감일]').val(E.end_date.substring(0,10));
+            start_date=String(E.start_date);
+            end_date=String(E.end_date);
+            $('input[name=모집일]').val(start_date.substring(0,10));
+            $('input[name=마감일]').val(end_date.substring(0,10));
             $('input[name=본문이미지]').val(E.file);
             $('input[name=업종]').val(E.etp_sector);
             $('input[name=기업형태]').val(E.etp_shape);
@@ -165,7 +167,7 @@ function detail_on_employ(employ_num){
             $('input[name=대표번호]').val(E.etp_ph+"-"+E.etp_ph2+"-"+E.etp_ph3);
             $('input[name=대표자명]').val(E.etp_ceo_name);
             $('input[name=팩스]').val(E.etp_fx);
-            $('#etp_id').val(E.etp_id);
+            $('input[name=기업아이디]').val(E.etp_id);
         },
         error : function (error){
             alert("상세정보 로딩에 실패했습니다");
@@ -174,6 +176,7 @@ function detail_on_employ(employ_num){
     })
 
     $('#detail_employ').css({"visibility":"visible","opacity":"1"});
+    $('#detail_remocon').css({"visibility":"visible","opacity":"1"});
     $('#wrap,#admin_header').css("opacity","0.4");
 }
 

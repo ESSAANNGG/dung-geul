@@ -654,6 +654,12 @@ a{
 }
 
 
+#detail_remocon{
+    left:1400px;
+    width:400px;
+    max-height:80%;
+    overflow-y: -moz-scrollbars-none;
+}
 
 /*지원프로그램 분류 select*/
 select[name="division"]{
@@ -678,5 +684,12 @@ select[name="division"]{
 }
 .highcharts-axis-title{
     display:none;
+}
+
+@media screen and (max-width: 650px) {
+    .detailBox {
+        width: 425px;
+        overflow-x: hidden;
+    }
 }
 
