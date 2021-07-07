@@ -70,6 +70,10 @@
 .employ_register button:focus{
     outline:none;
 }
+
+
+
+
 select{
     appearance: none;
     background:url("/img/down-arrow.png") no-repeat 94% 50%/13px auto;
@@ -89,9 +93,9 @@ input[type="checkbox"] {
 }
 input[type="checkbox"]:checked:before {
     position:relative;
-    left:-13px;
-    top:-4px;
     font-weight: 900;
+    left:3px;
+    top:-4px;
     color: #ffffff;
     content: '\2713';
     /*-webkit-margin-start: -12px;       start==left, end==right, before==top, after==bottom*/
@@ -100,6 +104,28 @@ input[type="checkbox"]:checked:before {
 input[type="checkbox"]:checked{
     background: -webkit-linear-gradient(#7278B9, #7278B9);
 }
+input[type='radio']:checked {
+    appearance: none;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 100%;
+    margin-right: 0.1rem;
+}
+
+input[type='radio'] {
+    background-color: #fff;
+}
+input[type='radio']:checked {
+    background-color: #7278B9;
+    /*outline: #7278B9 solid 1px;*/
+    /*outline-radius: 50px;*/
+    outline: none;
+    box-shadow: 0 0 0 1px #7278B9;
+    border: 2px solid #fff;
+}
+
+
+
 
 
 /*각 내용을 감싸는 wrap*/
