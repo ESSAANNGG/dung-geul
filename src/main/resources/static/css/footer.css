@@ -12,13 +12,6 @@
   .footer {
     width: 100%;
   }
-  .footer_top{
-    width:1800px;
-    padding: 20px 450px 20px 300px;
-    /*text-align: left;*/
-    border-bottom: 1px solid #63696e;
-    color:#c5c7c9;
-  }
   .footer_bottom{
     width:1800px;
     padding: 20px 300px 20px 300px;
@@ -39,7 +32,7 @@
   color: WHITE;
 }
 .footer_top{
-  padding: 20px 450px 20px 300px;
+  padding: 20px 250px 20px 300px;
   text-align: left;
   border-bottom: 1px solid #63696e;
   color:#c5c7c9;

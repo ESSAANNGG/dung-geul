@@ -194,10 +194,11 @@ input[type=text] {
 }
 #coun-wrap h1{
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 400;
     margin-bottom: 30px;
     color: #333;
-    border-bottom: 5px solid #f6f6f6;
+    border-bottom: 3px solid #0202025e;
+    height:43px;
 }
 select[name=employ-field]{
     display:none;
