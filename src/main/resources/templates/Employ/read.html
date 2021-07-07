@@ -119,7 +119,7 @@
 <!--                </div>-->
 <!--            </div>-->
 
-            <div sec:authorize="hasRole('ADMIN')">
+            <div sec:authorize="hasRole('ENTERPRISE')">
                 <div class="col-md-12">
                     <div class="submit_btn">
                         <a th:href="@{/Employ/modify(num = ${dto.num})}">

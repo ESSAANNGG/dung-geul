@@ -156,10 +156,12 @@ function detail_on_employ(employ_num){
             $('input[name=급여]').val(E.salary+'만원');
             $('input[name=모집인원]').val(E.people+'명');
             $('input[name=지원방법]').val(E.apply);
-            start_date=String(E.start_date);
-            end_date=String(E.end_date);
-            $('input[name=모집일]').val(start_date.substring(0,10));
-            $('input[name=마감일]').val(end_date.substring(0,10));
+            // start_date=String(E.start_date);
+            // end_date=String(E.end_date);
+            // $('input[name=모집일]').val(start_date.substring(0,10));
+            // $('input[name=마감일]').val(end_date.substring(0,10));
+            $('input[name=모집일]').val(E.start_date);
+            $('input[name=마감일]').val(E.end_date);
             $('input[name=본문이미지]').val(E.file);
             $('input[name=업종]').val(E.etp_sector);
             $('input[name=기업형태]').val(E.etp_shape);
@@ -181,17 +183,31 @@ function detail_on_employ(employ_num){
 
 function employ_detail_submit(select_modal,t){
     btn_text=$(t).text();
+    let data;
     switch (btn_text) {
         case "수정" :
+
             conF = confirm('해당 공고를 수정하시겠습니까?');
             if (conF == true) {
-                data = {
-                    ep :  $('input[name=고용형태]').val(),
-                    etp_id : $('#etp_id').val(),
-                    num : $('input[name=번호]').val(),
+
+                people_val = $('input[name=모집인원]').val().split('명')[0];
+                salary_val = $('input[name=모집인원]').val().split('만원')[0];
+
+                let data = {
+                    etp_id: $('#etp_id').val(),
+                    num: $('input[name=번호]').val(),
                     title: $('input[name=제목]').val(),
-                    content : $('input[name=코멘트]').val(),
-                    ot : $('input[name=직종]').val()}
+                    content: $('input[name=코멘트]').val(),
+                    ot: $('input[name=직종]').val(),
+                    ep: $('input[name=고용형태]').val(),
+                    career: $('input[name=경력]').val(),
+                    education: $('input[name=학력]').val(),
+                    people: people_val,
+                    start_date: $('input[name=모집일]').val(),
+                    end_date: $('input[name=마감일]').val(),
+                    salary: salary_val,
+                    area: $('input[name=근무지역]').val(),
+                    apply: $('input[name=지원방법]').val()
                 }
 
                 $.ajax({
@@ -199,14 +215,15 @@ function employ_detail_submit(select_modal,t){
                     method: 'put',
                     data: JSON.stringify(data),
                     contentType: 'application/json; charset=utf-8',
-                    success : function (result){
+                    success: function (result) {
                         alert("수정되었습니다.");
                         submit_param();
                     },
-                    error : function (err) {
+                    error: function (err) {
                         alert("수정에 실패했습니다.");
                     }
                 })
+            }
             break;
         case "삭제" :
             conF = confirm('해당 공고를 삭제하시겠습니까?');
@@ -275,7 +292,7 @@ $(".remote_modal input[type=datetime-local]").change(function() {
     val_name=val_name.split("_");
     val_name=val_name[0];
     val=$(this).val();
-    val=val.substring(0,10);
+    // val=val.substring(0,10);
     $('input[name='+val_name+']').val(val);
 });
 
