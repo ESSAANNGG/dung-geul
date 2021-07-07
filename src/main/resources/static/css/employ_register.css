@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+/**{*/
+/*    font-family: 'Noto Sans KR', sans-serif;*/
+/*    font-weight:300;*/
+/*}*/
+/*h1{*/
+/*    font-weight:700;*/
+/*    margin:0px;*/
+/*}*/
+/*h2{*/
+/*    font-weight:500;*/
+/*    margin:0px;*/
+/*}*/
+/*h3{*/
+/*    font-weight:400;*/
+/*    margin:0px;*/
+/*}*/
+/*h4{*/
+/*    font-weight:100;*/
+/*    margin:0px;*/
+/*}*/
 /*employ regist.html*/
 .content {
     margin: 0 auto;
@@ -17,12 +38,19 @@
     color:#6b7770;
     box-shadow: 0 0 1px 1px #e2e2e2;
     border-radius: 8px 8px 8px 8px;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight:300;
+    color:#333333 !important;
 }
 
 /*공고등록*/
 .employ_register input{
     /*border-radius: 3px 3px 3px 3px;*/
     border:1px solid #768395;
+}
+.employ_register input[type=datetime-local]{
+    background-color: #fff;
 }
 .employ_register select{
     /*border-radius: 3px 3px 3px 3px;*/
@@ -47,7 +75,31 @@ select{
     background:url("/img/down-arrow.png") no-repeat 94% 50%/13px auto;
     padding-left:15px;
 }
+input[type="checkbox"] {
+    display:inline-block;
+    height: 18px;
+    width: 20px;
+    line-height:22px;
+    margin:0px !important;
 
+    background: -webkit-linear-gradient(#ffffff, #ffffff);
+    font-size:15px;
+    -webkit-appearance:none;
+    border:1px solid #c2c9db;
+}
+input[type="checkbox"]:checked:before {
+    position:relative;
+    left:-13px;
+    top:-4px;
+    font-weight: 900;
+    color: #ffffff;
+    content: '\2713';
+    /*-webkit-margin-start: -12px;       start==left, end==right, before==top, after==bottom*/
+    /*-webkit-margin-before:-50px;        top이 안되어서 그냥 relative*/
+}
+input[type="checkbox"]:checked{
+    background: -webkit-linear-gradient(#7278B9, #7278B9);
+}
 
 
 /*각 내용을 감싸는 wrap*/
@@ -157,7 +209,7 @@ input[type="file"] {
 }
 .base_button{
     border: none !important;
-    background-color: #3498db;
+    background-color: #1f3786d5;
     color: white;
     display: inline-block;
     padding: 6px 12px;
