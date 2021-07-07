@@ -144,24 +144,8 @@
                             <!-- 주요컨텐츠 -->
                             <div id="main-content" style="height: 100vh;">
                                 <div id="sang-con">
-                                    <div id="radio">
-
-                                        <input type="radio" name="radio" id="allow1" value="전체" class="checkbox" checked>
-                                        <label for="allow1" class="input-label radio">전체</label>
-                                        <input type="radio" name="radio" id="allow2" value="승인" class="checkbox">
-                                        <label for="allow2" class="input-label radio">승인</label>
-                                        <input type="radio" name="radio" id="allow3" value="거절" class="checkbox">
-                                        <label for="allow3" class="input-label radio">거절</label>
-                                    </div>
-
-
-
-
-
                                     <div class="sang_con">
                                     <div class="sang_list_head">
-                                    <span class="check"><input type="checkbox" name="check"></span>
-                                        <span class="checkdiv"></span>
                                         <span class="number">순번</span>
                                         <span class="type">상담분야</span>
                                         <span class="dtype">세부분류</span>
@@ -169,32 +153,14 @@
                                         <span class="state">상태</span>
                                     </div>
                                     <div class="sang_list_body enter" th:each="ml : ${mylist}">
-                                        <span class="checkbox"><input type="checkbox" name="check" class="check"></span>
                                         <span class="number">[[${ml.consult_num}]]</span>
                                         <span class="dype">[[${ml.con_user_id}]]</span>
                                         <span class="dtype">[[${ml.type}]]</span>
                                         <span class="date">[[${ml.name}]]</span>
                                         <span class="state">[[${ml.consult_date}]] [[${ml.consult_time}]]</span>
                                         enter
+                                        <span class="checkbox"><input type="checkbox" name="check" class="check"></span>
                                     </div>
-                                        <div class="sang_list_body ok" th:each="ml : ${mylist}">
-                                            <span class="checkbox"><input type="checkbox" name="check" class="check"></span>
-                                            <span class="number">[[${ml.consult_num}]]</span>
-                                            <span class="dype">[[${ml.con_user_id}]]</span>
-                                            <span class="dtype">[[${ml.type}]]</span>
-                                            <span class="date">[[${ml.name}]]</span>
-                                            <span class="state">[[${ml.consult_date}]] [[${ml.consult_time}]]</span>
-                                            ok
-                                        </div>
-                                        <div class="sang_list_body no" th:each="ml : ${mylist}">
-                                            <span class="checkbox"><input type="checkbox" name="check" class="check"></span>
-                                            <span class="number">[[${ml.consult_num}]]</span>
-                                            <span class="dype">[[${ml.con_user_id}]]</span>
-                                            <span class="dtype">[[${ml.type}]]</span>
-                                            <span class="date">[[${ml.name}]]</span>
-                                            <span class="state">[[${ml.consult_date}]] [[${ml.consult_time}]]</span>
-                                            no
-                                        </div>
 
 
 
@@ -203,7 +169,7 @@
                                         <input style="margin-left: 80px;" type="checkbox" name="animal"
                                                value="selectall" onclick='selectAll()' />
                                         <b>모두 체크</b>
-                                        <button class="list_submit" onclick="list_submit(this)">삭제</button>
+                                        <button class="btn-q" id="delete" style="margin-left: 10px;" onclick="delete_list()">삭제</button>
                                     </div>
                                 </div>
                             </div>
@@ -244,6 +210,35 @@
                 break;
         }
     })
+
+    function delete_list() {
+        success_var=0;
+        ajax_list = [];
+        checked_length = $('.check:checked').length;
+        for (i = 0; i < checked_length; i++) {
+            index = ($('.check').index($('.check:checked'))); //<<1개만 반환됨
+            ($('.check').eq(index)).prop("checked", false);
+            num = $('.check').eq(index).parents(".sang_list_body").find(".number").text();  //해당 순번에 해당하는 열의 순번 저장
+
+            $.ajax({
+                url: "/remove/"+num,
+                method: 'delete',
+                success : function (result){
+                    success_var=success_var+1;
+                    if(success_var==checked_length) {
+                        alert("처리되었습니다");
+                        window.location.href = location.href;
+                    }
+                },
+                error : function (err) {
+                    alert("처리에 실패했습니다");
+                }
+            })
+        }
+        alert(success_var);
+
+
+    }
 </script>
 </body>
 </html>
