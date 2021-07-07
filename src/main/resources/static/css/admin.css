@@ -567,7 +567,6 @@ a{
 .detailBox::-webkit-scrollbar-track {
     background-color: grey;
     border-radius: 10px;
-
 }
 .detailBox i{
     font-size:23px;

@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="content">
-                            [[${dto.content}]]
+                            <textarea name="content" th:value="${dto.content}" readonly></textarea>
                         </div>
 
 <!--                        <div class="form-group">-->
@@ -116,8 +116,10 @@
 
 <!-- Scripts -->
 <script src="/js/jquery-3.5.1.min.js"></script>
-
-<!-- <script src="assets/js/jquery.min.js"></script>
+<script th:inline="javascript">
+$('textarea[name=content]').val([[${dto.content}]]);
+</script>
+<script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
