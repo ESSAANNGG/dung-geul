@@ -20,13 +20,16 @@ navbar li{
   .nav {
     width: 1903px;
   }
+  .nav2 {
+    width: 1903px !important;
+  }
 }
 
 @media screen and (min-width:1903px){
   navbar{
     width:100%;
   }
-  .nav{
+  .nav2{
     width:100%;
     margin:auto;
   }

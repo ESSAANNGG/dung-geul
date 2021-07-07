@@ -471,3 +471,12 @@ li.group_title {
   margin-bottom: 25px;
 }
 
+
+@media screen and (max-width:1903px){
+  main {
+    width: 1903px;
+  }
+  .main-wrap{
+    width:1903px !important;
+  }
+}
