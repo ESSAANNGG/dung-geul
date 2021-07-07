@@ -296,8 +296,8 @@ function detail(t) {
                 break;
 
             case "application": //지원관리메뉴에서의 모달창
-                employ_num=$(t).children('span.employ_num').text();
-                setTimeout("window['detail_on_'+menu_name](employ_num)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+                employ_title=$(t).children('span.title').text();
+                setTimeout("window['detail_on_'+menu_name](employ_title)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
                 break;
 
             case "board": //게시판메뉴에서의 모달창

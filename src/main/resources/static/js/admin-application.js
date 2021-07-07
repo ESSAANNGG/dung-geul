@@ -48,11 +48,12 @@ function application_search(i){
 }
 
 
-function detail_on_application(employ_num){
+function detail_on_application(employ_title){
     detail_state=1;
 
-    alert("통계띄워야함");
-    $('#wrap,#admin_header').css("opacity","0.4");
-
-        $('#detail_application').css({"visibility":"visible","opacity":"1"});
+    result=confirm("해당 공고로 검색하시겠습니까?");
+    if (result==true){
+        parameter="/admin/admin_application?&title="+employ_title;
+        submit_param();
+    }
 }

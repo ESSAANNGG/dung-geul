@@ -328,20 +328,3 @@ $("input[type=checkbox]").change(function() {
     }
     apply_index=1;
 })
-
-// function checkbox() {
-//     let ap = '';
-//     ap_index=0;
-//     $('.remote_modal input[type="checkbox"]:checked').each(function (ap_index) {
-//         alert(ap_index);
-//         if (ap_index != 0) {
-//             ap += ',';
-//         }
-//         ap += $(this).val();
-//         alert($(this).val());
-//         return ap_index;
-//     })
-//     $('input[name=지원방법]').val(ap);
-//
-//     remote_off();
-// }
