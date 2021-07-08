@@ -17,6 +17,9 @@
     color:rgb(55,63,70);
     border-bottom:1px solid rgb(55,63,70);
 }
+#head_tag h2{
+    font-weight:700;
+}
 .employList{
     display: block;
     position:relative;
@@ -24,7 +27,7 @@
     margin-left:50px;
     background-color: #ffffff;
     color:#768395;
-    box-shadow: 0 0 1px 1px #e2e2e2;
+    box-shadow: 0 0 1px 1px #f7f4f4;
     border-radius: 0px 0px 8px 8px;
 }
 
@@ -63,7 +66,7 @@
 .search:focus{
     outline:none;
     box-shadow: 0px 3px 3px #1f3786d5;
-    border: solid 2px rgb(71, 89, 255);
+    border: solid 1px #3498db;
 }
 .search{
     -ms-text-align-last: center;
@@ -197,6 +200,7 @@
     position:absolute;
     top:200px;
     left:1500px;
+    font-weight:300;
     /* width:300px; */
     margin-right:50px;
     padding:10px 30px;

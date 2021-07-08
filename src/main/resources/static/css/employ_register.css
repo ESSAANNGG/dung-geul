@@ -36,7 +36,7 @@
     padding:30px 50px;
     background-color: #ffffff;
     color:#6b7770;
-    box-shadow: 0 0 1px 1px #e2e2e2;
+    box-shadow: 0 0 1px 1px #f7f4f4;
     border-radius: 8px 8px 8px 8px;
 
     font-family: 'Noto Sans KR', sans-serif;
@@ -234,12 +234,13 @@ input[type="file"] {
     height:100px;
 }
 .base_button{
-    border: none !important;
-    background-color: #1f3786d5;
+    border: 1px solid #2b2e4a;
+    background-color: #2b2e4a;
+    width:120px;
     color: white;
     display: inline-block;
     padding: 6px 12px;
-    margin-bottom: 0;
+    margin:20px 0;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857143;
@@ -249,4 +250,7 @@ input[type="file"] {
     -ms-touch-action: manipulation;
     touch-action: manipulation;
     cursor: pointer;
+}
+.submit_btn{
+    text-align: center;
 }

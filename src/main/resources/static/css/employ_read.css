@@ -46,9 +46,9 @@ h4{ /*기업정보 -> 기업명*/
 }
 h5{ /*콘텐츠들*/
     margin:0px;
-    color:#444444;
+    color:#000000;
     font-size:14px;
-    font-weight:400;
+    font-weight:300;
 }
 .category h5{
     font-weight:700;
@@ -168,7 +168,7 @@ button:focus{
 }
 
 #button_wrap h1{
-    font-size:18px;
+    font-size:16px;
     color:#ffffff;
 }
 
@@ -208,6 +208,8 @@ button:focus{
 }
 #receipt_date h1{
     color : #66aaff;
+    font-size:22px;
+    font-weight: 500;
 }
 
 #receipt_cont{

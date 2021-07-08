@@ -2,6 +2,7 @@ select{
     appearance: none;
     background:url("/img/down-arrow.png") no-repeat 94% 50%/13px auto;
     padding-left:15px;
+    background-color: #fff;
 }
 input[type="checkbox"] {
     display:inline-block;
@@ -46,4 +47,7 @@ input[type='radio']:checked {
     outline: none;
     box-shadow: 0 0 0 1px #7278B9;
     border: 2px solid #fff;
+}
+input[type='date']{
+    background-color: #fff;
 }
