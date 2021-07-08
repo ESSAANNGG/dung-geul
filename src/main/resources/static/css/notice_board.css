@@ -83,14 +83,14 @@
 }
 .search_cont{
     display:inline-block;
-    width:100px;
+    width:130px;
     height:35px;
     line-height: initial;
     background-color: #ffffff;
     color:#6b7770;
     border-radius: 4px;
     border:1px solid #ccc;
-    font-size:14px;
+    font-size:13px;
     font-weight:300;
     padding:0px;
     text-align: center;
@@ -109,6 +109,9 @@
     border:1px solid #2b2e4a;
     background-color: #2b2e4a !important;
     color:#ffffff !important;
+}
+.col-9 button:focus{
+    border:1px solid #2b2e4a !important;
 }
 .write-btn{
     float:right;
