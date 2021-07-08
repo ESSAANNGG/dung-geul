@@ -59,8 +59,7 @@
 
                         <!-- Board table -->
                             <div id="board_title">
-                                <h2>공지사항</h2>
-                                <h3>취업정보센터에서 학생들과 소통하는 장소입니다</h3>
+                                <h1>공지사항</h1>
                             </div>
                             <!--   <div>게시글 수: <span th:text="${#lists.size(boards)}"></span></div>-->
 
@@ -82,26 +81,6 @@
                              </div>
                          </div>
 
-                            <!-- 목록 데이터 페이지 처리 -->
-                                <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
-                                    <li class="page-ltem " th:if="${result.prev}">
-                                        <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.start -1})}" tabindex="-1">이전</a>
-                                    </li>
-
-                                    <li th:class=" 'page-ltem ' + ${result.page == page?'active':''} " th:each= "page: ${result.pageList}">
-                                        <a class="page-link" th:href="@{/center-information/notice_board(page= ${page})}">
-                                            [[${page}]]
-                                        </a>
-                                    </li>
-
-                                    <li class="page-ltem" th:if="${result.next}">
-                                        <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.end + 1})}">다음</a>
-                                    </li>
-                                </ul>
-
-                            <!-- 목록 데이터 페이지 처리 끝-->
-                        <!-- End Board table -->
-
                          <div id="board_footer">
 
                              <!-- 검색 조건 -->
@@ -116,14 +95,33 @@
                                      <button class="btn-search search_cont" type="button">검색</button>
 <!--                                     <button class="btn-clear" type="button">초기화</button>-->
                              </form>
+                         </div>
+                             <!-- 목록 데이터 페이지 처리 -->
+                             <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">
+                                 <li class="page-ltem " th:if="${result.prev}">
+                                     <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.start -1})}" tabindex="-1">이전</a>
+                                 </li>
 
+                                 <li th:class=" 'page-ltem ' + ${result.page == page?'active':''} " th:each= "page: ${result.pageList}">
+                                     <a class="page-link" th:href="@{/center-information/notice_board(page= ${page})}">
+                                         [[${page}]]
+                                     </a>
+                                 </li>
+
+                                 <li class="page-ltem" th:if="${result.next}">
+                                     <a class="page-link" th:href="@{/center-information/notice_board(page= ${result.end + 1})}">다음</a>
+                                 </li>
+                             </ul>
+
+                             <!-- 목록 데이터 페이지 처리 끝-->
+                             <!-- End Board table -->
 <!--                             <div class="write-btn-div">-->
 <!--                                 <button type="button" class="search_cont"-->
 <!--                                         onclick="location.href='/center-information/notice_board_register'">-->
 <!--                                     글쓰기-->
 <!--                                 </button>-->
 <!--                             </div>-->
-                         </div>
+
                          <!-- end 검색 조건 -->
 
                     </div>

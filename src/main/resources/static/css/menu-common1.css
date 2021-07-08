@@ -527,7 +527,7 @@ header > p {
 
 .row > .col-9 {
   width: 75%;
-  box-shadow: 0 0 1px 1px #e2e2e2;
+  box-shadow: 0 0 1px 1px #f7f4f4;
   border-radius: 8px 8px 8px 8px;
   font-family: 'Noto Sans KR', sans-serif !important;
 }
@@ -2504,9 +2504,9 @@ table thead {
 
 /* Nav */
 
-/* body {
-  padding-top: 3.25em;
-} */
+ body {
+  font-size:13px !important;
+}
 
 #nav {
   position: fixed;
