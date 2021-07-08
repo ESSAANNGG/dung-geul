@@ -39,6 +39,11 @@ li{
     list-style-type:none;
 }
 /*페이지네이션*/
+.pagination{
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+}
 .page-ltem{
     width:28px;
     height:28px;
@@ -52,6 +57,8 @@ li{
 }
 .page-link{
     color: #a8a8a8 !important;
+    font-size:13px;
+    font-weight:900;
 }
 .active .page-link {
     background-color: initial !important;
