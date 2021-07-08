@@ -1,10 +1,23 @@
-/*employ regist.html*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+.col-9{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight:300;
+	/*font-size:14px;*/
+}
 .content {
-	margin: 0auto 0 auto;
+	margin: 0 auto;
 	max-width: 100%;
 	width: 64em;
 }
-
+#board_title h2 {
+	font-size: 20px !important;
+	font-weight: 400;
+	margin-bottom: 30px !important;
+	color: #333;
+	border-bottom: 3px solid #0202025e;
+	height: 43px;
+	line-height: initial !important;
+}
 .employ_register {
 	display: none;
 	width: 850px;
@@ -476,4 +489,7 @@
 
 .inputBox {
 	padding: 0 49px 25px 49px;
+}
+label{
+	font-weight:500 !important;
 }

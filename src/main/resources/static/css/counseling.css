@@ -94,6 +94,7 @@ input, button, select {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 3px;
+    font-size:15px;
 }
 .coun-box-body {
     padding: 50px;
@@ -207,6 +208,7 @@ input[type=text] {
     color: #333;
     border-bottom: 3px solid #0202025e;
     height:43px;
+    line-height:initial !important;
 }
 select[name=employ-field]{
     display:none;

@@ -7,6 +7,7 @@
 .col-9 h1{
     font-weight:700;
     margin:0px;
+
 }
 .col-9 h2{
     font-weight:500;
@@ -34,6 +35,7 @@
     color: #333;
     border-bottom: 3px solid #0202025e;
     height: 43px;
+    line-height:initial !important;
 }
 
 .t_line{

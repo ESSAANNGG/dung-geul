@@ -1,6 +1,7 @@
 /*사이드메뉴바 폰트*/
 @import url('fontawesome-all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+
 .menu2 {
   font-family: 'Noto Sans KR', sans-serif !important;
 }
@@ -157,7 +158,7 @@ li {
   border-bottom-width: 10px;
   padding: 4em 0;
   z-index: -2;
-  min-height: 675px;
+  min-height: 750px;
 }
 @media screen and (min-width:1903px) {
   #main{

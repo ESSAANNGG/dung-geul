@@ -61,6 +61,9 @@
         </div>
         <div class="col-9 col-12-medium imp-medium">
            <div class="employListPost">
+             <div id="intro">
+               <h2>자격증 목록</h2>
+             </div>
             <li th:each="dto: ${result.dtoList}">
               <a th:href="@{/application/introduce/read(num = ${dto.num}, page = ${result.page},
               type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
