@@ -106,7 +106,7 @@
                            
                         </li> -->
 
-                             <div th:if="${#lists.size(result.getDtoList())} != 0 " id="board_title">
+                             <div id="board_title">
                                 <h2>자격증 목록</h2>
                             </div>
                         <div class="wrapper">
@@ -184,10 +184,8 @@
                             )}">Next</a>
                         </li>
                     </ul>
-                    </div>
-
-
                     <img th:if="${#lists.size(result.getDtoList())} == 0" style="width:650px; margin-left: 70px;" src="/video/blankL.gif" alt="">
+                    </div>
                 </div>
             </div>
         </div>
