@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="/css/cvreset.css" />
+  <link rel="stylesheet" href="/css/common.css" />
+  <link rel="stylesheet" href="/css/cv_register.css" />
+  <link rel="stylesheet" href="/css/cv_read.css">
+  <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
+
+  </script>
+  <title>이력서</title>
+  <style>
+    textarea {
+      padding: 0px 30px;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+<div>
+  <div id="nav">
+    <div id="menu">
+      <a href="/">
+        <p>취업정보센터</p>
+      </a>
+      <a href="/mypage/before/read">
+        <p style="float:right; font-size:15px; color:#a4acc7;"><i style="font-size: 23px;" class="fas fa-house-user"></i></p>
+      </a>
+    </div>
+  </div>
+  <div id="content">
+    <div id="cv">
+
+      <div id="form">
+        <!-- 이력서 양식부분 -->
+        <div id="cvForm" autocomplete="off">
+          <section class="form" id="PERSONAL_INFORMATION">
+            <h2 class="h2_line" style="margin-bottom: 50px; font-size:30px; text-align: center;">[[${cv.getUser_name()}]]님의 이력서</h2>
+
+            <p class="legend">인적사항</p>
+            <div class="info">
+              <div class="container">
+                <div class="info-container">
+                  <div class="info-general">
+                    <div class="item name">[[${cv.getUser_name}]]</div>
+                    <div class="item china">[[${cv.getName_china()}]]</div>
+                    <!-- <div class="item sex">남</div> -->
+                    <div class="item age">[[${cv.getUser_age()}]]세</div>
+                  </div>
+                  <div class="info-detail">
+                    <label class="label">생년월일</label>
+                    <div class="item year">[[${cv.getBirth()}]]</div>
+                    <br />
+                    <label class="label" style="width:64px;">휴대폰</label>
+                    <div class="item ph">[[${cv.getUser_hp()}]]</div>
+                    <br />
+                    <label class="label" style="width:64px;">Email</label>
+                    <div class="item email">[[${cv.getUser_email()}]]</div>
+                    <br />
+                    <label class="label" style="width:64px;">주소</label>
+                    <div class="item addr">[[${cv.getAddr()}]]</div>
+                    <br />
+                    <label class="label" style="width:64px;">지원경로</label>
+                    <div class="item path">[[${cv.getSupportPath()}]]</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+          <section class="form" id="경력사항" th:if="${cv.getCareer()} != null">
+            <p class="legend">경력사항</p>
+            <div class="info">
+              <table class="test1" th:each="item, i : ${cv.getCareer()}">
+                <thead class="read_carrer">
+                <tr>
+                  <td class="width-224">근무기간</td>
+                  <td class="width-224">회사명</td>
+                  <td class="width-200">직위</td>
+                  <td class="width-300">퇴사사유</td>
+                  <td class="width-104">연봉</td>
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body" >
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center"> [[${item.getCr_employment()}]] ~ [[${item.getCr_resignation()}]]</td>
+                    <td rowspan="2" class="align_center carrerName">[[${item.getCr_etp_name()}]]</td>
+                    <td class="align_center">[[${item.getCr_position()}]]</td>
+                    <td class="align_center">[[${item.getReason_resign()}]]</td>
+                    <td class="align_center">[[${item.getSalary()}]] 만원</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><span class="read_resign">담당업무</span>[[${item.getCr_task()}]]</td>
+                  </tr>
+                </div>
+                </tbody>
+              </table>
+
+            </div>
+
+          </section>
+
+
+          <section class="form" id="학력사항" th:if="${cv.getEducation()} != null">
+            <p class="legend">학력사항</p>
+            <div id="items" class="form-group school-test items" >
+              <div class="info">
+                <table th:each="item : ${cv.getEducation()}">
+                  <thead class="read_carrer">
+                  <tr>
+                    <td class="width-140">학교구분</td>
+                    <td class="width-200">재학기간</td>
+                    <td class="width-224">학교명</td>
+                    <td class="width-104">졸업상태</td>
+                    <td class="width-300">전공</td>
+                    <td class="width-104">학위</td>
+                    <td class="width-104">학점</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center">[[${item.getSchoolType()}]]</td>
+                      <td rowspan="2" class="align_center" > [[${item.getDateStart()}]] ~ [[${item.getDateEnd()}]] </td>
+                      <td rowspan="2" class="align_center">[[${item.getEdc_school()}]]</td>
+                      <td class="align_center">[[${item.getGraduated()}]]</td>
+                      <td class="align_center" >[[${item.getDept()}]]</td>
+                      <td class="align_center">[[${item.getGpa()}]]</td>
+                      <td class="align_center">[[${item.getPs()}]]</td>
+                    </tr>
+                    <tr>
+                      <td colspan="4"><span class="read_resign">논문url</span></td>
+                    </tr>
+                  </div>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+
+          </section>
+
+          <section class="form" id="취미/특기">
+            <p class="legend">취미•특기</p>
+            <div class="info">
+              <table>
+                <tr>
+                  <td class="width-104 align_center vertical_60 vertical_td" style="height: 30px;">취미</td>
+                  <td class="width-408">[[${cv.getCv_hobby()}]]</td>
+                </tr>
+                <tr>
+                  <td class="align_center vertical_60 vertical_td">특기</td>
+                  <td>[[${cv.getCv_specialty()}]]</td>
+                </tr>
+              </table>
+            </div>
+          </section>
+
+          <section class="form" id="수상경력" th:if="${cv.getAwards()} != null">
+            <p class="legend">수상경력</p>
+            <div class="info">
+              <table th:each="item : ${cv.getAwards()}">
+                <thead class="read_award">
+                <tr>
+                  <td class="width-200">수상명</td>
+                  <td class="width-250">수여기관</td>
+                  <td class="width-140">수상연도</td>
+                  <td class="width-full">수상내용</td>
+
+                </tr>
+                </thead>
+                <tbody class="read_carrer-body">
+                <div class="carrer_item">
+                  <tr>
+                    <td rowspan="2" class="align_center">[[${item.getAwards_des()}]]</td>
+                    <td class="align_center">[[${item.getAwards_agency()}]]</td>
+                    <td class="align_center">[[${item.getAwards_date}]]</td>
+                    <td class="align_center">[[${item.getAward_contents}]]</td>
+
+                  </tr>
+
+                </div>
+                </tbody>
+
+              </table>
+
+            </div>
+          </section>
+
+
+          <section class="form" id="우대사항/병역">
+            <p class="legend">우대사항•병역</p>
+            <div class="info">
+              <table>
+                <tr>
+                  <td class="width-104 align_center vertical_60 vertical_td">보훈대상</td>
+                  <td class="width-408" th:if="${cv.getCv_verteran()} == 0 ">비대상</td>
+                  <td class="width-408" th:if="${cv.getCv_verteran()} == 1">대상</td>
+                </tr>
+                <tr>
+                  <td class="align_center vertical_60 vertical_td">장애</td>
+                  <td>
+                    <span th:if="${cv.getCv_disability()} == 0 ">비대상 </span>
+                    <span th:if="${cv.getCv_disability()} == 1 ">대상 </span>
+                    <span style="color: #a4acc7;">l</span>
+                    <span th:text="${cv.getCv_disability_degree()}"></span>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td class="align_center vertical_60 vertical_td">병역</td>
+                  <td th:if="${cv.getCv_military() == 0}">해당사항 없음</td>
+                  <td th:if="${cv.getCv_military() == 1}" th:text="${cv.getMilitaryServiceClassification()}"></td>
+                </tr>
+              </table>
+            </div>
+          </section>
+
+
+
+
+          <section class="form" id="가족사항" th:if="${cv.getFamily()} != null">
+            <p class="legend">가족사항</p>
+            <div class="item_family">
+              <div class="info">
+                <table th:each="item : ${cv.getFamily()}">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200">가족관계</td>
+                    <td class="width-250">이름</td>
+                    <td class="width-140">나이</td>
+                    <td class="width-250">생년월일</td>
+                    <td class="width-250">지역</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center">[[${item.getFam_relation()}]]</td>
+                      <td class="align_center">[[${item.getFam_name()}]]</td>
+                      <td class="align_center">[[${item.getFam_age()}]]</td>
+                      <td class="align_center">[[${item.getFam_birth()}]]</td>
+                      <td class="align_center">[[${item.getFam_living()}]]</td>
+
+                    </tr>
+
+                  </div>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </section>
+
+
+          <section class="form" id="자격증" th:if="${cv.getCertificate()} != null">
+            <p class="legend">자격증</p>
+
+            <div class="item_lic">
+              <div class="info">
+                <table th:each="item : ${cv.getCertificate()}">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-200">자격증 명</td>
+                    <td class="width-250">취득일</td>
+                    <td class="width-140">만료일</td>
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center">[[ ${item.getLic_name()} ]]</td>
+                      <td class="align_center">[[ ${item.getLic_date()} ]]</td>
+                      <td class="align_center">[[ ${item.getLic_due_date()} ]]</td>
+                    </tr>
+
+                  </div>
+                  </tbody>
+
+                </table>
+
+              </div>
+            </div>
+          </section>
+
+          <section class="form" id="어학" th:if="${cv.getLanguage()} != null">
+
+            <p class="legend">어학</p>
+
+            <div class="item_fl">
+              <div class="info">
+                <table th:each="item : ${cv.getLanguage()}">
+                  <thead class="read_award">
+                  <tr>
+                    <td class="width-250">외국어명</td>
+                    <td class="width-104">회화능력</td>
+                    <td class="width-104">독해능력</td>
+                    <td class="width-104">작문능력</td>
+                    <td class="width-250">시험종류</td>
+                    <td class="width-140">점수</td>
+                    <td class="width-140">급수</td>
+                    <td class="width-140">취득일</td>
+
+                  </tr>
+                  </thead>
+                  <tbody class="read_carrer-body">
+                  <div class="carrer_item">
+                    <tr>
+                      <td rowspan="2" class="align_center">[[${item.getFl_language()}]]</td>
+                      <td class="align_center">[[${item.getFl_conversation()}]]</td>
+                      <td class="align_center">[[${item.getFl_reading()}]]</td>
+                      <td class="align_center">[[${item.getFl_writing()}]]</td>
+                      <td class="align_center">[[${item.getFl_name()}]]</td>
+                      <td class="align_center">[[${item.getFl_score()}]]</td>
+                      <td class="align_center">[[${item.getFl_rank()}]]</td>
+                      <td class="align_center">[[${item.getFl_date()}]]</td>
+                    </tr>
+                  </div>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+
+
+
+
+          <section class="form" id="희망조건">
+            <p class="legend">희망조건</p>
+            <div class="info">
+              <table>
+                <tr>
+                  <td class="width-104 align_center vertical_60 vertical_td">응시부문</td>
+                  <td class="width-408">[[${cv.getSec_of_exam()}]]</td>
+                </tr>
+                <tr>
+                  <td class="align_center vertical_60 vertical_td">희망연봉</td>
+                  <td th:if="${cv.getDesired_salary() != null}">[[ ${cv.getDesired_salary() == "" ? "회사내규에 따름" : cv.getDesired_salary()} ]]</td>
+                  <td th:if="${cv.getDesired_salary() == null}">회사내규에 따름</td>
+                </tr>
+              </table>
+            </div>
+          </section>
+
+          <section id="button_section" class="form" style="text-align: center;">
+            <button type="button" id="submit" class="cvSubmit" >
+              <a style="width: inherit; height: inherit;" href="/application/cv/modify"
+                      >이력서 수정하기</a>
+            </button>
+
+            <button type="button" id="delteBtn" class="cvSubmit" >
+              <a style="width: inherit; height: inherit;" th:href="@{/application/cv/delete(user_id=${loginUser.getUser_id()})}" th:methods="post"
+              >이력서 삭제하기</a>
+            </button>
+          </section>
+
+        </div>
+      </div>
+
+
+
+      <!-- form end -->
+      <!-- 오른쪽 메뉴부분 -->
+        <!--  <div id="aside">
+        <h2 id="addcv">추가항목</h2>
+        <ul id="addlist">
+          <li style="padding-top:25px;">
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-graduation-cap"></i>
+            <span>학력</span>
+            <button type="button" id="btn1">
+              <i style="font-size:25px; " id="schoolPlus" class="fas fa-plus-circle"></i>
+            </button>
+
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fab fa-dribbble"></i>
+            <span>취미•특기</span>
+            <button type="button" id="btn2"><i id="hobbyPlus" style="font-size:25px;"
+                class="fas fa-plus-circle"></i></button>
+
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-medal"></i>
+            <span>수상경력</span>
+            <button type="button" id="btn3"><i id="awardPlus" style="font-size:25px; "
+                class="fas fa-plus-circle"></i></button>
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="far fa-handshake"></i>
+            <span>우대사항•병역</span>
+            <button type="button" id="btn4"><i id="milPlus" style="font-size:25px; "
+                class="fas fa-plus-circle"></i></button>
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-users"></i>
+            <span>가족사항</span>
+            <button type="button" id="btn5"><i id="familPlus" style="font-size:25px;"
+                class="fas fa-plus-circle"></i></button>
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-address-card"></i>
+            <span>자격증</span>
+            <button type="button" id="btn6"><i id="certificatePlus" style="font-size:25px;"
+                class="fas fa-plus-circle"></i></button>
+          </li>
+          <li>
+            <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-language"></i>
+            <span>어학</span>
+            <button type="button" id="btn7"><i id="languagePlus" style="font-size:25px;"
+                class="fas fa-plus-circle"></i></button>
+          </li>
+        </ul>
+
+        <button id="submit" class="cvSubmit" type="button" form="cvForm">저장하기</button>
+      </div> -->
+
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+</script>
+</script>
+<!-- <script src="/js/cv_read.js"></script> -->
+
+
+</body>
+
+</html>
