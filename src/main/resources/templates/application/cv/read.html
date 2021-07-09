@@ -85,7 +85,7 @@
           <div class="clear"></div>
         </div>
         <div id="mainArea">
-          <section th:if="${cv.getCareer()} != null">
+          <section th:if="${cv.getCareer()} != null" style="margin-bottom: 10px;">
             <article>
               <div class="sectionTitle">
                 <h1 style="font-weight: 600; margin-top:5%;">경력사항</h1>
@@ -113,16 +113,17 @@
             </article>
             <div class="clear"></div>
           </section>
-          <section th:if="${cv.getEducation()} != null">
+          <section th:if="${cv.getEducation()} != null" style="margin-bottom: 10px;">
             <div class="sectionTitle">
                 <h1 style="font-weight: 600; margin-top: 2%;">학력사항</h1>
               </div>
               <div class="sectionContent">
-                <div style="display: inline-flex;" th:each="item : ${cv.getEducation()}">
+                <div style="min-width: 100%; display: inline-flex;" th:each="item : ${cv.getEducation()}">
                   <div style="text-align: center; min-width: 120px;">
                     <span class="bold" th:text="${item.getSchoolType()}">학교구분</span><br>
                     <span class="bold" th:text="${item.getEdc_school()}">영진전문대학교</span><br>
-                    <span class="subDetails">[[${item.getDateStart()}]]</span><span>-</span><span class="subDetails">[[${item.getDateEnd()}]]</span><br>
+                    <span class="subDetails">[[${item.getDateStart()}]]</span><span>-</span><span class="subDetails">[[${item.getDateEnd()}]]</span>
+                    <span class="subDetails">
                   </div>
                   <div style="width: 100%; padding-left: 100px;">
                     <div>

@@ -185,9 +185,7 @@ $(document).ready(function () {
 		l++;
 
 		$('.line').before(
-			'<div id="items" class="form-group school-test items">         <div class="info">          <div class="common_div width-140">           <label class="absolute-label" for="">학교구분 <span>*</span></label>           <span class="custom-dropdown big">             <select id="test0' +
-				l +
-				'" class="common_select schoolSelected1" name="education[][schoolType]">              <option class="gray" value="">               <p>학교구분</p>              </option>              <option value="고등학교">고등학교</option>              <option value="전문대">대학(2,3년)</option>              <option value="대학교">대학교(4년)</option>              <option value="대학원">대학원</option>             </select>            </span>          </div>          <div class="common_div width-261">           <label class="absolute-label" for="">학교이름 <span>*</span> </label>           <input class="common_input" name="education[][edc_school]" type="text" autocomplete="off" />          </div>          <div class="school_fieldset hignschool_field" disabled>           <div class="container1" style="display:none;">            <div class="common_div width-140">             <label class="absolute-label" for="">졸업년도 <span>*</span> </label>             <input class="common_input" name="education[][highschool_edc_date]" type="text"                onKeyup="award_year()" maxlength="4" autocomplete="off" />            </div>            <div class="common_div width-140">             <label class="absolute-label" for="">졸업상태 <span>*</span></label>             <!-- <input class="common_input" name="edc_graduated" autocomplete="off" /> -->             <select class="common_select schoolSelected1" name="education[][highschool_edc_graduated]">              <option class="gray" value="">졸업상태</option>              <option value="졸업">졸업</option>              <option value="졸업예정">졸업예정</option>              <option value="재학중">재학중</option>             </select>            </div>           </div>          </div>           <div class="college_field" disabled>           <div class="container2" style="display:none;">            <div class="common_div width-200">             <label class="absolute-label" for="">입학년월 <span>*</span> </label>             <input class="date_input" name="education[][college_edc_date_start]" type="month" autocomplete="off" />            </div>            <div class="common_div width-200">             <label class="absolute-label" for="">졸업년월 <span>*</span></label>             <input class="common_input" name="education[][college_edc_date_end]" type="month" autocomplete="off" />            </div>            <div class="common_div width-140">             <label class="absolute-label" for="">졸업상태 <span>*</span></label>             <select class="common_select schoolSelected1" name="education[][college_edc_graduated]">              <option class="gray" value="">졸업상태</option>              <option value="졸업">졸업</option>              <option value="졸업예정">졸업예정</option>              <option value="재학중">재학중</option>              <option value="중퇴">중퇴</option>              <option value="수료">수료</option>              <option value="휴학">휴학</option>             </select>            </div>           </div>           <div class="container2-1" style="display:none;">            <div class="common_div width-300" style="width:409px;">             <label class="absolute-label" for="">전공 <span>*</span></label>             <input class="common_input" name="education[][college_edc_dept]" autocomplete="off" />            </div>            <div class="common_div width-140">             <label class="absolute-label" for="">학점 <span>*</span></label>             <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="education[][college_edc_gpa]"                autocomplete="off" />            </div>            <div class="common_div width-140">             <label class="absolute-label" for="">총점 <span>*</span></label>             <select class="common_select schoolSelected1" name="education[][college_edc_ps]">              <option class="gray" value="">총점</option>              <option value="4.5">4.5</option>              <option value="4.3">4.3</option>              <option value="4.0">4.0</option>              <option value="100">100</option>             </select>            </div>           </div>          </div>          <div class="university_field" disabled>           <div class="container3" style="display:none;">            <div class="common_div width-200">             <label class="absolute-label" for="">입학년월 <span>*</span> </label>             <input class="date_input" name="education[][university_edc_date_start]" type="month" autocomplete="off" />            </div>            <div class="common_div width-200">             <label class="absolute-label" for="">졸업년월 <span>*</span></label>             <input class="common_input" name="education[][university_edc_date_end]" type="month" autocomplete="off" />            </div>            <div class="common_div width-140">             <label class="absolute-label" for="">졸업상태 <span>*</span></label>             <select class="common_select schoolSelected1" name="education[][university_edc_graduated]">              <option class="gray" value="">졸업상태</option>              <option value="졸업">졸업</option>              <option value="졸업예정">졸업예정</option>              <option value="재학중">재학중</option>              <option value="중퇴">중퇴</option>              <option value="수료">수료</option>              <option value="휴학">휴학</option>             </select>            </div>           </div>           <div class="container3-1" style="display:none;">            <div class="common_div width-300" style="width: 409px">             <label class="absolute-label" for="">전공 <span>*</span></label>             <input class="common_input" name="education[][university_edc_dept]" autocomplete="off" />            </div>            <div class="common_div width-140">             <label class="absolute-label" for="">학점 <span>*</span></label>             <input class="common_input" type="text"                onKeyup="score()" maxlength="3"                name="education[][university_edc_gpa]" autocomplete="off" />            </div>            <div class="common_div width-140">             <label class="absolute-label" for="">총점 <span>*</span></label>             <select class="common_select schoolSelected1" name="education[][university_edc_ps]">              <option class="gray" value="">총점</option>              <option value="4.5">4.5</option>              <option value="4.3">4.3</option>              <option value="4.0">4.0</option>              <option value="100">100</option>             </select>            </div>           </div>          </div>          <div class="graduate_field" disabled>           <div class="container4" style="display:none;">            <div class="common_div width-104">             <label class="absolute-label" for="">학위 <span>*</span></label>             <select class="common_select schoolSelected1" name="education[][graduate_edc_degree]">              <option class="gray" value="">학위</option>              <option value="석사">석사</option>              <option value="박사">박사</option>              <option value="석박사">석박사</option>             </select>            </div>            <div class="common_div width-200">             <label class="absolute-label" for="">입학년월 <span>*</span> </label>             <input class="common_input" name="education[][graduate_edc_date_start]" type="month" autocomplete="off" />            </div>            <div class="common_div width-200">             <label class="absolute-label" for="">졸업년월 <span>*</span></label>             <input class="common_input" name="education[][graduate_edc_date_end]" type="month" autocomplete="off" />            </div>            <div class="common_div width-140">             <label class="absolute-label" for="">졸업상태 <span>*</span></label>             <select class="common_select schoolSelected1" name="education[][graduate_edc_graduated]">              <option class="gray" value="">졸업상태</option>              <option value="졸업">졸업</option>              <option value="졸업예정">졸업예정</option>              <option value="재학중">재학중</option>              <option value="중퇴">중퇴</option>              <option value="수료">수료</option>              <option value="휴학">휴학</option>             </select>            </div>           </div>           <div class="container4-1" style="display: none">            <div class="common_div width-300" style="width: 374px">             <label class="absolute-label" for="">전공 <span>*</span></label>             <input class="common_input" name="education[][graduate_edc_dept]" autocomplete="off" />            </div>            <div class="common_div width-140">             <label class="absolute-label" for="">학점 <span>*</span></label>             <input class="common_input" type="text" onKeyup="score()" maxlength="3" name="education[][graduate_edc_gpa]"                autocomplete="off" />            </div>            <div class="common_div width-140">             <label class="absolute-label" for="">총점 <span>*</span></label>             <select class="common_select schoolSelected1" name="education[][graduate_edc_ps]">              <option class="gray" value="">총점</option>              <option value="4.5">4.5</option>              <option value="4.3">4.3</option>              <option value="4.0">4.0</option>              <option value="100">100</option>             </select>            </div>            <br />            <div class="common_div width-670">             <label class="absolute-label" for="">논문 url<span>*</span></label>             <input type="url" name="education[][graduate_edc_paper]" class="common_input" autocomplete="off" />            </div>           </div>          </div>         </div>        </div> '
+			'<div  id="items"  class="form-group  school-test  items">                                      <div  class="info">                                          <div  class="common_div  width-140">                                              <label  class="absolute-label"  for="">학교구분  <span>*</span></label>                                              <span  class="custom-dropdown  big">                                                  <select  class="SchoolTypeSelect  common_select  schoolSelected1"  name="education[][schoolType]">                                                      <option  class="gray"  value="">                                                          <p>학교구분</p>                                                      </option>                                                        <option  value="고등학교">고등학교</option>                                                        <option  value="전문대">전문대(2,3년)</option>                                                        <option  value="대학교">대학교(4년)</option>                                                        <option  value="대학원">대학원</option>                                                  </select>                                              </span>                                          </div>                                          <div  class="common_div  width-261">                                              <label  class="absolute-label"  for="">학교이름  <span>*</span>  </label>                                              <input  class="common_input"  name="education[][edc_school]"  type="text"  autocomplete="off"  />                                          </div>                                            <div  class="school_fieldset  hignschool_field  displayNone">                                              <div  class="container1">                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">졸업년도  <span>*</span>  </label>                                                      <input  class="common_input"  name="education[][highschool_edc_date]"  type="text"                                                          onKeyup="award_year()"  maxlength="4"  autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">졸업상태  <span>*</span></label>                                                      <!--  <input  class="common_input"  name="edc_graduated"  autocomplete="off"  />  -->                                                      <select  class="common_select  schoolSelected1"  name="education[][highschool_edc_graduated]">                                                          <option  class="gray"  value="">졸업상태</option>                                                            <option  value="졸업">졸업</option>                                                            <option  value="졸업예정">졸업예정</option>                                                            <option  value="재학중">재학중</option>                                                      </select>                                                  </div>                                                </div>                                          </div>                                              <div  class="college_field  displayNone">                                              <div  class="container2">                                                  <div  class="common_div  width-200">                                                      <label  class="absolute-label"  for="">입학년월  <span>*</span>  </label>                                                      <input  class="date_input"  name="education[][college_edc_date_start]"  type="month"                                                          autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-200">                                                      <label  class="absolute-label"  for="">졸업년월  <span>*</span></label>                                                      <input  class="common_input"  name="education[][college_edc_date_end]"  type="month"                                                          autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">졸업상태  <span>*</span></label>                                                      <select  class="common_select  schoolSelected1"  name="education[][college_edc_graduated]">                                                          <option  class="gray"  value="">졸업상태</option>                                                            <option  value="졸업">졸업</option>                                                            <option  value="졸업예정">졸업예정</option>                                                            <option  value="재학중">재학중</option>                                                            <option  value="중퇴">중퇴</option>                                                            <option  value="수료">수료</option>                                                            <option  value="휴학">휴학</option>                                                      </select>                                                  </div>                                                </div>                                                <div  class="container2-1">                                                  <div  class="common_div  width-300"  style="width:409px;">                                                      <label  class="absolute-label"  for="">전공  <span>*</span></label>                                                      <input  class="common_input"  name="education[][college_edc_dept]"  autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">학점  <span>*</span></label>                                                      <input  class="common_input"  type="text"  onKeyup="score()"  maxlength="3"                                                          name="education[][college_edc_gpa]"  autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">총점  <span>*</span></label>                                                      <select  class="common_select  schoolSelected1"  name="education[][college_edc_ps]">                                                          <option  class="gray"  value="">총점</option>                                                            <option  value="4.5">4.5</option>                                                            <option  value="4.3">4.3</option>                                                            <option  value="4.0">4.0</option>                                                            <option  value="100">100</option>                                                      </select>                                                  </div>                                              </div>                                          </div>                                            <div  class="university_field  displayNone"    >                                              <div  class="container3">                                                  <div  class="common_div  width-200">                                                      <label  class="absolute-label"  for="">입학년월  <span>*</span>  </label>                                                      <input  class="date_input"  name="education[][university_edc_date_start]"  type="month"                                                          autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-200">                                                      <label  class="absolute-label"  for="">졸업년월  <span>*</span></label>                                                      <input  class="common_input"  name="education[][university_edc_date_end]"  type="month"                                                          autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">졸업상태  <span>*</span></label>                                                      <select  class="common_select  schoolSelected1"  name="education[][university_edc_graduated]">                                                          <option  class="gray"  value="">졸업상태</option>                                                            <option  value="졸업">졸업</option>                                                            <option  value="졸업예정">졸업예정</option>                                                            <option  value="재학중">재학중</option>                                                            <option  value="중퇴">중퇴</option>                                                            <option  value="수료">수료</option>                                                            <option  value="휴학">휴학</option>                                                      </select>                                                  </div>                                                </div>                                                <div  class="container3-1">                                                  <div  class="common_div  width-300"  style="width:  409px">                                                      <label  class="absolute-label"  for="">전공  <span>*</span></label>                                                      <input  class="common_input"  name="education[][university_edc_dept]"  autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">학점  <span>*</span></label>                                                      <input  class="common_input"  type="text"  onKeyup="score()"  maxlength="3"                                                          name="education[][university_edc_gpa]"  autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">총점  <span>*</span></label>                                                      <select  class="common_select  schoolSelected1"  name="education[][university_edc_ps]">                                                          <option  class="gray"  value="">총점</option>                                                            <option  value="4.5">4.5</option>                                                            <option  value="4.3">4.3</option>                                                            <option  value="4.0">4.0</option>                                                            <option  value="100">100</option>                                                      </select>                                                  </div>                                              </div>                                          </div>                                            <div  class="graduate_field  displayNone">                                              <div  class="container4">                                                  <div  class="common_div  width-104">                                                      <label  class="absolute-label"  for="">학위  <span>*</span></label>                                                      <select  class="common_select  schoolSelected1"  name="education[][graduate-edc_graduated]">                                                          <option  class="gray"  value="">학위</option>                                                            <option  value="석사">석사</option>                                                            <option  value="박사">박사</option>                                                            <option  value="석박사">석박사</option>                                                      </select>                                                  </div>                                                  <div  class="common_div  width-200">                                                      <label  class="absolute-label"  for="">입학년월  <span>*</span>  </label>                                                      <input  class="common_input"  name="education[][graduate_edc_date_start]"  type="month"                                                          autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-200">                                                      <label  class="absolute-label"  for="">졸업년월  <span>*</span></label>                                                      <input  class="common_input"  name="education[][graduate_edc_date_end]"  type="month"                                                          autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">졸업상태  <span>*</span></label>                                                      <select  class="common_select  schoolSelected1"  name="education[][graduate_edc_graduated]">                                                          <option  class="gray"  value="">졸업상태</option>                                                            <option  value="졸업">졸업</option>                                                            <option  value="졸업예정">졸업예정</option>                                                            <option  value="재학중">재학중</option>                                                            <option  value="중퇴">중퇴</option>                                                            <option  value="수료">수료</option>                                                            <option  value="휴학">휴학</option>                                                      </select>                                                  </div>                                                </div>                                              <div  class="container4-1">                                                  <div  class="common_div  width-300"  style="width:  374px">                                                      <label  class="absolute-label"  for="">전공  <span>*</span></label>                                                      <input  class="common_input"  name="education[][graduate_edc_dept]"  autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">학점  <span>*</span></label>                                                      <input  class="common_input"  type="text"  onKeyup="score()"  maxlength="3"                                                          name="education[][graduate_edc_gpa]"  autocomplete="off"  />                                                  </div>                                                  <div  class="common_div  width-140">                                                      <label  class="absolute-label"  for="">총점  <span>*</span></label>                                                      <select  class="common_select  schoolSelected1"  name="education[][graduate_edc_ps]">                                                          <option  class="gray"  value="">총점</option>                                                            <option  value="4.5">4.5</option>                                                            <option  value="4.3">4.3</option>                                                            <option  value="4.0">4.0</option>                                                            <option  value="100">100</option>                                                      </select>                                                  </div>                                                    <br  />                                                  <div  class="common_div  width-670">                                                      <label  class="absolute-label"  for="">논문  url<span>*</span></label>                                                      <input  type="url"  name="education[][graduate_edc_paper]"  class="common_input"                                                          autocomplete="off"  />                                                  </div>                                              </div>                                          </div>                                      </div>                                  </div>  '
 		);
 		console.log(l);
 		i++;
@@ -461,439 +459,523 @@ function score() {
 	this.value = this.value.replace(/[^0-9]+[.]/g, '');
 }
 
-$('#test01').change(function () {
-	let school = $(this).val();
+document.addEventListener('DOMContentLoaded', () => {
+	let SchoolTypeSelect = document.querySelectorAll('.SchoolTypeSelect');
+	let hignschool_field = document.querySelectorAll('.hignschool_field');
+	let college_field = document.querySelectorAll('.college_field');
+	let university_field = document.querySelectorAll('.university_field');
+	let graduate_field = document.querySelectorAll('.graduate_field');
+	let add = document.querySelector('#add');
 
-	let hignschoolfie = document.querySelectorAll('.hignschool_field');
-	let collegefie = document.querySelectorAll('.college_field');
-	let universityfie = document.querySelectorAll('.university_field');
-	let graduatefie = document.querySelectorAll('.graduate_field');
-
-	let high = document.querySelectorAll('.container1');
-
-	let college = document.querySelectorAll('.container2');
-	let college2 = document.querySelectorAll('.container2-1');
-	let university = document.querySelectorAll('.container3');
-	let university2 = document.querySelectorAll('.container3-1');
-	let graduate = document.querySelectorAll('.container4');
-	let graduate2 = document.querySelectorAll('.container4-1');
-
-	if (school == '고등학교') {
-		high[0].style = 'display:inline-block';
-		college[0].style = 'display:none';
-		college2[0].style = 'display:none';
-		graduate[0].style = 'display:none';
-		graduate2[0].style = 'display:none';
-		university[0].style = 'display:none';
-		university2[0].style = 'display:none';
-
-		$(hignschoolfie[0]).prop('disabled', false);
-		$(collegefie[0]).prop('disabled', true);
-		$(universityfie[0]).prop('disabled', true);
-		$(graduatefie[0]).prop('disabled', true);
-	} else if (school == '전문대') {
-		college[0].style = 'display:inline-block';
-		college2[0].style = 'display:inline-block';
-		high[0].style = 'display:none';
-		graduate[0].style = 'display:none';
-		graduate2[0].style = 'display:none';
-		university[0].style = 'display:none';
-		university2[0].style = 'display:none';
-
-		$(collegefie[0]).prop('disabled', false);
-		$(hignschoolfie[0]).prop('disabled', true);
-
-		$(universityfie[0]).prop('disabled', true);
-		$(graduatefie[0]).prop('disabled', true);
-	} else if (school == '대학교') {
-		university[0].style = 'display:inline-block';
-		university2[0].style = 'display:inline-block';
-		high[0].style = 'display:none';
-		college[0].style = 'display:none';
-		college2[0].style = 'display:none';
-		graduate[0].style = 'display:none';
-		graduate2[0].style = 'display:none';
-
-		$(universityfie[0]).prop('disabled', false);
-		$(hignschoolfie[0]).prop('disabled', true);
-		$(collegefie[0]).prop('disabled', true);
-
-		$(graduatefie[0]).prop('disabled', true);
-	} else if (school == '대학원') {
-		graduate[0].style = 'display:inline-block';
-		graduate2[0].style = 'display:inline-block';
-		high[0].style = 'display: none';
-		college[0].style = 'display:none';
-		college2[0].style = 'display:none';
-		university[0].style = 'display:none';
-		university2[0].style = 'display:none';
-
-		$(graduatefie[0]).prop('disabled', false);
-		$(hignschoolfie[0]).prop('disabled', true);
-		$(collegefie[0]).prop('disabled', true);
-		$(universityfie[0]).prop('disabled', true);
-	} else {
-		high[0].style = 'display:none';
-		college[0].style = 'display:none';
-		college2[0].style = 'display:none';
-		university[0].style = 'display:none';
-		university2[0].style = 'display:none';
-		graduate[0].style = 'display:none';
-		graduate2[0].style = 'display:none';
-
-		$(hignschoolfie[0]).prop('disabled', true);
-		$(collegefie[0]).prop('disabled', true);
-		$(universityfie[0]).prop('disabled', true);
-		$(graduatefie[0]).prop('disabled', true);
+	for (let i = 0; i < SchoolTypeSelect.length; i++) {
+		SchoolTypeSelect[i].addEventListener('change', () => {
+			if (SchoolTypeSelect[i].value === '고등학교') {
+				hignschool_field[i].classList.replace('displayNone', 'displayInlineBlock');
+				college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+			} else if (SchoolTypeSelect[i].value === '전문대') {
+				college_field[i].classList.replace('displayNone', 'displayInlineBlock');
+				hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+			} else if (SchoolTypeSelect[i].value === '대학교') {
+				university_field[i].classList.replace('displayNone', 'displayInlineBlock');
+				hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+			} else if (SchoolTypeSelect[i].value === '대학원') {
+				graduate_field[i].classList.replace('displayNone', 'displayInlineBlock');
+				hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+			} else {
+				college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+				graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+			}
+		});
 	}
+	add.addEventListener(
+		'click',
+		() => {
+			setTimeout(function () {
+				SchoolTypeSelect = document.querySelectorAll('.SchoolTypeSelect');
+				console.log(SchoolTypeSelect);
+				hignschool_field = document.querySelectorAll('.hignschool_field');
+				college_field = document.querySelectorAll('.college_field');
+				university_field = document.querySelectorAll('.university_field');
+				graduate_field = document.querySelectorAll('.graduate_field');
+
+				for (let i = 0; i < SchoolTypeSelect.length; i++) {
+					SchoolTypeSelect[i].addEventListener('change', () => {
+						if (SchoolTypeSelect[i].value === '고등학교') {
+							hignschool_field[i].classList.replace('displayNone', 'displayInlineBlock');
+							college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+						} else if (SchoolTypeSelect[i].value === '전문대') {
+							college_field[i].classList.replace('displayNone', 'displayInlineBlock');
+							hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+						} else if (SchoolTypeSelect[i].value === '대학교') {
+							university_field[i].classList.replace('displayNone', 'displayInlineBlock');
+							hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+						} else if (SchoolTypeSelect[i].value === '대학원') {
+							graduate_field[i].classList.replace('displayNone', 'displayInlineBlock');
+							hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+						} else {
+							college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+							graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+						}
+					});
+				}
+			});
+		},
+		100
+	);
 });
-
-$(document).on('change', '#test02', function () {
-	let school2 = $(this).val();
-
-	let hignschoolfie = document.querySelectorAll('.hignschool_field');
-	let collegefie = document.querySelectorAll('.college_field');
-	let universityfie = document.querySelectorAll('.university_field');
-	let graduatefie = document.querySelectorAll('.graduate_field');
-
-	let high = document.querySelectorAll('.container1');
-
-	let college = document.querySelectorAll('.container2');
-	let college2 = document.querySelectorAll('.container2-1');
-	let university = document.querySelectorAll('.container3');
-	let university2 = document.querySelectorAll('.container3-1');
-	let graduate = document.querySelectorAll('.container4');
-	let graduate2 = document.querySelectorAll('.container4-1');
-
-	if (school2 == '고등학교') {
-		high[1].style = 'display:inline-block';
-		college[1].style = 'display:none';
-		college2[1].style = 'display:none';
-		graduate[1].style = 'display:none';
-		graduate2[1].style = 'display:none';
-		university[1].style = 'display:none';
-		university2[1].style = 'display:none';
-
-		$(hignschoolfie[1]).prop('disabled', false);
-		$(collegefie[1]).prop('disabled', true);
-		$(universityfie[1]).prop('disabled', true);
-		$(graduatefie[1]).prop('disabled', true);
-	} else if (school2 == '전문대') {
-		college[1].style = 'display:inline-block';
-		college2[1].style = 'display:inline-block';
-		high[1].style = 'display:none';
-		graduate[1].style = 'display:none';
-		graduate2[1].style = 'display:none';
-		university[1].style = 'display:none';
-		university2[1].style = 'display:none';
-
-		$(collegefie[1]).prop('disabled', false);
-		$(hignschoolfie[1]).prop('disabled', true);
-
-		$(universityfie[1]).prop('disabled', true);
-		$(graduatefie[1]).prop('disabled', true);
-	} else if (school2 == '대학교') {
-		university[1].style = 'display:inline-block';
-		university2[1].style = 'display:inline-block';
-		high[1].style = 'display:none';
-		college[1].style = 'display:none';
-		college2[1].style = 'display:none';
-		graduate[1].style = 'display:none';
-		graduate2[1].style = 'display:none';
-
-		$(universityfie[1]).prop('disabled', false);
-		$(hignschoolfie[1]).prop('disabled', true);
-		$(collegefie[1]).prop('disabled', true);
-
-		$(graduatefie[1]).prop('disabled', true);
-	} else if (school2 == '대학원') {
-		graduate[1].style = 'display:inline-block';
-		graduate2[1].style = 'display:inline-block';
-		high[1].style = 'display: none';
-		college[1].style = 'display:none';
-		college2[1].style = 'display:none';
-		university[1].style = 'display:none';
-		university2[1].style = 'display:none';
-
-		$(graduatefie[1]).prop('disabled', false);
-		$(hignschoolfie[1]).prop('disabled', true);
-		$(collegefie[1]).prop('disabled', true);
-		$(universityfie[1]).prop('disabled', true);
-	} else {
-		high[1].style = 'display:none';
-		college[1].style = 'display:none';
-		college2[1].style = 'display:none';
-		university[1].style = 'display:none';
-		university2[1].style = 'display:none';
-		graduate[1].style = 'display:none';
-		graduate2[1].style = 'display:none';
-
-		$(hignschoolfie[1]).prop('disabled', true);
-		$(collegefie[1]).prop('disabled', true);
-		$(universityfie[1]).prop('disabled', true);
-		$(graduatefie[1]).prop('disabled', true);
-	}
-});
-
-$(document).on('change', '#test03', function () {
-	let school3 = $(this).val();
-
-	let hignschoolfie = document.querySelectorAll('.hignschool_field');
-	let collegefie = document.querySelectorAll('.college_field');
-	let universityfie = document.querySelectorAll('.university_field');
-	let graduatefie = document.querySelectorAll('.graduate_field');
-
-	let high = document.querySelectorAll('.container1');
-
-	let college = document.querySelectorAll('.container2');
-	let college2 = document.querySelectorAll('.container2-1');
-	let university = document.querySelectorAll('.container3');
-	let university2 = document.querySelectorAll('.container3-1');
-	let graduate = document.querySelectorAll('.container4');
-	let graduate2 = document.querySelectorAll('.container4-1');
-
-	if (school3 == '고등학교') {
-		high[2].style = 'display:inline-block';
-		college[2].style = 'display:none';
-		college2[2].style = 'display:none';
-		graduate[2].style = 'display:none';
-		graduate2[2].style = 'display:none';
-		university[2].style = 'display:none';
-		university2[2].style = 'display:none';
-
-		$(hignschoolfie[2]).prop('disabled', false);
-		$(collegefie[2]).prop('disabled', true);
-		$(universityfie[2]).prop('disabled', true);
-		$(graduatefie[2]).prop('disabled', true);
-	} else if (school3 == '전문대') {
-		college[2].style = 'display:inline-block';
-		college2[2].style = 'display:inline-block';
-		high[2].style = 'display:none';
-		graduate[2].style = 'display:none';
-		graduate2[2].style = 'display:none';
-		university[2].style = 'display:none';
-		university2[2].style = 'display:none';
-
-		$(collegefie[2]).prop('disabled', false);
-		$(hignschoolfie[2]).prop('disabled', true);
-
-		$(universityfie[2]).prop('disabled', true);
-		$(graduatefie[2]).prop('disabled', true);
-	} else if (school3 == '대학교') {
-		university[2].style = 'display:inline-block';
-		university2[2].style = 'display:inline-block';
-		high[2].style = 'display:none';
-		college[2].style = 'display:none';
-		college2[2].style = 'display:none';
-		graduate[2].style = 'display:none';
-		graduate2[2].style = 'display:none';
-
-		$(universityfie[2]).prop('disabled', false);
-		$(hignschoolfie[2]).prop('disabled', true);
-		$(collegefie[2]).prop('disabled', true);
-
-		$(graduatefie[2]).prop('disabled', true);
-	} else if (school3 == '대학원') {
-		graduate[2].style = 'display:inline-block';
-		graduate2[2].style = 'display:inline-block';
-		high[2].style = 'display: none';
-		college[2].style = 'display:none';
-		college2[2].style = 'display:none';
-		university[2].style = 'display:none';
-		university2[2].style = 'display:none';
-
-		$(graduatefie[2]).prop('disabled', false);
-		$(hignschoolfie[2]).prop('disabled', true);
-		$(collegefie[2]).prop('disabled', true);
-		$(universityfie[2]).prop('disabled', true);
-	} else {
-		high[2].style = 'display:none';
-		college[2].style = 'display:none';
-		college2[2].style = 'display:none';
-		university[2].style = 'display:none';
-		university2[2].style = 'display:none';
-		graduate[2].style = 'display:none';
-		graduate2[2].style = 'display:none';
-
-		$(hignschoolfie[2]).prop('disabled', true);
-		$(collegefie[2]).prop('disabled', true);
-		$(universityfie[2]).prop('disabled', true);
-		$(graduatefie[2]).prop('disabled', true);
-	}
-});
-
-$(document).on('change', '#test04', function () {
-	let school4 = $(this).val();
-
-	let hignschoolfie = document.querySelectorAll('.hignschool_field');
-	let collegefie = document.querySelectorAll('.college_field');
-	let universityfie = document.querySelectorAll('.university_field');
-	let graduatefie = document.querySelectorAll('.graduate_field');
-
-	let high = document.querySelectorAll('.container1');
-
-	let college = document.querySelectorAll('.container2');
-	let college2 = document.querySelectorAll('.container2-1');
-	let university = document.querySelectorAll('.container3');
-	let university2 = document.querySelectorAll('.container3-1');
-	let graduate = document.querySelectorAll('.container4');
-	let graduate2 = document.querySelectorAll('.container4-1');
-
-	if (school4 == '고등학교') {
-		high[3].style = 'display:inline-block';
-		college[3].style = 'display:none';
-		college2[3].style = 'display:none';
-		graduate[3].style = 'display:none';
-		graduate2[3].style = 'display:none';
-		university[3].style = 'display:none';
-		university2[3].style = 'display:none';
-
-		$(hignschoolfie[3]).prop('disabled', false);
-		$(collegefie[3]).prop('disabled', true);
-		$(universityfie[3]).prop('disabled', true);
-		$(graduatefie[3]).prop('disabled', true);
-	} else if (school4 == '전문대') {
-		college[3].style = 'display:inline-block';
-		college2[3].style = 'display:inline-block';
-		high[3].style = 'display:none';
-		graduate[3].style = 'display:none';
-		graduate2[3].style = 'display:none';
-		university[3].style = 'display:none';
-		university2[3].style = 'display:none';
-
-		$(collegefie[3]).prop('disabled', false);
-		$(hignschoolfie[3]).prop('disabled', true);
-
-		$(universityfie[3]).prop('disabled', true);
-		$(graduatefie[3]).prop('disabled', true);
-	} else if (school4 == '대학교') {
-		university[3].style = 'display:inline-block';
-		university2[3].style = 'display:inline-block';
-		high[3].style = 'display:none';
-		college[3].style = 'display:none';
-		college2[3].style = 'display:none';
-		graduate[3].style = 'display:none';
-		graduate2[3].style = 'display:none';
-
-		$(universityfie[3]).prop('disabled', false);
-		$(hignschoolfie[3]).prop('disabled', true);
-		$(collegefie[3]).prop('disabled', true);
-
-		$(graduatefie[3]).prop('disabled', true);
-	} else if (school4 == '대학원') {
-		graduate[3].style = 'display:inline-block';
-		graduate2[3].style = 'display:inline-block';
-		high[3].style = 'display: none';
-		college[3].style = 'display:none';
-		college2[3].style = 'display:none';
-		university[3].style = 'display:none';
-		university2[3].style = 'display:none';
-
-		$(graduatefie[3]).prop('disabled', false);
-		$(hignschoolfie[3]).prop('disabled', true);
-		$(collegefie[3]).prop('disabled', true);
-		$(universityfie[3]).prop('disabled', true);
-	} else {
-		high[3].style = 'display:none';
-		college[3].style = 'display:none';
-		college2[3].style = 'display:none';
-		university[3].style = 'display:none';
-		university2[3].style = 'display:none';
-		graduate[3].style = 'display:none';
-		graduate2[3].style = 'display:none';
-
-		$(hignschoolfie[3]).prop('disabled', true);
-		$(collegefie[3]).prop('disabled', true);
-		$(universityfie[3]).prop('disabled', true);
-		$(graduatefie[3]).prop('disabled', true);
-	}
-});
-
-$(document).on('change', '#test05', function () {
-	let school5 = $(this).val();
-
-	let hignschoolfie = document.querySelectorAll('.hignschool_field');
-	let collegefie = document.querySelectorAll('.college_field');
-	let universityfie = document.querySelectorAll('.university_field');
-	let graduatefie = document.querySelectorAll('.graduate_field');
-
-	let high = document.querySelectorAll('.container1');
-
-	let college = document.querySelectorAll('.container2');
-	let college2 = document.querySelectorAll('.container2-1');
-	let university = document.querySelectorAll('.container3');
-	let university2 = document.querySelectorAll('.container3-1');
-	let graduate = document.querySelectorAll('.container4');
-	let graduate2 = document.querySelectorAll('.container4-1');
-	if (school5 == '고등학교') {
-		high[4].style = 'display:inline-block';
-		college[4].style = 'display:none';
-		college2[4].style = 'display:none';
-		graduate[4].style = 'display:none';
-		graduate2[4].style = 'display:none';
-		university[4].style = 'display:none';
-		university2[4].style = 'display:none';
-
-		$(hignschoolfie[4]).prop('disabled', false);
-		$(collegefie[4]).prop('disabled', true);
-		$(universityfie[4]).prop('disabled', true);
-		$(graduatefie[4]).prop('disabled', true);
-	} else if (school5 == '전문대') {
-		college[4].style = 'display:inline-block';
-		college2[4].style = 'display:inline-block';
-		high[4].style = 'display:none';
-		graduate[4].style = 'display:none';
-		graduate2[4].style = 'display:none';
-		university[4].style = 'display:none';
-		university2[4].style = 'display:none';
-
-		$(collegefie[4]).prop('disabled', false);
-		$(hignschoolfie[4]).prop('disabled', true);
-
-		$(universityfie[4]).prop('disabled', true);
-		$(graduatefie[4]).prop('disabled', true);
-	} else if (school5 == '대학교') {
-		university[4].style = 'display:inline-block';
-		university2[4].style = 'display:inline-block';
-		high[4].style = 'display:none';
-		college[4].style = 'display:none';
-		college2[4].style = 'display:none';
-		graduate[4].style = 'display:none';
-		graduate2[4].style = 'display:none';
-
-		$(universityfie[4]).prop('disabled', false);
-		$(hignschoolfie[4]).prop('disabled', true);
-		$(collegefie[4]).prop('disabled', true);
-
-		$(graduatefie[4]).prop('disabled', true);
-	} else if (school5 == '대학원') {
-		graduate[4].style = 'display:inline-block';
-		graduate2[4].style = 'display:inline-block';
-		high[4].style = 'display: none';
-		college[4].style = 'display:none';
-		college2[4].style = 'display:none';
-		university[4].style = 'display:none';
-		university2[4].style = 'display:none';
-
-		$(graduatefie[4]).prop('disabled', false);
-		$(hignschoolfie[4]).prop('disabled', true);
-		$(collegefie[4]).prop('disabled', true);
-		$(universityfie[4]).prop('disabled', true);
-	} else {
-		high[4].style = 'display:none';
-		college[4].style = 'display:none';
-		college2[4].style = 'display:none';
-		university[4].style = 'display:none';
-		university2[4].style = 'display:none';
-		graduate[4].style = 'display:none';
-		graduate2[4].style = 'display:none';
-
-		$(hignschoolfie[4]).prop('disabled', true);
-		$(collegefie[4]).prop('disabled', true);
-		$(universityfie[4]).prop('disabled', true);
-		$(graduatefie[4]).prop('disabled', true);
-	}
-});
+/* $('#test01').change(function () {
+		let school = $(this).val();
+	
+		let hignschoolfie = document.querySelectorAll('.hignschool_field');
+		let collegefie = document.querySelectorAll('.college_field');
+		let universityfie = document.querySelectorAll('.university_field');
+		let graduatefie = document.querySelectorAll('.graduate_field');
+	
+		let high = document.querySelectorAll('.container1');
+	
+		let college = document.querySelectorAll('.container2');
+		let college2 = document.querySelectorAll('.container2-1');
+		let university = document.querySelectorAll('.container3');
+		let university2 = document.querySelectorAll('.container3-1');
+		let graduate = document.querySelectorAll('.container4');
+		let graduate2 = document.querySelectorAll('.container4-1');
+	
+		if (school == '고등학교') {
+			high[0].style = 'display:inline-block';
+			college[0].style = 'display:none';
+			college2[0].style = 'display:none';
+			graduate[0].style = 'display:none';
+			graduate2[0].style = 'display:none';
+			university[0].style = 'display:none';
+			university2[0].style = 'display:none';
+	
+			$(hignschoolfie[0]).prop('disabled', false);
+			$(collegefie[0]).prop('disabled', true);
+			$(universityfie[0]).prop('disabled', true);
+			$(graduatefie[0]).prop('disabled', true);
+		} else if (school == '전문대') {
+			college[0].style = 'display:inline-block';
+			college2[0].style = 'display:inline-block';
+			high[0].style = 'display:none';
+			graduate[0].style = 'display:none';
+			graduate2[0].style = 'display:none';
+			university[0].style = 'display:none';
+			university2[0].style = 'display:none';
+	
+			$(collegefie[0]).prop('disabled', false);
+			$(hignschoolfie[0]).prop('disabled', true);
+	
+			$(universityfie[0]).prop('disabled', true);
+			$(graduatefie[0]).prop('disabled', true);
+		} else if (school == '대학교') {
+			university[0].style = 'display:inline-block';
+			university2[0].style = 'display:inline-block';
+			high[0].style = 'display:none';
+			college[0].style = 'display:none';
+			college2[0].style = 'display:none';
+			graduate[0].style = 'display:none';
+			graduate2[0].style = 'display:none';
+	
+			$(universityfie[0]).prop('disabled', false);
+			$(hignschoolfie[0]).prop('disabled', true);
+			$(collegefie[0]).prop('disabled', true);
+	
+			$(graduatefie[0]).prop('disabled', true);
+		} else if (school == '대학원') {
+			graduate[0].style = 'display:inline-block';
+			graduate2[0].style = 'display:inline-block';
+			high[0].style = 'display: none';
+			college[0].style = 'display:none';
+			college2[0].style = 'display:none';
+			university[0].style = 'display:none';
+			university2[0].style = 'display:none';
+	
+			$(graduatefie[0]).prop('disabled', false);
+			$(hignschoolfie[0]).prop('disabled', true);
+			$(collegefie[0]).prop('disabled', true);
+			$(universityfie[0]).prop('disabled', true);
+		} else {
+			high[0].style = 'display:none';
+			college[0].style = 'display:none';
+			college2[0].style = 'display:none';
+			university[0].style = 'display:none';
+			university2[0].style = 'display:none';
+			graduate[0].style = 'display:none';
+			graduate2[0].style = 'display:none';
+	
+			$(hignschoolfie[0]).prop('disabled', true);
+			$(collegefie[0]).prop('disabled', true);
+			$(universityfie[0]).prop('disabled', true);
+			$(graduatefie[0]).prop('disabled', true);
+		}
+	});
+	
+	$(document).on('change', '#test02', function () {
+		let school2 = $(this).val();
+	
+		let hignschoolfie = document.querySelectorAll('.hignschool_field');
+		let collegefie = document.querySelectorAll('.college_field');
+		let universityfie = document.querySelectorAll('.university_field');
+		let graduatefie = document.querySelectorAll('.graduate_field');
+	
+		let high = document.querySelectorAll('.container1');
+	
+		let college = document.querySelectorAll('.container2');
+		let college2 = document.querySelectorAll('.container2-1');
+		let university = document.querySelectorAll('.container3');
+		let university2 = document.querySelectorAll('.container3-1');
+		let graduate = document.querySelectorAll('.container4');
+		let graduate2 = document.querySelectorAll('.container4-1');
+	
+		if (school2 == '고등학교') {
+			high[1].style = 'display:inline-block';
+			college[1].style = 'display:none';
+			college2[1].style = 'display:none';
+			graduate[1].style = 'display:none';
+			graduate2[1].style = 'display:none';
+			university[1].style = 'display:none';
+			university2[1].style = 'display:none';
+	
+			$(hignschoolfie[1]).prop('disabled', false);
+			$(collegefie[1]).prop('disabled', true);
+			$(universityfie[1]).prop('disabled', true);
+			$(graduatefie[1]).prop('disabled', true);
+		} else if (school2 == '전문대') {
+			college[1].style = 'display:inline-block';
+			college2[1].style = 'display:inline-block';
+			high[1].style = 'display:none';
+			graduate[1].style = 'display:none';
+			graduate2[1].style = 'display:none';
+			university[1].style = 'display:none';
+			university2[1].style = 'display:none';
+	
+			$(collegefie[1]).prop('disabled', false);
+			$(hignschoolfie[1]).prop('disabled', true);
+	
+			$(universityfie[1]).prop('disabled', true);
+			$(graduatefie[1]).prop('disabled', true);
+		} else if (school2 == '대학교') {
+			university[1].style = 'display:inline-block';
+			university2[1].style = 'display:inline-block';
+			high[1].style = 'display:none';
+			college[1].style = 'display:none';
+			college2[1].style = 'display:none';
+			graduate[1].style = 'display:none';
+			graduate2[1].style = 'display:none';
+	
+			$(universityfie[1]).prop('disabled', false);
+			$(hignschoolfie[1]).prop('disabled', true);
+			$(collegefie[1]).prop('disabled', true);
+	
+			$(graduatefie[1]).prop('disabled', true);
+		} else if (school2 == '대학원') {
+			graduate[1].style = 'display:inline-block';
+			graduate2[1].style = 'display:inline-block';
+			high[1].style = 'display: none';
+			college[1].style = 'display:none';
+			college2[1].style = 'display:none';
+			university[1].style = 'display:none';
+			university2[1].style = 'display:none';
+	
+			$(graduatefie[1]).prop('disabled', false);
+			$(hignschoolfie[1]).prop('disabled', true);
+			$(collegefie[1]).prop('disabled', true);
+			$(universityfie[1]).prop('disabled', true);
+		} else {
+			high[1].style = 'display:none';
+			college[1].style = 'display:none';
+			college2[1].style = 'display:none';
+			university[1].style = 'display:none';
+			university2[1].style = 'display:none';
+			graduate[1].style = 'display:none';
+			graduate2[1].style = 'display:none';
+	
+			$(hignschoolfie[1]).prop('disabled', true);
+			$(collegefie[1]).prop('disabled', true);
+			$(universityfie[1]).prop('disabled', true);
+			$(graduatefie[1]).prop('disabled', true);
+		}
+	});
+	
+	$(document).on('change', '#test03', function () {
+		let school3 = $(this).val();
+	
+		let hignschoolfie = document.querySelectorAll('.hignschool_field');
+		let collegefie = document.querySelectorAll('.college_field');
+		let universityfie = document.querySelectorAll('.university_field');
+		let graduatefie = document.querySelectorAll('.graduate_field');
+	
+		let high = document.querySelectorAll('.container1');
+	
+		let college = document.querySelectorAll('.container2');
+		let college2 = document.querySelectorAll('.container2-1');
+		let university = document.querySelectorAll('.container3');
+		let university2 = document.querySelectorAll('.container3-1');
+		let graduate = document.querySelectorAll('.container4');
+		let graduate2 = document.querySelectorAll('.container4-1');
+	
+		if (school3 == '고등학교') {
+			high[2].style = 'display:inline-block';
+			college[2].style = 'display:none';
+			college2[2].style = 'display:none';
+			graduate[2].style = 'display:none';
+			graduate2[2].style = 'display:none';
+			university[2].style = 'display:none';
+			university2[2].style = 'display:none';
+	
+			$(hignschoolfie[2]).prop('disabled', false);
+			$(collegefie[2]).prop('disabled', true);
+			$(universityfie[2]).prop('disabled', true);
+			$(graduatefie[2]).prop('disabled', true);
+		} else if (school3 == '전문대') {
+			college[2].style = 'display:inline-block';
+			college2[2].style = 'display:inline-block';
+			high[2].style = 'display:none';
+			graduate[2].style = 'display:none';
+			graduate2[2].style = 'display:none';
+			university[2].style = 'display:none';
+			university2[2].style = 'display:none';
+	
+			$(collegefie[2]).prop('disabled', false);
+			$(hignschoolfie[2]).prop('disabled', true);
+	
+			$(universityfie[2]).prop('disabled', true);
+			$(graduatefie[2]).prop('disabled', true);
+		} else if (school3 == '대학교') {
+			university[2].style = 'display:inline-block';
+			university2[2].style = 'display:inline-block';
+			high[2].style = 'display:none';
+			college[2].style = 'display:none';
+			college2[2].style = 'display:none';
+			graduate[2].style = 'display:none';
+			graduate2[2].style = 'display:none';
+	
+			$(universityfie[2]).prop('disabled', false);
+			$(hignschoolfie[2]).prop('disabled', true);
+			$(collegefie[2]).prop('disabled', true);
+	
+			$(graduatefie[2]).prop('disabled', true);
+		} else if (school3 == '대학원') {
+			graduate[2].style = 'display:inline-block';
+			graduate2[2].style = 'display:inline-block';
+			high[2].style = 'display: none';
+			college[2].style = 'display:none';
+			college2[2].style = 'display:none';
+			university[2].style = 'display:none';
+			university2[2].style = 'display:none';
+	
+			$(graduatefie[2]).prop('disabled', false);
+			$(hignschoolfie[2]).prop('disabled', true);
+			$(collegefie[2]).prop('disabled', true);
+			$(universityfie[2]).prop('disabled', true);
+		} else {
+			high[2].style = 'display:none';
+			college[2].style = 'display:none';
+			college2[2].style = 'display:none';
+			university[2].style = 'display:none';
+			university2[2].style = 'display:none';
+			graduate[2].style = 'display:none';
+			graduate2[2].style = 'display:none';
+	
+			$(hignschoolfie[2]).prop('disabled', true);
+			$(collegefie[2]).prop('disabled', true);
+			$(universityfie[2]).prop('disabled', true);
+			$(graduatefie[2]).prop('disabled', true);
+		}
+	});
+	
+	$(document).on('change', '#test04', function () {
+		let school4 = $(this).val();
+	
+		let hignschoolfie = document.querySelectorAll('.hignschool_field');
+		let collegefie = document.querySelectorAll('.college_field');
+		let universityfie = document.querySelectorAll('.university_field');
+		let graduatefie = document.querySelectorAll('.graduate_field');
+	
+		let high = document.querySelectorAll('.container1');
+	
+		let college = document.querySelectorAll('.container2');
+		let college2 = document.querySelectorAll('.container2-1');
+		let university = document.querySelectorAll('.container3');
+		let university2 = document.querySelectorAll('.container3-1');
+		let graduate = document.querySelectorAll('.container4');
+		let graduate2 = document.querySelectorAll('.container4-1');
+	
+		if (school4 == '고등학교') {
+			high[3].style = 'display:inline-block';
+			college[3].style = 'display:none';
+			college2[3].style = 'display:none';
+			graduate[3].style = 'display:none';
+			graduate2[3].style = 'display:none';
+			university[3].style = 'display:none';
+			university2[3].style = 'display:none';
+	
+			$(hignschoolfie[3]).prop('disabled', false);
+			$(collegefie[3]).prop('disabled', true);
+			$(universityfie[3]).prop('disabled', true);
+			$(graduatefie[3]).prop('disabled', true);
+		} else if (school4 == '전문대') {
+			college[3].style = 'display:inline-block';
+			college2[3].style = 'display:inline-block';
+			high[3].style = 'display:none';
+			graduate[3].style = 'display:none';
+			graduate2[3].style = 'display:none';
+			university[3].style = 'display:none';
+			university2[3].style = 'display:none';
+	
+			$(collegefie[3]).prop('disabled', false);
+			$(hignschoolfie[3]).prop('disabled', true);
+	
+			$(universityfie[3]).prop('disabled', true);
+			$(graduatefie[3]).prop('disabled', true);
+		} else if (school4 == '대학교') {
+			university[3].style = 'display:inline-block';
+			university2[3].style = 'display:inline-block';
+			high[3].style = 'display:none';
+			college[3].style = 'display:none';
+			college2[3].style = 'display:none';
+			graduate[3].style = 'display:none';
+			graduate2[3].style = 'display:none';
+	
+			$(universityfie[3]).prop('disabled', false);
+			$(hignschoolfie[3]).prop('disabled', true);
+			$(collegefie[3]).prop('disabled', true);
+	
+			$(graduatefie[3]).prop('disabled', true);
+		} else if (school4 == '대학원') {
+			graduate[3].style = 'display:inline-block';
+			graduate2[3].style = 'display:inline-block';
+			high[3].style = 'display: none';
+			college[3].style = 'display:none';
+			college2[3].style = 'display:none';
+			university[3].style = 'display:none';
+			university2[3].style = 'display:none';
+	
+			$(graduatefie[3]).prop('disabled', false);
+			$(hignschoolfie[3]).prop('disabled', true);
+			$(collegefie[3]).prop('disabled', true);
+			$(universityfie[3]).prop('disabled', true);
+		} else {
+			high[3].style = 'display:none';
+			college[3].style = 'display:none';
+			college2[3].style = 'display:none';
+			university[3].style = 'display:none';
+			university2[3].style = 'display:none';
+			graduate[3].style = 'display:none';
+			graduate2[3].style = 'display:none';
+	
+			$(hignschoolfie[3]).prop('disabled', true);
+			$(collegefie[3]).prop('disabled', true);
+			$(universityfie[3]).prop('disabled', true);
+			$(graduatefie[3]).prop('disabled', true);
+		}
+	});
+	
+	$(document).on('change', '#test05', function () {
+		let school5 = $(this).val();
+	
+		let hignschoolfie = document.querySelectorAll('.hignschool_field');
+		let collegefie = document.querySelectorAll('.college_field');
+		let universityfie = document.querySelectorAll('.university_field');
+		let graduatefie = document.querySelectorAll('.graduate_field');
+	
+		let high = document.querySelectorAll('.container1');
+	
+		let college = document.querySelectorAll('.container2');
+		let college2 = document.querySelectorAll('.container2-1');
+		let university = document.querySelectorAll('.container3');
+		let university2 = document.querySelectorAll('.container3-1');
+		let graduate = document.querySelectorAll('.container4');
+		let graduate2 = document.querySelectorAll('.container4-1');
+		if (school5 == '고등학교') {
+			high[4].style = 'display:inline-block';
+			college[4].style = 'display:none';
+			college2[4].style = 'display:none';
+			graduate[4].style = 'display:none';
+			graduate2[4].style = 'display:none';
+			university[4].style = 'display:none';
+			university2[4].style = 'display:none';
+	
+			$(hignschoolfie[4]).prop('disabled', false);
+			$(collegefie[4]).prop('disabled', true);
+			$(universityfie[4]).prop('disabled', true);
+			$(graduatefie[4]).prop('disabled', true);
+		} else if (school5 == '전문대') {
+			college[4].style = 'display:inline-block';
+			college2[4].style = 'display:inline-block';
+			high[4].style = 'display:none';
+			graduate[4].style = 'display:none';
+			graduate2[4].style = 'display:none';
+			university[4].style = 'display:none';
+			university2[4].style = 'display:none';
+	
+			$(collegefie[4]).prop('disabled', false);
+			$(hignschoolfie[4]).prop('disabled', true);
+	
+			$(universityfie[4]).prop('disabled', true);
+			$(graduatefie[4]).prop('disabled', true);
+		} else if (school5 == '대학교') {
+			university[4].style = 'display:inline-block';
+			university2[4].style = 'display:inline-block';
+			high[4].style = 'display:none';
+			college[4].style = 'display:none';
+			college2[4].style = 'display:none';
+			graduate[4].style = 'display:none';
+			graduate2[4].style = 'display:none';
+	
+			$(universityfie[4]).prop('disabled', false);
+			$(hignschoolfie[4]).prop('disabled', true);
+			$(collegefie[4]).prop('disabled', true);
+	
+			$(graduatefie[4]).prop('disabled', true);
+		} else if (school5 == '대학원') {
+			graduate[4].style = 'display:inline-block';
+			graduate2[4].style = 'display:inline-block';
+			high[4].style = 'display: none';
+			college[4].style = 'display:none';
+			college2[4].style = 'display:none';
+			university[4].style = 'display:none';
+			university2[4].style = 'display:none';
+	
+			$(graduatefie[4]).prop('disabled', false);
+			$(hignschoolfie[4]).prop('disabled', true);
+			$(collegefie[4]).prop('disabled', true);
+			$(universityfie[4]).prop('disabled', true);
+		} else {
+			high[4].style = 'display:none';
+			college[4].style = 'display:none';
+			college2[4].style = 'display:none';
+			university[4].style = 'display:none';
+			university2[4].style = 'display:none';
+			graduate[4].style = 'display:none';
+			graduate2[4].style = 'display:none';
+	
+			$(hignschoolfie[4]).prop('disabled', true);
+			$(collegefie[4]).prop('disabled', true);
+			$(universityfie[4]).prop('disabled', true);
+			$(graduatefie[4]).prop('disabled', true);
+		}
+	}); */
 
 // 학력사항 양식 end
 
@@ -987,15 +1069,15 @@ function checkBoth() {
 /* 달력 */
 
 /* var picker = new Pikaday({
-  field: document.getElementsByClassName('date'),
-  format: 'yyyy-MM-dd',
-  toString(date, format) {
-    let day = ('0' + date.getDate()).slice(-2);
-    let month = ('0' + (date.getMonth() + 1)).slice(-2);
-    let year = date.getFullYear();
-    return `${year}-${month}-${day}`;
-  },
-}); */
+		field: document.getElementsByClassName('date'),
+		format: 'yyyy-MM-dd',
+		toString(date, format) {
+			let day = ('0' + date.getDate()).slice(-2);
+			let month = ('0' + (date.getMonth() + 1)).slice(-2);
+			let year = date.getFullYear();
+			return `${year}-${month}-${day}`;
+		},
+	}); */
 
 /* 수상내역 */
 
@@ -1029,5 +1111,3 @@ $('input:radio[name=user_employment]').click(function () {
 		$('#carrerButtonBox').attr('style', 'display:block;');
 	}
 });
-
-function check() {}

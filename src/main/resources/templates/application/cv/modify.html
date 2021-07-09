@@ -190,7 +190,7 @@
                     <div class="common_div width-140">
                       <label class="absolute-label" for="">학교구분 <span>*</span></label>
                       <span class="custom-dropdown big">
-                        <select id="test01" class="schoolTypeSelect common_select schoolSelected1"
+                        <select class="SchoolTypeSelect common_select schoolSelected1"
                           name="education[][schoolType]">
                           <option class="gray" th:value="${item.getSchoolType()}">[[${item.getSchoolType()}]]</option>
 
@@ -210,8 +210,8 @@
                         type="text" autocomplete="off" />
                     </div>
 
-                    <div class="school_fieldset hignschool_field" disabled>
-                      <div class="container1" style="display:none;">
+                    <div class="school_fieldset hignschool_field displayNone">
+                      <div class="container1">
                         <div class="common_div width-140">
                           <label class="absolute-label" for="">졸업년도 <span>*</span> </label>
                           <input class="common_input" name="education[][highschool_edc_date]"
@@ -237,8 +237,8 @@
                     </div>
 
 
-                    <div class="college_field" disabled>
-                      <div class="container2" style="display:none;">
+                    <div class="college_field displayNone">
+                      <div class="container2">
                         <div class="common_div width-200">
                           <label class="absolute-label test" for="">입학년월 <span>*</span> </label>
                           <input class="date_input" name="education[][college_edc_date_start]"
@@ -271,7 +271,7 @@
 
                       </div>
 
-                      <div class="container2-1" style="display:none;">
+                      <div class="container2-1">
                         <div class="common_div width-300" style="width:409px;">
                           <label class="absolute-label" for="">전공 <span>*</span></label>
                           <input class="common_input" th:value="${item.getDept()}" name="education[][college_edc_dept]"
@@ -300,8 +300,8 @@
                       </div>
                     </div>
 
-                    <div class="university_field" disabled>
-                      <div class="container3" style="display:none;">
+                    <div class="university_field displayNone" >
+                      <div class="container3">
                         <div class="common_div width-200">
                           <label class="absolute-label" for="">입학년월 <span>*</span> </label>
                           <input class="date_input" th:value="${item.getDateStart()}"
@@ -334,7 +334,7 @@
 
                       </div>
 
-                      <div class="container3-1" style="display:none;">
+                      <div class="container3-1">
                         <div class="common_div width-300" style="width: 409px">
                           <label class="absolute-label" for="">전공 <span>*</span></label>
                           <input class="common_input" th:value="${item.getDept()}"
@@ -363,8 +363,8 @@
                       </div>
                     </div>
 
-                    <div class="graduate_field" disabled>
-                      <div class="container4" style="display:none;">
+                    <div class="graduate_field displayNone">
+                      <div class="container4">
                         <div class="common_div width-104">
                           <label class="absolute-label" for="">학위 <span>*</span></label>
                           <select class="common_select schoolSelected1" name="education[][graduate-edc_graduated]">
@@ -408,7 +408,7 @@
                         </div>
 
                       </div>
-                      <div class="container4-1" style="display: none">
+                      <div class="container4-1">
                         <div class="common_div width-300" style="width: 374px">
                           <label class="absolute-label" for="">전공 <span>*</span></label>
                           <input class="common_input" th:value="${item.getDept()}" name="education[][graduate_edc_dept]"

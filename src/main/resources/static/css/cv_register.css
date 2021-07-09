@@ -450,3 +450,11 @@ textarea:focus-within {
 	font-size: 17px;
 	background: #3399ff;
 }
+
+.displayNone {
+	display: none;
+}
+
+.displayInlineBlock {
+	display: inline-block;
+}
