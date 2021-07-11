@@ -29,7 +29,8 @@
     <link rel="stylesheet" href="/css/nav.css" />
     <link rel="stylesheet" href="/css/licenseList.css" />
     <link rel="stylesheet" href="/css/pagenation.css" />
-    
+    <link rel="stylesheet" href="/css/button.css" />
+
 
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script defer src="/js/nav.js"></script>
@@ -58,9 +59,7 @@
                                         <h4>지원서관리</h4>
                                         <ul id="sb_detail">
                                             <li><a href="/license/list">자격증 목록</a></li>
-                                            <li><a href="/license/register">자격증 등록</a></li>
                                             <li><a href="/application/introduce/list">자소서 목록</a></li>
-                                            <li><a href="/application/introduce/register">자소서 등록</a></li>
                                             <li><a href="/application/cv/before">이력서 관리</a></li>
                                         </ul>
                                     </li>
@@ -70,13 +69,17 @@
                     </div>
                 </div>
                 <div class="col-9 col-12-medium imp-medium">
-                             <div id="board_title">
-                                <h2>자격증 목록</h2>
-                            </div>
-                        <div class="wrapper">
-                            <div class="able">
+                    <div id="board_title">
+                        <h2 style="display: inline-block;">자격증 목록</h2>
+                        <a style="float: right;" class="effect effect-4" href="/application/introduce/register">
+                            자소서 등록
+                        </a>
+                        <div style="border-top: 3px solid #0202025e;"></div>
+                    </div>
+                    <div class="wrapper">
+                        <div class="able">
 
-                                <div th:if="${#lists.size(result.getDtoList())} != 0 " class="ae header blue">
+                            <div th:if="${#lists.size(result.getDtoList())} != 0 " class="ae header blue">
                                     <div class="cell" style="text-align: center;">
                                         자격증 명
                                     </div>

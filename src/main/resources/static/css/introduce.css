@@ -216,9 +216,9 @@
 #intro h2{
   font-size: 20px !important;
   font-weight: 400;
-  margin-bottom: 30px !important;
+  /* margin-bottom: 30px !important; */
   color: #333;
-  border-bottom: 3px solid #0202025e;
+  /* border-bottom: 3px solid #0202025e; */
   height: 43px;
   line-height: initial !important;
 }

@@ -24,41 +24,39 @@
 
 <body>
 
-<!--네비 div-->
-<div th:replace="layout/layout :: nav" />
-<!-- Main -->
-<section id="main">
-    <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <div class="sidebar">
-                    <div class="menu2">
-                        <div id="bar">
-                            <h2>취업지원</h2>
-                            <ul id="menu_bar">
-                                <li id="menu_con1">
-                                    <h4>지원서관리</h4>
-                                    <ul id="sb_detail">
-                                        <li><a href="/license/list">자격증 목록</a></li>
-                                        <li><a href="/license/register">자격증 등록</a></li>
-                                        <li><a href="/application/introduce/list">자소서 목록</a></li>
-                                        <li><a href="/application/introduce/register">자소서 등록</a></li>
-                                        <li><a href="/application/cv/before">이력서 관리</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div> <!-- bar -->
-                    </div> <!-- menu -->
+    <!--네비 div-->
+    <div th:replace="layout/layout :: nav" />
+    <!-- Main -->
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="sidebar">
+                        <div class="menu2">
+                            <div id="bar">
+                                <h2>취업지원</h2>
+                                <ul id="menu_bar">
+                                    <li id="menu_con1">
+                                        <h4>지원서관리</h4>
+                                        <ul id="sb_detail">
+                                            <li><a href="/license/list">자격증 목록</a></li>
+                                            <li><a href="/application/introduce/list">자소서 목록</a></li>
+                                            <li><a href="/application/cv/before">이력서 관리</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div> <!-- bar -->
+                        </div> <!-- menu -->
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-9 col-12-medium imp-medium">
-                <div id="intro">
-                    <h2>자소서 수정</h2>
-                </div>
+                <div class="col-9 col-12-medium imp-medium">
+                    <div id="intro">
+                        <h2>자소서 수정</h2>
+                    </div>
                     <div class="content">
-                        <input type="hidden" id="Intro_num"  th:value="${dto.num}"/>
-                        <input type="hidden" id="member_id"  th:value="${{memberDTO.getUser_id()}}"
+                        <input type="hidden" id="Intro_num" th:value="${dto.num}" />
+                        <input type="hidden" id="member_id" th:value="${{memberDTO.getUser_id()}}"
                             style="display: none;" />
 
                         <div class="register_title_wrap">
@@ -66,36 +64,40 @@
                             제목
                         </div> -->
                             <input type="text" name="em_title" id="Intro_title" class="register_title_input"
-                                th:value="${dto.title}" maxlength="20" />
+                                th:value="${dto.title}" placeholder="자기소개서 제목을 입력해주세요 (최대 30자)" maxlength="30" />
                         </div>
                         <div class="introduceContWrap">
                             <div class="register_cont_wrap">
                                 <div class="register_cont">
                                     성장과정
                                 </div>
-                                <textarea type="text" id="first_cont" class="register_cont_input"s
-                                     maxlength="499" th:text="${dto.content1}"></textarea>
+                                <textarea type="text" id="first_cont" class="register_cont_input" maxlength="1000"
+                                    th:text="${dto.content1}" placeholder="내용을 입력해주세요(최대 1000자)"
+                                    onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
                             </div>
                             <div class="register_cont_wrap">
                                 <div class="register_cont">
                                     성격의 장단점
                                 </div>
-                                <textarea id="second_cont" class="register_cont_input"
-                                    maxlength="499" th:text="${dto.content2}"></textarea>
+                                <textarea id="second_cont" class="register_cont_input" maxlength="1000"
+                                    th:text="${dto.content2}" placeholder="내용을 입력해주세요(최대 1000자)"
+                                    onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
                             </div>
                             <div class="register_cont_wrap">
                                 <div class="register_cont">
                                     전공 및 경력사항
                                 </div>
-                                <textarea id="third_cont"class="register_cont_input"
-                                    maxlength="499" th:text="${dto.content3}"></textarea>
+                                <textarea id="third_cont" class="register_cont_input" maxlength="1000"
+                                    th:text="${dto.content3}" placeholder="내용을 입력해주세요(최대 1000자)"
+                                    onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
                             </div>
                             <div class="register_cont_wrap">
                                 <div class="register_cont">
                                     지원 동기 및 입사 후 포부
                                 </div>
-                                <textarea id="forth_cont" class="register_cont_input"
-                                    maxlength="499" th:text="${dto.content4}"></textarea>
+                                <textarea id="forth_cont" class="register_cont_input" maxlength="1000"
+                                    th:text="${dto.content4}" placeholder="내용을 입력해주세요(최대 1000자)"
+                                    onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
                             </div>
                             <div class="base_button_wrap">
                                 <button id="IntroSave" name="IntroSave" type="submit" class="base_button">수정하기</button>
@@ -107,18 +109,18 @@
                 </div>
 
 
-            <!-- <div class="base_button_wrap">
+                <!-- <div class="base_button_wrap">
                 <button class="boxed-btn3" id="IntroSave" name="IntroSave" type="submit">수정하기</button>
             </div> -->
+            </div>
         </div>
-    </div>
-    </div>
-    </div>
+        </div>
+        </div>
 
-</section>
+    </section>
 
-<!--footer -->
-<footer th:replace="layout/layout :: footer" />
+    <!--footer -->
+    <footer th:replace="layout/layout :: footer" />
 
 
 </body>
@@ -137,7 +139,6 @@
     $("#em_file").change(function () {
         readURL(this);
     });
-
 </script>
 
 </html>

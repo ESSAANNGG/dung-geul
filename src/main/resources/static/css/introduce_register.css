@@ -120,7 +120,7 @@ textarea:focus {
 .register_cont_wrap {
 	display: flex;
 	justify-content: center;
-	height: 300px;
+	/* height: 300px; */
 	padding: 30px 60px 0px 50px;
 	margin: 0 auto 0px auto;
 	color: #768395;
@@ -142,10 +142,11 @@ textarea:focus {
 	text-align: top;
 	border: 1px solid rgb(213, 211, 211);
 	width: 786px;
-	height: inherit;
 	padding: 20px 50px 0 30px;
-	font-size: 18px;
-	min-height: 180px;
+	font-size: 16px;
+	min-height: 11rem;
+	resize: none;
+	overflow-y: hidden;
 }
 
 .register_cont_input::placeholder {

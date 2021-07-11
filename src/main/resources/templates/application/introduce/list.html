@@ -9,6 +9,8 @@
 
   <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
+
 
   <!-- select 태그 부트스트랩 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
@@ -24,6 +26,7 @@
   <link rel="stylesheet" href="/css/introduce.css" />
   <link rel="stylesheet" href="/css/menu-common2.css" />
   <link rel="stylesheet" href="/css/frame.css" />
+  <link rel="stylesheet" href="/css/button.css" />
 
 
 
@@ -47,10 +50,8 @@
                   <li id="menu_con1">
                     <h4>지원서관리</h4>
                     <ul id="sb_detail">
-                      <li><a href="/license/list">자격증 목록</a></li>
-                      <li><a href="/license/register">자격증 등록</a></li>
+                      <li><a href="/license/list">자격증 목록</a></li>            
                       <li><a href="/application/introduce/list">자소서 목록</a></li>
-                      <li><a href="/application/introduce/register">자소서 등록</a></li>
                       <li><a href="/application/cv/before">이력서 관리</a></li>
                     </ul>
                   </li>
@@ -60,14 +61,19 @@
           </div>
         </div>
         <div class="col-9 col-12-medium imp-medium">
-           <div class="employListPost">
-             <div id="intro">
-               <h2>자소서 목록</h2>
-             </div>
+          <div class="employListPost">
+            <div id="intro">
+              <h2 style="display: inline-block;">자소서 목록</h2>
+              <a style="float: right;" class="effect effect-4" href="/license/register">
+                자격증 등록
+              </a>
+              <div style="border-top: 3px solid #0202025e;"></div>
+            </div>
+
             <li th:each="dto: ${result.dtoList}">
               <a th:href="@{/application/introduce/read(num = ${dto.num}, page = ${result.page},
               type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
-                 <ul>
+                <ul>
                   <li class="post_end_date" th:text="'작성일'+' '+ ${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}">작성일</li>
                 </ul>
                 <ul class="post_corp_name_wrap"><i class="fas fa-envelope-open-text"></i>
