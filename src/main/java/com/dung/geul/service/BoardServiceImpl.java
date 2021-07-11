@@ -1,7 +1,6 @@
 //package com.dung.geul.service;
-//
-//
 //import com.dung.geul.dto.BoardDTO;
+//import com.dung.geul.dto.notice_boardDTO;
 //import com.dung.geul.entity.Board;
 //import com.dung.geul.entity.Board_file;
 //import com.dung.geul.repository.BoardFileRepository;
@@ -34,8 +33,8 @@
 //
 //        BoardRepository.save(board);
 //
-//        BoardFileList.forEach(movieImage -> {
-//            BoardFileRepository.save(movieImage);
+//        BoardFileList.forEach(boardImage -> {
+//            BoardFileRepository.save(boardImage);
 //        });
 //
 //        return board.getNum();
@@ -46,7 +45,7 @@
 ////
 ////        Pageable pageable = requestDTO.getPageable(Sort.by("num").descending());
 ////
-////        Page<Object[]> result = movieRepository.getListPage(pageable);
+////        Page<Object[]> result = boardRepository.getListPage(pageable);
 ////
 ////        log.info("==============================================");
 ////        result.getContent().forEach(arr -> {
@@ -54,9 +53,9 @@
 ////        });
 ////
 ////
-////        Function<Object[], MovieDTO> fn = (arr -> entitiesToDTO(
-////                (Movie)arr[0] ,
-////                (List<MovieImage>)(Arrays.asList((MovieImage)arr[1])),
+////        Function<Object[], boardDTO> fn = (arr -> entitiesToDTO(
+////                (board)arr[0] ,
+////                (List<boardImage>)(Arrays.asList((boardImage)arr[1])),
 ////                (Double) arr[2],
 ////                (Long)arr[3])
 ////        );
@@ -65,23 +64,23 @@
 ////    }
 //
 ////    @Override
-////    public MovieDTO getMovie(Long mno) {
+////    public boardDTO getBoard(Long mno) {
 ////
-////        List<Object[]> result = movieRepository.getMovieWithAll(mno);
+////        List<Object[]> result = boardRepository.getBoardWithAll(mno);
 ////
-////        Movie movie = (Movie) result.get(0)[0];
+////        Board board = (Board) result.get(0)[0];
 ////
-////        List<MovieImage> movieImageList = new ArrayList<>();
+////        List<BoardImage> boardImageList = new ArrayList<>();
 ////
 ////        result.forEach(arr -> {
-////            MovieImage  movieImage = (MovieImage)arr[1];
-////            movieImageList.add(movieImage);
+////           BoardImage  boardImage = (BoardImage)arr[1];
+////            boardImageList.add(boardImage);
 ////        });
 ////
 ////        Double avg = (Double) result.get(0)[2];
 ////        Long reviewCnt = (Long) result.get(0)[3];
 ////
-////        return entitiesToDTO(movie, movieImageList, avg, reviewCnt);
+////        return entitiesToDTO(board, boardImageList, avg, reviewCnt);
 ////    }
 //
 //}

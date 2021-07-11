@@ -60,12 +60,12 @@ public class UploadController {
             String saveName = uploadPath + File.separator + folderPath + File.separator + uuid +"_" + fileName;
             Path savePath = Paths.get(saveName);
 
-            // 섬네일 이미지 생성과 화면 처리
+            // 섬네일 이미지 생성과 화면 처리 - 채용공고
             try {
                 //원본 파일 저장
                 uploadFile.transferTo(savePath);
 
-//                //섬네일 생성
+//                //섬네일 생성  - 채용공고
 //                String thumbnailSaveName = uploadPath + File.separator + folderPath + File.separator
 //                        +"s_" + uuid +"_" + fileName;
 //                //섬네일 파일 이름은 중간에 s_로 시작하도록
@@ -89,41 +89,41 @@ public class UploadController {
 
         String folderPath =  str.replace("//", File.separator);
 
-        // make folder --------
+        // make folder
         File uploadPathFolder = new File(uploadPath, folderPath);
 
-        if (uploadPathFolder.exists() == false) {
+        if (uploadPathFolder.exists() == false) {   // 업로드 할 파일의 폴더가 없을 시 새로 생성한다.
             uploadPathFolder.mkdirs();
         }
         return folderPath;
     }
 
-//    @GetMapping("/display")
-//    public ResponseEntity<byte[]> getFile(String fileName) {
-//
-//        ResponseEntity<byte[]> result = null;
-//
-//        try {
-//            String srcFileName =  URLDecoder.decode(fileName,"UTF-8");
-//
-//            log.info("fileName: " + srcFileName);
-//
-//            File file = new File(uploadPath +File.separator+ srcFileName);
-//
-//            log.info("file: " + file);
-//
-//            HttpHeaders header = new HttpHeaders();
-//
-//            //MIME타입 처리
-//            header.add("Content-Type", Files.probeContentType(file.toPath()));
-//            //파일 데이터 처리
-//            result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
-//        } catch (Exception e) {
-//            log.error(e.getMessage());
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//        return result;
-//    }
+    @GetMapping("/display")
+    public ResponseEntity<byte[]> getFile(String fileName) {
+
+        ResponseEntity<byte[]> result = null;
+
+        try {
+            String srcFileName =  URLDecoder.decode(fileName,"UTF-8");
+
+            log.info("fileName: " + srcFileName);
+
+            File file = new File(uploadPath +File.separator+ srcFileName);
+
+            log.info("file: " + file);
+
+            HttpHeaders header = new HttpHeaders();
+
+            //MIME타입 처리
+            header.add("Content-Type", Files.probeContentType(file.toPath()));
+            //파일 데이터 처리
+            result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return result;
+    }
 
     // 파라미터로 fileName 전송 - 경로와 파일이름을 결합한 문자열
     @PostMapping("/removeFile") // 업로드 파일 삭제

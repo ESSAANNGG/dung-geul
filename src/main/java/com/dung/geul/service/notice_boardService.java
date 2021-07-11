@@ -37,7 +37,6 @@ public interface notice_boardService {  // 공지사항 게시판 Service
                 .content(entity.getContent())
                 .b(entity.getB())
                 .regDate(entity.getRegDate())
-                //.modDate(entity.getModDate())
                 .build();
 
         return dto;
