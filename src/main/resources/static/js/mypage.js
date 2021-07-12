@@ -8134,36 +8134,6 @@ function selectAll(){
         }
 }
 
-
-//상담사 상담
-let p;
-$('.btn-q').click(function(){
-    p=$(this).text();
-    switch (p) {
-        case "삭제":
-            p="no";
-            break;
-        case "승인":
-            p="ok";
-            break;
-    }
-    ajax_list=[];
-    checked_length=$('.check:checked').length;
-    for(i = 0; i < checked_length; i++){
-        index=($('.check').index($('.check:checked'))); //<<1개만 반환됨
-        ($('.check').eq(index)).prop("checked", false);
-        num = $('.check').eq(index).parent("td").parent("tr").find("th").text();  //해당 순번에 해당하는 열의 순번 저장
-        ajax_list.push(num);
-    }
-    $.ajax({
-        url: "/consult/counselling_request?result=" + p,
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        data: JSON.stringify(ajax_list),
-    })
-})
-
 $('.excute').on('click',function (){
     conF=confirm("회원탈퇴하시겠습니까?");
     if(conF==true){

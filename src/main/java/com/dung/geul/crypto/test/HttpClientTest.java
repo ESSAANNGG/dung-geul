@@ -1,11 +1,9 @@
-package gov.keis.openapi.client.crypto.test;
+package com.dung.geul.crypto.test;
 
-import java.io.PrintStream;
 import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.methods.PostMethod;
-//import org.apache.http.client.HttpClient;
+import org.apache.commons.httpclient.methods.GetMethod;
 
-public class HttpClientPostTest
+public class HttpClientTest
 {
   private static String url = "http://openapi.work.go.kr/opi/opi/opia/wantedApi.do?returnType=xml&startPage=1&display=10&callTp=L&authKey=WNGXVGIDR0JK75CY4TFRV2VRETJ";
   
@@ -16,7 +14,8 @@ public class HttpClientPostTest
     byte[] responseBody = (byte[])null;
     HttpClient client = new HttpClient();
     
-    PostMethod method = new PostMethod(url);
+    GetMethod method = new GetMethod(url);
+    method.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
     
     System.out.println("debug --> 1");
     try

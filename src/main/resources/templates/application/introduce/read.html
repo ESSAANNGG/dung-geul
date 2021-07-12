@@ -1,119 +1,124 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title>CV Printable A4</title>
+	</head>
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
-    />
+	<body>
+		<!-- partial:index.partial.html -->
+		<html lang="en">
+			<head>
+				<title>이력서</title>
+				<meta name="viewport" content="width=device-width" />
+				<meta name="description" />
+				<meta charset="UTF-8" />
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+				<link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Lato:400,300" rel="stylesheet" type="text/css" />
 
-    <script th:async src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
-    <script th:async src="/js/Introduce.js"></script>
+				<link rel="stylesheet" href="/css/introRead.css" />
+				<!--[if lt IE 9]>
+					<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+				<![endif]-->
+				<script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
+			</head>
+			<html>
+				<body id="top">
+					<!--Page 1-->
+					<page size="A4">
+						<div id="button" class="no-print">
+							<input id="Intro_num" name="Intro_num" th:value="${dto.num}" style="display: none" />
+							<button class="h-blue" style="width: 50px"><-</button>
+							<a href="/">
+								<button id="logo" style="background-color: #09529b; padding: 0px !important; width: 180px !important" type="button">
+									<span class="button-txt"><i class="fas fa-book-open"></i> &nbsp;취업정보센터</span>
+								</button>
+							</a>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
-    />
-
-    <link rel="stylesheet" href="/css/menu-common2.css" />
-    <link rel="stylesheet" href="/css/frame.css" />
-    <link rel="stylesheet" href="/css/introduce_read.css" />
-
-    <title>영진전문대 자기소개서</title>
-  </head>
-  <body>
-    <input id="Intro_num" name="Intro_num" th:value="${dto.num}" style="display: none" />
-
-    <div th:replace="layout/layout :: nav" />
-
-      <section id="main">
-        <div class="container">
-          <div class="row">
-          <div class="col-3">
-            <div class="sidebar">
-              <div class="menu2">
-                <div id="bar">
-                  <h2>자기소개서</h2>
-                  <ul id="menu_bar">
-                    <li id="menu_con1">
-                      <h4>자기소개서 목록</h4>
-                      <ul id="sb_detail">
-                        <li><a th:href="@{/application/introduce/list}">자기소개서 목록</a></li>
-                        <li><a th:href="@{/application/introduce/register}">자기소개서 등록</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div> <!-- bar -->
-              </div> <!-- menu -->
-            </div>
-          </div>
-            <div class="col-9 col-12-medium imp-medium">
-          <div id="head_wrap">
-            <h1 id="em_title" th:text="${dto.title}">11</h1>
-          </div>
-
-          <div class="base_wrap">
-            <li class="category">
-              <h5>성장과정</h5>
-            </li>
-            <li class="data" id="em_ot" th:text="${dto.content1}">
-              
-            </li>
-
-            <li />
-          </div>
-          <div class="base_wrap">
-            <li class="category">
-              <h5>성격의 장단점</h5>
-            </li>
-            <li class="data" id="em_ot" th:text="${dto.content2}">
-              
-            </li>
-
-            <li />
-          </div>
-          <div class="base_wrap">
-            <li class="category">
-              <h5>전공 및 경력사항</h5>
-            </li>
-            <li class="data" id="em_ot" th:text="${dto.content3}">
-             
-            </li>
-
-            <li />
-          </div>
-          <div class="base_wrap">
-            <li class="category">
-              <h5>성장과정</h5>
-            </li>
-            <li class="data" id="em_ot" th:text="${dto.content4}">
-              
-            </li>
-
-            <li />
-          </div>
-
-          <div class="col-md-12">
-            <div class="submit_btn">
-              <a th:href="@{/application/introduce/modify(num = ${dto.num})}">
-                <button type="button">수정하기</button>
-              </a>
-              <button class="boxed-btn3" id="IntroRemove" name="IntroRemove" type="submit">
-                삭제
-              </button>
-            </div>
-          </div>
-        </div>
-          </div>
-        </div>
-      </section>
-    <!-- footer -->
-
-    <footer th:replace="layout/layout :: footer" />
-  </body>
+							<button class="pull-right h-blue" type="button" onclick="myFunction()">
+								<span class="button-txt"><i class="fa fa-print" aria-hidden="true"></i> &nbsp;print</span>
+							</button>
+							<script>
+								function myFunction() {
+									window.print();
+								}
+							</script>
+						</div>
+						<div id="modify" class="no-print">
+							<a th:href="@{/application/introduce/modify(num = ${dto.num})}">
+								<button class="h-blue" type="button">
+									<span class="button-txt"> &nbsp;수정하기</span>
+								</button>
+							</a>
+							<button id="IntroRemove" name="IntroRemove" class="pull-right h-blue" type="submit">
+								<span class="button-txt"> &nbsp;삭제하기</span>
+							</button>
+						</div>
+						<div class="cv">
+							<div id="header"></div>
+							<div class="mainDetails">
+								<!-- 	<div id="headshot">
+								<img id="avatar" src="https://visualangle.ee/delivery/temp_image/icon.png" alt="Margus Lillemagi" title="See olen mina" />
+							</div> -->
+								<div id="name">
+									<h1 style="font-size: 30px; font-weight: 900" th:text="${dto.title}">자소서 제목</h1>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div id="mainArea">
+								<section th:if="${dto.content1} != null" style="margin-bottom: 10px">
+									<article>
+										<div class="sectionTitle">
+											<h1 style="font-weight: 600; margin-top: 2%">성장과정</h1>
+										</div>
+										<div class="sectionContent">
+											<ul class="list">
+												<li style="font-size: 16px; margin-bottom: 10px; word-break: break-all" th:text="${dto.content1}">
+													111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+												</li>
+											</ul>
+										</div>
+									</article>
+									<div class="clear"></div>
+								</section>
+								<section th:if="${dto.content2} != null">
+									<div class="sectionTitle">
+										<h1 style="font-weight: 600; margin-top: 2%">성격의 장단점</h1>
+									</div>
+									<div class="sectionContent">
+										<ul class="list">
+											<li style="font-size: 16px; margin-bottom: 10px; max-width: 733px" th:text="${dto.content2}"></li>
+										</ul>
+									</div>
+									<div class="clear"></div>
+								</section>
+								<section th:if="${dto.content3} != null">
+									<div class="sectionTitle">
+										<h1 style="font-weight: 600; margin-top: 2%">전공 및 경력사항</h1>
+									</div>
+									<div class="sectionContent">
+										<ul class="list">
+											<li style="font-size: 16px; margin-bottom: 10px; max-width: 733px" th:text="${dto.content3}"></li>
+										</ul>
+									</div>
+									<div class="clear"></div>
+								</section>
+								<section th:if="${dto.content4} != null">
+									<div class="sectionTitle">
+										<h1 style="font-weight: 600; margin-top: 2%">지원 동기 및 입사 후 포부</h1>
+									</div>
+									<div class="sectionContent">
+										<ul class="list">
+											<li style="font-size: 16px; margin-bottom: 10px; max-width: 733px" th:text="${dto.content4}"></li>
+										</ul>
+									</div>
+									<div class="clear"></div>
+								</section>
+							</div>
+						</div>
+					</page>
+				</body>
+			</html>
+		</html>
+	</body>
 </html>

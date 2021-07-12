@@ -1,6 +1,6 @@
-package gov.keis.openapi.client.crypto.impl;
+package com.dung.geul.crypto.impl;
 
-import gov.keis.openapi.client.crypto.EgovARIACryptoService;
+import com.dung.geul.crypto.EgovARIACryptoService;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.apache.commons.codec.binary.Base64;

@@ -19,7 +19,7 @@
 
 
 
-    <title>영진전문대 채용공고</title>
+    <title>채용공고</title>
 </head>
 <body>
 <input id="em_num" name="em_num" th:value="${dto.num}" style="display:none"/>
@@ -31,7 +31,7 @@
         <div id="wrap">
             <div id="head_wrap">
                 <span><a th:href="@{/Employ/list}">다른 공고 보러가기</a></span>
-                <h2>[[${dto.etp_name}]]</h2>
+                <h2 id="etp_name">[[${dto.etp_name}]]</h2>
                 <h1 id="em_title" th:text="${dto.title}"></h1>
 
                 <!-- <div id="nav">
@@ -69,13 +69,13 @@
                 </div>
                 <div id="receipt_box" class="box">
                     <div id="receipt_date">
-                        <h6>남은 기간</h6>
-                        <h1>10일 05:10:09</h1>
+                        <h6>마감일</h6>
+                        <h1>[[${dto.end_date}]]</h1>
                         <!--                <h6 style="margin-top:10px;">시작일 | <span  id="regDate"  th:text="${dto.start_date}"  ></span></h6>-->
                         <!--                <h6 style="margin-top:5px;"  >마감일 | <span id="end_date" th:text="${dto.end_date}" ></span></h6>-->
                     </div>
                     <div id="receipt_cont">
-                        <li><h5>모집인원 : <span id="em_people" th:text="${dto.people}"></span></h5></li>
+                        <li><h5>모집인원 : <span id="em_people">[[${dto.people}]]명</span></h5></li>
                         <li><h5>지원방법 : <span id="em_apply" th:text="${dto.apply}"></span></h5></li>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
             <div id="corp_wrap">
                 <div id="corp_head" class="head">
                     <h3>기업정보</h3>
-                    <div class="right_text"><a><u>이 기업의 다른 공고 보러가기</u></a></div>
+                    <div class="right_text"><a style="cursor: pointer" onclick="sameEtp()"><u>이 기업의 다른 공고 보러가기</u></a></div>
                 </div>
                 <div id="corp_box" class="box">
                     <div id="corp_image">
@@ -110,21 +110,22 @@
             </div>
 
 
-            <div id="stats_wrap">
-                <div id="stats_head" class="head">
-                    <h3>지원자 통계</h3>
-                </div>
-                <div id="stats_box" class="box">
+<!--            <div id="stats_wrap">-->
+<!--                <div id="stats_head" class="head">-->
+<!--                    <h3>지원자 통계</h3>-->
+<!--                </div>-->
+<!--                <div id="stats_box" class="box">-->
 
-                </div>
-            </div>
+<!--                </div>-->
+<!--            </div>-->
+
             <div sec:authorize="hasRole('ENTERPRISE')">
                 <div class="col-md-12">
                     <div class="submit_btn">
                         <a th:href="@{/Employ/modify(num = ${dto.num})}">
                             <button type="button">수정하기</button>
                         </a>
-                        <button class="boxed-btn3" id="emRemove" name="emRemove" type="submit">삭제</button>
+<!--                        <button class="boxed-btn3" id="emRemove" name="emRemove" type="submit">삭제</button>-->
 
                         <!--  <button class="boxed-btn3" id="emModify" name="emModify" type="submit">수정</button>
                           <button class="boxed-btn3" id="emSave" name="emSave" type="submit">저장</button>-->
@@ -173,12 +174,28 @@
 <!-- footer -->
 
 <footer th:replace="layout/layout :: footer" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script>
+    $(document).ready(function() {
 
+        // nowTime = new Date()
+        // nowTime=nowTime.toISOString().substring(0,16)
+        //
+        restTime = $('#receipt_date h1').text();
+        restTime=restTime.split('T');
+        $('#receipt_date h1').text(restTime[0]);
+        var br = document.createElement("br");
+        $('#receipt_date h1').append(br);
+        $('#receipt_date h1').append(restTime[1]);
+
+    });
+</script>
 <script th:inline="javascript">
     $(document).ready(function() {
         employ_num=[[${dto.num}]];
-        userId=[];
-        userId.push([[${memberDTO.getUser_id}]]);
+
+
+        userId=([[${memberDTO.getUser_id}]]);
 
         applies=([[${alreadyApply}]]); //이미 지원한 공고인지 확인
 
@@ -196,6 +213,7 @@
                 $('#online_apply').css('display','initial');
             }
         }
+
     });
 </script>
 </body>

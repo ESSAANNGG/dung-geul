@@ -1,5 +1,9 @@
-/* @import "reset.css";
-@import "common.css";  */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+.col-9{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight:300;
+  font-size:14px;
+}
 * {
   box-sizing: content-box;
 }
@@ -208,4 +212,13 @@
   /*display:none;*/
   position: fixed;
   left: 200px;
+}
+#intro h2{
+  font-size: 20px !important;
+  font-weight: 400;
+  /* margin-bottom: 30px !important; */
+  color: #333;
+  /* border-bottom: 3px solid #0202025e; */
+  height: 43px;
+  line-height: initial !important;
 }

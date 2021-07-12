@@ -4,18 +4,18 @@ import com.dung.geul.dto.*;
 import com.dung.geul.entity.Consulting;
 import com.dung.geul.entity.Member;
 import com.dung.geul.security.dto.AuthMemberDTO;
-import com.dung.geul.service.ApplicationService;
-import com.dung.geul.service.ConsultingService;
-import com.dung.geul.service.EmployService;
-import com.dung.geul.service.MemberServiceImpl;
+import com.dung.geul.service.*;
+import com.querydsl.core.BooleanBuilder;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashSet;
 import java.util.List;
@@ -31,6 +31,9 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
 
     @Autowired
     private ConsultingService consultingService;
+
+    @Autowired
+    private ConsultingServiceImpl consultingServiceImpl;
 
     @Autowired
     private ApplicationService applicationService;
@@ -168,17 +171,65 @@ public class MyPageController {        // 마이페이지 관련 컨트롤러
         model.addAttribute("loginUser", authMemberDTO);
     }
 
-    @GetMapping( "/consult/counselling_request")
-    public void okey(PageRequestDTO pageRequestDTO, Model model,@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
-        PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
-        System.out.println("================" + pageRequestDTO);
-        model.addAttribute("conlist", getlist.getDtoList());
-        model.addAttribute("loginUser", authMemberDTO);
+    @GetMapping("/consult/counselling_request")
+    public void getList(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO,
+                        @RequestParam(value = "page1", required = false, defaultValue = "1") int page1,
+                        @RequestParam(value = "page2", required = false, defaultValue = "1") int page2,
+                        @RequestParam(value = "page3", required = false, defaultValue = "1") int page3,
+                        SearchDTO searchDTO
+    ){
 
+        // type : USER / ENTERPRISE / STUDENT / STAFF / COUNSELOR / UNIV
+        System.out.println("page1 : " + page1 +"\n" +
+                "page2 : " + page2);
+        System.out.println("list 컨트롤러 실행");
+
+        System.out.println("approve : " + searchDTO.getApprove());
+
+        // allow = 1, page1 : 미인증 목록
+        // allow = 0, page2 : 인증 목록
+        PageRequestDTO StayPageDTO = new PageRequestDTO(page2);
+        PageRequestDTO NotAllowPageDTO = new PageRequestDTO(page1);
+        PageRequestDTO AllowPageDTO = new PageRequestDTO(page2);
+
+        BooleanBuilder NotAllowBuilder = consultingServiceImpl.findByCon(searchDTO, 2);
+        BooleanBuilder AllowBuilder = consultingServiceImpl.findByCon(searchDTO, 1);
+        BooleanBuilder StayBuilder = consultingServiceImpl.findByCon(searchDTO,0);
+
+        log.info("booleanBuilder - notAllowBuilder : " + NotAllowBuilder.getValue());
+        log.info("booleanBuilder - allowBuilder : " + AllowBuilder.getValue());
+        log.info("booleanBuilder - StayBuilder : " + StayBuilder.getValue());
+
+        Sort sort = Sort.by("consult_num");
+
+        PageResultDTO notAllowDto = consultingServiceImpl.getPageResultDTO(NotAllowBuilder, NotAllowPageDTO.getPageable(sort));
+        PageResultDTO allowDto = consultingServiceImpl.getPageResultDTO(AllowBuilder, AllowPageDTO.getPageable(sort));
+        PageResultDTO stayDTO = consultingServiceImpl.getPageResultDTO(StayBuilder, StayPageDTO.getPageable(sort));
         //지민우
         Member member = memberService.getMember(authMemberDTO.getUser_id());
+
         model.addAttribute("memberDTO",member);
+        model.addAttribute("notAllow", notAllowDto);
+        model.addAttribute("allow", allowDto);
+        model.addAttribute("stay", stayDTO);
+
+
+        log.info("notAllowList : " + notAllowDto.getDtoList());
+        log.info("allowList : " + allowDto.getDtoList());
+        log.info("stayList : " + stayDTO.getDtoList());
     }
+
+//    @GetMapping( "/consult/counselling_request")
+//    public void okey(PageRequestDTO pageRequestDTO, Model model,@AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+//        PageResultDTO<ConsultingDTO, Consulting> getlist = consultingService.conlist(pageRequestDTO);
+//        System.out.println("================" + pageRequestDTO);
+//        model.addAttribute("conlist", getlist.getDtoList());
+//        model.addAttribute("loginUser", authMemberDTO);
+//
+//        //지민우
+//        Member member = memberService.getMember(authMemberDTO.getUser_id());
+//        model.addAttribute("memberDTO",member);
+//    }
 
     @GetMapping("/consult/counselling_reject")
     public void reject(){

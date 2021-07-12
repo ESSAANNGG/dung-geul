@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>취업정보센터</title>
+    <title>이력서 작성요령</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <!-- <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/center_guide.css" />
     <link rel="stylesheet" href="/css/frame.css">
     <link rel="stylesheet" href="/css/center_intro.css">
-
+    <link rel="stylesheet" href="/css/table-type.css" />
 
 </head>
 
@@ -36,33 +36,18 @@
                             <div class="sidebar">
                                 <div class="menu2">
                                     <div id="bar">
-                                        <h2>취업자료실</h2>
+                                        <h2>취업지원</h2>
                                         <ul id="menu_bar">
-                                            <li id="menu_con1">
-                                                <h4>취업정보</h4>
-                                                <ul id="sb_detail">
-                                                    <li><a href="/career_data/cv_strategy"
-                                                           >이력서 작성요령</a>
-                                                    </li>
-                                                    <li><a href="/career_data/intro_strategy"
-                                                        >자소서 작성요령</a>
-                                                    </li>
-                                                    <li><a href="/career_data/interview_strategy"
-                                                           >면접 전략</a></li>
+                                            <li id="menu_con1"><h4>취업자료실</h4>
+                                                <ul>
+                                                    <li><a href="/career_data/cv_strategy">이력서 작성요령</a></li>
+                                                    <li><a href="/career_data/intro_strategy">자소서 작성요령</a></li>
+                                                    <li><a href="/career_data/interview_strategy">면접 전략</a></li>
+
+                                                    <!--                                <li><a href="/upgrade/c-inpression">지원프로그램 후기</a></li>-->
+                                                    <!--                                <li><a href="/upgrade/impression-write">후기 등록</a></li>-->
                                                 </ul>
                                             </li>
-                                            <!-- <li id="menu_con2"><h4>직업 정보</h4>
-                <ul id="sb_detail">
-                    <li><a href="#">직업 정보 조회</a></li>
-                    <li><a href="#">직업 사전</a></li>
-                </ul>
-            </li>
-            <li id="menu_con3"><h4>상담 정보</h4>
-                <ul id="sb_detail">
-                    <li><a href="#">상담 신청</a></li>
-                    <li><a href="#">상담 내역</a></li>
-                </ul>
-            </li> -->
                                         </ul>
                                     </div> <!-- bar -->
                                 </div> <!-- menu -->
@@ -77,10 +62,10 @@
                                 <article class="box page-content">
                                     <header>
                                         <!-- <h2 class="major"><span>취업자료실</span></h2> -->
-                                        <h2 class="h2-" style="padding-top: 30px;">취업자료실</h2>
+                                        <h2 class="h2-">취업자료실</h2>
                                     </header>
                                     <div
-                                        style="padding: 20px; border:5px solid rgba(139, 138, 138, 0.377); margin-bottom: 40px;">
+                                        style="padding: 20px;     border: 1px solid #7d7d7d; margin-bottom: 30px;">
 
                                         <section>
                                             <ul class="square" style="margin-top: 25px;">
@@ -101,12 +86,12 @@
                                                 </li>
                                             </ul>
                                             <span class="image featured"><img style="margin-top: 25px; width: 840px;"
-                                                    src="/img/이력서작성요령.jpg" alt="" /></span>
+                                                    src="/img/이력서작성요령.svg" alt="" /></span>
                                         </section>
                                         <section>
                                             <ul class="square" style="margin-top: 25px;">
                                                 <li>
-                                                    <h3 style="font-size: 19px;">○ 인적사항</h3>
+                                                    <h3 class="subTitle"><span style="font-size: 20px;;">◎</span> 인적사항</h3>
                                                 </li>
                                                 <li>
                                                     <p style="line-height: 30px; margin-top: 10px;">
@@ -122,7 +107,7 @@
                                         <section>
                                             <ul class="square" style="margin-top: 25px;">
                                                 <li>
-                                                    <h3 style="font-size: 19px;">○ 학력사항</h3>
+                                                    <h3 class="subTitle"><span style="font-size: 20px;;">◎</span> 학력사항</h3>
                                                 </li>
                                                 <li>
                                                     <p style="line-height: 30px; margin-top: 10px;">
@@ -137,7 +122,7 @@
                                         <section>
                                             <ul class="square" style="margin-top: 25px;">
                                                 <li>
-                                                    <h3 style="font-size: 19px;">○ 경력사항</h3>
+                                                    <h3 class="subTitle"><span style="font-size: 20px;;">◎</span> 경력사항</h3>
                                                 </li>
                                                 <li>
                                                     <p style="line-height: 30px; margin-top: 10px;">
@@ -148,13 +133,57 @@
                                                     </p>
                                                 </li>
                                             </ul>
-                                            <span class="image featured"><img style="margin-top: 25px; width: 840px;"
-                                                    src="/img/이력서경력사항예시.jpg" alt="" /></span>
+                                                <ul class="square" style="margin:35px 0 10px 0;">
+                                                    <li>
+                                                        <h3 class="subTitle"><span style="font-size: 17px;;">▷ </span>신입의 이력서 경력사항 예시</h3>
+                                                    </li>
+                                                </ul>
+                                                <table cellspacing=0 class="table-type" align="center" width="870" height="150">
+                                                    <tr bgcolor="#e7f2f8" style="font-weight:500; margin-botton:10px;">
+                                                        <th colspan="3">신입의 경우 이력서의 경력사항 예시</th>
+                                                    </tr>
+                                                    <tr style="font-weight:500">
+                                                        <td>기관</td>
+                                                        <td>회사명(기관명)</td>
+                                                        <td>업무내용</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2019.1.2 ~ 2019.3.31</td>
+                                                        <td>○○회사</td>
+                                                        <td>일반행정,자료입력,영업지원</td>
+                                                    </tr>
+                                                </table>
+                                            <ul class="square" style="margin:35px 0 10px 0;">
+                                                <li>
+                                                    <h3 class="subTitle"><span style="font-size: 17px;;">▷ </span>경력의 경우 이력서의 경력사항 예시</h3>
+                                                </li>
+                                            </ul>
+                                            <table cellspacing=0 class="table-type" align="center" width="870" height="150">
+                                                <tr bgcolor="#eff5eb" style="font-weight:500;">
+                                                    <th colspan="4">경력의 경우 이력서의 경력사항 예시</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-weight:500;">회사명</td>
+                                                    <td style="text-align: left; padding-left:20px;">○○회사</td>
+                                                    <td style="font-weight:500;">주요산업</td>
+                                                    <td style="text-align: left; padding-left:20px;">○○사업</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-weight:500;">부서명</td>
+                                                    <td style="text-align: left; padding-left:20px;">마케팅기획부</td>
+                                                    <td style="font-weight:500;">직책(직급)</td>
+                                                    <td style="text-align: left; padding-left:20px;">사원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-weight:500;">근무기간</td>
+                                                    <td colspan="3" style="text-align: left; padding-left:20px;">2017.3.2 ~ 2018.31</td>
+                                                </tr>
+                                            </table>
                                         </section>
                                         <section>
                                             <ul class="square" style="margin-top: 25px;">
                                                 <li>
-                                                    <h3 style="font-size: 19px;">○ 자격사항 및 어학능력</h3>
+                                                    <h3 class="subTitle"><span style="font-size: 20px;;">◎</span> 자격사항 및 어학능력</h3>
                                                 </li>
                                                 <li>
                                                     <p style="line-height: 30px; margin-top: 10px;">
@@ -167,7 +196,7 @@
                                         <section>
                                             <ul class="square" style="margin-top: 25px;">
                                                 <li>
-                                                    <h3 style="font-size: 19px;">○ 기타사항</h3>
+                                                    <h3 class="subTitle"><span style="font-size: 20px;;">◎</span> 기타사항</h3>
                                                 </li>
                                                 <li>
                                                     <p style="line-height: 30px;">

@@ -7,12 +7,13 @@
 
   <script src="/js/jquery-3.5.1.min.js"></script>
   <script src="https://kit.fontawesome.com/4f031e5608.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
 
   <link rel="stylesheet" href="/css/menu-common1.css" />
   <link rel="stylesheet" href="/css/counseling.css" />
   <link rel="stylesheet" href="/css/frame.css" />
 
-  <title>직업정보 조회</title>
+  <title>상담 소개</title>
 </head>
 <body>
 <div th:replace="layout/layout :: nav"/>
@@ -25,10 +26,14 @@
     <div id="bar">
       <h2>상담</h2>
       <ul id="menu_bar">
-        <li id="menu_con1"><h4>상담 정보</h4>
-          <ul id="sb_detail">
-            <li><a href="/counseling/intro">상담 소개</a></li>
-            <li><a href="/counseling/counseling">상담 신청</a></li>
+        <li id="menu_con1"><h4>상담소개</h4>
+          <ul>
+            <li><a href="/counseling/intro">상담소개</a></li>
+            <li><a href="/counseling/counseling">상담신청</a></li>
+
+
+            <!--                                <li><a href="/upgrade/c-inpression">지원프로그램 후기</a></li>-->
+            <!--                                <li><a href="/upgrade/impression-write">후기 등록</a></li>-->
           </ul>
         </li>
       </ul>
@@ -44,7 +49,7 @@
       <!-- coun-box-body -->
 
     <p style="text-align:center">
-    <img src="https://jobcenter.yju.ac.kr/files/attach/images/220/220/1180bd53091dada12fa6bdbb95c8a1ea.jpg" alt="222.jpg" style="" rel="xe_gallery">
+    <img src="/img/상담소개.png" alt="222.jpg" style="" rel="xe_gallery">
     </p>
     <!-- content -->
     </div>

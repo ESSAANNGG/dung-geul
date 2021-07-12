@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>공지사항</title>
     <meta charset="utf-8" />
@@ -39,9 +39,9 @@
                         <div class="sidebar">
                             <div class="menu2">
                                 <div id="bar">
-                                    <h2>센터안내</h2>
+                                    <h2>센터정보</h2>
                                     <ul id="menu_bar">
-                                        <li id="menu_con1"><h4>센터정보</h4>
+                                        <li id="menu_con1"><h4>공지사항</h4>
                                             <ul id="sb_detail">
                                                 <li><a href="#" th:href="@{/center-information/center_introduction}">센터소개</a></li>
                                                 <li><a href="#" th:href="@{/center-information/main_business}">주요업무내용</a></li>
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="content">
-                            [[${dto.content}]]
+                            <textarea name="content" th:value="${dto.content}" readonly></textarea>
                         </div>
 
 <!--                        <div class="form-group">-->
@@ -87,9 +87,9 @@
                             <label >ModDate</label>
                             <input type="text" class="form-control" name="modDate" th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
                         </div> -->
-
                         <div class="submit_btn" style="float: right">
-                            <a th:href="@{/center-information/notice_board_modify(num = ${dto.num}, page=${requestDTO.page})}">
+
+                            <a th:href="@{/center-information/notice_board_modify(num = ${dto.num}, page=${requestDTO.page})}" sec:authorize="hasRole('ADMIN')">
                                 <button type="button" class="btn btn-primary search_cont">수정</button>
                             </a>
 
@@ -116,13 +116,15 @@
 
 <!-- Scripts -->
 <script src="/js/jquery-3.5.1.min.js"></script>
-
-<!-- <script src="assets/js/jquery.min.js"></script>
+<script th:inline="javascript">
+$('textarea[name=content]').val([[${dto.content}]]);
+</script>
+<script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script> -->
+<script src="assets/js/util.js"></script>
 <!-- <script src="assets/js/main.js"></script> -->
 </body>
 </html>

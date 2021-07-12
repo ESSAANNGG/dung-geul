@@ -296,8 +296,8 @@ function detail(t) {
                 break;
 
             case "application": //지원관리메뉴에서의 모달창
-                employ_num=$(t).children('span.employ_num').text();
-                setTimeout("window['detail_on_'+menu_name](employ_num)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
+                employ_title=$(t).children('span.title').text();
+                setTimeout("window['detail_on_'+menu_name](employ_title)", 100);          //settimeout을 하지않으면 detail_state=1이되어 바로 상세정보를 닫아버림
                 break;
 
             case "board": //게시판메뉴에서의 모달창
@@ -324,6 +324,7 @@ $('#shadow_box').click(function(e){
         $('.detailBox').css({"visibility": "hidden", "opacity": "0"});
         $('#wrap,#admin_header').css("opacity", "1");
         detail_state = 0;
+        remote_off(); //공고 수정모달창
     }
 })
 
@@ -368,6 +369,4 @@ function pagenation(t) {
     $('#'+list).load(link +" #"+list +" > .list",function () {//띄어쓰기 잘해야함
         $('#' + list).prepend("<div class=" + '"sub_menu_title"' + "><h3>" + sub_menu_title + "</h3></div>"); //load로 교체시 안의 내용이 모두 교체되어 title을 추가해야함
     });                                                                                                       //append는 뒤에, prepend는 앞에
-
-
 }

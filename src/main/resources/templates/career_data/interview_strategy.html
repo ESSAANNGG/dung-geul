@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>취업정보센터</title>
+    <title>면접전략</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <!-- <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/center_guide.css" />
     <link rel="stylesheet" href="/css/frame.css">
     <link rel="stylesheet" href="/css/center_intro.css">
+    <link rel="stylesheet" href="/css/table-type.css" />
 
 
 </head>
@@ -36,33 +37,18 @@
                             <div class="sidebar">
                                 <div class="menu2">
                                     <div id="bar">
-                                        <h2>취업자료실</h2>
+                                        <h2>취업지원</h2>
                                         <ul id="menu_bar">
-                                            <li id="menu_con1">
-                                                <h4>취업정보</h4>
-                                                <ul id="sb_detail">
-                                                    <li><a href="/career_data/cv_strategy"
-                                                           >이력서 작성요령</a>
-                                                    </li>
-                                                    <li><a href="/career_data/intro_strategy"
-                                                        >자소서 작성요령</a>
-                                                    </li>
-                                                    <li><a href="/career_data/interview_strategy"
-                                                           >면접 전략</a></li>
+                                            <li id="menu_con1"><h4>취업자료실</h4>
+                                                <ul>
+                                                    <li><a href="/career_data/cv_strategy">이력서 작성요령</a></li>
+                                                    <li><a href="/career_data/intro_strategy">자소서 작성요령</a></li>
+                                                    <li><a href="/career_data/interview_strategy">면접 전략</a></li>
+
+                                                    <!--                                <li><a href="/upgrade/c-inpression">지원프로그램 후기</a></li>-->
+                                                    <!--                                <li><a href="/upgrade/impression-write">후기 등록</a></li>-->
                                                 </ul>
                                             </li>
-                                            <!-- <li id="menu_con2"><h4>직업 정보</h4>
-                <ul id="sb_detail">
-                    <li><a href="#">직업 정보 조회</a></li>
-                    <li><a href="#">직업 사전</a></li>
-                </ul>
-            </li>
-            <li id="menu_con3"><h4>상담 정보</h4>
-                <ul id="sb_detail">
-                    <li><a href="#">상담 신청</a></li>
-                    <li><a href="#">상담 내역</a></li>
-                </ul>
-            </li> -->
                                         </ul>
                                     </div> <!-- bar -->
                                 </div> <!-- menu -->
@@ -77,19 +63,19 @@
                                 <article class="box page-content">
                                     <header>
                                         <!-- <h2 class="major"><span>취업자료실</span></h2> -->
-                                        <h2 class="h2-" style="padding-top: 30px;">취업자료실</h2>
+                                        <h2 class="h2-">취업자료실</h2>
                                     </header>
 
-                                    <div style="padding: 20px; border:5px solid rgba(139, 138, 138, 0.377);">
+                                    <div style="padding: 20px;     border: 1px solid #7d7d7d;  margin-bottom: 30px;">
 
                                         <section>
-                                            <ul class="square" style="margin-top: 25px;">
+                                            <ul class="square" style="margin:25px 0 35px 0;">
+<!--                                                <li>-->
+<!--                                                    <h3 class="subTitle" style="margin-bottom:20px;"><span style="font-size: 20px;">◎</span> 면접 전략-->
+<!--                                                    </h3>-->
+<!--                                                </li>-->
                                                 <li>
-                                                    <h3 class="subTitle"><span style="font-size: 20px;;">◎</span>면접 전략
-                                                    </h3>
-                                                </li>
-                                                <li>
-                                                    <h3 style="font-size: 19px; margin-top:35px;">○ 취업의 최종관문 면접 이해하기
+                                                    <h3 class="subTitle"><span style="font-size: 20px;">◎</span> 취업의 최종관문 | 면접 이해하기</h3>
                                                     </h3>
                                                 </li>
                                                 <li>
@@ -104,13 +90,34 @@
                                                     </p>
                                                 </li>
                                             </ul>
-                                            <span class="image featured"><img style="margin-top: 25px; width: 750px;"
-                                                    src="/img/면접전략.jpg" alt="" /></span>
+                                            <table cellspacing=0 class="table-type" align="center" width="870" height="150" >
+                                                <tr>
+                                                    <td width="15%" style="font-weight:500; vertical-align:middle;">인성</td>
+                                                    <td style="text-align: initial; padding:10px;"> 인성은 지원자의 성품과 개인이 가지는 사고와 태도 및 행동 특성입니다. 기업(관)과 직무에 따라 업
+                                                    무환경과 분위기가 다르므로 이에 적합한 특성 또한 다릅니다. 따라서 지원자는 지원하
+                                                    는 기업 - 업종 - 직종에 어울릴만한 자신의 성격과 기질, 태도(열정적, 긍정적, 성실성 등
+                                                    )를 어필할 수 있어햐 합니다.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="15%" style="font-weight:500; vertical-align:middle;">직무적합성</td>
+                                                    <td style="text-align: initial; padding:10px;" > 인성은 지원자의 성품과 개인이 가지는 사고와 태도 및 행동 특성입니다. 기업(관)과 직무에 따라 업
+                                                        무환경과 분위기가 다르므로 이에 적합한 특성 또한 다릅니다. 따라서 지원자는 지원하
+                                                        는 기업 - 업종 - 직종에 어울릴만한 자신의 성격과 기질, 태도(열정적, 긍정적, 성실성 등
+                                                        )를 어필할 수 있어햐 합니다.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="15%" style="font-weight:500; vertical-align:middle">조직적합성</td>
+                                                    <td style="text-align: initial; padding:10px;"> 인성은 지원자의 성품과 개인이 가지는 사고와 태도 및 행동 특성입니다. 기업(관)과 직무에 따라 업
+                                                        무환경과 분위기가 다르므로 이에 적합한 특성 또한 다릅니다. 따라서 지원자는 지원하
+                                                        는 기업 - 업종 - 직종에 어울릴만한 자신의 성격과 기질, 태도(열정적, 긍정적, 성실성 등
+                                                        )를 어필할 수 있어햐 합니다.</td>
+                                                </tr>
+                                            </table>
                                         </section>
                                         <section>
                                             <ul class="square" style="margin-top: 25px;">
                                                 <li>
-                                                    <h3 style="font-size: 19px;">○ 면접의 기본</h3>
+                                                    <h3 class="subTitle"><span style="font-size: 20px;">◎</span> 면접의 기본</h3>
                                                 </li>
                                                 <li>
                                                     <p style="line-height: 30px; margin-top: 10px;">
@@ -126,11 +133,11 @@
                                         <section>
                                             <ul class="square" style="margin-top: 25px;">
                                                 <li>
-                                                    <h3 style="font-size: 19px;">○ 뽑고 싶은 지원자 vs. 뽑기 싫은 지원자</h3>
+                                                    <h3 class="subTitle"><span style="font-size: 20px;;">◎</span> 뽑고 싶은 지원자 vs 뽑기 싫은 지원자</h3>
                                                 </li>
                                             </ul>
-                                            <span class="image featured"><img style="margin-top: 25px; width: 800px;"
-                                                    src="/img/지원자.jpg" alt="" /></span>
+                                            <span class="image featured"><img style="margin-top: 25px; width: 840px;"
+                                                    src="/img/면접전략.svg" alt="" /></span>
                                         </section>
                                     </div>
 

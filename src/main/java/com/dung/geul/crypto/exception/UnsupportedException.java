@@ -1,4 +1,4 @@
-package gov.keis.openapi.client.crypto.exception;
+package com.dung.geul.crypto.exception;
 
 public class UnsupportedException
   extends Exception

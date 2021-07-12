@@ -1,8 +1,8 @@
-package gov.keis.openapi.client.crypto.test;
+package com.dung.geul.crypto.test;
 
-import gov.keis.openapi.client.crypto.EgovARIACryptoService;
-import gov.keis.openapi.client.crypto.impl.EgovARIACryptoServiceImpl;
-import java.io.PrintStream;
+import com.dung.geul.crypto.EgovARIACryptoService;
+import com.dung.geul.crypto.impl.EgovARIACryptoServiceImpl;
+
 import java.io.UnsupportedEncodingException;
 
 public class CryptoTest
@@ -12,10 +12,10 @@ public class CryptoTest
     System.out.println("*********************************************");
     System.out.println("CryptoTest Start ");
     
-    String schoolID = "U0116";
+    String schoolID = "1701257";
     String studentID = "1701257";
     
-    String password = "WNGXVGIDR0JK75CY4TFRV2VRETJ";
+    String password = "WNGXVGID R0JK75CY4TFRV2VRETJ";
     
     System.out.println("학교코드     value --> " + schoolID);
     System.out.println("학번코드     value --> " + studentID);

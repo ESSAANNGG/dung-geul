@@ -38,10 +38,15 @@ for (let i = 0; i < applyModal.length; i++) {
 				var stateTh = document.createElement('td');
 				var checkBox = document.createElement('input');
 				checkBox.setAttribute('type', 'checkbox');
+				checkBox.setAttribute('name', 'APY_CHK');
+				checkBox.setAttribute('value', applys[j].ap_id);
 				var cvLink = document.createElement('a');
 				var introLink = document.createElement('a');
 				var cvImg = document.createElement('img');
 				var introImg = document.createElement('img');
+				var apId = document.createElement('td');
+        var listNum = document.createElement('td');
+        listNum.setAttribute('class','listNum')
 				cvLink.setAttribute('href', '#');
 				introLink.setAttribute('href', '#');
 				cvImg.setAttribute('style', 'width: 1.5em');
@@ -59,6 +64,8 @@ for (let i = 0; i < applyModal.length; i++) {
 				areaTh.textContent = applys[j].ap_area;
 				taskTh.textContent = applys[j].ap_task;
 				stateTh.textContent = applys[j].ap_pass;
+				apId.textContent = applys[j].ap_id;
+				listNum.textContent = dNum;
 
 				myTr.appendChild(checkTh);
 				myTr.appendChild(nameTh);
@@ -67,6 +74,8 @@ for (let i = 0; i < applyModal.length; i++) {
 				myTr.appendChild(areaTh);
 				myTr.appendChild(taskTh);
 				myTr.appendChild(stateTh);
+				myTr.appendChild(apId);
+				myTr.appendChild(listNum);
 				checkTh.appendChild(checkBox);
 				cvTh.appendChild(cvLink);
 				cvLink.appendChild(cvImg);

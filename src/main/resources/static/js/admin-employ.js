@@ -156,8 +156,12 @@ function detail_on_employ(employ_num){
             $('input[name=급여]').val(E.salary+'만원');
             $('input[name=모집인원]').val(E.people+'명');
             $('input[name=지원방법]').val(E.apply);
-            $('input[name=모집일]').val(E.start_date.substring(0,10));
-            $('input[name=마감일]').val(E.end_date.substring(0,10));
+            // start_date=String(E.start_date);
+            // end_date=String(E.end_date);
+            // $('input[name=모집일]').val(start_date.substring(0,10));
+            // $('input[name=마감일]').val(end_date.substring(0,10));
+            $('input[name=모집일]').val(E.start_date);
+            $('input[name=마감일]').val(E.end_date);
             $('input[name=본문이미지]').val(E.file);
             $('input[name=업종]').val(E.etp_sector);
             $('input[name=기업형태]').val(E.etp_shape);
@@ -165,7 +169,7 @@ function detail_on_employ(employ_num){
             $('input[name=대표번호]').val(E.etp_ph+"-"+E.etp_ph2+"-"+E.etp_ph3);
             $('input[name=대표자명]').val(E.etp_ceo_name);
             $('input[name=팩스]').val(E.etp_fx);
-            $('#etp_id').val(E.etp_id);
+            $('input[name=기업아이디]').val(E.etp_id);
         },
         error : function (error){
             alert("상세정보 로딩에 실패했습니다");
@@ -179,17 +183,31 @@ function detail_on_employ(employ_num){
 
 function employ_detail_submit(select_modal,t){
     btn_text=$(t).text();
+    let data;
     switch (btn_text) {
         case "수정" :
+
             conF = confirm('해당 공고를 수정하시겠습니까?');
             if (conF == true) {
-                data = {
-                    ep :  $('input[name=고용형태]').val(),
-                    etp_id : $('#etp_id').val(),
-                    num : $('input[name=번호]').val(),
+
+                people_val = $('input[name=모집인원]').val().split('명')[0];
+                salary_val = $('input[name=모집인원]').val().split('만원')[0];
+
+                let data = {
+                    etp_id: $('#etp_id').val(),
+                    num: $('input[name=번호]').val(),
                     title: $('input[name=제목]').val(),
-                    content : $('input[name=코멘트]').val(),
-                    ot : $('input[name=직종]').val()}
+                    content: $('input[name=코멘트]').val(),
+                    ot: $('input[name=직종]').val(),
+                    ep: $('input[name=고용형태]').val(),
+                    career: $('input[name=경력]').val(),
+                    education: $('input[name=학력]').val(),
+                    people: people_val,
+                    start_date: $('input[name=모집일]').val(),
+                    end_date: $('input[name=마감일]').val(),
+                    salary: salary_val,
+                    area: $('input[name=근무지역]').val(),
+                    apply: $('input[name=지원방법]').val()
                 }
 
                 $.ajax({
@@ -197,14 +215,15 @@ function employ_detail_submit(select_modal,t){
                     method: 'put',
                     data: JSON.stringify(data),
                     contentType: 'application/json; charset=utf-8',
-                    success : function (result){
+                    success: function (result) {
                         alert("수정되었습니다.");
                         submit_param();
                     },
-                    error : function (err) {
+                    error: function (err) {
                         alert("수정에 실패했습니다.");
                     }
                 })
+            }
             break;
         case "삭제" :
             conF = confirm('해당 공고를 삭제하시겠습니까?');
@@ -225,3 +244,87 @@ function employ_detail_submit(select_modal,t){
             break;
     }
 }
+
+function remote_on(t){
+    $('#detail_remote').css('opacity','1');
+    $('#detail_remote').css('visibility','visible');
+    val_name=$(t).attr('name');
+    $('#'+val_name+'_modal').css('display','block');
+
+}
+function remote_off(){
+    $('#detail_remote').css('opacity','0');
+    $('#detail_remote').css('visibility','hidden');
+    $('.remote_modal').css('display','none');
+
+    //값 초기화
+    $('.remote_modal input').val('');
+    $('.remote_modal select').val('').prop("selected", true);
+    $(".remote_modal input[type=checkbox]").attr("checked", false);
+    apply_index=0;
+}
+function modal_val(t){
+    // ex) 직종_modal이 name인 것을 잘라 [직종]문자를 만들어 name이 [직종] input에 값 교체
+    // 모집인원 급여 등 뒤에 [명,만원]을 덧붙이고 싶다면 추가적으로 if문 작성
+    val_name=$(t).attr('name');
+    val_name=val_name.split("_");
+    val_name=val_name[0];
+    val=$(t).val();
+    $('input[name='+val_name+']').val(val);
+
+    if(val_name=='모집인원'){
+        $('input[name='+val_name+']').val(val+'명');
+    }
+    else if(val_name=='급여'){
+        $('input[name='+val_name+']').val(val+'만원');
+    }
+}
+
+//수정창 모집인원,급여 유효성검사(숫자를 쓰는것들)
+$(".remote_modal input[type=text]").on("keyup", function() {
+    $(this).val($(this).val().replace(/[^0-9]/g,""));
+    modal_val(this);
+});
+
+//date타입 시작일,마감일
+$(".remote_modal input[type=datetime-local]").change(function() {
+    val_name=$(this).attr('name');
+    val_name=val_name.split("_");
+    val_name=val_name[0];
+    val=$(this).val();
+    // val=val.substring(0,10);
+    $('input[name='+val_name+']').val(val);
+});
+
+//체크박스전용
+let apply_index=0;
+$("input[type=checkbox]").change(function() {
+    val_name=$(this).attr('name');
+    // alert($('input[name=지원방법_val]').index(this));  //인덱스는 제대로 잡힘
+    val_name=val_name.split("_");
+    val_name=val_name[0];
+    val=$(this).attr('id');
+
+    if(apply_index==0){
+        $('input[name='+val_name+']').val("");
+    }
+
+    if($(this).is(":checked")==true){
+        if($('input[name='+val_name+']').val()==""){
+            $('input[name='+val_name+']').val(val);
+        }
+        else if($('input[name='+val_name+']').val()!=""){
+            $('input[name='+val_name+']').val($('input[name='+val_name+']').val()+','+val);
+        }
+    }
+    else{
+        str_index=$('input[name='+val_name+']').val().indexOf(val);
+        if(str_index==0){
+            $('input[name='+val_name+']').val($('input[name='+val_name+']').val().replace(val,''));
+        }
+        else if(str_index>0){
+            $('input[name='+val_name+']').val($('input[name='+val_name+']').val().replace(','+val,''));
+        }
+    }
+    apply_index=1;
+})

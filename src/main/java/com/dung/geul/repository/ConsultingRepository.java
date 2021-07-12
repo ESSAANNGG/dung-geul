@@ -16,6 +16,7 @@ import java.util.Optional;
 
 public interface ConsultingRepository extends JpaRepository<Consulting,Long>, QuerydslPredicateExecutor<Consulting> {
 
-//    @Query("select c from Consulting c where c.user_id = :user_id")
-//    Optional<Consulting> findByUser_id(@Param("user_id") Member user_id);
+//    @Query(value = "select c, a from Consult c , Consulting a where a.cno = c and c.consultings = :consultings")
+//    Object findByCno(@Param("cno") String cno);
+
 }

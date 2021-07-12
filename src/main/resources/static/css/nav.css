@@ -20,13 +20,16 @@ navbar li{
   .nav {
     width: 1903px;
   }
+  .nav2 {
+    width: 1903px !important;
+  }
 }
 
 @media screen and (min-width:1903px){
   navbar{
     width:100%;
   }
-  .nav{
+  .nav2{
     width:100%;
     margin:auto;
   }
@@ -73,11 +76,11 @@ navbar li{
   text-align: center;
   font-size: 20px;
   font-family: "Noto Sans KR", Arial, Tahoma, sans-serif;
-  font-weight: 600;
+  font-weight: 400;
 }
 .nav .dep1 > li.logo {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 300;
   width: 350px;
   /*li.menu를 한꺼번에 묶어서 하지않은 이유는 a태그때문에 li.menu가 갇혀있기때문*/
 }
@@ -94,7 +97,7 @@ navbar li{
 .nav .dep1 > li.join {
   color: #666666;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 300;
   width: 90px;
 }
 .nav .dep1 > li.center{

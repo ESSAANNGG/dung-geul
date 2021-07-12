@@ -1,19 +1,18 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.AllowConsultingDTO;
-import com.dung.geul.dto.ConsultingDTO;
-import com.dung.geul.dto.PageRequestDTO;
-import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.dto.*;
 import com.dung.geul.entity.Consulting;
 import com.dung.geul.entity.Member;
 import com.dung.geul.entity.QConsult;
 import com.dung.geul.entity.QConsulting;
 import com.dung.geul.repository.ConsultingRepository;
 import com.dung.geul.repository.MemberRepository;
+import com.dung.geul.repository.search.SearchConsultingRepository;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -31,8 +30,11 @@ import java.util.function.Function;
 public class ConsultingServiceImpl implements ConsultingService {
     private final ConsultingRepository consultingRepository;
 
+    @Autowired
     private final MemberRepository memberRepository;
 
+    @Autowired
+    private final SearchConsultingRepository searchConsultingRepository;
     @Transactional
     public void coapply(ConsultingDTO consultingDTO) {
         try {
@@ -53,7 +55,7 @@ public class ConsultingServiceImpl implements ConsultingService {
         }
     }
 
-    //승인거절대기
+    //승인거절대기 //0대기 1 승인 2 거절
     @Transactional
     public ResponseEntity conok(List<Long> consult_num, String result){
         System.out.println("consultingServiceImpl - consulting : " + consult_num.toString());
@@ -63,20 +65,61 @@ public class ConsultingServiceImpl implements ConsultingService {
             for (int i=0; i<consult_num.size(); i++){
                 consulting = consultingRepository.getOne(consult_num.get(i));
 
-                if(result.equals("no")) {
-                    consulting.modCon_allow(2);
-                }else if(result.equals("ok")){
+                if(result.equals("stay")) {
                     consulting.modCon_allow(0);
-                }else if(result.equals("stay")){
+                    consultingRepository.save(consulting);
+                }else if(result.equals("ok")){
                     consulting.modCon_allow(1);
+                    consultingRepository.save(consulting);
                 }
-                consultingRepository.save(consulting);
+                else if(result.equals("no")){
+                    consulting.modCon_allow(2);
+                    consultingRepository.save(consulting);
+                }
+
             }
             return new ResponseEntity(0, HttpStatus.OK);
         } catch (Exception e){
             System.out.println("error119 : " + e);
-            return new ResponseEntity(2, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(1, HttpStatus.NOT_FOUND);
         }
+    }
+
+    public BooleanBuilder findByCon(SearchDTO dto, int approve){
+        log.info("findbycon 실행");
+        log.info("SearchDTO : " + dto);
+
+//        String approve1 = dto.getConsult_num();
+//        String type = dto.getType();
+
+//        log.info("approve" + approve1);
+
+//        QConsult qConsult = QConsult.consult;
+        QConsulting qConsulting = QConsulting.consulting;
+
+
+        BooleanBuilder builder = new BooleanBuilder();
+        BooleanExpression conAllow = qConsulting.consult_approve.eq(approve);
+        builder.and(conAllow);
+
+        return builder;
+    }
+
+    public PageResultDTO<ConsultingDTO, Object> getPageResultDTO(BooleanBuilder builder, Pageable pageable){
+        log.info("getPageResultDTO 실행");
+
+        Page<ConsultingDTO> result = searchConsultingRepository.getConuser(builder, pageable);
+
+        log.info("page<> result : " + result.getContent());
+
+        log.info("function : " + getFunction().toString());
+
+        return new PageResultDTO<>(result);
+    }
+
+    @Override
+    public void remove(Long consult_num) {
+        consultingRepository.deleteById(consult_num);
     }
 
     @Override

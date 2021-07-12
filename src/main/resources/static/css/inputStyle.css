@@ -1,0 +1,53 @@
+select{
+    appearance: none;
+    background:url("/img/down-arrow.png") no-repeat 94% 50%/13px auto;
+    padding-left:15px;
+    background-color: #fff;
+}
+input[type="checkbox"] {
+    display:inline-block;
+    height: 18px;
+    width: 20px;
+    line-height:22px;
+    margin:0px !important;
+
+    background: -webkit-linear-gradient(#ffffff, #ffffff);
+    font-size:15px;
+    -webkit-appearance:none;
+    border:1px solid #c2c9db;
+}
+input[type="checkbox"]:checked:before {
+    position:relative;
+    font-weight: 900;
+    left:3px;
+    top:-4px;
+    color: #ffffff;
+    content: '\2713';
+    /*-webkit-margin-start: -12px;       start==left, end==right, before==top, after==bottom*/
+    /*-webkit-margin-before:-50px;        top이 안되어서 그냥 relative*/
+}
+input[type="checkbox"]:checked{
+    background: -webkit-linear-gradient(#7278B9, #7278B9);
+}
+input[type='radio']:checked {
+    appearance: none;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 100%;
+    margin-right: 0.1rem;
+}
+
+input[type='radio'] {
+    background-color: #fff;
+}
+input[type='radio']:checked {
+    background-color: #7278B9;
+    /*outline: #7278B9 solid 1px;*/
+    /*outline-radius: 50px;*/
+    outline: none;
+    box-shadow: 0 0 0 1px #7278B9;
+    border: 2px solid #fff;
+}
+input[type='date']{
+    background-color: #fff;
+}
