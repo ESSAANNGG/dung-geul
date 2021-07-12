@@ -42,7 +42,8 @@ dependencies {
 // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
     implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.0.3'
     compile group: 'org.daisy.libs', name: 'commons-httpclient', version: '3.1.0'
-
+    compile files("lib/tibero6-jdbc-14.jar")
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
 
 }
 bootJar{
