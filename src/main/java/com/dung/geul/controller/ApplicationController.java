@@ -84,7 +84,8 @@ public class ApplicationController {
     }
 
     @GetMapping({"/cv/read", "/cv/modify"})
-    public void read(Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
+    public void read(Model model,
+                     @AuthenticationPrincipal AuthMemberDTO authMemberDTO){
 
         String id = authMemberDTO.getUser_id();
 
@@ -96,6 +97,31 @@ public class ApplicationController {
         model.addAttribute("licenseList" , certificateDTOList);
 
     }
+
+    @GetMapping("/etp/cv/read")
+    public String read(Model model,
+                     @AuthenticationPrincipal AuthMemberDTO authMemberDTO,
+                     @RequestParam(value = "id", required = false) String reqId){
+
+        String id = authMemberDTO.getUser_id();
+
+        if(id==null || reqId != null){
+            id = reqId;
+        }
+
+        CvPageDTO cv = cvService.getCvPageDto(id);
+        List<CertificateDTO> certificateDTOList = licenseService.getLicenseList(id);
+
+        model.addAttribute("cv", cv);
+        model.addAttribute("loginUser", authMemberDTO);
+        model.addAttribute("licenseList" , certificateDTOList);
+
+        return "/application/cv/read";
+
+    }
+
+
+
 
 
     // 자소서
@@ -133,6 +159,20 @@ public class ApplicationController {
         IntroduceDTO dto = service.read(num);
 
         model.addAttribute("dto", dto);
+    }
+
+    //자기소개서상세페이지
+    @GetMapping("/etp/introduce/read")
+    public String readIntroEtp(@RequestParam("num") long num, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model) {
+        //@ModelAttribute는 클라이언트가 전송하는 여러 파라미터들을 1대1로 객체에 바인딩하여 다시 View로 넘겨서 출력하기 위해 사용되는 오브젝트이다.
+
+        log.info("num :" +num);
+
+        IntroduceDTO dto = service.read(num);
+
+        model.addAttribute("dto", dto);
+
+        return "/application/introduce/read";
     }
 
     //자기소개서수정이동
