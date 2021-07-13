@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8" />
-		<title>CV Printable A4</title>
+		<title>자기소개서</title>
 	</head>
 
 	<body>
@@ -28,7 +28,7 @@
 					<page size="A4">
 						<div id="button" class="no-print">
 							<input id="Intro_num" name="Intro_num" th:value="${dto.num}" style="display: none" />
-							<button class="h-blue" style="width: 50px"><-</button>
+							<button class="h-blue" style="width: 50px" onclick="history.back()"><-</button>
 							<a href="/">
 								<button id="logo" style="background-color: #09529b; padding: 0px !important; width: 180px !important" type="button">
 									<span class="button-txt"><i class="fas fa-book-open"></i> &nbsp;취업정보센터</span>
