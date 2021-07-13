@@ -139,14 +139,17 @@ public class ApplicationRestController {
 
     }
 
-    // /application/etp/employ/list/{num} // num : 채용공고 번호
+    // /application/etp/employ/list/{num}?page=[]&pass=[] // num : 채용공고 번호, page=페이지네이션 번호, pass=대기중/합격/불합격
+    // ajax로 대기중/합격/불합격 리스트마다 따로 요청해주세요 (페이지네이션 해서)
     // 채용공고별 입사지원자 리스트 (+ 페이지네이션)
     @GetMapping("/etp/employ/list/{num}")
-    public PageResultDTO getEmployApplyList(@PathVariable("num") Long num, PageRequestDTO pageRequestDTO){
+    public PageResultDTO getEmployApplyList(@PathVariable("num") Long num,
+                                            PageRequestDTO pageRequestDTO,
+                                            @RequestParam("pass") String pass){
 
         log.info("실행 - num : "+ num);
 
-        PageResultDTO resultDTO = applicationService.employApplyPage(num, pageRequestDTO);
+        PageResultDTO resultDTO = applicationService.employApplyPage(num, pageRequestDTO, pass);
 
         log.info("result : " + resultDTO);
 

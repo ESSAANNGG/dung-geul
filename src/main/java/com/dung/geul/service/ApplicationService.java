@@ -246,13 +246,14 @@ public class ApplicationService {
 
 
     // 기업 마이페이지 - 채용공고별 입사지원 현황 리스트 + 페이지네이션
-    public PageResultDTO employApplyPage(Long num, PageRequestDTO pageRequestDTO) {
+    public PageResultDTO employApplyPage(Long num, PageRequestDTO pageRequestDTO, String pass) {
 
         Employ employ = employRepository.getOne(num);
 
         Pageable pageable = pageRequestDTO.getPageable(Sort.by("apDate"));
 
-        Page<Object[]> applyPage = applyRepository.findByEmploy(pageable, employ);
+        Page<Object[]> applyPage = applyRepository.findByEmploy(pageable, employ, pass);
+        // 대기중 - 합격 - 불합격 리스트 조회 조건 추가
 
         Function<Object[], ApplyStudentDTO> fn = (entity -> entityToApplyStudentDTO((Apply) entity[0], (CV) entity[1]));
 

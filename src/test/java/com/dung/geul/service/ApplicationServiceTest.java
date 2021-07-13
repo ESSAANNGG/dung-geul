@@ -24,8 +24,8 @@ class ApplicationServiceTest {
     public void employApplyPageTest(){
 
         PageRequestDTO pageRequestDTO = new PageRequestDTO();
-        Long num = Long.valueOf(220);
-        PageResultDTO result = applicationService.employApplyPage(num, pageRequestDTO);
+        Long num = Long.valueOf(91);
+        PageResultDTO result = applicationService.employApplyPage(num, pageRequestDTO, "대기중");
 
         System.out.println("result : " + result);
     }
