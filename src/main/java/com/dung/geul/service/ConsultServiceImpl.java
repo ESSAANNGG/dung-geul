@@ -83,16 +83,18 @@ public class ConsultServiceImpl implements ConsultService {
 
     @Override
     public void modify(ConsultDTO consultDTO) {
-        Optional<Consult> result = consultRepository.findById(consultDTO.getCno());
-
-        if(result.isPresent()){
-            Consult consult = result.get();
-
-            consult.updatefiled(consultDTO.getType());
-            consult.updatedetail(consultDTO.getName());
-
-            consultRepository.save(consult);
-        }
+        Consult consult = dtoToEntity(consultDTO);
+        consultRepository.save(consult);
+        //        Optional<Consult> result = consultRepository.findById(consultDTO.getCno());
+//
+//        if(result.isPresent()){
+//            Consult consult = result.get();
+//
+//            consult.updatefiled(consultDTO.getType());
+//            consult.updatedetail(consultDTO.getName());
+//
+//            consultRepository.save(consult);
+//        }
     }
 
     private BooleanBuilder getSearch(PageRequestDTO pageRequestDTO) {

@@ -1,6 +1,8 @@
 package com.dung.geul.controller.restcontroller;
 
 import com.dung.geul.dto.ConsultDTO;
+import com.dung.geul.dto.ConsultingDTO;
+import com.dung.geul.service.ConsultService;
 import com.dung.geul.service.ConsultServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ public class AdminconsultRestController {
     @Autowired
     ConsultServiceImpl consultService;
 
+    @Autowired
+    ConsultService consultService1;
     @PostMapping("/admin_consult_Reg")
     public ConsultDTO register (@RequestBody ConsultDTO consultDTO){
 
@@ -34,6 +38,15 @@ public class AdminconsultRestController {
         log.info("----------삭제실행----------");
         log.info("cno  " + cno);
         consultService.remove(cno);
+
+        return new ResponseEntity<>("success", HttpStatus.OK);
+    }
+
+    @PutMapping("/modify/consave")
+    public ResponseEntity<String> modify(@RequestBody ConsultDTO consultDTO){
+        log.info(consultDTO);
+
+        consultService1.modify(consultDTO);
 
         return new ResponseEntity<>("success", HttpStatus.OK);
     }

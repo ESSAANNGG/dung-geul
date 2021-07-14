@@ -3,6 +3,7 @@ package com.dung.geul.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Builder
@@ -31,7 +32,7 @@ public class Consulting {    // 상담 테이블
     private String Consult_detail_field;
 
     @Column
-    private String consult_date;                  // 상담 일자
+    private LocalDateTime consult_date;                  // 상담 일자
 
     @Column
     private String consult_time; //신청날짜

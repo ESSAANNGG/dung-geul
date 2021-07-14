@@ -34,7 +34,8 @@ public class SearchConsultingRepository extends QuerydslRepositorySupport {
 
     public Page<ConsultingDTO> getConuser(BooleanBuilder builder, Pageable pageable){
 
-        QueryResults<ConsultingDTO> page = queryFactory
+        QueryResults<ConsultingDTO> page;
+        page = queryFactory
                 .select(
                         new QConsultingDTO(
                                 consulting.consult_num,
@@ -43,8 +44,8 @@ public class SearchConsultingRepository extends QuerydslRepositorySupport {
                                 consulting.Consult_detail_field,
                                 consulting.con_user_name,
                                 member.user_id,
-                                consulting.consult_time,
                                 consulting.consult_date,
+                                consulting.consult_time,
                                 consulting.consult_approve
                         )
                 )

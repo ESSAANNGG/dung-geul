@@ -20,5 +20,6 @@ public class SearchDTO {
     private String pass;
     private String title;
     private String approve;
+    private String consult_filed;
     private String consult_num;
 }
