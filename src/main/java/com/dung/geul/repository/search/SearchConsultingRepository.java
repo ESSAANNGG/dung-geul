@@ -49,13 +49,13 @@ public class SearchConsultingRepository extends QuerydslRepositorySupport {
                                 consulting.consult_approve
                         )
                 )
-                        .from(consulting)
-                        .leftJoin(consult).on(consulting.cno.eq(consult))
-                        .leftJoin(member).on(consulting.user_id.eq(member))
-                        .where(builder)
-                        .offset(pageable.getOffset())
-                        .limit(pageable.getPageSize())
-                        .fetchResults();
+                .from(consulting)
+                .leftJoin(consult).on(consulting.cno.eq(consult))
+                .leftJoin(member).on(consulting.user_id.eq(member))
+                .where(builder)
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetchResults();
         List<ConsultingDTO> list = page.getResults();
 
         log.info("list :" + list.toString());
@@ -72,4 +72,3 @@ public class SearchConsultingRepository extends QuerydslRepositorySupport {
 
     }
 }
-
