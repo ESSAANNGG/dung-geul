@@ -22,6 +22,7 @@ $(".custom-file-input").on("change", function () {
     alert("파일 업로드 함수 동작")  // 테스트용 (나중에 지울 것)
 
     var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 
     var formData = new FormData();
 
