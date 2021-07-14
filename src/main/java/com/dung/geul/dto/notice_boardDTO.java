@@ -24,4 +24,6 @@ public class notice_boardDTO {  // 공지사항 DTO
 
     private LocalDateTime regDate;  // 작성일
 
+    private String board_file; //첨부파일
+
 }
