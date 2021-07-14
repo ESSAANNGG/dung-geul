@@ -1,7 +1,7 @@
 function consult_apply() {
     type=$("select[name=select-field]").val();
     cno=$("select[name=employ-field]").val();
-    name=$("select[name=employ-field] option:checked").text();
+    name=$("#"+select_index+" option:checked").text();
     consult_date=$("input[name=couns-date]").val();
     consult_time=$("select[name=couns-time]").val()
     if(type==""||cno==""||consult_date==""||consult_time==""){

@@ -78,17 +78,17 @@
                                     <option value="창업상담">창업 상담</option>
                                 </select>
                                 <!--진로-->
-                                <select name="employ-field" class="select-field1">
+                                <select name="employ-field" class="select-field1" id="1">
                                     <option value>세부분야</option>
                                     <option th:each=" consult : ${list}" th:value="${consult.cno}">[[${consult.name}]]</option>
                                 </select>
                                 <!--취업-->
-                                <select name="employ-field" class="select-field1">
+                                <select name="employ-field" class="select-field1" id="2">
                                     <option value>세부분야</option>
                                     <option th:each=" consult : ${list}" th:value="${consult.cno}">[[${consult.name}]]</option>
                                 </select>
                                 <!--창업-->
-                                <select name="employ-field" class="select-field1">
+                                <select name="employ-field" class="select-field1" id="3">
                                     <option value>세부분야</option>
                                     <option th:each=" consult : ${list}" th:value="${consult.cno}">[[${consult.name}]]</option>
                                 </select>
