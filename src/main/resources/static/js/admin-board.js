@@ -72,6 +72,7 @@ function detail_on_board(board_num){
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success : function (boardDTO) {
+                // console.log(gFilePath)
                 $('input[name=num]').val(boardDTO.num);
                 $('input[name=title]').val(boardDTO.title);
                 $('textarea[name=content]').val(boardDTO.content);
