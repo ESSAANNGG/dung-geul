@@ -1,9 +1,11 @@
 package com.dung.geul.service;
 
-import com.dung.geul.dto.*;
+import com.dung.geul.dto.ConsultingDTO;
+import com.dung.geul.dto.PageRequestDTO;
+import com.dung.geul.dto.PageResultDTO;
+import com.dung.geul.dto.SearchDTO;
 import com.dung.geul.entity.Consulting;
 import com.dung.geul.entity.Member;
-import com.dung.geul.entity.QConsult;
 import com.dung.geul.entity.QConsulting;
 import com.dung.geul.repository.ConsultingRepository;
 import com.dung.geul.repository.MemberRepository;
@@ -21,10 +23,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.function.Function;
 
@@ -115,13 +113,13 @@ public class ConsultingServiceImpl implements ConsultingService {
             builder.and(conname);
         }
 
-        if(dto.getStartDate() !=null && dto.getEndDate() != null){
-            LocalDateTime startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
-            LocalDateTime endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
-
-            BooleanExpression conDate = qConsulting.consult_date.between(startDate, endDate);    // regdate 조건
-            builder.and(conDate);
-        }
+//        if(dto.getStartDate() !=null && dto.getEndDate() != null){
+//            LocalDateTime startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
+//            LocalDateTime endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
+//
+//            BooleanExpression conDate = qConsulting.consult_date.between(startDate, endDate);    // regdate 조건
+//            builder.and(conDate);
+//        }
 
         return builder;
     }
