@@ -17,7 +17,7 @@ public class ConsultingDTO {
     private String name;
     private String con_user_id;
     private String con_user_name;
-    private LocalDateTime consult_date;
+    private String consult_date;
     private String consult_time;
     private int approve;
 
@@ -30,7 +30,7 @@ public class ConsultingDTO {
                          String name,
                          String con_user_id,
                          String con_user_name,
-                         LocalDateTime consult_date,
+                         String consult_date,
                          String consult_time,
                          int approve
     ){
