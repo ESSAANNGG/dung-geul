@@ -40,4 +40,8 @@ public class Apply implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Employ employ; // 채용공고
+
+    public void modPass(String ap_pass){
+        this.ap_pass = ap_pass;
+    }
 }

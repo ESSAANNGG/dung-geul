@@ -20,6 +20,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -158,10 +159,13 @@ public class ApplicationRestController {
     }
 
     // 기업마이페이지에서 입사지원자의 합격 불합격 여부 기능
-    @PostMapping("/apply/pass")
-    public ResponseEntity ApplyPass(@RequestBody String[] ap_ids){
+    @PostMapping("/apply")
+    public ResponseEntity ApplyPass(@RequestBody String[] ap_ids, @RequestParam("pass") String pass){
 
-        return null;
+        log.info("list : " + Arrays.toString(ap_ids));
+        log.info("pass : " + pass);
+
+        return applicationService.applyChange(ap_ids, pass);
     }
 
 }

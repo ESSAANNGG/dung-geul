@@ -15,6 +15,8 @@ let Pass = {
       data1.push(this.value);
     });
 
+    console.log(JSON.stringify(data1));
+
     // 데이터 전송 ajax
     $.ajax({
       type: 'POST',

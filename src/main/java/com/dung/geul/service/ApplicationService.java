@@ -277,5 +277,21 @@ public class ApplicationService {
     }
 
 
+    //합격 불합격 처리
+    public ResponseEntity applyChange(String[] ap_ids, String pass) {
+        try {
+            for (String id : ap_ids) {
+                Apply apply = applyRepository.getOne(Long.valueOf(id));
+                apply.modPass(pass);
+                applyRepository.save(apply);
+            }
 
+            log.info("끝 - 변경 성공");
+            return new ResponseEntity(1, HttpStatus.OK);
+        }catch (Exception e){
+            log.info("끝 - 변경 중 오류");
+            return new ResponseEntity(0, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 }
