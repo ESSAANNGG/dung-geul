@@ -20,21 +20,16 @@ public class BoardFileDTO {
 
     private String file_path;
 
-    // getImageURL, getThumbnailURL는 Thymeleaf로 출력해서 사용
+    // getImageURL는 Thymeleaf로 출력해서 사용
     public String getImageURL(){
         try {
+            System.out.println("FILE PATH : " + URLEncoder.encode(file_path+"/"+uuid+"_"+file_name,"UTF-8"));
+
             return URLEncoder.encode(file_path+"/"+uuid+"_"+file_name,"UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return "";
     }
-//    public String getThumbnailURL(){
-//        try {
-//            return URLEncoder.encode(file_path+"/s_"+uuid+"_"+file_name,"UTF-8");
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
-//        return "";
-//    }
+
 }

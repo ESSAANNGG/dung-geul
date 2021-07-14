@@ -33,13 +33,13 @@ public class UploadController {
     private String uploadPath;
 
     @PostMapping("/uploadAjax") // 업로드 ajax 처리
-    public ResponseEntity<List<UploadResultDTO>> uploadFile(MultipartFile[] uploadFiles){
+    public Object uploadFile(MultipartFile[] uploadFiles){
 
         List<UploadResultDTO> resultDTOList = new ArrayList<>();
 
         for (MultipartFile uploadFile: uploadFiles) {
 
-//            // 업로드한 파일이 이미지 파일인지 검사한다.
+//            // 업로드한 파일이 이미지 파일인지 검사한다. => 업로드 공격 방어
 //            if(uploadFile.getContentType().startsWith("image") == false) {
 //                log.warn("this file is not image type");
 //                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
@@ -65,14 +65,11 @@ public class UploadController {
                 //원본 파일 저장
                 uploadFile.transferTo(savePath);
 
-//                //섬네일 생성  - 채용공고
-//                String thumbnailSaveName = uploadPath + File.separator + folderPath + File.separator
-//                        +"s_" + uuid +"_" + fileName;
-//                //섬네일 파일 이름은 중간에 s_로 시작하도록
-//                File thumbnailFile = new File(thumbnailSaveName);
-//                //섬네일 생성
-//                Thumbnailator.createThumbnail(savePath.toFile(), thumbnailFile,100,100 );
-//                resultDTOList.add(new UploadResultDTO(fileName,uuid,folderPath));
+                log.info("===========================================================================================");
+                log.info("파일 경로: " + savePath);
+                log.info("===========================================================================================");
+
+                return savePath;
 
             } catch (IOException e) {
                 e.printStackTrace();

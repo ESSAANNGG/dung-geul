@@ -1,7 +1,5 @@
 //package com.dung.geul.service;
 //
-//`package com.dung.geul.service;
-//
 //import com.dung.geul.dto.*;
 //import com.dung.geul.entity.Board;
 //import com.dung.geul.entity.Board_file;
@@ -18,7 +16,7 @@
 //
 ////    PageResultDTO<notice_boardDTO, Object[]> getList(PageRequestDTO requestDTO); //목록 처리
 //
-//    notice_boardDTO get(Long num);
+//    notice_boardDTO getBoard(Long num);
 //
 //    default notice_boardDTO entitiesToDTO(Board board, List<Board_file> Board_file, Double avg, Long reviewCnt){
 //        notice_boardDTO boardDTO = notice_boardDTO.builder()
@@ -28,15 +26,14 @@
 //                .regDate(board.getRegDate())
 //                .build();
 //
-//        List<BoardFileDTO> BoardFileDTOList = BoardFileDTO.stream().map(BoardFileDTO -> {
-//            return BoardFileDTO.builder().file_name(BoardFileDTO.getfile_name())
-//                    .file_path(BoardFileDTO.getFile_path())
-//                    .uuid(BoardFileDTO.getUuid())
+//        List<BoardFileDTO> BoardList = Board_file.stream().map(movieImage -> {
+//            return BoardFileDTO.builder().file_name(movieImage.getFile_name())
+//                    .file_path(movieImage.getFile_path())
+//                    .uuid(movieImage.getUuid())
 //                    .build();
 //        }).collect(Collectors.toList());
 //
-//        boardDTO.setBoardFileDTOList(boardFileDTOList);
-//
+//        boardDTO.BoardDTOList(movieImageDTOList);
 //
 //
 //        return boardDTO;
@@ -61,8 +58,8 @@
 //            List<Board_file> boardImageList = boardFileDTOList.stream().map(boardImageDTO ->{
 //
 //                Board_file board_file = Board_file.builder()
-//                        .file_path(BoardFileDTO.getFile_path())
-//                        .file_name(boardImageDTO.getFile_name())
+//                        .file_path(board_file.getFile_path())
+//                        .file_name(board_file.getFile_name())
 //                        .uuid(boardImageDTO.getUuid())
 //                        .board(board)
 //                        .build();
@@ -75,4 +72,4 @@
 //        return entityMap;
 //    }
 //
-//}`
+//}
