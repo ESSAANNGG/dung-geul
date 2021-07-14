@@ -1,24 +1,43 @@
-.active .page-link{
-    background-color: #2b2e4a !important;
-    border: 1px solid #2b2e4a !important;
-    color:#ffffff !important;
+.active .page-link {
+  background-color: #2b2e4a !important;
+  border: 1px solid #2b2e4a !important;
+  color: #ffffff !important;
 }
-.page-link{
-    font-size: 13px;
-    font-weight:900;
-    color:#2b2e4a !important;
-    /*border-radius: initial !important   ;*/
+.page-link {
+  font-size: 13px;
+  font-weight: 900;
+  color: #2b2e4a !important;
+  /*border-radius: initial !important   ;*/
 }
-.pagination{
-    margin-top: 20px;
-    display:flex;
-    justify-content: center;
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
-.search_group{
-    display:flex;
-    width:600px;
+.search_group {
+  display: flex;
+  width: 600px;
 }
-.write-btn-div{
-    float:right;
+.write-btn-div {
+  float: right;
+}
 
+.active {
+  background-color: #2b2e4a !important;
+  border: 1px solid #2b2e4a !important;
+  color: #ffffff !important;
+}
+
+.Passpage-link {
+  font-size: 13px;
+  font-weight: 900;
+  color: #2b2e4a !important;
+  /*border-radius: initial !important   ;*/
+}
+
+.Failpage-link {
+  font-size: 13px;
+  font-weight: 900;
+  color: #2b2e4a !important;
+  /*border-radius: initial !important   ;*/
 }
