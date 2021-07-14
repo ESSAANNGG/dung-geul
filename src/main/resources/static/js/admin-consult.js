@@ -117,30 +117,27 @@ function consult_detail_submit(select_modal,t){
     consult_num=$('input[name=번호]').val();
     btn_text=$(t)   .text();
     switch (btn_text) {
-        // case "수정" :
-        //     conF = confirm('해당 목록을 수정하시겠습니까?');
-        //     if (conF == true) {
-        //         let data = {
-        //             num : $('input[name=번호]').val(),
-        //             title: $('input[name=제목]').val(),
-        //             content : $('input[name=코멘트]').val(),
-        //             ot : $('input[name=직종]').val()
-        //             // ep :  $('input[name=고용형태]').val(),
-        //             // etp_id : $('input[name=고용형태]').val()
-        //         }
-        //
-        //         $.ajax({
-        //             url: "/rest/emSave",
-        //             method: 'put',
-        //             data: JSON.stringify(data),
-        //             contentType: 'application/json; charset=utf-8,'
-        //         }).done(function () {
-        //             location.href = '/Employ/list';
-        //         }).fail(function (error) {
-        //             alert("수정에 실패했습니다.");
-        //         })
-        //     }
-        //     break;
+        case "수정" :
+            conF = confirm('해당 목록을 수정하시겠습니까?');
+            if (conF == true) {
+                let data = {
+                    num : $('input[name=번호]').val(),
+                    type : $('select[name=종류]').val(),
+                    name : $('input[name=제목]').val(),
+                }
+                console.log(data);
+                $.ajax({
+                    url: "/modify/consave",
+                    method: 'put',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json; charset=utf-8,'
+                }).done(function () {
+                    submit_param();
+                }).fail(function (error) {
+                    alert("수정에 실패했습니다.");
+                })
+            }
+            break;
         case "삭제" :
             conF = confirm('해당 목록를 삭제하시겠습니까?');
             if (conF == true) {
