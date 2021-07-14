@@ -121,13 +121,13 @@ function consult_detail_submit(select_modal,t){
             conF = confirm('해당 목록을 수정하시겠습니까?');
             if (conF == true) {
                 let data = {
-                    num : $('input[name=번호]').val(),
+                    cno : $('input[name=번호]').val(),
                     type : $('select[name=종류]').val(),
                     name : $('input[name=제목]').val(),
                 }
                 console.log(data);
                 $.ajax({
-                    url: "/modify/consave",
+                    url: "/admin/modify/consave",
                     method: 'put',
                     data: JSON.stringify(data),
                     contentType: 'application/json; charset=utf-8,'
@@ -135,6 +135,7 @@ function consult_detail_submit(select_modal,t){
                     submit_param();
                 }).fail(function (error) {
                     alert("수정에 실패했습니다.");
+                    alert(error);
                 })
             }
             break;

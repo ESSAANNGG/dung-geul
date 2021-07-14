@@ -46,7 +46,7 @@ public class AdminconsultRestController {
     public ResponseEntity<String> modify(@RequestBody ConsultDTO consultDTO){
         log.info(consultDTO);
 
-        consultService1.modify(consultDTO);
+        consultService.modify(consultDTO);
 
         return new ResponseEntity<>("success", HttpStatus.OK);
     }
