@@ -293,8 +293,8 @@ for (let i = 0; i < applyModal.length; i++) {
 
           requestPassURL = `/application/etp/employ/list/${dNum}?page=${p + 1}&pass=합격`;
 
-          let request = new XMLHttpRequest();
-          request.open('GET', requestPassURL);
+          let requestPass = new XMLHttpRequest();
+          requestPass.open('GET', requestPassURL);
 
           requestPass.responseType = 'json';
           requestPass.send();
@@ -438,7 +438,7 @@ for (let i = 0; i < applyModal.length; i++) {
 
           pageNumber[p].classList.add('active');
 
-          requestPassURL = `/application/etp/employ/list/${dNum}?page=${p + 1}&pass=불합격`;
+          requestFailURL = `/application/etp/employ/list/${dNum}?page=${p + 1}&pass=불합격`;
 
           let requestFail = new XMLHttpRequest();
           requestFail.open('GET', requestPassURL);
