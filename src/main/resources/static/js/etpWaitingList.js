@@ -2,6 +2,9 @@ let modalList = document.querySelector('#modalList');
 let listSuccessfulApplicants = document.querySelector('#listSuccessfulApplicants');
 let listRejectedCandidates = document.querySelector('#listRejectedCandidates');
 let applyModal = document.querySelectorAll('.applyModal');
+let pageNumbers = document.querySelector('#pageNumbers');
+let passPageNumbers = document.querySelector('#passPageNumbers');
+let failPageNumbers = document.querySelector('#failPageNumbers');
 let dtoNum = document.querySelectorAll('.dtoNum');
 let dNum, requestURL, requestPassURL, requestFailURL;
 
@@ -10,6 +13,9 @@ for (let i = 0; i < applyModal.length; i++) {
     $('#modalList').empty();
     $('#listSuccessfulApplicants').empty();
     $('#listRejectedCandidates').empty();
+    $('#pageNumbers').empty();
+    $('#passPageNumbers').empty();
+    $('#failPageNumbers').empty();
 
     dNum = dtoNum[i].innerHTML;
 
@@ -258,7 +264,6 @@ for (let i = 0; i < applyModal.length; i++) {
         taskTh.textContent = applys[j].ap_task;
         apId.textContent = applys[j].ap_id;
         listNum.textContent = dNum;
-
 
         myTr.appendChild(nameTh);
         myTr.appendChild(cvTh);
