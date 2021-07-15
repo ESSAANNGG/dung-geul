@@ -12,250 +12,273 @@
 </head>
 
 <body>
-<!-- partial:index.partial.html -->
+  <!-- partial:index.partial.html -->
 
-<body>
-<section class="vbox">
+  <body>
+    <section class="vbox">
 
-  <!-- 상단 네비게이션 자리  -->
-  <header class="bg-dark dk header navbar navbar-fixed-top-xs">
-    <!--취업정보센터 링크 -->
-    <div class="navbar-header aside-md">
-      <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open"
-         data-target="#nav,html"><i class="fa fa-bars"></i></a>
+      <!-- 상단 네비게이션 자리  -->
+      <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+        <!--취업정보센터 링크 -->
+        <div class="navbar-header aside-md">
+          <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html"><i
+              class="fa fa-bars"></i></a>
 
 
-      <a href="/" class="navbar-brand" data-toggle="fullscreen"><i class="fas fa-book-open"></i> </i>
-        취업정보센터</a>
+          <a href="/" class="navbar-brand" data-toggle="fullscreen"><i class="fas fa-book-open"></i> </i>
+            취업정보센터</a>
 
-      <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"><i
+          <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"><i
               class="fa fa-cog"></i></a>
-    </div>
+        </div>
 
 
-    <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
-      <!-- 알림표시 -->
-      <!-- open으로 작동 -->
-      <!--            <li class="hidden-xs">-->
-      <!--                <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">-->
-      <!--                    <i class="fa fa-bell"></i>-->
-      <!--                    <span class="badge badge-sm up bg-danger m-l-n-sm count">2</span>-->
-      <!--                </a>-->
-      <!--                <section class="dropdown-menu aside-xl">-->
-      <!--                    <section class="panel bg-white">-->
-      <!--                        <header class="panel-heading b-light bg-light">-->
-      <!--                            <strong>확인하지 않은 <span class="count">2</span>개 알림</strong>-->
-      <!--                        </header>-->
-      <!--                        <div class="list-group list-group-alt animated fadeInRight">-->
-      <!--                            <a href="#" class="media list-group-item">-->
-      <!--                                &lt;!&ndash; <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span> &ndash;&gt;-->
-      <!--                                <span class="media-body block m-b-none"> 알림보여주는 자리<br>-->
-      <!--											<small class="text-muted">10분</small>-->
-      <!--											<small class="text-muted">전</small>-->
-      <!--										</span>-->
-      <!--                            </a>-->
-      <!--                            <a href="#" class="media list-group-item">-->
-      <!--										<span class="media-body block m-b-none">알림보여주는 자리<br><small-->
-      <!--                                                class="text-muted">1일</small>-->
-      <!--											<small class="text-muted">전</small></span>-->
-      <!--                            </a>-->
-      <!--                        </div>-->
+        <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
+          <!-- 알림표시 -->
+          <!-- open으로 작동 -->
+          <!--            <li class="hidden-xs">-->
+          <!--                <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">-->
+          <!--                    <i class="fa fa-bell"></i>-->
+          <!--                    <span class="badge badge-sm up bg-danger m-l-n-sm count">2</span>-->
+          <!--                </a>-->
+          <!--                <section class="dropdown-menu aside-xl">-->
+          <!--                    <section class="panel bg-white">-->
+          <!--                        <header class="panel-heading b-light bg-light">-->
+          <!--                            <strong>확인하지 않은 <span class="count">2</span>개 알림</strong>-->
+          <!--                        </header>-->
+          <!--                        <div class="list-group list-group-alt animated fadeInRight">-->
+          <!--                            <a href="#" class="media list-group-item">-->
+          <!--                                &lt;!&ndash; <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span> &ndash;&gt;-->
+          <!--                                <span class="media-body block m-b-none"> 알림보여주는 자리<br>-->
+          <!--											<small class="text-muted">10분</small>-->
+          <!--											<small class="text-muted">전</small>-->
+          <!--										</span>-->
+          <!--                            </a>-->
+          <!--                            <a href="#" class="media list-group-item">-->
+          <!--										<span class="media-body block m-b-none">알림보여주는 자리<br><small-->
+          <!--                                                class="text-muted">1일</small>-->
+          <!--											<small class="text-muted">전</small></span>-->
+          <!--                            </a>-->
+          <!--                        </div>-->
 
-      <!--                        <footer class="panel-footer text-sm">-->
-      <!--                            <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>-->
-      <!--                            <a href="#notes" data-toggle="class:show animated fadeInRight">모든알림 보러가기</a>-->
-      <!--                        </footer>-->
-      <!--                    </section>-->
-      <!--                </section>-->
-      <!--            </li>-->
-      <!-- 로그아웃 드롭다운 메뉴 -->
-      <!-- open -->
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <span> &nbsp; &nbsp;</span> [[${memberDTO.getUser_name}]] 님 <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
-
-          <li> <a href="/mypage/etp/modify">회원 정보수정</a> </li>
-          <!-- <li> <a href=""> <span class="badge bg-danger pull-right">3</span> 알림 </a> </li>  -->
-          <li class="divider"></li>
-          <li><a sec:authorize="isAuthenticated()" href="/logout" >Logout</a> </li>
-        </ul>
-      </li>
-    </ul>
-  </header>
-  <!-- 상단 네비게이션 end -->
-
-  <section>
-    <section class="hbox stretch">
-      <!-- .aside -->
-      <!-- 왼쪽메뉴 -->
-      <!-- nav-xs로 줄임 -->
-      <aside class="bg-dark lter aside-md hidden-print " id="nav">
-        <section class="vbox">
-          <!--MY HOME-->
-          <header class="header bg-primary lter text-center clearfix">
-            <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project">
-              <i class="fas fa-home"></i>
-            </button>
-            <div class="btn-group hidden-nav-xs">
-              <a href="">
-                <button type="button" class="btn btn-sm btn-primary"
-                        style="font-size: 20px; margin-bottom: 10px;"></i> MY
-                  HOME
-
-                </button>
-              </a>
-
-            </div>
-          </header>
-          <!-- MY HOME END -->
-          <section class="w-f scrollable">
-            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true"
-                 data-distance="0" data-size="5px" data-color="#333333">
-              <!-- aside nav 따로 파일 나눠놨어요 -->
-              <div th:replace="mypage/etp/aside :: body"/>
-              <!-- / nav -->
-            </div>
-          </section>
-
-          <footer class="footer lt hidden-xs b-t b-dark">
-            <!-- 메뉴숨길때 btn-icon active -->
-            <a href="#nav" data-toggle="class:nav-xs"
-               class="pull-right btn btn-sm btn-dark btn-icon ">
-              <i class="fa fa-angle-left text"></i>
-              <i class="fa fa-angle-right text-active"></i>
+          <!--                        <footer class="panel-footer text-sm">-->
+          <!--                            <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>-->
+          <!--                            <a href="#notes" data-toggle="class:show animated fadeInRight">모든알림 보러가기</a>-->
+          <!--                        </footer>-->
+          <!--                    </section>-->
+          <!--                </section>-->
+          <!--            </li>-->
+          <!-- 로그아웃 드롭다운 메뉴 -->
+          <!-- open -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span> &nbsp; &nbsp;</span> [[${memberDTO.getUser_name}]] 님 <b class="caret"></b>
             </a>
-            <div class="btn-group hidden-nav-xs">
-            </div>
-          </footer>
-        </section>
-      </aside>
-      <!-- /.aside -->
-      <!-- 콘텐츠 자리 -->
-      <section id="content">
-        <section class="vbox">
-          <section class="scrollable padder">
-            <!-- 요기안에 컨텐츠 넣으면 되용 -->
-            <div id="content-frame">
-              <!-- 메뉴제목자리 -->
-              <div id="title">
-                <h1>회원 정보수정</h1>
-              </div>
-              <!-- 주요컨텐츠 -->
+            <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
 
-              <div id="main-content">
+              <li> <a href="/mypage/etp/modify">회원 정보수정</a> </li>
+              <!-- <li> <a href=""> <span class="badge bg-danger pull-right">3</span> 알림 </a> </li>  -->
+              <li class="divider"></li>
+              <li><a sec:authorize="isAuthenticated()" href="/logout">Logout</a> </li>
+            </ul>
+          </li>
+        </ul>
+      </header>
+      <!-- 상단 네비게이션 end -->
 
+      <section>
+        <section class="hbox stretch">
+          <!-- .aside -->
+          <!-- 왼쪽메뉴 -->
+          <!-- nav-xs로 줄임 -->
+          <aside class="bg-dark lter aside-md hidden-print " id="nav">
+            <section class="vbox">
+              <!--MY HOME-->
+              <header class="header bg-primary lter text-center clearfix">
+                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project">
+                  <i class="fas fa-home"></i>
+                </button>
+                <div class="btn-group hidden-nav-xs">
+                  <a href="">
+                    <button type="button" class="btn btn-sm btn-primary"
+                      style="font-size: 20px; margin-bottom: 10px;"></i> MY
+                      HOME
 
-                  <form th:if="${etp}">
-                    <div>
-                      아이디 :
-                      <input type="text" id="user_id" th:value="${etp.getUser_id()}" readonly>
-                    </div>
-
-                    <div>
-                      이메일 :
-                      <input type="text" id="user_email" th:value="${etp.getUser_email()}">
-                    </div>
-
-                    <div>
-                      담당자 이름 :
-                      <input type="text" id="user_name" th:value="${etp.getUser_name()}">
-                    </div>
-
-                    <div>기업 정보</div>
-
-                    <div> 사업자등록번호 :
-                      <input type="text" id="etp_num" th:value="${etp.getEtp_num()}" readonly>
-                    </div>
-
-                    <div> 기업명 :
-                      <input type="text" id="etp_name" th:value="${etp.getEtp_name()}">
-                    </div>
-
-                    <div> 우편번호 :
-                      <input type="text" id="user_postcode" th:value="${etp.getUser_postcode()}">
-                    </div>
-
-                    <div> 주소 :
-                      <input type="text" id="user_addr" th:value="${etp.getUser_addr()}">
-                    </div>
-
-                    <div> 상세주소 :
-                      <input type="text" id="user_addr_details" th:value="${etp.getUser_addr_details()}">
-                    </div>
-
-                    <div> 대표자 이름 :
-                      <input type="text" id="etp_ceo_name" th:value="${etp.getEtp_ceo_name()}">
-                    </div>
-
-                    <div> 기업 전화번호 :
-                      <input type="text" id="user_ph" th:value="${etp.getUser_ph()}">
-                    </div>
-
-                    <div> 기업 직원 수 :
-                      <input type="text" id="etp_member" th:value="${etp.getEtp_member()}">
-                    </div>
-
-                    <div> 홈페이지 주소 :
-                      <input type="text" id="etp_home" th:value="${etp.getEtp_home()}">
-                    </div>
-
-                    <div> 업종 :
-                      <input type="text" id="etp_sector" th:value="${etp.getEtp_sector()}" readonly>
-                    </div>
-
-                    <div> 주요 사업 내용 :
-                      <input type="text" id="etp_contents" th:value="${etp.getEtp_contents()}">
-                    </div>
-
-                    <div> 팩스 번호 :
-                      <input type="text" id="etp_fx" th:value="${etp.getEtp_fx()}">
-                    </div>
-
-                    <div> 기업 설립년도 :
-                      <input type="text" id="etp_year" th:value="${etp.getEtp_year()}" readonly>
-                    </div>
-
-                    <input type="submit" value="수정" id="modifyMember" class="etp">
-
-                  </form>
-                <div class="password common-button">
-                  <a th:href="@{/mypage/etp/modifyPw(user_id=${memberDTO.getUser_id})}">
-                    비밀번호 변경하기
+                    </button>
                   </a>
+
                 </div>
-                <div class="excute common-button">
-                  <a>회원탈퇴</a>
-                  <a th:href="@{/mypage/member/delete(user_id=${memberDTO.getUser_id()})}" style="display:none" class="trigger">회원탈퇴</a>
+              </header>
+              <!-- MY HOME END -->
+              <section class="w-f scrollable">
+                <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0"
+                  data-size="5px" data-color="#333333">
+                  <!-- aside nav 따로 파일 나눠놨어요 -->
+                  <div th:replace="mypage/etp/aside :: body" />
+                  <!-- / nav -->
+                </div>
+              </section>
+
+              <footer class="footer lt hidden-xs b-t b-dark">
+                <!-- 메뉴숨길때 btn-icon active -->
+                <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon ">
+                  <i class="fa fa-angle-left text"></i>
+                  <i class="fa fa-angle-right text-active"></i>
+                </a>
+                <div class="btn-group hidden-nav-xs">
+                </div>
+              </footer>
+            </section>
+          </aside>
+          <!-- /.aside -->
+          <!-- 콘텐츠 자리 -->
+          <section id="content">
+            <section class="vbox">
+              <section class="scrollable padder">
+                <!-- 요기안에 컨텐츠 넣으면 되용 -->
+                <div id="content-frame">
+                  <!-- 메뉴제목자리 -->
+                  <div id="title">
+                    <h1>회원 정보수정</h1>
+                  </div>
+                  <!-- 주요컨텐츠 -->
+
+                  <div id="main-content">
+
+
+                    <form th:if="${etp}">
+                      <table id="user_info">
+                        <tr class="border-top">
+                          <th class="gray bottom-line right-line th-center">아이디</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="user_id"
+                              th:value="${etp.getUser_id()}" readonly></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">기업명</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="etp_name"
+                              th:value="${etp.getEtp_name()}"></td>
+                        </tr>
+                        <tr style="display:none">
+                          <th class="gray bottom-line right-line th-center">아이디</th>
+                          <td class="bottom-line td_padding-left">[[${etp.getEtp_id()}]]</td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">주소</th>
+                          <th class="bottom-line">
+                            <table>
+                              <tr>
+                                <th class="th2-center">우편번호</th>
+                                <td class="test"><input type="text" id="user_postcode"
+                                    th:value="${etp.getUser_postcode()}"></td>
+                              </tr>
+                              <tr>
+                                <th class="delete gary th2-center">주소</th>
+                                <td class="test"><input type="text" id="user_addr" th:value="${etp.getUser_addr()}">
+                                </td>
+                              </tr>
+                              <tr>
+                                <th class="th2-center">상세주소</th>
+                                <td class="test"><input type="text" id="user_addr_details"
+                                    th:value="${etp.getUser_addr_details()}"></td>
+                              </tr>
+                            </table>
+                          </th>
+                          </th>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">이메일</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="user_email"
+                              th:value="${etp.getUser_email()}"></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">담당자 이름</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="user_name"
+                              th:value="${etp.getUser_name()}"></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">대표자명</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="etp_ceo_name"
+                              th:value="${etp.getEtp_ceo_name()}"></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">대표연락처</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="user_ph"
+                              th:value="${etp.getUser_ph()}"></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">직원수</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="etp_member"
+                              th:value="${etp.getEtp_member()}"></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">홈페이지</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="etp_home"
+                              th:value="${etp.getEtp_home()}"></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">업종</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="etp_sector"
+                              th:value="${etp.getEtp_sector()}" readonly></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">사업자 등록번호</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="etp_num"
+                              th:value="${etp.getEtp_num()}" readonly></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">주요사업내용</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="etp_contents"
+                              th:value="${etp.getEtp_contents()}"></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">팩스번호</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="etp_fx"
+                              th:value="${etp.getEtp_fx()}"></td>
+                        </tr>
+                        <tr>
+                          <th class="gray bottom-line right-line th-center">설립일자</th>
+                          <td class="bottom-line td_padding-left"><input type="text" id="etp_year"
+                              th:value="${etp.getEtp_year()}" readonly></td>
+                        </tr>
+                      </table>
+                      <input class="margin-top15" type="submit" value="내용수정" id="modifyMember">
+                    </form>
+                    <div class="password common-button">
+                      <a th:href="@{/mypage/etp/modifyPw(user_id=${memberDTO.getUser_id})}">
+                        비밀번호 변경하기
+                      </a>
+                    </div>
+                    <div class="excute common-button">
+                      <a>회원탈퇴</a>
+                      <a th:href="@{/mypage/member/delete(user_id=${memberDTO.getUser_id()})}" style="display:none"
+                        class="trigger">회원탈퇴</a>
+                    </div>
+
+                  </div>
+
                 </div>
 
-              </div>
+              </section>
 
-            </div>
+            </section>
 
+            <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
           </section>
+          <!-- 콘텐츠 END -->
 
+          <aside class="bg-light lter b-l aside-md hide" id="notes">
+            <div class="wrapper">Notification</div>
+          </aside>
         </section>
-
-        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen"
-           data-target="#nav"></a>
       </section>
-      <!-- 콘텐츠 END -->
+    </section> <!-- Bootstrap -->
+    <!-- App -->
 
-      <aside class="bg-light lter b-l aside-md hide" id="notes">
-        <div class="wrapper">Notification</div>
-      </aside>
-    </section>
-  </section>
-</section> <!-- Bootstrap -->
-<!-- App -->
-
-</body>
-<!-- partial -->
-<script src="/js/mypage.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="/js/modify_member.js"></script>
+  </body>
+  <!-- partial -->
+  <script src="/js/mypage.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="/js/modify_member.js"></script>
 </body>
 
 </html>

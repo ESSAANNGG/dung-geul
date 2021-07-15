@@ -9595,7 +9595,7 @@ body.container {
 	}
 	.nav-xs > .vbox > .header,
 	.nav-xs > .vbox > .footer {
-		padding: 0 15px;
+		/* padding: 0 15px; */
 	}
 	.nav-xs .hidden-nav-xs {
 		display: none;

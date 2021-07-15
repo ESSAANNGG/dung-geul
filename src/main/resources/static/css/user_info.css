@@ -114,8 +114,9 @@ input {
 
 #modifyMember {
   width: 80px;
-  position: absolute;
-  left: 1018px;
+  /*position: absolute;*/
+  /*left: 1018px;*/
+  float: right;
 }
 
 .password {
@@ -126,6 +127,7 @@ input {
 .excute {
   margin-top: 100px;
   width: 70px;
+  text-align: center;
 }
 
 .excute > a {
