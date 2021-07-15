@@ -29,7 +29,7 @@ let findID = {
                 success: function (result) {
 
                     console.log('result : ' + result.user_id);
-                    alert(result);
+                    // alert(result);
                     if (result == '0') {
                         alert("회원정보 찾기에 실패했습니다.\n이름과 이메일을 다시 확인해주세요.");
                     } else {
@@ -39,7 +39,7 @@ let findID = {
                 },
                 error: function (err) {
                     console.log(err);
-                    alert(err);
+                    // alert(err);
                     alert("오류 발생.\n이름과 이메일을 다시 확인해주세요.");
                 }
             })

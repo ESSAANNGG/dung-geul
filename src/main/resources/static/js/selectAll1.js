@@ -1,6 +1,6 @@
 check=false;
 function selectAll()  {
-    alert(check);
+    // alert(check);
 
         if(check==false){
             $(".allcheck").prop("checked",true);

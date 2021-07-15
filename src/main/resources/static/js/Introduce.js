@@ -28,7 +28,7 @@ $(document).ready(function () {
 					location.href = '/application/introduce/list';
 				})
 				.fail(function (error) {
-					alert(JSON.stringify(error));
+					console.log(JSON.stringify(error));
 				});
 		}
 	});
@@ -46,7 +46,7 @@ $(document).ready(function () {
 			})
 			.fail(function (error) {
 				console.log(error);
-				alert(JSON.stringify(error));
+				console.log(JSON.stringify(error));
 			});
 	});
 
@@ -73,7 +73,7 @@ $(document).ready(function () {
 				location.href = '/application/introduce/list';
 			})
 			.fail(function (error) {
-				alert(JSON.stringify(error));
+				console.log(JSON.stringify(error));
 			});
 	});
 

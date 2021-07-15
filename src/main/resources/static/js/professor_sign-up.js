@@ -1,7 +1,7 @@
 let signUp = {
   init: function () {
     $("#submit").on("click", () => {
-      alert("sign-up.js실행");
+      console.log("sign-up.js실행");
       this.save();
     });
   },
@@ -25,9 +25,8 @@ let signUp = {
       role: $('#role').val(),
     };
 
-    alert("userdate 전송 ! " + JSON.stringify(userData));
+    console.log("userdate 전송 ! " + JSON.stringify(userData));
     console.log(JSON.stringify(userData));
-    alert(JSON.stringify(userData));
 
     $.ajax({
       type: "POST",

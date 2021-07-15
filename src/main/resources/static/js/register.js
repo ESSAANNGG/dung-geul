@@ -2,13 +2,12 @@ let register = {
   init: function () {
     $('#submit').on('click', event => {
       event.preventDefault();
-      alert('register실행');
+      // alert('register실행');
 
       let a = document.querySelectorAll('input');
       for (let i = 0; i < a.length; i++) {
         if (a[i].value == '') {
           a[i].disabled = true;
-
         }
       }
 
@@ -34,7 +33,7 @@ let register = {
     let data = $('form#cvForm').serializeObject();
 
     // 값 확인
-    https: alert('userdate 전송 ! ' + JSON.stringify(data));
+    // https: alert('userdate 전송 ! ' + JSON.stringify(data));
     console.log(JSON.stringify(data));
 
     // 데이터 전송 ajax
@@ -51,7 +50,7 @@ let register = {
       error: function (error) {
         alert('실패, 이력서를 다시 작성해주세요');
         console.log(error);
-        alert(error);
+        // alert(error);
         location.href = '#';
       },
     });

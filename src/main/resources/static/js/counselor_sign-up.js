@@ -2,7 +2,7 @@ let signUp = {
   init: function () {
     $("#submit").on("click", event => {
       event.preventDefault();
-      alert("saveStudent 실행");
+      // alert("saveStudent 실행");
       this.saveCounselor();
     });
   },
@@ -23,9 +23,9 @@ let signUp = {
       role: $('#role').val(),
     };
 
-    alert("userdate 전송 ! " + JSON.stringify(userData));
+    // alert("userdate 전송 ! " + JSON.stringify(userData));
     console.log(JSON.stringify(userData));
-    alert(JSON.stringify(userData));
+    // alert(JSON.stringify(userData));
 
     $.ajax({
       type: 'post',

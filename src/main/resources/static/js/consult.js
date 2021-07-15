@@ -5,7 +5,7 @@ function consult_apply() {
     consult_date=$("input[name=couns-date]").val();
     consult_time=$("select[name=couns-time]").val()
     if(type==""||cno==""||consult_date==""||consult_time==""){
-        alert("값을 제대로 선택해주세요");
+        alert("값을 모두 선택해주세요");
     }
     else{
 

@@ -2,7 +2,7 @@ let modify = {
   init: function () {
     $('#submit').on('click', event => {
       event.preventDefault();
-      alert('modify실행');
+      // alert('modify실행');
       let a = document.querySelectorAll('input');
       for (let i = 0; i < a.length; i++) {
         if (a[i].value == '') {
@@ -31,7 +31,7 @@ let modify = {
     let data = $('form#cvForm').serializeObject();
 
     // 값 확인
-    alert('userdate 전송 ! ' + JSON.stringify(data));
+    // alert('userdate 전송 ! ' + JSON.stringify(data));
     console.log(JSON.stringify(data));
 
     // 데이터 전송 ajax
@@ -52,7 +52,7 @@ let modify = {
       error: function (error) {
         alert('오류 발생, 이력서를 다시 작성해주세요');
         console.log(error);
-        alert(error);
+        // alert(error);
         location.href = '#';
       },
     });

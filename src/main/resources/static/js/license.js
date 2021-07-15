@@ -20,7 +20,7 @@ $(document).ready(function () {
         location.href = '/license/list';
       })
       .fail(function (error) {
-        alert(JSON.stringify(error));
+        console.log(JSON.stringify(error));
       });
   });
 
@@ -46,7 +46,7 @@ $(document).ready(function () {
         location.href = '/license/list';
       })
       .fail(function (error) {
-        alert(JSON.stringify(error));
+        console.log(JSON.stringify(error));
       });
   });
 });
