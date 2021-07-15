@@ -25,9 +25,8 @@ window.onload = function () {
 //선택한 상세메뉴 제외 닫기
 function MenuOff() {
 
-    for (i = 0; i < menuLength; i++) {
+    for (i = 0; i < menuLength+1; i++) {
         menu = ("main" + String(i + 1));
-
         $('.' + menu).css("display", "none");
         if(select_detail_menu==undefined){
             $('.' + menu).eq(0).css("display", "block");

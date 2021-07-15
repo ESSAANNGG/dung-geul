@@ -8,8 +8,6 @@ function consult_guide(){
     switch (guide_val) {
         case "상담관리" : parameter="/admin/admin_consult";
             break;
-        case "상담사" : parameter="/admin/admin_consult";
-            break;
         case "상담등록" : parameter="/admin/admin_consult_Reg";
             break;
     }

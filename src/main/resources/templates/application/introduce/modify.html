@@ -101,7 +101,7 @@
                                 <textarea id="forth_cont" class="register_cont_input DOC_TEXT4" maxlength="1000"
                                     th:text="${dto.content4}" placeholder="내용을 입력해주세요(최대 1000자)"
                                     onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-                                <span style="color:#aaa;" id="counter4">([[${#strings.length(dto.content4)}]] / 최대 1000자)</span>
+                                <span style="color:#aaa;" id="counter4">[[${#strings.length(dto.content4)}]] / 최대 1000자)</span>
                             </div>
                             <div class="base_button_wrap">
                                 <button id="IntroSave" name="IntroSave" type="submit" class="base_button">수정하기</button>
