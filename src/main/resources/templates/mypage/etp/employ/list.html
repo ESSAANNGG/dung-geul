@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="/css/table.css">
     <link rel="stylesheet" href="/css/buttonTogle.css">
     <link rel="stylesheet" href="/css/pagenation.css">
+    <link rel="stylesheet" href="/css/candyButton.css">
 
 
 
@@ -136,7 +137,10 @@
                                     <!-- 주요컨텐츠 -->
                                     <div id="main-content">
                                         <div id="ex1" class="modal">
-                                            <h2 style="color: white;">대기중 지원자 목록</h2>
+                                            <div id="dtoNumDiv">
+                                            
+                                            </div>
+                                            <h2 style="color: #000;">대기중 지원자 목록</h2>
                                             <div class="table-wrapper">
                                                 <table class="fl-table">
                                                     <thead>
@@ -172,14 +176,14 @@
                                                         </tr>
                                                     <tbody>
                                                 </table>
-                                                <div class="button-div" style="display: inline-block;">
+                                                <div class="button-div" style="display: inline-block; margin-top: 10px;">
 
-                                                    <button id="Pass" type="button">
+                                                    <button id="Pass" class="custom-btn btn-1" style="background-color: #DEE3EA;" type="button">
                                                         합격
                                                     </button>
 
 
-                                                    <button id="Fail" type="button">
+                                                    <button id="Fail" class="custom-btn btn-1" style="background-color: #DEE3EA;" type="button">
                                                         불합격
                                                     </button>
 
@@ -208,7 +212,7 @@
 
 
 
-                                            <h2 style="color: white;">처리완료 지원자 목록</h2>
+                                            <h2 style="color:#000;">처리완료 지원자 목록</h2>
                                             <div id="app-cover">
                                                 <div class="row">
                                                     <div class="toggle-button-cover">
@@ -344,7 +348,7 @@
                                                         <a class="applyModal" href="#ex1" rel="modal:open">지원자
                                                             확인</a>
                                                     </td>
-                                                    <td class="dtoNum" th:text="${dto.getNum()}"></td>
+                                                    <td style="display: none;" class="dtoNum" th:text="${dto.getNum()}"></td>
                                                 </tr>
 
                                             </tbody>
@@ -371,7 +375,7 @@
 
     </body>
     <!-- partial -->
-    <!-- <script src="/js/etpMypage.js"></script> -->
+    <script src="/js/etpMypage.js"></script>
     <script src="/js/etpWaitingList.js"></script>
     <script src="/js/etpListAjax.js"></script>
     <script>
