@@ -9,7 +9,8 @@
 <body>
 <div th:fragment="header">
     <div id="admin_header">
-        <h3><a sec:authorize="isAuthenticated()" href="/logout" >취업정보센터</a></h3>
+        <h3><a th:href="@{/}" >취업정보센터</a></h3>
+<!--        <h3><a sec:authorize="isAuthenticated()" href="/logout" ></a></h3>-->
     </div>
 </div>
 
