@@ -13,8 +13,8 @@ window.onload = function () {
 
     if(menu_index==undefined){
         menu_index==0;                                                                   //초기화면은 첫번쨰 메뉴선택
-        menu_name=="dashboard";
-        parameter="/admin/admin_dashboard";
+        menu_name=="userManage";
+        parameter="/admin/admin_userManage";
     }
     $(menubox_li).eq(menu_index).css("backgroundColor","#30384b");                        //선택한 메뉴의 색상 변경
     $('.guide_select option:eq(' +select_detail_menu + ')').attr("selected","selected");  //해당 메뉴의 선택한 상세메뉴(가이드)대로 상세메뉴 선택값 변경
@@ -44,19 +44,19 @@ $(menubox_li).click(function(){
     menu_index=$(this).index();    //몇번째 menu인지 받아오기
     //주소 파라미터 넘기기
     switch(menu_index){
-        case 0: menu_name="dashboard";
+        // case 0: menu_name="dashboard";
+        //     break;
+        case 0: menu_name="userManage";
             break;
-        case 1: menu_name="userManage";
+        case 1: menu_name="employ";
             break;
-        case 2: menu_name="employ";
+        case 2: menu_name="application";
             break;
-        case 3: menu_name="application";
+        case 3: menu_name="board";
             break;
-        case 4: menu_name="board";
+        case 4: menu_name="consult";
             break;
-        case 5: menu_name="consult";
-            break;
-        case 6: menu_name="supportProgram";
+        // case 5: menu_name="supportProgram";
     }
     //세션 스토리지에 css를 저장
     window.sessionStorage.setItem('menu_name', menu_name);

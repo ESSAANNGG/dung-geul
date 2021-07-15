@@ -13,7 +13,7 @@ public class WebController {
 
         try {
             if (member.getName().equals("admin")) {
-                return "admin/admin_dashboard";
+                return "redirect:/admin/admin_userManage?page1=&page2=&type=UNIV";
             }
             return "main/index";
         } catch (Exception e){

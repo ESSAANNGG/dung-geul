@@ -66,7 +66,9 @@
             </li>
             <li class="join" sec:authorize="isAuthenticated()">
 <!--                <a sec:authorize="!isAuthenticated()" href="/sign-up" >회원가입</a>-->
-                <a sec:authorize="isAuthenticated()" href="/mypage/before/read" >마이페이지</a>
+
+                <a sec:authorize="hasAnyRole('STUDENT','COUNSELOR','ENTERPRISE')" href="/mypage/before/read" >마이페이지</a>
+                <a sec:authorize="hasRole('ADMIN')" href="/admin/admin_userManage?page1=&page2=&type=UNIV" >관리자페이지</a>
             </li>
             <li class="center">
                 <a href="https://jobcenter.yju.ac.kr/" target="_blank">대학일자리 플러스 센터</a>
