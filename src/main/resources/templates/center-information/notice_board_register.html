@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}">
     <link rel="stylesheet" href="/css/notice_board.css" />
 
+    <!-- 수정 삭제 동작을 하기 위한 jQuery -->
+    <script src="/js/jquery-3.5.1.min.js"></script>
+
     <!-- 채용공고 등록 게시판 CSS 디자인 -->
     <link rel="stylesheet" href="/src/main/resources/static/css/notice_board.css" th:href="@{/css/notice_board.css}">
 
@@ -52,11 +55,11 @@
 
                     <!-- Content -->
                     <div class="col-9 col-12-medium imp-medium">
-                        <div id="board_title">
-                            <h2>공지사항 등록</h2>
+                        <div id="board_title" style="border-bottom: initial; height:initial;">
+                            <h1>공지사항 등록</h1>
 <!--                            <h3>학생들과 소통하는 공간입니다</h3>-->
                         </div>
-                        <form th:action="@{/center-information/notice_board_register}" th:method="post"></form>
+                        <form th:action="@{/center-information/notice_board_register}" th:method="post">
                             <div class="register">
                                 <label>제목</label>
                                 <input type="text" class="register_input" name="title" placeholder="제목을 입력하세요">

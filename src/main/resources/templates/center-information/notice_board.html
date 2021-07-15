@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>공지사항</title>
     <meta charset="utf-8" />
@@ -115,12 +115,12 @@
 
                              <!-- 목록 데이터 페이지 처리 끝-->
                              <!-- End Board table -->
-<!--                             <div class="write-btn-div">-->
-<!--                                 <button type="button" class="search_cont"-->
-<!--                                         onclick="location.href='/center-information/notice_board_register'">-->
-<!--                                     글쓰기-->
-<!--                                 </button>-->
-<!--                             </div>-->
+                             <div sec:authorize="hasRole('ADMIN')" class="write-btn-div">
+                                 <button type="button" class="search_cont"
+                                         onclick="location.href='/center-information/notice_board_register'">
+                                     글쓰기
+                                 </button>
+                             </div>
 
                          <!-- end 검색 조건 -->
 

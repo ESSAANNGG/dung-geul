@@ -60,10 +60,10 @@ function division_select(){
         if(consult_type=="진로 상담" && select_index==1){
             $('select[name=employ-field]').append("<option value='"+consult_cno+"' class='"+consult_type+"'>"+ consult_name +"</option>");
         }
-        else if(consult_type=="취업상담" && select_index==2){
+        else if(consult_type=="취업 상담" && select_index==2){
             $('select[name=employ-field]').append("<option value='"+consult_cno+"' class='"+consult_type+"'>"+ consult_name +"</option>");
         }
-        else if(consult_type=="창업상담" && select_index==3){
+        else if(consult_type=="창업 상담" && select_index==3){
             $('select[name=employ-field]').append("<option value='"+consult_cno+"' class='"+consult_type+"'>"+ consult_name +"</option>");
         }
 
