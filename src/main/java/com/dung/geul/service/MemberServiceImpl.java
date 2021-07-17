@@ -11,6 +11,9 @@ import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryFactory;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.extern.log4j.Log4j2;
+import net.nurigo.java_sdk.api.Message;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,10 +28,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Log4j2
@@ -150,21 +150,21 @@ public class MemberServiceImpl implements MemberService {
 
     // 회원 인증  1 : 인증완료 , 2 : 거절완료,  -1 : 오류
     @Transactional
-    public ResponseEntity authMember(List<String> userIds, String result){
+    public ResponseEntity authMember(List<String> userIds, String result) {
 
         // 회원 종류별로 role부여
-        try{
+        try {
 
             Member member;
 
-            for (int i =0; i<userIds.size(); i++){
+            for (int i = 0; i < userIds.size(); i++) {
                 member = memberRepository.getOne(userIds.get(i));
 
-                if(member==null) throw new Exception(userIds.get(i) + "는 존재하지 않는 회원입니다.");
+                if (member == null) throw new Exception(userIds.get(i) + "는 존재하지 않는 회원입니다.");
 
                 if (result.equals("no")) {     // 거절
                     deleteMember(member.getUser_id());
-                } else if(result.equals("ok")){    // 승인
+                } else if (result.equals("ok")) {    // 승인
                     AddRole(member, member.getUser_type()); // 권한주기
                     member.modUser_allow(1);
 
@@ -175,7 +175,7 @@ public class MemberServiceImpl implements MemberService {
 
             return new ResponseEntity(1, HttpStatus.OK);
 
-        } catch (Exception e){
+        } catch (Exception e) {
 
             System.out.println("error : " + e);
             return new ResponseEntity(2, HttpStatus.NOT_FOUND);
@@ -226,14 +226,13 @@ public class MemberServiceImpl implements MemberService {
             System.out.println("회원 정보 수정 완료");
             return 1;
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("error : " + e);
             return 0;
         }
 
 
     }
-
 
 
     // 기업 회원 정보 수정
@@ -363,11 +362,11 @@ public class MemberServiceImpl implements MemberService {
         return memberOpt.get();
     }
 
-    public MemberDTO getMemberDTO(Member member){
+    public MemberDTO getMemberDTO(Member member) {
 
         MemberDTO memberDTO = entityToDto(member);
 
-        return memberDTO ;
+        return memberDTO;
     }
 
     //mypage read Enterprise
@@ -394,6 +393,23 @@ public class MemberServiceImpl implements MemberService {
         String id = memberRepository.findByUser_emailAndUser_name(email, emailDomain, name);
 
         return id;
+    }
+
+    // 이름과 전화번호가 일치하면 아이디 값을 반환해주는 메소드
+    public String confirmNameAndPhone(String name, String[] phones) {
+
+        String returnId = memberRepository.findByIdAndPh(name, phones[0], phones[1], phones[2]);
+        log.info(phones[0] + phones[1] + phones[2]);
+        log.info("member : " + returnId);
+
+        if (returnId == null) {
+            return null;
+        } else {
+            log.info(returnId);
+            log.info("id : " + returnId);
+            return returnId;
+        }
+
     }
 
     // 아이디와 이메일이 일치하면 임시비밀번호를 이메일로 보내
@@ -430,7 +446,6 @@ public class MemberServiceImpl implements MemberService {
 
                 // 임시비밀번호로 변경
                 member.modUser_pw(encoder.encode(tempPw));
-
                 memberRepository.save(member);
 
                 result = 1;
@@ -440,6 +455,68 @@ public class MemberServiceImpl implements MemberService {
         }
 
         return result;
+    }
+
+    // 아이디와 전화번호가 일치하면 임시 비밀번호를 발급해주는 기능
+    public int tempPwSendPhone(MemberForgotPwDTO dto) {
+
+        Optional<Member> memberOpt = memberRepository.findById(dto.getUser_id());
+
+        if (!memberOpt.isEmpty()) {
+
+            Member member = memberOpt.get();
+
+            String DBPhone = member.getUser_ph()
+                    + "-" + member.getUser_ph2()
+                    + "-" + member.getUser_ph3();   // 010-xxxx-xxxx
+
+            int result = dto.getUser_phone().equals(DBPhone) ? 1 : 0;
+
+            if (result == 1) {
+                // 폰번호랑 같으면 sms 보내기
+
+                final String TO_PHONE_NUM = "01020635065";
+                String FromPhoneNum = dto.getUser_phone().replace("-", "");
+                String tempPw = getRandomPassword(5);
+
+                final String api_key = "NCSZYTJONF6PDAST";
+                final String api_secret = "GVX6AQWKKZUXHQCZ4NQO6S1XVFJKIGMD";
+
+                Message coolsms = new Message(api_key, api_secret);
+                HashMap<String, String> params = new HashMap<>();
+
+                params.put("to", TO_PHONE_NUM);
+                params.put("from", FromPhoneNum);
+                params.put("type", "SMS");
+                params.put("text", member.getUser_id()
+                        + "님의 임시 비밀번호는 [" + tempPw + "]입니다. "
+                        + "\n 로그인 후 비밀번호를 변경해주세요");
+
+
+                try {
+                    JSONObject obj = (JSONObject) coolsms.send(params);
+                    System.out.println(obj.toString());
+
+                    // 임시비밀번호로 변경
+                    member.modUser_pw(encoder.encode(tempPw));
+                    memberRepository.save(member);
+
+                    return 1;
+
+                } catch (CoolsmsException e) {
+                    System.out.println(e.getMessage());
+                    System.out.println(e.getCode());
+                    return 0;
+                }
+
+            } else {
+                // 폰번호가 일치하지 않음 -- 오류 보냄
+                return 0;
+            }
+
+        } else {
+            return 0;
+        }
     }
 
     // 입력한 숫자만큼의 크기의 랜덤 문자열을 반환 (임시 비밀번호로 사용)
@@ -470,7 +547,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     // 동적 쿼리 만들기
-    public BooleanBuilder findByAllowUser(SearchDTO dto, int allow){
+    public BooleanBuilder findByAllowUser(SearchDTO dto, int allow) {
 
         log.info("findByAllowUser실행");
         log.info("SearchDTO : " + dto);
@@ -497,36 +574,36 @@ public class MemberServiceImpl implements MemberService {
 
         // type 조건
         BooleanExpression epType;
-        if(type.equals("UNIV")){
+        if (type.equals("UNIV")) {
             epType = qMember.user_type.notIn("ENTERPRISE"); // user_type not in ('ENTERPRISE")
         } else {
             epType = qMember.user_type.eq(type);  // user_type = :type
         }
         builder.and(epType);
 
-        if(name == null && id == null && (startDate == null || endDate == null) && shape == null){
+        if (name == null && id == null && (startDate == null || endDate == null) && shape == null) {
             return builder;
         }
 
-        if(name != null){
+        if (name != null) {
             BooleanExpression epName = qMember.user_name.contains(name);                // name 조건
             builder.and(epName);
         }
-        if(id != null){
+        if (id != null) {
             BooleanExpression epId = qMember.user_id.contains(id);                      // id 조건
             builder.and(epId);
         }
 
-        if(dto.getStartDate() != null && dto.getEndDate() != null){
+        if (dto.getStartDate() != null && dto.getEndDate() != null) {
             // date
             startDate = LocalDate.parse(dto.getStartDate(), DateTimeFormatter.ISO_DATE).atStartOfDay();
-            endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23,59,59));
+            endDate = LocalDateTime.of(LocalDate.parse(dto.getEndDate(), DateTimeFormatter.ISO_DATE), LocalTime.of(23, 59, 59));
 
             BooleanExpression epDate = qMember.regDate.between(startDate, endDate);     // regdate 조건
             builder.and(epDate);
         }
 
-        if(dto.getShape() != null){
+        if (dto.getShape() != null) {
             log.info("if문 실헹 : ");
             BooleanExpression epShape = qEtp.etp_shape.eq(shape);
             log.info("epShape : " + epShape);
@@ -539,7 +616,7 @@ public class MemberServiceImpl implements MemberService {
         return builder;
     }
 
-    public PageResultDTO<AllowEtpDTO, Object> getPageResultDTO(BooleanBuilder builder, Pageable pageable){
+    public PageResultDTO<AllowEtpDTO, Object> getPageResultDTO(BooleanBuilder builder, Pageable pageable) {
 
         log.info("getPageResultDTO실행");
 
@@ -552,7 +629,7 @@ public class MemberServiceImpl implements MemberService {
         return new PageResultDTO<>(result);
     }
 
-    public Member[] findByType(String type){
+    public Member[] findByType(String type) {
         return memberRepository.findByUser_type(type);
     }
 

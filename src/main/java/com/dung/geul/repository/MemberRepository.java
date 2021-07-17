@@ -31,6 +31,9 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     @Query("select m.user_id from Member m where m.user_email = :user_email and m.user_emailDomain = :user_emailDomain and m.user_name = :user_name")
     String findByUser_emailAndUser_name(@Param("user_email") String user_email, @Param("user_emailDomain") String user_emailDomain, @Param("user_name") String user_name);
 
+    @Query("select m.user_id from Member m where m.user_name = :name and m.user_ph = :ph and m.user_ph2 = :ph2 and m.user_ph3 = :ph3")
+    String findByIdAndPh(@Param("name") String name, @Param("ph") String ph, @Param("ph2") String ph2, @Param("ph3") String ph3);
+
     //
     @Query(value = "select m, e from Member m , Enterprise e where e.member = m and m.user_id = :user_id")
     Object findByUser_idEtpJoinMember(@Param("user_id") String user_id);

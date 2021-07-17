@@ -70,7 +70,6 @@ public class MemberRestController {
     }
 
     // 아이디 찾기
-
     @PostMapping("/forgot/id")
     public ResponseEntity<?> findId(@RequestBody MemberDTO memberDTO) {
 
@@ -79,28 +78,59 @@ public class MemberRestController {
             System.out.println("memberDTO = " + memberDTO);
 
             String email = memberDTO.getUser_email();
-
-            String[] emails = email.split("@");
-
+            String phone = memberDTO.getUser_ph();
             String name = memberDTO.getUser_name();
 
-            log.info("emails[0] : " + emails[0]);
-            log.info("emails[1] : " + emails[1]);
-            log.info("name : " + name);
-            String id = memberService.confirmNameAndEmail(name, emails[0], emails[1]);    //return 성공 = user_id / 실패 = null
-            log.info("name : " + name);
-            log.info("일치하는 id : " + id);
-            MemberDTO response  =  new MemberDTO();
-            response.setUser_id(id);
+            if(email != null){
+                String[] emails = email.split("@");
 
-            // 아이디와 이메일이 일치하는 DB값 없으면 0 반환
-            if (id == null) {
-                return new ResponseEntity<>("bad request", HttpStatus.BAD_REQUEST);
+                log.info("emails[0] : " + emails[0]);
+                log.info("emails[1] : " + emails[1]);
+                log.info("name : " + name);
+
+                String id = memberService.confirmNameAndEmail(name, emails[0], emails[1]);    //return 성공 = user_id / 실패 = null
+
+                log.info("name : " + name);
+                log.info("일치하는 id : " + id);
+                MemberDTO response  =  new MemberDTO();
+                response.setUser_id(id);
+
+                // 아이디와 이메일이 일치하는 DB값 없으면 0 반환
+                if (id == null) {
+                    return new ResponseEntity<>("bad request", HttpStatus.BAD_REQUEST);
+                }
+
+
+                log.info("return id : " + id);
+
+                return new ResponseEntity<>(response, HttpStatus.OK);
+
+            }
+            else if(phone != null){
+                String[] phones = phone.split("-");
+
+                log.info("phones[0] : " + phones[0]);
+                log.info("phones[1] : " + phones[1]);
+                log.info("phone[2] : " + phones[2]);
+                log.info("name : " + name);
+
+
+                String id = memberService.confirmNameAndPhone(name, phones);
+
+                if(id == null){
+                    throw new Exception();
+                }
+
+                MemberDTO response  =  new MemberDTO();
+                response.setUser_id(id);
+
+                return new ResponseEntity<>(response, HttpStatus.OK);
+            }
+            else {
+                throw new Exception();
             }
 
-            log.info("return id : " + id);
 
-            return new ResponseEntity<>(response, HttpStatus.OK);
 
         }catch (Exception e){
             System.out.println(e);
@@ -111,12 +141,20 @@ public class MemberRestController {
 
     //비밀번호 찾기
     @PostMapping("/forgot/pw")
-    public int findPw(@RequestBody MemberForgotPwDTO memberForgotPwDTO) {
+    public int findPw(@RequestBody MemberForgotPwDTO dto) {
         // 아이디와 이메일을 받아옴
         System.out.println("memberRestController findPw() 실행");
-        System.out.println("forfotPw : " + memberForgotPwDTO);
+        System.out.println("forfotPw : " + dto);
 
-        int result = memberService.tempPwSendEmail(memberForgotPwDTO);  // 1: 성공, 0: 실패
+        int result = 0;
+
+        // email 찾기
+        if(dto.getUser_email() != null){
+            result = memberService.tempPwSendEmail(dto);  // 1: 성공, 0: 실패
+        }
+        else if (dto.getUser_phone() != null){
+            result = memberService.tempPwSendPhone(dto);    // 1: 성공 0: 실패
+        }
 
         System.out.println("controller로 돌아옴");
 

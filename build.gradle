@@ -45,6 +45,8 @@ dependencies {
     compile files("lib/tibero6-jdbc-14.jar")
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
 
+    compile group: 'net.nurigo', name: 'javaSDK', version: '2.2' // coolsms api
+
 }
 bootJar{
     archivesBaseName = '-'
