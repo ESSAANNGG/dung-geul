@@ -45,7 +45,7 @@ let find = {
         //휴대폰
         else if(num==2){
             let userData = {
-                user_phone: $('#find_pw_phone').val(),
+                user_phone: $('#find_pw_phone').val()+"-"+$('#find_pw_phone2').val()+"-"+$('#find_pw_phone3').val(),
                 user_id: $('#find_pw_ido').val()
             };
 

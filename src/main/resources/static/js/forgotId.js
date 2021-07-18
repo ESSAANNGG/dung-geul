@@ -47,7 +47,7 @@ let findID = {
         else if (num == 2) {
             let userData = {
                 user_name: $('#find_phone_id').val(),
-                user_ph: $('#find_phone').val()
+                user_ph: $('#find_phone').val()+"-"+$('#find_phone2').val()+"-"+$('#find_phone3').val()
             };
 
             console.log(JSON.stringify(userData));
@@ -61,11 +61,11 @@ let findID = {
                 success: function (result) {
 
                     console.log('result : ' + result.user_id);
-                    alert(result);
+                    // alert(result);
                     if (result == '0') {
                         alert("회원정보 찾기에 실패했습니다.\n이름과 번호를 다시 확인해주세요.");
                     } else {
-                        alert("당신의 아이디는" + result.user_id);
+                        alert("아이디는\n" + result.user_id+" 입니다.");
                         location.href = "/login";
                     }
                 },
