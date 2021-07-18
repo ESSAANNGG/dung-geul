@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="/src/main/resources/static/css/notice_board.css" th:href="@{/css/notice_board.css}">
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
 
 
 </head>
@@ -67,6 +69,54 @@
                                 <span style="font-size:16px">[[${dto.title}]]</span>
                                 <span style="float:right">작성일 : [[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</span>
                             </h3>
+
+
+
+ <!-- download test -->
+                            <script>
+                                function download() {
+                                    axios({
+                                        url: 'get 요청',
+                                    })
+                                        .then((response) => {
+                                            const url = window.URL
+                                                .createObjectURL(new Blob([response.data]));
+                                            const link = document.createElement('a');
+                                            link.href = url;
+                                            link.setAttribute('name', 'value'); // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+                                            document.body.appendChild(link);
+                                            link.click();
+                                            document.body.removeChild(link);
+                                        })
+                                }
+
+                            </script>
+
+                            <!-- 테스트 -->
+                            <!--<script>-->
+                            <!--        var filename = url.substring(url.lastIndexOf("/") + 1).split("?")[0];-->
+                            <!--        var xhr = new XMLHttpRequest();-->
+                            <!--        xhr.responseType = 'blob';-->
+                            <!--        xhr.onload = function () {-->
+                            <!--            var a = document.createElement('a');-->
+                            <!--            a.href = window.URL.createObjectURL(xhr.response); // xhr.response is a blob-->
+                            <!--            a.download = filename; // Set the file name.-->
+                            <!--            a.style.display = 'none';-->
+                            <!--            document.body.appendChild(a);-->
+                            <!--            a.click();-->
+                            <!--            delete a;-->
+                            <!--        };-->
+                            <!--        xhr.open('GET', url);-->
+                            <!--        xhr.send();-->
+                            <!--    }-->
+                            <!--</script>-->
+
+
+                            <a class="btn" href="절대 경로" download>클릭 시 다운로드</a>
+
+ <!-- download test -->
+
+
                         </div>
 
                         <div class="content">

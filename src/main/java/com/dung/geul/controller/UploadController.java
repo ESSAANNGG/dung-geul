@@ -178,5 +178,19 @@ public class UploadController {
 //        return result;
 //    }
 
+// File download --------------------------------------------------------------------------------------------------
+// https://www.callicoder.com/spring-boot-file-upload-download-rest-api-example/
+
+//    @GetMapping("/download/{board_file}")   // Download
+//    public ResponseEntity<Resource> fileDownload(@PathVariable("fileId") Long fileId) throws IOException {
+//        FileDto fileDto = fileService.getFile(fileId);
+//        Path path = Paths.get(fileDto.getFilePath());
+//        Resource resource = new InputStreamResource(Files.newInputStream(path));
+//        return ResponseEntity.ok()
+//                .contentType(MediaType.parseMediaType("application/octet-stream"))
+//                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDto.getOrigFilename() + "\"")
+//                .body(resource);
+//    }
+
 
 }
