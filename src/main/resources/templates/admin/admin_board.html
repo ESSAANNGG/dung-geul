@@ -106,10 +106,14 @@
           <!--type=button을 할 시에 새로고침을 막을 수 잇음 기본값이 submit이라 그럼-->
           <button class="d_button" type="button">삭제</button>
         </div>
-        <a th:href="@{/upload/404.jpg}" download="apple">
+<!-- <a th:href="@{src/main/resources/static/upload/{bno}(bno=${board_file})}" download="test"> // 다음의 경로를 참고 하여 thymeleaf 작성 -->
+            <a th:href="@{/upload/c933b340-2ec0-46a9-b153-73afb041c167_992507335CD0597426.jpg}" download="image"> // 예시의 파일 경로
+<!--            <a th:href="@{/upload/{bno}(bno=${board_file})" download="test">-->
           <button type="button">Download</button>
         </a>
       </div>
+
+
     </form>
   </div>
 
@@ -142,7 +146,7 @@
               </div>
               <div class="search">
                 <!-- <form action="/admin/admin_board" method="get">
-                
+
                 </form> -->
                 <ul>
                   <li>제목</li>

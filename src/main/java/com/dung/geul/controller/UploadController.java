@@ -51,15 +51,15 @@ public class UploadController {
 
             log.info("fileName: " + fileName);
             //날짜 폴더 생성
-            String folderPath = makeFolder();
+//            String folderPath = makeFolder();
 
             //UUID
             String uuid = UUID.randomUUID().toString();
 
             //저장할 파일 이름 중간에 "_"를 이용해서 구분
-            String saveName = uploadPath + File.separator + folderPath + File.separator + uuid +"_" + fileName;
-            Path savePath = Paths.get(saveName);
-
+            String saveName = uploadPath  + File.separator + uuid +"_" + fileName;  // 파일경로 + 파일 구분 명 + 고유식별자 + 파일명
+            Path savePath = Paths.get(saveName);                                    // 저장 경로 (src/main/resources/static/upload)
+            //                                                                      // front-end 에서 thymeleaf 사용 시 /upload/ + 파일명으로 요청
             // 섬네일 이미지 생성과 화면 처리 - 채용공고
             try {
                 //원본 파일 저장
@@ -80,20 +80,20 @@ public class UploadController {
     }
 
     // 폴더 생성 (날짜로)
-    private String makeFolder() {
-
-        String str = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
-
-        String folderPath =  str.replace("//", File.separator);
-
-        // make folder
-        File uploadPathFolder = new File(uploadPath, folderPath);
-
-        if (uploadPathFolder.exists() == false) {   // 업로드 할 파일의 폴더가 없을 시 새로 생성한다.
-            uploadPathFolder.mkdirs();
-        }
-        return folderPath;
-    }
+//    private String makeFolder() {
+//
+//        String str = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+//
+//        String folderPath =  str.replace("//", File.separator);
+//
+//        // make folder
+//        File uploadPathFolder = new File(uploadPath, folderPath);
+//
+//        if (uploadPathFolder.exists() == false) {   // 업로드 할 파일의 폴더가 없을 시 새로 생성한다.
+//            uploadPathFolder.mkdirs();
+//        }
+//        return folderPath;
+//    }
 
     @GetMapping("/display")
     public ResponseEntity<byte[]> getFile(String fileName) {
