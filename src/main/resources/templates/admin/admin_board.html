@@ -53,22 +53,26 @@
           <textarea class="d_cont" name="content" placeholder="내용을 입력하세요"></textarea>
         </div>
 
-        <div class="d_btn">
-          <button type="submit" class="custom-file-input" name="d_button">등록</button>
-        </div>
-
         <!-- file upload -->
-        <div class="form-group fileForm">
+        <div class="form-group fileForm" style="display:flex">
+          <input type="text" class="d_cont" name="board_file">
           <div class="custom-file">
             <input type="file" class="custom-file-input files" id="fileInput" multiple>
-            <label class="custom-file-label" data-browse="Browse"></label>
+            <label class="custom-file-label" data-browse="Browse" style="display:none;"></label>
           </div>
+
+          <a th:href="@{/upload/404.jpg}" download="apple">
+            <button type="button">Download</button>
+          </a>
         </div>
 
         <div>
-          <input type="text" class="d_cont" name="board_file" value="test">
+
         </div>
-        
+
+        <div class="d_btn">
+          <button type="submit" class="custom-file-input d_button" name="d_button">등록</button>
+        </div>
         <!-- end file upload -->
 
       </form>
@@ -92,6 +96,14 @@
         <div class="d_box Big">
           <div class="d_tagN">내용</div>
           <textarea class="d_cont" name="content"></textarea>
+        </div>
+        <!-- file upload -->
+        <div class="form-group fileForm" style="display:flex">
+          <input type="text" class="d_cont" name="board_file">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input files" id="fileInput1" multiple>
+            <label class="custom-file-label" data-browse="Browse" style="display:none;"></label>
+          </div>
         </div>
         <div class="d_btn">
           <button class="d_button" type="button">수정</button>

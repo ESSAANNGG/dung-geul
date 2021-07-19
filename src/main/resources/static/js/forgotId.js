@@ -71,7 +71,7 @@ let findID = {
                 },
                 error: function (err) {
                     console.log(err);
-                    alert(err);
+                    // alert(err);
                     alert("오류 발생.\n이름과 번호를 다시 확인해주세요.");
                 }
             })
