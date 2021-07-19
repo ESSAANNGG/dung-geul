@@ -30,8 +30,8 @@ $(document).ready(function () {
             area : sido+$('#em_gugun').val(),
             salary : $('#em_salary').val(),
             apply :   ap,
-            file : $('#em_file').val(),
-            etp_id : $("#em_id").val()
+            file : $('#fileName1').val(),
+            etp_id : $("#em_id").val(),
         }
         console.log(data);
         $.ajax({
@@ -101,7 +101,8 @@ $(document).ready(function () {
             end_date : $('#em_end_date').val(),
             salary : $('#em_salary').val(),
             area : sido+$('#em_gugun').val(),
-            apply : ap
+            apply : ap,
+            file : $('#fileName1').val()
         }
 
         console.log(data);

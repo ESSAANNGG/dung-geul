@@ -83,6 +83,74 @@ $(".custom-file-input").on("change", function () {
 }); //end change event
 
 
+
+
+    $("#em_file").on("change", function () {
+
+        console.log("파일 업로드 함수 동작")  // 테스트용 (나중에 지울 것)
+
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+
+        var formData = new FormData();
+
+        var inputFile = $(this);
+
+        var files = inputFile[0].files;
+
+        var appended = false;
+
+        for (var i = 0; i < files.length; i++) {
+
+            if (!checkExtension(files[i].name, files[i].size)) {
+                return false;
+            }
+
+            console.log(files[i]);
+            formData.append("uploadFiles", files[i]);
+            appended = true;
+        }
+
+        //upload를 하지 않는다.
+        if (!appended) {
+            return;
+        }
+
+        for (var value of formData.values()) {
+            console.log(value);
+        }
+
+        //실제 업로드 부분
+        //upload ajax
+        $.ajax({
+            url: '/uploadAjax',
+            processData: false,
+            contentType: false,
+            data: formData,
+            type: 'POST',
+            dataType: 'json',
+            success: function (result) {
+
+                // 파일 경로(result) -> entity
+                // result : string
+                var gFilePath = result; //
+                $('#fileName1').val(gFilePath);   // 파일 경로를 input 태그의 name=board_file에 저장
+
+                // var gFilePath = result;
+                console.log("result : " +  typeof result);
+                console.log("file path : " + result)
+
+
+
+                showResult(result);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+            }
+        }); //$.ajax
+    }); //end change event
+
+
 // function showResult(uploadResultArr) {
 //
 //     var uploadUL = $(".uploadResult ul");

@@ -170,6 +170,7 @@ function detail_on_employ(employ_num){
             $('input[name=대표자명]').val(E.etp_ceo_name);
             $('input[name=팩스]').val(E.etp_fx);
             $('input[name=기업아이디]').val(E.etp_id);
+            $('input[name=첨부파일]').val(E.file);
         },
         error : function (error){
             alert("상세정보 로딩에 실패했습니다");
