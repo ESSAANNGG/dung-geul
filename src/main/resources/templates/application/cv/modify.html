@@ -998,7 +998,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js">
   </script>
   <script src="/js/cv_modify_option.js"></script>
-  <script src="/js/s1_index.js"></script>
+  <script src="/js/s_index.js"></script>
   <script th:inline="javascript">
 
     /*<![CDATA[*/
@@ -1042,7 +1042,7 @@
       document.querySelector("#btn7").click();
     }
 
-    if(verteran || disability || military != "/* 0 */" ){
+    if(verteran != "/* 0 */" || disability != "/* 0 */" || military != "/* 0 */" ){
       document.querySelector("#btn4").click();
     }
 

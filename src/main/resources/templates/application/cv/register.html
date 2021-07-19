@@ -86,7 +86,7 @@
                 </div>
                 <div class="common_div width-450">
                   <label class="absolute-label" for="">주소 <span>*</span></label>
-                  <input class="common_input" type="text" name="addr" th:value="${loginUser.getUser_addr()}" />
+                  <input id="user_addr" class="common_input" type="text" name="addr" th:value="${loginUser.getUser_addr()}" />
                 </div>
                 <div class="common_div width-410">
                   <label class="absolute-label" for="">지원경로</label>
@@ -120,16 +120,16 @@
                     </div>
 
                     <div class="common_div width-200">
-                      <label class="absolute-label" for="">입사일자 </label>
+                      <label class="absolute-label" for="">입사일자 <span>*</span> </label>
                       <input class="common_input employment" type="date" name="career[][cr_employment]" />
                     </div>
                     <div class="common_div width-200">
-                      <label class="absolute-label" for="">퇴사일자 </label>
+                      <label class="absolute-label" for="">퇴사일자 <span>*</span> </label>
                       <input class="common_input resignation" type="date" name="career[][cr_resignation]" />
                     </div>
                     <br />
                     <div class="common_div width-200">
-                      <label class="absolute-label" for="">직위 </label>
+                      <label class="absolute-label" for="">직위 <span>*</span> </label>
                       <input class="common_input position" type="text" name="career[][cr_position]" />
                     </div>
                     <div class="common_div width-350">
@@ -143,11 +143,11 @@
                       <span style="font-size: 12px">만원</span>
                     </div>
                     <div class="common_div width-767">
-                      <label class="absolute-label task">담당업무 </label>
+                      <label class="absolute-label cr_task">담당업무 </label>
                       <input class="common_input" name="career[][cr_task]"></input>
                     </div>
                     <div class="common_div width-767">
-                      <label class="absolute-label task">담당업무2 </label>
+                      <label class="absolute-label cr_task2">담당업무2 </label>
                       <input class="common_input" name="career[][cr_task2]"></input>
                     </div>
 

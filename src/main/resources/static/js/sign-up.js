@@ -56,9 +56,6 @@ let signUp = {
     } else if (!data.user_postcode) {
       alert('주소를 입력해주세요');
       $('#user_postcode').focus();
-    } else if (!) {
-      alert('계열을 입력해주세요');
-      $('#user_dept').focus();
     } else if (!data.user_dept) {
       alert('계열을 입력해주세요');
       $('#user_dept').focus();
