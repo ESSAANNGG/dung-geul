@@ -76,6 +76,7 @@ function detail_on_board(board_num){
                 $('input[name=num]').val(boardDTO.num);
                 $('input[name=title]').val(boardDTO.title);
                 $('textarea[name=content]').val(boardDTO.content);
+                $('input[name=board_file]').val(boardDTO.board_file);
             },
             error : function (error){
                 alert("게시판 로딩에 실패했습니다");

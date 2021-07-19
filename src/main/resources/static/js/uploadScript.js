@@ -66,7 +66,7 @@ $(".custom-file-input").on("change", function () {
         // 파일 경로(result) -> entity
         // result : string
         var gFilePath = result; //  
-        $('input[name=board_file]').attr('value',gFilePath);   // 파일 경로를 input 태그의 name=board_file에 저장
+        $('input[name=board_file]').val(gFilePath);   // 파일 경로를 input 태그의 name=board_file에 저장
 
         // var gFilePath = result;
         console.log("result : " +  typeof result);

@@ -60,10 +60,6 @@
             <input type="file" class="custom-file-input files" id="fileInput" multiple>
             <label class="custom-file-label" data-browse="Browse" style="display:none;"></label>
           </div>
-
-          <a th:href="@{/upload/404.jpg}" download="apple">
-            <button type="button">Download</button>
-          </a>
         </div>
 
         <div>
@@ -110,6 +106,9 @@
           <!--type=button을 할 시에 새로고침을 막을 수 잇음 기본값이 submit이라 그럼-->
           <button class="d_button" type="button">삭제</button>
         </div>
+        <a th:href="@{/upload/404.jpg}" download="apple">
+          <button type="button">Download</button>
+        </a>
       </div>
     </form>
   </div>
