@@ -36,30 +36,64 @@ let signUp = {
 
     console.log(JSON.stringify(userData));
 
+    if (!userData.user_id) {
+      alert('아이디를 입력해주세요');
+      $('#user_id').focus();
+    } else if (!userData.user_pw) {
+      alert('비밀번호를 입력해주세요');
+      $('#user_pw').focus();
+    } else if (!userData.user_name) {
+      alert('담당자 이름을 입력해주세요');
+      $('#user_name').focus();
+    } else if (!(userData.user_email && userData.user_emailDomain)) {
+      alert('이메일을 입력해주세요');
+      $('#user_email').focus();
+    } else if (!(userData.user_ph2 && userData.user_ph3)) {
+      alert('휴대폰 번호를 입력해주세요');
+      $('#user_ph2').focus();
+    } else if (!userData.etp_name) {
+      alert('기업 명을 입력해주세요');
+      $('#etp_name').focus();
+    } else if (!userData.etp_num) {
+      alert('사업자등록번호를 입력해주세요');
+      $('#etp_num').focus();
+    } else if (!userData.etp_ceo_name) {
+      alert('대표자 이름을 입력해주세요');
+      $('#etp_ceo_name').focus();
+    } else if (!(userData.etp_ph && userData.etp_ph2 && userData.etp_ph3)) {
+      alert('기업 전화번호를 입력해주세요');
+      $('#etp_ph').focus();
+    } else if (!userData.etp_home) {
+      alert('홈페이지 주소를 입력해주세요');
+      $('#dtp_home').focus();
+    } else if (!userData.user_postcode) {
+      alert('주소를 입력해주세요');
+      $('#user_postcode').focus();
+    } else {
+      $.ajax({
+        type: 'post',
+        url: '/sigUp/enterprise',
+        data: JSON.stringify(userData),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (result) {
+          if (result == 1) {
+            alert('회원가입 되었습니다. 기업 활동은 승인 시 가능합니다. 승인 진행상황은 마이페이지에서 확인 가능합니다');
 
-    $.ajax({
-      type: 'post',
-      url: '/sigUp/enterprise',
-      data: JSON.stringify(userData),
-      contentType: 'application/json; charset=utf-8',
-      dataType: 'json',
-      success: function (result) {
-        if (result == 1) {
-          alert('회원가입 되었습니다. 기업 활동은 승인 시 가능합니다. 승인 진행상황은 마이페이지에서 확인 가능합니다');
+            location.href = '/login';
+          } else {
+            alert('회원가입 실패했습니다');
 
-          location.href = '/login';
-        } else {
+            location.href = '/';
+          }
+        },
+        error: function (error) {
           alert('회원가입 실패했습니다');
-
+          console.log(error);
           location.href = '/';
-        }
-      },
-      error: function (error) {
-        alert('회원가입 실패했습니다');
-        console.log(error);
-        location.href = '/';
-      },
-    });
+        },
+      });
+    }
   },
 };
 

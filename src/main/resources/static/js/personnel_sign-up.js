@@ -28,8 +28,32 @@ let signUp = {
 
     console.log(JSON.stringify(userData));
 
-
-    $.ajax({
+    if (!userData.user_id) {
+      alert('아이디를 입력해주세요');
+      $('#user_id').focus();
+    } else if (!userData.user_pw) {
+      alert('비밀번호를 입력해주세요');
+      $('#user_pw').focus();
+    } else if (!userData.user_name) {
+      alert('이름을 입력해주세요');
+      $('#user_name').focus();
+    } else if (!(userData.user_email && userData.user_emailDomain)) {
+      alert('이메일을 입력해주세요');
+      $('#user_email').focus();
+    } else if (!(userData.user_ph2 && userData.user_ph3)) {
+      alert('휴대폰 번호를 입력해주세요');
+      $('#user_ph2').focus();
+    } else if (!userData.user_postcode) {
+      alert('주소를 입력해주세요');
+      $('#user_postcode').focus();
+    } else if (!) {
+      alert('계열을 입력해주세요');
+      $('#user_dept').focus();
+    } else if (!userData.user_org) {
+      alert('소속기관을 입력해주세요');
+      $('#user_org').focus();
+    } else {
+      $.ajax({
       type: "POST",
       url: "/sigUp/member",
       data: JSON.stringify(userData),
@@ -50,6 +74,7 @@ let signUp = {
         location.href = "/mypage/member/read";
       },
     });
+    }
   },
 };
 
