@@ -77,7 +77,12 @@ function detail_on_board(board_num){
                 $('input[name=title]').val(boardDTO.title);
                 $('textarea[name=content]').val(boardDTO.content);
                 $('input[name=board_file]').val(boardDTO.board_file);
-                $("#download").attr("href", "/upload/986c3da1-bf5c-4fe4-b300-b9bf4d4f6994_1.IDE.pdf");
+                fileLink=boardDTO.board_file;
+                fileLink=fileLink.split("/main/resources/static")[1];
+                console.log(fileLink);
+                $("#download").attr("href",fileLink);
+                // $("#download").attr("href", "/upload/986c3da1-bf5c-4fe4-b300-b9bf4d4f6994_1.IDE.pdf");
+
             },
             error : function (error){
                 alert("게시판 로딩에 실패했습니다");
