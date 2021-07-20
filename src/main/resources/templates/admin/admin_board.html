@@ -56,6 +56,18 @@
         <!-- file upload -->
         <div class="form-group fileForm" style="display:flex">
           <input type="text" class="d_cont" name="board_file">
+   
+
+          <!-- 확인 후 지울 것
+          -------------------------------------
+            원본 파일명을 담는 input text 태그
+          -------------------------------------
+            파일업로드를 하여 업로드 함수 동작 시 value 값(파일명)이 업로드한 파일명(예:filename.jpg)으로 변경됨
+            함수 코드는 uploadScript.js 파일을 참고
+            코드 작성이 완료되면 최종적으로 태그 속성에 hidden을 추가할 것 -->
+          <input type="text" class="fileNameInput" name="file_name" value="파일명"> <!-- 원본 파일명 저장 태그 -->
+
+
           <div class="custom-file">
             <input type="file" class="custom-file-input files" id="fileInput" multiple>
             <label class="custom-file-label" data-browse="Browse" style="display:none;"></label>
@@ -98,7 +110,7 @@
           <input type="text" class="d_cont" name="board_file">
           <div class="custom-file">
             <input type="file" class="custom-file-input files" id="fileInput1" multiple>
-            <label class="custom-file-label" data-browse="Browse" style="display:none;"></label>
+            <label class="custom-file-label" data-browse="Browse" style="display:none;" name="board_file"></label>
           </div>
         </div>
         <div class="d_btn">

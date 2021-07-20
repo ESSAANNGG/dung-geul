@@ -22,6 +22,11 @@ $(".custom-file-input").on("change", function () {
     console.log("파일 업로드 함수 동작")  // 테스트용 (나중에 지울 것)
 
     var fileName = $(this).val().split("\\").pop();
+
+    console.log("FILE NAME : " + fileName)  // 테스트용 : 원본 파일 명 콘솔 출력
+
+    $(".fileNameInput").val(fileName)   // admin_board.html의 .fileNameInput의 value 값을 filename으로 변경
+
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 
     var formData = new FormData();
@@ -31,6 +36,10 @@ $(".custom-file-input").on("change", function () {
     var files = inputFile[0].files;
 
     var appended = false;
+
+    // var fileName = $(".custom-file-input files")
+    
+    // console.log("파일명 : " + fileName)
 
     for (var i = 0; i < files.length; i++) {
 

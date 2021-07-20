@@ -66,7 +66,8 @@ public class UploadController {
                 uploadFile.transferTo(savePath);
 
                 log.info("===========================================================================================");
-                log.info("파일 경로: " + savePath);
+                log.info("원본 파일명 : " + fileName);
+                log.info("파일 경로   : " + savePath);
                 log.info("===========================================================================================");
 
                 return savePath;

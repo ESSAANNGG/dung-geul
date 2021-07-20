@@ -32,7 +32,9 @@ public class Board extends BaseEntity{
     @Column(length = 2000, nullable = false)
     private String content; // 내용
 
-    private String board_file; //첨부파일
+    private String board_file; // 첨부파일
+
+    private String file_name; // 원본 파일명
 
 
     @ManyToOne(fetch = FetchType.LAZY)
