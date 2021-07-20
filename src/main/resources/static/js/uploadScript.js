@@ -62,7 +62,6 @@ $(".custom-file-input").on("change", function () {
     type: 'POST',
     dataType: 'json',
     success: function (result) {
-
         // 파일 경로(result) -> entity
         // result : string
         var gFilePath = result; //  
