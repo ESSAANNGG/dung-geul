@@ -80,7 +80,7 @@ function detail_on_board(board_num){
                 fileLink=boardDTO.board_file;
                 fileLink=fileLink.split("/main/resources/static")[1];
                 console.log(fileLink);
-                $("#download").attr("href",fileLink);
+                $("#download").attr("href",boardDTO.board_file);
                 // $("#download").attr("href", "/upload/986c3da1-bf5c-4fe4-b300-b9bf4d4f6994_1.IDE.pdf");
 
             },

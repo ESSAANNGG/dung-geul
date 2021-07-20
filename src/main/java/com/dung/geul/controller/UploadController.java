@@ -29,7 +29,7 @@ import java.util.UUID;
 @Log4j2
 public class UploadController {
 
-    @Value("C:\\Users\\user\\Desktop\\dung-geul\\src\\main\\resources\\static\\upload")
+    @Value("${com.dung.upload.path}")
     private String uploadPath;
 
     @PostMapping("/uploadAjax") // 업로드 ajax 처리
