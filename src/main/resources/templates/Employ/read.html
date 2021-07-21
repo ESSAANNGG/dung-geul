@@ -82,7 +82,8 @@
             </div>
 
             <div id="image_wrap">
-                <img src="/img/naver2.jpg"  alt="My Image">
+<!--                <img src="/upload/90166368-cd45-41c6-a742-46a0a20c8809_2048xauto.jpg"  alt="My Image" id="img">-->
+                <img th:src="${dto.file}"  alt="My Image" id="img">
             </div>
 
 
@@ -177,7 +178,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script>
     $(document).ready(function() {
-
         // nowTime = new Date()
         // nowTime=nowTime.toISOString().substring(0,16)
         //
@@ -188,12 +188,13 @@
         $('#receipt_date h1').append(br);
         $('#receipt_date h1').append(restTime[1]);
 
+        $('#img').attr("src",$('#img').attr("src").split("C:")[1]);
     });
 </script>
 <script th:inline="javascript">
     $(document).ready(function() {
-        employ_num=[[${dto.num}]];
 
+        employ_num=[[${dto.num}]];
 
         userId=([[${memberDTO.getUser_id}]]);
 
