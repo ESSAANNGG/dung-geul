@@ -145,13 +145,13 @@ button:focus{
     font-size:14px;
     font-weight:400;
 }
-#base_wrap li:nth-child(-n+5){
+li:nth-child(-n+5){
     margin:0px;
 }
-#base_wrap li.category{
+li.category{
     width:115px;
 }
-#base_wrap li.data{
+li.data{
     width:300px;
 }
 
@@ -185,11 +185,13 @@ button:focus{
 #image_wrap{
     width:918px;
     margin-bottom:40px;
-    padding:30px 15px;
+    padding:30px 0px;
     border-top:1px solid #e5e6eb;
     text-align: center;
 }
-
+#image_wrap #img{
+    width:918px;
+}
 
 
 /*지원정보*/
@@ -232,7 +234,9 @@ button:focus{
 }
 /*[기업정보]제목을 제외한 기업정보 박스*/
 #corp_box{
-
+    border-top:1px solid #222222;
+    border-bottom:1px solid #222222;
+    padding:20px 0px;
 }
 /*기업로고*/
 #corp_image{
@@ -253,8 +257,9 @@ button:focus{
 /*기업정보 각 데이터들*/
 #corp_wrap li{
     display:inline-block;
-    width:300px;
-    height:30px;
+    color:#444444;
+    font-size:14px;
+    font-weight:400;
 }
 /*홈페이지와 기업주소는 내용이 길어 따로 지정*/
 #corp_wrap li:nth-child(n+8):nth-child(-n+9){
