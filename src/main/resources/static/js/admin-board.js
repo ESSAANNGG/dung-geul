@@ -95,6 +95,8 @@ function detail_on_board(board_num){
         $('#detail_board_register').css({"visibility":"visible","opacity":"1"});
         $('input[name=title]').val("");
         $('textarea[name=content]').val("");
+        $('input[name=board_file]').val("");
+        $('input[name=file_name]').val("");
     }
 }
 function board_detail_submit(select_modal,t) {

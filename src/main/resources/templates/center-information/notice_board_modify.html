@@ -19,7 +19,9 @@
         <!-- 채용공고 등록 게시판 CSS 디자인 -->
         <link rel="stylesheet" href="/src/main/resources/static/css/notice_board.css" th:href="@{/css/notice_board.css}">
 
-
+        <!-- 업로드 스크립트 -->
+        <script src="/js/uploadScript.js"></script>
+        <script src="/js/notice_board_modify.js"></script>
 
     </head>
     <body class="is-preload">
@@ -59,7 +61,7 @@
                         <div class="col-9 col-12-medium imp-medium">
                             <div id="board_title">
                                 <h1>공지사항 수정</h1>
-                                <h3>글번호_[[${dto.num}]]</h3>
+                                <h3 id="num">글번호_[[${dto.num}]]</h3>
                             </div>
 
                                 <form action="/center-information/notice_board_modify" method="post">
@@ -84,6 +86,15 @@
                                     </div>
 
                                 </form>
+
+                            <div class="form-group fileForm" style="display:flex">
+                                <input type="text" class="d_cont" name="board_file">
+                                <input type="text" class="fileNameInput d_cont" name="file_name"> <!-- 원본 파일명 저장 태그 -->
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input files d_cont" id="fileInput1" multiple>
+                                    <label class="custom-file-label" data-browse="Browse" style="display:none;" name="board_file"></label>
+                                </div>
+                            </div>
 
                             <div class="submit_btn">
                                 <button type="button" class="modifyBtn search_cont">수정</button>

@@ -56,7 +56,7 @@
         <!-- file upload -->
         <div class="form-group fileForm" style="display:flex">
           <input type="text" class="d_cont" name="board_file">
-   
+          <input type="text" class="fileNameInput d_cont" name="file_name" value="파일명">
 
           <!-- 확인 후 지울 것
           -------------------------------------
@@ -65,10 +65,12 @@
             파일업로드를 하여 업로드 함수 동작 시 value 값(파일명)이 업로드한 파일명(예:filename.jpg)으로 변경됨
             함수 코드는 uploadScript.js 파일을 참고
             코드 작성이 완료되면 최종적으로 태그 속성에 hidden을 추가할 것 -->
+
           <div class="custom-file">
             <input type="file" class="custom-file-input files" id="fileInput" multiple>
             <label class="custom-file-label" data-browse="Browse" style="display:none;"></label>
           </div>
+
         </div>
 
         <div>
