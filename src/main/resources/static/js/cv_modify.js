@@ -91,14 +91,8 @@ let modify = {
           $('#user_hp').focus();
         }, 1);
         return;
-      } else if (!$('#user_addr').val()) {
-        alert('주소를 입력해주세요');
-        setTimeout(function () {
-          $('#user_addr').focus();
-        }, 1);
-        return;
       }
-
+      
       if ($('input[name="user_employment"]:checked').val() === '1') {
         const etp_name = document.querySelectorAll('.etp_name');
         const employment = document.querySelectorAll('.employment');
