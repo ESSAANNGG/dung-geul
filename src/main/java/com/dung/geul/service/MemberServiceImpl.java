@@ -485,8 +485,8 @@ public class MemberServiceImpl implements MemberService {
                 Message coolsms = new Message(api_key, api_secret);
                 HashMap<String, String> params = new HashMap<>();
 
-                params.put("to", TO_PHONE_NUM);
-                params.put("from", FromPhoneNum);
+                params.put("to", FromPhoneNum);
+                params.put("from", TO_PHONE_NUM);
                 params.put("type", "SMS");
                 params.put("text", member.getUser_id()
                         + "님의 임시 비밀번호는 [" + tempPw + "]입니다. "
