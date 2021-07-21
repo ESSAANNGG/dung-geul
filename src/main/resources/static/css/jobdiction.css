@@ -287,3 +287,10 @@ input[type=text] {
     width:200px;
     margin-top:15px;
 }
+#rtnPrsList li{
+    cursor: pointer;
+}
+#rtnPrsList li:hover{
+    color: #2b2e4a;
+    font-weight: 700;
+}

@@ -23,6 +23,11 @@
 
     <!-- 직업 정보 검색 JS -->
     <script>
+        function job(t){
+            link="https://www.work.go.kr/wnSearch/unifSrch.do?topQuery="+$(t).text();
+            window.open(link);
+        }
+
         function job_search() { // 키워드 검색
             var searchCode = $("#searchCode").serialize();  // 클라이언트가 입력한 키워드를 담은 변수
 
@@ -50,7 +55,7 @@
                             var str = "";
                             console.log(jobNm);
 
-                            str = str + ("<li>" + jobNm + "</li>");
+                            str = str + ("<li onclick='job(this)'>" + jobNm + "</li>");
 
                             $("#rtnPrsList").append(str); // 파싱한 결과값을 추가한다.
 
@@ -100,7 +105,7 @@
         }
 
         function goPage(param) { // 페이지 이동 함수
-            location.href = param;
+            window.open(param);
         }
     </script>
 

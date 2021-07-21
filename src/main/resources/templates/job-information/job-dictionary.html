@@ -22,7 +22,12 @@
 
 <body>
     <script>
+        function job(t){
+            link="https://www.work.go.kr/wnSearch/unifSrch.do?topQuery="+$(t).text();
+            window.open(link);
+        }
         function jobSerchK() { // 직업사전 키워드 검색 함수
+
             var qData = $("#searchCode").serialize(); // 클라이언트가 입력한 키워드를 담은 변수
 
 
@@ -47,7 +52,7 @@
                         var str = "";
                         console.log(dJobNm);
 
-                        str = str + ("<li>" + dJobNm + "</li>");
+                        str = str + ("<li onclick='job(this)'>" + dJobNm + "</li>");
 
                         $("#rtnPrsList").append(str); // 파싱한 결과값을 추가한다.
 
@@ -101,7 +106,7 @@
                         var str = "";
                         console.log(dJobNm);
 
-                        str = str + ("<li><span>" + dJobNm + "</li></span>");
+                        str = str + ("<li onclick='job(this)'><span>" + dJobNm + "</li></span>");
 
                         $("#rtnPrsList").append(str); // 파싱한 결과값을 추가한다.
 
