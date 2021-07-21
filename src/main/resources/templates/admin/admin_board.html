@@ -65,9 +65,6 @@
             파일업로드를 하여 업로드 함수 동작 시 value 값(파일명)이 업로드한 파일명(예:filename.jpg)으로 변경됨
             함수 코드는 uploadScript.js 파일을 참고
             코드 작성이 완료되면 최종적으로 태그 속성에 hidden을 추가할 것 -->
-          <input type="text" class="fileNameInput" name="file_name" value="파일명"> <!-- 원본 파일명 저장 태그 -->
-
-
           <div class="custom-file">
             <input type="file" class="custom-file-input files" id="fileInput" multiple>
             <label class="custom-file-label" data-browse="Browse" style="display:none;"></label>
@@ -108,8 +105,9 @@
         <!-- file upload -->
         <div class="form-group fileForm" style="display:flex">
           <input type="text" class="d_cont" name="board_file">
+          <input type="text" class="fileNameInput d_cont" name="file_name" value="파일명"> <!-- 원본 파일명 저장 태그 -->
           <div class="custom-file">
-            <input type="file" class="custom-file-input files" id="fileInput1" multiple>
+            <input type="file" class="custom-file-input files d_cont" id="fileInput1" multiple>
             <label class="custom-file-label" data-browse="Browse" style="display:none;" name="board_file"></label>
           </div>
         </div>
@@ -117,15 +115,11 @@
           <button class="d_button" type="button">수정</button>
           <!--type=button을 할 시에 새로고침을 막을 수 잇음 기본값이 submit이라 그럼-->
           <button class="d_button" type="button">삭제</button>
+          <a id="download" href="" download="file">
+            <button type="button" class="d_button">Download</button>
+          </a>
         </div>
-<!-- <a th:href="@{src/main/resources/static/upload/{bno}(bno=${board_file})}" download="test"> // 다음의 경로를 참고 하여 thymeleaf 작성 -->
-<!--    <a id="download" th:href="@{/upload/c933b340-2ec0-46a9-b153-73afb041c167_992507335CD0597426.jpg}" download="file"> // 예시의 파일 <경></경>로-->
-        <a id="download" href="" download="file">
-            <button type="button">Download</button>
-        </a>
       </div>
-
-
     </form>
   </div>
 

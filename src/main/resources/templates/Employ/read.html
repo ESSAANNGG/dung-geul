@@ -98,7 +98,7 @@
                     <li class="category"><h5>기업형태</h5></li>
                     <li class="data" th:text="${dto.etp_shape}"></li>
                     <li class="category"><h5>직원수</h5></li>
-                    <li class="data" th:text="${dto.etp_member}"></li>
+                    <li class="data">[[${dto.etp_member}]]명</li>
                     <li class="category"><h5>업종</h5></li>
                     <li class="data" th:text="${dto.etp_sector}" style="width:300px"></li>
                     <li class="category" style="width:115px;"><h5>대표자명</h5></li>
@@ -108,7 +108,7 @@
                     <li class="category"><h5>FAX</h5></li>
                     <li class="data" th:text="${dto.etp_fx}"></li>
                     <li class="category"><h5>홈페이지</h5></li>
-                    <li class="data" th:text="${dto.etp_home}"></li>
+                    <li class="data"><a th:href="${dto.etp_home}" style="color:#444444" target="_blank">[[${dto.etp_home}]]</a></li>
                 </div>
             </div>
 
