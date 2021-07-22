@@ -6,7 +6,7 @@ $(document).ready(function (e) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (boardDTO) {
-            alert("asd");
+
             // console.log(gFilePath)
             $('input[name=board_file]').val(boardDTO.board_file);
             $('input[name=file_name]').val(boardDTO.file_name);
