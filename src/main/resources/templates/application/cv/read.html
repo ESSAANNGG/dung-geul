@@ -227,7 +227,7 @@
             <div class="sectionContent">
               <ul class="list">
                 <li style="margin-bottom:10px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;[[${cv.getSec_of_exam()}]]</li>
-                <li style="margin-bottom:10px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span th:if="${cv.getDesired_salary() != null}">[[${cv.getDesired_salary()]]</span><span th:if="${cv.getDesired_salary() == null}">회사내규에 따름</span></li>
+                <li style="margin-bottom:10px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span th:if="${cv.getDesired_salary() != null}">[[ ${cv.getDesired_salary() == "" ? "회사내규에 따름" : cv.getDesired_salary()} ]]</span><span th:if="${cv.getDesired_salary() == null}">회사내규에 따름</span></li>
               </ul>
             </div>
             <div class="clear"></div>
