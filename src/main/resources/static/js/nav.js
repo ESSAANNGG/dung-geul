@@ -29,3 +29,11 @@ function nav_off() {
 function angle_up(){
   window.scrollTo({top:0, behavior:'smooth'});
 }
+
+function admin_session(){
+  window.sessionStorage.setItem('menu_name', "userManage");
+  window.sessionStorage.setItem('menu_index', 0);
+  window.sessionStorage.setItem('select_detail_menu',Number(0));
+  window.sessionStorage.setItem('parameter',"/admin/admin_userManage?page1=&page2=&type=UNIV");
+  window.location.href="/admin/admin_userManage?page1=&page2=&type=UNIV";
+}
