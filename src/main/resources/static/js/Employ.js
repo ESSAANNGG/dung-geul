@@ -20,6 +20,7 @@ $(document).ready(function () {
         let data = {
             title: $('#em_title').val(),
             content : $('#em_content').val(),
+            cont : $('#em_cont').val(),
             ot : $('#em_ot').val(),
             ep : $('input[name="고용형태"]:checked').val(),
             start_date : $('#em_start_date').val(),
@@ -92,6 +93,7 @@ $(document).ready(function () {
             num : $('#em_num').val(),
             title: $('#em_title').val(),
             content : $('#em_content').val(),
+            cont : $('#em_cont').val(),
             ot : $('#em_ot').val(),
             ep : $('input[name="고용형태"]:checked').val(),
             career : $('input[name="career"]:checked').val(),
