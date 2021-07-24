@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -58,6 +60,9 @@ public class Employ extends BaseEntity{
 
     @Column(name = "em_file",length = 1000)
     private String file;
+
+    @Column(name = "em_cont")  //추가
+    private String cont;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Enterprise etpId;

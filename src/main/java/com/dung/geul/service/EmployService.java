@@ -44,6 +44,7 @@ public interface EmployService {
                 .area(dto.getArea())
                 .apply(dto.getApply())
                 .file(dto.getFile())
+                .cont(dto.getCont())
                 .etpId(enterprise)
                 .build();
         return entity;
@@ -69,6 +70,7 @@ public interface EmployService {
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .file(entity.getFile())
+                .cont(entity.getCont())
                 .etp_id(enterprise.getEtp_id())
                 .etp_name(enterprise.getEtp_name())
                 .etp_sector(enterprise.getEtp_sector())
@@ -117,6 +119,7 @@ public interface EmployService {
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .file(entity.getFile())
+                .cont(entity.getCont())
                 .etp_name(enterprise.getEtp_name())
                 .build();
 

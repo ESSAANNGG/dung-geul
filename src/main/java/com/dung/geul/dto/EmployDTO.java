@@ -42,6 +42,8 @@ public class EmployDTO {
 
     private LocalDateTime regDate, modDate;
 
+    private String cont;   //추가
+
 
     private Long etp_id;
 
