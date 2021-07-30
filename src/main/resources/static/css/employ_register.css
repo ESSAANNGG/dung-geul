@@ -254,3 +254,13 @@ input[type="file"] {
 .submit_btn{
     text-align: center;
 }
+textarea{
+    width:100%;
+    min-height:300px !important;
+    overflow:visible;
+    resize: none;
+    border: 1px solid #768395;
+}
+textarea:focus{
+    outline: none;
+}

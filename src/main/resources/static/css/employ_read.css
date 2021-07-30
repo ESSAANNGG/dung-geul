@@ -415,3 +415,19 @@ li.data{
     touch-action: manipulation;
     cursor: pointer;
 }
+
+textarea{
+    width:100%;
+    min-height:100px !important;
+    overflow:visible;
+    resize: none;
+    border:none;
+    border-top: 1px solid #222222;
+
+    color:#000000;
+    font-size:14px;
+    font-weight:300;
+}
+textarea:focus{
+    outline: none;
+}

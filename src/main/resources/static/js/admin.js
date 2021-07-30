@@ -245,16 +245,16 @@ let select_register;        //등록창의 위치가 어디인지
 let register_data_length;   //등록할때 사용하는 data 입력칸이 몇개가있는지
 let register_val;           //각 input칸의 data
 let register_list;          //전송하는 데이터를 담는 변수
-$('.register_submit').click(function(){
-    select_register = $(this).parent("div").parent("div");                      //해당 search 클래스를 저장
-    register_data_length = $(select_register).find(".register_data").length;    //검색할 수 있는 data 입력칸이 몇개가있는지
+        $('.register_submit').click(function(){
+            select_register = $(this).parent("div").parent("div");                      //해당 search 클래스를 저장
+            register_data_length = $(select_register).find(".register_data").length;    //검색할 수 있는 data 입력칸의 수를 체크
 
-    for (i=0; i<register_data_length; i++) {                                    //input칸들의 값들을 확인
-        register_val=$(select_register).find(".register_data").eq(i).val();     //각 input들의 data를 받아옴(for문 돌리는중)
-        window[String(menu_name) + "_register"](i);                             //data를 리스트에 담음
-    }
-    window[String(menu_name) + "_register_submit"](i);                          //data를 전송
-})
+            for (i=0; i<register_data_length; i++) {                                    //input칸들의 값들을 확인
+                register_val=$(select_register).find(".register_data").eq(i).val();     //각 input들의 data를 받아옴
+                window[String(menu_name) + "_register"](i);                             //data를 리스트에 담음
+            }
+            window[String(menu_name) + "_register_submit"](i);                          //data를 전송
+        })
 
 
 
@@ -365,7 +365,7 @@ function pagenation(t) {
             break;
     }
 
-    $('#'+list).load(link +" #"+list +" > .list",function () {//띄어쓰기 잘해야함
+    $('#'+list).load(link +" #"+list +" > .list",function () {
         $('#' + list).prepend("<div class=" + '"sub_menu_title"' + "><h3>" + sub_menu_title + "</h3></div>"); //load로 교체시 안의 내용이 모두 교체되어 title을 추가해야함
     });                                                                                                       //append는 뒤에, prepend는 앞에
 }
