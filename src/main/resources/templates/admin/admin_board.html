@@ -113,11 +113,15 @@
             <label class="custom-file-label" data-browse="Browse" style="display:none;" name="board_file"></label>
           </div>
         </div>
+        <div class="d_box Big" style="display:none;">
+          <div class="d_tagN">유형</div>
+          <input type="text" class="d_cont" name="type" readonly>
+        </div>
         <div class="d_btn">
           <button class="d_button" type="button">수정</button>
           <!--type=button을 할 시에 새로고침을 막을 수 잇음 기본값이 submit이라 그럼-->
           <button class="d_button" type="button">삭제</button>
-          <a id="download" href="" download="file">
+          <a id="download" href="" download="">
             <button type="button" class="d_button">Download</button>
           </a>
         </div>
@@ -176,15 +180,17 @@
                 <div class="list_head">
                   <span class="check"><input type="checkbox" name="5_1_checkH" onclick="checkAll(this);"></span>
                   <span class="number s100">번호</span>
-                  <span class="title s960">제목</span>
+                  <span class="title s710">제목</span>
                   <span class="date s250">작성일</span>
+                  <span class="type s250">유형</span>
                   <span class="link s200">바로가기</span>
                 </div>
                 <div class="list_body" onclick="detail(this)" th:each="dto : ${result.dtoList}">
                   <span class="check"><input type="checkbox" name="5_1_check" onclick="non_detailFunc();"></span>
                   <span class="number s100">[[${dto.num}]]</span>
-                  <span class="title s960">[[${dto.title}]]</span>
+                  <span class="title s710">[[${dto.title}]]</span>
                   <span class="date s250">[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</span>
+                  <span class="type s250">[[${dto.type}]]</span>
                 <span class="link s200" onclick="non_detailFunc()"><a th:href="@{/center-information/notice_board_read(num = ${dto.num})}" target="_blank">이동하기</a></span>
                </div>
                 <div class="list_button">
