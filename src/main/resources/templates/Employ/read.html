@@ -81,9 +81,9 @@
                 </div>
             </div>
 
-            <div id="image_wrap">
+            <div id="image_wrap" th:if="${dto.file} != null">
 <!--                <img src="/upload/90166368-cd45-41c6-a742-46a0a20c8809_2048xauto.jpg"  alt="My Image" id="img">-->
-                <img th:src="${dto.file}"  alt="My Image" id="img">
+                <img th:src="${dto.file}" id="img">
             </div>
 
             <div id="maincont_wrap">

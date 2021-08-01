@@ -1,6 +1,14 @@
 $(document).ready(function () {
     //채용 글등록
     $('#emReg').on('click', function () {
+        if($('#em_title').val()==""){
+            alert("제목을 입력해주세요");
+            return;
+        }
+        if($('#em_start_date').val()==""||$('#em_end_date').val()==""){
+            alert("기한을 설정해주세요");
+            return;
+        }
         let ap = '';
         $('input[type="checkbox"]:checked').each(function(index){
             if(index != 0){
@@ -71,6 +79,15 @@ $(document).ready(function () {
 
     // 채용 글 수정
     $('#emSave').on('click', function() {
+
+        if($('#em_title').val()==""){
+            alert("제목을 입력해주세요");
+            return;
+        }
+        if($('#em_start_date').val()==""||$('#em_end_date').val()==""){
+            alert("기한을 설정해주세요");
+            return;
+        }
 
         let ap = '';
         $('input[name="지원방법"]:checked').each(function(index){
