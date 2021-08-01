@@ -61,7 +61,7 @@
                     <div class="col-9 col-12-medium imp-medium">
 
                         <div id="board_title">
-                            <h1>공지사항</h1>
+                            <h1>[[${dto.type}]]</h1>
                             <h3>
                                 <span id="num">글번호_[[${dto.num}]]</span>
                                 <span style="float:right">작성자 : 관리자</span>
@@ -92,7 +92,7 @@
                         </div> -->
                         <div class="submit_btn">
                             <h3 th:text="${dto.file_name}" style="display:inline-block; margin-right:5px;"></h3>
-                            <a id="download" href="" download="file" >
+                            <a id="download" href="" th:download="${dto.file_name}">
                                 <button type="button" class="d_cont">Download</button>
                             </a>
                             <div class="right" style="float: right">

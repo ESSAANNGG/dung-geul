@@ -28,4 +28,6 @@ public class notice_boardDTO {      // 공지사항 DTO
 
     private String file_name;       // 원본 파일명
 
+    private String type;              // 공지사항/백호마일리지게시판 구분 ex) 공지사항,백호마일리지
+
 }

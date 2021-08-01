@@ -68,14 +68,14 @@
                              <div class="t_head t_line">
                                  <span class="number"><h4>번호</h4></span>
                                  <span class="title"><h4>제목</h4></span>
-                                 <span class="writer"><h4>작성자</h4></span>
+                                 <span class="writer"><h4>유형</h4></span>
                                  <span class="date"><h4>작성일</h4></span>
                              </div>
                              <div class="t_body t_line" th:each="dto : ${result.dtoList}">
                                  <a th:href="@{/center-information/notice_board_read(num = ${dto.num}, page= ${result.page})}">
                                  <span class="number"><h4>[[${dto.num}]]</h4></span>
                                  <span class="title"><h4>[[${dto.title}]]</h4></span>
-                                 <span class="writer"><h4>관리자[[${dto.b}]]</h4></span>
+                                 <span class="writer"><h4>[[${dto.type}]]</h4></span>
                                  <span class="date"><h4>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</h4></span>
                                  </a>
                              </div>

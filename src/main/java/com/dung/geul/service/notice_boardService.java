@@ -26,6 +26,7 @@ public interface notice_boardService {  // 공지사항 게시판 Service
                 .b(dto.getB())
                 .board_file(dto.getBoard_file())
                 .file_name(dto.getFile_name())
+                .type(dto.getType())
                 .build();
 
         return entity;
@@ -41,6 +42,7 @@ public interface notice_boardService {  // 공지사항 게시판 Service
                 .board_file(entity.getBoard_file())
                 .file_name(entity.getFile_name())
                 .regDate(entity.getRegDate())
+                .type(entity.getType())
                 .build();
 
         return dto;

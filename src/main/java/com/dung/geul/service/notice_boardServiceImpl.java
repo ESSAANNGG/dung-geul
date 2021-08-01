@@ -93,6 +93,9 @@ public class notice_boardServiceImpl implements notice_boardService {
 
             entity.changeTitle(dto.getTitle());
             entity.changeContent(dto.getContent());
+            entity.changeType(dto.getType());
+            entity.changeBoard_file(dto.getBoard_file());
+            entity.changeFile_name(dto.getFile_name());
 
             boardRepository.save(entity);
 

@@ -36,6 +36,7 @@ public class Board extends BaseEntity{
 
     private String file_name; // 원본 파일명
 
+    private String type;        //공지사항/백호마일리지게시판 구분 ex) 공지사항,백호마일리지게시판
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="b_board_id" , foreignKey = @ForeignKey(name="b_board_id_fk"))
@@ -51,6 +52,18 @@ public class Board extends BaseEntity{
 
     public void changeContent(String content){
         this.content = content;
+    }
+
+    public void changeType(String type){
+        this.type=type;
+    }
+
+    public void changeBoard_file(String board_file){
+        this.board_file=board_file;
+    }
+
+    public void changeFile_name(String file_name){
+        this.file_name=file_name;
     }
 
 

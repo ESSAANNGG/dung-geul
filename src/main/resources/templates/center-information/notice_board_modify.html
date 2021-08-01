@@ -75,6 +75,15 @@
                                         <label>글번호 : [[${dto.num}]]</label>
                                         <input type="hidden" class="form-control" name="num" th:value="${dto.num}" readonly >
                                     </div>
+
+                                    <div class="register">
+                                        <label>분류</label>
+                                        <select class="register_input" name="type" style="padding:0px 10px; line-height:15px;   width:200px;">
+                                            <option th:selected="${dto.type}=='공지사항'">공지사항</option>
+                                            <option th:selected="${dto.type}=='백호마일리지'">백호마일리지</option>
+                                        </select>
+                                    </div>
+
                                     <div class="register">
                                         <label >제목</label>
                                         <input type="text" class="register_input" name="title" th:value="${dto.title}">
@@ -85,7 +94,7 @@
                                         <textarea class="register_input" name="content">[[${dto.content}]]</textarea>
                                     </div>
 
-                                </form>
+
 
                             <div class="form-group fileForm" style="display:flex">
                                 <input type="text" class="d_cont" name="board_file">
@@ -95,7 +104,7 @@
                                     <label class="custom-file-label" data-browse="Browse" style="display:none;" name="board_file"></label>
                                 </div>
                             </div>
-
+                                </form>
                             <div class="submit_btn">
                                 <button type="button" class="modifyBtn search_cont">수정</button>
                                 <button type="button" class="removeBtn search_cont">삭제</button>
