@@ -4,7 +4,7 @@ body {
 }
 @media screen and (max-height:1800px){
     .main-wrap {
-        height: 1700px !important;
+        height: 1100px !important;
     }
 /*    html{*/
 /*        height:initial;*/
@@ -25,6 +25,7 @@ width: 1000px;
     position: relative;
     font-size: 22px;
     top: 5%;
+    justify-content:center;
 }
 .mid-tit {
     padding: 12px;

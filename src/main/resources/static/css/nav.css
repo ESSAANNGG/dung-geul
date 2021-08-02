@@ -16,16 +16,16 @@ navbar li{
   line-height: 1;
 }
 /*1650*/
-@media screen and (max-width:1903px){
+@media screen and (max-width:1366px){
   .nav {
-    width: 1903px;
+    width: 1366px;
   }
   .nav2 {
-    width: 1903px !important;
+    width: 1366px !important;
   }
 }
 
-@media screen and (min-width:1903px){
+@media screen and (min-width:1366px){
   navbar{
     width:100%;
   }

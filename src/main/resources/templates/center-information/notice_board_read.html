@@ -91,8 +91,8 @@
                             <input type="text" class="form-control" name="modDate" th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
                         </div> -->
                         <div class="submit_btn">
-                            <h3 th:text="${dto.file_name}" style="display:inline-block; margin-right:5px;"></h3>
-                            <a id="download" href="" th:download="${dto.file_name}">
+                            <h3 th:text="${dto.file_name}" style="display:inline-block; margin-right:5px;"  th:if="${dto.board_file} != null"></h3>
+                            <a id="download" href="" th:download="${dto.board_file}" th:if="${dto.board_file} != null">
                                 <button type="button" class="d_cont">Download</button>
                             </a>
                             <div class="right" style="float: right">
