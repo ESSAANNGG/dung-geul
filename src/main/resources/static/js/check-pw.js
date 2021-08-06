@@ -25,7 +25,7 @@
 
 function check_pw2() {
   var pw = document.getElementById("user_pw").value;
-  var SC = ["!", "@", "#", "$", "%"];
+  var SC = ["!", "@", "#", "$", "%","~","^","&","*","(",")","-","_","=","+","|","?","/",",","<",">",".","*"];
   var check_SC = 0;
 
   if (pw.length < 6 || pw.length > 16) {

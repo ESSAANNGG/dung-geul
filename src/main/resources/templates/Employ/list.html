@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -50,7 +50,7 @@
                       <h4>채용정보</h4>
                       <ul id="sb_detail">
                         <li><a th:href="@{/Employ/list}">채용정보</a></li>
-                        <li><a th:href="@{/Employ/register}">채용등록</a></li>
+                        <li><a th:href="@{/Employ/register}" sec:authorize="hasRole('ENTERPRISE')" >채용등록</a></li>
                       </ul>
                     </li>
                   </ul>
