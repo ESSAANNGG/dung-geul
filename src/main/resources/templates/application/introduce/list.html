@@ -25,10 +25,12 @@
 
   <link rel="stylesheet" href="/css/introduce.css" />
   <link rel="stylesheet" href="/css/menu-common2.css" />
+  <link rel="stylesheet" href="/css/center_guide.css" />
   <link rel="stylesheet" href="/css/frame.css" />
   <link rel="stylesheet" href="/css/button.css" />
 
-
+  <link rel="stylesheet" href="/css/notice_board.css" />
+  <link rel="stylesheet" href="/css/pagenation.css" />
 
 </head>
 
@@ -60,7 +62,7 @@
             </div> <!-- menu -->
           </div>
         </div>
-        <div class="col-9 col-12-medium imp-medium">
+        <div class="col-9 col-12-medium imp-medium" style="width: 60%;">
           <div class="employListPost">
             <div id="intro">
               <h2 style="display: inline-block;">자소서 목록</h2>
@@ -70,20 +72,22 @@
               <div style="border-top: 3px solid #0202025e;"></div>
             </div>
 
-            <li th:each="dto: ${result.dtoList}">
-              <a th:href="@{/application/introduce/read(num = ${dto.num}, page = ${result.page},
-              type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}" class="read_page_click">
-                <ul>
-                  <li class="post_end_date" th:text="'작성일'+' '+ ${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}">작성일</li>
-                </ul>
-                <ul class="post_corp_name_wrap"><i class="fas fa-envelope-open-text"></i>
-                  <li class="post_corp_name" th:text="${dto?.title}">제목</li>
-                </ul>
-                
-              </a>
 
+            <div class="table" style="margin-top:25px;">
+              <div class="t_head t_line">
+                <span class="number" style="width:15%; margin: 0 7% 0 2%;"><h4>작성일</h4></span>
+                <span class="title"><h4 style="text-align: initial"><i class="fas fa-envelope-open-text" style="margin-right:8px"></i>제목</h4></span>
 
-            </li>
+              </div>
+              <div class="t_body t_line" th:each="dto : ${result.dtoList}">
+                <a th:href="@{/application/introduce/read(num = ${dto.num}, page = ${result.page},
+              type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}">
+                  <span class="number" style="width:15%; margin: 0 7% 0 2%;"><h4 th:text="${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}"></h4></span>
+                  <span class="title"><h4 style="text-align: initial"><i class="fas fa-envelope-open-text" style="margin-right:8px"></i>[[${dto.title}]]</h4></span>
+
+                </a>
+              </div>
+            </div>
 
           </div>
           <ul class="pagination  h-100 justify-content-center align-items-center" id="pagination">

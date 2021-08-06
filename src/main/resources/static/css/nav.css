@@ -15,15 +15,6 @@ navbar li{
 .dep1 {
   line-height: 1;
 }
-/*1650*/
-@media screen and (max-width:1366px){
-  .nav {
-    width: 1366px;
-  }
-  .nav2 {
-    width: 1366px !important;
-  }
-}
 
 @media screen and (min-width:1366px){
   navbar{
@@ -32,6 +23,48 @@ navbar li{
   .nav2{
     width:100%;
     margin:auto;
+  }
+}
+
+@media screen and (max-width:1600px) {
+  li.join{
+    width:79.14px !important;
+  }
+}
+@media screen and (max-width:1700px){
+  .center{
+    width:151.47px !important;
+  }
+}
+@media screen and (max-width:1230px){
+  li.login{
+    width:60.64px !important;
+  }
+}
+@media screen and (max-width:1450px) {
+  .menu,
+  .dep2{
+    width:114.63px !important;
+  }
+}
+@media screen and (max-width:1000px){
+  .center{
+    display:none !important;
+  }
+}
+@media screen and (max-width:800px){
+  .join{
+    display:none !important;
+  }
+}
+@media screen and (max-width:730px){
+  .login{
+    display:none !important;
+  }
+}
+@media screen and (max-width:600px){
+  .logo{
+    display:none !important;
   }
 }
 .nav {
@@ -81,16 +114,15 @@ navbar li{
 .nav .dep1 > li.logo {
   font-size: 16px;
   font-weight: 300;
-  width: 350px;
+  width: 20%;
   /*li.menu를 한꺼번에 묶어서 하지않은 이유는 a태그때문에 li.menu가 갇혀있기때문*/
 }
 .nav .dep1 > li.menu {
-  width: 150px;
+  width: 8%;
 }
 .nav .dep1 > li.login {
-  margin-left: 60px;
+  margin-left: 3%;
 }
-
 
 .nav .dep1 > li.center,
 .nav .dep1 > li.login,
@@ -98,16 +130,16 @@ navbar li{
   color: #666666;
   font-size: 14px;
   font-weight: 300;
-  width: 90px;
+  width: 5%;
 }
 .nav .dep1 > li.center{
-  width:160px;
+  width:9%;
 }
 /*depth2*/
 .nav .dep2 {
   position: absolute;
   display: block;
-  width: 150px;
+  width: 8%;
   height: 0px;
 
   overflow: hidden;

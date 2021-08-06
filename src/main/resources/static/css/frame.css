@@ -44,7 +44,7 @@ a {
 }
 .menu2 {
   float: left;
-  width: 230px;
+  width: 200px;
 }
 #bar h2 {
   line-height: 100px;
@@ -52,14 +52,14 @@ a {
   padding: 0;
   background-color: #1a508b;
   color: #fff;
-  font-size: 24px;
+  font-size: 22px;
   text-align: center;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 #bar > ul > li > h4 {
   background-color: #203b58;
-  font-size: 18px;
+  font-size: 17px;
   color: #fff;
   text-align: center;
   line-height: 50px;

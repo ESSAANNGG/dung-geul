@@ -35,15 +35,15 @@ main {
 }
 
 @media screen and (max-width: 1366px) {
-  main {
-    width: 1366px !important;
-  }
-  main-wrap{
-    width: 1366px !important;
-  }
-  .all-wrap{
-    width:1366px !important;
-  }
+  /*main {*/
+  /*  width: 1366px !important;*/
+  /*}*/
+  /*main-wrap{*/
+  /*  width: 1366px !important;*/
+  /*}*/
+  /*.all-wrap{*/
+  /*  width:1366px !important;*/
+  /*}*/
 }
 @media screen and (min-width:1366px){
   main{
