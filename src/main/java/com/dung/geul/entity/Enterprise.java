@@ -52,10 +52,10 @@ public class Enterprise implements Serializable{
         //@Temporal(TemporalType.DATE) //날짜만 출력  (TemporalType.TIME 시간만 출력)
         private LocalDate etp_year; // 설립년도
 
-        @Column(length = 4, nullable = false)
+        @Column(length = 4)
         private int etp_member; // 직원 수
 
-        @Column(length = 10, nullable = false)//length20으로
+        @Column(length = 10)//length20으로
         private String etp_sector; // 업종
 
 
