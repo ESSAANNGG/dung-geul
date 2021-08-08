@@ -49,7 +49,9 @@
                     <li id="menu_con1">
                       <h4>채용리스트</h4>
                       <ul id="sb_detail">
-                        <li><a th:href="@{/Employ/list}">채용리스트</a></li>
+                        <li><a th:href="@{/Employ/list}" style="color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);">채용리스트</a></li>
                         <li><a th:href="@{/Employ/register}" sec:authorize="hasRole('ENTERPRISE')" >채용등록</a></li>
                       </ul>
                     </li>
