@@ -22,7 +22,7 @@
             <li class="menu" onmouseover="nav_on()" onmouseout="nav_off()">
                 <a href="#">채용정보</a>
                 <ul class="dep2" onmouseover="nav_on()">
-                    <li><a th:href="@{/Employ/list}"> 채용정보</a></li>
+                    <li><a th:href="@{/Employ/list}"> 채용리스트</a></li>
                     <li><a th:href="@{/Employ/register}" sec:authorize="hasRole('ENTERPRISE')"> 채용등록</a></li>
                 </ul>
             </li>
