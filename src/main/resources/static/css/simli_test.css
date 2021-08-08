@@ -26,9 +26,10 @@
 }
 
 .simli-type {
-  margin-bottom: 1.3em;
+  margin-bottom: 3px;
   display: inline-block;
-  font-size: 18.6px;
+  font-size: 15px;
+  font-weight:500;
 }
 
 .simli-box {
@@ -86,7 +87,7 @@
 .info {
   margin-top: px;
   margin-bottom: 10px;
-  margin-right: 90px;
+  /*margin-right: 90px;*/
   font-size: 0.9rem;
 }
 

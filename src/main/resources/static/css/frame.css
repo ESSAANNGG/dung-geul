@@ -178,7 +178,7 @@ li {
 
 .row {
   width: 1350px;
-  margin: 0px !important;
+  /*margin: 0px !important;*/
 }
 
 .col-9 {

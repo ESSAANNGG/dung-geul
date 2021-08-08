@@ -79,6 +79,13 @@ function detail_on_board(board_num){
                 $('input[name=board_file]').val(boardDTO.board_file);
                 $('input[name=file_name]').val(boardDTO.file_name);
                 $('input[name=type]').val(boardDTO.type);
+
+                if($('input[name=board_file]').val()==""){
+                    $('#download').css("display","none");
+                }
+                else{
+                    $('#download').css("display","initial");
+                }
                 fileLink=boardDTO.board_file;
                 fileLink=fileLink.split("C:")[1];
                 console.log(fileLink);
