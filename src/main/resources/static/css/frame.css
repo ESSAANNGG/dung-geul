@@ -146,7 +146,7 @@ li {
 /* footer end */
 
 #main {
-  width: 1903px;
+  width: 100%;
   background: #f4f4f4;
   border-top: solid 5px #1f3786d5;
   border-top-width: 35px;
@@ -170,15 +170,15 @@ li {
 }
 
 .container {
-  margin: 0 auto;
+  margin: auto;
   max-width: 100%;
-  width: 1350px;
+  width: 100%;
   padding: 0px !important;
 }
 
 .row {
-  width: 1350px;
-  /*margin: 0px !important;*/
+  display: flex;
+  justify-content: center;
 }
 
 .col-9 {
