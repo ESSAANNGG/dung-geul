@@ -6,7 +6,7 @@ function board(){
 
 function board_guide(){
     switch (guide_val) {
-        case "미구현" : parameter="/admin/admin_board?";
+        case "공지사항" : parameter="/admin/admin_board?";
             break;
     }
 }

@@ -211,145 +211,145 @@ $(document).ready(function () {
 // function employ_marking(this){
 //     this.color:"red";
 // }
-//채용리스트 > 해시태그 선택
-function h_tag_js(tag_num) {
-    let search=document.getElementsByClassName("search");
-    $(".search").css("display","none");
-    switch (tag_num){
-        case 1:
-            search[0].style.display="inline-block"; //#제목
-            $("#head_tag h2").text("제목");
-            break;
-        case 2:
-            search[1].style.display="inline-block"; //#기업
-            $("#head_tag h2").text("기업");
-            break;
-        case 3:
-            search[2].style.display="inline-block"; //#직종
-            $("#head_tag h2").text("직종");
-            break;
-        case 4:
-            search[3].style.display="inline-block"; //#고용구분
-            $("#head_tag h2").text("고용구분");
-            break;
-        case 5:
-            search[4].style.display="inline-block"; //#기업구분
-            $("#head_tag h2").text("기업구분");
-            break;
-        case 6:
-            search[5].style.display="inline-block"; //#근무지역
-            search[6].style.display="inline-block"; //#근무지역
-            $("#head_tag h2").text("근무지역");
-            break;
-    }
-}
+// //채용리스트 > 해시태그 선택
+// function h_tag_js(tag_num) {
+//     let search=document.getElementsByClassName("search");
+//     $(".search").css("display","none");
+//     switch (tag_num){
+//         case 1:
+//             search[0].style.display="inline-block"; //#제목
+//             $("#head_tag h2").text("제목");
+//             break;
+//         case 2:
+//             search[1].style.display="inline-block"; //#기업
+//             $("#head_tag h2").text("기업");
+//             break;
+//         case 3:
+//             search[2].style.display="inline-block"; //#직종
+//             $("#head_tag h2").text("직종");
+//             break;
+//         case 4:
+//             search[3].style.display="inline-block"; //#고용구분
+//             $("#head_tag h2").text("고용구분");
+//             break;
+//         case 5:
+//             search[4].style.display="inline-block"; //#기업구분
+//             $("#head_tag h2").text("기업구분");
+//             break;
+//         case 6:
+//             search[5].style.display="inline-block"; //#근무지역
+//             search[6].style.display="inline-block"; //#근무지역
+//             $("#head_tag h2").text("근무지역");
+//             break;
+//     }
+// }
+//
+// //채용리스트 > 해시태그 값 보내기
+// $(document).ready(function(){
+//     $("#s_title").on("keyup", function() {
+//         searchVal("title");
+//     });
+//     $("#s_corp").on("keyup", function() {
+//         searchVal("corp");
+//     });
+// });
 
-//채용리스트 > 해시태그 값 보내기
-$(document).ready(function(){
-    $("#s_title").on("keyup", function() {
-        searchVal("title");
-    });
-    $("#s_corp").on("keyup", function() {
-        searchVal("corp");
-    });
-});
 
-
-//채용리스트 > 해시태그 값 보내기
-let sel;
-let val;
-function searchVal(sel){
-    let search=document.getElementsByClassName("search");
-    switch (sel){
-        case 'title':
-            val=(search[0].value);
-            $("#h_title").text("#"+val);
-            // $("#dummy_title").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-            if(val==""){
-                $("#h_title").text("#제목");
-                $("#h_title").css("color","#000000");
-                // $("#dummy_title").prop("checked",false);
-            }
-            else{
-                $("#h_title").css("color","#3498db");
-            }
-            break;
-        case 'corp':
-            val=(search[1].value);
-            $("#h_corp").text("#"+val);
-            // $("#dummy_corp").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-            if(val==""){
-                $("#h_corp").text("#기업");
-                $("#h_corp").css("color","#000000");
-                // $("#dummy_corp").prop("checked",false)
-            }
-            else{
-                $("#h_corp").css("color","#3498db");
-            }
-            break;
-        case 'ot':
-            val=(search[2].value);
-            $("#h_ot").text("#"+val);
-            if(val!="직종") {
-                // $("#dummy_ot").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                $("#h_ot").css("color","#3498db");
-            }
-            else if(val=="직종"){
-                // $("#dummy_ot").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                $("#h_ot").css("color","#000000");
-
-            }
-            break;
-        case 'ep':
-            val=(search[3].value);
-            $("#h_ep").text("#"+val);
-            if(val!="고용구분") {
-                // $("#dummy_ep").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                $("#h_ep").css("color","#3498db");
-            }
-            else if(val=="고용구분"){
-                // $("#dummy_ep").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                $("#h_ep").css("color","#000000");
-            }
-            break;
-        case 'shape':
-            val=(search[4].value);
-            $("#h_shape").text("#"+val);
-            if(val!="기업구분") {
-                // $("#dummy_shape").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                $("#h_shape").css("color","#3498db");
-            }
-            else if(val=="기업구분"){
-                // $("#dummy_shape").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                $("#h_shape").css("color","#000000");
-            }
-            break;
-        case 'area':
-            setTimeout(function() {
-                val=(search[5].value)+" ";
-
-                if(val!="시/도 선택 ") {
-                    // $("#dummy_area").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                    $("#h_area").css("color","#3498db");
-                }
-                else if(val=="시/도 선택 "){
-                    // $("#dummy_area").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                    $("#h_area").css("color","#000000");
-                }
-
-                if((search[6].value)=="구/군 선택"){
-                    // $("#dummy_detailArea").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                }
-                else{
-                    val=val+(search[6].value);
-                    // $("#dummy_detailArea").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
-                }
-                $("#h_area").text("#"+val);
-
-            }, 100);
-            break;
-    }
-}
+// //채용리스트 > 해시태그 값 보내기
+// let sel;
+// let val;
+// function searchVal(sel){
+//     let search=document.getElementsByClassName("search");
+//     switch (sel){
+//         case 'title':
+//             val=(search[0].value);
+//             $("#h_title").text("#"+val);
+//             // $("#dummy_title").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//             if(val==""){
+//                 $("#h_title").text("#제목");
+//                 $("#h_title").css("color","#000000");
+//                 // $("#dummy_title").prop("checked",false);
+//             }
+//             else{
+//                 $("#h_title").css("color","#3498db");
+//             }
+//             break;
+//         case 'corp':
+//             val=(search[1].value);
+//             $("#h_corp").text("#"+val);
+//             // $("#dummy_corp").prop("checked",true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//             if(val==""){
+//                 $("#h_corp").text("#기업");
+//                 $("#h_corp").css("color","#000000");
+//                 // $("#dummy_corp").prop("checked",false)
+//             }
+//             else{
+//                 $("#h_corp").css("color","#3498db");
+//             }
+//             break;
+//         case 'ot':
+//             val=(search[2].value);
+//             $("#h_ot").text("#"+val);
+//             if(val!="직종") {
+//                 // $("#dummy_ot").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//                 $("#h_ot").css("color","#3498db");
+//             }
+//             else if(val=="직종"){
+//                 // $("#dummy_ot").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//                 $("#h_ot").css("color","#000000");
+//
+//             }
+//             break;
+//         case 'ep':
+//             val=(search[3].value);
+//             $("#h_ep").text("#"+val);
+//             if(val!="고용구분") {
+//                 // $("#dummy_ep").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//                 $("#h_ep").css("color","#3498db");
+//             }
+//             else if(val=="고용구분"){
+//                 // $("#dummy_ep").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//                 $("#h_ep").css("color","#000000");
+//             }
+//             break;
+//         case 'shape':
+//             val=(search[4].value);
+//             $("#h_shape").text("#"+val);
+//             if(val!="기업구분") {
+//                 // $("#dummy_shape").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//                 $("#h_shape").css("color","#3498db");
+//             }
+//             else if(val=="기업구분"){
+//                 // $("#dummy_shape").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//                 $("#h_shape").css("color","#000000");
+//             }
+//             break;
+//         case 'area':
+//             setTimeout(function() {
+//                 val=(search[5].value)+" ";
+//
+//                 if(val!="시/도 선택 ") {
+//                     // $("#dummy_area").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//                     $("#h_area").css("color","#3498db");
+//                 }
+//                 else if(val=="시/도 선택 "){
+//                     // $("#dummy_area").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//                     $("#h_area").css("color","#000000");
+//                 }
+//
+//                 if((search[6].value)=="구/군 선택"){
+//                     // $("#dummy_detailArea").prop("checked", false); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//                 }
+//                 else{
+//                     val=val+(search[6].value);
+//                     // $("#dummy_detailArea").prop("checked", true); //안보이는 체크박스에 체크를 하여 백에서 검색타입을 정하기 쉽게 하기 위함
+//                 }
+//                 $("#h_area").text("#"+val);
+//
+//             }, 100);
+//             break;
+//     }
+// }
 
 let cont_func_index=0;
 //채용리스트 > 본문 내용 자르는 함수

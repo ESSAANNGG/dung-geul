@@ -2858,10 +2858,10 @@ table thead {
 @media screen and (max-width: 980px) {
   /* Basic */
 
-  html,
-  body {
-    overflow-x: hidden;
-  }
+  /*html,*/
+  /*body {*/
+  /*  overflow-x: hidden;*/
+  /*}*/
 
   /* Box */
 
@@ -2871,9 +2871,9 @@ table thead {
 
   /* Header */
 
-  #header {
-    display: none;
-  }
+  /*#header {*/
+  /*  display: none;*/
+  /*}*/
 
   /* Banner */
 
@@ -2902,9 +2902,9 @@ table thead {
 
   /* Nav */
 
-  body {
-    padding-top: 44px;
-  }
+  /*body {*/
+  /*  padding-top: 44px;*/
+  /*}*/
 
   body.homepage {
     padding-top: 0;

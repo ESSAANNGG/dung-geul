@@ -504,7 +504,7 @@ header > p {
 }
 
 .row > .col-9 {
-  width: 75%;
+  width: 55%;
   box-shadow: 0 0 1px 1px #f7f4f4;
   border-radius: 8px 8px 8px 8px;
 
@@ -841,7 +841,8 @@ header > p {
   }
 
   .row > * {
-    padding: 50px 0 0 50px;
+    /*padding: 50px 0 0 50px;*/
+    /* 패딩없애기(index)*/
   }
 
   .row.gtr-uniform {
@@ -1084,7 +1085,9 @@ header > p {
   }
 
   .row > * {
-    padding: 40px 0 0 40px;
+    /*padding: 40px 0 0 40px;*/
+    /* 패딩없애기(index)*/
+
   }
 
   .row.gtr-uniform {
@@ -1330,7 +1333,9 @@ header > p {
   }
 
   .row > * {
-    padding: 50px 0 0 50px;
+    /*padding: 50px 0 0 50px;*/
+    /* 패딩없애기(index)*/
+
   }
 
   .row.gtr-uniform {
@@ -1573,7 +1578,9 @@ header > p {
   }
 
   .row > * {
-    padding: 20px 0 0 20px;
+    /*padding: 20px 0 0 20px;*/
+    /* 패딩없애기(index)*/
+
   }
 
   .row.gtr-uniform {
@@ -2863,10 +2870,10 @@ form ::-moz-focus-inner {
 @media screen and (max-width: 980px) {
   /* Basic */
 
-  html,
-  body {
-    overflow-x: hidden;
-  }
+  /*html,*/
+  /*body {*/
+  /*  overflow-x: hidden;*/
+  /*}*/
 
   /* Box */
 
@@ -2876,9 +2883,9 @@ form ::-moz-focus-inner {
 
   /* Header */
 
-  #header {
-    display: none;
-  }
+  /*#header {*/
+  /*  display: none;*/
+  /*}*/
 
   /* Banner */
 
@@ -2907,9 +2914,9 @@ form ::-moz-focus-inner {
 
   /* Nav */
 
-  body {
-    padding-top: 44px;
-  }
+  /*body {*/
+  /*  padding-top: 44px;*/
+  /*}*/
 
   body.homepage {
     padding-top: 0;

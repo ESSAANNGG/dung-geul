@@ -8,10 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <!-- <link rel="stylesheet" href="/src/main/resources/static/css/center_guide.css" th:href="@{/css/center_guide.css}"/>
       <link rel="stylesheet" href="/src/main/resources/static/css/frame.css" th:href="@{/css/frame.css}"> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+
     <link rel="stylesheet" href="/css/center_guide.css" />
     <link rel="stylesheet" href="/css/frame.css">
     <link rel="stylesheet" href="/css/center_intro.css">
     <link rel="stylesheet" href="/css/table-type.css" />
+    <link rel="stylesheet" href="/css/button.css" />
+    <script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -57,15 +64,19 @@
                             </div>
                         </div>
 
-                        <div class="col-9 col-12-medium imp-medium">
+                        <div class="col-9 col-12-medium imp-medium" style="width:45%;">
                             <div class="content">
                                 <!-- Content -->
 
+
                                 <article class="box page-content">
-                                    <header>
-                                        <!-- <h2 class="major"><span>취업자료실</span></h2> -->
-                                        <h2 class="h2-">취업자료실</h2>
-                                    </header>
+                                    <div id="board_title" style="height:73px;">
+                                        <h2 style="display: inline-block; font-size:20px; font-weight:400;">취업자료실</h2>
+                                        <a style="float: right;" class="effect effect-4" href="/application/cv/before">
+                                            이력서 관리
+                                        </a>
+                                        <div style="border-top: 3px solid #0202025e;"></div>
+                                    </div>
                                     <div
                                         style="padding: 20px;     border: 1px solid #7d7d7d; margin-bottom: 30px;">
 
@@ -87,7 +98,7 @@
                                                     </p>
                                                 </li>
                                             </ul>
-                                            <span class="image featured"><img style="margin-top: 25px; width: 840px;"
+                                            <span class="image featured"><img style="margin-top: 25px; width: 100%;"
                                                     src="/img/이력서작성요령.svg" alt="" /></span>
                                         </section>
                                         <section>
@@ -140,7 +151,7 @@
                                                         <h3 class="subTitle"><span style="font-size: 17px;;">▷ </span>신입의 이력서 경력사항 예시</h3>
                                                     </li>
                                                 </ul>
-                                                <table cellspacing=0 class="table-type" align="center" width="870" height="150">
+                                                <table cellspacing=0 class="table-type" align="center" width="100%" height="150">
                                                     <tr bgcolor="#e7f2f8" style="font-weight:500; margin-botton:10px;">
                                                         <th colspan="3">신입의 경우 이력서의 경력사항 예시</th>
                                                     </tr>
@@ -160,7 +171,7 @@
                                                     <h3 class="subTitle"><span style="font-size: 17px;;">▷ </span>경력의 경우 이력서의 경력사항 예시</h3>
                                                 </li>
                                             </ul>
-                                            <table cellspacing=0 class="table-type" align="center" width="870" height="150">
+                                            <table cellspacing=0 class="table-type" align="center" width="100%" height="150">
                                                 <tr bgcolor="#eff5eb" style="font-weight:500;">
                                                     <th colspan="4">경력의 경우 이력서의 경력사항 예시</th>
                                                 </tr>

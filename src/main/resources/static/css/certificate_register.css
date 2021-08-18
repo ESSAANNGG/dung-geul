@@ -487,9 +487,15 @@
 	padding: 20px 0 25px 0;
 }
 
-.inputBox {
-	padding: 0 49px 25px 49px;
-}
+/*.inputBox {*/
+/*	padding: 0 49px 25px 49px;*/
+/*}*/
 label{
 	font-weight:500 !important;
+}
+
+@media screen and (max-width: 720px) {
+	.formInput {
+		width: 187px !important;
+	}
 }

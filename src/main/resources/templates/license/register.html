@@ -70,7 +70,7 @@
                     </div>
                 </div>
 
-                <div class="col-9 col-12-medium imp-medium">
+                <div class="col-9 col-12-medium imp-medium" style="width:40%;">
                     <div class="content">
 
                         <!-- <input name="em_id" id="member_id" title="em_id" th:value="${{memberDTO.getUser_id()}}"
@@ -84,33 +84,33 @@
                                 <!-- <i class="far fa-address-card" style="font-size: 28px;"></i> -->
                                 <h2>자격증 등록</h2>
                             </div>
-                            <div id="inputWrap">
+                            <div id="inputWrap" style="width:100%;">
                                 <div class="inputBox">
                                     <label class="formLabel" for="">자격종류</label>
-                                    <select name="lic_type"  required>
+                                    <select name="lic_type"   style="height:50px; width:150px;" required>
                                         <option value="">자격선택</option>
                                         <option value="(국가)">국가자격증</option>
                                         <option value="(민간)">민간자격증</option>
                                     </select>
                                     
                                 </div>
-                                <div class="inputBox">
+                                <div class="inputBox" style="width: 80%">
                                     <label class="formLabel" for="">자격증 명</label>
-                                    <input class="formInput" name="lic_name" id="certificateName" type="text" style="width: 350px"  required>
+                                    <input class="formInput" name="lic_name" id="certificateName" type="text"   required>
                                 </div>
-                                <div class="inputBox">
+                                <div class="inputBox" style="width: 80%">
                                     <label class="formLabel" for="">자격번호</label>
-                                    <input class="formInput" name="lic_num"  type="text" style="width: 350px "  required>
+                                    <input class="formInput" name="lic_num"  type="text"   required>
                                 </div>
-                                <div class="inputBox">
+                                <div class="inputBox" style="width: 80%">
                                     <label class="formLabel" for="">발급기관</label>
-                                    <input class="formInput" name="lic_agency"  type="text" style="width: 350px"  required>
+                                    <input class="formInput" name="lic_agency"  type="text"  required>
                                 </div>
-                                <div class="inputBox">
+                                <div class="inputBox" style="margin-top:20px">
                                     <label class="formLabel" for="">취득일</label>
-                                    <input class="formInput" name="lic_date" id="certificateDate" type="date" style="width:150px"  required>
+                                    <input class="formInput" name="lic_date" id="certificateDate" type="date" style="width: 150px"  required>
                                 </div>
-                                <div class="inputBox">
+                                <div class="inputBox" style="margin-top:20px">
                                     <label class="formLabel" for="">만료일</label>
                                     <input class="formInput" name="lic_due_date" id="certificateEndDate" type="date" style="width:150px"  required>
                                 </div>

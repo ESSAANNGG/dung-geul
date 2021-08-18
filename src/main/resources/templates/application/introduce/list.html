@@ -64,7 +64,7 @@
             </div> <!-- menu -->
           </div>
         </div>
-        <div class="col-9 col-12-medium imp-medium" style="width: 60%;">
+        <div class="col-9 col-12-medium imp-medium notice_board_col-9" style="width: 45%;">
           <div class="employListPost">
             <div id="intro">
               <h2 style="display: inline-block;">자소서 목록</h2>
@@ -77,14 +77,14 @@
 
             <div class="table" style="margin-top:25px;">
               <div class="t_head t_line">
-                <span class="number" style="width:15%; margin: 0 7% 0 2%;"><h4>작성일</h4></span>
+                <span class="number" style="width:20%; margin: 0 7% 0 2%;"><h4 style="width:20%;">작성일</h4></span>
                 <span class="title"><h4 style="text-align: initial"><i class="fas fa-envelope-open-text" style="margin-right:8px"></i>제목</h4></span>
 
               </div>
               <div class="t_body t_line" th:each="dto : ${result.dtoList}">
                 <a th:href="@{/application/introduce/read(num = ${dto.num}, page = ${result.page},
               type=${pageReuqestDTO?.type}, keyword=${pageRequestDTO.keyword} )}">
-                  <span class="number" style="width:15%; margin: 0 7% 0 2%;"><h4 th:text="${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}"></h4></span>
+                  <span class="number" style="width:20%; margin: 0 7% 0 2%;"><h4 th:text="${#temporals.format(dto.regDate, 'YYYY-MM-dd ')}" style="width:20%;"></h4></span>
                   <span class="title"><h4 style="text-align: initial"><i class="fas fa-envelope-open-text" style="margin-right:8px"></i>[[${dto.title}]]</h4></span>
 
                 </a>

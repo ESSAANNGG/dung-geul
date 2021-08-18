@@ -106,12 +106,12 @@
     width:200px;
 }
 .col-9 button{
-    border:1px solid #2b2e4a;
-    background-color: #2b2e4a !important;
+    border:1px solid #1f3786d5;
+    background-color: #1f3786d5 !important;
     color:#ffffff !important;
 }
 .col-9 button:focus{
-    border:1px solid #2b2e4a !important;
+    border:1px solid #1f3786d5 !important;
 }
 .write-btn{
     float:right;
@@ -184,4 +184,12 @@ textarea::-webkit-scrollbar-track {
 .d_cont[readonly]{
     background-color:#dbe1ef !important;
     border:1px solid rgb(118, 118, 118) !important;
+}
+@media screen and (max-width: 970px) {
+    .notice_board_col-9{
+        width:509px !important;
+    }
+    .notice_board_table {
+        width: 409px !important;
+    }
 }

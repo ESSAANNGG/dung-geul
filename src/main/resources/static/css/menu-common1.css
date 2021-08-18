@@ -859,8 +859,8 @@ header > p {
   }
 
   .row {
-    margin-top: -50px;
-    margin-left: -50px;
+    /*margin-top: -50px;*/
+    /*margin-left: -50px;*/
   }
 
   .row > * {
@@ -1102,8 +1102,10 @@ header > p {
   }
 
   .row {
-    margin-top: -40px;
-    margin-left: -40px;
+    /*margin-top: -40px;*/
+    /*margin-left: -40px;*/
+    /* 패딩없애기(index)*/
+
   }
 
   .row > * {
@@ -1348,8 +1350,10 @@ header > p {
   }
 
   .row {
-    margin-top: -50px;
-    margin-left: -50px;
+    /*margin-top: -50px;*/
+    /*margin-left: -50px;*/
+    /* 패딩없애기(index)*/
+
   }
 
   .row > * {
@@ -1591,8 +1595,10 @@ header > p {
   }
 
   .row {
-    margin-top: -20px;
-    margin-left: -20px;
+    /*margin-top: -20px;*/
+    /*margin-left: -20px;*/
+    /* 패딩없애기(index)*/
+
   }
 
   .row > * {
@@ -2895,9 +2901,9 @@ table thead {
 
   /* Header */
 
-  #header {
-    display: none;
-  }
+  /*#header {*/
+  /*  display: none;*/
+  /*}*/
 
   /* Banner */
 
