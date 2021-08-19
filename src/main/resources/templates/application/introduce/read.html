@@ -15,12 +15,32 @@
 				<meta charset="UTF-8" />
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 				<link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Lato:400,300" rel="stylesheet" type="text/css" />
-
+				<script th:async src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- jquery에서 제공하는 최신 버전의 jQuery url-->
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 				<link rel="stylesheet" href="/css/introRead.css" />
 				<!--[if lt IE 9]>
 					<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 				<![endif]-->
 				<script src="https://kit.fontawesome.com/3a29a769fa.js" crossorigin="anonymous"></script>
+				<script>
+					function delites() {
+						$('#IntroRemove').on('click', function () {
+							let num = $('#Intro_num').val();
+							console.log(num);
+							$.ajax({
+								url: '/application/intro/' + num,
+								method: 'delete',
+							})
+									.done(function () {
+										location.href = '/application/introduce/list';
+									})
+									.fail(function (error) {
+										console.log(error);
+										console.log(JSON.stringify(error));
+									});
+						});
+					}
+				</script>
 			</head>
 			<html>
 				<body id="top">
@@ -50,7 +70,7 @@
 									<span class="button-txt"> &nbsp;수정하기</span>
 								</button>
 							</a>
-							<button id="IntroRemove" name="IntroRemove" class="pull-right h-blue" type="submit">
+							<button id="IntroRemove" name="IntroRemove" class="pull-right h-blue" onclick="delites()">
 								<span class="button-txt"> &nbsp;삭제하기</span>
 							</button>
 						</div>

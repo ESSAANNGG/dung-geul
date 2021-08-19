@@ -483,8 +483,8 @@
 #inputWrap {
 	width: 850px;
 	/* height: 300px; */
-	margin-left: 30px;
-	padding: 20px 0 25px 0;
+	/*margin-left: 30px;*/
+	/*padding: 20px 0 25px 0;*/
 }
 
 /*.inputBox {*/
@@ -496,6 +496,6 @@ label{
 
 @media screen and (max-width: 720px) {
 	.formInput {
-		width: 187px !important;
+		/*width: 187px !important;*/
 	}
 }

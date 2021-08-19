@@ -206,7 +206,7 @@
                   </section>
                   <section>
 
-                    <h4 class="subTitle" style="margin-top: 25px;">종합인력개발센터 비치 자료</h4>
+                    <h4 class="subTitle" style="margin-top: 25px;">취업정보센터 비치 자료</h4>
 
 
                     <ul class="blackSquare" style="margin-top: 10px;">
@@ -217,18 +217,30 @@
                     </p>
 
                   </section>
-                 
-                  <section>
+                  <section style="position:relative; margin-top:25px;">
 
-                    <h4 class="subTitle" style="margin-top:25px; width:100%" >위치</h4>
+                    <h3 class="subTitle" style="margin-bottom:7px;">찾아오시는 길</h3>
+                    <div id="map" style="    width: 100%;
+    height: 440px;
+    position: relative;"></div>
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6bedd5138f8242cf46657c82fbad435">
+                    </script>
+                    <script>
+                      var container = document.getElementById('map');
+                      var options = {
+                        center: new kakao.maps.LatLng(35.8962829149084, 128.621804325442),
+                        level: 3
+                      };
 
-
-                    <span class="image featured"><img src="/img/image00001.JPG" alt="" /></span>
+                      var map = new kakao.maps.Map(container, options);
+                    </script>
                   </section>
-                  <section>
 
-                   
+                  <section >
+                    <h3 class="subTitle" style="margin-top:25px; width:100%" >위치</h3>
+                    <span class="image featured" style="border:1px solid black;"><img src="/img/image00001.JPG" alt="" /></span>
                   </section>
+
                 </article>
               </div>
             </div>

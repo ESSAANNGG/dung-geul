@@ -152,7 +152,7 @@ $(document).ready(function () {
         location.href = search_parameter;
     });
     function search_valF(i){
-        if(search_val==""||search_val=="시/도 선택"||search_val=="구/군 선택"||search_val=="직종"||search_val=="고용구분"||search_val=="기업구분"){
+        if(search_val=="검색어를 입력하세요"||search_val=="시/도 선택"||search_val=="구/군 선택"||search_val=="직종"||search_val=="고용구분"||search_val=="기업구분"){
             switch (i){
                 case 0: search_parameter=parameter+"&keywords=";
                     break;
@@ -598,4 +598,8 @@ function apply_check(t){
 function sameEtp(){
     etp_name=$('#etp_name').text();
     window.location.href="/Employ/list?page=1&keywords=&keywords=" + etp_name + "&type=w&keywords=&keywords=&keywords=&keywords=&sido=&keywords=&keywords="
+}
+
+const empty = function(t) {
+    $(t).val("");
 }

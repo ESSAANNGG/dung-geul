@@ -4,7 +4,7 @@ body {
 }
 @media screen and (max-height:1800px){
     .main-wrap {
-        height: 1100px !important;
+        height: 850px !important;
     }
 /*    html{*/
 /*        height:initial;*/
@@ -61,10 +61,11 @@ width: 1000px;
 }
 .photo-wrap {
     position: relative;
-    top: 18%;
+    top: 12%;
     display: flex;
-    width: 1330px;
+    width: 100%;
     margin: auto;
+    justify-content: center;
     /* left: 15%; */
 }
 #map {

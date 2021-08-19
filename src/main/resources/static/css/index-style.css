@@ -73,25 +73,31 @@ main {
   margin: auto;
   padding-top: 30px;
   width: 446px;
-  height: 300px;
+  height: 200px;
   z-index: -1;
   position: relative;
   opacity: 0.8;
+  margin-top:20px;
+  background-color:#363a3c;
 }
 
 .intro > h2,
 h1,
 h4 {
   text-align: center;
-  color: black;
+  color: #ffffff;
 }
 .intro > h2 {
   font-weight: var(--weight-bold);
-  font-size: 24px;
+  font-size: 20px;
+  font-weight:600;
+  color:#ffffff;
+  margin-bottom:20px;
 }
 .intro > h1 {
-  font-size: 56px;
+  font-size: 39px;
   margin: 10px;
+  font-weight:600;
 }
 .quick-menu > h4 {
   font-size: var(--font-micro);

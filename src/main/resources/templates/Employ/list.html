@@ -74,11 +74,11 @@
                     type="text"
                     class="search form-control"
                     id="s_title"
-                    value="제목"
+                    value="검색어를 입력하세요"
                     maxlength="15"
                     name="keywords"
-                    th:value="${pageRequestDTO.keyword}"
                     style="margin-right:5px;"
+                    onclick="empty(this)"
             /><!--제목-->
 
             <input style="display:none;"
@@ -171,107 +171,107 @@
               </span>
             <button class="btn btn-outline-secondary btn-search" type="button"><h2>search</h2></button>
 
-            <div class="employListHead">
-              <input type="hidden" name="page" value="1" />
-<!--              <div id="search">-->
-<!--                <input-->
-<!--                  type="text"-->
-<!--                  class="search form-control"-->
-<!--                  id="s_title"-->
-<!--                  value="제목"-->
-<!--                  maxlength="15"-->
-<!--                  name="keywords"-->
-<!--                  th:value="${pageRequestDTO.keyword}"-->
-<!--                />&lt;!&ndash;제목&ndash;&gt;-->
+<!--            <div class="employListHead">-->
+<!--              <input type="hidden" name="page" value="1" />-->
+<!--&lt;!&ndash;              <div id="search">&ndash;&gt;-->
+<!--&lt;!&ndash;                <input&ndash;&gt;-->
+<!--&lt;!&ndash;                  type="text"&ndash;&gt;-->
+<!--&lt;!&ndash;                  class="search form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;                  id="s_title"&ndash;&gt;-->
+<!--&lt;!&ndash;                  value="제목"&ndash;&gt;-->
+<!--&lt;!&ndash;                  maxlength="15"&ndash;&gt;-->
+<!--&lt;!&ndash;                  name="keywords"&ndash;&gt;-->
+<!--&lt;!&ndash;                  th:value="${pageRequestDTO.keyword}"&ndash;&gt;-->
+<!--&lt;!&ndash;                />&lt;!&ndash;제목&ndash;&gt;&ndash;&gt;-->
 
-<!--                <input-->
-<!--                  type="text"-->
-<!--                  class="search form-control"-->
-<!--                  name="keywords"-->
-<!--                  id="s_corp"-->
-<!--                  value="기업명"-->
-<!--                  maxlength="20"-->
-<!--                  th:value="${pageRequestDTO.keyword}"-->
-<!--                />&lt;!&ndash;기업명&ndash;&gt;-->
+<!--&lt;!&ndash;                <input&ndash;&gt;-->
+<!--&lt;!&ndash;                  type="text"&ndash;&gt;-->
+<!--&lt;!&ndash;                  class="search form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;                  name="keywords"&ndash;&gt;-->
+<!--&lt;!&ndash;                  id="s_corp"&ndash;&gt;-->
+<!--&lt;!&ndash;                  value="기업명"&ndash;&gt;-->
+<!--&lt;!&ndash;                  maxlength="20"&ndash;&gt;-->
+<!--&lt;!&ndash;                  th:value="${pageRequestDTO.keyword}"&ndash;&gt;-->
+<!--&lt;!&ndash;                />&lt;!&ndash;기업명&ndash;&gt;&ndash;&gt;-->
 
-<!--                <select-->
-<!--                  name="keywords"-->
-<!--                  class="search form-control"-->
-<!--                  id="s_ot"-->
-<!--                  onclick="searchVal('ot')"-->
-<!--                >-->
-<!--                  &lt;!&ndash;직종&ndash;&gt;-->
-<!--                  <option>직종</option>-->
-<!--                  <option value="경영·회계·사무 관련직">경영·회계·사무 관련직</option>-->
-<!--                  <option value="금융·보험 관련직">금융·보험 관련직</option>-->
-<!--                  <option value="교육관련직">교육관련직</option>-->
-<!--                  <option>보건·의료 관련직</option>-->
-<!--                  <option>사회복지 관련직</option>-->
-<!--                  <option>문화·예술·디자인·방송 관련직</option>-->
-<!--                  <option>운전 및 운송 관련직</option>-->
-<!--                  <option>영업 및 판매 관련직</option>-->
-<!--                  <option>미용·숙박·여행·오락·스포츠 관련직</option>-->
-<!--                  <option>음식 서비스 관련직</option>-->
-<!--                  <option>건설 관련직</option>-->
-<!--                  <option>기계 관련직</option>-->
-<!--                  <option>전기·전자 관련직</option>-->
-<!--                  l-->
-<!--                  <option>정보통신 관련직</option>-->
-<!--                  <option>섬유 및 의복 관련직</option>-->
-<!--                  <option>농림어업 관련직</option>-->
-<!--                  <option>경비 및 청소 관련직</option>-->
-<!--                  <option>환경·인쇄·목재·가구·공예 및 생산단순직</option>-->
-<!--                  <option>군인, 경찰, 소방, 교도 관련직</option>-->
-<!--                </select>-->
+<!--&lt;!&ndash;                <select&ndash;&gt;-->
+<!--&lt;!&ndash;                  name="keywords"&ndash;&gt;-->
+<!--&lt;!&ndash;                  class="search form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;                  id="s_ot"&ndash;&gt;-->
+<!--&lt;!&ndash;                  onclick="searchVal('ot')"&ndash;&gt;-->
+<!--&lt;!&ndash;                >&ndash;&gt;-->
+<!--&lt;!&ndash;                  &lt;!&ndash;직종&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>직종</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option value="경영·회계·사무 관련직">경영·회계·사무 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option value="금융·보험 관련직">금융·보험 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option value="교육관련직">교육관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>보건·의료 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>사회복지 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>문화·예술·디자인·방송 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>운전 및 운송 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>영업 및 판매 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>미용·숙박·여행·오락·스포츠 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>음식 서비스 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>건설 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>기계 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>전기·전자 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  l&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>정보통신 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>섬유 및 의복 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>농림어업 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>경비 및 청소 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>환경·인쇄·목재·가구·공예 및 생산단순직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>군인, 경찰, 소방, 교도 관련직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                </select>&ndash;&gt;-->
 
-<!--                <select-->
-<!--                  name="keywords"-->
-<!--                  class="search form-control"-->
-<!--                  id="s_ep"-->
-<!--                  onchange="searchVal('ep')"-->
-<!--                >-->
-<!--                  &lt;!&ndash;고용구분&ndash;&gt;-->
-<!--                  <option>고용구분</option>-->
-<!--                  <option>정규직</option>-->
-<!--                  <option>계약직</option>-->
-<!--                  <option>아르바이트</option>-->
-<!--                  <option>인턴</option>-->
-<!--                  <option>파견직</option>-->
-<!--                  <option>병역특례</option>-->
-<!--                  <option>해외취업</option>-->
-<!--                </select>-->
+<!--&lt;!&ndash;                <select&ndash;&gt;-->
+<!--&lt;!&ndash;                  name="keywords"&ndash;&gt;-->
+<!--&lt;!&ndash;                  class="search form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;                  id="s_ep"&ndash;&gt;-->
+<!--&lt;!&ndash;                  onchange="searchVal('ep')"&ndash;&gt;-->
+<!--&lt;!&ndash;                >&ndash;&gt;-->
+<!--&lt;!&ndash;                  &lt;!&ndash;고용구분&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>고용구분</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>정규직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>계약직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>아르바이트</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>인턴</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>파견직</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>병역특례</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>해외취업</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                </select>&ndash;&gt;-->
 
-<!--                <select-->
-<!--                  name="keywords"-->
-<!--                  class="search form-control"-->
-<!--                  id="s_shape"-->
-<!--                  onchange="searchVal('shape')"-->
-<!--                >-->
-<!--                  &lt;!&ndash;기업형태&ndash;&gt;-->
-<!--                  <option>기업구분</option>-->
-<!--                  <option>대기업</option>-->
-<!--                  <option>중견기업</option>-->
-<!--                  <option>중소기업</option>-->
-<!--                </select>-->
+<!--&lt;!&ndash;                <select&ndash;&gt;-->
+<!--&lt;!&ndash;                  name="keywords"&ndash;&gt;-->
+<!--&lt;!&ndash;                  class="search form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;                  id="s_shape"&ndash;&gt;-->
+<!--&lt;!&ndash;                  onchange="searchVal('shape')"&ndash;&gt;-->
+<!--&lt;!&ndash;                >&ndash;&gt;-->
+<!--&lt;!&ndash;                  &lt;!&ndash;기업형태&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>기업구분</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>대기업</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>중견기업</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <option>중소기업</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                </select>&ndash;&gt;-->
 
-<!--                <input type="hidden" name="keywords " id="sido_keywords" value="" />-->
-<!--                <input type="hidden" name="keywords" id="gugun_keywords" value="" />-->
+<!--&lt;!&ndash;                <input type="hidden" name="keywords " id="sido_keywords" value="" />&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="hidden" name="keywords" id="gugun_keywords" value="" />&ndash;&gt;-->
 
-<!--                <select-->
-<!--                  name="sido"-->
-<!--                  class="search form-control"-->
-<!--                  id="s_area"-->
-<!--                  onchange="searchVal('area')"-->
-<!--                ></select-->
-<!--                >&lt;!&ndash;근무지역&ndash;&gt;-->
-<!--                <select-->
-<!--                  name="gugun"-->
-<!--                  class="search form-control"-->
-<!--                  id="s_detailArea"-->
-<!--                  onchange="searchVal('area')"-->
-<!--                ></select>-->
-<!--              </div>-->
-            </div>
+<!--&lt;!&ndash;                <select&ndash;&gt;-->
+<!--&lt;!&ndash;                  name="sido"&ndash;&gt;-->
+<!--&lt;!&ndash;                  class="search form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;                  id="s_area"&ndash;&gt;-->
+<!--&lt;!&ndash;                  onchange="searchVal('area')"&ndash;&gt;-->
+<!--&lt;!&ndash;                ></select&ndash;&gt;-->
+<!--&lt;!&ndash;                >&lt;!&ndash;근무지역&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <select&ndash;&gt;-->
+<!--&lt;!&ndash;                  name="gugun"&ndash;&gt;-->
+<!--&lt;!&ndash;                  class="search form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;                  id="s_detailArea"&ndash;&gt;-->
+<!--&lt;!&ndash;                  onchange="searchVal('area')"&ndash;&gt;-->
+<!--&lt;!&ndash;                ></select>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--            </div>-->
 
             <!--        <div class="input-group">-->
             <!--          <div id="dummy">-->

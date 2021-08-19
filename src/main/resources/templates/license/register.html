@@ -80,44 +80,46 @@
 
                             <input type="hidden" name="user_id" th:value="${user_id}">
 
-                            <div id="board_title">
+                            <div id="board_title" style="width:100%">
                                 <!-- <i class="far fa-address-card" style="font-size: 28px;"></i> -->
                                 <h2>자격증 등록</h2>
                             </div>
                             <div id="inputWrap" style="width:100%;">
-                                <div class="inputBox">
+                                <div class="inputBox" style="margin:10px 0px;">
                                     <label class="formLabel" for="">자격종류</label>
-                                    <select name="lic_type"   style="height:50px; width:150px;" required>
+                                    <select name="lic_type"   style="height:50px; width:80%" required>
                                         <option value="">자격선택</option>
                                         <option value="(국가)">국가자격증</option>
                                         <option value="(민간)">민간자격증</option>
                                     </select>
                                     
                                 </div>
-                                <div class="inputBox" style="width: 80%">
+                                <div class="inputBox" style="margin:10px 0px; width: 100% ">
                                     <label class="formLabel" for="">자격증 명</label>
-                                    <input class="formInput" name="lic_name" id="certificateName" type="text"   required>
+                                    <input class="formInput" name="lic_name" id="certificateName" type="text"  style="width: 80%" required>
                                 </div>
-                                <div class="inputBox" style="width: 80%">
+                                <div class="inputBox" style="margin:10px 0px; width: 100%">
                                     <label class="formLabel" for="">자격번호</label>
-                                    <input class="formInput" name="lic_num"  type="text"   required>
+                                    <input class="formInput" name="lic_num"  type="text" style="width: 80%"  required>
                                 </div>
-                                <div class="inputBox" style="width: 80%">
+                                <div class="inputBox" style="margin:10px 0px; width: 100%">
                                     <label class="formLabel" for="">발급기관</label>
-                                    <input class="formInput" name="lic_agency"  type="text"  required>
+                                    <input class="formInput" name="lic_agency"  type="text" style="width: 80%" required>
                                 </div>
-                                <div class="inputBox" style="margin-top:20px">
+                                <div class="inputBox" style="margin-top:20px; width:100%">
                                     <label class="formLabel" for="">취득일</label>
-                                    <input class="formInput" name="lic_date" id="certificateDate" type="date" style="width: 150px"  required>
+                                    <input class="formInput" name="lic_date" id="certificateDate" type="date" style="width: 35%"  required>
                                 </div>
-                                <div class="inputBox" style="margin-top:20px">
+                                <div class="inputBox" style="margin-top:20px; width:100% ">
                                     <label class="formLabel" for="">만료일</label>
-                                    <input class="formInput" name="lic_due_date" id="certificateEndDate" type="date" style="width:150px"  required>
+                                    <input class="formInput" name="lic_due_date" id="certificateEndDate" type="date" style="width:35%"  required>
                                 </div>
                             </div>
 
                             <div class="base_button_wrap" style="margin-bottom: 20px;">
-                                <button id="licenseReg" class="base_button">작성완료</button>
+                                <button id="licenseReg" class="base_button" style="background-color: #1f3786d5;    width: 130px;
+    height: 35px; border: 1px solid #1f3786d5;     font-size: 13px;
+    font-weight: 300;">작성완료</button>
                             </div>
 
                         </form>

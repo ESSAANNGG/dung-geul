@@ -27,7 +27,7 @@
   <main>
     <div class="background">
       <div class="intro">
-        <h2>영진전문대학교는 취업의 격이 다릅니다.</h2>
+        <h2><span style="color:#00a9ff; border-bottom: 1px solid #00a9ff;">영진전문대학교</span>는 취업의 격이 다릅니다.</h2>
         <h1 class="intro_center">취업정보센터</h1>
       </div>
     </div>
@@ -79,6 +79,7 @@
         position: relative;
         width: 480px;
         line-height: 200%;
+        border-right:2px solid #d0d1d1;
         ">
         <h3 style="
             font-size: 25px;
@@ -99,40 +100,23 @@
     </div>
 
     <div class="photo-wrap">
-      <h3 style="
-    position: absolute;
-    color: #333;
-    font-size: 1.8rem;
-    background: #fff;
-    font-weight: 900;
-    bottom: 103%;
-    text-align: center;
-">찾아오시는 길 ></h3>
-      <div id="map"></div>
-      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6bedd5138f8242cf46657c82fbad435">
-      </script>
-      <script>
-        var container = document.getElementById('map');
-        var options = {
-          center: new kakao.maps.LatLng(35.8962829149084, 128.621804325442),
-          level: 3
-        };
-
-        var map = new kakao.maps.Map(container, options);
-      </script>
-      <div class="impression">
-        <a href="https://www.work.go.kr/jobMain.do"><img src="/img/job_infomation.png" width="400px" height="438px" target="_blank"></a>
+      <div class="impression" style="width:470px; margin:0px 7px">
+        <a href="https://www.work.go.kr/empSpt/empTrend/empTrend.do" target="_blank"><img src="/img/채용트렌드.jpg"  style="width:470px; height:370px"></a>
+      </div>
+      <div class="impression"  style="width:470px; margin:0px 7px">
+        <a href="https://www.work.go.kr/consltJobCarpa/jobPsyExam/jobPsyExamIntro.do" target="_blank"><img src="/img/job_infomation.png" style="width:470px; height:370px"></a>
       </div>
       <div class="chi" style="
     display: grid;
     padding-bottom: 10px;
-    margin-left: 11px;
+    width:470px;
+    margin:0px 7px;
 ">
         <a href="http://www.newsnjob.com/news/articleList.html?sc_section_code=S1N1&view_type=sm" target="_blank">
-          <img src="/img/chi1.png" style="padding-bottom: 10px;">
+          <img src="/img/chi1.png" style="padding-bottom: 10px; width:470px; height:184.5px">
         </a>
         <a href="http://www.newsnjob.com/news/articleList.html?sc_section_code=S1N2&view_type=sm" target="_blank">
-          <img src="/img/chang1.png">
+          <img src="/img/chang1.png" style="width:470px; height:184.5px;">
         </a>
       </div>
     </div>
