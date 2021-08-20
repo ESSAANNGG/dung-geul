@@ -4,10 +4,8 @@
 
 #cv_before {
   background-color: #eff5ff;
-  height: 200px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  height: 110px;
+text-align: center;
 }
 
 #register {

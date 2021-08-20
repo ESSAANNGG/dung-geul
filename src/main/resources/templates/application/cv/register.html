@@ -97,7 +97,7 @@
 
 
 
-            <section class="form" id="경력사항">
+            <section class="form" id="경력사항" style="display:none;">
               <p class="legend">경력사항</p>
               <div class="info">
                 <div class="common_div width-280" style="padding:0px;">
@@ -871,13 +871,15 @@
                   </button>
                 </div>
                 <div>
+                </div>
               </section>
+
             </div>
 
 
 
 
-            <section class="form" id="hopeCondition">
+            <section class="form" id="hopeCondition" style="display: none;">
               <p class="legend">희망조건</p>
               <div class="info">
                 <div class="common_div width-410">
@@ -915,8 +917,8 @@
               </button>
 
             </li>
-            <li>
-              <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fab fa-dribbble"></i>
+            <li style="display:none;">
+              <i style="font-size: 20px; color:rgb(182, 176, 176); display: none;" class="fab fa-dribbble"></i>
               <span>취미•특기</span>
               <button type="button" id="btn2"><i id="hobbyPlus" style="font-size:25px;"
                   class="fas fa-plus-circle"></i></button>
@@ -934,7 +936,7 @@
               <button type="button" id="btn4"><i id="milPlus" style="font-size:25px; "
                   class="fas fa-plus-circle"></i></button>
             </li>
-            <li>
+            <li style="display:none;">
               <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-users"></i>
               <span>가족사항</span>
               <button type="button" id="btn5"><i id="familPlus" style="font-size:25px;"
@@ -973,6 +975,16 @@
   </script>
   <script src="/js/cv.js"></script>
   <script defer src="/js/s1_index.js"></script>
+  <script>
+    window.onload = function(){
+      $("#btn1").trigger("click");
+      $("#btn3").trigger("click");
+      $("#btn4").trigger("click");
+      $("#btn6").trigger("click");
+      $("#btn7").trigger("click");
+    }
+
+  </script>
 </body>
 
 </html>

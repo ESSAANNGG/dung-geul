@@ -4,6 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <title>이력서</title>
+  <style>
+    h4{
+      height:28px;
+    }
+    .tag{
+      font-weight:600;
+    }
+  </style>
 </head>
 
 <body>
@@ -61,176 +69,133 @@
         </a>
         
       </div>
-      <div class="cv">
-        <div id="header">
-          <div class="contactDetails">
-            <ul>
-              <li class="icon" title="Kirjuta mulle!">
-                <a th:href="${cv.getUser_email()}"><i
-                    class="fa fa-envelope">&nbsp;&nbsp;</i>[[${cv.getUser_email()}]]</a>
-              </li>
-              <li class="icon" title="Helista mulle!">
-                <a th:href="${cv.getUser_hp()}"><i class="fa fa-phone"
-                    aria-hidden="true"></i>&nbsp;&nbsp;[[${cv.getUser_hp()}]]</a>
-              </li>
-            </ul>
+      <div class="cv" style="">
+
+        <div class="mainDetails" style="padding:50px 8mm 0 8mm">
+          <h4 class="tag" style="font-size:18px; margin-bottom:7px;">기본정보</h4>
+          <div style="border-bottom: 1.5px solid black; width:100%;">
+            <div style="display:flex; border-bottom:1px solid black; width:100%; border-top:1.5px solid black;" >
+              <span class="tag" style="border-right:1px solid black; width:15%; text-align: center" ><h4>성명(국문)</h4></span>
+              <span style="border-right:1px solid black; width:35%; padding-left:10px;"><h4>[[${cv.getUser_name}]]</h4></span>
+              <span class="tag"  style="border-right:1px solid black; width:15%; text-align: center"><h4>성명(영문)</h4></span>
+              <span style="width:35%; padding-left:10px;" ><h4>[[${cv.getName_china()}]]</h4></span>
+            </div>
+            <div style="display:flex; width:100%; border-bottom:1px solid black;" >
+              <span class="tag"  style="border-right:1px solid black; width:15%; text-align: center" ><h4>생년월일</h4></span>
+              <span style="border-right:1px solid black; width:35%; padding-left:10px;"><h4>[[${cv.getBirth()}]]</h4></span>
+              <span class="tag"  style="border-right:1px solid black; width:15%; text-align: center"><h4>연락처</h4></span>
+              <span style="width:35%; padding-left:10px;"><h4>[[${cv.getUser_hp()}]]</h4></span>
+            </div>
+            <div style="display:flex; width:100%; border-bottom:1px solid black;">
+              <span class="tag"  style="border-right:1px solid black; width:14.7%; text-align: center" ><h4>이메일</h4></span>
+              <span style=" width:85%; padding-left:10px;"><h4>[[${cv.getUser_email()}]]</h4></span>
+            </div>
+            <div style="display:flex; width:100%; border-bottom:1px solid black;">
+              <span class="tag"  style="border-right:1px solid black; width:14.7%; text-align: center" ><h4>주소</h4></span>
+              <span style=" width:85%; padding-left:10px;"><h4>[[${cv.getAddr()}]]</h4></span>
+            </div>
+            <div style="display:flex; width:100%"  th:if="${cv.getCv_verteran()} != null">
+              <span class="tag"  style="border-right:1px solid black; width:14.7%; text-align: center" ><h4>보훈대상</h4></span>
+              <span style=" width:17.5%; border-right:1px solid black; padding-left:10px;"><h4><span th:if="${cv.getCv_verteran()} == 0 ">비대상</span><span th:if="${cv.getCv_verteran()} == 1 ">대상</span></h4></span>
+              <span class="tag"  style="border-right:1px solid black; width:14.7%; text-align: center" ><h4>장애</h4></span>
+              <span style=" width:17.5%; border-right:1px solid black; padding-left:10px;"><h4><span th:if="${cv.getCv_disability()} == 0 ">비대상</span><span th:if="${cv.getCv_disability()} == 1 ">대상</span>&nbsp;&nbsp;<span th:text="${cv.getCv_disability_degree()}"></h4></span>
+              <span class="tag"  style="border-right:1px solid black; width:14.7%; text-align: center" ><h4>병역</h4></span>
+              <span style=" width:17.5%; padding-left:10px;"><h4><span th:if="${cv.getCv_military() == 0}">해당사항 없음</span><span th:if="${cv.getCv_military() == 1}" th:text="${cv.getMilitaryServiceClassification()}"></span></h4></span>
+            </div>
           </div>
-        </div>
-        <div class="mainDetails">
-          <!-- 	<div id="headshot">
-								<img id="avatar" src="https://visualangle.ee/delivery/temp_image/icon.png" alt="Margus Lillemagi" title="See olen mina" />
-							</div> -->
-          <div id="name">
-            <h1>[[${cv.getUser_name}]]<h2>&nbsp[[${cv.getName_china()}]]</h2>
-              </h2><br /><span class="nameDetails">&nbsp;&nbsp;[[${cv.getUser_age()}]]세.
-                [[${cv.getBirth()}]]<br>&nbsp;&nbsp;[[${cv.getAddr()}]]</span></h1>
-          </div>
-          <div class="clear"></div>
+
+
         </div>
         <div id="mainArea">
-          <section th:if="${cv.getCareer()} != null" style="margin-bottom: 10px;">
-            <article>
-              <div class="sectionTitle">
-                <h1 style="font-weight: 600; margin-top:5%;">경력사항</h1>
-              </div>
-              <div class="sectionContent">
-                <div style="display: inline-flex;" th:each="item, i : ${cv.getCareer()}">
-                  <div style="text-align: center; min-width: 120px;">
-                    <span class="bold" th:text="${item.getCr_etp_name()}">삼성전자</span><br>
-                    <span class="subDetails">[[${item.getCr_employment()}]]</span><span>-</span><span class="subDetails">[[${item.getCr_resignation()}]]</span>
-                  </div>
-                  <div style="width: 100%; padding-left: 100px;">
-                    <div>
-                      <ul class="list">
-                        <li th:text="${item.getCr_position()}">대리</li>
-                        <li th:text="${item.getSalary()} + '만원'">연봉</li>
-                        <li th:text="${item.getCr_task()}">Lorem ipsum dolor sit amet </li>
-                        <li th:text="${item.getCr_task2()}">Lorem ipsum dolor sit ame.</li>
-                        <li th:text="${item.getReason_resign()}">Lorem ipsum dolor sit amet </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+
+          <section th:if="${cv.getEducation()} != null" style="margin-bottom: 10px;">
+
+            <h4 class="tag" style="font-size:18px; margin-bottom:7px;">학력사항</h4>
+
+            <div style="border-bottom: 1.5px solid black; border-top:1.5px solid black; width:100%;">
+              <div style="display:flex; width:100%; border-bottom:1px solid black; color:#ffffff;" >
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>재학기간</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:30%; text-align: center; background-color: #09529b;" ><h4>학교명</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>전공 및 수료과목</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:15%; text-align: center; background-color: #09529b;" ><h4>상태</h4></span>
+                <span class="tag"  style="width:15%; text-align: center; background-color: #09529b;" ><h4>학점</h4></span>
               </div>
 
-            </article>
-            <div class="clear"></div>
-          </section>
-          <section th:if="${cv.getEducation()} != null" style="margin-bottom: 10px;">
-            <div class="sectionTitle">
-                <h1 style="font-weight: 600; margin-top: 2%;">학력사항</h1>
+              <div style="display:flex; width:100%; border-bottom:1px solid black;" th:each="item : ${cv.getEducation()}" >
+                <span style=" width:20.00%;  border-right:1px solid black;"><h4 style="text-align: center; width:100%;">[[${item.getDateStart()}]] - [[${item.getDateEnd()}]]</h4></span>
+                <span style=" width:30%;  border-right:1px solid black;"><h4 style="padding-left:10px; width:100%;">[[${item.getEdc_school()}]]</h4></span>
+                <span style=" width:20%;  border-right:1px solid black;"><h4 style="padding-left:10px; width:100%;">[[${item.getDept()}]]</h4></span>
+                <span style=" width:15%;  border-right:1px solid black;"><h4 style="text-align: center; width:100%;">[[${item.getGraduated()}]]</h4></span>
+                <span style=" width:15%; "><h4 style="text-align: center; width:100%;">[[${item.getPs()}]]</h4></span>
               </div>
-              <div class="sectionContent">
-                <div style="min-width: 100%; display: inline-flex;" th:each="item : ${cv.getEducation()}">
-                  <div style="text-align: center; min-width: 120px;">
-                    <span class="bold" th:text="${item.getSchoolType()}">학교구분</span><br>
-                    <span class="bold" th:text="${item.getEdc_school()}">영진전문대학교</span><br>
-                    <span class="subDetails">[[${item.getDateStart()}]]</span><span>-</span><span class="subDetails">[[${item.getDateEnd()}]]</span>
-                    <span class="subDetails">
-                  </div>
-                  <div style="width: 100%; padding-left: 100px;">
-                    <div>
-                      <ul class="list">
-                        <li th:text="${item.getDept()}">전공</li>
-                        <li th:text="${item.getGpa()}">학위</li>
-                        <li th:text="${item.getGraduated()}">졸업상태</li>
-                        <li th:text="${item.getPs()}">학점 </li>
-                    
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+            </div>
+          </section>
+
+
+          <section th:if="${cv.getAwards()} != null" style="margin-bottom: 10px; border-top:0px solid black;">
+
+            <h4 class="tag" style="font-size:18px; margin-bottom:7px;">수상경력</h4>
+
+            <div style="border-bottom: 1.5px solid black; border-top:1.5px solid black; width:100%;">
+              <div style="display:flex; width:100%; border-bottom:1px solid black; color:#ffffff;" >
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>수상일자</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>수상명</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:40%; text-align: center; background-color: #09529b;" ><h4>내용</h4></span>
+                <span class="tag"  style="width:20%; text-align: center; background-color: #09529b;" ><h4>기관</h4></span>
               </div>
-            <div class="clear"></div>
+
+              <div style="display:flex; width:100%; border-bottom:1px solid black;" th:each="item : ${cv.getAwards()}" >
+                <span style=" width:20%;  border-right:1px solid black;"><h4 style="text-align: center; width:100%;">[[${item.getAwards_date}]]</h4></span>
+                <span style=" width:20%;  border-right:1px solid black;"><h4 style="padding-left:10px; width:100%;">[[${item.getAwards_des()}]]</h4></span>
+                <span style=" width:40%;  border-right:1px solid black;"><h4 style="padding-left:10px; width:100%;">[[${item.getAward_contents}]]</h4></span>
+                <span style=" width:20%; "><h4 style="padding-left:10px; width:100%;">[[${item.getAwards_agency()}]]</h4></span>
+              </div>
+            </div>
           </section>
-          <section th:if="${cv.getCv_hobby()} != null">
-            <div class="sectionTitle">
-              <h1 style="font-weight: 600; margin-top: 2%;">취미•특기</h1>
+
+
+          <section th:if="${cv.getCertificate()} != null" style="margin-bottom: 10px; border-top:0px solid black;">
+
+            <h4 class="tag" style="font-size:18px; margin-bottom:7px;">자격증</h4>
+
+            <div style="border-bottom: 1.5px solid black; border-top:1.5px solid black; width:100%;">
+              <div style="display:flex; width:100%; border-bottom:1px solid black; color:#ffffff;" >
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>취득일자</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:40%; text-align: center; background-color: #09529b;" ><h4>자격증명</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>자격번호</h4></span>
+                <span class="tag"  style="width:20%; text-align: center; background-color: #09529b;" ><h4>기관</h4></span>
+              </div>
+
+              <div style="display:flex; width:100%; border-bottom:1px solid black;" th:each="item : ${cv.getCertificate()}">
+                <span style=" width:20%;  border-right:1px solid black;"><h4 style="text-align: center; width:100%;">[[${item.getLic_date()}]]</h4></span>
+                <span style=" width:40%;  border-right:1px solid black;"><h4 style="padding-left:10px; width:100%;">[[${item.getLic_name()}]]</h4></span>
+                <span style=" width:20%;  border-right:1px solid black;"><h4 style="text-align: center; width:100%;">[[${item.getLic_num()}]]</h4></span>
+                <span style=" width:20%; "><h4 style="padding-left:10px; width:100%;">[[${item.getLic_agency()}]]</h4></span>
+              </div>
             </div>
-            <div class="sectionContent">
-              <ul class="list">
-                <li style="margin-bottom:10px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;[[${cv.getCv_hobby()}]]</li>
-                <li style="margin-bottom:10px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;[[${cv.getCv_specialty()}]]</li>
-              </ul>
-            </div>
-            <div class="clear"></div>
           </section>
-          <section th:if="${cv.getAwards()} != null">
-            <div class="sectionTitle">
-              <h1 style="font-weight: 600; margin-top: 2%;">수상경력</h1>
+
+          <section th:if="${cv.getLanguage()} != null" style="margin-bottom: 10px; border-top:0px solid black;">
+
+            <h4 class="tag" style="font-size:18px; margin-bottom:7px;">어학능력</h4>
+
+            <div style="border-bottom: 1.5px solid black; border-top:1.5px solid black; width:100%;">
+              <div style="display:flex; width:100%; border-bottom:1px solid black; color:#ffffff;" >
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>취득일자</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>시험종류</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>점수</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>급수</h4></span>
+                <span class="tag"  style="width:20%; text-align: center; background-color: #09529b;" ><h4>외국어명</h4></span>
+              </div>
+
+              <div style="display:flex; width:100%; border-bottom:1px solid black;" th:each="item : ${cv.getLanguage()}">
+                <span style=" width:20%;  border-right:1px solid black;"><h4 style="text-align: center; width:100%;">[[${item.getFl_date()}]]</h4></span>
+                <span style=" width:20%;  border-right:1px solid black;"><h4 style="padding-left:10px; width:100%;">[[${item.getFl_name()}]]</h4></span>
+                <span style=" width:20%;  border-right:1px solid black;"><h4 style="text-align: center; width:100%;">[[${item.getFl_score()}]]</h4></span>
+                <span style=" width:20%;  border-right:1px solid black;"><h4 style="text-align: center; width:100%;">[[${item.getFl_rank()}]]</h4></span>
+                <span style=" width:20%; "><h4 style="text-align: center; width:100%;">[[${item.getFl_language()}]]</h4></span>
+              </div>
             </div>
-            <div class="sectionContent">
-              <ul class="list">
-                <li style="margin-bottom:10px;" th:each="item : ${cv.getAwards()}">
-                  <span class="subDetails">[[${item.getAwards_date}]]</span><span class="subDetails">-</span><span class="subDetails">[[${item.getAwards_des()}]].&nbsp;&nbsp;</span><span class="bold" th:text="${item.getAwards_agency()}">수여기관</span> - [[${item.getAward_contents}]]
-                </li>
-              </ul>
-            </div>
-            <div class="clear"></div>
-          </section>
-          <section th:if="${cv.getCv_verteran()} != null">
-            <div class="sectionTitle">
-              <h1 style="font-weight: 600; margin-top: 2%;">우대사항•병역</h1>
-            </div>
-            <div class="sectionContent">
-              <ul class="list">
-                <li style="margin-bottom:10px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;보훈대상&nbsp;&nbsp;<i style="color:#d5d8e4;" class="fas fa-grip-lines-vertical"></i>&nbsp;&nbsp;<span th:if="${cv.getCv_verteran()} == 0 ">비대상</span><span th:if="${cv.getCv_verteran()} == 1 ">대상</span></li>
-                <li style="margin-bottom:10px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;장애&nbsp;&nbsp;<i  style="color:#d5d8e4;" class="fas fa-grip-lines-vertical">&nbsp;&nbsp;</i><span th:if="${cv.getCv_disability()} == 0 ">비대상</span><span th:if="${cv.getCv_disability()} == 1 ">대상</span>&nbsp;&nbsp;<span th:text="${cv.getCv_disability_degree()}"></span></li>
-                <li style="margin-bottom:10px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;병역&nbsp;&nbsp;<i  style="color:#d5d8e4;" class="fas fa-grip-lines-vertical">&nbsp;&nbsp;</i><span th:if="${cv.getCv_military() == 0}">해당사항 없음</span><span th:if="${cv.getCv_military() == 1}" th:text="${cv.getMilitaryServiceClassification()}"></span></li>
-              </ul>
-            </div>
-            <div class="clear"></div>
-          </section>
-          <section  th:if="${cv.getFamily()} != null">
-            <div class="sectionTitle">
-              <h1 style="font-weight: 600; margin-top: 2%;">가족사항</h1>
-            </div>
-            <div class="sectionContent">
-              <ul class="list">
-                <li style="margin-bottom:10px;"th:each="item : ${cv.getFamily()}">
-                  <span class="subDetails">[[${item.getFam_relation()}]] - [[${item.getFam_name()}]].&nbsp;&nbsp;</span><span class="bold">[[${item.getFam_age()}]]</span>.&nbsp;&nbsp;</span><span class="bold">[[${item.getFam_birth()}]]</span>.&nbsp;&nbsp;</span><span class="bold">[[${item.getFam_living()}]]</span>
-                </li>    
-              </ul>
-            </div>
-            <div class="clear"></div>
-          </section>
-          <section th:if="${cv.getCertificate()} != null">
-            <div class="sectionTitle">
-              <h1 style="font-weight: 600; margin-top: 2%;">자격증</h1>
-            </div>
-            <div class="sectionContent">
-              <ul class="list">
-                <li style="margin-bottom:10px;" th:each="item : ${cv.getCertificate()}">
-                  <span class="subDetails" th:text="${item.getLic_date()}"></span><span>-</span><span class="subDetails" th:text="${item.getLic_due_date()}"></span><span>-</span><span class="subDetails" th:text="${item.getLic_type()}"></span><span class="subDetails" th:text="${item.getLic_name()}"></span>.&nbsp;&nbsp;<span class="bold">[[${item.getLic_agency()}]].&nbsp;&nbsp;</span><span>[[${item.getLic_num()}]]</span>
-                </li>
-              </ul>
-            </div>
-            <div class="clear"></div>
-          </section>
-          <section th:if="${cv.getLanguage()} != null">
-            <div class="sectionTitle">
-              <h1 style="font-weight: 600; margin-top: 2%;">어학능력</h1>
-            </div>
-            <div class="sectionContent">
-              <ul class="list">
-                <li style="margin-bottom:10px;" th:each="item : ${cv.getLanguage()}">
-                  <span class="subDetails">[[${item.getFl_date()}]]</span><span>-</span><span class="subDetails" th:text="'('+${item.getFl_language()}+')'"></span><span>[[${item.getFl_name()}]].&nbsp;&nbsp;</span><span class="bold" th:text="'회화('+${item.getFl_conversation()}+')'"></span>.&nbsp;&nbsp;</span><span class="bold" th:text="'독해('+${item.getFl_reading()}+')'"></span>.&nbsp;&nbsp;</span><span class="bold" th:text="'작문('+${item.getFl_writing()}+')'"></span>.&nbsp;&nbsp;</span><span class="bold">[[${item.getFl_score()}]]</span>.&nbsp;&nbsp;</span><span class="bold">[[${item.getFl_rank()}]]</span>
-                </li>
-              </ul>
-            </div>
-            <div class="clear"></div>
-          </section>
-          <section>
-            <div class="sectionTitle">
-              <h1 style="font-weight: 600; margin-top: 2%;">희망조건</h1>
-            </div>
-            <div class="sectionContent">
-              <ul class="list">
-                <li style="margin-bottom:10px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;[[${cv.getSec_of_exam()}]]</li>
-                <li style="margin-bottom:10px;"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span th:if="${cv.getDesired_salary() != null}">[[ ${cv.getDesired_salary() == "" ? "회사내규에 따름" : cv.getDesired_salary()} ]]</span><span th:if="${cv.getDesired_salary() == null}">회사내규에 따름</span></li>
-              </ul>
-            </div>
-            <div class="clear"></div>
           </section>
 
         </div>
