@@ -106,7 +106,7 @@ select{
     transition:background .5s ease-out;
 }
 .employListPost > li:hover{
-    background-color: #2063af0e;
+    background-color: #4094f330;
     border-bottom:2px solid #2062af;
 }
 /*각 리스트에서의 콘텐츠들(제목/내용/...)*/

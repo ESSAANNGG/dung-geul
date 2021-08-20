@@ -6,12 +6,17 @@
 }
 .table-type {
     border-collapse: collapse;
-    border: 1px solid #cccccc;
+    border: 0.5px solid black;
 }
 
 tr, th, td {
     text-align: center;
     font-size: 14px;
     padding: 5px 5px;
-    border: 1px solid #7d7d7d;
+    border: 0.5px solid black;
+}
+
+.text_sort{
+    /*display:flex;*/
+    align-items: center;
 }
