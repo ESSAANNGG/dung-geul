@@ -78,7 +78,9 @@ main {
   position: relative;
   opacity: 0.8;
   margin-top:20px;
-  background-color:#363a3c;
+  /*border: 1px solid #363a3c;*/
+  background-color: #ffffff52;
+
 }
 
 .intro > h2,
@@ -91,13 +93,14 @@ h4 {
   font-weight: var(--weight-bold);
   font-size: 20px;
   font-weight:600;
-  color:#ffffff;
+  color:black;
   margin-bottom:20px;
 }
 .intro > h1 {
   font-size: 39px;
   margin: 10px;
   font-weight:600;
+  text-shadow: 2px 2px 1px #bfa584;
 }
 .quick-menu > h4 {
   font-size: var(--font-micro);

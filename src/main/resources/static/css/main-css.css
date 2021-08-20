@@ -4,7 +4,7 @@ body {
 }
 @media screen and (max-height:1800px){
     .main-wrap {
-        height: 850px !important;
+        height: 920px !important;
     }
 /*    html{*/
 /*        height:initial;*/
@@ -41,9 +41,12 @@ width: 1000px;
     width: 380px;
     border-left: 2px solid #d0d1d1;
     box-sizing: border-box;
-    padding: 5px 25px;
+    padding: 5px 25px 0px 25px;
 }
 .tent {
+    display:flex;
+    align-content: center;
+    border-bottom:0.5px solid #bfbfbf;
     font-size: 15px;
     font-weight: 600;
     text-overflow: ellipsis;
@@ -144,4 +147,22 @@ width: 1000px;
     color: #fff;
     background-color: rgba(49, 49, 49, 0.24);
     padding: 25px;
+}
+.sever{
+    font-size:8px;
+}
+
+.otent a:hover{
+    color: #a5c5bd !important;
+}
+.ttent a:hover{
+    color:#789cd1 !important;
+}
+.tttent a:hover{
+    color: #e6d859 !important;}
+.tent a{
+    width:100%;
+}
+.tent{
+    transition-duration: 0.4s;
 }
