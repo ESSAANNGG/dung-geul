@@ -98,86 +98,6 @@
 
 
 
-            <section class="form" id="경력사항">
-              <p class="legend">경력사항</p>
-              <div class="info">
-                <div class="common_div width-280" style="padding:0px;">
-                  <input class="user_employment" name="user_employment"
-                    th:attr="checked=${cv.getCareer() == null ? 'true' : 'false'}" id="id1" type="radio"
-                    value="0"><label style="cursor: pointer" class="carrer_label" for="id1">신입</label><br />
-                </div>
-                <div class="common_div width-280" style="padding:0px;">
-                  <input class="user_employment" name="user_employment"
-                    th:attr="checked=${cv.getCareer() != null ? 'true' : 'false'}" id="id2" type="radio"
-                    value="1"><label style="cursor: pointer" class="carrer_label" for="id2">경력</label><br />
-                </div>
-                <br />
-              </div>
-              <div id="carrerField" disabled style="display: none;">
-                <div class="item_career" th:each="item, i : ${cv.getCareer()}">
-                  <input type="hidden" name="career[][id]" th:value="${item.getId()}">
-                  <div class="info">
-                    <div class="common_div width-350">
-                      <label class="absolute-label" for="">회사명 <span>*</span></label>
-                      <input class="common_input etp_name" name="career[][cr_etp_name]"
-                        th:value="${item.getCr_etp_name()}" />
-                    </div>
-
-                    <div class="common_div width-200">
-                      <label class="absolute-label" for="">입사일자 <span>*</span></label>
-                      <input class="common_input employment" type="date" name="career[][cr_employment]"
-                        th:value="${item.getCr_employment()}" />
-                    </div>
-                    <div class="common_div width-200">
-                      <label class="absolute-label" for="">퇴사일자 <span>*</span></label>
-                      <input class="common_input resignation" type="date" name="career[][cr_resignation]"
-                        th:value="${item.getCr_resignation()}" />
-                    </div>
-                    <br />
-                    <div class="common_div width-200">
-                      <label class="absolute-label" for="">직위 <span>*</span></label>
-                      <input class="common_input position" type="text" name="career[][cr_position]"
-                        th:value="${item.getCr_position()}" />
-                    </div>
-                    <div class="common_div width-350">
-                      <label class="absolute-label" for="">퇴사사유 </label>
-                      <input class="common_input resign" type="text" name="career[][reason_resign]"
-                        th:value="${item.getReason_resign()}" />
-                    </div>
-                    <div class="common_div width-200">
-                      <label class="absolute-label" for="">연봉 </label>
-                      <input class="money_input2 salary" value="" type="number" name="career[][salary]"
-                        autocomplete="off" th:value="${item.getSalary()}" />
-                      <span style="font-size: 12px">만원</span>
-                    </div>
-                    <div class="common_div width-767">
-                      <label class="absolute-label task">담당업무 </label>
-                      <input class="common_input" th:value="${item.getCr_task()}" name="career[][cr_task]"></input>
-                    </div>
-                    <div class="common_div width-767">
-                      <label class="absolute-label task">담당업무2 </label>
-                      <input class="common_input" name="career[][cr_task2]"></input>
-                    </div>
-
-                  </div>
-                </div>
-                <div class="line_carrer"></div>
-
-
-                <div id="carrerButtonBox" class="buttonBox" style="display:none;">
-                  <button id="add_carrer" class="btn add-more button-yellow uppercase" type="button">
-                    <i class="fas fa-plus-circle"></i>
-                    <span style="font-size: 17px">추가</span>
-                  </button>
-                  <button id="delete_carrer" type="button" class="btn button-white uppercase">
-                    <i class="fas fa-minus-circle"></i>
-                    <span style="font-size: 17px">제거</span>
-                  </button>
-                </div>
-              </div>
-
-
-            </section>
 
 
             <div id="schoolFieldset_main" style="display:none;" disabled>
@@ -460,22 +380,6 @@
               </section>
             </div>
 
-            <div id="hobbyFieldset_main" style="display:none;" disabled>
-              <section class="form" id="취미/특기">
-                <p class="legend">취미•특기</p>
-                <div class="info">
-                  <div class="common_div width-450">
-                    <label class="absolute-label" for="">취미 <span>*</span></label>
-                    <input class="common_input" th:value="${cv.getCv_hobby()}" name="cv_hobby" id="cv_hobby" />
-                  </div>
-                  <div class="common_div width-450">
-                    <label class="absolute-label" for="">특기 <span>*</span></label>
-                    <input class="common_input" type="text" th:value="${cv.getCv_specialty()}" name="cv_specialty"
-                      id="cv_specialty" />
-                  </div>
-                </div>
-              </section>
-            </div>
 
 
             <div id="awardFieldset_main" style="display:none;" disabled >
@@ -600,70 +504,6 @@
             </div>
 
 
-            <div id="famFieldset_main" style="display:none;">
-              <section class="form" id="가족사항">
-                <p class="legend">가족사항</p>
-                <div class="item_family" th:each="item : ${cv.getFamily()}">
-                  <div class="info">
-                    <input type="hidden" name="family[][id]" th:value="${item.getId()}">
-                    <div class="common_div ">
-                      <label class="absolute-label" for="">가족관계 <span>*</span></label>
-                      <select id="famrelation" class="common_select fam_relation" name="family[][fam_relation]">
-                        <option class="gray">[[${item.getFam_relation()}]]</option>
-
-                        <option value="부부">부부</option>
-
-                        <option value="부">부</option>
-
-                        <option value="모">모</option>
-
-                        <option value="자녀">자녀</option>
-
-                        <option value="형제">형제</option>
-
-                        <option value="자매">자매</option>
-                      </select>
-                    </div>
-                    <div class="common_div width-180">
-                      <label class="absolute-label" for="">이름 <span>*</span></label>
-                      <input class="common_input fam_name" th:value="${item.getFam_name()}" type="text"
-                        name="family[][fam_name]" />
-                    </div>
-                    <div class="common_div width-104">
-                      <label class="absolute-label" for="">나이 <span>*</span></label>
-                      <input style="padding-left:30px;" th:value="${item.getFam_age()}" class="age_input fam_age" type="text"
-                        onKeyup="award_year()" maxlength="2" name="family[][fam_age]" />
-                      <span style="font-size: 12px">살</span>
-                    </div>
-                    <div class="common_div width-180">
-                      <label class="absolute-label" for="">생년월일 </label>
-                      <input class="common_input date" th:value="${item.getFam_birth()}" type="date"
-                        name="family[][fam_birth]" />
-                    </div>
-                    <div class="common_div width-180">
-                      <label class="absolute-label" for="">지역 </label>
-                      <input class="common_input" type="text" th:value="${item.getFam_living()}"
-                        name="family[][fam_living]" />
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="line_family"></div>
-
-                <div class="buttonBox">
-                  <button id="add_family" class="btn add-more button-yellow uppercase" type="button">
-                    <i class="fas fa-plus-circle"></i>
-                    <span style="font-size: 17px">추가</span>
-                  </button>
-                  <button id="delete_family" type="button" class="btn button-white uppercase">
-                    <i class="fas fa-minus-circle"></i>
-                    <span style="
-                    font-size: 17px">제거</span>
-                  </button>
-                </div>
-              </section>
-            </div>
 
             <!-- <fieldset id="" style="display:none;" disabled> -->
             <div id="licFieldset_main" style="display:none;" disabled>
@@ -898,31 +738,10 @@
                   </button>
                 </div>
                 <div>
+                </div>
               </section>
             </div>
 
-
-
-
-            <section class="form" id="희망조건">
-              <p class="legend">희망조건</p>
-              <div class="info">
-                <div class="common_div width-410">
-                  <label class="absolute-label" for="">응시부문 <span>*</span></label>
-                  <input class="common_input sec_of_exam" name="sec_of_exam" autocomplete="off" th:value="${cv.getSec_of_exam()}" />
-                </div>
-                <div id="sallay_div" class="common_div width-200">
-                  <label id="desire" class="absolute-label" for="">희망 연봉 <span>*</span></label>
-                  <input id="desired_salary" class="money_input" value="" type="number" name="desired_salary"
-                    autocomplete="off" th:value="${cv.getDesired_salary()}" />
-                  <span style="font-size: 12px">만원이상</span>
-                </div>
-                <button type="button" id="decisionInterview">
-                  <i id="checkWhite" class="fas fa-check-square checkWhite" style="color:rgb(206, 197, 197)"></i></i>
-                  회사 내규에 따름
-                </button>
-              </div>
-            </section>
           </form>
         </div>
 
@@ -941,13 +760,7 @@
               </button>
 
             </li>
-            <li>
-              <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fab fa-dribbble"></i>
-              <span>취미•특기</span>
-              <button type="button" id="btn2"><i id="hobbyPlus" style="font-size:25px;"
-                  class="fas fa-plus-circle"></i></button>
 
-            </li>
             <li>
               <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-medal"></i>
               <span>수상경력</span>
@@ -960,7 +773,7 @@
               <button type="button" id="btn4"><i id="milPlus" style="font-size:25px; "
                   class="fas fa-plus-circle"></i></button>
             </li>
-            <li>
+            <li style="display:none;">
               <i style="font-size: 20px; color:rgb(182, 176, 176);" class="fas fa-users"></i>
               <span>가족사항</span>
               <button type="button" id="btn5"><i id="familPlus" style="font-size:25px;"
@@ -1086,6 +899,7 @@
     /*<![CDATA[*/
     var verteran = `/*[[ ${cv.getMilitaryServiceClassification()} ]]*/`;
     /*]]*/
+
   </script>
 
 

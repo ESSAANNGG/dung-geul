@@ -286,23 +286,23 @@ let modify = {
         console.log('school');
       }
 
-      if (hobbyFieldset_main.style.display == 'block') {
-        const cv_hobby = document.querySelector('#cv_hobby');
-        const cv_specialty = document.querySelector('#cv_specialty');
-        if (!cv_hobby.value) {
-          alert('취미를 입력해주세요');
-          setTimeout(function () {
-            cv_hobby.focus();
-          }, 1);
-          return;
-        } else if (!cv_specialty.value) {
-          alert('특기를 입력해주세요');
-          setTimeout(function () {
-            cv_specialty.focus();
-          }, 1);
-          return;
-        }
-      }
+      // if (hobbyFieldset_main.style.display == 'block') {
+      //   // const cv_hobby = document.querySelector('#cv_hobby');
+      //   const cv_specialty = document.querySelector('#cv_specialty');
+      //   if (!cv_hobby.value) {
+      //     alert('취미를 입력해주세요');
+      //     setTimeout(function () {
+      //       cv_hobby.focus();
+      //     }, 1);
+      //     return;
+      //   } else if (!cv_specialty.value) {
+      //     alert('특기를 입력해주세요');
+      //     setTimeout(function () {
+      //       cv_specialty.focus();
+      //     }, 1);
+      //     return;
+      //   }
+      // }
 
       if (awardFieldset_main.style.display == 'block') {
         const awards_des = document.querySelectorAll('.awards_des');
@@ -331,32 +331,32 @@ let modify = {
         }
       }
 
-      if (famFieldset_main.style.display == 'block') {
-        const fam_relation = document.querySelectorAll('.fam_relation');
-        const fam_name = document.querySelectorAll('.fam_name');
-        const fam_age = document.querySelectorAll('.fam_age');
-        for (let i = 0; i < fam_relation.length; i++) {
-          if (!fam_relation[i].value) {
-            alert('가족관계를 입력해주세요');
-            setTimeout(function () {
-              fam_relation[i].focus();
-            }, 1);
-            return;
-          } else if (!fam_name[i].value) {
-            alert('이름을 입력해주세요');
-            setTimeout(function () {
-              fam_name[i].focus();
-            }, 1);
-            return;
-          } else if (!fam_age) {
-            alert('나이를 입력해주세요');
-            setTimeout(function () {
-              fam_age[i].focus();
-            }, 1);
-            return;
-          }
-        }
-      }
+      // if (famFieldset_main.style.display == 'block') {
+      //   const fam_relation = document.querySelectorAll('.fam_relation');
+      //   const fam_name = document.querySelectorAll('.fam_name');
+      //   const fam_age = document.querySelectorAll('.fam_age');
+      //   for (let i = 0; i < fam_relation.length; i++) {
+      //     if (!fam_relation[i].value) {
+      //       alert('가족관계를 입력해주세요');
+      //       setTimeout(function () {
+      //         fam_relation[i].focus();
+      //       }, 1);
+      //       return;
+      //     } else if (!fam_name[i].value) {
+      //       alert('이름을 입력해주세요');
+      //       setTimeout(function () {
+      //         fam_name[i].focus();
+      //       }, 1);
+      //       return;
+      //     } else if (!fam_age) {
+      //       alert('나이를 입력해주세요');
+      //       setTimeout(function () {
+      //         fam_age[i].focus();
+      //       }, 1);
+      //       return;
+      //     }
+      //   }
+      // }
 
       if (licFieldset_main.style.display == 'block') {
         const lic_type = document.querySelectorAll('.lic_type');
@@ -447,13 +447,6 @@ let modify = {
         }
       }
 
-      if (!$('.sec_of_exam').val()) {
-        alert('응시부문을 입력해주세요');
-        setTimeout(function () {
-          $('.sec_of_exam').focus();
-        }, 1);
-        console.log('여기까지 도달못함');
-      } else {
         // 데이터 전송 ajax
         $.ajax({
           type: 'POST',
@@ -476,7 +469,7 @@ let modify = {
             location.href = '#';
           },
         });
-      }
+
     }
   }, // save() end
 };

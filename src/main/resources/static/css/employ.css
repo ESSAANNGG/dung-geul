@@ -98,8 +98,8 @@ select{
 }
 /*채용공고 각 리스트*/
 .employListPost > li{
-    height:185px;
-    padding:20px 30px;
+    height:130px;
+    padding:17px 30px;
     /* box-shadow:0px 4px 1px 0px #C0C0C4; */
     border-bottom:1px solid #c0c0c4;
 

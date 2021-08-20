@@ -296,12 +296,12 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <li class="post_corp_name" th:text="${dto?.etp_name}">작성자</li>
                   </ul>
-                  <ul class="post_cont" th:text="${dto.content}"></ul>
-                  <ul>
-                    <!--                  <li class="post_start_date"><i class="far fa-clock"></i>8시간 전</li>-->
-                    <li class="post_end_date" th:text="'~'+ ${#temporals.format(dto.end_date, 'YYYY-MM-dd ')}">
-                      <i class="far fa-clock"></i>
-                    </li>
+                  <ul class="post_cont" th:text="${dto.content}" style="    width: 70%;display: inline-block;">
+
+                  </ul>
+
+                  <ul style="width: 10%; float: right;">
+                                      <li class="post_start_date"><i class="far fa-clock"></i>8시간 전</li>
                   </ul>
                 </a>
                 <script type="text/javascript">
