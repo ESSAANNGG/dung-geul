@@ -33,6 +33,7 @@ public interface LicenseService {
                 .lic_agency(entity.getLicAgency())
                 .lic_date(entity.getLicDate())
                 .lic_due_date(entity.getLicDueDate())
+                .lic_file(entity.getLicFile())
                 .user_id(entity.getMember().getUser_id())
                 .build();
 
@@ -52,6 +53,7 @@ public interface LicenseService {
                 .licName(dto.getLic_name())
                 .licDate(dto.getLic_date())
                 .licDueDate(dto.getLic_due_date())
+                .licFile(dto.getLic_file())
                 .member(member)
                 .build();
 

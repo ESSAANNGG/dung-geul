@@ -31,6 +31,8 @@ public class CertificateDTO {
 
     private String user_id;
 
+    private String lic_file;
+
     private int inCv;
 
     public void setRegDate(LocalDateTime regDate) {

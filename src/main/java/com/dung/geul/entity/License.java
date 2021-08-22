@@ -63,4 +63,8 @@ public class License extends BaseEntity implements Serializable{
     public void modLicType(String licType){
         this.licType = licType;
     }
+
+    public void modLicFile(String licFile){
+        this.licFile = licFile;
+    }
 }

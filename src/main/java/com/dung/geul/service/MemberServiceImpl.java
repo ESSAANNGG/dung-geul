@@ -475,12 +475,12 @@ public class MemberServiceImpl implements MemberService {
             if (result == 1) {
                 // 폰번호랑 같으면 sms 보내기
 
-                final String TO_PHONE_NUM = "01020635065";
+                final String TO_PHONE_NUM = "01021259225";
                 String FromPhoneNum = dto.getUser_phone().replace("-", "");
                 String tempPw = getRandomPassword(5);
 
-                final String api_key = "NCSZYTJONF6PDAST";
-                final String api_secret = "GVX6AQWKKZUXHQCZ4NQO6S1XVFJKIGMD";
+                final String api_key = "NCSWQDMNAAA81LTC";
+                final String api_secret = "XQFEH6E6CFE3XZ6IRVCP8PVLOSSXPKAN";
 
                 Message coolsms = new Message(api_key, api_secret);
                 HashMap<String, String> params = new HashMap<>();

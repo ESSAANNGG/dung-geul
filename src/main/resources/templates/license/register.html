@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/nav.css" />
     <script defer src="/js/nav.js"></script>
+
+    <!-- 업로드 스크립트 -->
+    <script src="/js/uploadScript.js"></script>
 <!--    <script defer src="/js/license.js"></script>-->
 
 
@@ -107,12 +110,22 @@
                                     <input class="formInput" name="lic_agency"  type="text" style="width: 80%" required>
                                 </div>
                                 <div class="inputBox" style="margin-top:20px; width:100%">
-                                    <label class="formLabel" for="">취득일</label>
-                                    <input class="formInput" name="lic_date" id="certificateDate" type="date" style="width: 35%"  required>
+                                    <label class="formLabel" for="" style="width:100px;">취득일</label>
+                                    <input class="formInput" name="lic_date" id="certificateDate" type="date" style="width: 35%; height:40px;"  required>
                                 </div>
                                 <div class="inputBox" style="margin-top:20px; width:100% ">
-                                    <label class="formLabel" for="">만료일</label>
-                                    <input class="formInput" name="lic_due_date" id="certificateEndDate" type="date" style="width:35%"  required>
+                                    <label class="formLabel" for="" style="width:100px;">만료일</label>
+                                    <input class="formInput" name="lic_due_date" id="certificateEndDate" type="date" style="width:35%; height:40px;"  required>
+                                </div>
+                                <div class="form-group fileForm" style="display:flex; margin-top:20px; width:100%;">
+                                    <label class="formLabel" for="" style="width:100px; line-height: initial">파일등록</label>
+                                    <input type="text" class="d_cont" name="board_file" style="display: none;">
+                                    <input type="text" class="fileNameInput d_cont" name="lic_file" value="파일명" style="width:35%; height:40px; margin-left:3px;">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input files" id="fileInput" style="width:92px; margin-left:10px;"  multiple>
+
+                                        <label class="custom-file-label" data-browse="Browse" style="display:none;"></label>
+                                    </div>
                                 </div>
                             </div>
 

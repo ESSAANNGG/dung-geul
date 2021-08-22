@@ -81,6 +81,7 @@ public class LicenseServiceImpl implements LicenseService{
         license.modLicType(certificateDTO.getLic_type());
         license.modLicDate(certificateDTO.getLic_date());
         license.modLicDueDate(certificateDTO.getLic_due_date());
+        license.modLicFile(certificateDTO.getLic_file());
 
         licenseRepository.save(license);
     }
