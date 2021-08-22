@@ -74,7 +74,7 @@
                 <div class="col-9 col-12-medium imp-medium notice_board_col-9" style="width:60%">
                     <div id="board_title">
                         <h2 style="display: inline-block; font-size:20px; font-weight:400;">자격증 목록</h2>
-                        <a style="float: right;" class="effect effect-4" href="/license/register">
+                        <a style="float: right; height:30px; line-height: 30px;" class="effect effect-4" href="/license/register">
                             자격증 등록
                         </a>
                         <div style="border-top: 3px solid #0202025e;"></div>
@@ -98,8 +98,11 @@
                                     <div class="cell" style="text-align: center;">
                                         만료일
                                     </div>
-                                    <div class="cell" style="background-color: #184a6b; text-align: center;">
-                                        삭제
+                                    <div class="cell" style="text-align: center;">
+                                        다운로드
+                                    </div>
+                                    <div class="cell" >
+
                                     </div>
                                 </div>
 
@@ -109,19 +112,26 @@
                                         (국가)정보처리산업기사
                                     </div>
                                     <div class="cell" data-title="NUM" style="max-width: 140px; text-align: center;" th:text="${dto.getLic_num()}">
-                                        adwjs-123512123
                                     </div>
+
                                     <div class="cell" data-title="Occupation" style="max-width: 200px; text-align: center;" th:text="${dto.getLic_agency()}">
-                                        한국어딘가어딘가딘가딘가
                                     </div>
+
                                     <div class="cell" data-title="Sdate" style="max-width: 98px; text-align: center;"
                                         th:text="${dto.getLic_date()}">
-                                        2016-04-25
                                     </div>
+
                                     <div class="cell" data-title="ndate" style="max-width: 98px; text-align: center;"
                                         th:text="${dto.getLic_due_date()}">
-                                        2016-04-25
                                     </div>
+
+                                    <div class="cell" data-title="ndate" style="max-width: 98px; text-align: center; height:40px;">
+                                        <a id="download" href="" th:download="${dto.getLic_file}" th:if="${dto.getLic_file} != null" style="height:40px;">
+                                            <button type="button" class="d_cont" th:text="${dto.getLic_file}" style="overflow: hidden; height:40px; background-color: #ffffff;
+                                                               border: 1px solid #1f3786d5; font-weight: 300;"></button>
+                                        </a>
+                                    </div>
+
                                     <div class="cell" style="max-width: 20px; text-align: center;">
                                         <a th:href="@{/license/delete(num=${dto.getLic_num()})}">
                                             <button id="licenseRemove" class="post_end_date mazer licenseRemove">
