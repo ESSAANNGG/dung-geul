@@ -130,6 +130,10 @@ public class ApplicationController {
     @GetMapping("/introduce/list")
     public void list(PageRequestDTO pageRequestDTO, Model model, @AuthenticationPrincipal AuthMemberDTO authMemberDTO) {
 
+        Member member = memberRepository.findById(authMemberDTO.getUser_id()).get();
+        System.out.println(member);
+        model.addAttribute("loginUser", authMemberDTO);
+
         PageResultDTO pageResultDTO = service.getList(pageRequestDTO, authMemberDTO.getUser_id());
 
         model.addAttribute("result", pageResultDTO);

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>자소서 작성요령</title>
@@ -66,7 +66,7 @@
                                 <article class="box page-content">
                                     <div id="board_title" style="height:73px;">
                                         <h2 style="display: inline-block; font-size:20px; font-weight:400;">취업자료실</h2>
-                                        <a style="float: right;" class="effect effect-4" href="/application/introduce/list">
+                                        <a style="float: right;" class="effect effect-4" href="/application/introduce/list" sec:authorize="hasRole('STUDENT')">
                                             자소서 관리
                                         </a>
                                         <div style="border-top: 3px solid #0202025e;"></div>
