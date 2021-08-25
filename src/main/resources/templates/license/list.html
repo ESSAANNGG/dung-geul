@@ -59,11 +59,11 @@
                                     <li id="menu_con1">
                                         <h4>지원서관리</h4>
                                         <ul id="sb_detail">
+                                            <li><a href="/application/cv/before">이력서 관리</a></li>
+                                            <li><a href="/application/introduce/list">자소서 관리</a></li>
                                             <li><a href="/license/list" style="color: #fff;
     background: rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);">자격증 관리</a></li>
-                                            <li><a href="/application/introduce/list">자소서 관리</a></li>
-                                            <li><a href="/application/cv/before">이력서 관리</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -125,8 +125,8 @@
                                         th:text="${dto.getLic_due_date()}">
                                     </div>
 
-                                    <div class="cell" data-title="ndate" style="max-width: 98px; text-align: center; height:40px;">
-                                        <a id="download" href="" th:download="${dto.getLic_file}" th:if="${dto.getLic_file} != null" style="height:40px;">
+                                    <div class="cell" data-title="ndate" style="max-width: 98px; text-align: center; height:40px;" >
+                                        <a id="download" th:href="${dto.getLic_file}" th:download="${dto.getLic_file}" th:if="${dto.getLic_file} == null" style="height:40px;">
                                             <button type="button" class="d_cont" th:text="${dto.getLic_file}" style="overflow: hidden; height:40px; background-color: #ffffff;
                                                                border: 1px solid #1f3786d5; font-weight: 300;"></button>
                                         </a>
@@ -180,5 +180,13 @@
 
 
 </body>
+<script>
+        // $('#download').forEach(function(index) {
+        //     console.log(index);
+        // })
 
+
+        // fileLink=fileLink.split("C:")[1];
+        // $("#download").attr("href",fileLink);
+</script>
 </html>

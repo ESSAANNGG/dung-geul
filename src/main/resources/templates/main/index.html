@@ -44,7 +44,7 @@
         position: relative;
         width: 480px;
         line-height: 200%;">
-        <h3 style="font-size: 25px; font-weight:900; ">채용공고 <img src="/img/green-icon.png" alt>
+        <h3 style="font-size: 25px; font-weight:900; ">채용공고<img src="/img/green-icon.png" alt>
 <!--          border-bottom: 2px solid #a5c5bd;-->
           <a href=""></a>
         </h3>
@@ -129,41 +129,26 @@
   <footer th:replace="layout/layout :: footer" />
 </body>
 <script>
-  let board_list = document.querySelectorAll('.board_list');
-  let employ_list = document.querySelectorAll('.employ_list');
-  let board_list2 = document.querySelectorAll('.board_list2');
+  window.onload = function() {
+    let board_list = document.querySelectorAll('.board_list');
+    let employ_list = document.querySelectorAll('.employ_list');
+    let board_list2 = document.querySelectorAll('.board_list2');
 
-  // for(i=0; i<10; i++){
-  //   if($('.career_check').eq(i).val()=="신입"){
-  //     $('.employ_list2').eq(0).text($('.employ_list').eq(i).text());
-  //   }
-  //   else{
-  //     // $('.employ_list1').eq(0).text=$('.employ_list').eq(i).text();
-  //   }
-
-
-  // let list_length;
-  //
-  // // if(board_list.length>employ_list.length){
-  // //   list_length=board_list.length;
-  // // }
-  // // else{
-  // //   list_length=employ_list.length;
-  // // }
-
-  for(let i = 0; i < 10; i++) {
-    if(i>5){
-      $('.ttent').eq(i).setAttribute('style', 'display:none;');
+    for (let i = 0; i<board_list.length; i++) {
+      if (i > 5) {
+        alert(i);
+        $('.ttent').eq(i).setAttribute('style', 'display:none;');
+      }
     }
-  }
-  for(let i = 0; i < employ_list.length; i++) {
-    if(i>5){
-      $('.otent').eq(i).setAttribute('style', 'display:none;');
+    for (let i = 0; i < employ_list.length; i++) {
+      if (i > 5) {
+        $('.otent').eq(i).setAttribute('style', 'display:none;');
+      }
     }
-  }
-  for(let i = 0; i < board_list2.length; i++) {
-    if(i>5){
-      $('.tttent').eq(i).setAttribute('style', 'display:none;');
+    for (let i = 0; i < board_list2.length; i++) {
+      if (i > 5) {
+        $('.tttent').eq(i).setAttribute('style', 'display:none;');
+      }
     }
   }
 

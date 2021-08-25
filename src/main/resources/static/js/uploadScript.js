@@ -75,7 +75,7 @@ $(".custom-file-input").on("change", function () {
         // result : string
         var gFilePath = result; //  
         $('input[name=board_file]').val(gFilePath);   // 파일 경로를 input 태그의 name=board_file에 저장
-
+        $('input[name=lic_file]').val(gFilePath);   // 파일 경로를 input 태그의 name=board_file에 저장
         // var gFilePath = result;
         console.log("result : " +  typeof result);
         console.log("file path : " + result)

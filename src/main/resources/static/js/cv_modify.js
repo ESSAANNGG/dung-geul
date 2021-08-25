@@ -249,12 +249,6 @@ let modify = {
                 edc_school[i].focus();
               }, 1);
               return;
-            } else if (!graduate_edc_graduated[i].value) {
-              alert('학위를 입력해주세요');
-              setTimeout(function () {
-                graduate_edc_graduated[i].focus();
-              }, 1);
-              return;
             } else if (!graduate_edc_date_start[i].value) {
               alert('입학년월을 입력해주세요');
               setTimeout(function () {
@@ -267,7 +261,7 @@ let modify = {
                 graduate_edc_date_end[i].focus();
               }, 1);
               return;
-            } else if (!graduate_edc_graduated2[i].value) {
+            } else if (!graduate_edc_graduated[i].value) {
               alert('졸업상태를 입력해주세요');
               setTimeout(function () {
                 graduate_edc_graduated2[i].focus();
@@ -465,7 +459,6 @@ let modify = {
           error: function (error) {
             alert('오류 발생, 이력서를 다시 작성해주세요');
             console.log(error);
-            // alert(error);
             location.href = '#';
           },
         });

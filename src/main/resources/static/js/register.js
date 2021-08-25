@@ -454,13 +454,13 @@ let register = {
         }
       }
 
-      if (!$('.sec_of_exam').val()) {
-        alert('응시부문을 입력해주세요');
-        setTimeout(function () {
-          $('.sec_of_exam').focus();
-        }, 1);
-        console.log('여기까지 도달못함');
-      } else {
+      // if (!$('.sec_of_exam').val()) {
+      //   alert('응시부문을 입력해주세요');
+      //   setTimeout(function () {
+      //     $('.sec_of_exam').focus();
+      //   }, 1);
+      //   console.log('여기까지 도달못함');
+      // } else {
         // 데이터 전송 ajax
         $.ajax({
           type: 'POST',
@@ -479,7 +479,7 @@ let register = {
             location.href = '#';
           },
         });
-      }
+      // }
     }
   }, // save() end
 };

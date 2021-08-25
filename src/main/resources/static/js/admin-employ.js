@@ -319,7 +319,7 @@ $("input[type=checkbox]").change(function() {
         }
     }
     else{
-        str_index=$('input[name='+val_name+']').val().indexOf(val);
+        str_index=$('input[name='+val_name+']').val().eq(val);
         if(str_index==0){
             $('input[name='+val_name+']').val($('input[name='+val_name+']').val().replace(val,''));
         }

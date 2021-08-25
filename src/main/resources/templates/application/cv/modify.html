@@ -114,13 +114,13 @@
                           name="education[][schoolType]">
                           <option class="gray" th:value="${item.getSchoolType()}">[[${item.getSchoolType()}]]</option>
 
-                          <option value="고등학교">고등학교</option>
+                          <option th:selected="${item.getSchoolType()}=='고등학교'" value="고등학교">고등학교</option>
 
-                          <option value="전문대">전문대(2,3년)</option>
+                          <option th:selected="${item.getSchoolType()}=='전문대'" value="전문대" >전문대(2,3년)</option>
 
-                          <option value="대학교">대학교(4년)</option>
+                          <option th:selected="${item.getSchoolType()}=='대학교'" value="대학교">대학교(4년)</option>
 
-                          <option value="대학원">대학원</option>
+                          <option th:selected="${item.getSchoolType()}=='대학원'" value="대학원">대학원</option>
                         </select>
                       </span>
                     </div>
@@ -143,13 +143,13 @@
                           <!-- <input class="common_input" name="edc_graduated" autocomplete="off" /> -->
                           <select id="highSchoolGradu" class="common_select schoolSelected1 highschool_edc_graduated"
                             name="education[][highschool_edc_graduated]">
-                            <option class="gray">[[${item.getGraduated()}]]</option>
+                            <option class="gray">졸업상태</option>
 
-                            <option value="졸업">졸업</option>
+                            <option  th:selected="${item.getGraduated()}=='졸업'" value="졸업">졸업</option>
 
-                            <option value="졸업예정">졸업예정</option>
+                            <option  th:selected="${item.getGraduated()}=='졸업예정'" value="졸업예정">졸업예정</option>
 
-                            <option value="재학중">재학중</option>
+                            <option  th:selected="${item.getGraduated()}=='재학중'" value="재학중">재학중</option>
                           </select>
                         </div>
 
@@ -173,19 +173,19 @@
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
                           <select id="collegeGradu" class="common_select schoolSelected1 college_edc_graduated"
                             name="education[][college_edc_graduated]">
-                            <option class="gray">[[${item.getGraduated()}]]</option>
+                            <option class="gray">졸업상태</option>
 
-                            <option value="졸업">졸업</option>
+                            <option th:selected="${item.getGraduated()}=='졸업'" value="졸업">졸업</option>
 
-                            <option value="졸업예정">졸업예정</option>
+                            <option th:selected="${item.getGraduated()}=='졸업예정'" value="졸업예정">졸업예정</option>
 
-                            <option value="재학중">재학중</option>
+                            <option th:selected="${item.getGraduated()}=='재학중'" value="재학중">재학중</option>
 
-                            <option value="중퇴">중퇴</option>
+                            <option th:selected="${item.getGraduated()}=='중퇴'" value="중퇴">중퇴</option>
 
-                            <option value="수료">수료</option>
+                            <option th:selected="${item.getGraduated()}=='수료'" value="수료">수료</option>
 
-                            <option value="휴학">휴학</option>
+                            <option th:selected="${item.getGraduated()}=='휴학'" value="휴학">휴학</option>
                           </select>
                         </div>
 
@@ -206,15 +206,14 @@
                           <label class="absolute-label" for="">총점 </label>
                           <select id="CollegePs" class="common_select schoolSelected1 college_edc_ps"
                             name="education[][college_edc_ps]">
-                            <option class="gray">[[${item.getPs()}]]</option>
+                            <option class="gray" value="">총점</option>
+                            <option th:selected="${item.getPs()}=='4.5'" value="4.5">4.5</option>
 
-                            <option value="4.5">4.5</option>
+                            <option th:selected="${item.getPs()}=='4.3'" value="4.3">4.3</option>
 
-                            <option value="4.3">4.3</option>
+                            <option th:selected="${item.getPs()}=='4.0'" value="4.0">4.0</option>
 
-                            <option value="4.0">4.0</option>
-
-                            <option value="100">100</option>
+                            <option th:selected="${item.getPs()}=='100'" value="100">100</option>
                           </select>
                         </div>
                       </div>
@@ -234,21 +233,21 @@
                         </div>
                         <div class="common_div width-140">
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
-                          <select id="univerGradu university_edc_graduated" class="common_select schoolSelected1"
+                          <select id="univerGradu" class="university_edc_graduated common_select schoolSelected1"
                             name="education[][university_edc_graduated]">
-                            <option class="gray">[[${item.getGraduated()}]]</option>
+                            <option class="gray">졸업상태</option>
 
-                            <option value="졸업">졸업</option>
+                            <option th:selected="${item.getGraduated()}=='졸업'" value="졸업">졸업</option>
 
-                            <option value="졸업예정">졸업예정</option>
+                            <option th:selected="${item.getGraduated()}=='졸업예정'" value="졸업예정">졸업예정</option>
 
-                            <option value="재학중">재학중</option>
+                            <option th:selected="${item.getGraduated()}=='재학중'" value="재학중">재학중</option>
 
-                            <option value="중퇴">중퇴</option>
+                            <option th:selected="${item.getGraduated()}=='중퇴'" value="중퇴">중퇴</option>
 
-                            <option value="수료">수료</option>
+                            <option th:selected="${item.getGraduated()}=='수료'" value="수료">수료</option>
 
-                            <option value="휴학">휴학</option>
+                            <option th:selected="${item.getGraduated()}=='휴학'" value="휴학">휴학</option>
                           </select>
                         </div>
 
@@ -269,15 +268,15 @@
                           <label class="absolute-label" for="">총점 </label>
                           <select id="univerPs " class="common_select schoolSelected1 university_edc_ps"
                             name="education[][university_edc_ps]">
-                            <option class="gray">[[${item.getPs()}]]</option>
+                            <option class="gray" value="">총점</option>
 
-                            <option value="4.5">4.5</option>
+                            <option th:selected="${item.getPs()}=='4.5'" value="4.5">4.5</option>
 
-                            <option value="4.3">4.3</option>
+                            <option th:selected="${item.getPs()}=='4.3'"value="4.3">4.3</option>
 
-                            <option value="4.0">4.0</option>
+                            <option th:selected="${item.getPs()}=='4.0'" value="4.0">4.0</option>
 
-                            <option value="100">100</option>
+                            <option th:selected="${item.getPs()}=='100'" value="100">100</option>
                           </select>
                         </div>
                       </div>
@@ -285,18 +284,6 @@
 
                     <div class="graduate_field displayNone">
                       <div class="container4">
-                        <div class="common_div width-104">
-                          <label class="absolute-label" for="">학위 <span>*</span></label>
-                          <select class="common_select schoolSelected1 graduate-edc_graduated" name="education[][graduate-edc_graduated]">
-                            <option class="gray" value="">학위</option>
-
-                            <option value="석사">석사</option>
-
-                            <option value="박사">박사</option>
-
-                            <option value="석박사">석박사</option>
-                          </select>
-                        </div>
                         <div class="common_div width-200">
                           <label class="absolute-label" for="">입학년월 <span>*</span> </label>
                           <input class="common_input graduate_edc_date_start" th:value="${item.getDateStart()}"
@@ -309,21 +296,21 @@
                         </div>
                         <div class="common_div width-140">
                           <label class="absolute-label" for="">졸업상태 <span>*</span></label>
-                          <select id="graduateGradu" class="common_select schoolSelected1 graduate_edc_graduated"
+                          <select id="graduateGradu" class="common_select schoolSelected1 graduate-edc_graduated"
                             name="education[][graduate_edc_graduated]">
-                            <option class="gray">[[${item.getGraduated()}]]</option>
+                            <option class="gray">졸업상태</option>
 
-                            <option value="졸업">졸업</option>
+                            <option th:selected="${item.getGraduated()}=='졸업'" value="졸업">졸업</option>
 
-                            <option value="졸업예정">졸업예정</option>
+                            <option th:selected="${item.getGraduated()}=='졸업예정'" value="졸업예정">졸업예정</option>
 
-                            <option value="재학중">재학중</option>
+                            <option th:selected="${item.getGraduated()}=='재학중'" value="재학중">재학중</option>
 
-                            <option value="중퇴">중퇴</option>
+                            <option th:selected="${item.getGraduated()}=='중퇴'" value="중퇴">중퇴</option>
 
-                            <option value="수료">수료</option>
+                            <option th:selected="${item.getGraduated()}=='수료'" value="수료">수료</option>
 
-                            <option value="휴학">휴학</option>
+                            <option th:selected="${item.getGraduated()}=='휴학'" value="휴학">휴학</option>
                           </select>
                         </div>
 
@@ -343,24 +330,20 @@
                           <label class="absolute-label" for="">총점 </label>
                           <select id="graduPs" class="common_select schoolSelected1 graduate_edc_ps"
                             name="education[][graduate_edc_ps]">
-                            <option class="gray">[[${item.getPs()}]]</option>
+                            <option class="gray" value="">총점</option>
 
-                            <option value="4.5">4.5</option>
+                            <option th:selected="${item.getPs()}=='4.5'" value="4.5">4.5</option>
 
-                            <option value="4.3">4.3</option>
+                            <option th:selected="${item.getPs()}=='4.3'" value="4.3">4.3</option>
 
-                            <option value="4.0">4.0</option>
+                            <option th:selected="${item.getPs()}=='4.0'" value="4.0">4.0</option>
 
-                            <option value="100">100</option>
+                            <option th:selected="${item.getPs()}=='100'" value="100">100</option>
                           </select>
                         </div>
 
                         <br />
-                        <div class="common_div width-full">
-                          <label class="absolute-label" for="">논문 url</label>
-                          <input type="url" name="education[][graduate_edc_paper]" class="common_input"
-                            autocomplete="off" />
-                        </div>
+
                       </div>
                     </div>
                   </div>
@@ -902,7 +885,50 @@
 
   </script>
 
+  <script>
+    window.onload = function() {
+      let SchoolTypeSelects = [];
+      SchoolTypeSelects = document.querySelectorAll(".SchoolTypeSelect");
 
+      SchoolTypeSelectLength=SchoolTypeSelects.length;
+      for(i=0; i<SchoolTypeSelectLength; i++){
+        val=$(SchoolTypeSelects).eq(i).val();
+        $(SchoolTypeSelects).eq(i).val(val).trigger('change');
+
+        let hignschool_field = document.querySelectorAll('.hignschool_field');
+        let college_field = document.querySelectorAll('.college_field');
+        let university_field = document.querySelectorAll('.university_field');
+        let graduate_field = document.querySelectorAll('.graduate_field');
+
+        if (val == '고등학교') {
+          hignschool_field[i].classList.replace('displayNone', 'displayInlineBlock');
+          college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+        } else if (val == '전문대') {
+          college_field[i].classList.replace('displayNone', 'displayInlineBlock');
+          hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+        } else if (val == '대학교') {
+          university_field[i].classList.replace('displayNone', 'displayInlineBlock');
+          hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+        } else if (val == '대학원') {
+          graduate_field[i].classList.replace('displayNone', 'displayInlineBlock');
+          hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+        } else {
+          college_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          hignschool_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          university_field[i].classList.replace('displayInlineBlock', 'displayNone');
+          graduate_field[i].classList.replace('displayInlineBlock', 'displayNone');
+        }
+      }
+    }
+  </script>
 
 </body>
 </html>
