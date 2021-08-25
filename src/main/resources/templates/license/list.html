@@ -126,9 +126,9 @@
                                     </div>
 
                                     <div class="cell" data-title="ndate" style="max-width: 98px; text-align: center; height:40px;" >
-                                        <a id="download" th:href="${dto.getLic_file}" th:download="${dto.getLic_file}" th:if="${dto.getLic_file} == null" style="height:40px;">
+                                        <a id="download" th:href="${dto.getLic_file}" th:download="${dto.getLic_file}" th:if="${dto.getLic_file} != null" style="height:40px;">
                                             <button type="button" class="d_cont" th:text="${dto.getLic_file}" style="overflow: hidden; height:40px; background-color: #ffffff;
-                                                               border: 1px solid #1f3786d5; font-weight: 300;"></button>
+                                                               border: 1px solid #1f3786d5; font-weight: 300; width:100%;"></button>
                                         </a>
                                     </div>
 
@@ -181,9 +181,17 @@
 
 </body>
 <script>
-        // $('#download').forEach(function(index) {
-        //     console.log(index);
-        // })
+        let down=document.querySelectorAll('#download');
+        for(let i=0; i<down.length; i++) {
+            link = down[i].innerText.split("C:")[1];
+            text = down[i].innerText.split("_")[1];
+            down[i].innerText=text;
+            $(down).eq(i).attr('download',text);
+            $(down).eq(i).attr('href',link);
+        }
+        // $("#download").attr("href",fileLink);
+        // $("#download").attr("download",boardDTO.file_name);
+
 
 
         // fileLink=fileLink.split("C:")[1];
