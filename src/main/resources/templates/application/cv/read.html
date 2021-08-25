@@ -113,12 +113,12 @@
             <h4 class="tag" style="font-size:18px; margin-bottom:7px;">학력사항</h4>
 
             <div style=" border-top:1.5px solid black; width:100%;">
-              <div style="display:flex; width:100%; border-bottom:1px solid black; color:#ffffff;" >
-                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>재학기간</h4></span>
-                <span class="tag"  style="border-right:1px solid black; width:30%; text-align: center; background-color: #09529b;" ><h4>학교명</h4></span>
-                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>전공 및 수료과목</h4></span>
-                <span class="tag"  style="border-right:1px solid black; width:15%; text-align: center; background-color: #09529b;" ><h4>상태</h4></span>
-                <span class="tag"  style="width:15%; text-align: center; background-color: #09529b;" ><h4>학점</h4></span>
+              <div style="display:flex; width:100%; border-bottom:1px solid black;" >
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center;" ><h4>재학기간</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:30%; text-align: center; " ><h4>학교명</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; " ><h4>전공 및 수료과목</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:15%; text-align: center; " ><h4>상태</h4></span>
+                <span class="tag"  style="width:15%; text-align: center; " ><h4>학점</h4></span>
               </div>
 
               <div style="display:flex; width:100%; border-bottom:1px solid black;" th:each="item : ${cv.getEducation()}" >
@@ -137,11 +137,11 @@
             <h4 class="tag" style="font-size:18px; margin-bottom:7px;">수상경력</h4>
 
             <div style=" border-top:1.5px solid black; width:100%;">
-              <div style="display:flex; width:100%; border-bottom:1px solid black; color:#ffffff;" >
-                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>수상일자</h4></span>
-                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>수상명</h4></span>
-                <span class="tag"  style="border-right:1px solid black; width:40%; text-align: center; background-color: #09529b;" ><h4>내용</h4></span>
-                <span class="tag"  style="width:20%; text-align: center; background-color: #09529b;" ><h4>기관</h4></span>
+              <div style="display:flex; width:100%; border-bottom:1px solid black;" >
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center;" ><h4>수상일자</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; " ><h4>수상명</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:40%; text-align: center; " ><h4>내용</h4></span>
+                <span class="tag"  style="width:20%; text-align: center;" ><h4>기관</h4></span>
               </div>
 
               <div style="display:flex; width:100%; border-bottom:1px solid black;" th:each="item : ${cv.getAwards()}" >
@@ -159,11 +159,11 @@
             <h4 class="tag" style="font-size:18px; margin-bottom:7px;">자격증</h4>
 
             <div style=" border-top:1.5px solid black; width:100%;">
-              <div style="display:flex; width:100%; border-bottom:1px solid black; color:#ffffff;" >
-                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>취득일자</h4></span>
-                <span class="tag"  style="border-right:1px solid black; width:40%; text-align: center; background-color: #09529b;" ><h4>자격증명</h4></span>
-                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>자격번호</h4></span>
-                <span class="tag"  style="width:20%; text-align: center; background-color: #09529b;" ><h4>기관</h4></span>
+              <div style="display:flex; width:100%; border-bottom:1px solid black;" >
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; " ><h4>취득일자</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:40%; text-align: center; " ><h4>자격증명</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; " ><h4>자격번호</h4></span>
+                <span class="tag"  style="width:20%; text-align: center;" ><h4>기관</h4></span>
               </div>
 
               <div style="display:flex; width:100%; border-bottom:1px solid black;" th:each="item : ${cv.getCertificate()}">
@@ -180,12 +180,12 @@
             <h4 class="tag" style="font-size:18px; margin-bottom:7px;">어학능력</h4>
 
             <div style=" border-top:1.5px solid black; width:100%;">
-              <div style="display:flex; width:100%; border-bottom:1px solid black; color:#ffffff;" >
-                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>취득일자</h4></span>
-                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>시험종류</h4></span>
-                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>점수</h4></span>
-                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; background-color: #09529b;" ><h4>급수</h4></span>
-                <span class="tag"  style="width:20%; text-align: center; background-color: #09529b;" ><h4>외국어명</h4></span>
+              <div style="display:flex; width:100%; border-bottom:1px solid black; " >
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; " ><h4>취득일자</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; " ><h4>시험종류</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; " ><h4>점수</h4></span>
+                <span class="tag"  style="border-right:1px solid black; width:20%; text-align: center; " ><h4>급수</h4></span>
+                <span class="tag"  style="width:20%; text-align: center;" ><h4>외국어명</h4></span>
               </div>
 
               <div style="display:flex; width:100%; border-bottom:1px solid black;" th:each="item : ${cv.getLanguage()}">
