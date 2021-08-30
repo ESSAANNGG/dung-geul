@@ -64,7 +64,7 @@
             </li>
             <li class="join" sec:authorize="isAuthenticated()">
 <!--                <a sec:authorize="!isAuthenticated()" href="/sign-up" >회원가입</a>-->
-                <a sec:authorize="hasAnyRole('STUDENT','COUNSELOR','ENTERPRISE')" href="/mypage/before/read" >마이페이지</a>
+                <a sec:authorize="!hasAnyRole('ADMIN')" href="/mypage/before/read" >마이페이지</a>
                 <a sec:authorize="hasRole('ADMIN')" onclick="admin_session()" >관리자페이지</a>
             </li>
             <li class="center">
