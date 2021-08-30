@@ -85,7 +85,7 @@
             </div>
 
             <div id="button_wrap">
-                <div sec:authorize="hasRole('STUDENT')">
+                <div sec:authorize="!hasAnyRole('ENTERPRISE','ADMIN')">
                     <button onclick="apply_open()" id="online_apply"><h1>온라인 지원</h1></button>
                     <a th:href="${dto.etp_home}" th:target="_blank"><button id="homepage_apply"><h1>홈페이지 지원</h1></button></a>
                 </div>
