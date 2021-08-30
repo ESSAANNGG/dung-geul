@@ -7,11 +7,10 @@ plugins {
 
 group = 'com.dung'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
-targetCompatibility = '11'
+//sourceCompatibility = '11'
 
-//sourceCompatibility = '8'
-//targetCompatibility = '8'
+sourceCompatibility = '8'
+targetCompatibility = '8'
 
 configurations {
     compileOnly {
