@@ -37,7 +37,7 @@ public class MemberDetailsService implements UserDetailsService {
         // id로 찾은 member 객체를 담음
         Optional<Member> memberOptional = memberRepository.findByIdWidthRole(username);
 
-        if (memberOptional.isEmpty()) {
+        if (!memberOptional.isPresent()) {
             throw new UsernameNotFoundException("Check ID");
         }
 

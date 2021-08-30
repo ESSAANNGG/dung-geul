@@ -63,7 +63,7 @@ public class CvServiceImpl implements CVService {
 
             log.info("이력서 : " + cvOpt.toString());
 
-            if (!cvOpt.isEmpty()) {
+            if (cvOpt.isPresent()) {
                 throw new Exception();
             }
 
@@ -212,7 +212,7 @@ public class CvServiceImpl implements CVService {
 
             Optional<CV> cvOpt = cvRepository.findById(cvPageDTO.getCv_id());
 
-            if (!cvOpt.isEmpty()) {
+            if (cvOpt.isPresent()) {
 
                 CV cv = cvOpt.get();
 
@@ -373,7 +373,7 @@ public class CvServiceImpl implements CVService {
                     continue;
                 } else {
                     Optional<License> licOpt = licenseRepository.findById(dto.getLic_num());
-                    if(licOpt.isEmpty()) {
+                    if(!licOpt.isPresent()) {
                         License license = dtoToEntity(dto, member);
                         licenseRepository.save(license);
                         continue;

@@ -64,7 +64,7 @@ public class EmployController {
         if(authMemberDTO != null) {
             Member member = memberService.getMember(authMemberDTO.getUser_id());
             Optional<CV> optCV = cvService.findByMember(member);
-            if(!optCV.isEmpty()){
+            if(optCV.isPresent()){
                 alreayApply = applicationService.alreadyApply(optCV.get(), num);
             }
         }

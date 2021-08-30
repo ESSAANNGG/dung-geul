@@ -61,7 +61,7 @@ public class ApplicationController {
 
         model.addAttribute("loginUser", authMemberDTO);
 
-        if(!cv.isEmpty()){
+        if(cv.isPresent()){
             result = "redirect:/application/cv/read";
         }
 

@@ -419,7 +419,7 @@ public class MemberServiceImpl implements MemberService {
 
         int result;
 
-        if (!memberOpt.isEmpty()) {
+        if (memberOpt.isPresent()) {
 
             Member member = memberOpt.get();
 
@@ -462,7 +462,7 @@ public class MemberServiceImpl implements MemberService {
 
         Optional<Member> memberOpt = memberRepository.findById(dto.getUser_id());
 
-        if (!memberOpt.isEmpty()) {
+        if (memberOpt.isPresent()) {
 
             Member member = memberOpt.get();
 
