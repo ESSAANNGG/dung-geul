@@ -92,11 +92,11 @@ public class CVRepositoryTest {
             Optional<CV> cvOpt = cvRepository.findByUser_id(member);
 
             System.out.println("이력서 : " + cvOpt.toString());
-
+/* 2021.09.06 junsung 주석처리함
             if (!cvOpt.isEmpty()) {
                 throw new Exception();
             }
-
+*/
             CV cv = CV.builder()
                     // 기본정보
                     .user_id(member)
