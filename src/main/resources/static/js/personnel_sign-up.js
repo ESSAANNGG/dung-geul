@@ -46,7 +46,7 @@ let signUp = {
     } else if (!userData.user_postcode) {
       alert('주소를 입력해주세요');
       $('#user_postcode').focus();
-    } else if (!userData.user_org) {
+    } else if (!userData.user_dept) {
       alert('소속기관을 입력해주세요');
       $('#user_org').focus();
     } else {
