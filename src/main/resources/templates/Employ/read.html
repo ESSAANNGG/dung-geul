@@ -22,32 +22,6 @@
     <title>채용공고</title>
 </head>
 <body>
-<script th:inline="javascript">
-    $(document).ready(function() {
-
-        employ_num=[[${dto.num}]];
-
-        userId=([[${memberDTO.getUser_id}]]);
-
-        applies=([[${alreadyApply}]]); //이미 지원한 공고인지 확인
-
-        //홈페이지 지원과 온라인 지원을 해주는 공고일 시 그에맞는 지원 버튼만 출력
-        applys=[[${dto.apply}]];
-        apply_item=applys.split(',');
-        apply_count=apply_item.length;
-
-        $('#button_wrap button').css('display','none');
-        for(i=0; i<apply_count; i++){
-            if(apply_item[i]=="홈페이지접수"){
-                $('#homepage_apply').css('display','initial');
-            }
-            else if(apply_item[i]=="온라인지원"){
-                $('#online_apply').css('display','initial');
-            }
-        }
-
-    });
-</script>
 
 <input id="em_num" name="em_num" th:value="${dto.num}" style="display:none"/>
 
@@ -221,6 +195,32 @@
         $('#receipt_date h1').append(restTime[1]);
 
         $('#img').attr("src",$('#img').attr("src").split("C:")[1]);
+    });
+</script>
+<script th:inline="javascript">
+    $(document).ready(function() {
+
+        employ_num=[[${dto.num}]];
+
+        userId=([[${memberDTO.getUser_id}]]);
+
+        applies=([[${alreadyApply}]]); //이미 지원한 공고인지 확인
+
+        //홈페이지 지원과 온라인 지원을 해주는 공고일 시 그에맞는 지원 버튼만 출력
+        applys=[[${dto.apply}]];
+        apply_item=applys.split(',');
+        apply_count=apply_item.length;
+
+        $('#button_wrap button').css('display','none');
+        for(i=0; i<apply_count; i++){
+            if(apply_item[i]=="홈페이지접수"){
+                $('#homepage_apply').css('display','initial');
+            }
+            else if(apply_item[i]=="온라인지원"){
+                $('#online_apply').css('display','initial');
+            }
+        }
+
     });
 </script>
 
